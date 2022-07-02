@@ -2,12 +2,17 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Merge Sort is a divide and conquer algorithm with a O(nlogn). This is done in 3 steps:
+ * Merge Sort is a divide and conquer algorithm with a O(nlogn).
+ * 
  * 1. Divide: If input size is smaller than a certain threshold (1 or 2 items), solve and 
  * return the solution. Otherwise, divide the input into two or more subsets.
  * 2. Conquer: Recursively solve the subproblems with the given subsets
  * 3. Combine: Take the solutions to the subproblems and merge them into a larger solution
  * to the original problem
+ * 
+ * This class is a collection of merge sorts, with each sort method and its helper methods
+ * another implementation
+ * 
  * @author kendr
  */
 public class MergeSort {
@@ -35,9 +40,9 @@ public class MergeSort {
              * main array
              */
             if(j == y.length || (i < x.length && C.compare(x[i], y[j]) < 0)){
-                a[i+j] = x[i++];   //Copy ith element of a1 into main array a, increment i
+                a[i+j] = x[i++];   //Copy ith element of x into main array a, increment i
             } else {
-                a[i+j] = y[j++];   //Copy jth element of a2 into main array a, increment j
+                a[i+j] = y[j++];   //Copy jth element of y into main array a, increment j
             }
         }
     }
@@ -60,6 +65,42 @@ public class MergeSort {
         /** Merge **/
         merge(arr1, arr2, arr, C); //Merge the sorted halves back into thhe original
 
+    }
+
+    /** Second MergeSort Implementation **/
+    /**
+     * One way to solve a problem is to divide it into independent parts, conquer them independently,
+     * and then use the solutions for the parts to develop a solution for the full problem
+     * 
+     * Base Case: If The subarray length is 0 or 1, it is already sorted
+     * Reduction Step: Otherwise, compute mid = lo + (hi - lo)/2, recursively sort the two sub arrays
+     * a[lo,mid) and a[mid, hi)  and merge them
+     * 
+     * Source: Sedgewick, R., &amp; Wayne, K. (2017). 
+     *   Introduction to programming in java: An interdisciplinary approach. Addison-Wesley. 
+     * @author Sedgewick, R.
+     * @author Wayne, K.
+     * 
+     * Private static helper Method 
+     * @param <K>   The generic type
+     * @param a     The main array to sort
+     * @param aux   The auxiliay array that temporarily holds the results
+     * @param lo    The lowest index of the array to sort for the first half
+     * @param hi    The highest index of the array to sort for the second half
+     */
+    private static <K> void sort(Comparable<K>[] a, Comparable<K>[] aux, int lo, int hi){
+        
+    }
+    
+    /**
+     * The main recursive call
+     * @param <K>
+     * @param a
+     */
+    @SuppressWarnings("unchecked") //Small change from original, since applying generics
+    public static <K> void sort(Comparable<K>[] a){
+        Comparable<K>[] aux = (Comparable<K>[]) new Object[a.length]; //auxiliary array
+        sort(a, aux, 0, a.length);
     }
 
 } //EOF
