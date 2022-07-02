@@ -2,16 +2,18 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Merge Sort is a divide and conquer algorithm with a O(nlogn).
+ * This class is a collection of merge sorts, with each sort method and its helper methods
+ * another implementation
+ * 
+ * Merge Sort is a divide and conquer algorithm known for its stability with worst, average,
+ * and even best case of O(nlogn)
  * 
  * 1. Divide: If input size is smaller than a certain threshold (1 or 2 items), solve and 
- * return the solution. Otherwise, divide the input into two or more subsets.
+ * return the solution. Otherwise, divide the input into two or more subsets
  * 2. Conquer: Recursively solve the subproblems with the given subsets
  * 3. Combine: Take the solutions to the subproblems and merge them into a larger solution
  * to the original problem
  * 
- * This class is a collection of merge sorts, with each sort method and its helper methods
- * another implementation
  * 
  * @author kendr
  */
@@ -67,7 +69,7 @@ public class MergeSort {
 
     }
 
-    /** Second MergeSort Implementation **/
+    /******************** Second MergeSort Implementation ********************/
     /**
      * One way to solve a problem is to divide it into independent parts, conquer them independently,
      * and then use the solutions for the parts to develop a solution for the full problem
@@ -139,4 +141,44 @@ public class MergeSort {
         sort(a, aux, 0, a.length);
     }
 
+    /******************** Third MergeSort Implementation ********************/
+
+    /**
+     * The Bread and Butter of the mergesort. Here we conquer and merge
+     * @param arr   Incoming caller array
+     * @param aux   Auxliary array to store sorted values to
+     * @param low   The lowest index
+     * @param mid   Mid point
+     * @param high  The highest index
+     */
+    private void merge(int[] arr, int[] aux, int low, int mid, int high){
+        /* Copy Both halves into auxiliary array */
+        for(int i = low; i <= high; i++){
+            aux[i] = arr[i];
+        }
+
+        
+    }
+
+    /** Divide **/
+    private void mergesort(int[] arr, int[] aux, int low, int high) {
+        if (low < high) {
+            int mid = (low + high)/2;
+            mergesort(arr, aux, low, mid);   //Sort the left half
+            mergesort(arr,aux, mid+1, high); //Sort the right half
+            merge(arr, aux, low, mid, high); //Merge them 
+        }
+    }
+
+    /**
+     * Starts the mergesort with only incoming parameter is the integer array.
+     * @param arr The original integer array to sort
+     */
+    public void mergesort(int[] arr) {
+        int[] aux = new int[arr.length];
+        mergesort(arr, aux, 0, arr.length-1);
+    }
+
+
+    /******************** Fourth MergeSort Implementation ********************/
 } //EOF
