@@ -85,11 +85,47 @@ public class MergeSort {
      * @param <K>   The generic type
      * @param a     The main array to sort
      * @param aux   The auxiliay array that temporarily holds the results
-     * @param lo    The lowest index of the array to sort for the first half
-     * @param hi    The highest index of the array to sort for the second half
+     * @param lo    The smallest index of the array to sort for the first half
+     * @param hi    The largest index of the array to sort for the second half
      */
+    @SuppressWarnings("unchecked")
     private static <K> void sort(Comparable<K>[] a, Comparable<K>[] aux, int lo, int hi){
+        //Sorting a[lo, hi) which is the subarray to sort
+        if(hi - lo <= 1) return;  //Array is Trivially sorted
+        int mid = lo + (hi-lo)/2; //Store the middle index
         
+        sort(a,aux,lo,mid); // sort subarray a[lo, mid) 
+        sort(a,aux,mid,hi); // sort subarray a[mid, hi)
+
+        //Set aux[k] to either a[i] or a[j] then increments both k and index of subarray used
+        /**
+         * The first 2 cases involves whether i or j has reached the end of its subarray, then 
+         * set aux[k] from the other in these edge cases. Otherwise, compare the values with
+         * each subarray and set aux[k] to the smaller of the two, either a[i] or a[j].
+         * 
+         * After all this, the sorted result auxiliary array, aux[], is copied back to original
+         * array. This recursive method ensures that two subarrays are sorted before the merge.
+         */
+        int i = lo, j = mid;
+        for(int k = lo; k < hi; k++){
+            if (i == mid) {         //Index i has reached the end of its subarray
+                aux[k] = a[j++];    //aux[k] is set from the other a[j]
+            }
+            else if (j == hi) {     //Index j has reached the end of its subarray
+                aux[k] = a[i++];    //aux[k] is set from the other a[i]
+            }   
+            else if(a[j].compareTo((K)a[i]) < 0) { //Which subarray has the smaller value? 
+                // a[j] < a[i] returned either -1 or 0, so a[j] is the smaller value
+                aux[k] = a[j++];    //Set aux[k] as subarray a[j]  since it is smaller
+            } else{
+                // a[j] < a[i] returned 1, so 1 < 0 is false, so a[j] is the greater value
+                aux[k] = a[i++];    //Set aux[k] as subarray a[i] since it is smaller
+            }
+        }
+        //Repopulate the Original Array with the sorted result of auxiliary array
+        for(int k = lo; k < hi; k++){
+            a[k] = aux[k];
+        }
     }
     
     /**
