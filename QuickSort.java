@@ -3,6 +3,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * This class is a collection of Quick Sorts, with each different implementation having its own 
+ * method and helper methods.
+ * 
  * Quick Sort is a divide and conquer algorithm like merge-sort but with a key difference,
  * most of the hard work is done before tthe recursive calls. 
  * 
@@ -14,6 +17,22 @@ import java.util.Queue;
  * 2. Conquer: Recursively sort sequences I and II
  * 3. Combine: Put back elements into S in order by first inserting elements of I, then II, then III
  * 
+ * Optimizations: 
+ * 1) Choosing the Pivot
+ *      - Rightmost pivot will prove the worst case when original sequence is already sorted, reverse
+ *        sorted, or nearly sorted. O(n^2)
+ *      - Randomizing the pivot choice shows expected running time is O(nlogn)
+ *      - Median-Of-Three heurisiticm which takes the median of three values (front, middle, and tail)
+ *        of the array and use that as the pivot. Requires lower overhhead than random number generator.
+ *        This can scale for larger sets, as more than three potentional pivots may be computed
+ * 2) Sorting In-Place
+ *     - Another key difference of quicksort and mergesort is that mergesort requires more memory as it
+ *      uses an auxiliary array to store the sorted values. Depending on the implmentation quicksort may
+ *      also use just as much memory. The first implementation here does so. 
+ *     - To Sort In-Place, we must use the input sequence itself to store the subsequences. Element 
+ *      swapping and representing subsequences implicitly by their indexes, from leftmost index to 
+ *      rightmost index
+ *          
  * @author kendr
  */
 public class QuickSort {
@@ -77,6 +96,9 @@ public class QuickSort {
         }
     }
 
-    /******************** Start of Another Implmentation ********************/
+    /******************** Second Implementation ********************/
     
+    private static <K> void quickSortInPlace(K[] a, Comparator<K> c, int lo, int hi){
+
+    }
 }
