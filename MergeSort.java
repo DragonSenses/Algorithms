@@ -16,29 +16,28 @@ public class MergeSort {
      * Merges the contents of first half of subarray withh second half of another subarray
      * into a properly sized array 
      * @param <K>  
-     * @param a1 - First subarray
-     * @param a2 - Second subarray
+     * @param x - First subarray
+     * @param y - Second subarray
      * @param a  - Main Array to sort into
      * @param C  - The Comparator
      */
-    public static <K> void merge(K[] a1, K[] a2, K[]a, Comparator<K> C){
-        int i = 0, j = 0;   // Will represent the index for each subarray, i for a1 and j for a2
+    public static <K> void merge(K[] x, K[] y, K[]a, Comparator<K> C){
+        int i = 0, j = 0;   // Will represent the index for each subarray, i for x and j for y
 
         //Keep looping until each contents of both subarray is still not the size of the main array
         while(i + j < a.length){ 
             /**
-             * compare(x,y) returns 
-             * 0 if x==y 
-             * -1 if x < y,
-             * 1 if x > y
-             * So if x < y, or a1[i] < a2[j], then -1, which is -1 < 0 so a1[i] will be copied
-             * into main array. Otherwise, a2[i] was a lower value, so it will be copied into
+             * compare(x,y) returns -1, 0, 1 for the cases respectively: 
+             * I) x < y         II) x == y          III) x > y
+             * 
+             * So if x < y, or x[i] < y[j], then -1, which is -1 < 0 so x[i] will be copied
+             * into main array. Otherwise, y[j] was a lower value, so it will be copied into
              * main array
              */
-            if(j == a2.length || (i < a1.length && C.compare(a1[i], a2[j]) < 0)){
-                a[i+j] = a1[i++];   //Copy ith element of a1 into main array a, increment i
+            if(j == y.length || (i < x.length && C.compare(x[i], y[j]) < 0)){
+                a[i+j] = x[i++];   //Copy ith element of a1 into main array a, increment i
             } else {
-                a[i+j] = a2[i++];   //Copy jth element of a2 into main array a, increment j
+                a[i+j] = y[j++];   //Copy jth element of a2 into main array a, increment j
             }
         }
     }
