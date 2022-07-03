@@ -157,6 +157,33 @@ public class MergeSort {
             aux[i] = arr[i];
         }
 
+        //Create runners to keep track of the start of the left and right halves
+        int left = low;
+        int right = mid + 1;
+        int curr = low;
+
+        /**
+         * Iterate through auxiliary array and compare left and right halves, copying
+         * the smaller element of the two halves into the original array.
+         */
+        while(left <= mid && right <= high){ //While runners are not at end of their subarray
+            if(aux[left] <= aux[right]){
+                arr[curr] = aux[left];
+                left++;
+            } else {
+                arr[curr] = aux[right];
+                right++;
+            }
+            curr++;
+        }
+
+        /** Copy the rest of the left side of the auxiliary array into the target array 
+         *  The right side does not need to be copied since it is already there. 
+         */
+        int restOfArray = mid - left;
+        for(int i = 0; i <= restOfArray; i++){
+            arr[curr + i] = aux[left +i];
+        }
         
     }
 
