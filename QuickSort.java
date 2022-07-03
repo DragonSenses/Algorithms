@@ -98,7 +98,58 @@ public class QuickSort {
 
     /******************** Second Implementation ********************/
     
-    private static <K> void quickSortInPlace(K[] a, Comparator<K> c, int lo, int hi){
+    /**
+     * Swaps elements of a given generic array
+     * @param <K>   The type to use
+     * @param a - The incoming target array to swap elements in
+     * @param m - The index of the first element to swap
+     * @param n - The index of the second element to swap
+     */
+    private static <K> void swap(K[] a, int m, int n){
+        K temp = a[m]; a[m] = a[n]; a[n] = temp;
+    }
 
+    /**
+     * In-Place QuickSort optimization which uses a small amount of memory compared to ones
+     * which use additional containers that store sorted results. To do this we need to 
+     * implicitly represent a subsequence through a range of indexes. There is no step to 
+     * explicitly "combine" or concatenate since the two subsequences will concetenate implicitly
+     * to the in-place use of the original array
+     * @param <K> - The generic data type
+     * @param a  - Incoming caller array
+     * @param C  - Comparator
+     * @param lo - The leftmost index of the subsequence
+     * @param hi - The rightmost index of the subsequence
+     */
+    public static <K> void quickSortInPlace(K[] a, Comparator<K> C, int lo, int hi){
+        if(lo >= hi) { return; } //Base Case: Subarray is Trivially sorted
+
+        /** Divide **/
+        // Local variables left and right will be used to scan the array simultaneously
+        // These pairs of runners will swap pairs of elements that are in reverse order
+        // When these two indexes pass each other, the division step is complete, then
+        // algorithm contines by recurring on the two sublists
+        int left = lo;      // Runner advances forward through the array
+        int right = hi-1;   // Runner advances backwards through the array
+        
+        K pivot = a[hi]; // Pivot choice is conventionally rightmost element
+
+        while(left <= right) {
+            //1. Scan until reaching value Equal or Larger than pivot (or right runner)
+            while (left <= right && C.compare(a[left], pivot) < 0) { left++; }
+            //2. Scan until reaching value Equal or Smaller than pivot (or left runner)
+            while (left <= right && C.compare(a[right],pivot) > 0 ) { right--; }
+            //3. Indices did not strictly cross
+            if(left <= right) {
+                // Swap values then shrink range of runners
+                swap(a, left,right);
+                left++; right--; 
+            }
+        }
+        // At this point, the left index marks the pivot, swap it to put into its final place
+        swap(a, left, hi);
+        //make recursive calls
+        quickSortInPlace(a, C, lo, left-1); // The left half of the subarray 
+        quickSortInPlace(a, C, left+1, hi); // The right half of the subarray
     }
 }
