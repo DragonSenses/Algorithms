@@ -23,7 +23,7 @@ import java.util.Queue;
  *        sorted, or nearly sorted. O(n^2)
  *      - Randomizing the pivot choice shows expected running time is O(nlogn)
  *      - Median-Of-Three heurisiticm which takes the median of three values (front, middle, and tail)
- *        of the array and use that as the pivot. Requires lower overhhead than random number generator.
+ *        of the array and use that as the pivot. Requires lower overhead than random number generator.
  *        This can scale for larger sets, as more than three potentional pivots may be computed
  * 2) Sorting In-Place
  *     - Another key difference of quicksort and mergesort is that mergesort requires more memory as it
@@ -98,6 +98,12 @@ public class QuickSort {
 
     /******************** Second Implementation ********************/
     
+    /** @returns The Median of three values to be used as the pivot */
+    private static <K> K medianOfThree(K lo, K mid, K hi){
+        K median = lo;
+        return median;
+    }
+    
     /**
      * Swaps elements of a given generic array
      * @param <K>   The type to use
@@ -132,7 +138,8 @@ public class QuickSort {
         int left = lo;      // Runner advances forward through the array
         int right = hi-1;   // Runner advances backwards through the array
         
-        K pivot = a[hi]; // Pivot choice is conventionally rightmost element
+        // K pivot = a[hi]; // Pivot choice is conventionally rightmost element
+        K pivot = medianOfThree(a[lo], a[(lo+hi)/2], a[hi]); //Optimized Pivot Choice
 
         while(left <= right) {
             //1. Scan until reaching value Equal or Larger than pivot (or right runner)
