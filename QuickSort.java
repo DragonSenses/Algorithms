@@ -100,9 +100,25 @@ public class QuickSort {
     
     /** @returns The Median of three values to be used as the pivot */
     private static <K> K medianOfThree(Comparator<K> C, K lo, K mid, K hi){
+        //Example --> lo = 0, mid = 4, hi = 8
+        /* mid < lo --> (4 < 0) --> -1 --> (-1 < 0) median = mid
+         * 
+         *  x < y   -1          x<= y 
+         *  x == y   0
+         *  x > y    1  
+         */
         K median = (C.compare(mid,lo) < 0) ? mid:lo;
-        median = (C.compare(hi,lo) < 0) ? hi:lo;
-        median = (C.compare(hi,mid) < 0) ? hi:mid;
+
+        //Brute forcing comparisons to find median
+        if ( ((C.compare(mid,lo) < 0)&&(C.compare(lo,hi) < 0))
+        || (C.compare(hi,lo) < 0) && (C.compare(lo,mid) < 0) ){
+            median = lo;
+        } else if ( (C.compare(lo,mid)<0)&&(C.compare(mid,hi)<0)
+        || ((C.compare(hi,mid)<0) && (C.compare(mid,lo)<0 )) ){
+            median = mid;
+        } else {
+            median = mid;
+        }
         return median;
     }
     
