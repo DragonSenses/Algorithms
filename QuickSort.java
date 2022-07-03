@@ -112,12 +112,12 @@ public class QuickSort {
         //Brute forcing comparisons to find median
         if ( ((C.compare(mid,lo) < 0)&&(C.compare(lo,hi) < 0))
         || (C.compare(hi,lo) < 0) && (C.compare(lo,mid) < 0) ){
-            median = lo;
+            median = lo; // mid < lo < hi OR hi < lo < mid
         } else if ( (C.compare(lo,mid)<0)&&(C.compare(mid,hi)<0)
         || ((C.compare(hi,mid)<0) && (C.compare(mid,lo)<0 )) ){
-            median = mid;
+            median = mid; // lo < mid < hi OR hi < mid < lo
         } else {
-            median = mid;
+            median = hi; 
         }
         return median;
     }
