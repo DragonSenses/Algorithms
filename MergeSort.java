@@ -167,14 +167,18 @@ public class MergeSort {
          * the smaller element of the two halves into the original array.
          */
         while(left <= mid && right <= high){ //While runners are not at end of their subarray
-            if(aux[left] <= aux[right]){
-                arr[curr] = aux[left];
-                left++;
-            } else {
-                arr[curr] = aux[right];
-                right++;
-            }
+            arr[curr] = (aux[left] <= aux[right]) ? aux[left++] : aux[right++];
+            // The equivalent of the ternary operator statement is below
+            // if(aux[left] <= aux[right]){
+            //     arr[curr] = aux[left];
+            //     left++;
+            // } else {
+            //     arr[curr] = aux[right];
+            //     right++;
+            // }
             curr++;
+            
+            
         }
 
         /** Copy the rest of the left side of the auxiliary array into the target array 
