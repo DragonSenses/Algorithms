@@ -99,8 +99,10 @@ public class QuickSort {
     /******************** Second Implementation ********************/
     
     /** @returns The Median of three values to be used as the pivot */
-    private static <K> K medianOfThree(K lo, K mid, K hi){
-        K median = lo;
+    private static <K> K medianOfThree(Comparator<K> C, K lo, K mid, K hi){
+        K median = (C.compare(mid,lo) < 0) ? mid:lo;
+        median = (C.compare(hi,lo) < 0) ? hi:lo;
+        median = (C.compare(hi,mid) < 0) ? hi:mid;
         return median;
     }
     
@@ -139,7 +141,8 @@ public class QuickSort {
         int right = hi-1;   // Runner advances backwards through the array
         
         // K pivot = a[hi]; // Pivot choice is conventionally rightmost element
-        K pivot = medianOfThree(a[lo], a[(lo+hi)/2], a[hi]); //Optimized Pivot Choice
+        // middle = (low + high) >>> 1, always gives positive result as opposed to lo+hi/2, may overflow
+        K pivot = medianOfThree(C, a[lo], a[(lo+hi)>>>1], a[hi]); //Optimized Pivot Choice
 
         while(left <= right) {
             //1. Scan until reaching value Equal or Larger than pivot (or right runner)
