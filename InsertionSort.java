@@ -80,4 +80,11 @@ public class InsertionSort <E> {
     // x < y
     // -1 or 0 (if duplicates allowed
     // 
+
+    public static void main(String[] args) {
+        char[] a = {'C', 'E', 'B', 'D', 'A', 'I', 'J', 'L', 'K', 'H', 'G', 'F'};
+        System.out.println(java.util.Arrays.toString(a));
+        insertionSort(a);
+        System.out.println(java.util.Arrays.toString(a));
+      }
 }
