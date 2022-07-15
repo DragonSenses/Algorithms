@@ -10,5 +10,34 @@
  */
 public class SelectionSort {
     
+    public static void selectionSort(int[] data){
+        for(int k = 0; k < data.length -1; k++){
+            int i = k; // index
+            for(int j = k + 1; j < data.length; j++){
+                if (data[j] < data[i]) {
+                    i = j; // Search for Lowest index
+                }
+            }
+            // Swap
+            int smaller = data[i];
+            data[i] = data[k];
+            data[k] = smaller;
+        }
+    }
 
+    public static void main(String a[]){  
+        int[] arr1 = {9,14,3,2,43,11,58,22};  
+        System.out.println("Before Selection Sort");  
+        for(int i:arr1){  
+            System.out.print(i+" ");  
+        }  
+        System.out.println();  
+          
+        selectionSort(arr1);//sorting array using selection sort  
+         
+        System.out.println("After Selection Sort");  
+        for(int i:arr1){  
+            System.out.print(i+" ");  
+        }  
+    }  
 }  
