@@ -14,13 +14,16 @@ import java.util.PriorityQueue;
 public class HeapSort {
     /******************** First HeapSort Implementation ********************/
     
-    public heapSort(int[] arr){
-        Queue<Integer> pq = new PriorityQueue();
+    public void heapSort(int[] arr){
+        Queue<Integer> pq = new PriorityQueue<>();
         Arrays.stream(arr).forEach(element -> pq.add(element));
-
-        while(pq.size() > 0) {
-            
+        StringBuilder str = new StringBuilder("[");
+        for(int k=0; pq.size() > 0; k++){
+            if(k > 0) { str.append(", "); }
+            str.append(pq.poll());
         }
+        str.append("]");
+        System.out.printf(str.toString());
     }
    
 }
