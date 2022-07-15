@@ -25,5 +25,17 @@ public class HeapSort {
         str.append("]");
         System.out.printf(str.toString());
     }
+
+    public <E> void heapSort(E[] arr){
+        Queue<E> pq = new PriorityQueue<>();
+        Arrays.stream(arr).forEach(element -> pq.add(element));
+        StringBuilder str = new StringBuilder("[");
+        for(int k=0; pq.size() > 0; k++){
+            if(k > 0) { str.append(", "); }
+            str.append(pq.poll());
+        }
+        str.append("]");
+        System.out.printf(str.toString());
+    }
    
 }
