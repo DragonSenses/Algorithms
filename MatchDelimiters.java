@@ -1,5 +1,12 @@
 import java.util.Stack;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /** Work In Progress
  * Matching delimeters in a String.
  */
@@ -25,6 +32,15 @@ public class MatchDelimiters {
         return buffer.isEmpty();    // Empty Stack -> All Opening Delimiters matched
     }
 
+    @Test
+    public void simpleDelimeter(){
+        assertAll("",
+            () -> assertEquals(true,isMatched("()")),
+            () -> assertEquals(true,isMatched("{}")),
+            () -> assertEquals(true,isMatched("[]"))
+        );
+    }
+
     /** Test Cases **/
     final static String[] valid = {
         "()(()){([()])}",
@@ -41,10 +57,10 @@ public class MatchDelimiters {
       };
 
     public static void main(String[] args) {
-        System.out.println(isMatched("{}"));
-        System.out.println(isMatched("[]"));
-        System.out.println(isMatched("()"));
-        System.out.println(isMatched("{[}"));
+        // System.out.println(isMatched("{}"));
+        // System.out.println(isMatched("[]"));
+        // System.out.println(isMatched("()"));
+        // System.out.println(isMatched("{[}"));
         // for (String s : valid) {
         //     if (!isMatched(s))
         //     System.out.println("Error evaluating valid: " + s);
