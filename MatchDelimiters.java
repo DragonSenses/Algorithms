@@ -41,14 +41,18 @@ public class MatchDelimiters {
       };
 
     public static void main(String[] args) {
+        System.out.println(isMatched("{}"));
+        System.out.println(isMatched("[]"));
+        System.out.println(isMatched("()"));
+        System.out.println(isMatched("{[}"));
+        // for (String s : valid) {
+        //     if (!isMatched(s))
+        //     System.out.println("Error evaluating valid: " + s);
+        // }
+        // for (String s : invalid) {
+        //     if (isMatched(s))
+        //     System.out.println("Error evaluating invalid: " + s);
+        // }
 
-        for (String s : valid) {
-            if (!isMatched(s))
-            System.out.println("Error evaluating valid: " + s);
-        }
-        for (String s : invalid) {
-            if (isMatched(s))
-            System.out.println("Error evaluating invalid: " + s);
-        }
-    }
+    } //end of Main
 }
