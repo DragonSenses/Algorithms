@@ -68,34 +68,18 @@ public class MatchDelimiters {
         assertTrue(isMatched("[(5+x)-(y+z)]"));
     }
 
+    @Test
+    public void invalidOne(){
+        assertEquals(false,isMatched("("));
+    }
 
-    final static String[] valid = {
-        "()(()){([()])}",
-        "( ) ( ( ) ) {( [ ( )  ] ) } ",
-        "(3) (3 + (4 - 5) ) {( [ ( )  ] ) } ",
-        "((()(()){([()])}))",
-        "[(5+x)-(y+z)]"
-      };
-    
-      final static String[] invalid = {
-        ")(()){([()])}",
-        "({[])}",
-        "("
-      };
+    @Test
+    public void invalidTwo(){
+        assertEquals(false,isMatched("({[])}"));
+    }
 
-    public static void main(String[] args) {
-        // System.out.println(isMatched("{}"));
-        // System.out.println(isMatched("[]"));
-        // System.out.println(isMatched("()"));
-        // System.out.println(isMatched("{[}"));
-        // for (String s : valid) {
-        //     if (!isMatched(s))
-        //     System.out.println("Error evaluating valid: " + s);
-        // }
-        // for (String s : invalid) {
-        //     if (isMatched(s))
-        //     System.out.println("Error evaluating invalid: " + s);
-        // }
-
-    } //end of Main
+    @Test
+    public void invalidThree(){
+        assertEquals(false,isMatched(")(()){([()])}"));
+    }
 }
