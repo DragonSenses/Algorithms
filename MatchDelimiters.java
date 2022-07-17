@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,6 +33,7 @@ public class MatchDelimiters {
         return buffer.isEmpty();    // Empty Stack -> All Opening Delimiters matched
     }
 
+    /** Test Cases **/
     @Test
     public void simpleDelimeter(){
         assertAll("",
@@ -41,7 +43,32 @@ public class MatchDelimiters {
         );
     }
 
-    /** Test Cases **/
+    @Test
+    public void validOne(){
+        assertTrue(isMatched("()(()){([()])}"));
+    }
+
+    @Test
+    public void validTwo(){
+        assertTrue(isMatched("( ) ( ( ) ) {( [ ( )  ] ) } "));
+    }
+
+    @Test
+    public void validThree(){
+        assertTrue(isMatched("(3) (3 + (4 - 5) ) {( [ ( )  ] ) } "));
+    }
+
+    @Test
+    public void validFour(){
+        assertTrue(isMatched("((()(()){([()])}))"));
+    }
+
+    @Test
+    public void validFive(){
+        assertTrue(isMatched("[(5+x)-(y+z)]"));
+    }
+
+
     final static String[] valid = {
         "()(()){([()])}",
         "( ) ( ( ) ) {( [ ( )  ] ) } ",
