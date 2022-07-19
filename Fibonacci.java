@@ -107,6 +107,25 @@ public class Fibonacci {
      * work that leads to exponential running time.
      */
 
+     /** Improvement: Method passes more information from one level of recursion
+      * to the next will make it easeier to continue the process as it allows us
+      * to avoid having to recompute the second value that was already known 
+      * within the recursion. To do this we redefine the expectations of the 
+      * method and instead compute Fn more efficiently using a recursion in which
+      * each invocation makes only one recursive call. Instead of expecting a 
+      * single value to be returned, we redfine it such that it returns an array
+      * with two consecutive Fibonacci numbers {Fn, Fn-1} with F-1 = 0 (by convention)
+      * It may seem a greater burden to report two consecutive FIbonacci numbers
+      * instead of one, but this extra infromation avoids recomputing known values
+      * within the recursion.
+      */
+     /** 
+      * 
+      * @param n
+      * @return
+      */
+    public static long[] fibonacciGood(int n){
 
+    }
 
 }
