@@ -120,12 +120,19 @@ public class Fibonacci {
       * within the recursion.
       */
      /** 
-      * 
-      * @param n
-      * @return
+      * Returns an array containing the pair of Fibonacci Numbers F(n) and F(n-1)
+      * @param n The nth Fibonacci number to retrieve the array from
+      * @return A long array containing the pair of Fibonacci Numbers F(n) and F(n-1)
       */
     public static long[] fibonacciGood(int n){
-
+        if(n <= 1) {
+            long[] pair = {n, 0};
+            return pair;
+        } else {
+            long[] aux = fibonacciGood(n-1);            // Returns {Fn-1, Fn-2}
+            long[] answer = {aux[0] + aux[1], aux[0] }; // Want    {Fn, Fn-1}
+            return answer;
+        }
     }
 
 }
