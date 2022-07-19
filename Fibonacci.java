@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 /**
  * The Fibonacci series, is a series of numbers in which each number
@@ -121,6 +122,12 @@ public class Fibonacci {
       */
      /** 
       * Returns an array containing the pair of Fibonacci Numbers F(n) and F(n-1)
+      *
+      * Runs in O(n) time as each recursive call decreases the argument n by 1; so
+      * a recursion trace includes a series of n methhod calls. The nonrecursive
+      * work for each call uses constant time, then the overall computation 
+      * executes in O(n) time
+      *  
       * @param n The nth Fibonacci number to retrieve the array from
       * @return A long array containing the pair of Fibonacci Numbers F(n) and F(n-1)
       */
@@ -133,6 +140,32 @@ public class Fibonacci {
             long[] answer = {aux[0] + aux[1], aux[0] }; // Want    {Fn, Fn-1}
             return answer;
         }
+    } 
+
+    /**
+     * An iterative fibonacci method that takes in the n from the user input, and
+     * prints out nth number of fibonacci sequence starting from 0. 
+     * @return The nth fibonacci number
+     */
+    public int fibonacciIterative(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter nth number of fibonacci sequence");
+        int n = sc.nextInt();
+        // We know that the first 2 values in the sequence start with 0 and 1
+        int fn1 = 0;
+        int fn = 1;
+        int answer = 0;
+        for(int i = 0; i<n; i++){
+            if( i <= 1) {
+                answer = i;
+            } else {
+                answer = fn1 + fn;
+                fn1 = fn;
+                fn = answer;
+            }
+            System.out.println(answer);
+        }
+        return answer;
     }
 
 }
