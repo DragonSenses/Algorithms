@@ -142,15 +142,20 @@ public class Fibonacci {
         }
     } 
 
-    /**
+    // Not fully tested: Seems to have negative values at n = 47 and 49
+    // Output:   47: -1323752223,  49: -811192543
+    // Expected: 47:  2971215073,  49: 7778742049
+    /** 
      * An iterative fibonacci method that takes in the n from the user input, and
      * prints out nth number of fibonacci sequence starting from 0. 
      * @return The nth fibonacci number
      */
-    public int fibonacciIterative(){
+    public static int fibonacciIterative(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter nth number of fibonacci sequence");
+        System.out.print("Enter nth number of fibonacci sequence: ");
         int n = sc.nextInt();
+        sc.close();
+        System.out.println("Starting Sequence " + n + " times...");
         // We know that the first 2 values in the sequence start with 0 and 1
         int fn1 = 0;
         int fn = 1;
@@ -163,9 +168,33 @@ public class Fibonacci {
                 fn1 = fn;
                 fn = answer;
             }
-            System.out.println(answer);
+            System.out.println(i + ": " + answer);
         }
+        
         return answer;
     }
 
+
+    public static void main(String[] args){
+        // Warning: bad Fibonacci runs really slow at 40+, 45 is ok, 50 is horrendous
+        final int limit = 50;
+        final int badLimit = 40;
+
+        System.out.println("The good...");
+        for (int n = 0; n < limit; n++)
+            System.out.println(n + ": " + fibonacciGood(n)[0]);
+
+        System.out.println();
+        System.out.println("The bad...");
+        for (int n = 0; n < badLimit; n++)
+            System.out.println(n + ": " + fibonacciBad(n));
+
+        System.out.println();
+        System.out.println("Try it yourself");
+        fibonacciIterative();
+
+        System.out.println(); //2,147,483,647
+        System.out.println("For reference here is MAX_VALUE: " + Integer.MAX_VALUE); 
+
+    }
 }
