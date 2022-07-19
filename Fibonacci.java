@@ -35,6 +35,9 @@ public class Fibonacci {
      * 
      * The recursive equation is
      * T(n) = T(n-1) + T(n-2) + O(1)
+     * 
+     * The upper bound of Fibonacci sequence is O(2^n)
+     * 
      * Time to calculate fb(n) is equal to sum of time
      * to calculate fb(n-1) and fb(n-2) including 
      * constant time to perform previous additions.
@@ -58,14 +61,18 @@ public class Fibonacci {
      * T(n) = O(([(1+sqrt(5))/2]^n + [(1-sqrt(5))/2]^n))
      * T(n) = O((1+sqrt(5) /2)^n)
      * T(n) = O(1.6180)^n
+     * 
+     * This is the tight upper bound of fibonacci.
+     * 
+     * 1.6180 is called the golden ratio
      */
 
     /**
-     * Returns the nth Fibonacci Number (inefficiently)
+     * Returns the nth Fibonacci Number (inefficiently) [O(2^n)]
      * This recursive implementation computes a Fibonacci number
      * by making two recursive calls in each non-base case. 
-     * @param n
-     * @return
+     * @param n     The nth Fibonacci Number in the sequence
+     * @return The nth Fibonacci number
      */
     public static long fibonacciBad(int n){
         if( n <= 1) {
@@ -74,4 +81,6 @@ public class Fibonacci {
             return fibonacciBad(n-2) + fibonacciBad(n-1);
         }
     }
+
+    
 }
