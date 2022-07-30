@@ -26,6 +26,25 @@ public class CountingSort {
     
     // Simple Implementation - Elements are only single digits ranging from 0-9
     public static int[] SimpleCountingSort(int[] arr){
+        // Initialize countArray with 10 possible elements for every possible digit
+        int[] countArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; 
+        
+        // 1. Populate countArray by counting the occurrence of each digit
+        for(int i = 0; i < arr.length; i++) { // from 0 to n-1
+            // Increment the value on the position arr[i] in countArray
+            countArray[arr[i]]++; 
+        } 
+        // countArray = {1, 2, 0, 0, 1, 0, 0, 2, 1, 1}
+        System.out.println(Arrays.toString(countArray));
+
+        // 2. Apply Prefix sums to countArray
+        // Prefix sums are formed when we add each of the previous numbers in the array
+        // onto the next accumulatively forming a sum of all yet seen prefixes
+        for(int i = 1; i < countArray.length; i++) {
+            countArray[i] += countArray[i=1]; 
+        }
+        // countArray = {1, 3, 3, 3, 4, 4, 4, 6, 7, 8}
+        System.out.println(Arrays.toString(countArray));
 
         return arr;
     }
