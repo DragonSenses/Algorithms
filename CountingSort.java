@@ -1,5 +1,5 @@
 import java.util.Arrays;
-
+// Work In Progress
 /**
  * Counting Sort is a stable, non-comparative sorting algorithm,
  * with it's main use is for sorting arrays of non-negative integers.
@@ -28,7 +28,7 @@ public class CountingSort {
     public static int[] SimpleCountingSort(int[] arr){
         // Initialize countArray with 10 possible elements for every possible digit
         int[] countArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; 
-        
+
         // 1. Populate countArray by counting the occurrence of each digit
         for(int i = 0; i < arr.length; i++) { // from 0 to n-1
             // Increment the value on the position arr[i] in countArray
@@ -46,7 +46,24 @@ public class CountingSort {
         // countArray = {1, 3, 3, 3, 4, 4, 4, 6, 7, 8}
         System.out.println(Arrays.toString(countArray));
 
-        return arr;
+        // 3. Calculate element positions in the sorted output based off the values
+        // in countArray. Make a new auxiliary array to store the output, the size
+        // is the same as input array
+        int[] aux = new int[arr.length];
+        System.out.println(Arrays.toString(aux));
+        for(int i = arr.length-1; i >= 0; i--){
+            // Find index in countArray that is equal to value of current element arr[i]
+            // at position countArray[arr[i] -1, place element arr[i]. 
+            aux[countArray[arr[i]] -1 ] = arr[i]; // Guarantees stability of sort
+            countArray[arr[i]]--; // Decrement value of countArray[i]
+        }
+
+        // Copy values from aux array into initial array, and print
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = aux[i];
+            System.out.print(arr[i] + " ");
+        }
+        return aux;
     }
 
     public static void main(String[] args){
