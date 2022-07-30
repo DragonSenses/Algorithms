@@ -14,8 +14,6 @@ import java.util.Comparator;
  * 3. Combine: Take the solutions to the subproblems and merge them into a larger solution
  * to the original problem
  * 
- * 
- * @author kendr
  */
 public class MergeSort {
 

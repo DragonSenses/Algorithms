@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/** Work In Progress
- * Matching delimeters in a String.
+/** 
+ *  Matching delimeters in a String.
  */
 public class MatchDelimiters {
     

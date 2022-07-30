@@ -33,7 +33,6 @@ import java.util.Queue;
  *      swapping and representing subsequences implicitly by their indexes, from leftmost index to 
  *      rightmost index
  *          
- * @author kendr
  */
 public class QuickSort {
     

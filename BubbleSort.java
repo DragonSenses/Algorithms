@@ -8,7 +8,6 @@ import java.util.Comparator;
  * Best Case:    O(n)
  * Average Case: O(n^2)
  * 
- * @author kendr
  */
 public class BubbleSort {
     /******************** First BubbleSort Implementation ********************/
