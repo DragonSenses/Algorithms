@@ -1,6 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 /**
  * Counting Sort is a stable, non-comparative sorting algorithm,
  * with it's main use is for sorting arrays of non-negative integers.
@@ -14,8 +12,9 @@ import java.util.List;
  * which is typically named the count array. It uses the auxilliary 
  * count array to determine the positions of elements
  * 
- * N is number of elements
- * K is range of elements (largest element - smallest element)
+ * - n is number of elements
+ * - k is range of elements (largest element - smallest element)
+ * 
  * Time Complexity 
  * Best-  O(n+k)  // When all elements are the same   
  * Avg -  O(n^2)  // N & K are equally dominant
