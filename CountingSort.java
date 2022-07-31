@@ -47,7 +47,8 @@ public class CountingSort {
         }
     }
 
-    // Work In Progress -  Elements are only single digits ranging from 0-9
+    public static final boolean debug = false;
+    //  Elements are only single digits ranging from 0-9
     public static int[] SimpleCountingSort(int[] arr){
         // Initialize countArray with 10 possible elements for every possible digit
         int[] countArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; 
@@ -58,22 +59,22 @@ public class CountingSort {
             countArray[arr[i]]++; 
         } 
         // countArray = {1, 2, 0, 0, 1, 0, 0, 2, 1, 1}
-        System.out.println(Arrays.toString(countArray));
+        if(debug) { System.out.println(Arrays.toString(countArray)); }
 
         // 2. Apply Prefix sums to countArray
         // Prefix sums are formed when we add each of the previous numbers in the array
         // onto the next accumulatively forming a sum of all yet seen prefixes
         for(int i = 1; i < countArray.length; i++) {
-            countArray[i] += countArray[i=1]; 
+            countArray[i] += countArray[i-1]; 
         }
         // countArray = {1, 3, 3, 3, 4, 4, 4, 6, 7, 8}
-        System.out.println(Arrays.toString(countArray));
+        if(debug){ System.out.println(Arrays.toString(countArray)); }
 
         // 3. Calculate element positions in the sorted output based off the values
         // in countArray. Make a new auxiliary array to store the output, the size
         // is the same as input array
         int[] aux = new int[arr.length];
-        System.out.println(Arrays.toString(aux));
+        if(debug) { System.out.println(Arrays.toString(aux)); }
         for(int i = arr.length-1; i >= 0; i--){
             // Find index in countArray that is equal to value of current element arr[i]
             // at position countArray[arr[i] -1, place element arr[i]. 
@@ -84,8 +85,8 @@ public class CountingSort {
         // Copy values from aux array into initial array, and print
         for(int i = 0; i < arr.length; i++) {
             arr[i] = aux[i];
-            System.out.print(arr[i] + " ");
         }
+        if(debug) { Arrays.toString(arr); }
         return aux;
     }
 
@@ -97,9 +98,14 @@ public class CountingSort {
         countingSort(input, k); 
         System.out.println("After Sorting");
         System.out.println(Arrays.toString(input));
-
-        // int[] arr = {0, 8, 4, 7, 9, 1, 1, 7};
-        // int[] sortedArr = SimpleCountingSort(arr);
-        // System.out.println(Arrays.toString(sortedArr));
+        
+        System.out.println();
+        System.out.println("Another Counting Sort Example: ");
+        int[] arr = {0, 8, 4, 7, 9, 1, 1, 7};
+        System.out.println("Before Sorting"); 
+        System.out.println(Arrays.toString(arr)); 
+        int[] sortedArr = SimpleCountingSort(arr);
+        System.out.println("After Sorting");
+        System.out.println(Arrays.toString(sortedArr));
     }
 }
