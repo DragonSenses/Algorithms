@@ -66,9 +66,42 @@ public class CountingSort {
         return aux;
     }
 
+    /**
+     * 
+     * @param input
+     * @param k
+     */
+    public static void countingSort(int[] input, int k){
+        int counter[] = new int[k+1]; // Create count array
+        
+        // 1. Fill the CountArray
+        for(int i: input){ // For every integer in input array
+            counter[i]++;  // Increment ith position
+        }
+
+        // 2. Sort Array
+        int i = 0; // index
+        for(int n = 0; n< counter.length; n++){
+            while(0 < counter[n]) {
+                input[i] = n;
+                counter[n]--; 
+            }
+        }
+    }
+
     public static void main(String[] args){
-        int[] arr = {0, 8, 4, 7, 9, 1, 1, 7};
-        int[] sortedArr = SimpleCountingSort(arr);
-        System.out.println(Arrays.toString(sortedArr));
+        // int[] arr = {0, 8, 4, 7, 9, 1, 1, 7};
+        // int[] sortedArr = SimpleCountingSort(arr);
+        // System.out.println(Arrays.toString(sortedArr));
+
+        int[] input = { 60, 40, 30, 20, 10, 40, 30, 60, 60, 20, 40, 30, 40 };
+        int k = 60; 
+        System.out.println("Before Sorting"); 
+        System.out.println(Arrays.toString(input)); 
+        countingSort(input, k); 
+        System.out.println("After Sorting");
+        System.out.println(Arrays.toString(input));
+
+        
     }
 }
