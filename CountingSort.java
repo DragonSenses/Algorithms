@@ -1,5 +1,4 @@
 import java.util.Arrays;
-// Work In Progress
 /**
  * Counting Sort is a stable, non-comparative sorting algorithm,
  * with it's main use is for sorting arrays of non-negative integers.
@@ -90,6 +89,50 @@ public class CountingSort {
         return aux;
     }
 
+    /**
+     * Improved CountingSort from above, that allows user to select the 
+     * range of values. Where k is the maximum value, and the range of
+     * input array is between 0 to k, [0,k].
+     * @param arr   Input Array
+     * @param k     The max range of values
+     * @return      The final sorted array of the input
+     */
+    public static int[] betterCountingSort(int[] arr, int k){
+        // Initialize countArray with k+1 possible elements, including 0 and k
+        int[] countArray = new int[k+1]; 
+
+        // 1. Populate countArray by counting the occurrence of each digit
+        for(int i = 0; i < arr.length; i++) { // from 0 to n-1
+            // Increment the value on the position arr[i] in countArray
+            countArray[arr[i]]++; 
+        } 
+
+        // 2. Apply Prefix sums to countArray
+        // Prefix sums are formed when we add each of the previous numbers in the array
+        // onto the next accumulatively forming a sum of all yet seen prefixes
+        for(int i = 1; i < countArray.length; i++) {
+            countArray[i] += countArray[i-1]; 
+        }
+
+        // 3. Calculate element positions in the sorted output based off the values
+        // in countArray. Make a new auxiliary array to store the output, the size
+        // is the same as input array
+        int[] aux = new int[arr.length];
+        for(int i = arr.length-1; i >= 0; i--){
+            // Find index in countArray that is equal to value of current element arr[i]
+            // at position countArray[arr[i] -1, place element arr[i]. 
+            aux[countArray[arr[i]] -1 ] = arr[i]; // Guarantees stability of sort
+            countArray[arr[i]]--; // Decrement value of countArray[i]
+        }
+
+        // Copy values from aux array into initial array, and print
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = aux[i];
+        }
+        if(debug) { Arrays.toString(arr); }
+        return aux;
+    }
+
     public static void main(String[] args){
         int[] input = { 60, 40, 30, 20, 10, 40, 30, 60, 60, 20, 40, 30, 40 };
         int k = 60; 
@@ -107,5 +150,13 @@ public class CountingSort {
         int[] sortedArr = SimpleCountingSort(arr);
         System.out.println("After Sorting");
         System.out.println(Arrays.toString(sortedArr));
+
+        System.out.println();
+        System.out.println("Counting Sort Example 3: ");
+        System.out.println("Before Sorting"); 
+        System.out.println(Arrays.toString(input)); 
+        betterCountingSort(input, k); 
+        System.out.println("After Sorting");
+        System.out.println(Arrays.toString(input));
     }
 }
