@@ -131,6 +131,38 @@ public class Graph <E>{
     }
 
     public void BreadthFirstSearch(Node<E> root) {
+        if (root == null) { return; }
 
+        Deque<Node<E>> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        Node<E> curr;
+        while(!queue.isEmpty()){
+            curr = queue.poll(); // Remove the first element of the queue
+
+            // If the current node has already been visited
+            if(curr.isVisited()) {
+
+            }
+
+            curr.visit(); // Visit the node
+            // Perform an Operation
+            System.out.print(curr.toString() + " ");
+
+            LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
+
+            // If the current node has no neighbors
+            if(neighbors == null) {
+
+            }
+
+            // Add unvisited neighbors to the queue
+            for(Node<E> node: neighbors){
+                if(!node.isVisited()){
+                    queue.add(node);
+                }
+            }
+        }
+        System.out.println();
     }
 }
