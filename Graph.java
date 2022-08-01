@@ -77,4 +77,19 @@ public class Graph <E>{
             node.clear();
         }
     }
+
+    @Override
+    public String toString(){
+        return "Graph";
+    }
+
+    public void print(){
+        for(Node<E> n: adjacencyMap.keySet()){
+            System.out.print(n.toString() + " has an edge towards:\t");
+            for(Node<E> neighbor: adjacencyMap.get(n)){
+                System.out.print(neighbor.toString() + " ");
+            }
+            System.out.println();
+        }
+    }
 }
