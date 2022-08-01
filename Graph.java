@@ -97,9 +97,16 @@ public class Graph <E>{
 
     /**
      * A Depth First Search without Recursion, an iterative approach
+     * While Stack is not Empty
+     *  1) Visit Current Node
+     *  2) Perform Operation during visit
+     *  3) Push unvisited adjacent nodes/vertices
      * @param root The first node to begin the search
+     * @returns A doubly ended queue that contains the order of DepthFirstSearch
+     * of the nodes of thhe graph rooted at the incoming parameter vertex
      */
-    public void DepthFirstSearch(Node<E> root){
+    public ArrayDeque<Node<E>> DepthFirstSearch(Node<E> root){
+        ArrayDeque<Node<E>> result = new ArrayDeque<>();
         Deque<Node<E>> stack = new ArrayDeque<>();
         stack.push(root);
 
@@ -107,7 +114,10 @@ public class Graph <E>{
         while(!stack.isEmpty()) { // While Stack is non-empty
             curr = stack.pop(); 
             if(!(curr.isVisited())){
-                curr.visit();   // Visit the current node
+                curr.visit();   // 1. Visit the current node
+                // 2. Perform the operation
+                result.push(curr);
+                // 3. Add unvisited adjacent nodes
                 // For every node that forms an edge with current node
                 for(Node<E> node : adjacencyMap.get(curr)) {
                     // If Node has not been visited, push it within the stack
@@ -117,5 +127,10 @@ public class Graph <E>{
                 }
             }
         }
+        return result;
+    }
+
+    public void BreadthFirstSearch(Node<E> root) {
+
     }
 }
