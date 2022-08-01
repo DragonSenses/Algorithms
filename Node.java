@@ -14,4 +14,9 @@ public class Node <E> {
     public void clear(){
         visited = false;
     }
+
+    @Override
+    public String toString(){
+        return "Node " + data.toString();
+    }
 }
