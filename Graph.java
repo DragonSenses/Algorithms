@@ -24,7 +24,14 @@ public class Graph <E>{
         // Create a temperorary reference to thhe list of neighbors
         LinkedList<Node<E>> list = adjacencyMap.get(u);
         // If list is non-null, and Node u already contains its own list of neighbors
-
+        if(list != null) {
+            // Attempt to remove the existing edge containing Node v
+            list.remove(v);
+        } else { // If list was already null, then initialize a new list of neighbors
+            list = new LinkedList<>();
+        }
+        list.add(v); // Add the destination node to the list of neighbors of u
+        adjacencyMap.put(u,list); // Add the LinkedList within the adjacency Map for node u
     }
 
     /**
@@ -59,5 +66,15 @@ public class Graph <E>{
     public boolean containsEdge(Node<E> u, Node<E> v){
         return adjacencyMap.containsKey(u) && 
             adjacencyMap.get(u).contains(v);
+    }
+
+    /**
+     * Resets all the Nodes visited field to false. 
+     * Allows for future visits and searches.
+     */
+    public void reset(){
+        for(Node<E> node: adjacencyMap.keySet()){
+            node.clear();
+        }
     }
 }
