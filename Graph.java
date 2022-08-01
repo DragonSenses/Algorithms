@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -90,6 +92,30 @@ public class Graph <E>{
                 System.out.print(neighbor.toString() + " ");
             }
             System.out.println();
+        }
+    }
+
+    /**
+     * A Depth First Search without Recursion, an iterative approach
+     * @param root The first node to begin the search
+     */
+    public void DepthFirstSearch(Node<E> root){
+        Deque<Node<E>> stack = new ArrayDeque<>();
+        stack.push(root);
+
+        Node<E> curr;    // Keep track of current node
+        while(!stack.isEmpty()) { // While Stack is non-empty
+            curr = stack.pop(); 
+            if(!(curr.isVisited())){
+                curr.visit();   // Visit the current node
+                // For every node that forms an edge with current node
+                for(Node<E> node : adjacencyMap.get(curr)) {
+                    // If Node has not been visited, push it within the stack
+                    if(!node.isVisited()){
+                        stack.push(node);
+                    }
+                }
+            }
         }
     }
 }
