@@ -130,19 +130,26 @@ public class Graph <E>{
         return result;
     }
 
+    /**
+     * An iterative approach to BreadthFirstSearch, which searches 
+     * through the graph through levels. We process nodes in the 
+     * order we visit them, processing nodes closer to the root
+     * first, whereas nodes furthest from root will be processed lost
+     * @param root Node to start search in
+     */
     public void BreadthFirstSearch(Node<E> root) {
         if (root == null) { return; }
 
         Deque<Node<E>> queue = new ArrayDeque<>();
         queue.add(root);
 
-        Node<E> curr;
+        Node<E> curr;   
         while(!queue.isEmpty()){
             curr = queue.poll(); // Remove the first element of the queue
 
             // If the current node has already been visited
             if(curr.isVisited()) {
-
+                continue; // Skip this iteration of the loop
             }
 
             curr.visit(); // Visit the node
@@ -152,8 +159,8 @@ public class Graph <E>{
             LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
 
             // If the current node has no neighbors
-            if(neighbors == null) {
-
+            if(neighbors == null) { // for each loop throws exception if null
+                continue; // skip this iteration of the loop
             }
 
             // Add unvisited neighbors to the queue
