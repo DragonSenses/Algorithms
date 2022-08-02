@@ -32,7 +32,7 @@ public class BreadthFirstSearch <E> {
      * 
      * @param root Node to start search in
      */
-    public void BFS(Graph<E> g, Node<E> root) {
+    public static <E> void BFS(Graph<E> g, Node<E> root) {
         if (root == null) {
             return;
         }
@@ -82,7 +82,7 @@ public class BreadthFirstSearch <E> {
      * 
      * @param root the node to begin searched rooted at this node
      */
-    public void BreadthFirstSearchComplete(Graph<E> g, Node<E> root) {
+    public static <E> void BreadthFirstSearchComplete(Graph<E> g, Node<E> root) {
         BFS(g, root); // Call Search Once
         // Continue calling Search for each node with unconnected edge
         for (Node<E> n : g.getNodes()) {
@@ -107,7 +107,7 @@ public class BreadthFirstSearch <E> {
 
         System.out.println("======== [Graph 1] Breadth First Search ========");
         // We pass in 1 as root node
-        graph.BreadthFirstSearch(b); // result should be 1, 0, 3, 2
+        BFS(graph,b); // result should be 1, 0, 3, 2
 
         // Graph 2 Tests what happens with an unconnected graph
         System.out.println("======== [Graph 2] Breadth First Search ========");
@@ -117,10 +117,10 @@ public class BreadthFirstSearch <E> {
         graph.addEdge(a, b); // 0->1
         graph.addEdge(c, e); // 2->4
         System.out.println("Breadth First Search, one pass in Unconnected Graph");
-        graph.BreadthFirstSearch(a); // Start w/ root node "0", output: [0, 3, 1]
+        BFS(graph,a); // Start w/ root node "0", output: [0, 3, 1]
         graph.reset();
         System.out.println("Breadth First Search, complete pass in Unconnected Graph");
-        graph.BreadthFirstSearchComplete(a); // output: [0, 3, 1] abd [4, 2]
+        BreadthFirstSearchComplete(graph,a); // output: [0, 3, 1] and [2, 4]
     }
 
     public static void main(String[] args){
