@@ -11,7 +11,7 @@ public class BreadthFirstSearch <E> {
      * 
      * @param root Node to start search in
      */
-    public void BreadthFirstSearch(Node<E> root) {
+    public void BreadthFirstSearch(Graph<E> g, Node<E> root) {
         if (root == null) {
             return;
         }
@@ -36,7 +36,7 @@ public class BreadthFirstSearch <E> {
             // Perform an Operation
             aux.add(curr);
 
-            LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
+            LinkedList<Node<E>> neighbors = g.getNeighbors(curr);
 
             // If the current node has no neighbors
             if (neighbors == null) { // for each loop throws exception if null
@@ -51,6 +51,7 @@ public class BreadthFirstSearch <E> {
             }
         }
         // Use auxiliary queue to create meaningful output
+        Consumer(Deque<Node<E>>) c = (Deque<Node<E>> aux) -> (g.output(aux));
         this.output(aux);
     }
 
@@ -61,12 +62,12 @@ public class BreadthFirstSearch <E> {
      * 
      * @param root the node to begin searched rooted at this node
      */
-    public void BreadthFirstSearchComplete(Node<E> root) {
-        BreadthFirstSearch(root); // Call Search Once
+    public void BreadthFirstSearchComplete(Graph<E> g, Node<E> root) {
+        BreadthFirstSearch(g, root); // Call Search Once
         // Continue calling Search for each node with unconnected edge
-        for (Node<E> n : adjacencyMap.keySet()) {
+        for (Node<E> n : g.getNodes()) {
             if (!n.isVisited()) {
-                BreadthFirstSearch(n);
+                BreadthFirstSearch(g, n);
             }
         }
     }
