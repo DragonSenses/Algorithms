@@ -2,6 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Set;
 
 /**
  * Graph Implementation using an adjacency Map
@@ -19,6 +20,14 @@ public class Graph <E>{
     public Graph(Boolean directed){
         this.directed = directed;
         adjacencyMap = new HashMap<>();
+    }
+
+    /**
+     * Returns the set of Nodes, or keys, of the internal HashMap adjacency map
+     * @return the set of Nodes, or keys, of the HashMap
+     */
+    public Set<Node<E>> getNodes(){
+        return adjacencyMap.keySet();
     }
 
     /**
@@ -115,7 +124,7 @@ public class Graph <E>{
      * @param aux auxiliary data structure that stores the nodes
      * in the search
      */
-    public void output(Deque<Node<E>> aux){
+    public static <E> void output(Deque<Node<E>> aux){
         StringBuilder output = new StringBuilder("[");
         while(!aux.isEmpty()){
             Node<E> n = aux.pop();
@@ -295,7 +304,7 @@ public class Graph <E>{
             }
         }
         // Use auxiliary queue to create meaningful output
-        this.output(aux);
+        output(aux);
     }
 
     /**
