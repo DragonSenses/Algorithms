@@ -140,6 +140,7 @@ public class Graph <E>{
     public void BreadthFirstSearch(Node<E> root) {
         if (root == null) { return; }
 
+        // Create a queue that represent levels of nodes close to root
         Deque<Node<E>> queue = new ArrayDeque<>();
         queue.add(root);
 
@@ -171,5 +172,24 @@ public class Graph <E>{
             }
         }
         System.out.println();
+    }
+
+
+    public static void main(String[] args){
+        Graph<Integer> graph = new Graph<Integer>(false);
+        Node<Integer> a = new Node<>(0);
+        Node<Integer> b = new Node<>(1);
+        Node<Integer> c = new Node<>(2);
+        Node<Integer> d = new Node<>(3);
+        Node<Integer> e = new Node<>(4);
+
+        graph.addEdge(a,d); // 0->3
+        graph.addEdge(a,b); // 0->1
+        graph.addEdge(a,c); // 0->2
+        graph.addEdge(c,d); // 2->3
+
+        // We pass in 1 as root node
+        graph.BreadthFirstSearch(b); // result should be 1, 0, 3, 2
+        
     }
 }
