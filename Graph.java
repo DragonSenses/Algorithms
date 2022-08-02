@@ -186,7 +186,22 @@ public class Graph <E>{
         }
         output.append("]");
         System.out.println(output.toString());
+    }
 
+    /**
+     * A BreadthFirstSearch algorithm that modifies above by
+     * allowing for graphs with unconnected edges to be completely
+     * searched
+     * @param root the node to begin searched rooted at this node
+     */
+    public void BreadthFirstSearchComplete(Node<E> root){
+        BreadthFirstSearch(root); // Call Search Once
+        // Continue calling Search for each node with unconnected edge
+        for(Node<E> n: adjacencyMap.keySet()) {
+            if(!n.isVisited()) {
+                BreadthFirstSearch(n);
+            }
+        }
     }
 
 
@@ -207,12 +222,17 @@ public class Graph <E>{
         // We pass in 1 as root node
         graph.BreadthFirstSearch(b); // result should be 1, 0, 3, 2
         
+        // Graph 2 Tests what happens with an unconnected graph
         System.out.println("======== [Graph 2] Breadth First Search ========");
         graph.reset(); // Reset visited nodes
         graph = new Graph<>(false);
         graph.addEdge(a,d); // 0->3
         graph.addEdge(a,b); // 0->1
         graph.addEdge(c,e); // 2->4
+        System.out.println("Breadth First Search, one pass in Unconnected Graph");
         graph.BreadthFirstSearch(a); // Start w/ root node "0"
+        graph.reset(); 
+        System.out.println("Breadth First Search, complete pass in Unconnected Graph");
+        graph.BreadthFirstSearchComplete(a);
     }
 }
