@@ -1,9 +1,11 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
-
+/**
+ * Work In Progress
+ */
 public class DepthFirstSearch {
-        /**
+    /**
      * Creates meaningful output of the search by consuming the 
      * auxiliary ArrayDeque that results from the search
      * @param aux auxiliary data structure that stores the nodes
@@ -106,6 +108,29 @@ public class DepthFirstSearch {
                 }
             }
         }
+
+        // Attempt with For-Loop
+        // for(; !stack.isEmpty(); curr = stack.pop()){
+        //     if(!(curr.isVisited())) {
+        //         curr.visit();
+
+        //         result.push(curr);
+        //         aux.push(curr);
+
+        //         // Check if neighbors is null
+        //         LinkedList<Node<E>> neighbors = graph.getNeighbors(curr);
+        //         if(neighbors == null) { continue; } // Skip this iteration
+
+        //         // 3. Add unvisited adjacent nodes
+        //         // For every node that forms an edge with current node
+        //         for(Node<E> node : graph.getNeighbors(curr)) {
+        //             // If Node has not been visited, push it within the stack
+        //             if(!node.isVisited()){
+        //                 stack.push(node);
+        //             }
+        //         }
+        //     }
+        // }
         // Create meaningful output
         output(aux);
         return result;
@@ -248,5 +273,11 @@ public class DepthFirstSearch {
 
         boolean DFS = false;
         if(DFS) testDFS();
+
+
+        int i = 1;
+        for(; i <4; i++){
+            System.out.println(i);
+        }
     }
 }
