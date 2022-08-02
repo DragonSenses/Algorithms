@@ -16,6 +16,11 @@ public class Graph <E>{
         adjacencyMap = new HashMap<>();
     }
 
+    public Graph(Boolean directed){
+        this.directed = directed;
+        adjacencyMap = new HashMap<>();
+    }
+
     /**
      * Checks for possible duplicate edges, before adding an edge.
      * containg the Nodes u -> v, then update the list of neighbors
@@ -127,6 +132,18 @@ public class Graph <E>{
                 }
             }
         }
+        // Create meaningful output
+        ArrayDeque<Node<E>> aux = result.clone(); // Create a copy of stack
+        StringBuilder output = new StringBuilder("[");
+        while(!aux.isEmpty()){
+            Node<E> n = aux.pop();
+            output.append(n.getData().toString());
+            //Add comma in between if not last element
+            if(!aux.isEmpty()){ 
+                output.append(", ");
+            }
+        }
+        output.append("]");
         return result;
     }
 
@@ -204,8 +221,7 @@ public class Graph <E>{
         }
     }
 
-
-    public static void main(String[] args){
+    public static void testBFS(){
         Graph<Integer> graph = new Graph<Integer>(false);
         Node<Integer> a = new Node<>(0);
         Node<Integer> b = new Node<>(1);
@@ -234,5 +250,49 @@ public class Graph <E>{
         graph.reset(); 
         System.out.println("Breadth First Search, complete pass in Unconnected Graph");
         graph.BreadthFirstSearchComplete(a);
+    }
+
+    public static void testDFS(){
+      Graph<Integer> graph = new Graph<>(true);
+      // Create Nodes
+      Node<Integer> zero = new Node<>(0);
+      Node<Integer> one = new Node<>(1);
+      Node<Integer> two = new Node<>(2);
+      Node<Integer> three = new Node<>(3);
+      Node<Integer> four = new Node<>(4);
+      Node<Integer> five = new Node<>(5);
+      Node<Integer> six = new Node<>(6);
+      Node<Integer> seven = new Node<>(7);
+      Node<Integer> eight = new Node<>(8);
+
+      graph.addEdge(one,zero);
+      graph.addEdge(three,one);
+      graph.addEdge(two,seven);
+      graph.addEdge(two,four);
+      graph.addEdge(five,two);
+      graph.addEdge(five,zero);
+      graph.addEdge(six,five);
+      graph.addEdge(six,three);
+      graph.addEdge(six,eight);
+      graph.addEdge(seven,five);
+      graph.addEdge(seven,six);
+      graph.addEdge(seven,eight);
+
+      // The first deep path graph takes when root is node 7
+      // is 7, 5, 2, 4
+      // then trace back to 5 and continue with edge 5 -> 0
+      // then trace back the path to root 7, and continue with edge 7 -> 6
+      // 6, 3, 1
+      // then trace back the path to root 7 and continue with hedge 7 -> 8
+      // so output should be [7, 5, 2 , 4, 0, 6, 3, 1, 8]
+      graph.DepthFirstSearch(seven); 
+    }
+
+    public static void main(String[] args){
+        boolean BFS = false;
+        if(BFS) testBFS();
+
+        boolean DFS = true;
+        if(DFS) testDFS();
     }
 }
