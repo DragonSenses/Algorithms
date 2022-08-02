@@ -286,6 +286,9 @@ public class Graph <E>{
         graph.addEdge(zero,two);
         graph.addEdge(two,one);
         graph.addEdge(four,three); // Unconnected
+
+        // Starting at node 1, output should be [1, 0, 2, 4, 3]
+        graph.DepthFirstSearchComplete(one);
     }
 
     public static void testDFS(){
@@ -324,11 +327,51 @@ public class Graph <E>{
       graph.DepthFirstSearch(seven); 
     }
 
+    public static void test2DFS(){
+        Graph<Integer> graph = new Graph<>(true);
+        // Create Nodes
+
+        Node<Integer> three = new Node<>(3);
+        Node<Integer> five = new Node<>(5);
+        Node<Integer> one = new Node<>(1);
+        Node<Integer> two = new Node<>(2);
+        Node<Integer> eight = new Node<>(8);
+        Node<Integer> twentyFive = new Node<>(25);
+        Node<Integer> twelve = new Node<>(12);
+        Node<Integer> six = new Node<>(6);
+        Node<Integer> four = new Node<>(4);
+        Node<Integer> nine = new Node<>(9);
+        Node<Integer> ten = new Node<>(10);
+
+        // 1st Path: 3->5->1
+        graph.addEdge(three,five);
+        graph.addEdge(five,one);
+
+        // 2nd Path: 5->2
+        graph.addEdge(five,two);
+
+        // 3rd Path: 3->8
+        graph.addEdge(three,eight);
+
+        // 4th Path: 3-> 25 -> 12 -> 6 -> 4
+        graph.addEdge(three,twentyFive);
+        graph.addEdge(twentyFive,twelve);
+        graph.addEdge(twelve,six);
+        graph.addEdge(six,four);
+
+        // 5th Path: 6->9
+        graph.addEdge(six,nine);
+
+        // 6th Path: 25 -> 10
+        graph.addEdge(twentyFive,ten);
+        
+    }
+
     public static void main(String[] args){
         boolean BFS = false;
         if(BFS) testBFS();
 
         boolean DFS = true;
-        if(DFS) testDFS();
+        if(DFS) simpleTestDFS();
     }
 }
