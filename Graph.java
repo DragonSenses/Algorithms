@@ -101,6 +101,60 @@ public class Graph <E>{
     }
 
     /**
+     * Iterative Approach DFS rooted at incoming parameter node
+     * @param root node to start search with
+     */
+    public void DFS(Node<E> root) {
+        Deque<Node<E>> stack = new ArrayDeque<>();
+        Deque<Node<E>> aux = new ArrayDeque<>(); // for output
+        aux.push(root);
+        stack.push(root);
+        Node<E> curr;
+        while(!stack.isEmpty()){
+            curr = stack.pop();
+            curr.visit();
+
+            LinkedList<Node<E>> neighbors = adjacencyMap.get(root);
+            // Check if list is null to prevent NullPointerException
+            if(neighbors == null) {
+                continue; // skip iteration
+            }
+
+            // Otherwise add every unvisited node
+            for(Node<E> node: neighbors){
+                if(!node.isVisited()){
+                    stack.push(node);
+                    aux.push(node);
+                }
+            }
+        }
+        
+        //Create meaningful output
+        StringBuilder output = new StringBuilder("[");
+        while(!aux.isEmpty()){
+            Node<E> n = aux.pop();
+            output.append(n.getData().toString());
+            //Add comma in between if not last element
+            if(!aux.isEmpty()){ 
+                output.append(", ");
+            }
+        }
+        output.append("]");
+        System.out.println(output.toString());
+    }
+
+    // For graphs with unconnected edges, completely searches
+    public void DFScomplete(Node<E> root){
+        DFS(root);
+
+        for(Node<E> node: adjacencyMap.keySet()){
+            if(!node.isVisited()){
+                DFS(node);
+            }
+        }
+    }
+
+    /**
      * A Depth First Search without Recursion, an iterative approach
      * While Stack is not Empty
      *  1) Visit Current Node
