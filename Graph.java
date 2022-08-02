@@ -146,7 +146,6 @@ public class Graph <E>{
 
         // auxiliary que that helps print the output
         Deque<Node<E>> aux = new ArrayDeque<>();
-        aux.add(root);
 
         Node<E> curr;   
         while(!queue.isEmpty()){
@@ -176,7 +175,7 @@ public class Graph <E>{
             }
         }
         // Use auxiliary queue to create meaningful output
-        StringBuilder output = new StringBuilder("[ ");
+        StringBuilder output = new StringBuilder("[");
         while(!aux.isEmpty()){
             Node<E> n = aux.pop();
             output.append(n.getData().toString());
@@ -185,8 +184,9 @@ public class Graph <E>{
                 output.append(", ");
             }
         }
-        output.append(" ]");
+        output.append("]");
         System.out.println(output.toString());
+
     }
 
 
@@ -203,8 +203,16 @@ public class Graph <E>{
         graph.addEdge(a,c); // 0->2
         graph.addEdge(c,d); // 2->3
 
+        System.out.println("======== [Graph 1] Breadth First Search ========");
         // We pass in 1 as root node
         graph.BreadthFirstSearch(b); // result should be 1, 0, 3, 2
         
+        System.out.println("======== [Graph 2] Breadth First Search ========");
+        graph.reset(); // Reset visited nodes
+        graph = new Graph<>(false);
+        graph.addEdge(a,d); // 0->3
+        graph.addEdge(a,b); // 0->1
+        graph.addEdge(c,e); // 2->4
+        graph.BreadthFirstSearch(a); // Start w/ root node "0"
     }
 }
