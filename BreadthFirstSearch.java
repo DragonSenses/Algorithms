@@ -3,6 +3,27 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class BreadthFirstSearch <E> {
+
+    /**
+     * Creates meaningful output of the search by consuming the 
+     * auxiliary ArrayDeque that results from the search
+     * @param aux auxiliary data structure that stores the nodes
+     * in the search
+     */
+    public static <E> void output(Deque<Node<E>> aux){
+        StringBuilder output = new StringBuilder("[");
+        while(!aux.isEmpty()){
+            Node<E> n = aux.pop();
+            output.append(n.getData().toString());
+            //Add comma in between if not last element
+            if(!aux.isEmpty()){ 
+                output.append(", ");
+            }
+        }
+        output.append("]");
+        System.out.println(output.toString());
+    }
+
     /**
      * An iterative approach to BreadthFirstSearch, which searches
      * through the graph through levels. We process nodes in the
@@ -11,7 +32,7 @@ public class BreadthFirstSearch <E> {
      * 
      * @param root Node to start search in
      */
-    public void BreadthFirstSearch(Graph<E> g, Node<E> root) {
+    public void BFS(Graph<E> g, Node<E> root) {
         if (root == null) {
             return;
         }
@@ -51,8 +72,7 @@ public class BreadthFirstSearch <E> {
             }
         }
         // Use auxiliary queue to create meaningful output
-        Consumer(Deque<Node<E>>) c = (Deque<Node<E>> aux) -> (g.output(aux));
-        this.output(aux);
+        output(aux);
     }
 
     /**
@@ -63,11 +83,11 @@ public class BreadthFirstSearch <E> {
      * @param root the node to begin searched rooted at this node
      */
     public void BreadthFirstSearchComplete(Graph<E> g, Node<E> root) {
-        BreadthFirstSearch(g, root); // Call Search Once
+        BFS(g, root); // Call Search Once
         // Continue calling Search for each node with unconnected edge
         for (Node<E> n : g.getNodes()) {
             if (!n.isVisited()) {
-                BreadthFirstSearch(g, n);
+                BFS(g, n);
             }
         }
     }
@@ -101,5 +121,10 @@ public class BreadthFirstSearch <E> {
         graph.reset();
         System.out.println("Breadth First Search, complete pass in Unconnected Graph");
         graph.BreadthFirstSearchComplete(a); // output: [0, 3, 1] abd [4, 2]
+    }
+
+    public static void main(String[] args){
+        boolean test = true;
+        if(test) { testBFS(); }
     }
 }
