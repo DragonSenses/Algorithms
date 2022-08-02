@@ -144,6 +144,10 @@ public class Graph <E>{
         Deque<Node<E>> queue = new ArrayDeque<>();
         queue.add(root);
 
+        // auxiliary que that helps print the output
+        Deque<Node<E>> aux = new ArrayDeque<>();
+        aux.add(root);
+
         Node<E> curr;   
         while(!queue.isEmpty()){
             curr = queue.poll(); // Remove the first element of the queue
@@ -155,7 +159,7 @@ public class Graph <E>{
 
             curr.visit(); // Visit the node
             // Perform an Operation
-            System.out.print(curr.toString() + " ");
+            aux.add(curr);
 
             LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
 
@@ -171,7 +175,18 @@ public class Graph <E>{
                 }
             }
         }
-        System.out.println();
+        // Use auxiliary queue to create meaningful output
+        StringBuilder output = new StringBuilder("[ ");
+        while(!aux.isEmpty()){
+            Node<E> n = aux.pop();
+            output.append(n.getData().toString());
+            //Add comma in between if not last element
+            if(!aux.isEmpty()){ 
+                output.append(", ");
+            }
+        }
+        output.append(" ]");
+        System.out.println(output.toString());
     }
 
 
