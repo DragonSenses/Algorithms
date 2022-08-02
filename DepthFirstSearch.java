@@ -1,5 +1,6 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
 
 public class DepthFirstSearch {
         /**
@@ -26,7 +27,7 @@ public class DepthFirstSearch {
      * Iterative Approach DFS rooted at incoming parameter node
      * @param root node to start search with
      */
-    public void DFS(Node<E> root) {
+    public static <E> void DFS(Graph<E> graph, Node<E> root) {
         Deque<Node<E>> stack = new ArrayDeque<>();
         Deque<Node<E>> aux = new ArrayDeque<>(); // for output
         aux.push(root);
@@ -36,7 +37,7 @@ public class DepthFirstSearch {
             curr = stack.pop();
             curr.visit();
 
-            LinkedList<Node<E>> neighbors = adjacencyMap.get(root);
+            LinkedList<Node<E>> neighbors = graph.getNeighbors(root);
             // Check if list is null to prevent NullPointerException
             if(neighbors == null) {
                 continue; // skip iteration
@@ -56,12 +57,12 @@ public class DepthFirstSearch {
     }
 
     // For graphs with unconnected edges, completely searches
-    public void DFScomplete(Node<E> root){
-        DFS(root);
+    public static <E> void DFScomplete(Graph<E> graph, Node<E> root){
+        DFS(graph,root);
 
-        for(Node<E> node: adjacencyMap.keySet()){
+        for(Node<E> node: graph.getNodes()){
             if(!node.isVisited()){
-                DFS(node);
+                DFS(graph,node);
             }
         }
     }
@@ -76,7 +77,7 @@ public class DepthFirstSearch {
      * @returns A doubly ended queue that contains the order of DepthFirstSearch
      * of the nodes of thhe graph rooted at the incoming parameter vertex
      */
-    public Deque<Node<E>> DepthFirstSearch(Node<E> root){
+    public static <E> Deque<Node<E>> depthFirstSearch(Graph<E> graph, Node<E> root){
         Deque<Node<E>> aux = new ArrayDeque<>();
         Deque<Node<E>> result = new ArrayDeque<>();
         Deque<Node<E>> stack = new ArrayDeque<>();
@@ -92,12 +93,12 @@ public class DepthFirstSearch {
                 aux.push(curr);
 
                 // Check if neighbors is null
-                LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
+                LinkedList<Node<E>> neighbors = graph.getNeighbors(curr);
                 if(neighbors == null) { continue; } // Skip this iteration
 
                 // 3. Add unvisited adjacent nodes
                 // For every node that forms an edge with current node
-                for(Node<E> node : adjacencyMap.get(curr)) {
+                for(Node<E> node : graph.getNeighbors(curr)) {
                     // If Node has not been visited, push it within the stack
                     if(!node.isVisited()){
                         stack.push(node);
@@ -115,21 +116,21 @@ public class DepthFirstSearch {
      * a Graph with unconnected edges
      * @param root starting node to begin search in
      */
-    public void DepthFirstSearchComplete(Node<E> root){
-        DepthFirstSearch(root);
+    public static <E> void DepthFirstSearchComplete(Graph<E> graph, Node<E> root){
+        depthFirstSearch(graph, root);
 
-        for(Node<E> node: adjacencyMap.keySet()){
+        for(Node<E> node: graph.getNodes()){
             if(!node.isVisited()){
-                DepthFirstSearch(node);
+                depthFirstSearch(graph,node);
             }
         }
     }
 
-    public void DFSRecursive(Node<E> root){
+    public static <E> void DFSRecursive(Graph<E> graph, Node<E> root){
         root.visit();
         System.out.print(root.toString() + " ");
 
-        LinkedList<Node<E>> neighbors = adjacencyMap.get(root);
+        LinkedList<Node<E>> neighbors = graph.getNeighbors(root);
         // Check if list is null to prevent NullPointerException
         if(neighbors == null) {
             return; // skip iteration
@@ -138,7 +139,7 @@ public class DepthFirstSearch {
         // Otherwise add every unvisited node
         for(Node<E> node: neighbors){
             if(!node.isVisited()){
-                DFSRecursive(node);
+                DFSRecursive(graph, node);
             }
         }
     }
@@ -160,7 +161,7 @@ public class DepthFirstSearch {
         graph.addEdge(four,three); // Unconnected
 
         // Starting at node 1, output should be [1, 0, 2, 4, 3]
-        graph.DFSRecursive(one);
+        DFSRecursive(graph, one);
     }
 
     public static void testDFS(){
@@ -196,7 +197,7 @@ public class DepthFirstSearch {
       // 6, 3, 1
       // then trace back the path to root 7 and continue with hedge 7 -> 8
       // so output should be [7, 5, 2 , 4, 0, 6, 3, 1, 8]
-      graph.DepthFirstSearch(seven); 
+      depthFirstSearch(graph,seven); 
     }
 
     public static void test2DFS(){
@@ -237,7 +238,7 @@ public class DepthFirstSearch {
         // 6th Path: 25 -> 10
         graph.addEdge(twentyFive,ten);
 
-        graph.DFS(three);
+        DFS(graph,three);
         //Final output: [3, 5, 1, 2, 8, 25, 12, 6, 4, 9, 10]
         
     }
@@ -246,6 +247,6 @@ public class DepthFirstSearch {
 
 
         boolean DFS = false;
-        if(DFS) simpleTestDFS();
+        if(DFS) testDFS();
     }
 }
