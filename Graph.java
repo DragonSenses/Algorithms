@@ -222,6 +222,24 @@ public class Graph <E>{
         }
     }
 
+    public void DFSRecursive(Node<E> root){
+        root.visit();
+        System.out.print(root.toString() + " ");
+
+        LinkedList<Node<E>> neighbors = adjacencyMap.get(root);
+        // Check if list is null to prevent NullPointerException
+        if(neighbors == null) {
+            return; // skip iteration
+        }
+
+        // Otherwise add every unvisited node
+        for(Node<E> node: neighbors){
+            if(!node.isVisited()){
+                DFSRecursive(node);
+            }
+        }
+    }
+
     /**
      * An iterative approach to BreadthFirstSearch, which searches 
      * through the graph through levels. We process nodes in the 
@@ -342,7 +360,7 @@ public class Graph <E>{
         graph.addEdge(four,three); // Unconnected
 
         // Starting at node 1, output should be [1, 0, 2, 4, 3]
-        graph.DepthFirstSearchComplete(one);
+        graph.DFSRecursive(one);
     }
 
     public static void testDFS(){
@@ -418,6 +436,9 @@ public class Graph <E>{
 
         // 6th Path: 25 -> 10
         graph.addEdge(twentyFive,ten);
+
+        graph.DFS(three);
+        //Final output: [3, 5, 1, 2, 8, 25, 12, 6, 4, 9, 10]
         
     }
 
