@@ -122,6 +122,11 @@ public class Graph <E>{
                 curr.visit();   // 1. Visit the current node
                 // 2. Perform the operation
                 result.push(curr);
+
+                // Check if neighbors is null
+                LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
+                if(neighbors == null) { continue; } // Skip this iteration
+
                 // 3. Add unvisited adjacent nodes
                 // For every node that forms an edge with current node
                 for(Node<E> node : adjacencyMap.get(curr)) {
@@ -144,7 +149,23 @@ public class Graph <E>{
             }
         }
         output.append("]");
+        System.out.println(output.toString());
         return result;
+    }
+
+    /**
+     * Depth First Search algorithm that allows to completely search
+     * a Graph with unconnected edges
+     * @param root starting node to begin search in
+     */
+    public void DepthFirstSearchComplete(Node<E> root){
+        DepthFirstSearch(root);
+
+        for(Node<E> node: adjacencyMap.keySet()){
+            if(!node.isVisited()){
+                DepthFirstSearch(node);
+            }
+        }
     }
 
     /**
@@ -250,6 +271,21 @@ public class Graph <E>{
         graph.reset(); 
         System.out.println("Breadth First Search, complete pass in Unconnected Graph");
         graph.BreadthFirstSearchComplete(a);
+    }
+
+    public static void simpleTestDFS(){
+        Graph<Integer> graph = new Graph<>(true);
+        // Create Nodes
+        Node<Integer> zero = new Node<>(0);
+        Node<Integer> one = new Node<>(1);
+        Node<Integer> two = new Node<>(2);
+        Node<Integer> three = new Node<>(3);
+        Node<Integer> four = new Node<>(4);
+
+        graph.addEdge(zero,one);
+        graph.addEdge(zero,two);
+        graph.addEdge(two,one);
+        graph.addEdge(four,three); // Unconnected
     }
 
     public static void testDFS(){
