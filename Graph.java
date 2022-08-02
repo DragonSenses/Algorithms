@@ -22,6 +22,15 @@ public class Graph <E>{
     }
 
     /**
+     * Returns the LinkedList of neighbors connected to this node
+     * @param n Node to get list of neighbors from
+     * @return a list of edges incident to the parameter node
+     */
+    public LinkedList<Node<E>> getNeighbors(Node<E> n){
+        return adjacencyMap.get(n);
+    }
+
+    /**
      * Checks for possible duplicate edges, before adding an edge.
      * containg the Nodes u -> v, then update the list of neighbors
      * @param u The origin node of the edge
@@ -101,6 +110,26 @@ public class Graph <E>{
     }
 
     /**
+     * Creates meaningful output of the search by consuming the 
+     * auxiliary ArrayDeque that results from the search
+     * @param aux auxiliary data structure that stores the nodes
+     * in the search
+     */
+    public void output(Deque<Node<E>> aux){
+        StringBuilder output = new StringBuilder("[");
+        while(!aux.isEmpty()){
+            Node<E> n = aux.pop();
+            output.append(n.getData().toString());
+            //Add comma in between if not last element
+            if(!aux.isEmpty()){ 
+                output.append(", ");
+            }
+        }
+        output.append("]");
+        System.out.println(output.toString());
+    }
+
+    /**
      * Iterative Approach DFS rooted at incoming parameter node
      * @param root node to start search with
      */
@@ -130,17 +159,7 @@ public class Graph <E>{
         }
         
         //Create meaningful output
-        StringBuilder output = new StringBuilder("[");
-        while(!aux.isEmpty()){
-            Node<E> n = aux.pop();
-            output.append(n.getData().toString());
-            //Add comma in between if not last element
-            if(!aux.isEmpty()){ 
-                output.append(", ");
-            }
-        }
-        output.append("]");
-        System.out.println(output.toString());
+        output(aux);
     }
 
     // For graphs with unconnected edges, completely searches
@@ -164,8 +183,9 @@ public class Graph <E>{
      * @returns A doubly ended queue that contains the order of DepthFirstSearch
      * of the nodes of thhe graph rooted at the incoming parameter vertex
      */
-    public ArrayDeque<Node<E>> DepthFirstSearch(Node<E> root){
-        ArrayDeque<Node<E>> result = new ArrayDeque<>();
+    public Deque<Node<E>> DepthFirstSearch(Node<E> root){
+        Deque<Node<E>> aux = new ArrayDeque<>();
+        Deque<Node<E>> result = new ArrayDeque<>();
         Deque<Node<E>> stack = new ArrayDeque<>();
         stack.push(root);
 
@@ -176,6 +196,7 @@ public class Graph <E>{
                 curr.visit();   // 1. Visit the current node
                 // 2. Perform the operation
                 result.push(curr);
+                aux.push(curr);
 
                 // Check if neighbors is null
                 LinkedList<Node<E>> neighbors = adjacencyMap.get(curr);
@@ -192,18 +213,7 @@ public class Graph <E>{
             }
         }
         // Create meaningful output
-        ArrayDeque<Node<E>> aux = result.clone(); // Create a copy of stack
-        StringBuilder output = new StringBuilder("[");
-        while(!aux.isEmpty()){
-            Node<E> n = aux.pop();
-            output.append(n.getData().toString());
-            //Add comma in between if not last element
-            if(!aux.isEmpty()){ 
-                output.append(", ");
-            }
-        }
-        output.append("]");
-        System.out.println(output.toString());
+        output(aux);
         return result;
     }
 
@@ -285,17 +295,7 @@ public class Graph <E>{
             }
         }
         // Use auxiliary queue to create meaningful output
-        StringBuilder output = new StringBuilder("[");
-        while(!aux.isEmpty()){
-            Node<E> n = aux.pop();
-            output.append(n.getData().toString());
-            //Add comma in between if not last element
-            if(!aux.isEmpty()){ 
-                output.append(", ");
-            }
-        }
-        output.append("]");
-        System.out.println(output.toString());
+        this.output(aux);
     }
 
     /**
@@ -339,10 +339,10 @@ public class Graph <E>{
         graph.addEdge(a,b); // 0->1
         graph.addEdge(c,e); // 2->4
         System.out.println("Breadth First Search, one pass in Unconnected Graph");
-        graph.BreadthFirstSearch(a); // Start w/ root node "0"
+        graph.BreadthFirstSearch(a); // Start w/ root node "0", output: [0, 3, 1]
         graph.reset(); 
         System.out.println("Breadth First Search, complete pass in Unconnected Graph");
-        graph.BreadthFirstSearchComplete(a);
+        graph.BreadthFirstSearchComplete(a); //output: [0, 3, 1] abd [4, 2]
     }
 
     public static void simpleTestDFS(){
@@ -443,10 +443,10 @@ public class Graph <E>{
     }
 
     public static void main(String[] args){
-        boolean BFS = false;
+        boolean BFS = true;
         if(BFS) testBFS();
 
-        boolean DFS = true;
+        boolean DFS = false;
         if(DFS) simpleTestDFS();
     }
 }
