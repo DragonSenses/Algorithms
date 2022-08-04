@@ -151,7 +151,10 @@ public class BreadthFirstSearch {
             sb.append(v.getElement().toString());
             sb.append(", ");
         }
-        // sb.replace(sb.length()-3, sb.length()-2,"");
+        // Remove the last comma and space ", " from the StringBuilder
+        System.out.println(sb.substring(sb.length()-2));
+        sb.replace(sb.length()-2, sb.length(),""); 
         sb.append("]");
+        System.out.println(sb.toString());
     }
 }
