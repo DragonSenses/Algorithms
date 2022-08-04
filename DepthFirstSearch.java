@@ -172,7 +172,7 @@ public class DepthFirstSearch {
     
 
     public static void simpleTestDFS(){
-        Graph<Integer> graph = new Graph<>(true);
+        Graph<Integer> graph = new Graph<>(false);
         // Create Nodes
         Node<Integer> zero = new Node<>(0);
         Node<Integer> one = new Node<>(1);
@@ -186,7 +186,7 @@ public class DepthFirstSearch {
         graph.addEdge(four,three); // Unconnected
 
         // Starting at node 1, output should be [1, 0, 2, 4, 3]
-        DFSRecursive(graph, one);
+        DFS(graph, one);
     }
 
     public static void testDFS(){
@@ -222,13 +222,13 @@ public class DepthFirstSearch {
       // 6, 3, 1
       // then trace back the path to root 7 and continue with hedge 7 -> 8
       // so output should be [7, 5, 2 , 4, 0, 6, 3, 1, 8]
-      depthFirstSearch(graph,seven); 
+      DFSRecursive(graph,seven); 
     }
 
     public static void test2DFS(){
         Graph<Integer> graph = new Graph<>(true);
-        // Create Nodes
 
+        // Create Nodes
         Node<Integer> three = new Node<>(3);
         Node<Integer> five = new Node<>(5);
         Node<Integer> one = new Node<>(1);
@@ -271,13 +271,13 @@ public class DepthFirstSearch {
     public static void main(String[] args){
 
 
-        boolean DFS = false;
-        if(DFS) testDFS();
+        boolean DFS = true;
+        if(DFS) simpleTestDFS(); // 1 0 2 4 3
 
 
-        int i = 1;
-        for(; i <4; i++){
-            System.out.println(i);
-        }
+        // int i = 1;
+        // for(; i <4; i++){
+        //     System.out.println(i);
+        // }
     }
 }
