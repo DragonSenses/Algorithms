@@ -5,8 +5,9 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+// Work In Progress => Does not backtrack
 public class BreadthFirstSearch {
-
+    public static boolean debug = true;
     /**
      * A Breadth-First Search algorithm searches the graph by sending out multiple
      * explorers collectively, taking one step at a time in all directions. This
@@ -34,10 +35,12 @@ public class BreadthFirstSearch {
             nextLevel = new LinkedPositionalList<>(); 
             // For each vertex in the current level
             for(Vertex<V> v : level.eIterable()) {
+                if(debug) System.out.println(v.getElement().toString());
                 // For each edge connected to that vertex
                 for(Edge<E> e : g.outgoingEdges(v)){
                     // Get the other endpoint of vertex v, to get v2
                     v2 = g.opposite(v,e);
+                    if(debug) System.out.println(v.getElement().toString());
                     // If the set of visited nodes does not contain v2
                     if(!visited.contains(v2)){
                         visited.add(v2); // Add v2 to the set
@@ -142,8 +145,8 @@ public class BreadthFirstSearch {
         Set<Vertex<String>> visited = new LinkedHashSet<>(); 
         Map<Vertex<String>,Edge<String>> map = new HashMap<>();
 
-        System.out.println(graph.first());
-        System.out.println(graph.last());
+        // System.out.println(graph.first());
+        // System.out.println(graph.last());
         BFS(graph,graph.first(),visited,map);
         
         StringBuilder sb = new StringBuilder("[");
@@ -152,7 +155,7 @@ public class BreadthFirstSearch {
             sb.append(", ");
         }
         // Remove the last comma and space ", " from the StringBuilder
-        System.out.println(sb.substring(sb.length()-2));
+        // System.out.println(sb.substring(sb.length()-2));
         sb.replace(sb.length()-2, sb.length(),""); 
         sb.append("]");
         System.out.println(sb.toString());
