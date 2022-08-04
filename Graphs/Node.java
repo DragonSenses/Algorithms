@@ -1,3 +1,4 @@
+package Graphs;
 public class Node <E> {
     private E data;
     public boolean visited; // Tracks when a node has been visited
