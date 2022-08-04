@@ -216,6 +216,22 @@ public class Graph <V,E>  {
     }
 
     /**
+     * Returns the first vertex inserted within the Graph
+     * @return the first vertex inserted within the Graph
+     */
+    public Vertex<V> first() {
+        return vertices.first().getElement();
+    }
+
+    /**
+     * Returns the last vertex inserted within the Graph
+     * @return the last vertex inserted wtihin the Graph
+     */
+    public Vertex<V> last() {
+        return vertices.last().getElement();
+    }
+
+    /**
      * Returns the number of edges leaving vertex v.
      * For an undirected graph, this is the same result returned by inDegree
      * 
@@ -371,7 +387,7 @@ public class Graph <V,E>  {
      * the starting node u. Maintains a set of visited vertices and stores the 
      * search within a map. 
      * @param g - The graph to search
-     * @param u - The vertex to search for
+     * @param u - The vertex to start search with
      * @param visited - A set that contains nodes that have already been visited
      * @param map - the map that stores explored paths
      */
