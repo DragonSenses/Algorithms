@@ -176,9 +176,15 @@ public class Fibonacci {
     }
 
     /**
+     * A series of Fibonacci tuples represented as integer array. 
+     * Ex. (0, 1), (1, 1), (1, 2), (2, 3), (3, 5), (5, 8), (8, 13), (13, 21). . . .
+     * 
+     * Given (3,5) the successor is (5,3+5) or (t[1],t[0]+t[1])
+     * 
      * Usings Streams API and iterate() we can form the fibonacci sequence with
      * a UnaryOperator<T>. Remember that iterate is unbounded so we must use in
-     * conjunction with limit. The lambda specifies the successor element
+     * conjunction with limit. The lambda will be applied successively to find
+     * the successor element.
      */
     public static void fibonacciStream(){
         StringBuilder sb = new StringBuilder();
@@ -186,6 +192,17 @@ public class Fibonacci {
               .limit(20)
               .forEach(t -> sb.append("(" + t[0] + "," + t[1] + ") "));
         System.out.println(sb.toString());
+    }
+
+    /**
+     * Fibonacci sequence using Streams. Cleaner output without printing out
+     * every tuple. Instead we extract only the first element of each tuple.
+     */
+    public static void fibonacciStreams(){
+        Stream.iterate(new int[]{0,1}, t -> new int[]{t[1], t[0]+t[1]})
+              .limit(20)
+              .map(t -> t[0])       // Extract only the first element of the tuple    
+              .forEach(System.out::println);
     }
 
 
@@ -211,6 +228,7 @@ public class Fibonacci {
         // System.out.println("For reference here is MAX_VALUE: " + Integer.MAX_VALUE); 
 
         fibonacciStream();
+        fibonacciStreams();
 
     }
 }
