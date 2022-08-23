@@ -199,10 +199,12 @@ public class Fibonacci {
      * every tuple. Instead we extract only the first element of each tuple.
      */
     public static void fibonacciStreams(){
+        StringBuilder sb = new StringBuilder();
         Stream.iterate(new int[]{0,1}, t -> new int[]{t[1], t[0]+t[1]})
               .limit(20)
               .map(t -> t[0])       // Extract only the first element of the tuple    
-              .forEach(System.out::println);
+              .forEach(t -> sb.append(t + " "));
+            System.out.println(sb.toString());
     }
 
 
@@ -211,21 +213,21 @@ public class Fibonacci {
         final int limit = 50;
         final int badLimit = 40;
 
-        // System.out.println("The good...");
-        // for (int n = 0; n < limit; n++)
-        //     System.out.println(n + ": " + fibonacciGood(n)[0]);
+        System.out.println("The good...");
+        for (int n = 0; n < limit; n++)
+            System.out.println(n + ": " + fibonacciGood(n)[0]);
 
-        // System.out.println();
-        // System.out.println("The bad...");
-        // for (int n = 0; n < badLimit; n++)
-        //     System.out.println(n + ": " + fibonacciBad(n));
+        System.out.println();
+        System.out.println("The bad...");
+        for (int n = 0; n < badLimit; n++)
+            System.out.println(n + ": " + fibonacciBad(n));
 
-        // System.out.println();
-        // System.out.println("Try it yourself");
-        // fibonacciIterative();
+        System.out.println();
+        System.out.println("Try it yourself");
+        fibonacciIterative();
 
-        // System.out.println(); //2,147,483,647
-        // System.out.println("For reference here is MAX_VALUE: " + Integer.MAX_VALUE); 
+        System.out.println(); //2,147,483,647
+        System.out.println("For reference here is MAX_VALUE: " + Integer.MAX_VALUE); 
 
         fibonacciStream();
         fibonacciStreams();
