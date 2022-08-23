@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * The Fibonacci series, is a series of numbers in which each number
@@ -174,27 +175,42 @@ public class Fibonacci {
         return answer;
     }
 
+    /**
+     * Usings Streams API and iterate() we can form the fibonacci sequence with
+     * a UnaryOperator<T>. Remember that iterate is unbounded so we must use in
+     * conjunction with limit. The lambda specifies the successor element
+     */
+    public static void fibonacciStream(){
+        StringBuilder sb = new StringBuilder();
+        Stream.iterate(new int[]{0,1}, t -> new int[]{t[1], t[0]+t[1]})
+              .limit(20)
+              .forEach(t -> sb.append("(" + t[0] + "," + t[1] + ") "));
+        System.out.println(sb.toString());
+    }
+
 
     public static void main(String[] args){
         // Warning: bad Fibonacci runs really slow at 40+, 45 is ok, 50 is horrendous
         final int limit = 50;
         final int badLimit = 40;
 
-        System.out.println("The good...");
-        for (int n = 0; n < limit; n++)
-            System.out.println(n + ": " + fibonacciGood(n)[0]);
+        // System.out.println("The good...");
+        // for (int n = 0; n < limit; n++)
+        //     System.out.println(n + ": " + fibonacciGood(n)[0]);
 
-        System.out.println();
-        System.out.println("The bad...");
-        for (int n = 0; n < badLimit; n++)
-            System.out.println(n + ": " + fibonacciBad(n));
+        // System.out.println();
+        // System.out.println("The bad...");
+        // for (int n = 0; n < badLimit; n++)
+        //     System.out.println(n + ": " + fibonacciBad(n));
 
-        System.out.println();
-        System.out.println("Try it yourself");
-        fibonacciIterative();
+        // System.out.println();
+        // System.out.println("Try it yourself");
+        // fibonacciIterative();
 
-        System.out.println(); //2,147,483,647
-        System.out.println("For reference here is MAX_VALUE: " + Integer.MAX_VALUE); 
+        // System.out.println(); //2,147,483,647
+        // System.out.println("For reference here is MAX_VALUE: " + Integer.MAX_VALUE); 
+
+        fibonacciStream();
 
     }
 }
