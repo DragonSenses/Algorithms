@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
 /**
  * An algorithm thatt shuffles the values in an Array, or rearrange the order
@@ -22,6 +23,13 @@ public class ShuffleArray {
     }
 
     public static void main(String[] args){
-        
+        // Populate an integer array up to n values
+        int n = 10;
+        int[] arr = IntStream.rangeClosed(1,n).toArray();
+
+        System.out.println("================ Before Shuffle ================");
+        System.out.println(Arrays.toString(arr));
+        System.out.println("\n================ After Shuffle ================");
+        shuffle(arr);
     }
 }
