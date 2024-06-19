@@ -35,11 +35,36 @@ Topics: Linked List, Math, Recursion
 
 # Solution
 
-1. Traverse each node for both lists
-2. At each iteration
-   1. Increment n, first iteration n = 0. 10^n
-   2. Carry
-3. Sum the numbers. Add sum to output list.
+**Key points**
+
+- Given two non-empty linked lists representing two non-negative integers
+- Digits stored in reverse order
+- Each node contains a single digit
+- Add the two numbers and return the sum as a new linked list, also in reverse order
+
+**Approach**
+
+1. **Simultaneous Traversal:**
+   - Traverse both linked lists simultaneously, accessing each node.
+   - At each iteration, consider the corresponding nodes from both lists.
+
+2. **Compute Sum and Digit:**
+   - Compute the sum of the current digits along with any carry from the previous step.
+   - Extract the last digit (the result digit) from the sum.
+
+3. **Advance Pointers:**
+   - Advance the pointers to the next nodes in both linked lists.
+   - Continue the traversal until both lists are exhausted.
+
+4. **Handle Carry:**
+   - Keep track of any carry resulting from the addition.
+   - If there's a carry after the last iteration, create an additional node for it.
+
+**Key steps**
+
+1. Traverse both linked lists, adding digits and handling carry.
+2. Create new nodes for the result.
+3. Return the head of the resultant linked list
 
 ## Java
 
@@ -55,8 +80,33 @@ Topics: Linked List, Math, Recursion
  * }
  */
 class Solution {
-  public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    
-  }
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode sentinel = new ListNode(0);
+        ListNode curr = sentinel;
+        int carry = 0;
+
+        while (l1 != null || l2 != null) {
+            int num1 = (l1 != null) ? l1.val : 0;
+            int num2 = (l2 != null) ? l2.val : 0;
+
+            int sum = num1 + num2 + carry;
+            carry = sum / 10;
+            int digit = sum % 10;
+
+            curr.next = new ListNode(digit);
+
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
+
+            curr = curr.next;
+        }
+
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
+        }
+
+        return sentinel.next;
+    }
 }
 ```
+
