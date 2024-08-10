@@ -96,15 +96,17 @@ public class LongestSubstring {
     Set<Character> set = new HashSet<>();
     int left = 0;
     int right = 0;
-    int max = -1;
+    int max = 0;
 
     while (right < s.length()) {
       if (!set.contains(s.charAt(right))) {
+        // If the character is not in the set, add it and move the right pointer
         set.add(s.charAt(right));
         right++;
-        // Update the maximum 
+        // Update the maximum length of the substring
         max = Math.max(set.size(), max);
       } else {
+        // If the character is already in the set, remove the leftmost character
         set.remove(s.charAt(left));
         left++;
       }
@@ -114,6 +116,41 @@ public class LongestSubstring {
   }
 }
 ```
+
+A few improvements to the solution:
+
+- Current window length is `right - left + 1`, we can use this to calculate the current `max` length substring.
+- Initialize `right` within the for loop
+
+```java
+public int lengthOfLongestSubstring(String s) {
+  Set<Character> set = new HashSet<>();
+  int left = 0;
+  int max = 0;
+
+  // Iterate through the characters of the input string
+  for (int right = 0; right < s.length(); right++) {
+    // If the character is not already in the set (not a repeating character)
+    if (!set.contains(s.charAt(right))) {
+      // Add it to the set
+      set.add(s.charAt(right));
+      // Move the right pointer to the right
+      right++;
+      // Update max with the current length of the substring: right - left + 1
+      max = Math.max(max, right - left);
+    } else {
+      // If the character is already in the set
+      // Remove the leftmost character from the set
+      set.remove(s.charAt(left));
+      // Move the left pointer to the right
+      left++;
+    }
+}
+
+  return max;
+}
+```
+
 
 ## Bruteforce
 
