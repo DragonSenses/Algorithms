@@ -117,7 +117,9 @@ public class LongestSubstring {
 }
 ```
 
-A few improvements to the solution:
+  - Runtime of ~7ms
+
+A few improvements to the solution (runtime 6ms) a 14.29% increase (100 x (6-7)/|7| = -14.285 so 14.29 faster) (%increase = 100 x (final-initial)/|initial|):
 
 - Current window length is `right - left + 1`, we can use this to calculate the current `max` length substring.
 - Initialize `right` within the for loop
@@ -126,28 +128,18 @@ A few improvements to the solution:
 public int lengthOfLongestSubstring(String s) {
   Set<Character> set = new HashSet<>();
   int left = 0;
-  int max = 0;
+  int maxLength = 0;
 
-  // Iterate through the characters of the input string
   for (int right = 0; right < s.length(); right++) {
-    // If the character is not already in the set (not a repeating character)
-    if (!set.contains(s.charAt(right))) {
-      // Add it to the set
-      set.add(s.charAt(right));
-      // Move the right pointer to the right
-      right++;
-      // Update max with the current length of the substring: right - left + 1
-      max = Math.max(max, right - left);
-    } else {
-      // If the character is already in the set
-      // Remove the leftmost character from the set
+    while (set.contains(s.charAt(right))) {
       set.remove(s.charAt(left));
-      // Move the left pointer to the right
       left++;
     }
+    set.add(s.charAt(right));
+    maxLength = Math.max(maxLength, right - left + 1);
 }
 
-  return max;
+  return maxLength;
 }
 ```
 
