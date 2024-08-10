@@ -30,7 +30,90 @@ Constraints:
 
 # Solution
 
+To solve this problem, we employ the *sliding window approach* along with a `HashSet`. We choose to use a `HashSet` not primarily for maintaining unique elements (since we ensure uniqueness using `contains()`), but because the `contains()` method has an average time complexity of **O(1)** for a `HashSet`. In contrast, if we were to use a `List`, the `contains()` operation would run in **O(n)** time.
 
+## **Sliding Window**
+
+**Sliding Window Technique** is a method used to efficiently solve problems that involve defining a window or range in the input data (arrays or strings) and then moving that window across the data to perform some operation within the window. 
+ - This technique is commonly used in algorithms like:
+   -  finding subarrays with a specific sum, 
+   -  finding the longest substring with unique characters, 
+   -  or solving problems that require a fixed-size window to process elements efficiently.
+
+There are two main types of sliding windows:
+
+1. Fixed Size Sliding Window: The window size remains constant as it slides through the data.
+2. Variable Size Sliding Window: The window size can change based on certain conditions.
+
+### Sliding Window algorithm
+
+1. **What is the sliding window?**
+   - Imagine a "window" (a subarray or substring) that slides over the input data (e.g., an array or string).
+   - The window's size can change dynamically as it moves through the data.
+   - The goal is to find an optimal window that satisfies certain conditions (e.g., maximum sum, longest substring, etc.).
+
+2. **How does it work?**
+   - Initialize two pointers: `start` and `end`.
+   - Initially, both pointers point to the beginning of the data.
+   - Move the `end` pointer to the right, expanding the window.
+   - Adjust the `start` pointer if needed (e.g., when a condition is violated).
+   - Keep track of the optimal result within the window.
+
+3. **Common use cases:**
+   - **Maximum/Minimum Sum Subarray:** Find the subarray with the largest/smallest sum.
+   - **Longest Substring Without Repeating Characters:** Find the longest substring without duplicate characters.
+   - **Fixed-Length Window Problems:** Compute results for fixed-size windows (e.g., moving averages).
+
+4. **Advantages:**
+   - Reduces the time complexity by avoiding unnecessary recalculations.
+   - Efficiently handles problems involving contiguous subarrays or substrings.
+
+## Algorithm
+
+**Sliding Window Technique**:
+   - Use a sliding window approach to maintain a substring without repeating characters.
+   - Initialize two pointers, `left` and `right`, both pointing to the start of the string.
+   - Move the `right` pointer to the right until we encounter a repeating character.
+   - When a repeating character is found, update the `left` pointer to the next position after the first occurrence of that character.
+   - Keep track of the maximum length of the substring encountered so far.
+   - Repeat this process until the `right` pointer reaches the end of the string.
+   - The maximum length of the substring without repeating characters is the answer.
+   - **Time complexity: O(n)**, where n is the length of the input string.
+
+**Optimized Sliding Window with Hash Set**:
+   - Instead of using a dictionary to store character indices, we can use a hash set to keep track of characters in the current window.
+   - When a repeating character is encountered, remove the leftmost character from the set and move the `left` pointer.
+   - This approach reduces the **space complexity**.
+
+## Java
+
+```java
+import java.util.HashSet;
+import java.util.Set;
+
+public class LongestSubstring {
+  public int lengthOfLongestSubstring(String s) {
+    Set<Character> set = new HashSet<>();
+    int left = 0;
+    int right = 0;
+    int max = -1;
+
+    while (right < s.length()) {
+      if (!set.contains(s.charAt(right))) {
+        set.add(s.charAt(right));
+        right++;
+        // Update the maximum 
+        max = Math.max(set.size(), max);
+      } else {
+        set.remove(s.charAt(left));
+        left++;
+      }
+    }
+
+    return max;
+  }
+}
+```
 
 ## Bruteforce
 
