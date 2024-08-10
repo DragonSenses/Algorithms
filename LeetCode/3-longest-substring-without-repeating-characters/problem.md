@@ -28,3 +28,56 @@ Constraints:
   - 0 <= s.length <= 5 * 10^4
   - `s` consists of English letters, digits, symbols and spaces.
 
+# Solution
+
+
+
+## Bruteforce
+
+The bruteforce is less efficient due to its time complexity of O(n^3) but straightforward.
+
+- Generate all possible substrings of the given string.
+- Among all substrings with unique characters, return the maximum length.
+
+TypeScript:
+
+```ts
+function lengthOfLongestSubstringBruteforce(s: string): number {
+    const n = s.length;
+    let maxLength = 0;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i; j < n; j++) {
+            const substring = s.substring(i, j + 1);
+            if (new Set(substring).size === substring.length) {
+                maxLength = Math.max(maxLength, substring.length);
+            }
+        }
+    }
+
+    return maxLength;
+}
+```
+
+Java:
+
+```java
+public class LongestSubstringBruteforce {
+    public static int lengthOfLongestSubstringBruteforce(String s) {
+        int n = s.length();
+        int maxLength = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                String substring = s.substring(i, j + 1);
+                if (new HashSet<>(Arrays.asList(substring.split(""))).size() == substring.length()) {
+                    maxLength = Math.max(maxLength, substring.length());
+                }
+            }
+        }
+
+        return maxLength;
+    }
+}
+```
+
