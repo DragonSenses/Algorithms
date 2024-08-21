@@ -38,6 +38,37 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
 # Solution
 
+## **Key points**
+
+A **palindrome** is a number (or string) that reads the same forward and backward. When we reverse the digits of a palindrome, we should get the same number.
+
+1. Negative numbers are not palindromes as we see in Example 2
+
+```sh
+Input: x = -121
+
+Output: false
+
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+```
+
+2. Numbers ending with 0 are not palindromes
+
+  - The issue with leading zeros is that they are not significant in the decimal system. In other words:
+     - `021` is equivalent to `21`.
+     - `03` is equivalent to `3`.
+     - `0001` is equivalent to `1`.
+
+  - However, there's an exception: the number `0` itself. It has only one digit, and its reverse is still `0`, so it is indeed a palindrome.
+
+In summary, numbers ending with 0 (except for 0 itself) are not palindromes because their reversed form includes leading zeros, which are not significant.
+
+## Algorithmic Approaches
+
+Let's discuss some algorithmic approaches.
+
+  - Reverse and Compare
+
 
 
 ## Java
