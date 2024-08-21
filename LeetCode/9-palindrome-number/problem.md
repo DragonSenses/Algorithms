@@ -69,7 +69,46 @@ Let's discuss some algorithmic approaches.
 
   - Reverse and Compare
 
+### Reverse and Compare
 
+The naive approach is to create the reverse of the integer argument to compare with the original.
+
+#### Algorithm
+
+1. **Input Validation:**
+   - The function `IsPalindrome` takes an integer `x` as input.
+   - If `x` is negative, it immediately returns `false` because negative numbers are not palindromes.
+   - If `x` is not zero and its last digit is zero (e.g., 120), it also returns `false` because numbers ending with zero cannot be palindromes (except for zero itself).
+
+2. **Reversing the Number:**
+   - The `while` loop continues until `x` becomes zero.
+   - In each iteration:
+     - The last digit of `x` (obtained using `x % 10`) is added to the `reversed` variable after shifting it left by one decimal place (i.e., multiplying by 10).
+     - The last digit is removed from `x` by dividing it by 10 (`x /= 10`).
+   - This process effectively reverses the digits of the original number.
+
+3. **Comparison:**
+   - After the loop, the `original` variable still holds the original number, and `reversed` contains the reversed number.
+   - The function returns `true` if `original` equals `reversed`, indicating that the number is a palindrome; otherwise, it returns `false`.
+
+```java
+public class Solution {
+    public bool IsPalindrome(int x) {
+        if (x < 0) return false; // Negative numbers are not palindromes
+        if (x != 0 && x % 10 == 0) return false; // Numbers ending with 0 are not palindromes
+
+        int original = x; // Store the original number
+        int reversed = 0; // Initialize a variable to store the reversed number
+
+        while (x != 0) {
+            reversed = reversed * 10 + x % 10; // Reverse the digits
+            x /= 10; // Remove the last digit from the original number
+        }
+
+        return original == reversed; // Compare original and reversed numbers
+    }
+}
+```
 
 ## Java
 
