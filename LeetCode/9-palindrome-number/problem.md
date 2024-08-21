@@ -38,7 +38,11 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
 # Solution
 
+
+
 ## Java
+
+### Reverse and Compare
 
 ```java
 class Solution {
@@ -64,5 +68,39 @@ class Solution {
     return original == reversed;
   }
 
+}
+```
+
+## TypeScript
+
+### Reverse and Compare
+
+Here's the equivalent TypeScript code for the given Java solution with some changes:
+
+- In TypeScript, we use `number` as the type for numeric values.
+- The bitwise AND operation `(x & 1)` checks if the last bit of `x` is 0 (i.e., `x` is even).
+- The `Math.trunc(x / 10)` operation truncates the number by removing the last digit.
+
+```typescript
+function isPalindrome(x: number): boolean {
+  // Edge case: Negative numbers are not palindromes
+  if (x < 0) {
+    return false;
+  }
+
+  // Edge case: Numbers ending with 0 are not palindromes
+  if (x !== 0 && (x & 1) === 0) {
+    return false;
+  }
+
+  let original = x;
+  let reversed = 0;
+
+  while (x !== 0) {
+    reversed = reversed * 10 + (x % 10); // Reverse the digits
+    x = Math.trunc(x / 10); // Truncate the number
+  }
+
+  return original === reversed;
 }
 ```
