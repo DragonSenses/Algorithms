@@ -1,13 +1,22 @@
 class Solution {
+  /**
+   * Reverses the given integer. 
+   * 
+   * Handles the overflow constraints when the reversed integer goes outside
+   * the signed 32-bit integer range [-2^31, 2^31 - 1].
+   * 
+   * @param x The input integer to be reversed.
+   * @return The reversed integer if it doesn't cause overflow, otherwise 0.
+   */
   public int reverse(int x) {
-    final int MIN = Integer.MIN_VALUE; //-2147483648
-    final int MAX = Integer.MAX_VALUE; // 2147483647
+    // final int MIN_INT32 = Integer.MIN_VALUE; //-2147483648
+    // final int MAX_INT32 = Integer.MAX_VALUE; // 2147483647
 
-    final int MIN_DIVIDED_BY_10 = Integer.MIN_VALUE / 10;
-    final int MAX_DIVIDED_BY_10 = Integer.MAX_VALUE / 10;
+    final int MIN_DIVIDED_BY_10 = Integer.MIN_VALUE / 10; // -214748364
+    final int MAX_DIVIDED_BY_10 = Integer.MAX_VALUE / 10; //  214748364
 
-    final int MIN_LAST_DIGIT = MIN % 10; // 8
-    final int MAX_LAST_DIGIT = MAX % 10; // 7
+    final int MIN_LAST_DIGIT = Integer.MIN_VALUE % 10; // 8
+    final int MAX_LAST_DIGIT = Integer.MAX_VALUE % 10; // 7
 
     int digit;
     int result = 0;
