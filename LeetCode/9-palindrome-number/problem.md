@@ -71,7 +71,7 @@ In summary, numbers ending with 0 (except for 0 itself) are not palindromes beca
 Let's discuss some algorithmic approaches.
 
   - Reverse and Compare
-  - Revert half of the number
+  - Reverse half of the number
 
 ### Reverse and Compare
 
@@ -174,11 +174,77 @@ class Solution {
 }
 ```
 
+### Reverse half of the number
 
+We can improve the runtime to O(log n) if we only check half the number. Similar to the reverse and compare approach where we reverse the number itself then compare with the original number. The issue is that the reversed number may be larger than `INTEGER.MAX_VALUE` which will violate the constraint of a signed 32-bit integer.
+
+To improve the solution we can reverse only half the digits of the number `x`. The reverse of the last half of the palindrome should be the same as the first half of the number.
+
+Example: if the input is `1221` we can: 
+  - reverse the last part of the number `1221` from `21` to `12`.
+  - compare the first half of the number `12` to the reversed value `12`
+  - Since `12` is the same as `12` we know that the input number is a palindrome
+
+**Odd-lengthed palindromes:**
+
+When the length of the number is odd, we can eliminate the middle digit by dividing the reversed number by 10. For example:
+- If the input is 12321, at the end of the while loop, we have `x = 12` and `reversed = 123`.
+- Since the middle digit (3 in this case) doesn't affect whether the number is a palindrome (it's equal to itself), we can safely discard it.
+
+**Time Complexity:**  `O(log(n))`
+  - Divide the input by 10 for every iteration
+  - Only checks half the digits of the given input `x`
+**Space Complexity:** `O(1)`
 
 #### Algorithm
 
 Edge cases:
+
+  - All negative numbers are not palindromes
+  - If last digit of number is 0, in order to be a palindrome the first digit of the number also needs to be 0
+    - Only `0` satisfies this property
+
+1. **Edge Cases Handling:**
+   - The code starts by handling two edge cases:
+     - If the input number `x` is negative, it's not a palindrome (return `false`).
+     - If `x` is positive and ends with 0 (e.g., 120), it's also not a palindrome (return `false`).
+
+2. **Reversing the Number:**
+   - The code initializes a variable `reversed` to 0.
+   - It enters a `while` loop as long as `x` is greater than the reversed number.
+   - In each iteration:
+     - Multiply the current `reversed` value by 10 (shift digits left) and add the last digit of `x` (obtained using `x % 10`).
+     - Update `x` by dividing it by 10 (truncate the last digit).
+
+3. **Checking for Palindrome:**
+   - After the loop, we have reversed the first half of the original number.
+   - If the original number has an odd length, the middle digit doesn't matter for palindromes (e.g., 12321).
+     - In this case, we can safely remove the middle digit by dividing `reversed` by 10.
+   - Finally, compare `x` with the reversed number (or the reversed number divided by 10 for odd-length numbers).
+     - If they are equal, the number is a palindrome; otherwise, it's not.
+
+```java
+class Solution {
+  public boolean isPalindrome(int x) {
+    // Edge case: Numbers ending with 0 are not palindromes
+    // Edge case: Negative numbers are not palindromes
+    if (x < 0 || (x != 0 && (x % 10 == 0))) {
+      return false;
+    }
+
+    int reversed = 0;
+    while (x > reversed) {
+      reversed = reversed * 10 + x % 10; // Reverse the digits
+      x /= 10;
+    }
+
+    // When the length is an odd number, we can get ride of the middle digit by reversed/10
+    // e.g., when the input is 12321, the end of the while loop we get x = 12, reverse = 123
+    // since the middle digit doesn't matter in palindrome (equal to itself) we can get rid of it
+    return x == reversed || x == reversed/10;
+  }
+}
+```
 
 ## Java
 
@@ -213,6 +279,30 @@ class Solution {
     return original == reversed;
   }
 
+}
+```
+
+### Reverse half the number
+
+```java
+class Solution {
+  public boolean isPalindrome(int x) {
+    // Edge case: Numbers ending with 0 are not palindromes
+    // Edge case: Negative numbers are not palindromes
+    if (x < 0 || (x != 0 && (x % 10 == 0))) {
+      return false;
+    }
+
+    int reversed = 0;
+    while (x > reversed) {
+      reversed = reversed * 10 + x % 10; // Reverse the digits
+      x /= 10;
+    }
+
+    // Check if other half the number is equal to the reversed half.
+    // For odd-lengthed palindromes, safely discard middle digit
+    return x == reversed || x == reversed/10;
+  }
 }
 ```
 
