@@ -10,6 +10,11 @@ class Solution {
       return false;
     }
 
+    // Edge case: Single-digit numbers are always palindromes
+    if (x >= 0 && x < 10) {
+      return true;
+    }
+
     // final int MIN_INT32 = Integer.MIN_VALUE; //-2147483648
     // final int MAX_INT32 = Integer.MAX_VALUE; // 2147483647
 

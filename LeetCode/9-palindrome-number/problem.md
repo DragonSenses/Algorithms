@@ -63,6 +63,9 @@ Explanation: From left to right, it reads -121. From right to left, it becomes 1
 
 In summary, numbers ending with 0 (except for 0 itself) are not palindromes because their reversed form includes leading zeros, which are not significant.
 
+3. Single digit numbers are palindromes
+     - In base 10, there are ten palindromic numbers with one digit: `{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}`
+
 ## Algorithmic Approaches
 
 Let's discuss some algorithmic approaches.
@@ -128,6 +131,11 @@ class Solution {
       return false;
     }
 
+    // Edge case: Single-digit numbers are always palindromes
+    if (x >= 0 && x < 10) {
+      return true;
+    }
+
     // final int MIN_INT32 = Integer.MIN_VALUE; //-2147483648
     // final int MAX_INT32 = Integer.MAX_VALUE; // 2147483647
 
@@ -189,6 +197,11 @@ class Solution {
       return false;
     }
 
+    // Edge case: Single-digit numbers are always palindromes
+    if (x >= 0 && x < 10) {
+      return true;
+    }
+
     int original = x;
     int reversed = 0;
 
@@ -223,6 +236,11 @@ function isPalindrome(x: number): boolean {
   // Edge case: Numbers ending with 0 are not palindromes
   if (x !== 0 && (x & 1) === 0) {
     return false;
+  }
+
+  // Edge case: Single-digit numbers are always palindromes
+  if (x >= 0 && x < 10) {
+    return true;
   }
 
   let original = x;

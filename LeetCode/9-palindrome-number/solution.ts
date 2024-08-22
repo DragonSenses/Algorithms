@@ -9,6 +9,11 @@ function isPalindrome(x: number): boolean {
     return false;
   }
 
+  // Edge case: Single-digit numbers are always palindromes
+  if (x >= 0 && x < 10) {
+    return true;
+  }
+
   let original = x;
   let reversed = 0;
 
