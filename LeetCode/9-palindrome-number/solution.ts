@@ -4,14 +4,14 @@ function isPalindrome(x: number): boolean {
     return false;
   }
 
-  // Edge case: Numbers ending with 0 are not palindromes
-  if (x !== 0 && (x & 1) === 0) {
-    return false;
-  }
-
   // Edge case: Single-digit numbers are always palindromes
   if (x >= 0 && x < 10) {
     return true;
+  }
+
+  // Edge case: Numbers ending with 0 are not palindromes
+  if (x != 0 && x % 10 == 0) {
+    return false;
   }
 
   let original = x;
