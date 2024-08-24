@@ -53,3 +53,47 @@ We can glean additional information by looking at the expected run time: `O(log 
 For this problem we will solve it with these approaches:
   - **Merge Sort**
   - **Binary Search**
+
+## Merge Sort
+
+Assume we merged and sorted both arrays into array `A`, with a length of `n`, then the median is:
+  - `A[n/2]`, if `n` is odd
+  - The average of `A[n/2]` and `A[n/(2+1)]`, if `n` is even
+
+However, there is no need to merge and sort the two arrays `nums1` and `nums2`.
+  - Both arrays are **already sorted**
+  - The smallest element is either the first element of `nums1` OR first element of `nums2`
+
+Therefore, we can set two pointers `p1` and `p2` at the start of each array, then get the smallest element from them by comparing the values `nums[p1]` and `nums[p2]`.
+
+### Algorithm
+
+1. Get the total size of two arrays `m + n`
+   - If `m + n` is odd, we are looking for the `(m + n) / 2`-th element.
+   - If `m + n` is even, we are looking for the average of the `(m + n) / 2`-th and the `(m + n) / 2 + 1`-th elements.
+
+2. Set two pointers `p1` and `p2` at the beginning of arrays `nums1` and `nums2`.
+
+3. If both `p1` and `p2` are in bounds of the arrays, compare the values at `p1` and `p2`:
+      - If `nums1[p1]` is smaller than `nums2[p2]`, we move `p1` one place to the right.
+      - Otherwise, we move `p2` one place to the right.
+
+    If `p1` is outside `nums1`, just move `p2` one place to the right.
+    If `p2` is outside `nums2`, just move `p1` one place to the right.
+
+4. Get the target elements and calculate the median:
+      - If `m + n` is odd, repeat step 3 by `(m + n + 1) / 2` times and return the element from the last step.
+      - If `m + n` is even, repeat step 3 by `(m + n) / 2 + 1` times and return the average of the elements from the last two steps.
+
+### Complexity Analysis
+
+Let `m` be the size of array `nums1` and `n` be the size of array `nums2`.
+
+  - Time complexity: `O(m+n)`
+    - We get the smallest element by comparing two values at `p1` and `p2`, it takes `O(1)` to compare two elements and move the corresponding pointer to the right.
+    - We need to traverse half of the arrays before reaching the median element(s).
+    - To sum up, the time complexity is `O(m+n)`.
+
+  - Space complexity: `O(1)`
+    - We only need to maintain two pointers `p1` and `p2`.
+
