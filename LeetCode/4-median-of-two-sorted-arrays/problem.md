@@ -31,6 +31,12 @@ Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 
 # Solution
 
+For this problem we will solve it with these approaches:
+  - [**Merge Sort**](#merge-sort)
+    - Time complexity: `O(m + n)`
+  - [**Binary Search**](#binary-search-recursive)
+    - Time complexity: `O(log(m * n))`
+
 ## Overview
 
 In this problem, we are given two **sorted** arrays, `nums1` and `nums2`. We need to return the median of these two arrays.
@@ -49,10 +55,6 @@ We can glean additional information by looking at the expected run time: `O(log 
    - **Binary Search**: A classic example of O(log n) complexity. It efficiently finds an element in a sorted array by repeatedly dividing the search space in half.
    - **Merge Sort**: A sorting algorithm with O(n log n) complexity. It divides the array into smaller subarrays, sorts them, and then merges them back together.
    - **Heap Sort**: Another sorting algorithm with O(n log n) complexity. It uses a binary heap data structure to sort elements.
-
-For this problem we will solve it with these approaches:
-  - **Merge Sort**
-  - **Binary Search**
 
 ## Merge Sort
 
@@ -218,3 +220,48 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
   }
 }
 ```
+
+## Binary Search, Recursive
+
+<!-- TODO: Link to algorithm and Implementation here -->
+
+### **Intuition**
+
+1. **Problem Context:**
+   - We are given two sorted arrays as input.
+   - The problem requires finding the median of the combined (merged) array formed by these two arrays.
+
+2. **Logarithmic Time Complexity:**
+   - The problem statement emphasizes achieving a logarithmic time complexity.
+   - Binary search is a promising approach because it typically operates in logarithmic time.
+
+3. **Binary Search Overview:**
+   - Binary search is a divide-and-conquer algorithm.
+   - It works by repeatedly dividing the search space in half and narrowing down the search range.
+   - It's commonly used for searching in sorted arrays.
+
+4. **Steps of Regular Binary Search:**
+   - Initialize pointers for the left and right boundaries of the search range.
+   - While the left pointer is less than or equal to the right pointer:
+     - Calculate the middle index.
+     - Compare the middle element with the target value.
+     - Adjust the search range based on the comparison result (move left or right).
+   - Repeat until the target value is found or the search range is empty.
+
+5. **Application to Median Problem:**
+   - We can adapt binary search to find the correct position for the median in the merged array.
+   - The median position depends on whether the total size of the merged array is even or odd.
+
+#### **Binary Search Walkthrough**
+
+Let's walkthrough a regular binary search to get inspiration to solve our problem.
+
+Here we use binary search to find `target` in a sorted array `A`:
+
+  - Locate the middle index (element) of `A`.
+
+  - Compare the value of the middle element with `target`.
+
+  - Reduce the search space by cutting the current array in half and discarding the half which is guaranteed not to contain `target`.
+
+  - Repeat the above process until we either empty the array (move to half a the length of 0) or find `target`.
