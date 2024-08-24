@@ -97,3 +97,68 @@ Let `m` be the size of array `nums1` and `n` be the size of array `nums2`.
   - Space complexity: `O(1)`
     - We only need to maintain two pointers `p1` and `p2`.
 
+### Implementation
+
+  - Note: When checking whether we have an even-lengthed array when combining the two sorted number arrays we can use the following conditionals:
+    - `if (totalSize % 2 == 0)`
+      - Easier to understand at a glance
+    - `if (totalSize & 1) == 0)`
+      - `&` bitwise AND operator checks the binary representations of `totalSize` and `1`
+      - Checks if the least significant bit is `0`
+        - If the result is `0`, it means `totalSize` is **even**
+        - If the result is `1`, it means `totalSize` is **odd**
+      - Performance-wise one of the fastest ways to check for evenness
+
+#### Java
+
+```java
+class Solution {
+  // Initialize two private pointers set to 0
+  private int p1 = 0, p2 = 0;
+
+  /**
+   * Retrieves the next smallest value between two sorted number arrays and advances the pointers.
+   *
+   * @param nums1 First sorted number array.
+   * @param nums2 Second sorted number array.
+   * @return The smallest value between the two arrays.
+   */
+  private int getMin(int[] nums1, int[] nums2) {
+    // If both arrays have elements remaining, compare and return the smaller value.
+    if (p1 < nums1.length && p2 < nums2.length) {
+      return nums1[p1] < nums2[p2] ? nums1[p1++] : nums2[p2++];
+    } else if (p1 < nums1.length) {
+      // If only nums1 has elements remaining, return the value from nums1.
+      return nums1[p1++];
+    } else if (p2 < nums2.length) {
+      // If only nums2 has elements remaining, return the value from nums2.
+      return nums2[p2++];
+    }
+    // If both arrays are exhausted, return -1
+    return -1;
+  }
+
+  public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    int totalSize = nums1.length + nums2.length;
+
+    if ((totalSize & 1) == 0) {
+      // Even-length case: Calculate the average of the two middle elements
+      // Using 0-based indexing, the two middle elements are at indices
+      // (totalSize / 2) - 1 and totalSize / 2.
+      for (int i = 0; i < (totalSize / 2) - 1; i++){
+        // Advance pointers by (totalSize / 2) - 1 to reach the two middle elements.
+        int tmp = getMin(nums1, nums2);
+      }
+      // Return the average of the two middle elements
+      return (double) (getMin(nums1, nums2) + getMin(nums1, nums2)) /2;
+    } else {
+      // Odd-length case: Return the exact middle element.
+      for (int i = 0; i < totalSize / 2; i++) {
+        // Advance pointers until we reach just before the middle element
+        int tmp = getMin(nums1, nums2);
+      }
+      return getMin(nums1, nums2);
+    }
+  }
+}
+```
