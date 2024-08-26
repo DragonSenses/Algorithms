@@ -265,3 +265,20 @@ Here we use binary search to find `target` in a sorted array `A`:
   - Reduce the search space by cutting the current array in half and discarding the half which is guaranteed not to contain `target`.
 
   - Repeat the above process until we either empty the array (move to half a the length of 0) or find `target`.
+
+![](img/1.png)
+
+**Listing 4-1:** A binary search for `target = 26` in sorted array `A`.
+
+- In Listing 4-1, we can see an array that contains `2` in `A[0]` and `50` in `A[15]`.
+  - The first step is to look for `target`, `26`
+  - Next compare the middle value of `A` with `26`
+    - The middle value is `9`
+  - Since `9 < 26`, we safely discard the left half of `A` 
+    - because the array is sorted and the target `26` will not be found in the left half with **lesser** values.
+  - Search for `26` in right half of `A`
+  - Compare the middle value of `A*` (right half of A) with `26`
+    - Middle value of `A*` is `18`
+  - And so forth until target is found 
+- `26` is located in `A[13]`
+
