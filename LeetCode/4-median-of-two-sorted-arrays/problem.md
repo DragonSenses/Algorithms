@@ -357,3 +357,37 @@ We can apply all the same logic to the mixed segment `A_left​` + `B_left​` a
 
 **Listing 4-7:** The sorted array `A + B` with `A_left, B_left` first half, a dashed line in the middle, and `B_right` second half.
 
+#### **The following step is the most important one.**
+
+Remember that we are looking for the median of `sorted A + B` which is one or two target values. 
+
+We regard the index of the target value in the `sorted(A + B)` as `k`. For example:
+
+  - If the lengths of `A` and `B` are `6` and `5`, the target index is `k = (6 + 5 + 1) / 2 = 6`, we shall **look for the 6th smallest element**.
+
+  - If the lengths of `A` and `B` are `6` and `6`, the target indexes are `k = (6 + 6) / 2 = 6` and `k + 1 = 7`, we shall **look for the 6th and the 7th smallest elements**.
+
+Depending on whether the **total number of elements is odd or even**, we need the `kth` (and maybe the `(k+1)th`) elements. What matters is that we set an index `k` at the beginning and we want to find the `kth` smallest element using the Binary Search-like algorithm discussed previously (for convenience, we will discuss only the `kth` element for now).
+
+However, during the Binary Search-like algorithm, we keep removing one half of an array, so the index `k` might not stay unchanged. 
+
+Suppose we removed `3` elements that are smaller than the original `kth` smallest element, we shall look for the `(k−3)th` smallest element from the **remaining** arrays.
+
+![](img/8.png)
+
+**Listing 4-8:** Original arrays `A` and `B` go through the binary search-like algorithm to get arrays `modified A` and `B`.
+
+In Listing 4-8, we perform the binary search-like algorithm:
+
+- Two original arrays `A` and `B`
+  - Original `A` has length `6`
+  - Original `B` has length `5`
+- `k = (6 + 5) / 2 = 5`
+  - We are looking for the **5th** smallest element
+- We remove the smaller half of `A`.
+  - This removes first `3` elements of `A`
+  - `Modified A` now has `3` elements remaining
+- `k = 5 - 3 = 2`
+  - Modified `A` has length `3`, array `B` has length `5`
+  - We are looking for the **2nd** smallest element from the **remaining** arrays
+
