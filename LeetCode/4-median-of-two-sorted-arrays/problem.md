@@ -306,3 +306,36 @@ We also 'compare' elements in an array with a single element similarly.
 
 This may not be the most standard way of expressing it, but is easy enough to understand.
 
+##### **What does this comparison imply?**
+
+It implies that we can compare sections of `A` and `B`.
+
+Recall that both arrays are sorted, so we know that:
+
+  - `A_left ≤ A_mid​`
+  - `Bmid​ ≤ B_right`
+
+Combine these observations with the comparison we just made:
+
+  - `A_mid ​≤ Bmid​`
+
+We have the following result:
+
+  - `A_left ≤ A_mid​ ≤ Bmid ​≤ B_right`
+
+Thus,
+
+  - `A_left ≤ B_right`
+
+As shown in the picture below:
+
+![](img/4.png)
+
+**Listing 4-4:** `A_left <= A_mid (3) <= B_mid (7) <= B_right`
+
+Since `A` is sorted, we know that `A_left ​≤ A_right​`.
+
+![](img/5.png)
+
+**Listing 4-5:** `A_left <= A_mid (3) <= B_mid (7) <= B_right`. And `A_left <= A_mid (3) <= A_right`
+
