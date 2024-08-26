@@ -282,3 +282,27 @@ Here we use binary search to find `target` in a sorted array `A`:
   - And so forth until target is found 
 - `26` is located in `A[13]`
 
+#### **Applying Binary Search to Median of Two Sorted Arrays**
+
+At each step, the search space is cut in half, so we can quickly get the result. 
+
+Now back to this problem where we have two sorted arrays. For the sake of convenience, let's call them `A` and `B`.
+
+![](img/2.png)
+
+**Listing 4-2:** Two sorted arrays `A` and `B` divided into left, mid, and right sections.
+
+Similarly, we can get and compare their middle values `A_mid` and `B_mid`. Without loss of generality in this example we assume `A_mid <= B_mid` initially, as shown in the yellow boxes.
+
+![](img/3.png)
+
+**Listing 4-3:** Array `A` has `A_mid` value set to `3`. Array `B` has `B_mid` value set to 7.`
+
+> For the rest of this article, we will use `≤` to represent the relative magnitude of values in arrays. 
+  - e.g., `A_left ​≤ A_right​` means that every element in `A_left` is no larger than any element in `A_right`​.
+
+We also 'compare' elements in an array with a single element similarly.
+  - e.g., `A_left ≤ A_mid`​ means that every element in `A_left` is no larger than the element `A_mid​`.
+
+This may not be the most standard way of expressing it, but is easy enough to understand.
+
