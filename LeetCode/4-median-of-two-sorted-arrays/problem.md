@@ -461,6 +461,29 @@ Then we move on to find the median elements, and get the length of both arrays `
 
   - Otherwise, we use the function to find two middle elements: `k = [(na + nb) / 2] - 1` and `k = (na + nb) / 2`, and return their average.
 
+### **Complexity Analysis**
+
+Let `m` be the size of array `nums1` and `n` be the size of array `nums2`.
+
+**Time complexity**: `O(log(m⋅n))`
+
+  - At each step, we cut one half off from either `nums1` or `nums2`. If one of the arrays is emptied, we can directly get the target from the other array in a constant time. Therefore, the total time spent depends on when one of the arrays is cut into an empty array.
+  - In the worst-case scenario, we may need to cut both arrays before finding the target element.
+  - One of the two arrays is cut in half at each step, thus it takes logarithmic time to empty an array. The time to empty two arrays are independent of each other.
+
+  ![](img/10.png)
+  - Therefore, the time complexity is `O(logm+logn)`.
+
+    - `O(logm+logn)=O(log(m⋅n))`
+
+**Space complexity**: `O(logm+logn)`
+
+  - Similar to the analysis on time complexity, the recursion steps depend on the number of iterations before we cut an array into an empty array. In the worst-case scenario, we need `O(logm+logn)` recursion steps.
+
+  - However, during the recursive self-call, we only need to maintain 4 pointers: `a_start`, `a_end`, `b_start` and `b_end`. The last step of the function is to call itself, so if tail call optimization is implemented, the call stack always has `O(1)` records.
+
+  - Please refer to [Tail Call](https://en.wikipedia.org/wiki/Tail_call) for more information on tail call optimization.
+
 ### **Implementation**
 
 ### Java
