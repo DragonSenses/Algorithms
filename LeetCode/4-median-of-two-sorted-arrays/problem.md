@@ -339,3 +339,21 @@ Since `A` is sorted, we know that `A_left ​≤ A_right​`.
 
 **Listing 4-5:** `A_left <= A_mid (3) <= B_mid (7) <= B_right`. And `A_left <= A_mid (3) <= A_right`
 
+Now we know that `A_left` is smaller than two halves: `A_right` and `B_right`. 
+
+Although we still don't know where exactly these elements are, what we do know is `A_left` doesn't intersect with `A_right` + `B_right`! 
+
+There is an invisible boundary between the `A_left` segment and the mixed segment `A_right` + `B_right`. 
+
+As shown in the picture below, the dashed line divides all sorted elements into two halves.
+
+![](img/6.png)
+
+**Listing 4-6:** The sorted array `A + B` with `A_left` first half, a dashed line in the middle, and `A_right, B_right` second half.
+
+We can apply all the same logic to the mixed segment `A_left​` + `B_left​` and `B_right​`, which also do not intersect. You can try to prove it yourself as an exercise.
+
+![](img/7.png)
+
+**Listing 4-7:** The sorted array `A + B` with `A_left, B_left` first half, a dashed line in the middle, and `B_right` second half.
+
