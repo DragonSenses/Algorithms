@@ -391,3 +391,45 @@ In Listing 4-8, we perform the binary search-like algorithm:
   - Modified `A` has length `3`, array `B` has length `5`
   - We are looking for the **2nd** smallest element from the **remaining** arrays
 
+##### **More specifically:**
+
+If `k` is larger than half the total number of elements in `sorted(A + B)`, it means that the `kth` element is in the second (larger) half of `sorted(A + B)`, thus `A_left​` (or `B_left​`, the smaller of the two smaller sections according to the comparison) is guaranteed not to contain this element, and we can safely cut this half, and reduce `k` by the length of the removed half.
+
+If `k` is not larger than half the total number of elements in `sorted(A + B)`, it means that the `kth` element is in the first (smaller) half of `sorted(A + B)`, thus `B_right​` (or `A_right​`, the larger of the two larger sections according to the comparison) is guaranteed not to contain this element, and we can safely discard it. 
+  - **Note** that we don't need to modify `k` this time, since we removed one larger half that doesn't affect the order of the `kth` smallest element.
+
+We can continue our search like above in the **remaining** arrays. The long arrow that starts from the bottom and points to the top-left indicates that we are repeating the process. Once we cut off part of either `A` or `B`, we regard the remaining arrays as modified `A` and `B` and restart this algorithm. 
+  - **Note** that the following picture represents one case only: we consider the case that `a_value < b_value`, thus we remove either the smaller half of `A` or the larger half of `B`. If the comparison result is `a_value >= b_value`, we shall remove either the smaller half of `B` or the larger half of `A`.
+
+![](img/9.png)
+
+**Listing 4-9:** Performing the entire binary-search-like algorithm to arrays `A` and `B` in a cycle. Search for `k-th` smallest number while considering two cases, each deciding and removing a certain half depending on the case. Repeat the process on remaining arrays.
+
+In Listing 4-9, we start with original arrays `A` and `B` divided into three sections: left, mid, and right.
+  - Then create the sorted `A + B` while dividing it into the same 3 sections
+
+Remember that we are looking for the `kth` smallest number. 
+
+Consider two cases:
+
+  1. `k > len(A+B)/2`
+  2. `k <= len(A+B)/2`
+
+If `k > len(A+B)/2`, then
+
+  - `kth` element is somewhere in the **right half.**
+  - We can safely discard `A_left`
+  - Remaining arrays are `A_right` and `B`
+
+If `k <= len(A+B)/2`, then
+  - `kth` element is somewhere in the **left half.**
+  - We can safely discard `B_right`
+  - Remaining arrays are `A` and `B_left`
+
+Repeat the entire process on the remaining arrays.
+
+That's it. We cut one of the two arrays in half at each step, so this approach has a **logarithmic time complexity** which we will discuss in detail later.
+
+**One more thing!**
+
+In the previous picture, we repeat all processes using the modified arrays, but this is just for the sake of understanding. We won't create copies of two arrays repeatedly, because that would introduce a linear time complexity at least. Instead, we just treat a part of the original array as the modified array for the next step, so that we can repeat the process on the original array without making any duplication. To do this, we need to maintain four pointers, two pointers for each array, e.g., `a_start` and `a_end` represent an inclusive range `[a_start, a_end]` of `A`.
