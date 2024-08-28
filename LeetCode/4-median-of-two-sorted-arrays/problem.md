@@ -630,3 +630,11 @@ The next step is to compare these edge elements.
 ![](img/12.png)
 
 **Listing 4-12:** Array `A`  has two pointers to the edge elements, named `maxLeftA` and `minRightA`. Array `B` has two pointers to the edge elements, named `maxLeftB` and `minRightB`.
+
+If both `maxLeftA <= minRightB` and `maxLeftB <= minRightA` hold, it means that we have partitioned arrays at the correct place.
+
+  - The smaller half consists of two sections `A_left` and `B_left`
+  - The larger half consists of two sections `A_right` and `B_right`
+
+We just need to find the maximum value from the smaller half as `max(A[maxLeftA], B[maxLeftB])` and the minimum value from the larger half as `min(A[minRightA], B[minRightB])`. The median value depends on these four boundary values and the total length of the input arrays and we can compute it by situation.
+
