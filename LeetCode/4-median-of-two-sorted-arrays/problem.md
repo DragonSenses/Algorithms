@@ -653,3 +653,29 @@ Otherwise, it denotes that `minRightA` is **too small to be in the larger half**
 ![](img/15.png)
 
 **Listing 4-15:** In array `A`, `maxLeftA` points to the value `2` and `minRightA` points to the value `3`. In array `B`, `maxLeftB` points to the value `4` and `minRightB` points to the value `4`. Since `maxLeftB > minRightA`, then `maxLeftA` should be in the **smaller half**.
+
+### **Algorithm**
+
+1. Assuming `nums1` to be the smaller array (If `nums2` is smaller, we can swap them). Let m, n represent the size of `nums1` and `nums2`, respectively.
+
+2. Define the search space for the partitioning index `partitionA` by setting boundaries as `left = 0` and `right = m`.
+
+3. While left` <= right` holds, do the following.
+
+4. Compute the partition index of `nums1` as `partitionA = (left + right) / 2`. Consequently, the partition index of `nums2` is `(m + n + 1) / 2 - partitionA`.
+
+5. Obtain the edge elements:
+   - Determine the maximum value of the section `A_left` as maxLeftA` = nums1[partitionA - 1]`. If `partitionA - 1 < 0`, set it as `maxLeftA = float(-inf)`.
+   - Determine the minimum value of the section `A_right` as `minRightA = nums1[partitionA]`. If `partitionA >= m`, set it as `minRightA = float(inf)`.
+   - Determine the maximum value of the section `B_left` as `maxLeftB = nums2[partitionB - 1]`. If `partitionB - 1 < 0`, set it as `maxLeftB = float(-inf)`.
+   - Determine the maximum value of the section `B_right` as `minRightB = nums2[partitionB]`. If `partitionB >= n`, set it as `minRightB = float(inf)`.
+
+6. Compare and recalculate: Compare `maxLeftA` with `minRightB` and `maxLeftB` with `minRightA`.
+   - If `maxLeftA > minRightB`, it means the `maxLeftA` is too large to be in the smaller half, so we update `right = partitionA - 1` to move to the left half of the search space.
+   - If `maxLeftB > minRightA`, it means that we are too far on the left side for `partitionA` and we need to go to the right half of the search space by updating `left = partitionA + 1`.
+
+   - Repeat step 4.
+
+7. When both `maxLeftA <= minRightB` and `maxLeftB <= minRightA` are `true`:
+   - If `(m + n) % 2 = 0`, the median value is the average of the maximum value of the smaller half and the minimum value of the larger half, given by `answer = (max(maxLeftA, maxLeftB) + min(minRightA, minRightB)) / 2`.
+   - Otherwise, the median value is the maximum value of the smaller half, given by `answer = max(maxLeftA, maxLeftB)`.
