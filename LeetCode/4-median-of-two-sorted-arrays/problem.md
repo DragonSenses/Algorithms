@@ -624,3 +624,9 @@ However, instead of partitioning over the merged arrays, we can only focus on pa
 ![](img/11.png)
 
 **Listing 4-11:** Array `A`  is split into a `A_left`, `partitionA` and `A_right`. Array `B`  is split into a `B_left`, `partitionB` and `B_right`. The `smaller half` array is composed of `A_left` and `B_left` with `(m + n + 1) / 2` elements. The `larger half` array contains `A_right` and `B_right`.
+
+The next step is to compare these edge elements.
+
+![](img/12.png)
+
+**Listing 4-12:** Array `A`  has two pointers to the edge elements, named `maxLeftA` and `minRightA`. Array `B` has two pointers to the edge elements, named `maxLeftB` and `minRightB`.
