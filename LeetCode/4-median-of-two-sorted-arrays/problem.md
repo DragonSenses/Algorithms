@@ -638,3 +638,7 @@ If both `maxLeftA <= minRightB` and `maxLeftB <= minRightA` hold, it means that 
 
 We just need to find the maximum value from the smaller half as `max(A[maxLeftA], B[maxLeftB])` and the minimum value from the larger half as `min(A[minRightA], B[minRightB])`. The median value depends on these four boundary values and the total length of the input arrays and we can compute it by situation.
 
+![](img/13.png)
+
+**Listing 4-13:** In array `A`, `maxLeftA` points to the value `3` and `minRightA` points to the value `6`. In array `B`, `maxLeftB` points to the value `4` and `minRightB` points to the value `5`. The median comes from these four boundary values.
+
