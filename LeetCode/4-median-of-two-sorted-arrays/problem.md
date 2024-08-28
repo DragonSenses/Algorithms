@@ -36,6 +36,8 @@ For this problem we will solve it with these approaches:
     - Time complexity: `O(m + n)`
   - [**Binary Search**](#binary-search-recursive)
     - Time complexity: `O(log(m * n))`
+  - [**Binary Search, Improved**](#binary-search-improved)
+    - Time complexity: `O(log(min(m,n)))`
 
 ## Overview
 
@@ -223,7 +225,8 @@ function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
 
 ## Binary Search, Recursive
 
-<!-- TODO: Link to algorithm and Implementation here -->
+- [Binary Search, Recursive - Algorithm](#algorithm-1)
+- [Binary Search, Recursive - Implementation](#implementation-1)
 
 ### **Intuition**
 
@@ -607,3 +610,12 @@ function findMedianSortedArrays(A: number[], B: number[]): number {
     }
 }
 ```
+
+## Binary Search, Improved
+
+### **Intuition**
+
+Recall the previous approach where we perform a binary search over the 'merged' array consisting of `nums1` and `nums2`, resulting in a time complexity of `O(log(m⋅n))`. We could further improve the algorithm by performing the binary search only on the smaller array of `nums1` and `nums2`, thus the time complexity is reduced to `O(log(min(m,n)))`.
+
+The main idea is similar to approach 2, where we need to find a point of partition in both arrays such that the maximum of the smaller half is less than or equal to the minimum of the larger half.
+
