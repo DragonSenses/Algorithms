@@ -619,3 +619,8 @@ Recall the previous approach where we perform a binary search over the 'merged' 
 
 The main idea is similar to approach 2, where we need to find a point of partition in both arrays such that the maximum of the smaller half is less than or equal to the minimum of the larger half.
 
+However, instead of partitioning over the merged arrays, we can only focus on partitioning the smaller array (let's call this array `A`). Suppose the partition index is `partitionA`, we specify that the smaller half contains `(m + n + 1) / 2` elements, and we can use this feature to our advantage by directly making `partitionB` equal to `(m + n + 1) / 2 - partitionA`, thus the smaller halves of both arrays always contain a total of `(m + n + 1) / 2` elements, as shown in the picture below.
+
+![](img/11.png)
+
+**Listing 4-11:** Array `A`  is split into a `A_left`, `partitionA` and `A_right`. Array `B`  is split into a `B_left`, `partitionB` and `B_right`. The `smaller half` array is composed of `A_left` and `B_left` with `(m + n + 1) / 2` elements. The `larger half` array contains `A_right` and `B_right`.
