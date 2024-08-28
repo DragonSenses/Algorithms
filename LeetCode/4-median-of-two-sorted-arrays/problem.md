@@ -642,3 +642,9 @@ We just need to find the maximum value from the smaller half as `max(A[maxLeftA]
 
 **Listing 4-13:** In array `A`, `maxLeftA` points to the value `3` and `minRightA` points to the value `6`. In array `B`, `maxLeftB` points to the value `4` and `minRightB` points to the value `5`. The median comes from these four boundary values.
 
+If `maxLeftA > minRightB`, it implies that `maxLeftA` is **too large to be in the smaller half** and we should look for a smaller partition value of `A`.
+
+![](img/14.png)
+
+**Listing 4-14:** In array `A`, `maxLeftA` points to the value `5` and `minRightA` points to the value `6`. In array `B`, `maxLeftB` points to the value `4` and `minRightB` points to the value `4`. Since `maxLeftA > minRightB`, then `maxLeftA` should be in the **larger half**.
+
