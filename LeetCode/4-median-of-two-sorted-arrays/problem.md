@@ -683,6 +683,16 @@ Otherwise, it denotes that `minRightA` is **too small to be in the larger half**
    - If `(m + n) % 2 = 0`, the median value is the average of the maximum value of the smaller half and the minimum value of the larger half, given by `answer = (max(maxLeftA, maxLeftB) + min(minRightA, minRightB)) / 2`.
    - Otherwise, the median value is the maximum value of the smaller half, given by `answer = max(maxLeftA, maxLeftB)`.
 
+### **Complexity Analysis**
+
+Let `m` be the size of array `nums1` and n be the size of array `nums2`.
+
+**Time complexity**: `O(log(min(m,n)))`
+  - We perform a binary search over the smaller array of size `min(m,n)`.
+
+**Space complexity**: `O(1)`
+  - The algorithm only requires a constant amount of additional space to store and update a few parameters during the binary search.
+
 ### **Implementation**
 
 #### Java
