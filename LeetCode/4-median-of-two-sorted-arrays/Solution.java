@@ -1,5 +1,8 @@
 class Solution {
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    if (nums1 == null || nums2 == null) {
+      throw new IllegalArgumentException("Input arrays must not be null");
+    }
 
     /* 1. Algorithm assumes nums1 is smaller, swap them if this is not the case */
     if (nums1.length > nums2.length) {
