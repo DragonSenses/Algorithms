@@ -102,6 +102,10 @@ Reading stops at the first non-digit character 'w'.
 
 # Solution
 
+For this problem we will solve it with these approaches:
+  - [**Parsing**](#parsing)
+    - Time complexity: `O(n)`
+
 <!-- TODO: Link the Implementation here -->
 
 ## Problem Statement
@@ -161,3 +165,16 @@ Here are the fundamental operations for converting a string to an integer:
 5. **Combining Digits**:
    - Construct the integer by combining the digits read from the string. This is typically done using the formula:
      - `result = result * 10 + current_digit`
+
+## Parsing
+
+This approach to solving the problem is often referred to as **"parsing"** or **"string parsing"**. More specifically, in the context of converting a string to an integer, it can be described as **"manual parsing"** or **"custom parsing"**.
+
+1. **Parsing**: The process of analyzing a string of symbols, either in natural language or computer languages, to extract meaningful information. In this case, you're parsing the string to extract and convert numerical information.
+
+2. **Manual Parsing**: Unlike using built-in functions like `Integer.parseInt()`, this approach involves manually handling each step of the conversion process, including whitespace trimming, sign determination, digit extraction, and overflow/underflow handling.
+
+This method gives you fine-grained control over the conversion process, allowing you to handle edge cases and specific requirements that built-in functions might not cover.
+
+Let's build the intuition for manual parsing.
+
