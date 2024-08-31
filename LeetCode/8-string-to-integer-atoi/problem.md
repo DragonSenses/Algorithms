@@ -211,3 +211,15 @@ The terms **"leading"** and **"trailing"** refer to the position of characters, 
 '12   4' => 12    # Only the leading whitespaces are removed
 ```
 
+#### Digits Handling
+
+- **Discard Leading Zeros**: Remove any leading zeros from the input string.
+- **Read Digits**: Read all digit characters until the first non-digit character or the end of the input is reached, and append those to the output number.
+- **No Digits Found**: If no digits are found, return 0.
+
+##### Examples:
+
+```sh
+'12345 567 v' => 12345  # Digits are appended until a non-digit character occurs
+'001234'      => 1234   # Leading zeros are discarded
+```
