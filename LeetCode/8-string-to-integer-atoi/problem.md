@@ -99,3 +99,21 @@ Reading stops at the first non-digit character 'w'.
 
   - `0 <= s.length <= 200`
   - `s` consists of English letters (lower-case and upper-case), digits (`0-9`), `' '`, `'+'`, `'-'`, and `'.'`.
+
+# Solution
+
+<!-- TODO: Link the Implementation here -->
+
+## Problem Statement
+
+Implement the `myAtoi(string s)` function, which converts a string to a 32-bit signed integer.
+
+**Rules:**
+
+1. **Trim Leading Whitespace**: Use a method to remove leading whitespace.
+2. **Check for Sign**: Check if the next character is `'-'` or `'+'` to determine the sign.
+3. **Read Digits**: Iterate through the characters, converting them to digits until a non-digit character is encountered.
+4. **Handle Overflow**: Ensure the result stays within the 32-bit signed integer range.
+
+> **Interview Tip:** In this problem, the rules are very thorough because there is no interviewer to communicate with. However, in an interview, each of these rules is a potential question to ask the interviewer if the rule is not already stated. Be sure to communicate thoroughly with your interviewer to make sure you're covering all cases. Clarify the edge cases regarding: whitespace, signedness, conversion, and rounding.
+
