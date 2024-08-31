@@ -240,3 +240,15 @@ The terms **"leading"** and **"trailing"** refer to the position of characters, 
 '-12'   => -12    # A number with '-' sign is a negative number
 '-+12'  => 0      # Another sign after one sign is considered a non-digit character
 ```
+
+#### Handling Other Characters
+
+- **Stop on Invalid Characters**: If any character not covered by the previously defined rules is encountered, stop building the output number.
+
+##### Examples:
+
+```sh
+'-23a45 567 v' => -23   # Stopped when 'a' character occurred
+'123 45 567 v' => 123   # Stopped when ' ' space character occurred
+'a+123 bcd 45' => 0     # Stopped when 'a' character occurred at the beginning
+```
