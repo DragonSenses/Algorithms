@@ -223,3 +223,20 @@ The terms **"leading"** and **"trailing"** refer to the position of characters, 
 '12345 567 v' => 12345  # Digits are appended until a non-digit character occurs
 '001234'      => 1234   # Leading zeros are discarded
 ```
+
+#### Sign Handling
+
+- **Single Sign Character**: There can be at most one sign character (`'+'` or `'-'`) at the beginning of the input string, or after skipping leading whitespaces.
+  - A sign character anywhere else in the input string is invalid and is considered a non-digit character, causing the parsing to stop.
+- **Positive and Negative Numbers**:
+  - If a `'+'` sign or no sign is present, the final number will be positive.
+  - If a `'-'` sign is the first non-whitespace character, the final number will be negative.
+
+##### Examples:
+
+```sh
+'123'   => 123    # A number with no sign is a positive number
+'+123'  => 123    # A number with '+' sign is a positive number
+'-12'   => -12    # A number with '-' sign is a negative number
+'-+12'  => 0      # Another sign after one sign is considered a non-digit character
+```
