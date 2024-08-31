@@ -191,3 +191,23 @@ Read the problem statement **very carefully**. We can form a list of possible ch
 
 Then write down all the rules for building the integer for each one of these characters. This will help us create the conditions while building the algorithm.
 
+**Rules**:
+
+#### Whitespaces Handling
+
+- **Leading Whitespaces**: If any whitespaces occur at the beginning of the input string, we discard them.
+- **Internal Whitespaces**: If whitespace occurs anywhere else in the input, we stop and discard the rest of the input.
+
+##### Note:
+The terms **"leading"** and **"trailing"** refer to the position of characters, typically white spaces, in a string:
+1. **Leading**: Characters that appear at the beginning of a string. For example, in the string `"   Hello World!"`, the spaces before "Hello" are leading white spaces.
+2. **Trailing**: Characters that appear at the end of a string. For example, in the string `"Hello World!   "`, the spaces after "World!" are trailing white spaces.
+
+##### Examples:
+
+```sh
+'  1234' => 1234  # Leading whitespaces removed
+'     4' => 4     # Leading whitespaces removed
+'12   4' => 12    # Only the leading whitespaces are removed
+```
+
