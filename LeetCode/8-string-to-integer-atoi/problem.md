@@ -134,3 +134,30 @@ The `myAtoi(string s)` function converts a string to a 32-bit signed integer. He
    - **Conversion**: Convert the string to an integer by reading digit characters.
    - **Rounding**: Ensure the final result is within the valid range for a 32-bit signed integer.
 
+### **Key Points**
+
+Here are the fundamental operations for converting a string to an integer:
+
+1. **Take the first character of the input string**: This helps determine if there's a sign (`+` or `-`) or if it's a digit.
+   
+2. **Convert the character to a number**: This involves checking if the character is a digit and then converting it to its numerical value.
+   
+3. **Build the output**: This is done by iterating through the string, converting each character to a digit, and updating the result using the formula `result = result * 10 + digit`.
+
+### **Key Steps**
+
+1. **Ignoring Leading Whitespace**:
+   - Skip any leading whitespace characters to find the start of the actual number.
+
+2. **Determining the Sign**:
+   - Check if the next character is a `'-'` or `'+'` to determine if the number is negative or positive. If neither is present, assume the number is positive.
+
+3. **Reading Digits**:
+   - Iterate through the characters, converting each digit character to its numerical value until a non-digit character is encountered or the end of the string is reached.
+
+4. **Handling Overflow and Underflow**:
+   - Ensure the resulting integer stays within the bounds of a 32-bit signed integer (`-2^31` to `2^31 - 1`). If the number exceeds these bounds, clamp it to the nearest limit.
+
+5. **Combining Digits**:
+   - Construct the integer by combining the digits read from the string. This is typically done using the formula:
+     - `result = result * 10 + current_digit`
