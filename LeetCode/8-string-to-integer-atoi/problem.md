@@ -117,3 +117,20 @@ Implement the `myAtoi(string s)` function, which converts a string to a 32-bit s
 
 > **Interview Tip:** In this problem, the rules are very thorough because there is no interviewer to communicate with. However, in an interview, each of these rules is a potential question to ask the interviewer if the rule is not already stated. Be sure to communicate thoroughly with your interviewer to make sure you're covering all cases. Clarify the edge cases regarding: whitespace, signedness, conversion, and rounding.
 
+## Overview
+
+The `myAtoi(string s)` function converts a string to a 32-bit signed integer. Here's a structured approach to implementing this function:
+
+1. **Character-by-Character Mapping**:
+   - Process the input string one character at a time to build the output integer.
+
+2. **Adherence to Rules**:
+   - **Stop on Invalid Character**: Halt the conversion when a non-digit character is encountered.
+   - **Handle Overflow**: Stop building the output if the number exceeds the 32-bit signed integer range. Clamp the result to fit within the range.
+
+3. **Consider Edge Cases**:
+   - **Whitespace**: Ignore leading whitespace characters.
+   - **Signedness**: Determine if the number is positive or negative based on the presence of `'-'` or `'+'`.
+   - **Conversion**: Convert the string to an integer by reading digit characters.
+   - **Rounding**: Ensure the final result is within the valid range for a 32-bit signed integer.
+
