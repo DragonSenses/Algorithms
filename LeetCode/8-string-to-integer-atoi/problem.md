@@ -176,5 +176,18 @@ This approach to solving the problem is often referred to as **"parsing"** or **
 
 This method gives you fine-grained control over the conversion process, allowing you to handle edge cases and specific requirements that built-in functions might not cover.
 
-Let's build the intuition for manual parsing.
+Let's build the intuition for our custom/manual parsing.
+
+### **Intuition**
+
+We can iterate over the input string and use the given rules to validate it.
+
+Read the problem statement **very carefully**. We can form a list of possible characters in the input string:
+
+- Whitespaces (`' '`)
+- Digits (`'0'`, `'1'`, `'2'`, `'3'`, `'4'`, `'5'`, `'6'`, `'7'`, `'8'`, `'9'`,)
+- A sign (`'+'` or `'-'`)
+- Anything else (alphabetic characters, symbols, special characters, etc.)
+
+Then write down all the rules for building the integer for each one of these characters. This will help us create the conditions while building the algorithm.
 
