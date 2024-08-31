@@ -252,3 +252,21 @@ The terms **"leading"** and **"trailing"** refer to the position of characters, 
 '123 45 567 v' => 123   # Stopped when ' ' space character occurred
 'a+123 bcd 45' => 0     # Stopped when 'a' character occurred at the beginning
 ```
+
+#### 32-bit Integer Range
+
+- **Overflow**: If the integer exceeds \(2^{31} - 1\), it will be clamped to \(2^{31} - 1\).
+- **Underflow**: If the integer becomes less than \(-2^{31}\), it will be clamped to \(-2^{31}\).
+
+##### Examples:
+
+```sh
+'12345'       =>  12345        # Integer is within signed 32-bit range
+'2147483647'  =>  2147483647   # Integer is within signed 32-bit range
+'9999999999'  =>  2147483647   # Integer overflow, greater than 2^31 - 1
+'-9999999999' => -2147483648   # Integer underflow, less than -2^31
+'-2147483648' => -2147483648   # Integer is within signed 32-bit range
+```
+
+These cases ensure that any integer exceeding the 32-bit signed integer range is clamped to the maximum or minimum value, preventing overflow or underflow.
+
