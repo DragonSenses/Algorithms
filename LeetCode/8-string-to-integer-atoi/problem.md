@@ -383,8 +383,31 @@ We can combine the checks as follows:
 
 Note: We do not need to handle `0-7` for positive and `0-8` for negative integers separately. If the sign is **negative** and the current number is `214748364`, then appending the digit `8`, which is more than `7`, will also lead to the same result, i.e., `MIN_INT32`.
 
+### **Algorithm**
 
-### Implementation
+1. **Initialize Variables**
+   - Set `sign` to `1` (to store the sign of the final result).
+   - Set `result` to `0` (to store the 32-bit integer result).
+
+2. **Trim Leading Whitespaces**
+   - Remove all leading whitespaces from the input string.
+
+3. **Determine the Sign**
+   - Check if the current character is a `+` or `-` sign:
+     - If the current character is `+` or there is no symbol, keep `sign` as `1`.
+     - If the current character is `-`, set `sign` to `-1`.
+
+4. **Convert Characters to Integer**
+   - Iterate over the characters in the string as long as the current character is a digit or until the end of the string is reached:
+     - Before appending the current digit, check if adding it would violate the 32-bit signed integer range:
+       - If it would cause overflow, return `MAX_INT32`.
+       - If it would cause underflow, return `MIN_INT32`.
+     - If appending the digit does not cause overflow or underflow, append the current digit to `result`.
+
+5. **Return the Final Result**
+   - Return the final `result` multiplied by its respective `sign`.
+
+### **Implementation**
 
 #### Java
 
