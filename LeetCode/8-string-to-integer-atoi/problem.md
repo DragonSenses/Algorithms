@@ -272,6 +272,24 @@ These cases ensure that any integer exceeding the 32-bit signed integer range is
 
 *Note:* At this stage we can implement the first parsing implementation without imposing additional constraints. See [Implementation section](#implementation).
 
+#### Constraint: Disallow `longs`, `BigInteger`, etc.
+
+While checking for overflow and underflow, our initial parsing implementation uses numeric data types that can store more data than a signed 32-bit integer, such as `long` or `BigInteger`. Using larger data types facilitates the process of checking if an integer exceeds the 32-bit range. If it does, we can stop building the output number and return the clamped value.
+
+However, if the constraint involves limiting our output to a 32-bit signed integer, it is safe to assume that our environment doesn't allow us to use larger data types. This constraint could be imposed by the interviewer. Therefore, we can't directly use a 32-bit integer to store the final result.
+
+For example, assume the current `result` is `1_000_000_000` and the `digit` is `1`. The value `10_000_000_001` is larger than `2_147_483_647` (or `2^31 - 1`). Performing the operation `result = result * 10 + digit` will result in a **runtime error**.
+
+Instead, we need to check if appending the digit to the result is safe. If it is safe to append, then we update the result. Otherwise, we handle the overflow or underflow.
+
+To do this, we take the value of the 32-bit integer minimum and maximum and remove the least significant digit. Respectively, this will be `214748364` for the maximum and `-214748364` for the minimum. We use these values to check if the `result` we have built so far is equal to them. If so, we must check if the digit we will append is either less than the last digit for the minimum value (i.e., `8`) or greater than the last digit for the maximum value (i.e., `7`).
+
+- We will denote the maximum 32-bit signed integer value `(2^31) - 1` = `2147483647` with `MAX_INT32`.
+  - We will denote `MAX_INT32 / 10` = `214748364` the maximum 32-bit signed integer value `(2^31) - 1` with the least significant digit removed.
+- We will denote the minimum 32-bit signed integer value `-(2^31)` = `-2147483648` with `MIN_INT32`.
+  - We will denote `MIN_INT32 / 10` = `-214748364` the minimum 32-bit signed integer value `-(2^31)` with the least significant digit removed.
+
+
 ### Implementation
 
 #### Java
