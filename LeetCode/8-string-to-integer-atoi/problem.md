@@ -323,6 +323,44 @@ We will denote the maximum 32-bit signed integer value `(2^31) - 1` = `214748364
 '214748364' + '8' = '2147483648'  (greater than MAX_INT32)
 ```
 
+##### Checking for underflow
+
+We will denote the minimum 32-bit signed integer value `-(2^31)` = `-2147483648` with `MIN_INT32`. 
+
+There will be 3 cases:
+
+###### Case 1: Current number is greater than `MIN_INT32 / 10`
+
+**Case 1**: If the current number is **greater than** `MIN_INT32 / 10` = `-214748364`, then we can append any digit (`0-9`) and the new number will always be **greater than** `MIN_INT32`.
+
+```sh
+'-214748363' (greater than MIN_INT32 / 10) + '0' = '-2147483630' (greater than MIN_INT32)
+'-214748363' (greater than MIN_INT32 / 10) + '9' = '-2147483639' (greater than MIN_INT32)
+'1'          (greater than MIN_INT32 / 10) + '9' = '19'          (greater than MIN_INT32)
+```
+
+###### Case 2: Current number is less than `MIN_INT32 / 10`
+
+**Case 2**: If the current number is **less than** `MIN_INT32 / 10` = `-214748364`, then appending **any** digit will result in a number **less than** `MIN_INT32`.
+
+```sh
+'-214748365'   (less than MIN_INT32 / 10) + '0' = '-2147483650'  (less than MIN_INT32)
+'-214748365'   (less than MIN_INT32 / 10) + '9' = '-2147483659'  (less than MIN_INT32)
+'-999999999'  (less than MIN_INT32 / 10)  + '8' = '-9999999998'  (less than MIN_INT32)
+```
+
+###### Case 3: Current number is equal to `MIN_INT32 / 10`
+
+**Case 3**: If the current number is **equal to** `MIN_INT32 / 10` = `-214748364`, then we can **only** append digits from (`0-8`) such that the new number will always be **greater than or equal to** `MIN_INT32`.
+
+```sh
+'-214748364' + '0' = '-2147483640'  (less than MIN_INT32)
+'-214748364' + '8' = '-2147483648'  (equal to MIN_INT32)
+'-214748364' + '9' = '-2147483649'  (greater than MIN_INT32)
+```
+
+
+
 ### Implementation
 
 #### Java
