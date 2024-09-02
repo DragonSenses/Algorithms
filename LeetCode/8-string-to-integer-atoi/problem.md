@@ -106,7 +106,7 @@ For this problem we will solve it with these approaches:
   - [**Parsing**](#parsing)
     - Time complexity: `O(n)`
 
-<!-- TODO: Link the Implementation here -->
+- [First parsing implementation that follows closely follows the given constraints in java](#first-parsing-implementation-in-java) or in [typescript](#first-parsing-implementation-in-typescript)
 
 ## Problem Statement
 
@@ -270,9 +270,13 @@ The terms **"leading"** and **"trailing"** refer to the position of characters, 
 
 These cases ensure that any integer exceeding the 32-bit signed integer range is clamped to the maximum or minimum value, preventing overflow or underflow.
 
+*Note:* At this stage we can implement the first parsing implementation without imposing additional constraints. See [Implementation section](#implementation).
+
 ### Implementation
 
 #### Java
+
+##### First parsing implementation in Java
 
 A quick parsing implementation that follows the rules closely:
 
@@ -326,6 +330,8 @@ class Solution {
 ```
 
 #### TypeScript
+
+##### First parsing implementation in TypeScript
 
 ```typescript
 function myAtoi(s: string): number {
