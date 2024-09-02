@@ -289,6 +289,39 @@ To do this, we take the value of the 32-bit integer minimum and maximum and remo
 - We will denote the minimum 32-bit signed integer value `-(2^31)` = `-2147483648` with `MIN_INT32`.
   - We will denote `MIN_INT32 / 10` = `-214748364` the minimum 32-bit signed integer value `-(2^31)` with the least significant digit removed.
 
+##### Checking for overflow
+
+We will denote the maximum 32-bit signed integer value `(2^31) - 1` = `2147483647` with `MAX_INT32`. We will append the digits one by one to the final number. At the 9th digit of the output number (i.e., `214748364`), we can check for overflow. There will be 3 cases:
+
+###### Case 1: Current number is less than `MAX_INT32 / 10`
+
+**Case 1**: If the current number is **less than** `MAX_INT32 / 10` = `214748364`, then we can append any digit (`0-9`) and the new number will always be **less than** `MAX_INT32`.
+
+```sh
+'214748363' (less than MAX_INT32 / 10) + '0' = '2147483630' (less than MAX_INT32)
+'214748363' (less than MAX_INT32 / 10) + '9' = '2147483639' (less than MAX_INT32)
+'1'         (less than MAX_INT32 / 10) + '9' = '19'         (less than MAX_INT32)
+```
+
+###### Case 2: Current number is greater than `MAX_INT32 / 10`
+
+**Case 2**: If the current number is **greater than** `MAX_INT32 / 10` = `214748364`, then appending **any** digit will result in a number **greater than** `MAX_INT32`.
+
+```sh
+'214748365'   (greater than MAX_INT32 / 10) + '0' = '2147483650'  (greater than MAX_INT32)
+'214748365'   (greater than MAX_INT32 / 10) + '9' = '2147483659'  (greater than MAX_INT32)
+'2147483646'  (greater than MAX_INT32 / 10) + '8' = '21474836468' (greater than MAX_INT32)
+```
+
+###### Case 3: Current number is equal to `MAX_INT32 / 10`
+
+**Case 3**: If the current number is **equal to** `MAX_INT32 / 10` = `214748364`, then we can **only** append digits from (`0-7`) such that the new number will always be **less than or equal to** `MAX_INT32`.
+
+```sh
+'214748364' + '0' = '2147483640'  (less than MAX_INT32)
+'214748364' + '7' = '2147483647'  (equal to MAX_INT32)
+'214748364' + '8' = '2147483648'  (greater than MAX_INT32)
+```
 
 ### Implementation
 
