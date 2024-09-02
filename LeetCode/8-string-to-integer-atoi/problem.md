@@ -359,6 +359,29 @@ There will be 3 cases:
 '-214748364' + '9' = '-2147483649'  (greater than MIN_INT32)
 ```
 
+##### Overflow/Underflow Checks
+
+Notice that for both **overflow** and **underflow**, **cases 1 and 2** are similar. Only **case 3** differs in that we have to check the digit to append. For overflow, the digit to add must be between **0 and 7**. For underflow, the digit to add must be between **0 and 8**.
+
+Another similarity is that the digits for `MIN_INT32 / 10` and `MAX_INT32 / 10`, not including the sign, are the same: `214748364`.
+
+We can combine the checks as follows:
+
+- Initially, store the sign for the final result and consider only the absolute values to build the integer. Return the final result with the correct sign at the end.
+- If the current number is less than `214748364` (i.e., `MAX_INT32 / 10`), we can append the next digit.
+- If the current number is greater than `214748364`:
+  - If the sign for the result is `+`, then the result will **overflow**, so return `MAX_INT32`.
+  - If the sign for the result is `-`, then the result will **underflow**, so return `MIN_INT32`.
+- If the current number is equal to `214748364`:
+  - If the next digit is between `0-7`, the result will always be in range.
+  - If the next digit is `8`:
+    - If the sign is `+`, the result will **overflow**, so return `MAX_INT32`.
+    - If the sign is `-`, the result will not **underflow** but will still be equal to `MIN_INT32`, so return `MIN_INT32`.
+  - If the next digit is greater than `8`:
+    - If the sign is `+`, the result will **overflow**, so return `MAX_INT32`.
+    - If the sign is `-`, the result will **underflow**, so return `MIN_INT32`.
+
+Note: We do not need to handle `0-7` for positive and `0-8` for negative integers separately. If the sign is **negative** and the current number is `214748364`, then appending the digit `8`, which is more than `7`, will also lead to the same result, i.e., `MIN_INT32`.
 
 
 ### Implementation
