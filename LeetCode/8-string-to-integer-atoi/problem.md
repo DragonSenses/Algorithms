@@ -423,7 +423,7 @@ Let `N` be the number of characters in the input string.
 
 ##### First parsing implementation in Java
 
-A quick parsing implementation that follows the rules closely:
+A quick parsing implementation that follows the rules closely (runs in 1ms):
 
 ```java
 class Solution {
@@ -476,7 +476,7 @@ class Solution {
 
 ##### Second parsing implementation in Java
 
-This improved solution adds the constraint that the environment disallows `long` or `BigInteger` to contain the `result` to easily check for overflow/underflow.
+This improved solution adds the constraint that the environment disallows `long` or `BigInteger` to contain the `result` to easily check for overflow/underflow. (Runs in 2ms).
 
 ```java
 class Solution {
