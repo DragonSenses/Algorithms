@@ -407,6 +407,16 @@ Note: We do not need to handle `0-7` for positive and `0-8` for negative integer
 5. **Return the Final Result**
    - Return the final `result` multiplied by its respective `sign`.
 
+### **Complexity Analysis**
+
+Let `N` be the number of characters in the input string.
+
+**Time complexity**: `O(N)`
+  - We visit each character in the input at most once and for each character we spend a constant amount of time.
+
+**Space complexity**: `O(1)`
+  - We use a constant amount of space to store the `sign` and `result`.
+
 ### **Implementation**
 
 #### Java
