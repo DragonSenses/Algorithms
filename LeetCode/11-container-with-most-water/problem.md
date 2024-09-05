@@ -89,3 +89,41 @@ The idea is to use two pointers to scan the array from both ends towards the cen
 - **Why Move the Shorter Line's Pointer**:
   - A taller line found by moving the shorter line's pointer might compensate for the reduced width.
   - This could potentially increase the area, overcoming the reduction caused by the decreased width.
+
+### Algorithm
+
+1. **Initialize Two Pointers**: 
+   - `left` pointer at the beginning of the array (`index 0`).
+   - `right` pointer at the end of the array (`index n-1`).
+
+2. **Calculate Area**:
+   - The width of the container is the distance between the two pointers: `width = right - left`.
+   - The height of the container is the minimum of the heights at the two pointers: `height = min(height[left], height[right])`.
+   - The area is then `area = width * height`.
+
+3. **Update Maximum Area**:
+   - Keep track of the maximum area found so far.
+
+4. **Move Pointers**:
+   - Move the pointer pointing to the shorter line inward. This is because the height of the container is limited by the shorter line, and moving the pointer might help find a taller line that can potentially form a larger area.
+   - If `height[left] < height[right]`, increment the `left` pointer.
+   - Otherwise, decrement the `right` pointer.
+
+5. **Repeat**:
+   - Continue this process until the two pointers meet.
+
+#### Example:
+
+Let's go through an example with `height = [1, 8, 6, 2, 5, 4, 8, 3, 7]`:
+
+1. **Initial Pointers**: `left = 0`, `right = 8`
+   - Calculate area: `width = 8 - 0 = 8`, `height = min(1, 7) = 1`, `area = 8 * 1 = 8`
+   - Move `left` pointer to 1 (since `height[0] < height[8]`).
+
+2. **New Pointers**: `left = 1`, `right = 8`
+   - Calculate area: `width = 8 - 1 = 7`, `height = min(8, 7) = 7`, `area = 7 * 7 = 49`
+   - Move `right` pointer to 7 (since `height[1] > height[8]`).
+
+3. **Continue**:
+   - Repeat the process, updating the maximum area found and moving the pointers inward based on the heights.
+
