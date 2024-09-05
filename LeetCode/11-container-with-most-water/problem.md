@@ -34,7 +34,6 @@ Output: 1
 - `2 <= n <= 10^5`
 - `0 <= height[i] <= 10^4`
 
-
 ### Overview
 
 You have an array of integers called `height`, where each element represents the height of a vertical line drawn at that index. 
@@ -65,3 +64,28 @@ The area is `7` (height) * `7` (width).
   - height: Between `8` and `7` the shorter line length is `7`
   - width: The (array index) distance is `A[8] - A[1]` = `A[7]`, so `7` width
 
+# Solution
+
+For this problem we will solve it with these approaches:
+  - [**Two Pointer**](#two-pointer)
+    - Time complexity: `O(n)`
+
+## Two Pointer
+
+The idea is to use two pointers to scan the array from both ends towards the center, calculating the area of water that can be contained at each step and keeping track of the maximum area found.
+
+### **Intuition**
+
+- **Key Insight**: The area formed between two lines is always constrained by the height of the shorter line. Additionally, the farther apart the lines are, the larger the potential area.
+
+- **Initial Consideration**: 
+  - Start by considering the area formed by the outermost lines.
+
+- **Maximizing Area**:
+  - To maximize the area, focus on the lines with greater heights.
+  - Moving the pointer at the longer line inward won't increase the area, as it remains limited by the shorter line.
+  - However, moving the pointer at the shorter line inward can be beneficial despite the reduction in width.
+
+- **Why Move the Shorter Line's Pointer**:
+  - A taller line found by moving the shorter line's pointer might compensate for the reduced width.
+  - This could potentially increase the area, overcoming the reduction caused by the decreased width.
