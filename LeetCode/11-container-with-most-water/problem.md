@@ -127,3 +127,13 @@ Let's go through an example with `height = [1, 8, 6, 2, 5, 4, 8, 3, 7]`:
 3. **Continue**:
    - Repeat the process, updating the maximum area found and moving the pointers inward based on the heights.
 
+### **Complexity Analysis**
+
+Let `N` be the number of integers in the input array.
+
+**Time Complexity**: `O(N)`
+  - *Single Pass:* We visit each integer in the input array at most once, and for each integer, we spend a constant amount of time.
+
+**Space Complexity**: `O(1)`
+  - We use a constant amount of space to store `maxArea` and the pointers `left` and `right`.
+
