@@ -39,7 +39,8 @@ Output: true
 
 # Solution
 
-## Stacks
+- [**Stacks**](#stacks)
+  - Time complexity: `O(n)`
 
 ### **Intuition**
 
@@ -96,3 +97,24 @@ This also won't work because the relative placement of the parentheses matters. 
 ```
 
 If we keep counters, then as soon as we encounter the closing square bracket, we would know there is an unmatched opening square bracket available. However, the **closest unmatched opening bracket available is a curly bracket, not a square bracket**. Therefore, the counting approach fails in this scenario.
+
+## Stacks
+
+**Recursive property:** notice that a sub-expression of a valid expression should also be a valid expression. This means that if an entire expression is valid then the sub portions of it are also valid inthemslves. This lends a sort of recursive structure to the problem.
+
+e.g., Consider this example:
+
+```sh
+{[[]{}]}()()
+
+# Valid Sub-Expressions:
+{[[]{}]}
+[[]{}]
+()()
+()
+```
+
+We can leverage this recursive property by removing matching pairs of parentheses from the expression whenever we encounter them. The stack data structure is excellent for representing this recursive structure of the problem.
+
+We cannot process the problem from the inside out because we don't have a clear idea about the overall structure. However, the stack can help us process this recursively, i.e., from the outside inwards.
+
