@@ -128,3 +128,15 @@ We cannot process the problem from the inside out because we don't have a clear 
    - Otherwise, this implies an invalid expression.
 5. **At the end**, if the stack still contains elements, this implies an invalid expression.
 
+### **Complexity Analysis**
+
+Let `n` be the length of the input string.
+
+**Time complexity**: `O(n)`
+
+  - **Single Pass:** We traverse the given string one character at a time and perform push/pop operations on a stack, which take `O(1)` time.
+
+**Space complexity**: `O(n)`
+
+  - We push all opening brackets onto the stack, and in the worst case, we will end up pushing all the brackets onto the stack, e.g., `(((((((`.
+
