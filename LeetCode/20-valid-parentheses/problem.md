@@ -118,3 +118,13 @@ We can leverage this recursive property by removing matching pairs of parenthese
 
 We cannot process the problem from the inside out because we don't have a clear idea about the overall structure. However, the stack can help us process this recursively, i.e., from the outside inwards.
 
+### **Algorithm**
+
+1. **Initialize a stack** `S`.
+2. **Process each bracket** of the expression one at a time.
+3. **If an opening bracket** is encountered, push it onto the stack. This means we will process it later and move on to the **sub-expression** ahead.
+4. **If a closing bracket** is encountered, check the element on top of the stack:
+   - If the top element is an opening bracket *of the same type*, pop it off the stack and continue processing.
+   - Otherwise, this implies an invalid expression.
+5. **At the end**, if the stack still contains elements, this implies an invalid expression.
+
