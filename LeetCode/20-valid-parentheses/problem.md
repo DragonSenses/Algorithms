@@ -140,3 +140,30 @@ Let `n` be the length of the input string.
 
   - We push all opening brackets onto the stack, and in the worst case, we will end up pushing all the brackets onto the stack, e.g., `(((((((`.
 
+### **Implementation**
+
+#### Java
+
+```java
+import java.util.Stack;
+
+class Solution {
+  public boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (char c : s.toCharArray()) {
+      if (c == '(' || c == '{' || c == '[') {
+        stack.push(c);
+      } else if (c == ')' && !stack.isEmpty() && stack.peek() == '(') {
+        stack.pop();
+      } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+        stack.pop();
+      } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+        stack.pop();
+      } else {
+        return false;
+      }
+    }
+    return stack.isEmpty();
+  }
+}
+```
