@@ -83,3 +83,16 @@ Let's form a simple algorithm to match this problem.
 5. **Continue processing the string** until all parentheses have been processed.
 6. **In the end, if we still have unmatched left parenthesis available**, this implies an invalid expression.
 
+##### **Limitations: Why counter-based approach won't work for the complex problem**
+
+Returning to the complex problem, the simple algorithm won't work because a counter-based approach only works when all the parentheses are of the same type. When we encounter a closing bracket, we simply assume a corresponding opening matching bracket is available if `left > 0`.
+
+**How about maintaining a separate counter for different types of parentheses?**
+
+This also won't work because the relative placement of the parentheses matters. Consider this example:
+
+```sh
+[{]
+```
+
+If we keep counters, then as soon as we encounter the closing square bracket, we would know there is an unmatched opening square bracket available. However, the **closest unmatched opening bracket available is a curly bracket, not a square bracket**. Therefore, the counting approach fails in this scenario.
