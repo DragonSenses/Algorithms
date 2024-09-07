@@ -178,3 +178,59 @@ class Solution {
 }
 ```
 
+**Improvement:** Store all valid characters in `HashMap`, the primary benefit is improved code readability and maintainability. Use of a HashMap for mapping the brackets improves code clarity and makes it easier to handle different types of brackets.
+
+```java
+import java.util.Stack;
+import java.util.HashMap;
+
+class Solution {
+  // Hash table that stores mappings
+  private HashMap<Character, Character> mappings;
+  
+  // Initialize hash map with mappings for improved code readability
+  public Solution() {
+    this.mappings = new HashMap<>();
+    this.mappings.put(')', '(');
+    this.mappings.put('}', '{');
+    this.mappings.put(']', '[');
+  }
+
+  public boolean isValid(String s) {
+    // Initialize a stack to keep track of opening brackets
+    Stack<Character> stack = new Stack<>();
+    
+    // Iterate through each character in the string
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+
+      // If the current character is a closing bracket
+      if (this.mappings.containsKey(c)) {
+        // Get the top element of the stack. If the stack is empty, set a dummy value of '@'
+        char topElement = stack.empty() ? '@' : stack.pop();
+
+        // If the mapping for this closing bracket doesn't match the stack's top element, return false
+        if (topElement != this.mappings.get(c)) {
+          return false;
+        }
+      } else {
+        // If it's an opening bracket, push it onto the stack
+        stack.push(c);
+      }
+    }
+    
+    // If the stack is empty, all brackets were matched correctly
+    return stack.isEmpty();
+  }
+}
+```
+
+Explanation:
+
+1. **Initialization**: The `mappings` HashMap is initialized to store the corresponding opening brackets for each closing bracket.
+2. **Iteration**: The method iterates through each character in the string.
+3. **Closing Bracket Handling**: If a closing bracket is encountered, it checks the top element of the stack:
+   - If the stack is empty, a dummy value `@` is used.
+   - If the top element does not match the expected opening bracket from the `mappings`, the method returns `false`.
+4. **Opening Bracket Handling**: If an opening bracket is encountered, it is pushed onto the stack.
+5. **Final Check**: After processing all characters, if the stack is empty, it means all brackets were matched correctly, and the method returns `true`.
