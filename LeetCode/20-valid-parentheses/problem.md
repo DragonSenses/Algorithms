@@ -234,3 +234,42 @@ Explanation:
    - If the top element does not match the expected opening bracket from the `mappings`, the method returns `false`.
 4. **Opening Bracket Handling**: If an opening bracket is encountered, it is pushed onto the stack.
 5. **Final Check**: After processing all characters, if the stack is empty, it means all brackets were matched correctly, and the method returns `true`.
+
+#### TypeScript
+
+```typescript
+// Hash map that stores valid parentheses mappings
+const mappings: { [key: string]: string } = {
+  ")": "(",
+  "}": "{",
+  "]": "[",
+};
+
+function isValid(s: string): boolean {
+  // Initialize a stack to keep track of opening brackets
+  const stack: string[] = [];
+
+  // Iterate through each character in the string
+  for (let i = 0; i < s.length; i++) {
+    const c = s.charAt(i);
+
+    // If the current character is a closing bracket
+    if (mappings[c]) {
+      // Get the top element of the stack.
+      // If the stack is empty, set topChar to non-matching value (null character)
+      const topChar = stack.length === 0 ? "\0" : stack.pop();
+
+      // If the mapping for this closing bracket doesn't match the stack's top element, return false
+      if (topChar !== mappings[c]) {
+        return false;
+      }
+    } else {
+      // If it's an opening bracket, push it onto the stack
+      stack.push(c);
+    }
+  }
+
+  // If the stack is empty, all brackets were matched correctly
+  return stack.length === 0;
+}
+```
