@@ -1,5 +1,39 @@
 /* A maximal subarray */
 
+/**
+ * Finds the maximum sum of a contiguous subarray in the given array.
+ *
+ * @param nums the input array of integers
+ * @return the maximum sum of a contiguous subarray
+ */
+function maxSubArray(nums) {
+  // Initialize variables using the first element
+  let currentSubarray = nums[0];
+  let maxSubarray = nums[0];
+
+  // Iterate through the array starting from the second element
+  for (let i = 1; i < nums.length; i++) {
+    // If current subarray is negative, discard it (set it to 0)
+    // Otherwise, keep adding to current subarray
+    currentSubarray = Math.max(nums[i], currentSubarray + nums[i]);
+    maxSubarray = Math.max(currentSubarray, maxSubarray);
+  }
+
+  return maxSubarray;
+}
+
+/* 
+fix: Handle single element edge case in Kadane's Algorithm
+
+- Initialize currentSubarray and maxSubarray with the first element of the array.
+- Start the iteration from the second element to avoid adding the first element to itself.
+- Ensure correct handling of arrays with only one element by preventing incorrect summation.
+
+This fix ensures that the algorithm correctly handles arrays with a single element, avoiding incorrect maximum sum calculations.
+*/
+
+/* Update: Ignore code below as it fails to handle the edge case of one element arrays. */
+
 /* Pseudocode 
     1. Initialize all variables to first element in array
         maxCurrent = maxGlobal = 0
