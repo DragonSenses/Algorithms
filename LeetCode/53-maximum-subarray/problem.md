@@ -104,3 +104,18 @@ If the sum becomes negative, reset it to 0. This method avoids the need to build
 5. **Simplified Implementation**:
    - Instead of building the subarray, use an integer variable `current_subarray` to keep track of the sum.
    - Reset `current_subarray` to 0 whenever it becomes negative.
+
+### **Algorithm**
+
+1. **Initialization**:
+   - Initialize two integer variables, both set to the first value in the array:
+     - `currentSubarray`: Keeps the running sum of the current subarray.
+     - `maxSubarray`: Stores the maximum sum found so far and will be the final return value.
+
+2. **Iteration**:
+   - Start iterating through the array from the second element (since the first element is used for initialization).
+   - For each number:
+     - Add it to `currentSubarray`.
+     - If `currentSubarray` becomes negative, reset it to 0 (discard the current subarray).
+     - Update `maxSubarray` if `currentSubarray` exceeds the current `maxSubarray`.
+
