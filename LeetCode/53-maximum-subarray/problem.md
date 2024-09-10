@@ -129,3 +129,34 @@ Let `n` be the size of array `nums`.
 **Space complexity**: `O(1)`
   - No matter how long the input is, we are only ever using 2 variables: `currentSubarray` and `maxSubarray`
 
+## **Implementation**
+
+A clever way to update `currentSubarray` is using `currentSubarray = max(num, currentSubarray + num)`. 
+
+If `currentSubarray` is negative, then `num > currentSubarray + num`.
+
+**Edge Case**: When the array contains only a single element, special handling is required. Starting the loop at the first element would result in adding the element to itself, which is incorrect. Instead, we should initialize our variables with the first element and begin the loop from the second element to avoid this issue.
+
+This approach ensures that the algorithm correctly handles arrays with a single element without producing an incorrect maximum sum.
+
+### Java
+
+```java
+class Solution {
+  public int maxSubArray(int[] nums) {
+    // Initialize variables using the first element
+    int currentSubarray = nums[0];
+    int maxSubarray = nums[0];
+
+    // Iterate through the array starting from the second element
+    for (int i = 1; i < nums.length; i++) {
+      // If current subarray is negative, discard it (set it to 0)
+      // Otherwise, keep adding to current subarray
+      currentSubarray = Math.max(nums[i], currentSubarray + nums[i]);
+      maxSubarray = Math.max(currentSubarray, maxSubarray);
+    }
+
+    return maxSubarray;
+  }
+}
+```
