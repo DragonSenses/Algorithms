@@ -57,3 +57,50 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 4. **Problem-Solving Insight**:
    - If you are good at problem-solving, you might be able to derive the algorithm on your own.
 
+## **Intuition**
+
+Let's focus on one important part: where the optimal subarray **begins**. We'll use the following example.
+
+`nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]`
+
+We can see that the optimal subarray couldn't possibly involve the first 3 values - the overall sum of those numbers would always *subtract* from the total. Therefore, the subarray either starts at the first `4`, or somewhere further to the
+right.
+
+What if we had this example though?
+
+`nums = [-2,1000000000,-3,4,-1,2,1,-5, 4]`
+
+We need a general way to figure out when a part of the array is **worth** keeping.
+
+As expected, any subarray whose sum is *positive* is worth keeping. Let's start with an empty array, and iterate through the input, adding numbers to our array as we go along. Whenever the sum of the array is negative, we know the entire array is not worth keeping, so we'll reset it back to an empty array.
+
+However, we don't actually need to build the subarray, we can just keep an integer variable `current_subarray` and add the values of each element there. When it becomes negative, we reset it to 0 (an empty array).
+
+### Recap
+
+To determine where the optimal subarray begins, analyze the array to exclude initial elements that reduce the total sum. 
+
+For example, in `nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]`, the optimal subarray starts at the first `4` or later. 
+
+A general approach is to keep any subarray with a positive sum. Iterate through the array, adding elements to a running sum (`current_subarray`).
+
+If the sum becomes negative, reset it to 0. This method avoids the need to build the subarray explicitly, simplifying the implementation.
+
+### Key Points
+
+1. **Optimal Subarray Start**:
+   - Identify where the optimal subarray begins by examining the array elements.
+
+2. **Example Analysis**:
+   - For `nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]`, the optimal subarray cannot include the first three values as they reduce the total sum. Thus, the subarray starts at the first `4` or later.
+
+3. **General Approach**:
+   - Determine when a part of the array is worth keeping by checking if its sum is positive.
+
+4. **Iterative Process**:
+   - Start with an empty array and iterate through the input, adding numbers to the subarray.
+   - If the subarray sum becomes negative, reset it to an empty array.
+
+5. **Simplified Implementation**:
+   - Instead of building the subarray, use an integer variable `current_subarray` to keep track of the sum.
+   - Reset `current_subarray` to 0 whenever it becomes negative.
