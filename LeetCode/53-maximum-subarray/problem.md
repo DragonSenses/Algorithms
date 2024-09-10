@@ -39,6 +39,8 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 - [**Kadane's Algorithm**](#kadanes-algorithm)
   - Time complexity: `O(n)`
+- [**Divide and Conquer**](#divide-and-conquer)
+  - Time complexity: `O(n*log(n))`
 
 # Kadane's Algorithm
 
@@ -186,3 +188,39 @@ function maxSubArray(nums: number[]): number {
   return maxSubarray;
 }
 ```
+
+# Divide and Conquer
+
+## **Intuition**
+
+This approach is slower than the second approach and uses more space, but it's still a nice and different way to approach the problem. In an interview, sometimes you may be asked for alternative ways to solve a problem, and divide and conquer is an extremely common type of algorithm. This solution will make use of recursion.
+
+### Key Points
+
+1. **Divide and Conquer**:
+   - Split the input into smaller chunks until they're small enough to be easily solved.
+   - Combine the solutions to get the final overall solution.
+
+2. **Optimal Subarray**:
+   - If we split the input in half, the optimal subarray either:
+     - Uses elements only from the left side.
+     - Uses elements only from the right side.
+     - Uses a combination of elements from both the left and right sides.
+
+3. **Solution**:
+   - The answer is the largest of:
+     - The maximum subarray contained only in the left side.
+     - The maximum subarray contained only in the right side.
+     - The maximum subarray that can use elements from both sides.
+
+4. **Finding the Maximum Subarray**:
+   - Finding the maximum subarray from the left and right halves is straightforward: recurse using the respective half of the array.
+   - The hard part is finding the best subarray that uses elements from both sides.
+
+### Example
+
+Consider the array `nums = [5, -2, 1, -3, 4, -2, 1]`. Since we want to use elements from both sides, we must use the middle element `-3`. We can also take elements from the left and the right, but every element must be connected to the middle (since we're still forming a subarray).
+
+### Simplification
+
+The fact that every element must be connected to the middle makes our task easier. Every subarray we consider **must** contain the element immediately beside the center, which means there are only as many subarrays as there are elements. In our example, the right side is `[4, -2, 1]`. There are only 3 subarrays to consider: `[4]`, `[4, -2]`, and `[4, -2, 1]`. To find the best chain of elements we can take from a half, iterate from the middle to the end (or start of the array for the left half) and continuously update a counter `curr`.
