@@ -105,7 +105,7 @@ If the sum becomes negative, reset it to 0. This method avoids the need to build
    - Instead of building the subarray, use an integer variable `current_subarray` to keep track of the sum.
    - Reset `current_subarray` to 0 whenever it becomes negative.
 
-### **Algorithm**
+## **Algorithm**
 
 1. **Initialization**:
    - Initialize two integer variables, both set to the first value in the array:
@@ -118,4 +118,14 @@ If the sum becomes negative, reset it to 0. This method avoids the need to build
      - Add it to `currentSubarray`.
      - If `currentSubarray` becomes negative, reset it to 0 (discard the current subarray).
      - Update `maxSubarray` if `currentSubarray` exceeds the current `maxSubarray`.
+
+## **Complexity Analysis**
+
+Let `n` be the size of array `nums`.
+
+**Time complexity**: `O(n)`
+  - *Single Pass:* We iterate through every element of `nums` exactly once.
+
+**Space complexity**: `O(1)`
+  - No matter how long the input is, we are only ever using 2 variables: `currentSubarray` and `maxSubarray`
 
