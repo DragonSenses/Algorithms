@@ -90,3 +90,18 @@ Let's take the example `prices = [7, 1, 5, 3, 6, 4]`:
 
 Finally, the maximum profit is 5.
 
+## **Algorithm**
+
+1. **Initialize Variables**:
+   - `minPrice`: Set this to a very high value initially (infinity) to ensure any price in the array will be lower.
+   - `maxProfit`: Set this to 0 initially, as we haven't made any transactions yet.
+
+2. **Iterate Through Prices**:
+   - For each price in the array, do the following:
+     - **Update `minPrice`**: If the current price is lower than `minPrice`, update `minPrice`.
+     - **Calculate Profit**: Calculate the potential profit if we were to sell at the current price (`current price - minPrice`).
+     - **Update `maxProfit`**: If the calculated profit is higher than `maxProfit`, update `maxProfit`.
+
+3. **Return `maxProfit`**:
+   - After iterating through all prices, `maxProfit` will contain the maximum profit that can be achieved.
+
