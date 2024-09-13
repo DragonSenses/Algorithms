@@ -335,3 +335,14 @@ public class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
+Let `N` be the length of the array `nums`.
+
+### Time Complexity: `O(N * log N)`
+
+- On our first call to `maxSubArrayHelper`, we use for loops to visit every element of `nums`. Then, we split the array in half and call `maxSubArrayHelper` with each half. Both those calls will then iterate through every element in that half, which combined is every element of `nums` again. Then, both those halves will be split in half, and 4 more calls to `maxSubArrayHelper` will happen, each with a quarter of `nums`. As you can see, every time the array is split, we still need to handle every element of the original input `nums`. We have to do this `log N` times since that's how many times an array can be split in half.
+
+### Space Complexity: `O(log N)`
+
+- The extra space we use relative to input size is solely occupied by the recursion stack. Each time the array gets split in half, another call of `maxSubArrayHelper` will be added to the recursion stack, until calls start to get resolved by the base case. Remember, the base case happens at an empty array, which occurs after `log N` calls.
