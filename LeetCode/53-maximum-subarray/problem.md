@@ -251,3 +251,21 @@ Now that we know how to find the best subarray containing elements from both sid
    - Call the auxiliary function with the entire input array (`left = 0`, `right = length - 1`).
    - This is our final answer, so return it.
 
+## **Implementation**
+
+Given the algorithm, our implementation should follow these steps:
+
+1. **Midpoint Element**: Start with the element at the midpoint, `nums[mid]`.
+2. **Left Sum**: Calculate the maximum sum of the subarray that ends at the midpoint by iterating from the midpoint to the left.
+3. **Right Sum**: Calculate the maximum sum of the subarray that starts at the midpoint by iterating from the midpoint to the right.
+4. **Combine**: The `maxCrossingSum` is the sum of the midpoint element, the maximum left sum, and the maximum right sum.
+
+#### Note: maxCrossingSum
+
+The name `maxCrossingSum` comes from the concept of finding the maximum sum of a subarray that crosses the midpoint in the divide and conquer approach. Here's a bit more detail:
+
+- **Divide and Conquer**: This algorithm splits the array into two halves, recursively finds the maximum subarray sum in each half, and then combines the results.
+- **Crossing Sum**: When combining the results, we need to consider subarrays that span both halves. The `maxCrossingSum` specifically refers to the maximum sum of such a subarray that crosses the midpoint.
+
+The term "crossing" is used because this sum includes elements from both the left and right halves of the array, crossing over the midpoint. This is essential to ensure that we don't miss any potential maximum subarray that spans the midpoint.
+
