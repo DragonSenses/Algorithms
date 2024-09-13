@@ -63,3 +63,30 @@ We can solve this problem with a single pass through the array:
 
 By the end of the iteration, `maxProfit` will contain the maximum profit that can be achieved.
 
+### Example Walkthrough
+
+Let's take the example `prices = [7, 1, 5, 3, 6, 4]`:
+
+- Initialize `minPrice = ∞`, `maxProfit = 0`.
+- Iterate through the prices:
+  - Day 1: Price = 7
+    - `minPrice` = 7 (updated)
+    - `maxProfit` = 0 (no profit yet)
+  - Day 2: Price = 1
+    - `minPrice` = 1 (updated)
+    - `maxProfit` = 0 (no profit yet)
+  - Day 3: Price = 5
+    - `minPrice` = 1 (unchanged)
+    - `maxProfit` = 5 - 1 = 4 (updated)
+  - Day 4: Price = 3
+    - `minPrice` = 1 (unchanged)
+    - `maxProfit` = 4 (unchanged)
+  - Day 5: Price = 6
+    - `minPrice` = 1 (unchanged)
+    - `maxProfit` = 6 - 1 = 5 (updated)
+  - Day 6: Price = 4
+    - `minPrice` = 1 (unchanged)
+    - `maxProfit` = 5 (unchanged)
+
+Finally, the maximum profit is 5.
+
