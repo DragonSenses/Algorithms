@@ -269,3 +269,69 @@ The name `maxCrossingSum` comes from the concept of finding the maximum sum of a
 
 The term "crossing" is used because this sum includes elements from both the left and right halves of the array, crossing over the midpoint. This is essential to ensure that we don't miss any potential maximum subarray that spans the midpoint.
 
+### Java
+
+```java
+/**
+ * This class provides a solution to the Maximum Subarray problem using the divide and conquer approach.
+ */
+public class Solution {
+  /**
+   * Finds the maximum subarray sum.
+   *
+   * @param nums the input array
+   * @return the maximum subarray sum
+   */
+  public int maxSubArray(int[] nums) {
+    // Call the helper function with the entire array
+    return maxSubArrayHelper(nums, 0, nums.length - 1);
+  }
+
+  /**
+   * Helper function to find the maximum subarray sum using divide and conquer.
+   *
+   * @param nums  the input array
+   * @param left  the left boundary of the current subarray
+   * @param right the right boundary of the current subarray
+   * @return the maximum subarray sum within the boundaries
+   */
+  private int maxSubArrayHelper(int[] nums, int left, int right) {
+    // Base case: if the subarray is invalid, return the smallest possible integer value
+    if (left > right) {
+      return Integer.MIN_VALUE;
+    }
+
+    // Find the midpoint of the current subarray
+    int mid = left + (right - left) / 2;
+
+    // Recursively find the maximum subarray sum in the left half
+    int leftMax = maxSubArrayHelper(nums, left, mid - 1);
+
+    // Recursively find the maximum subarray sum in the right half
+    int rightMax = maxSubArrayHelper(nums, mid + 1, right);
+
+    // Calculate the maximum sum of the subarray that crosses the midpoint
+    int leftSum = 0, rightSum = 0;
+    int maxLeftSum = 0, maxRightSum = 0;
+
+    // Calculate the maximum sum of the subarray ending at the midpoint
+    for (int i = mid - 1; i >= left; i--) {
+      leftSum += nums[i];
+      maxLeftSum = Math.max(maxLeftSum, leftSum);
+    }
+
+    // Calculate the maximum sum of the subarray starting at the midpoint
+    for (int i = mid + 1; i <= right; i++) {
+      rightSum += nums[i];
+      maxRightSum = Math.max(maxRightSum, rightSum);
+    }
+
+    // Combine the sums to get the maximum crossing sum
+    int maxCrossingSum = nums[mid] + maxLeftSum + maxRightSum;
+
+    // Return the maximum of the three possible sums
+    return Math.max(maxCrossingSum, Math.max(leftMax, rightMax));
+  }
+}
+```
+
