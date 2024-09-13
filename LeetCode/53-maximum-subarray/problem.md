@@ -224,3 +224,30 @@ Consider the array `nums = [5, -2, 1, -3, 4, -2, 1]`. Since we want to use eleme
 ### Simplification
 
 The fact that every element must be connected to the middle makes our task easier. Every subarray we consider **must** contain the element immediately beside the center, which means there are only as many subarrays as there are elements. In our example, the right side is `[4, -2, 1]`. There are only 3 subarrays to consider: `[4]`, `[4, -2]`, and `[4, -2, 1]`. To find the best chain of elements we can take from a half, iterate from the middle to the end (or start of the array for the left half) and continuously update a counter `curr`.
+
+## **Algorithm**
+
+Now that we know how to find the best subarray containing elements from both sides of any given array, the algorithm is as follows:
+
+1. **Define an Auxiliary Function (for recursion)**:
+   - This function will take inputs `left` and `right`, which define the bounds of the array.
+   - The return value of this function will be the best possible subarray for the array that fits between `left` and `right`.
+
+2. **Base Case**:
+   - If `left > right`, we have an empty array. Return negative infinity.
+
+3. **Find the Midpoint**:
+   - Calculate the midpoint of the array: `(left + right) / 2`, rounded down.
+   - Using this midpoint, find the best possible subarray that uses elements from both sides of the array.
+
+4. **Recursive Calls**:
+   - The best subarray using elements from both sides is only one of three possibilities. We still need to find the best subarray using only the left or right halves.
+   - Call the auxiliary function recursively for the left half and the right half.
+
+5. **Combine Results**:
+   - Return the largest of the three values: the best left half sum, the best right half sum, and the best combined sum.
+
+6. **Final Call**:
+   - Call the auxiliary function with the entire input array (`left = 0`, `right = length - 1`).
+   - This is our final answer, so return it.
+
