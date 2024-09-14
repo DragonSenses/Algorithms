@@ -179,3 +179,21 @@ In Java, the performance difference between a `for-each` loop and a traditional 
 
 In this specific case of iterating over an array to find the maximum profit, both loops will perform similarly. The choice between them can be based on readability and personal preference. If you don't need to access the index, the `for-each` loop is more concise and readable. If you need to manipulate the index or perform more complex operations, the traditional `for` loop might be more appropriate.
 
+### TypeScript
+
+```typescript
+function maxProfit(prices: number[]): number {
+  let minPrice = Number.MAX_VALUE;
+  let maxProfit = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < minPrice) {
+      minPrice = prices[i];
+    } else if (prices[i] - minPrice > maxProfit) {
+      maxProfit = prices[i] - minPrice;
+    }
+  }
+
+  return maxProfit;
+};
+```
