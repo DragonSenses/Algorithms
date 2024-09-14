@@ -115,3 +115,67 @@ Let `n` be the size of array `prices`.
 **Space complexity**: `O(1)`
   - No matter how long the input is, we are only ever using 2 variables: `minPrice` and `maxProfit`
 
+## **Implementation**
+
+### Java
+
+Using a `for-each` loop:
+
+```java
+public class Solution {
+  public int maxProfit(int[] prices) {
+    int minPrice = Integer.MAX_VALUE;
+    int maxProfit = 0;
+    
+    for (int price : prices) {
+      if (price < minPrice) {
+        minPrice = price;
+      } else if (price - minPrice > maxProfit) {
+        maxProfit = price - minPrice;
+      }
+    }
+    
+    return maxProfit;
+  }
+}
+```
+
+Using a traditional `for-loop`:
+
+```java
+class Solution {
+  public int maxProfit(int[] prices) {
+    int minPrice = Integer.MAX_VALUE;
+    int maxProfit = 0;
+
+    for (int i = 0; i < prices.length; i++){
+      if (prices[i] < minPrice) {
+        minPrice = prices[i];
+      } else if (prices[i] - minPrice > maxProfit) {
+        maxProfit = prices[i] - minPrice;
+      }
+    }
+
+    return maxProfit;
+  }
+}
+```
+
+#### `for-each` vs `for-loop`
+
+In Java, the performance difference between a `for-each` loop and a traditional `for` loop is generally negligible for most use cases, especially when iterating over arrays. However, there are some nuances to consider:
+
+##### `for-each` Loop
+
+- **Syntax**: Simplifies the code and makes it more readable.
+- **Performance**: Internally, the `for-each` loop uses an iterator for collections, but for arrays, it is optimized to be as efficient as a traditional `for` loop.
+- **Use Case**: Ideal for iterating over collections and arrays when you don't need to modify the index or access the index directly.
+
+##### Traditional `for` Loop
+
+- **Syntax**: Provides more control over the iteration process.
+- **Performance**: Can be slightly more efficient in certain scenarios, especially if you need to access the index or modify the array during iteration.
+- **Use Case**: Useful when you need to know the index or perform operations that require index manipulation.
+
+In this specific case of iterating over an array to find the maximum profit, both loops will perform similarly. The choice between them can be based on readability and personal preference. If you don't need to access the index, the `for-each` loop is more concise and readable. If you need to manipulate the index or perform more complex operations, the traditional `for` loop might be more appropriate.
+
