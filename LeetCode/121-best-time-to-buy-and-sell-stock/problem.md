@@ -105,3 +105,13 @@ Finally, the maximum profit is 5.
 3. **Return `maxProfit`**:
    - After iterating through all prices, `maxProfit` will contain the maximum profit that can be achieved.
 
+## **Complexity Analysis**
+
+Let `n` be the size of array `prices`.
+
+**Time complexity**: `O(n)`
+  - *Single Pass:* We iterate through every element of `prices` exactly once.
+
+**Space complexity**: `O(1)`
+  - No matter how long the input is, we are only ever using 2 variables: `minPrice` and `maxProfit`
+
