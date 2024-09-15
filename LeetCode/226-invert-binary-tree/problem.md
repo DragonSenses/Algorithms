@@ -49,3 +49,22 @@ public class TreeNode {
   }
 }
 ```
+
+## Binary Tree Overview
+
+### Tree Structure
+
+A tree is a nonlinear data structure that stores elements hierarchically.
+- **Nonlinear**: Refers to an organizational relationship that is richer than "before" and "after" between objects in sequences.
+- **Hierarchical Relationships**: Some objects are "above" and some "below" others.
+- **Root**: The top element of the tree.
+- **Parent and Children**: Each element (except the root) has a parent element and zero or more children.
+
+### Binary Tree
+
+A **binary tree** is an ordered tree with the following properties:
+1. Every node has at most two children.
+2. Each child node is labeled as either a **left child** or a **right child**.
+3. A left child precedes a right child in the order of children of a node.
+
+The subtree rooted at a left or right child of an internal node, `v`, is called a **left subtree** or **right subtree**, respectively, of `v`.
