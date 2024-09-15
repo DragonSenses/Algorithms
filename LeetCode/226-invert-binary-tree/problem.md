@@ -176,3 +176,15 @@ public class TreeNode {
   }
 }
 ```
+
+## **Algorithm**
+
+The inverse of an empty tree is still an empty tree.
+
+For a tree with a root node `r` and subtrees `left` and `right`, the inverse is a tree with root `r`, where the left subtree is the inverse of `right`, and the right subtree is the inverse of `left`.
+
+#### Recursive Approach
+
+1. **Base Case**: If the current node is `null`, return `null`.
+  
+2. **Recursive Case**: Swap the left and right children of the current node, then recursively invert the left and right subtrees.
