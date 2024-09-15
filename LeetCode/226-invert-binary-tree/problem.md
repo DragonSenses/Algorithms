@@ -98,3 +98,46 @@ A special kind of binary tree where:
 - The left subtree of a node contains only nodes with values less than the node's value.
 - The right subtree of a node contains only nodes with values greater than the node's value.
 - Both the left and right subtrees must also be binary search trees.
+
+### Common Operations
+
+Some common operations on binary trees include:
+- **Insertion**: Adding a new node to the tree.
+- **Deletion**: Removing a node from the tree.
+- **Searching**: Finding a node with a specific value.
+- **Traversal**: Visiting all the nodes in a specific order.
+
+### Applications
+
+Binary trees are used in various applications, such as:
+- **Expression Trees**: Used in compilers to represent expressions.
+- **Binary Search Trees**: Used for efficient searching and sorting.
+- **Heaps**: Used in priority queues.
+
+### Common Operations and Their Runtimes
+
+1. **Insertion**
+   - **Average Case**: \(O(\log n)\)
+   - **Worst Case**: \(O(n)\)
+   - **Explanation**: In a balanced binary tree, insertion takes \(O(\log n)\) time. However, in an unbalanced tree (like a skewed tree), it can take \(O(n)\) time.
+
+2. **Deletion**
+   - **Average Case**: \(O(\log n)\)
+   - **Worst Case**: \(O(n)\)
+   - **Explanation**: Similar to insertion, deletion in a balanced tree takes \(O(\log n)\) time, but in an unbalanced tree, it can take \(O(n)\) time.
+
+3. **Searching**
+   - **Average Case**: \(O(\log n)\)
+   - **Worst Case**: \(O(n)\)
+   - **Explanation**: Searching for a node in a balanced binary tree takes \(O(\log n)\) time. In an unbalanced tree, it can take \(O(n)\) time.
+
+4. **Traversal (In-order, Pre-order, Post-order)**
+   - **Average Case**: \(O(n)\)
+   - **Worst Case**: \(O(n)\)
+   - **Explanation**: Traversing all the nodes in a binary tree requires visiting each node once, resulting in \(O(n)\) time complexity.
+
+### Additional Notes
+
+- **Balanced Binary Trees**: Trees like AVL trees or Red-Black trees maintain balance, ensuring that operations like insertion, deletion, and searching have \(O(\log n)\) time complexity.
+
+- **Unbalanced Binary Trees**: In the worst case, an unbalanced binary tree can resemble a linked list, leading to \(O(n)\) time complexity for insertion, deletion, and searching.
