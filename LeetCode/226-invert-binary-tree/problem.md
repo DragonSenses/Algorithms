@@ -50,6 +50,12 @@ public class TreeNode {
 }
 ```
 
+# Solution
+
+To invert a binary tree, you need to swap the left and right children of every node in the tree.
+
+- [Recursive Approach](#recursive)
+
 ## Binary Tree Overview
 
 ### Tree Structure
@@ -141,3 +147,32 @@ Binary trees are used in various applications, such as:
 - **Balanced Binary Trees**: Trees like AVL trees or Red-Black trees maintain balance, ensuring that operations like insertion, deletion, and searching have \(O(\log n)\) time complexity.
 
 - **Unbalanced Binary Trees**: In the worst case, an unbalanced binary tree can resemble a linked list, leading to \(O(n)\) time complexity for insertion, deletion, and searching.
+
+# Recursive
+
+- **Recursive Approach**: Simple and elegant, but uses the call stack.
+
+## **Intuition**
+
+A binary tree is typically represented using a class for the nodes and a class for the tree itself. Each node contains a value and references to its left and right children. 
+
+Here's the basic implementation we are given in Java:
+
+```java
+// Definition for a binary tree node.
+public class TreeNode {
+  int val;
+  TreeNode left;
+  TreeNode right;
+
+  TreeNode() {}
+
+  TreeNode(int val) { this.val = val; }
+  
+  TreeNode(int val, TreeNode left, TreeNode right) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+  }
+}
+```
