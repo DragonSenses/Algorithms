@@ -188,3 +188,29 @@ For a tree with a root node `r` and subtrees `left` and `right`, the inverse is 
 1. **Base Case**: If the current node is `null`, return `null`.
   
 2. **Recursive Case**: Swap the left and right children of the current node, then recursively invert the left and right subtrees.
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public TreeNode invertTree(TreeNode root) {
+    // Base case: If the current node is null, return null
+    if (root == null) {
+      return null;
+    }
+
+    // Swap the left and right children
+    TreeNode temp = root.left;
+    root.left = root.right;
+    root.right = temp;
+
+    // Recursively invert the left and right subtrees
+    invertTree(root.left);
+    invertTree(root.right);
+
+    return root;
+  }
+}
+```
