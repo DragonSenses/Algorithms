@@ -68,3 +68,33 @@ A **binary tree** is an ordered tree with the following properties:
 3. A left child precedes a right child in the order of children of a node.
 
 The subtree rooted at a left or right child of an internal node, `v`, is called a **left subtree** or **right subtree**, respectively, of `v`.
+
+### Proper and Improper Binary Trees
+
+- **Proper Binary Tree**: Each node has either zero or two children.
+  - Also known as a **full binary tree**.
+  - Every internal node has exactly two children.
+- **Improper Binary Tree**: A binary tree that is not proper.
+
+### Properties of Binary Trees
+
+Binary trees have several interesting properties related to the relationships between their heights and the number of nodes.
+- **Level d**: The set of all nodes of a tree `T` at the same depth `d`.
+  - Level 0 has at most one node (the root).
+  - Level 1 has at most two nodes (the children of the root).
+  - Level 2 has at most four nodes, and so on.
+  - In general, **level d** has at most \(2^d\) nodes.
+
+### Binary Tree Traversals
+
+Understanding how to traverse a binary tree is crucial for many programming problems. There are three common types of traversals:
+1. **In-order Traversal**: Visit the left subtree, the root, and then the right subtree.
+2. **Pre-order Traversal**: Visit the root, the left subtree, and then the right subtree.
+3. **Post-order Traversal**: Visit the left subtree, the right subtree, and then the root.
+
+### Binary Search Tree (BST)
+
+A special kind of binary tree where:
+- The left subtree of a node contains only nodes with values less than the node's value.
+- The right subtree of a node contains only nodes with values greater than the node's value.
+- Both the left and right subtrees must also be binary search trees.
