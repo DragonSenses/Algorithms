@@ -397,3 +397,29 @@ public class Solution {
   }
 }
 ```
+
+#### Queue with LinkedList vs. ArrayDeque?
+
+For the iterative process of inverting a binary tree, **`ArrayDeque`** is generally the better choice compared to `LinkedList`. Here's why:
+
+##### Performance Considerations
+
+1. **Insertion and Deletion**:
+   - **ArrayDeque**: Provides faster insertion and deletion at both ends due to its array-based structure.
+   - **LinkedList**: Although it also offers constant time for these operations, it has additional overhead due to managing node references.
+
+2. **Memory Efficiency**:
+   - **ArrayDeque**: Uses memory more efficiently by dynamically resizing its underlying array.
+   - **LinkedList**: Has higher memory overhead because each node stores references to the previous and next nodes.
+
+3. **Access Time**:
+   - **ArrayDeque**: Offers constant time \( O(1) \) for accessing elements, which is beneficial for queue operations.
+   - **LinkedList**: Accessing elements requires linear time \( O(n) \), which can be slower.
+
+4. **Cache Performance**:
+   - **ArrayDeque**: Better cache performance due to contiguous memory allocation.
+
+##### Summary
+
+Given these points, **`ArrayDeque`** is the preferred choice for the iterative process of inverting a binary tree. It provides better performance for the queue operations needed during the level-order traversal, making it more efficient overall.
+
