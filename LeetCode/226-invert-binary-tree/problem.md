@@ -271,3 +271,31 @@ We use an iterative method with a queue to achieve this.
 
 4. **Return the Result**
    - Return the original root of the tree.
+
+### Detailed Explanation
+
+1. **Initialize the Queue**
+   - We start by creating a queue and adding the root node to it.
+   - This queue will help us keep track of nodes that need their children swapped.
+
+2. **Process the Queue**
+   - As long as the queue is not empty, we perform the following steps:
+     - Remove the front node from the queue.
+     - Swap its left and right children.
+     - If the left child is not null, add it to the queue.
+     - If the right child is not null, add it to the queue.
+
+3. **Completion**
+   - The process continues until the queue is empty, ensuring that all nodes have their children swapped.
+
+4. **Return the Result**
+   - Finally, we return the original root of the tree, which now represents the inverted tree.
+
+This structured approach ensures that all nodes are processed efficiently and the tree is correctly inverted. 
+
+## **Algorithm**
+
+1. Use a queue to perform a level-order traversal.
+2. For each node, swap its left and right children.
+3. Add the non-null children to the queue.
+
