@@ -232,3 +232,15 @@ Let `n` be the number of nodes in tree `T` with height `h`, rooted at `root`.
 # Iterative
 
 - **Iterative Approach**: Uses a queue for level-order traversal, avoiding the call stack.
+
+## **Intuition**
+
+We can solve the problem iteratively by using a queue to perform a level-order traversal, which is similar to a breadth-first search.
+
+In fact, they are essentially the same concept applied to different contexts:
+
+- **Level-order traversal** is a term typically used in the context of trees. It means visiting all the nodes at each level of the tree before moving on to the next level.
+
+- **Breadth-first search (BFS)** is a term used in the context of graphs. It means exploring all the nodes at the present depth level before moving on to nodes at the next depth level.
+
+Both methods use a queue to keep track of the nodes to be visited next, ensuring that nodes are processed in the correct order. So, when you perform a level-order traversal on a tree, you are essentially performing a BFS.
