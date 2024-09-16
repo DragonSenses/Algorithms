@@ -55,6 +55,9 @@ public class TreeNode {
 To invert a binary tree, you need to swap the left and right children of every node in the tree.
 
 - [Recursive Approach](#recursive)
+  - Time complexity: `O(n)`
+- [Iterative Approach](#iterative)
+  - Time complexity: `O(n)`
 
 ## Binary Tree Overview
 
@@ -226,3 +229,6 @@ Let `n` be the number of nodes in tree `T` with height `h`, rooted at `root`.
   - Due to recursion, `O(h)` function calls will be placed on the runtime stack in the worst case, where `h` is the height of the tree.
   - Because `h` is an element of `O(n)`, the space complexity is `O(n)`.
 
+# Iterative
+
+- **Iterative Approach**: Uses a queue for level-order traversal, avoiding the call stack.
