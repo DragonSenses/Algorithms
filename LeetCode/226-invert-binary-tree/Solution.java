@@ -1,7 +1,7 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
-class Solution {
+public class Solution {
   /**
    * Inverts a binary tree by swapping the left and right children of all nodes.
    *
@@ -15,7 +15,7 @@ class Solution {
     }
 
     // Initialize the queue and add the root node
-    Queue<TreeNode> queue = new LinkedList<>();
+    Queue<TreeNode> queue = new ArrayDeque<>();
     queue.add(root);
 
     // Process nodes in the queue until it is empty
