@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Solution {
   /**
    * Inverts a binary tree by swapping the left and right children of all nodes.
@@ -11,15 +14,29 @@ class Solution {
       return null;
     }
 
-    // Swap the left and right children
-    TreeNode temp = root.left;
-    root.left = root.right;
-    root.right = temp;
+    // Initialize the queue and add the root node
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
 
-    // Recursively invert the left and right subtrees
-    invertTree(root.left);
-    invertTree(root.right);
+    // Process nodes in the queue until it is empty
+    while (!queue.isEmpty()) {
+      TreeNode current = queue.poll();
 
+      // Swap the left and right children
+      TreeNode temp = current.left;
+      current.left = current.right;
+      current.right = temp;
+
+      // Add the non-null children to the queue
+      if (current.left != null) {
+        queue.add(current.left);
+      }
+      if (current.right != null) {
+        queue.add(current.right);
+      }
+    }
+
+    // Return the root of the inverted tree
     return root;
   }
 }
