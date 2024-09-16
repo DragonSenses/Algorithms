@@ -244,3 +244,30 @@ In fact, they are essentially the same concept applied to different contexts:
 - **Breadth-first search (BFS)** is a term used in the context of graphs. It means exploring all the nodes at the present depth level before moving on to nodes at the next depth level.
 
 Both methods use a queue to keep track of the nodes to be visited next, ensuring that nodes are processed in the correct order. So, when you perform a level-order traversal on a tree, you are essentially performing a BFS.
+
+### Goal
+
+The goal is to swap the left and right children of all nodes in the tree.
+
+### Approach
+
+We use an iterative method with a queue to achieve this.
+
+### Steps
+
+1. **Initialize the Queue**
+   - Create a queue to store nodes whose left and right children have not been swapped yet.
+   - Initially, only the root node is added to the queue.
+
+2. **Process the Queue**
+   - While the queue is not empty:
+     - Remove the next node from the queue.
+     - Swap its left and right children.
+     - Add the non-null children to the queue.
+
+3. **Completion**
+   - Continue this process until the queue is empty.
+   - At this point, all the children will have been swapped.
+
+4. **Return the Result**
+   - Return the original root of the tree.
