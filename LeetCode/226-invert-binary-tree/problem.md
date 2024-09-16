@@ -214,3 +214,15 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in tree `T` with height `h`, rooted at `root`.
+
+### **Time complexity**: `O(n)`
+  - ***Single Pass:*** We iterate through every node in tree `T` exactly once.
+
+### **Space complexity**: `O(n)`
+  - Due to recursion, `O(h)` function calls will be placed on the runtime stack in the worst case, where `h` is the height of the tree.
+  - Because `h` is an element of `O(n)`, the space complexity is `O(n)`.
+
