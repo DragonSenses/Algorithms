@@ -423,3 +423,21 @@ For the iterative process of inverting a binary tree, **`ArrayDeque`** is genera
 
 Given these points, **`ArrayDeque`** is the preferred choice for the iterative process of inverting a binary tree. It provides better performance for the queue operations needed during the level-order traversal, making it more efficient overall.
 
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in tree `T` with height `h`, rooted at `root`.
+
+### **Time complexity**: `O(n)`
+  - ***Single Pass:*** Since each node in the tree `T` is visited and added to the queue only once, the time complexity is `O(n)`, where `n` is the number of nodes in the tree.
+
+### Space Complexity: `O(n)`
+
+- **Worst-Case Scenario**: Full Binary Tree
+  - In a full binary tree, each node has either 0 or 2 children, and all levels except possibly the last are completely filled.
+  - This structure ensures the maximum number of nodes at each level, leading to the highest space usage when using a queue for level-order traversal.
+  - During traversal, the queue can hold up to the maximum number of nodes at any level.
+  - The last level, with height \( h \), can have up to \( 2^h \) nodes.
+  - Since \( h \approx \log_2(n) \), the number of nodes at the last level is roughly \( n/2 \).
+  - Therefore, the queue can hold up to half of the total nodes, resulting in a space complexity of \( O(n) \).
+
+feat(#226): Add complexity analysis for iterative
