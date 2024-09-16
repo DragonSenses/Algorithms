@@ -299,3 +299,53 @@ This structured approach ensures that all nodes are processed efficiently and th
 2. For each node, swap its left and right children.
 3. Add the non-null children to the queue.
 
+## **Implementation**
+
+### Java
+
+- Implement Queue using LinkedList
+
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Solution {
+  /**
+   * Inverts a binary tree by swapping the left and right children of all nodes.
+   *
+   * @param root the root of the binary tree
+   * @return the root of the inverted binary tree
+   */
+  public TreeNode invertTree(TreeNode root) {
+    // Base case: If the current node is null, return null
+    if (root == null) {
+      return null;
+    }
+
+    // Initialize the queue and add the root node
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+
+    // Process nodes in the queue until it is empty
+    while (!queue.isEmpty()) {
+      TreeNode current = queue.poll();
+
+      // Swap the left and right children
+      TreeNode temp = current.left;
+      current.left = current.right;
+      current.right = temp;
+
+      // Add the non-null children to the queue
+      if (current.left != null) {
+        queue.add(current.left);
+      }
+      if (current.right != null) {
+        queue.add(current.right);
+      }
+    }
+
+    // Return the root of the inverted tree
+    return root;
+  }
+}
+```
