@@ -86,3 +86,78 @@ We will use an auxiliary sentinel node, or "dummy node", to serve as placeholder
 6. **Completion**
    - The node has been successfully removed from the list.
 
+## **Implementation**
+
+### Java
+
+- Using `for` loops
+
+```java
+class Solution {
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode sentinel = new ListNode(0);
+    sentinel.next = head;
+
+    ListNode curr = head;
+    int len = 0;
+
+    // First pass to find the length of the list
+    for (; curr != null; curr = curr.next) {
+      len++;
+    }
+
+    // Calculate the position to remove
+    len-=n;
+
+    // Reinitialize curr to the sentinel node
+    curr = sentinel;
+
+    // Move to the (len)th node
+    for (; len > 0; len--) {
+      curr = curr.next;
+    }
+
+    // Remove the nth node from the end
+    curr.next = curr.next.next;
+
+    return sentinel.next;
+  }
+}
+```
+
+- Using `while` loops
+
+```java
+class Solution {
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode sentinel = new ListNode(0);
+    sentinel.next = head;
+
+    ListNode curr = head;
+    int len = 0;
+
+    // First pass to find the length of the list
+    while (curr != null) {
+      len++;
+      curr = curr.next;
+    }
+
+    // Calculate the position to remove
+    len -= n;
+
+    // Reinitialize curr to the sentinel node
+    curr = sentinel;
+
+    // Move to the (len)th node
+    while (len > 0) {
+      len--;
+      curr = curr.next;
+    }
+
+    // Remove the nth node from the end
+    curr.next = curr.next.next;
+
+    return sentinel.next;
+  }
+}
+```
