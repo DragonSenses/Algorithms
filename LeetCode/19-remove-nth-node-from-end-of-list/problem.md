@@ -161,3 +161,17 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the list.
+
+### **Time complexity**: `O(n)`
+  - The algorithm makes two traversal of the list:
+    - First to calculate list length `L`
+    - Second to find the `(L - n)`th node
+    - There are `2L - n` operations and time complexity is `O(L)` which is `O(n)`
+
+### **Space complexity**: `O(1)`
+  - We use a constant amount of space to store: sentinel node, length of list, and a pointer.
+
