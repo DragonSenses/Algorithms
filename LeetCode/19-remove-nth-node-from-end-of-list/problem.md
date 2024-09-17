@@ -205,3 +205,25 @@ The two-pass approach can be optimized to a one-pass approach using two pointers
    - This effectively removes the `nth` node from the list.
 
 By using two pointers with a constant gap of `n` nodes, we can efficiently remove the `nth` node from the end of the list in a single traversal. This approach avoids the need for a second pass and simplifies the process.
+
+## **Algorithm**
+
+### Steps to Remove the N-th Node from the End of a Linked List
+
+1. **Initialize Two Pointers**
+   - Create a sentinel (dummy) node and set its `next` pointer to the head of the list.
+   - Initialize two pointers, `first` and `second`, both pointing to the sentinel node.
+
+2. **Advance the First Pointer**
+   - Move the `first` pointer `n + 1` steps ahead in the list. This creates a gap of `n` nodes between the `first` and `second` pointers.
+
+3. **Move Both Pointers Together**
+   - Move both `first` and `second` pointers one step at a time, maintaining the gap, until the `first` pointer reaches past the last node.
+
+4. **Relink the Next Pointer**
+   - The `second` pointer will now be pointing to the node just before the `nth` node from the end.
+   - Adjust the `next` pointer of the node referenced by the `second` pointer to skip the `nth` node, effectively removing it from the list.
+
+5. **Return the Modified List**
+   - Return the `next` pointer of the sentinel node, which points to the head of the modified list.
+
