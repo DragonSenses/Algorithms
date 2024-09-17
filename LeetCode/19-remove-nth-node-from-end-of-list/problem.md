@@ -35,6 +35,8 @@ Output: [1]
 
 - [Two-Pass | Naive Approach](#two-pass-approach)
   - Time complexity: `O(n)`
+- [One-Pass | Optimized Approach](#one-pass-approach)
+  - Time complexity: `O(n)`
 
 # Two Pass Approach
 
@@ -175,3 +177,31 @@ Let `n` be the number of nodes in the list.
 ### **Space complexity**: `O(1)`
   - We use a constant amount of space to store: sentinel node, length of list, and a pointer.
 
+# One Pass Approach
+
+## **Intuition**
+
+To remove the `nth` node from the end of the list, we can also think of it as removing the `(L - n + 1)`th node from the beginning of the list. The challenge is to calculate the length of the list and remove the `nth` node from the end without making a second traversal backward.
+
+### Optimized Approach
+
+The two-pass approach can be optimized to a one-pass approach using two pointers. Here's how:
+
+1. **Initialize Two Pointers**
+   - Use two pointers, `first` and `second`.
+   - The `first` pointer will advance `n + 1` steps from the beginning.
+   - The `second` pointer will start from the beginning of the list.
+
+2. **Advance the First Pointer**
+   - Move the `first` pointer `n + 1` steps ahead in the list.
+   - This creates a gap of `n` nodes between the `first` and `second` pointers.
+
+3. **Move Both Pointers Together**
+   - Advance both pointers together, maintaining the gap, until the `first` pointer reaches past the last node.
+   - At this point, the `second` pointer will be pointing at the `nth` node from the end.
+
+4. **Relink the Next Pointer**
+   - Adjust the `next` pointer of the node referenced by the `second` pointer to skip the `nth` node.
+   - This effectively removes the `nth` node from the list.
+
+By using two pointers with a constant gap of `n` nodes, we can efficiently remove the `nth` node from the end of the list in a single traversal. This approach avoids the need for a second pass and simplifies the process.
