@@ -265,3 +265,14 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the list.
+
+### **Time complexity**: `O(n)`
+  - ***Single Pass:*** We iterate through every node in list exactly once.
+  - The algorithm makes one traversal of the list, containing `n` nodes, therefore time complexity is `O(n)`
+
+### **Space complexity**: `O(1)`
+  - We use a constant amount of space to store: sentinel node, length of list, and a **two** pointers.
