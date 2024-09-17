@@ -30,3 +30,23 @@ Output: [1]
   - `1 <= n <= sz`
 
 **Follow up**: Could you do this in one pass?
+
+# Solution
+
+- [Two-Pass | Naive Approach](#two-pass-approach)
+  - Time complexity: `O(n)`
+
+# Two Pass Approach
+
+## **Intuition**
+
+### Problem Breakdown
+
+To solve this problem, we need to understand and apply two key concepts:
+
+1. **Linked List Traversal**
+2. **Removing the N-th Element from the End of a Linked List**
+
+### Problem Explanation
+
+We need to remove the `nth` node from the end of the list. This can also be viewed from a different perspective: given that `L` is the length of the list, we need to remove the `(L - n + 1)`th node from the beginning of the list.
