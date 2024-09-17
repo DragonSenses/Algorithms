@@ -10,27 +10,22 @@ class Solution {
     ListNode sentinel = new ListNode(0);
     sentinel.next = head;
 
-    ListNode curr = head;
-    int len = 0;
+    ListNode first = sentinel;
+    ListNode second = sentinel;
 
-    // First pass to find the length of the list
-    for (; curr != null; curr = curr.next) {
-      len++;
+    // Advance the first pointer n + 1 steps ahead (n nodes apart from second)
+    for (int i = 1; i <= n + 1; i++) {
+      first = first.next;
     }
 
-    // Calculate the position to remove
-    len-=n;
-
-    // Reinitialize curr to the sentinel node
-    curr = sentinel;
-
-    // Move to the (len)th node
-    for (; len > 0; len--) {
-      curr = curr.next;
+    // Move both pointers together until the first pointer reaches past the last node
+    while (first != null) {
+      first = first.next;
+      second = second.next;
     }
 
     // Remove the nth node from the end
-    curr.next = curr.next.next;
+    second.next = second.next.next;
 
     return sentinel.next;
   }
