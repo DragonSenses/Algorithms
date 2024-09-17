@@ -164,6 +164,66 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+The two-pass solution in TypeScript is similar to Java but with a few changes.
+
+#### Key Changes:
+
+1. **Type Annotation for `curr`**: Explicitly annotate `curr` as `ListNode | null`.
+2. **Non-null Assertion Operator**: Use the non-null assertion operator (`!`) to tell TypeScript that `curr` and `curr.next` are not `null` at those points.
+
+The issue is likely due to TypeScript's type system, which is stricter than JavaScript's. When you reinitialize `curr` to the sentinel node, TypeScript expects `curr` to be of type `ListNode | null`, but it might not be able to infer that correctly.
+
+```ts
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+
+/**
+ * Removes the n-th node from the end of the list and returns the head of the modified list.
+ *
+ * @param head The head of the singly-linked list.
+ * @param n The position from the end of the list of the node to be removed.
+ * @return The head of the modified list.
+ */
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+  let sentinel = new ListNode(0);
+  sentinel.next = head;
+
+  let curr: ListNode | null = head;
+  let len = 0;
+
+  // First pass to find the length of the list
+  while (curr !== null) {
+    len++;
+    curr = curr.next;
+  }
+
+  // Calculate the position to remove
+  len -= n;
+
+  // Reinitialize curr to the sentinel node
+  curr = sentinel;
+
+  // Move to the (len)th node
+  while (len > 0) {
+    len--;
+    curr = curr!.next; // Use non-null assertion operator
+  }
+
+  // Remove the nth node from the end
+  curr!.next = curr!.next!.next; // Use non-null assertion operator
+
+  return sentinel.next;
+}
+```
+
 ## **Complexity Analysis**
 
 Let `n` be the number of nodes in the list.
@@ -263,6 +323,55 @@ class Solution {
 
     return sentinel.next;
   }
+}
+```
+
+### TypeScript
+
+Similar to the Java solution but with two changes: 
+
+1. **Type Annotation for `first` and `second`**: Explicitly annotate `first` and `second` as `ListNode | null`.
+2. **Non-null Assertion Operator**: Use the non-null assertion operator (`!`) to tell TypeScript that `curr` and `curr.next` are not `null` at those points.
+
+```typescript
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+
+/**
+ * Removes the n-th node from the end of the list and returns the head of the modified list.
+ *
+ * @param head The head of the singly-linked list.
+ * @param n The position from the end of the list of the node to be removed.
+ * @return The head of the modified list.
+ */
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+  let sentinel = new ListNode(0);
+  sentinel.next = head;
+
+  let first: ListNode | null = sentinel;
+  let second: ListNode | null = sentinel;
+
+  // Advance the first pointer n + 1 steps ahead (n nodes apart from second)
+  for (let i = 1; i <= n + 1; i++) {
+    first = first!.next;
+  }
+
+  // Move both pointers together until the first pointer reaches past the last node
+  while (first != null) {
+    first = first.next;
+    second = second!.next;
+  }
+
+  // Remove the nth node from the end
+  second!.next = second!.next!.next;
+
+  return sentinel.next;
 }
 ```
 
