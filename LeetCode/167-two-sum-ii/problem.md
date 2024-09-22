@@ -85,3 +85,36 @@ Based on our algorithm, we will keep moving the larger index to the left until w
 - **Indices**: Use two indices, initially pointing to the first and the last element of the array.
 - **Array**: Let the input array be sorted in ascending order.
 
+## **Algorithm**
+
+1. **Compare Sum with Target**:
+   - Calculate the sum of the elements at the two indices.
+   - If the sum is equal to the `target`, we have found the solution.
+   - If the sum is less than the `target`, increase the smaller index by one.
+   - If the sum is greater than the `target`, decrease the larger index by one.
+
+2. **Move Indices and Repeat**:
+   - Continue moving the indices and comparing the sum until the solution is found.
+
+#### Example Walkthrough
+
+- **Array**: `[ ..., a, b, c, ..., d, e, f, ... ]`
+- **Solution Elements**: Let `b` and `e` be the elements that sum to the `target`.
+
+#### Detailed Explanation
+
+- **Movement of Indices**:
+  - The smaller index moves from left to right.
+  - The larger index moves from right to left.
+  - At some point, one of the indices must reach either `b` or `e`.
+
+- **Case Analysis**:
+  - Suppose the smaller index reaches `b` first.
+  - At this time, the sum of the two elements must be greater than the `target`.
+  - Based on the algorithm, we will keep moving the larger index to the left until we reach the solution.
+
+### Summary
+
+- The two-pointer technique efficiently finds the two elements that sum to the `target` by leveraging the sorted nature of the array.
+- By adjusting the indices based on the comparison of the sum with the `target`, we ensure that we find the solution using only constant extra space.
+
