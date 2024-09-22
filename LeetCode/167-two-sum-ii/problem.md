@@ -118,3 +118,13 @@ Based on our algorithm, we will keep moving the larger index to the left until w
 - The two-pointer technique efficiently finds the two elements that sum to the `target` by leveraging the sorted nature of the array.
 - By adjusting the indices based on the comparison of the sum with the `target`, we ensure that we find the solution using only constant extra space.
 
+## **Complexity Analysis**
+
+Let `n` be the length of the input array.
+
+### **Time complexity**: `O(n)`
+  - ***Single Pass:*** We iterate through every integer in array exactly once.
+
+### **Space complexity**: `O(1)`
+  - We only use constant amount of space to store two indices and the sum.
+
