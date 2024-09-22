@@ -41,3 +41,31 @@
 	<li>The tests are generated such that there is <strong>exactly one solution</strong>.</li>
 </ul>
 </div>
+
+<br>
+
+---
+
+# Solution
+
+- [Two-Pointers Approach](#two-pointers)
+
+## Overview
+
+In **Two Sum**, we are given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to* `target`.
+
+Our approach to this problem was a two-pass hash table, for an eefficient way to check if the complement exists in the array. If the complement exists, we need to get its index. The best way to maintain a mapping of each element in thte array to its index is to use a hash table.
+
+If we try this in **Two Sum II - Input Array is Sorted**, we get `O(n)` time and `O(n)` space. But this solution does not make use of the property that the input array is sorted.
+
+Instead of a hash table, let's use two pointers.
+
+# Two Pointers
+
+We use two indices, initially pointing to the first and the last element, respectively. 
+
+- Compare the sum of these two elements with `target` . 
+  - If the sum is equal to `target`, we found the only exact solution. 
+  - If it is less than `target`, we increase the smaller index by one. 
+  - If it is greater than `target`, we decrease the larger index by one. 
+- Move the indices and repeat the comparison until the solution is found.
