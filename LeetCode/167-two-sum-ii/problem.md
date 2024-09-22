@@ -69,3 +69,19 @@ We use two indices, initially pointing to the first and the last element, respec
   - If it is less than `target`, we increase the smaller index by one. 
   - If it is greater than `target`, we decrease the larger index by one. 
 - Move the indices and repeat the comparison until the solution is found.
+
+## **Intuition**
+
+Let `[ ..., a, b, c, ..., d, e, f, ... ]` be the input array that is sorted in ascending order and let the elements `b` and `e` be only exact solution. 
+
+Because we are moving the smaller index from left to right, and the larger index from right to left, at some point, one of the indices must reach either `b` or `e`. 
+
+Without loss of generality, suppose the smaller index reaches `b` first. At this time, the sum of these two elements must be greater than `target`.
+
+Based on our algorithm, we will keep moving the larger index to the left until we reach the solution.
+
+#### Initial Setup
+
+- **Indices**: Use two indices, initially pointing to the first and the last element of the array.
+- **Array**: Let the input array be sorted in ascending order.
+
