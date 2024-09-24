@@ -37,3 +37,30 @@ Notice that the order of the output and the order of the triplets does not matte
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+## Interview Tips
+
+### Understanding the Problem Sequence
+
+This problem builds on the concepts from Two Sum and Two Sum II. It's beneficial to review these problems first. Interviewers often start with Two Sum and then progress to more complex variations like 3Sum. Pay close attention to the nuances in each problem's description and try to leverage your existing solutions.
+
+### Key Similarities and Differences
+
+- **Common Goal**: In Two Sum, Two Sum II, and 3Sum, the objective is to find elements that sum to a specific target.
+- **Unique Challenge in 3Sum**: Unlike Two Sum and Two Sum II, where you find exactly one solution, 3Sum requires finding all unique triplets that sum to zero.
+
+### Strategy and Best Conceivable Runtime (BCR)
+
+Before diving into 3Sum, let's review the strategies and their time complexities for Two Sum and Two Sum II:
+
+1. **Two Sum**:
+   - Uses a hashmap to find complement values.
+   - Achieves a time complexity of O(N).
+
+2. **Two Sum II**:
+   - Utilizes the two-pointer technique.
+   - Has a time complexity of O(N) for a sorted array.
+   - For an unsorted array, sorting it first results in a time complexity of O(N log N).
+
+Given that 3Sum involves an additional dimension, aiming for a time complexity of O(N²) is a reasonable target for our BCR.
+
+By understanding these foundational problems and their solutions, you'll be better prepared to tackle 3Sum and similar challenges in interviews.
