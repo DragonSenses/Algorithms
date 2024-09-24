@@ -145,3 +145,18 @@ The implementation is straightforward; we just need to modify `twoSumII` to prod
 - Return the result array `res` containing all unique triplets.
 
 This approach ensures that we efficiently find all unique triplets that sum to zero while maintaining optimal time complexity.
+
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### **Time Complexity**: \( O(n^2) \)
+- **Sorting the Array**: Sorting takes \( O(n \log n) \) time.
+- **Two-Pointer Technique**: Finding pairs using the two-pointer technique takes \( O(n) \) time for each element.
+- **Overall Complexity**: The combined time complexity is \( O(n \log n + n^2) \), which simplifies to \( O(n^2) \) as \( n^2 \) dominates \( n \log n \).
+
+### **Space Complexity**: \( O(\log n) \) to \( O(n) \)
+- **Sorting Space**: The space complexity depends on the sorting algorithm used:
+  - **In-Place Sorting**: Algorithms like heapsort use \( O(\log n) \) space.
+  - **Non In-Place Sorting**: Algorithms like mergesort use \( O(n) \) space.
+- **Output Space**: The memory required for the output is not considered in the complexity analysis.
