@@ -236,3 +236,92 @@ public class Solution {
 }
 ```
 
+#### Overview
+
+The goal of this solution is to find all unique triplets in the array that sum to zero. The solution uses sorting and a two-pointer technique to achieve this efficiently.
+
+#### Detailed Breakdown
+
+1. **Imports and Class Definition**
+   ```java
+   import java.util.ArrayList;
+   import java.util.Arrays;
+   import java.util.List;
+
+   public class Solution {
+   ```
+
+2. **Method Definition**
+   ```java
+   public List<List<Integer>> threeSum(int[] nums) {
+       List<List<Integer>> res = new ArrayList<>();
+   ```
+
+3. **Sorting the Array**
+   ```java
+   Arrays.sort(nums);
+   ```
+   - Sorting helps in efficiently finding pairs that sum to a specific value using the two-pointer technique.
+
+4. **Iterating Through the Array**
+   ```java
+   for (int i = 0; i < nums.length - 2; i++) {
+       if (nums[i] > 0) {
+           break;
+       }
+       if (i > 0 && nums[i] == nums[i - 1]) {
+           continue;
+       }
+       twoSumII(nums, i, res);
+   }
+   ```
+   - The loop runs until `nums.length - 2` to leave space for two more elements.
+   - If the current element is greater than zero, break the loop because no three positive numbers can sum to zero.
+   - Skip duplicate elements to avoid duplicate triplets.
+
+5. **Helper Method: `twoSumII`**
+   ```java
+   private void twoSumII(int[] nums, int i, List<List<Integer>> res) {
+       int lo = i + 1, hi = nums.length - 1;
+       int target = -nums[i];
+   ```
+   - This method finds pairs in the sorted array that sum to the negative of the current element (`-nums[i]`).
+
+6. **Two-Pointer Technique**
+   ```java
+   while (lo < hi) {
+       int sum = nums[lo] + nums[hi];
+       if (sum < target) {
+           lo++;
+       } else if (sum > target) {
+           hi--;
+       } else {
+           res.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
+           lo++;
+           hi--;
+           while (lo < hi && nums[lo] == nums[lo - 1]) {
+               lo++;
+           }
+       }
+   }
+   ```
+   - Initialize two pointers: `lo` starting just after `i` and `hi` at the end of the array.
+   - Calculate the sum of the elements at `lo` and `hi`.
+   - If the sum is less than the target, move the `lo` pointer to the right.
+   - If the sum is greater than the target, move the `hi` pointer to the left.
+   - If the sum equals the target, add the triplet to the result list and move both pointers inward, skipping duplicates.
+
+7. **Returning the Result**
+   ```java
+   return res;
+   }
+   ```
+
+#### Summary
+
+- **Sorting** the array helps in using the two-pointer technique.
+- **Skipping duplicates** ensures unique triplets.
+- **Two-pointer technique** efficiently finds pairs that sum to a specific value.
+
+This approach ensures that the solution is both time-efficient and avoids duplicate triplets.
+
