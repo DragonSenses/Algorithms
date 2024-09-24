@@ -109,3 +109,39 @@ Let's solve 3Sum using the two pointers pattern.
    - This technique works effectively only if the array is sorted. For a detailed explanation, refer to the Two Sum II solution.
 
 By following these steps, you can efficiently solve the 3Sum problem while ensuring unique triplets and maintaining optimal time complexity.
+
+## **Algorithm**
+
+The implementation is straightforward; we just need to modify `twoSumII` to produce triplets and skip repeating values.
+
+### Main Function
+
+1. **Sort the Input Array**:
+   - Sort the array `nums`.
+
+2. **Iterate Through the Array**:
+   - For each element in the array:
+     - If the current value is greater than zero, break the loop since remaining values cannot sum to zero.
+     - If the current value is the same as the previous one, skip it to avoid duplicates.
+     - Otherwise, call `twoSumII` for the current index `i`.
+
+### `twoSumII` Function
+
+1. **Initialize Pointers**:
+   - Set the low pointer `lo` to `i + 1` and the high pointer `hi` to the last index.
+
+2. **Find Pairs**:
+   - While `lo` is less than `hi`:
+     - Calculate the sum of `nums[i] + nums[lo] + nums[hi]`.
+     - If the sum is less than zero, increment `lo`.
+     - If the sum is greater than zero, decrement `hi`.
+     - If the sum equals zero:
+       - Add the triplet to the result `res`.
+       - Increment `lo` and decrement `hi`.
+       - Continue incrementing `lo` while the next value is the same to avoid duplicates.
+
+### Return the Result
+
+- Return the result array `res` containing all unique triplets.
+
+This approach ensures that we efficiently find all unique triplets that sum to zero while maintaining optimal time complexity.
