@@ -48,6 +48,8 @@ Notice that the order of the output and the order of the triplets does not matte
   - Time complexity: `O(n^2)`
 - [Hash Set Approach](#hashset-approach-for-3sum)
   - Time complexity: `O(n^2)`
+- [No Sort Approach](#no-sort-approach-for-3sum)
+  - Time complexity: `O(n^2)`
 
 ## Interview Tips
 
@@ -515,3 +517,18 @@ Let \( n \) be the length of the input array.
 ### **Space Complexity**: \( O(n) \)
 - **HashSet Storage**: The hash set used to store elements has a space complexity of \( O(n) \).
 
+# No-Sort Approach for 3Sum
+
+## **Intuition**
+
+### Handling Constraints
+
+When you cannot modify the input array and want to avoid copying it due to memory constraints, a no-sort approach is necessary.
+
+### Adapting the HashSet Approach
+
+We can adapt the hash set approach to work with an unsorted array. By storing combinations of three values in a hash set, we can effectively avoid duplicates.
+
+### Ensuring Consistency
+
+To ensure consistency and avoid permutations of the same triplet, store the values in a sorted order (e.g., ascending) within the hash set. This prevents results with the same values in different positions.
