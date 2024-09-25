@@ -45,6 +45,9 @@ Notice that the order of the output and the order of the triplets does not matte
 # Solution
 
 - [Two-Pointers Approach](#two-pointers)
+  - Time complexity: `O(n^2)`
+- [Hash Set Approach](#hashset-approach-for-3sum)
+  - Time complexity: `O(n^2)`
 
 ## Interview Tips
 
@@ -326,4 +329,9 @@ The goal of this solution is to find all unique triplets in the array that sum t
 - **Two-pointer technique** efficiently finds pairs that sum to a specific value.
 
 This approach ensures that the solution is both time-efficient and avoids duplicate triplets.
+
+# HashSet Approach for 3Sum
+
+
+To find triplets that sum up to zero, we can adapt the hash table approach from the Two Sum solution. However, this approach won't work for problems like 3Sum Smaller or 3Sum Closest, where the sum isn't necessarily zero.
 
