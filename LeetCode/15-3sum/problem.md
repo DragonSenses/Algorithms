@@ -360,7 +360,7 @@ To achieve this, we process each element `nums[j]` to the right of the pivot and
 
 ### Key Steps:
 
-1. **Initialize a HashSet**: For each pivot element `nums[i]`, initialize a hash set to store elements seen so far.
+1. **Initialize a HashSet**: For each pivot element `nums[i]`, initialize a hash set to store elements visited so far.
 2. **Find Complements**: For each element `nums[j]` to the right of the pivot, check if the complement `-nums[i] - nums[j]` is in the hash set.
 3. **Add to HashSet**: If the complement is found, a triplet is identified. Add `nums[j]` to the hash set for future checks.
 
@@ -379,7 +379,67 @@ To achieve this, we process each element `nums[j]` to the right of the pivot and
         - If the complement exists in the hash set:
             - A triplet is found; add it to the result list `res`.
             - Increment `j` while the next value is the same as before to avoid duplicates in the result.
-        - Add `nums[j]` to the hash set.
+        - Add `nums[j]` to the hash set named `visited`.
 
 3. **Return the Result**: Return the result list `res`.
 
+## **Implementation**
+
+### Java
+
+File: `Solution2.java`
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Solution2 {
+
+  public List<List<Integer>> threeSum(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+
+    // Return empty result if input is null or has less than 3 elements
+    if (nums == null || nums.length < 3) {
+      return result;
+    }
+
+    // Sort the array to facilitate the two-pointer approach and avoid duplicates
+    Arrays.sort(nums);
+
+    // Iterate through the array, treating each element as a potential pivot
+    for (int i = 0; i < nums.length - 2; i++) {
+
+      // Skip duplicate elements to avoid duplicate triplets in the result
+      if (i > 0 && nums[i] == nums[i - 1]) {
+        continue;
+      }
+
+      // Initialize a HashSet to store elements visited so far
+      Set<Integer> visited = new HashSet<>();
+
+      for (int j = i + 1; j < nums.length; j++) {
+        int complement = -nums[i] - nums[j];
+
+        // Check if the complement exists in the HashSet
+        if (visited.contains(complement)) {
+          // Found a triplet that sums to zero, add it to the result
+          result.add(Arrays.asList(nums[i], nums[j], complement));
+
+          // Skip duplicate elements to avoid duplicate triplets in the result
+          while (j + 1 < nums.length && nums[j] == nums[j + 1]) {
+            j++;
+          }
+        }
+
+        // Add the current element to the HashSet
+        visited.add(nums[j]);
+      }
+    }
+
+    return result;
+  }
+}
+```
