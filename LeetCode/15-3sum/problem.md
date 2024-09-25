@@ -443,3 +443,16 @@ public class Solution2 {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### **Time Complexity**: \( O(n^2) \)
+- **Sorting the Array**: Sorting takes \( O(n \log n) \) time.
+- **Two-Pointer Technique**: Finding pairs using the two-pointer technique takes \( O(n) \) time for each element. Since we call it \( n \) times, this part takes \( O(n^2) \) time.
+- **Overall Complexity**: The combined time complexity is \( O(n \log n + n^2) \), which simplifies to \( O(n^2) \) as \( n^2 \) dominates \( n \log n \).
+
+### **Space Complexity**: \( O(n) \)
+- **HashSet Storage**: The hash set used to store elements has a space complexity of \( O(n) \).
+
