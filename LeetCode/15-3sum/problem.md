@@ -165,6 +165,8 @@ Let \( n \) be the length of the input array.
 
 ### Java
 
+**Note:** This implementation achieved a runtime of 9 ms, placing it in the top 0.33% of all solutions. In comparison, 66.59% of solutions had a runtime of 29 ms.
+
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
