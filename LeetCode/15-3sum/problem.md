@@ -356,3 +356,30 @@ To achieve this, we process each element `nums[j]` to the right of the pivot and
 2. **Iterate through the Array**: For each element `nums[i]`, use two pointers to find pairs that sum up to `-nums[i]`.
 3. **Use a HashSet**: This helps in avoiding duplicate triplets.
 
+## **Algorithm**
+
+### Key Steps:
+
+1. **Initialize a HashSet**: For each pivot element `nums[i]`, initialize a hash set to store elements seen so far.
+2. **Find Complements**: For each element `nums[j]` to the right of the pivot, check if the complement `-nums[i] - nums[j]` is in the hash set.
+3. **Add to HashSet**: If the complement is found, a triplet is identified. Add `nums[j]` to the hash set for future checks.
+
+### Detailed Steps:
+
+1. **Main Function**:
+    - **Sort the Array**: Sort the input array `nums`.
+    - **Iterate through the Array**:
+        - If the current value `nums[i]` is greater than zero, break from the loop. Remaining values cannot sum to zero.
+        - If the current value is the same as the one before, skip it to avoid duplicates.
+        - Otherwise, call the `twoSum` function for the current position `i`.
+
+2. **TwoSum Function**:
+    - For each index `j > i` in `nums`:
+        - Compute the complement value as `-nums[i] - nums[j]`.
+        - If the complement exists in the hash set:
+            - A triplet is found; add it to the result list `res`.
+            - Increment `j` while the next value is the same as before to avoid duplicates in the result.
+        - Add `nums[j]` to the hash set.
+
+3. **Return the Result**: Return the result list `res`.
+
