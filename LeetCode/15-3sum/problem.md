@@ -41,10 +41,9 @@ Notice that the order of the output and the order of the triplets does not matte
 
 ---
 
-
 # Solution
 
-- [Two-Pointers Approach](#two-pointers)
+- [Two-Pointers Approach (*Favorite Solution*)](#two-pointers)
   - Time complexity: `O(n^2)`
 - [Hash Set Approach](#hashset-approach-for-3sum)
   - Time complexity: `O(n^2)`
@@ -662,3 +661,16 @@ public class Solution3 {
 }
 ```
 
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### Time Complexity: \( O(n^2) \)
+- **Outer and Inner Loops**: Both the outer and inner loops iterate through `n` elements, resulting in \( O(n^2) \) time complexity.
+- **HashSet Lookups**: Although hash set lookups are \( O(1) \) on average, they are more expensive compared to direct memory access.
+- **Overall Complexity**: The combined time complexity is \( O(n^2) \). The sorting step is omitted here since we are not sorting the array.
+
+### Space Complexity: \( O(n) \)
+- **HashSet Storage**: The hash set used to store elements has a space complexity of \( O(n) \).
+- **Output Storage**: For the purpose of complexity analysis, we typically ignore the memory required for the output. However, in this approach, we also store output in a hash set for deduplication. 
+  - In the worst case, there could be \( O(n^2) \) triplets in the output (e.g., `[-k, -k + 1, ..., -1, 0, 1, ..., k - 1, k]`). Adding a new number to this sequence will produce approximately \( n/3 \) new triplets.
