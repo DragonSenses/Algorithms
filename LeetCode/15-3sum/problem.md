@@ -532,3 +532,44 @@ We can adapt the hash set approach to work with an unsorted array. By storing co
 ### Ensuring Consistency
 
 To ensure consistency and avoid permutations of the same triplet, store the values in a sorted order (e.g., ascending) within the hash set. This prevents results with the same values in different positions.
+
+## **Algorithm**
+
+The algorithm is similar to the hash set approach but adapted for an unsorted array.
+
+We just need to add few optimizations so that it works efficiently for repeated values:
+
+1. Use another hashset `duplicates` to skip duplicates in the outer loop.
+  - Without this optimization, the submission will time out for the test case with 3,000 zeroes. This case is handled naturally when the array is sorted.
+
+2. Instead of re-populating a hashset every time in the inner loop, we can use a hashmap and populate it once. Values in the hashmap will indicate whether we have encountered that element in the current iteration. When we process `nums[j]` in the inner loop, we set its hashmap value to `i`. This indicates that we can now use `nums [j]` as a complement for `nums[i]` .
+  - This is more like a trick to compensate for container overheads. The effect varies by language, e.g. for C++ it cuts the runtime in half. Without this trick the submission may time out.
+
+### Key Steps:
+
+1. **Initialize a HashSet**: For each pivot element `nums[i]`, initialize a hash set to store elements visited so far.
+2. **Find Complements**: For each element `nums[j]` to the right of the pivot, check if the complement `-nums[i] - nums[j]` is in the hash set.
+3. **Add to HashSet**: If the complement is found, a triplet is identified. Add `nums[j]` to the hash set for future checks.
+
+### Detailed Steps:
+
+1. **Main Function**:
+    - **Iterate through the Array**:
+        - Use a hash set `duplicates` to skip duplicate pivot elements.
+        - For each pivot element `nums[i]`, initialize a hash set `visited` to store elements seen so far.
+        - For each element `nums[j]` to the right of the pivot, compute the complement `-nums[i] - nums[j]`.
+        - If the complement exists in the hash set `visited`, add the triplet to the result list `res`.
+        - Skip duplicate elements in the inner loop to avoid duplicate triplets.
+        - Add `nums[j]` to the hash set `visited`.
+
+2. **Optimizations**:
+    - Use a hash set `duplicates` to skip duplicate pivot elements in the outer loop. This prevents timeouts for large test cases with many duplicate values.
+    - Use a hash map to store elements and their indices, allowing efficient lookups and avoiding re-populating the hash set in each iteration.
+
+3. **Return the Result**: Return the result list `res`.
+
+### Explanation of Optimizations:
+
+1. **Skipping Duplicates**: Using a hash set `duplicates` in the outer loop to skip duplicate pivot elements prevents timeouts for large arrays with many duplicate values.
+2. **Efficient Lookups**: Using a hash map to store elements and their indices allows efficient lookups and avoids the overhead of re-populating the hash set in each iteration.
+
