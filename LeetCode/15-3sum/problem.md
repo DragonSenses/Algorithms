@@ -573,3 +573,26 @@ We just need to add few optimizations so that it works efficiently for repeated 
 1. **Skipping Duplicates**: Using a hash set `duplicates` in the outer loop to skip duplicate pivot elements prevents timeouts for large arrays with many duplicate values.
 2. **Efficient Lookups**: Using a hash map to store elements and their indices allows efficient lookups and avoids the overhead of re-populating the hash set in each iteration.
 
+## **Implementation**
+
+#### Key Steps for Implementation
+
+1. **Initialization**:
+   - `result`: Stores the final list of unique triplets.
+   - `seenTriplets`: Ensures that each triplet is unique.
+   - `duplicates`: Skips duplicate pivot elements.
+
+2. **Main Loop**:
+   - Iterate through the array with `i` as the pivot.
+   - Skip duplicate pivot elements using the `duplicates` set.
+   - For each pivot, use a `visited` set to track elements seen so far.
+
+3. **Inner Loop**:
+   - For each element `nums[j]` to the right of the pivot, compute the complement `-nums[i] - nums[j]`.
+   - If the complement exists in the `visited` set, a triplet is found.
+   - Sort the triplet to avoid permutations and check if it has been seen before.
+   - Add the triplet to the result if it is unique.
+   - Skip duplicate elements in the inner loop.
+
+4. **Return the Result**: Return the list of unique triplets.
+
