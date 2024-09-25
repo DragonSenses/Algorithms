@@ -332,6 +332,27 @@ This approach ensures that the solution is both time-efficient and avoids duplic
 
 # HashSet Approach for 3Sum
 
+## **Intuition**
 
 To find triplets that sum up to zero, we can adapt the hash table approach from the Two Sum solution. However, this approach won't work for problems like 3Sum Smaller or 3Sum Closest, where the sum isn't necessarily zero.
+
+### Pivot Element
+
+We use `nums[i]` as our pivot element and analyze the elements to its right. By finding pairs whose sum equals `-nums[i]` using the Two Sum: One-pass Hash Table approach, we ensure that the sum of the pivot element (`nums[i]`) and the pair (`-nums[i]`) equals zero.
+
+### Finding Complements
+
+To achieve this, we process each element `nums[j]` to the right of the pivot and check if the complement `-nums[i] - nums[j]` is already in the hash set. If it is, we have found a triplet. We then add `nums[j]` to the hash set so it can be used as a complement in subsequent checks.
+
+### Steps:
+
+1. **Sort the Array**: Sorting helps in skipping duplicate values and simplifies the two-pointer approach.
+2. **Pivot Element**: Iterate through the array, treating each element `nums[i]` as a pivot.
+3. **Two Sum with HashSet**: For each pivot, find pairs to its right whose sum equals `-nums[i]` using a hash set.
+
+### Detailed Approach:
+
+1. **Sort the Array**: This helps in avoiding duplicates and makes it easier to use two pointers.
+2. **Iterate through the Array**: For each element `nums[i]`, use two pointers to find pairs that sum up to `-nums[i]`.
+3. **Use a HashSet**: This helps in avoiding duplicate triplets.
 
