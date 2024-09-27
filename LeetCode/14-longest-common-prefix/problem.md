@@ -42,6 +42,23 @@
 
 The Longest Common Prefix (`LCP`) problem for a set of strings `S_1, S_2, ... , S_n` can be efficiently solved using the divide and conquer technique. Here's a detailed breakdown:
 
+### **Key Points**
+
+1. **Problem Division**:
+   - **Divide**: Split the problem into two subproblems. For the set of strings `S_1, S_2, ..., S_n`, divide it into two halves:
+     -  `LCP(S_1, ..., S_mid)`
+     -  `LCP(S_mid+1, ..., S_n)`
+   - Here, `mid` is calculated as `i + j) / 2`, where `i` and `j` are the indices of the first and last strings in the current subset.
+
+2. **Recursive Solution**:
+   - **Conquer**: Recursively solve the subproblems to find the longest common prefix for each half:
+     - `lcpLeft` = `LCP(S_1, ..., S_mid)`
+     - `lcpRight` = `LCP(S_mid+1, ..., S_n)`
+
+3. **Combine Results**:
+   - **Combine**: Merge the results of the subproblems to form the solution for the original problem. Compare the characters of `lcpLeft` and `lcpRight` one by one until a mismatch is found:
+     - The common prefix of `lcpLeft` and `lcpRight` is the solution for `LCP(S_1, ..., S_n)`.
+
 
 
 # Vertical Scanning
