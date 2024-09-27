@@ -41,3 +41,10 @@
 
 We can compare characters of each string in the same position. We can imagine it as if we stacked each string on top of each other and compare characters from top to bottom on the same column (i.e., same character index of the strings) before moving on to the next column.
 
+### Key steps
+
+1. **Stacking Strings Vertically**: Imagine stacking all the strings vertically, one on top of the other.
+2. **Column-wise Comparison**: Start comparing characters column by column (i.e., character by character at the same index across all strings).
+3. **Early Termination**: If a mismatch is found or the end of any string is reached, stop the comparison for that column.
+4. **Prefix Formation**: The characters compared successfully up to the point of mismatch form the longest common prefix.
+
