@@ -34,7 +34,9 @@
 # Solution
 
 - [Divide and Conquer Approach](#divide-and-conquer-approach)
+  - **Time Complexity**: `O(m * log n)`
 - [Vertical Scanning Approach](#vertical-scanning)
+  - **Time Complexity**: `O(n * m)`
 
 # Divide and Conquer Approach
 
@@ -172,7 +174,34 @@ public class Solution {
 }
 ```
 
+## **Complexity Analysis**
 
+#### **Time Complexity**: `O(m * log n)`
+
+- **Divide Step**: Each divide step splits the array of strings into two halves. This results in a binary tree structure with a height of `log n`, where `n` is the number of strings.
+- **Conquer Step**: At each level of the binary tree, we compare the prefixes of the two halves. In the worst case, this comparison involves all characters of the shortest string in the array, which has a length of `m`.
+
+Therefore, at each level of the binary tree, the comparison takes `O(m)` time, and there are `log n` levels.
+
+- **Total Time Complexity**: `O(m * log n)`
+
+#### **Space Complexity**: `O(log n)`
+
+- **Recursive Call Stack**: The space complexity is determined by the depth of the recursion tree. Since the recursion tree has a height of `log n`, the space complexity due to the call stack is `O(log n)`.
+
+- **Additional Space**: The algorithm uses a constant amount of extra space for variables and comparisons, which is `O(1)`.
+
+- **Total Space Complexity**: `O(log n)`
+
+### Summary
+
+- **Time Complexity**: `O(m * log n)`
+  - `n` is the number of strings.
+  - `m` is the length of the shortest string.
+- **Space Complexity**: `O(log n)`
+  - Due to the depth of the recursion tree.
+
+This analysis shows that the divide and conquer approach is efficient in terms of both time and space, making it a good choice for solving the longest common prefix problem, especially when dealing with a large number of strings.
 
 # Vertical Scanning
 
@@ -243,28 +272,28 @@ public class Solution {
 
 ## **Complexity Analysis**
 
-Let \( n \) be the number of strings in the input array and \( m \) be the length of the shortest string in the array.
+Let `n` be the number of strings in the input array and `m` be the length of the shortest string in the array.
 
-### **Time Complexity**: \( O(n * m) \)
+### **Time Complexity**: `O(n * m)`
 
 - **Character Comparison**: In the worst case, we compare each character of the first string with the corresponding character in all other strings. This involves:
-  - Iterating over each character of the first string, which has a maximum length of \( m \).
-  - For each character, we compare it with the corresponding character in the remaining \( n - 1 \) strings.
-- **Total Comparisons**: Therefore, the total number of comparisons is \( O(n * m) \).
+  - Iterating over each character of the first string, which has a maximum length of `m`.
+  - For each character, we compare it with the corresponding character in the remaining `n - 1` strings.
+- **Total Comparisons**: Therefore, the total number of comparisons is `O(n * m)`.
 
-### **Space Complexity**: \( O(1) \)
+### **Space Complexity**: `O(1)`
 
 - **Constant Space**: The algorithm uses a constant amount of extra space, regardless of the input size. We only store a few variables such as the current character and indices.
 - **No Additional Data Structures**: We do not use any additional data structures that grow with the input size.
 
 ### Detailed Breakdown
 
-1. **Initialization**: Checking if the input array is empty takes \( O(1) \) time.
-2. **Outer Loop**: The outer loop runs up to \( m \) times, where \( m \) is the length of the shortest string.
-3. **Inner Loop**: For each character in the first string, the inner loop runs \( n - 1 \) times to compare it with the corresponding character in the other strings.
+1. **Initialization**: Checking if the input array is empty takes `O(1)` time.
+2. **Outer Loop**: The outer loop runs up to `m` times, where `m` is the length of the shortest string.
+3. **Inner Loop**: For each character in the first string, the inner loop runs `n - 1` times to compare it with the corresponding character in the other strings.
 4. **Early Termination**: The algorithm can terminate early if a mismatch is found, potentially reducing the number of comparisons.
 
 ### Summary
 
-- **Time Complexity**: \( O(n * m) \) - The algorithm performs at most \( n * m \) character comparisons.
-- **Space Complexity**: \( O(1) \) - The algorithm uses a constant amount of extra space.
+- **Time Complexity**: `O(n * m)` - The algorithm performs at most `n * m` character comparisons.
+- **Space Complexity**: `O(1)` - The algorithm uses a constant amount of extra space.
