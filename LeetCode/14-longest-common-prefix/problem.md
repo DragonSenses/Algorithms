@@ -34,6 +34,7 @@
 # Solution
 
 - [Binary Search Approach](#binary-search-approach)
+  - **Time Complexity**: `O(n * minLen * log minLen)`
 - [Divide and Conquer Approach](#divide-and-conquer-approach)
   - **Time Complexity**: `O(m * log n)`
 - [Vertical Scanning Approach](#vertical-scanning)
@@ -129,7 +130,38 @@ function isCommonPrefix(strs, len):
     return true
 ```
 
+## **Complexity Analysis**
 
+#### **Time Complexity**: `O(n * minLen * log minLen)`
+
+- **Binary Search**:
+  - The binary search operates over the range of possible prefix lengths, which is from 0 to `minLen`, where `minLen` is the length of the shortest string in the array.
+  - The binary search will therefore run in `O(log minLen)` time.
+
+- **Prefix Check**:
+  - For each midpoint `mid` calculated during the binary search, we need to check if the prefix of length `mid` is common to all strings.
+  - This involves comparing the prefix of length `mid` with each of the `n` strings.
+  - In the worst case, this comparison takes `O(n * mid)` time.
+  - Since `mid` can be at most `minLen`, the prefix check takes `O(n * minLen)` time in the worst case.
+
+- **Total Time Complexity**:
+  - Combining the binary search and prefix check, the total time complexity is `O(n * minLen * log minLen)`.
+
+#### **Space Complexity**: `O(1)`
+
+- **Constant Space**:
+  - The algorithm uses a constant amount of extra space for variables and the binary search itself.
+  - The space complexity is `O(1)` since no additional data structures that grow with the input size are used.
+
+### Summary
+
+- **Time Complexity**: `O(n * minLen * log minLen)`
+  - `n` is the number of strings.
+  - `minLen` is the length of the shortest string.
+- **Space Complexity**: `O(1)`
+  - The algorithm uses a constant amount of extra space.
+
+This analysis shows that the binary search approach is efficient in terms of both time and space, making it a good choice for solving the longest common prefix problem, especially when dealing with a large number of strings.
 
 # Divide and Conquer Approach
 
