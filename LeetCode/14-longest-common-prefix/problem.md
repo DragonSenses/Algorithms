@@ -48,3 +48,11 @@ We can compare characters of each string in the same position. We can imagine it
 3. **Early Termination**: If a mismatch is found or the end of any string is reached, stop the comparison for that column.
 4. **Prefix Formation**: The characters compared successfully up to the point of mismatch form the longest common prefix.
 
+## **Algorithm**
+
+1. **Edge Case Handling**: If the input array is empty, return an empty string.
+2. **Iterate Over Columns**: Use a loop to iterate over the characters of the first string (as a reference).
+3. **Compare Characters**: For each character in the reference string, compare it with the corresponding character in all other strings.
+4. **Check for Mismatch**: If a mismatch is found or the end of any string is reached, return the prefix formed up to that point.
+5. **Return Result**: If no mismatch is found, the entire first string is the common prefix.
+
