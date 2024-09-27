@@ -82,6 +82,53 @@ Each time search space is divided in two equal parts, one of them is discarded, 
 3. **Result**:
    - The longest common prefix is the substring of the first string from index 0 to `high`.
 
+## **Algorithm**
+
+1. **Initialization**:
+   - Determine the length of the shortest string in the array, `minLen`.
+   - Set two pointers, `low` and `high`, to 0 and `minLen`, respectively.
+
+2. **Binary Search Loop**:
+   - While `low` is less than or equal to `high`:
+     1. Calculate the middle index `mid` as `mid = low + (high - low) / 2`.
+     2. Check if the prefix of length `mid` is common to all strings:
+        - If the prefix is common, move to the right half by setting `low = mid + 1`.
+        - If the prefix is not common, move to the left half by setting `high = mid - 1`.
+
+3. **Prefix Check**:
+   - Define a helper function to check if a prefix of a given length is common to all strings.
+
+4. **Result**:
+   - The longest common prefix is the substring of the first string from index 0 to `(low + high) / 2`.
+
+### **Pseudocode**
+
+```plaintext
+function longestCommonPrefix(strs):
+    if strs is empty:
+        return ""
+
+    minLen = find the length of the shortest string in strs
+    low = 0
+    high = minLen
+
+    while low <= high:
+        mid = low + (high - low) / 2
+        if isCommonPrefix(strs, mid):
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return substring of strs[0] from 0 to (low + high) / 2
+
+function isCommonPrefix(strs, len):
+    prefix = substring of strs[0] from 0 to len
+    for each string in strs:
+        if string does not start with prefix:
+            return false
+    return true
+```
+
 
 
 # Divide and Conquer Approach
