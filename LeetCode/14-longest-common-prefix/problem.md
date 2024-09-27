@@ -33,10 +33,16 @@
 
 # Solution
 
+- [Binary Search Approach](#binary-search-approach)
 - [Divide and Conquer Approach](#divide-and-conquer-approach)
   - **Time Complexity**: `O(m * log n)`
 - [Vertical Scanning Approach](#vertical-scanning)
   - **Time Complexity**: `O(n * m)`
+
+# Binary Search Approach
+
+
+The goal is to use a binary search method to find the maximum length `L` of the longest common prefix among all strings in the array. The search space for `L` is the interval `[0, minLen]`, where `minLen` is the length of the shortest string in the array. This ensures that the longest possible common prefix cannot exceed the length of the shortest string.
 
 # Divide and Conquer Approach
 
