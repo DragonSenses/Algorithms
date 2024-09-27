@@ -59,6 +59,31 @@ The Longest Common Prefix (`LCP`) problem for a set of strings `S_1, S_2, ... , 
    - **Combine**: Merge the results of the subproblems to form the solution for the original problem. Compare the characters of `lcpLeft` and `lcpRight` one by one until a mismatch is found:
      - The common prefix of `lcpLeft` and `lcpRight` is the solution for `LCP(S_1, ..., S_n)`.
 
+### **Detailed Walkthrough**
+
+1. **Base Case**:
+   - If the subset contains only one string, the longest common prefix is the string itself.
+
+2. **Recursive Case**:
+   - Split the array of strings into two halves.
+   - Recursively find the longest common prefix for each half.
+   - Compare the prefixes from both halves character by character to find the common prefix.
+
+3. **Character Comparison**:
+   - Start comparing characters from the beginning of `lcpLeft` and `lcpRight`.
+   - Continue until characters match or the end of either prefix is reached.
+   - The matched portion is the longest common prefix for the current subset.
+
+### **Example**
+
+For the input array `["flower", "flow", "flight"]`:
+1. **Divide**: Split into `["flower", "flow"]` and `["flight"]`.
+2. **Conquer**:
+   - Find LCP of `["flower", "flow"]` which is `"flow"`.
+   - Find LCP of `["flight"]` which is `"flight"`.
+3. **Combine**:
+   - Compare `"flow"` and `"flight"` character by character.
+   - The common prefix is `"fl"`.
 
 
 # Vertical Scanning
