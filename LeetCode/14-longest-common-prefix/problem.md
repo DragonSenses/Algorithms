@@ -41,8 +41,48 @@
 
 # Binary Search Approach
 
+## **Intuition**
 
 The goal is to use a binary search method to find the maximum length `L` of the longest common prefix among all strings in the array. The search space for `L` is the interval `[0, minLen]`, where `minLen` is the length of the shortest string in the array. This ensures that the longest possible common prefix cannot exceed the length of the shortest string.
+
+Each time search space is divided in two equal parts, one of them is discarded, because it is sure that it doesn't contain the solution. There are two possible cases:
+
+  1. `S[1...mid]` is not a common string. This means that for each `j > i, S[1...j]` is not a common string and we discard the second half of the search space.
+
+  2. `S[1...mid]` is common string. This means that for each `i < j, S[1..i]` is a common string and we discard the first half of the search space, because we try to find longer common prefix.
+
+### **Key Steps**
+
+1. **Search Space Definition**:
+   - Define the search space for the length `L` of the longest common prefix as `[0, minLen]`.
+
+2. **Binary Search**:
+   - Perform binary search within this interval. In each iteration, calculate the midpoint `mid` of the current search space.
+   - Check if the prefix of length `mid` is common to all strings.
+
+3. **Prefix Check**:
+   - If the prefix of length `mid` is common to all strings, it means longer prefixes might also be common. Thus, move to the right half of the search space by setting `low = mid + 1`.
+   - If the prefix of length `mid` is not common to all strings, it means longer prefixes cannot be common. Thus, move to the left half of the search space by setting `high = mid - 1`.
+
+4. **Termination**:
+   - The binary search continues until the search space is exhausted. The longest common prefix length is determined by the final value of `high`.
+
+### **Detailed Steps**
+
+1. **Initialize**:
+   - Set `low = 0` and `high = minLen`.
+
+2. **Binary Search Loop**:
+   - While `low <= high`:
+     - Calculate `mid = (low + high) / 2`.
+     - Check if the prefix of length `mid` is common to all strings.
+     - If common, set `low = mid + 1`.
+     - If not common, set `high = mid - 1`.
+
+3. **Result**:
+   - The longest common prefix is the substring of the first string from index 0 to `high`.
+
+
 
 # Divide and Conquer Approach
 
