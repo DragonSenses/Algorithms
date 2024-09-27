@@ -33,7 +33,16 @@
 
 # Solution
 
+- [Divide and Conquer Approach](#divide-and-conquer-approach)
 - [Vertical Scanning Approach](#vertical-scanning)
+
+# Divide and Conquer Approach
+
+## **Intuition**
+
+The Longest Common Prefix (`LCP`) problem for a set of strings `S_1, S_2, ... , S_n` can be efficiently solved using the divide and conquer technique. Here's a detailed breakdown:
+
+
 
 # Vertical Scanning
 
