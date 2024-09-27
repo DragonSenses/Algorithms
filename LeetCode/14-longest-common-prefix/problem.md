@@ -85,6 +85,26 @@ For the input array `["flower", "flow", "flight"]`:
    - Compare `"flow"` and `"flight"` character by character.
    - The common prefix is `"fl"`.
 
+## **Algorithm**
+
+1. **Base Case**:
+   - If the subset contains only one string, return that string as the longest common prefix.
+
+2. **Divide**:
+   - Split the array of strings into two halves:
+     - Left half: `LCP(S_1, ..., S_mid)`
+     - Right half: `LCP(S_mid+1, ..., S_n)`
+   - Here, `mid` is calculated as `low + high / 2`.
+
+3. **Conquer**:
+   - Recursively find the longest common prefix for each half:
+     - `lcpLeft` = `LCP(S_1, ..., S_mid)`
+     - `lcpRight` = `LCP(S_mid+1, ..., S_n)`
+
+4. **Combine**:
+   - Compare the prefixes from both halves character by character to find the common prefix.
+   - The common prefix of `lcpLeft` and `lcpRight` is the solution for `LCP(S_1, ..., S_n)`.
+
 
 # Vertical Scanning
 
