@@ -152,6 +152,97 @@ function isCommonPrefix(strs, len):
     return true
 ```
 
+## **Implementation**
+
+#### Key Steps
+
+1. **Initialization**: Determine the minimum length of the strings to set the search space.
+2. **Binary Search**: Perform binary search to find the maximum length of the common prefix.
+3. **Prefix Check**: Use a helper function to check if a prefix of a given length is common to all strings.
+4. **Result**: Return the longest common prefix based on the final search space.
+
+### Java
+
+```java
+public class Solution {
+
+  /**
+   * Finds the longest common prefix string amongst an array of strings using the
+   * binary search approach.
+   *
+   * @param strs an array of strings
+   * @return the longest common prefix string, or an empty string if there is no
+   *         common prefix
+   */
+  public String longestCommonPrefix(String[] strs) {
+    if (strs == null || strs.length == 0) {
+      return "";
+    }
+
+    int minLen = Integer.MAX_VALUE;
+    for (String str : strs) {
+      minLen = Math.min(minLen, str.length());
+    }
+
+    int low = 0;
+    int high = minLen;
+    while (low <= high) {
+      int mid = (low + high) / 2;
+      if (isCommonPrefix(strs, mid)) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+
+    return strs[0].substring(0, (low + high) / 2);
+  }
+
+  /**
+   * Checks if a prefix of given length is common to all strings.
+   *
+   * @param strs the array of strings
+   * @param len  the length of the prefix
+   * @return true if the prefix is common to all strings, false otherwise
+   */
+  private boolean isCommonPrefix(String[] strs, int len) {
+    String prefix = strs[0].substring(0, len);
+    for (int i = 1; i < strs.length; i++) {
+      if (!strs[i].startsWith(prefix)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+```
+
+#### Why is `low` set to `0` and not `1`?
+
+In the binary search approach for finding the longest common prefix, it is correct to set `low` to 0. This is because the search space for the length of the prefix starts from 0 (an empty prefix) and goes up to the length of the shortest string (`minLen`).
+
+Here's the reasoning:
+
+- **`low = 0`**: This represents the smallest possible prefix length, which is an empty string.
+- **`high = minLen`**: This represents the maximum possible prefix length, which is the length of the shortest string in the array.
+
+Setting `low` to 0 ensures that the binary search considers the possibility of no common prefix at all, which is necessary for the algorithm to function correctly.
+
+The implementation is correct with `low` set to 0. Here's the relevant part of the code for clarity:
+
+```java
+int low = 0;
+int high = minLen;
+while (low <= high) {
+    int mid = (low + high) / 2;
+    if (isCommonPrefix(strs, mid)) {
+        low = mid + 1;
+    } else {
+        high = mid - 1;
+    }
+}
+```
+
 ## **Complexity Analysis**
 
 #### **Time Complexity**: `O(n * minLen * log minLen)`
