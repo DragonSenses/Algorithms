@@ -27,6 +27,28 @@
 	<li><code>strs[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
+#### Additional Test Cases
+
+1. **Common Prefix Exists**: Checks for a common prefix among strings with different lengths.
+   - Input: `["flower", "flow", "flight"]`
+   - Expected Output: `"fl"`
+
+2. **No Common Prefix**: Ensures the function returns an empty string when there is no common prefix.
+   - Input: `["dog", "racecar", "car"]`
+   - Expected Output: `""`
+
+3. **All Strings Are Identical**: Verifies the function handles identical strings correctly.
+   - Input: `["test", "test", "test"]`
+   - Expected Output: `"test"`
+
+4. **Single String**: Tests the function with a single string.
+   - Input: `["single"]`
+   - Expected Output: `"single"`
+
+5. **Empty Array**: Checks the function's behavior with an empty array.
+   - Input: `[]`
+   - Expected Output: `""`
+
 <br>
 
 ---
