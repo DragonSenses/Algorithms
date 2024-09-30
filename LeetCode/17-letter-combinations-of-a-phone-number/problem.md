@@ -159,3 +159,19 @@ Recursion is an effective way to manage this state.
 4. **Initialize and Call Backtracking**
    - Start with an empty combination and the first digit, and recursively generate all possible combinations.
 
+## **Implementation**
+
+#### Key Points
+
+- **Edge Case**: Return an empty array if the input is empty.
+- **Data Structure**: Use a hash map to map digits to their corresponding letters.
+- **Backtracking**: Use a recursive function to generate all possible combinations by exploring each letter for the current digit and moving to the next digit.
+
+### Explanation
+
+1. **Edge Case Handling**: If the input `digits` is empty, return an empty list.
+2. **Initialize Data Structure**: Create a hash map to map each digit to its corresponding letters.
+3. **Backtracking Function**:
+   - **Base Case**: If the current combination's length equals the input `digits` length, add it to the result list.
+   - **Recursive Case**: For the current digit, loop through its corresponding letters, add each letter to the current path, and call the backtracking function with the next index. Remove the letter from the path after exploring all combinations starting with it.
+
