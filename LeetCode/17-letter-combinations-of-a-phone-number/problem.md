@@ -45,9 +45,51 @@ One of the first things you should always do is look at the constraints. Quite o
 
 In this particular problem, the length of the input is **extremely** small: `0 <= digits.length <= 4`. With such small input sizes, we can safely assume that a brute force solution, in which we generate all combinations of letters, will be accepted.
 
+### Backtracking Algorithmic Technique
+
 Whenever you have a problem where you need to generate all combinations or permutations of some group of letters or numbers, the first thought you should have is backtracking. 
 
 Backtracking is a powerful algorithmic technique used to solve problems that involve searching through all possible configurations to find a solution.
 
 Backtracking algorithms can often keep the space complexity linear with the input size.
+
+### What is Backtracking?
+
+Backtracking is a method for finding solutions to problems incrementally, one piece at a time, and removing those solutions that fail to satisfy the constraints of the problem at any point in time. It's often used for problems involving permutations, combinations, and other forms of exhaustive search.
+
+### How Does Backtracking Work?
+
+1. **Choose**: Select a starting point or an initial decision.
+2. **Explore**: Move forward by making a choice and recursively explore further decisions.
+3. **Check**: If the current path leads to a solution, record it. If not, backtrack by undoing the last choice and try another path.
+
+### Example: Generating Combinations
+
+Imagine you need to generate all possible combinations of a set of letters. Here's how backtracking would work:
+
+1. **Start** with an empty combination.
+2. **Add** a letter to the current combination.
+3. **Recursively** add more letters to the combination.
+4. **Check** if the combination meets the criteria (e.g., length).
+5. **Backtrack** by removing the last added letter and try the next possibility.
+
+### Pseudocode for Backtracking
+
+Here's a simple pseudocode example for generating combinations:
+
+```pseudo
+function backtrack(combination, next_index):
+    if combination is a valid solution:
+        output(combination)
+        return
+    for each letter in the set starting from next_index:
+        add letter to combination
+        backtrack(combination, next_index + 1)
+        remove letter from combination
+```
+
+### Key Points
+
+- **Efficiency**: Backtracking can be more efficient than brute force because it eliminates paths that are guaranteed not to lead to a solution.
+- **Applications**: It's used in solving puzzles (like Sudoku), generating permutations and combinations, and in constraint satisfaction problems.
 
