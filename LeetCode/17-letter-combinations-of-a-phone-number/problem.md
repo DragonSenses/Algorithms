@@ -222,3 +222,18 @@ public class Solution {
    - **Base Case**: If the current combination's length equals the input `digits` length, add it to the result list.
    - **Recursive Case**: For the current digit, loop through its corresponding letters, add each letter to the current path, and call the backtracking function with the next index. Remove the letter from the path after exploring all combinations starting with it.
 
+## **Complexity Analysis**
+
+Let `n` be the length of the input `digits`.
+
+### **Time Complexity**: `O(4^n * n)`
+
+- **Digit Length**: `n`
+- **Maximum Value Length in Hash Map**: The factor `4` in the expression refers to the maximum number of letters mapped to a single digit (digits 7 and 9 map to 4 letters each), not the length of the input.
+- **Worst Case**: The worst-case scenario occurs when the input consists only of digits 7 and 9. In this case, we need to explore 4 additional paths for each extra digit. For each combination, it takes up to `n` operations to build the combination. This problem can be generalized to a scenario where digits correspond to up to `M` letters, resulting in a time complexity of `O(M^n * n)`. Given the problem constraints, `M = 4` because digits 7 and 9 have 4 letters each.
+- **Overall Complexity**: The combined time complexity is `O(4^n * n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursion Call Stack**: The extra space used relative to the input size is the space occupied by the recursion call stack. The depth of the recursion will be at most the number of digits in the input, as we backtrack once we reach that depth.
+- **Hash Map Space**: The hash map does not grow with the input size and occupies `O(1)` space.
