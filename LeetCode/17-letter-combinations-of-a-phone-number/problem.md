@@ -124,3 +124,38 @@ As you can see, solving the one-digit case is trivial, and solving the two-digit
 
 This structured approach ensures that we systematically generate all possible combinations using backtracking.
 
+## **Algorithm**
+
+### Overview
+
+To generate all possible letter combinations for a given string of digits, we will use a backtracking approach. This involves "**locking in**" letters as we generate new combinations. 
+
+Recursion is an effective way to manage this state.
+
+### Steps
+
+1. **Handle Edge Case**
+   - If the input is empty, return an empty array.
+
+2. **Initialize Data Structure**
+   - Create a hash map that maps each digit to its corresponding letters (e.g., mapping "6" to "m", "n", and "o").
+
+3. **Backtracking Function**
+   - Use a recursive function to generate all possible combinations.
+
+### Detailed Algorithm
+
+1. **Edge Case Handling**
+   - Check if the input is empty and return an empty array if it is.
+
+2. **Initialize Hash Map**
+   - Set up a mapping of each digit to its corresponding letters.
+
+3. **Backtracking Function**
+   - **Inputs**: The current combination of letters (`path`) and the current index in the `digits` string (`index`).
+   - **Base Case**: If the current combination's length equals the input `digits` length, add it to the result.
+   - **Recursive Case**: For the current digit, loop through its corresponding letters, add each letter to the current `path`, and call the backtracking function with the next index. Remove the letter from `path` after exploring all combinations starting with it.
+
+4. **Initialize and Call Backtracking**
+   - Start with an empty combination and the first digit, and recursively generate all possible combinations.
+
