@@ -35,6 +35,10 @@
 
 ---
 
+# Solution
+
+- [Backtracking Approach](#backtracking-approach)
+
 ## Interview Tips
 
 ### Understand the Constraints
@@ -92,4 +96,13 @@ function backtrack(combination, next_index):
 
 - **Efficiency**: Backtracking can be more efficient than brute force because it eliminates paths that are guaranteed not to lead to a solution.
 - **Applications**: It's used in solving puzzles (like Sudoku), generating permutations and combinations, and in constraint satisfaction problems.
+
+# Backtracking Approach
+
+The key to solving this problem is correctly generating all possible letter combinations using a standard backtracking algorithm. 
+
+- **Single-digit case**: Generate all letters for the given digit.
+- **Two-digit case**: Fix the first letter and generate combinations for the second digit.
+- **Three-digit case**: Generate combinations for the first two digits, then append letters for the third digit.
+- **Four-digit case**: Generate combinations for the first three digits, then append letters for the fourth digit.
 
