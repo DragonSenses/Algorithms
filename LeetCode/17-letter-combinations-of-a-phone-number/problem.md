@@ -99,10 +99,28 @@ function backtrack(combination, next_index):
 
 # Backtracking Approach
 
+## **Intuition**
+
 The key to solving this problem is correctly generating all possible letter combinations using a standard backtracking algorithm. 
 
 - **Single-digit case**: Generate all letters for the given digit.
 - **Two-digit case**: Fix the first letter and generate combinations for the second digit.
 - **Three-digit case**: Generate combinations for the first two digits, then append letters for the third digit.
 - **Four-digit case**: Generate combinations for the first three digits, then append letters for the fourth digit.
+
+Let's break down the problem step-by-step:
+
+### Single-Digit Case
+
+Start with a simple case where the input is only one digit long, for example, `digits = "2"`. This is straightforward: just generate all letters that correspond to `digit = "2"`, which would be `["a", "b", "c"]`.
+
+### Two-Digit Case
+
+Now, consider a two-digit input, `digits = "23"`. Imagine taking each letter of `digit = "2"` as a starting point. That is, **lock in the first letter**, and solve for all possible combinations that **start with that letter**. For instance, if the first letter is `"a"`, then the problem reduces to generating all letters corresponding to `digit = "3"` and appending them to `"a"`, resulting in `["ad", "ae", "af"]`. This is easy because we treat the first letter as fixed and solve the one-digit case for the second digit. We already know how to generate the first letters: `["a", "b", "c"]`.
+
+### Extending to Multiple Digits
+
+As you can see, solving the one-digit case is trivial, and solving the two-digit case is just solving the one-digit case twice. This reasoning can be extended to `n` digits. For the three-digit case, solve the two-digit case to generate all combinations of the first two letters, and then solve the one-digit case for the final digit. Similarly, for the four-digit case, solve the three-digit case for all combinations of the first three letters, and then solve the one-digit case for the final digit. This approach can be extended indefinitely, but for this problem, we only need to handle up to four digits.
+
+This structured approach ensures that we systematically generate all possible combinations using backtracking.
 
