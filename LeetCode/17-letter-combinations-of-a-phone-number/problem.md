@@ -167,6 +167,53 @@ Recursion is an effective way to manage this state.
 - **Data Structure**: Use a hash map to map digits to their corresponding letters.
 - **Backtracking**: Use a recursive function to generate all possible combinations by exploring each letter for the current digit and moving to the next digit.
 
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Solution {
+  public List<String> letterCombinations(String digits) {
+    List<String> combinations = new ArrayList<>();
+    if (digits == null || digits.length() == 0) {
+      return combinations;
+    }
+
+    Map<Character, String> digitToLetters = new HashMap<>();
+    digitToLetters.put('2', "abc");
+    digitToLetters.put('3', "def");
+    digitToLetters.put('4', "ghi");
+    digitToLetters.put('5', "jkl");
+    digitToLetters.put('6', "mno");
+    digitToLetters.put('7', "pqrs");
+    digitToLetters.put('8', "tuv");
+    digitToLetters.put('9', "wxyz");
+
+    backtrack(combinations, digitToLetters, digits, 0, new StringBuilder());
+    return combinations;
+  }
+
+  private void backtrack(List<String> combinations, Map<Character, String> digitToLetters, String digits, int index,
+      StringBuilder path) {
+    if (index == digits.length()) {
+      combinations.add(path.toString());
+      return;
+    }
+
+    char digit = digits.charAt(index);
+    String letters = digitToLetters.get(digit);
+    for (char letter : letters.toCharArray()) {
+      path.append(letter);
+      backtrack(combinations, digitToLetters, digits, index + 1, path);
+      path.deleteCharAt(path.length() - 1);
+    }
+  }
+}
+```
+
 ### Explanation
 
 1. **Edge Case Handling**: If the input `digits` is empty, return an empty list.
