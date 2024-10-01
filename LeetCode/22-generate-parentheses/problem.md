@@ -257,3 +257,31 @@ For `n = 3`, the valid combinations are:
 
 For `n = 1`, the valid combination is:
 - `()`
+
+## **Algorithm**
+
+1. **Initialize Data Structures**:
+   - Create a queue `queue` and enqueue an empty string `""`.
+   - Create an empty array `result` to store all valid strings.
+
+2. **Define Validation Function**:
+   - Define a function `isValid(parenthesis)` to check if a given string of parentheses is valid:
+     - Initialize `open_count` to 0.
+     - Iterate over each character `p` in `parenthesis`:
+       - Increment `open_count` by 1 if `p` is `(`.
+       - Decrement `open_count` by 1 if `p` is `)`.
+       - If `open_count` becomes negative, return `false`.
+     - Return `true` if `open_count` is 0 after the iteration, otherwise return `false`.
+
+3. **Generate and Validate Strings**:
+   - While the queue is not empty:
+     - Dequeue the front string `current`.
+     - If the length of `current` is `2n`:
+       - Check if `current` is valid using `isValid(current)`.
+       - If valid, add `current` to `result`.
+     - If the length of `current` is less than `2n`:
+       - Enqueue two new strings formed by appending `(` and `)` to `current`.
+
+4. **Return Result**:
+   - Return the `result` array containing all valid strings.
+
