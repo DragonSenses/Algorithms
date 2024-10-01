@@ -162,3 +162,48 @@ public class Solution {
 
 **Note:** This implementation achieved a runtime of 1 ms, placing it in the top 32.38% of all solutions. In comparison, 13.44% of solutions had a runtime of 0 ms, and 38.94% of solutions had a runtime of 2 ms.
 
+#### Optimization: Use StringBuilder
+
+Using `StringBuilder` can improve the performance by reducing the number of string concatenations.
+
+##### Explanation of Changes:
+
+- **StringBuilder**: Replaced `String` with `StringBuilder` for the `current` parameter in the `backtrack` method to improve performance.
+- **Appending and Deleting**: Used `append` to add parentheses and `deleteCharAt` to backtrack by removing the last character.
+
+This implementation should be more efficient due to the reduced overhead of string concatenation:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+  public List<String> generateParenthesis(int n) {
+    List<String> result = new ArrayList<>();
+    backtrack(result, new StringBuilder(), 0, 0, n);
+    return result;
+  }
+
+  private void backtrack(List<String> result, StringBuilder current, int open, int close, int max) {
+    if (current.length() == max * 2) {
+      result.add(current.toString());
+      return;
+    }
+
+    if (open < max) {
+      current.append("(");
+      backtrack(result, current, open + 1, close, max);
+      current.deleteCharAt(current.length() - 1); // backtrack
+    }
+
+    if (close < open) {
+      current.append(")");
+      backtrack(result, current, open, close + 1, max);
+      current.deleteCharAt(current.length() - 1); // backtrack
+    }
+  }
+}
+```
+
+**Note:** This implementation achieved a runtime of 0.1 ms, placing it in the top 13.44% of all solutions. In comparison, 32.38% of solutions had a runtime of 1 ms, and 38.94% of solutions had a runtime of 2 ms.
