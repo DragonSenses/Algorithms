@@ -285,3 +285,128 @@ For `n = 1`, the valid combination is:
 4. **Return Result**:
    - Return the `result` array containing all valid strings.
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class Solution {
+  public List<String> generateParenthesis(int n) {
+    List<String> result = new ArrayList<>();
+    Queue<String> queue = new LinkedList<>();
+    queue.add("");
+
+    while (!queue.isEmpty()) {
+      String current = queue.poll();
+      if (current.length() == 2 * n) {
+        if (isValid(current)) {
+          result.add(current);
+        }
+      } else {
+        queue.add(current + "(");
+        queue.add(current + ")");
+      }
+    }
+
+    return result;
+  }
+
+  private boolean isValid(String parenthesis) {
+    int open_count = 0;
+    for (char p : parenthesis.toCharArray()) {
+      if (p == '(') {
+        open_count++;
+      } else {
+        open_count--;
+      }
+      if (open_count < 0) {
+        return false;
+      }
+    }
+    return open_count == 0;
+  }
+}
+```
+
+Brute force implementation with comments:
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+/**
+ * Solution class to generate all combinations of well-formed parentheses.
+ */
+public class Solution {
+
+  /**
+   * Generates all combinations of well-formed parentheses for a given number of pairs.
+   *
+   * @param n the number of pairs of parentheses
+   * @return a list of all valid combinations of well-formed parentheses
+   */
+  public List<String> generateParenthesis(int n) {
+    // List to store the valid combinations
+    List<String> result = new ArrayList<>();
+    // Queue to facilitate BFS
+    Queue<String> queue = new LinkedList<>();
+    // Start with an empty string
+    queue.add("");
+
+    // Process the queue until it's empty
+    while (!queue.isEmpty()) {
+      // Dequeue the front string
+      String current = queue.poll();
+      // If the current string has reached the length of 2n
+      if (current.length() == 2 * n) {
+        // Check if the current string is a valid combination
+        if (isValid(current)) {
+          // Add the valid combination to the result list
+          result.add(current);
+        }
+      } else {
+        // Enqueue new strings by adding '(' and ')'
+        queue.add(current + "(");
+        queue.add(current + ")");
+      }
+    }
+
+    // Return the list of valid combinations
+    return result;
+  }
+
+  /**
+   * Checks if a given string of parentheses is valid.
+   *
+   * @param parenthesis the string of parentheses to check
+   * @return true if the string is a valid combination of well-formed parentheses, false otherwise
+   */
+  private boolean isValid(String parenthesis) {
+    int open_count = 0;
+    // Iterate through each character in the string
+    for (char p : parenthesis.toCharArray()) {
+      // Increment open_count for '('
+      if (p == '(') {
+        open_count++;
+      } else {
+        // Decrement open_count for ')'
+        open_count--;
+      }
+      // If open_count is negative, the string is invalid
+      if (open_count < 0) {
+        return false;
+      }
+    }
+    // The string is valid if open_count is zero at the end
+    return open_count == 0;
+  }
+}
+```
+
