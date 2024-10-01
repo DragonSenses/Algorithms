@@ -226,6 +226,26 @@ public class Solution {
 
 We can generate all possible strings of length `2n` and then verify their validity.
 
+## **Intuition**
+
+1. **Generate All Possible Strings**:
+   - Use a queue to implement a breadth-first search (BFS) algorithm.
+   - Start with an empty string and enqueue it.
+   - For each string of length `i`, generate two new strings by appending either `(` or `)`.
+   - Continue this process until the string length reaches `2n`.
+
+2. **Validate Each String**:
+   - A valid combination must have `n` left parentheses, each matched with a right parenthesis.
+   - Track the number of unmatched left parentheses using a variable `open_count`.
+   - Iterate through the string:
+     - Increment `open_count` for each `(`.
+     - Decrement `open_count` for each `)`.
+     - Ensure `open_count` never goes negative (indicating an unmatched `)`).
+
+3. **Final Check**:
+   - After traversing the string, check if `open_count` is 0.
+   - If it is, the string is valid; otherwise, it is not.
+
 ### **Example**
 
 For `n = 3`, the valid combinations are:
