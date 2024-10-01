@@ -86,6 +86,12 @@ This function ensures that the generated string of length `2n` is valid and adds
 3. **Backtracking**: If the string is invalid, we backtrack to the previous state and try a different path.
 4. **Termination**: The recursion continues until we generate strings of length `2n`.
 
+### Detailed Steps
+
+1. **Base Case**: If the current string has `n` opening and `n` closing parentheses, it is valid and added to the result list.
+2. **Add Opening Parenthesis**: If the number of opening parentheses is less than `n`, add an opening parenthesis and recurse.
+3. **Add Closing Parenthesis**: If the number of closing parentheses is less than the number of opening parentheses, add a closing parenthesis and recurse.
+
 ## **Algorithm**
 
 1. Initialize an empty list `result`
@@ -98,6 +104,28 @@ This function ensures that the generated string of length `2n` is valid and adds
 
   - If `open_count > close_count` , add `)` to curr_string and move on to `backtrack(new_string, open_count, close_count + 1)` .
 
-3. Call `backtrack` on empty string ( `backtrack("", 0, 0)` ) and return `result` once the backtracking process is
-complete.
+3. Call `backtrack` on empty string ( `backtrack("", 0, 0)` ) and return `result` once the backtracking process is complete.
+
+### Detailed Steps
+
+1. **Initialize Result List**:
+   - Create an empty list `result` to store the valid combinations of parentheses.
+
+2. **Define Backtracking Function**:
+   - Define a function `backtrack(result, current, open, close, max)` to generate valid strings recursively.
+
+3. **Base Case**:
+   - If the length of `current` is equal to `2 * max`, add `current` to `result` and return.
+
+4. **Add Open Parenthesis**:
+   - If `open < max`, add an open parenthesis `(` to `current` and call `backtrack` with updated counts: `backtrack(result, current + "(", open + 1, close, max)`.
+
+5. **Add Close Parenthesis**:
+   - If `close < open`, add a close parenthesis `)` to `current` and call `backtrack` with updated counts: `backtrack(result, current + ")", open, close + 1, max)`.
+
+6. **Start Backtracking**:
+   - Call `backtrack` with an empty string and initial counts: `backtrack(result, "", 0, 0, n)`.
+
+7. **Return Result**:
+   - Return the `result` list containing all valid combinations of parentheses.
 
