@@ -129,3 +129,36 @@ This function ensures that the generated string of length `2n` is valid and adds
 7. **Return Result**:
    - Return the `result` list containing all valid combinations of parentheses.
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+  public List<String> generateParenthesis(int n) {
+    List<String> result = new ArrayList<>();
+    backtrack(result, "", 0, 0, n);
+    return result;
+  }
+
+  private void backtrack(List<String> result, String current, int open, int close, int max) {
+    if (current.length() == max * 2) {
+      result.add(current);
+      return;
+    }
+
+    if (open < max) {
+      backtrack(result, current + "(", open + 1, close, max);
+    }
+    if (close < open) {
+      backtrack(result, current + ")", open, close + 1, max);
+    }
+  }
+}
+```
+
+**Note:** This implementation achieved a runtime of 1 ms, placing it in the top 32.38% of all solutions. In comparison, 13.44% of solutions had a runtime of 0 ms, and 38.94% of solutions had a runtime of 2 ms.
+
