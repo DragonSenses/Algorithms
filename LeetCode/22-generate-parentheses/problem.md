@@ -25,6 +25,7 @@
 
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity**: `O([4^n / sqrt(n)])`
+- [Brute Force Naive Approach](#brute-force-naive-approach)
 
 # Backtracking Approach
 
@@ -220,3 +221,19 @@ public class Solution {
 ### **Space Complexity**: `O(n)`
 
 - **Recursion Call Stack**: The extra space used relative to the input size is the space occupied by the recursion call stack. The space complexity of a recursive call depends on the maximum depth of the recursive call stack, which is `2n`. Since each recursive call either adds a left parenthesis or a right parenthesis, the total number of parentheses is `2n`. Therefore, at most `O(n)` levels of recursion will be created, and each level consumes a constant amount of space.
+
+# Brute Force (Naive Approach)
+
+We can generate all possible strings of length `2n` and then verify their validity.
+
+### **Example**
+
+For `n = 3`, the valid combinations are:
+- `((()))`
+- `(()())`
+- `(())()`
+- `()(())`
+- `()()()`
+
+For `n = 1`, the valid combination is:
+- `()`
