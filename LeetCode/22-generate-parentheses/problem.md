@@ -410,3 +410,22 @@ public class Solution {
 }
 ```
 
+
+## **Complexity Analysis**
+
+### **Time Complexity**: \( O(2^{2n} \cdot n) \)
+
+- **Brute Force Procedure**:
+  - Generating all possible strings of length \( 2n \) involves \( 2^{2n} \) unique strings since each character can be either `(` or `)`.
+  - For each string of length \( 2n \), we need to check its validity, which takes \( O(n) \) time.
+  - Therefore, the total time complexity is \( O(2^{2n} \cdot n) \).
+
+### **Space Complexity**: \( O(2^{2n} \cdot n) \)
+
+- **Queue Storage**:
+  - Before dequeuing the first string of length \( 2n \), the queue can store up to \( 2^{2n-1} \) strings of length \( 2n-1 \), each taking \( O(n) \) space.
+  - Thus, the space complexity for the queue is \( O(2^{2n} \cdot n) \).
+
+- **Result Storage**:
+  - The result list stores all valid combinations, which corresponds to the \( n \)-th Catalan number.
+  - The \( n \)-th Catalan number is asymptotically \( O(\frac{4^n}{\sqrt{n}}) \), which is bounded by \( O(\frac{4^n}{n \cdot \sqrt{n}}) \).
