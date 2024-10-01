@@ -79,3 +79,25 @@ The function adds more parentheses to `curr_string` only when certain conditions
 
 This function ensures that the generated string of length `2n` is valid and adds it directly to the answer. By only generating valid strings, we can avoid wasting time checking invalid strings.
 
+### Key Points
+
+1. **Recursive Building**: We build the string recursively, adding one parenthesis at a time.
+2. **Validity Check**: At each step, we check if the current string is valid.
+3. **Backtracking**: If the string is invalid, we backtrack to the previous state and try a different path.
+4. **Termination**: The recursion continues until we generate strings of length `2n`.
+
+## **Algorithm**
+
+1. Initialize an empty list `result`
+
+2. Define `backtrack(curr_string, open_count, close_count)` to generate valid strings recursively.
+
+  -  If `len(curr_string) = 2n` , add it to `result` and return.
+
+  - If `open_count < n` , add `(` to `curr_string` and move on to `backtrack(new_string, open_count + 1, close_count)`
+
+  - If `open_count > close_count` , add `)` to curr_string and move on to `backtrack(new_string, open_count, close_count + 1)` .
+
+3. Call `backtrack` on empty string ( `backtrack("", 0, 0)` ) and return `result` once the backtracking process is
+complete.
+
