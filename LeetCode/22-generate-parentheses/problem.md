@@ -23,7 +23,8 @@
 
 # Solution
 
-  - [Backtracking Approach](#backtracking-approach)
+- [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O([4^n / sqrt(n)])`
 
 # Backtracking Approach
 
@@ -207,3 +208,15 @@ public class Solution {
 ```
 
 **Note:** This implementation achieved a runtime of 0.1 ms, placing it in the top 13.44% of all solutions. In comparison, 32.38% of solutions had a runtime of 1 ms, and 38.94% of solutions had a runtime of 2 ms.
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O([4^n / sqrt(n)])`
+
+- **Brute Force Procedure**: The naive brute force approach of generating all possible parentheses has a time complexity of `O([4^n / n*sqrt(n)])`. This is because it generates all possible strings and then filters out the invalid ones. However, during the backtracking procedure, we only track valid prefixes, which significantly reduces the number of strings we need to consider.
+
+- **Mutable Instance**: When considering each valid string, it is important to note that we use a mutable instance (e.g., `StringBuilder` in Java, `list` in Python). As a result, to add each instance of a valid string to `result`, we must first convert it to a string. This conversion process adds an additional factor of `n` to the time complexity.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursion Call Stack**: The extra space used relative to the input size is the space occupied by the recursion call stack. The space complexity of a recursive call depends on the maximum depth of the recursive call stack, which is `2n`. Since each recursive call either adds a left parenthesis or a right parenthesis, the total number of parentheses is `2n`. Therefore, at most `O(n)` levels of recursion will be created, and each level consumes a constant amount of space.
