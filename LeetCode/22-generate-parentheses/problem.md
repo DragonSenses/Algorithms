@@ -27,6 +27,7 @@
   - **Time Complexity**: `O([4^n / sqrt(n)])`
 - [Brute Force Naive Approach](#brute-force-naive-approach)
   - **Time Complexity**: `O(2^{2n} * n)`
+- [Divide and Conquer Approach](#divide-and-conquer-approach)
 
 # Backtracking Approach
 
@@ -486,4 +487,5 @@ function isValid(parenthesis: string): boolean {
   - The result list stores all valid combinations, which corresponds to the \( n \)-th Catalan number.
   - The \( n \)-th Catalan number is asymptotically \( O(\frac{4^n}{\sqrt{n}}) \), which is bounded by \( O(\frac{4^n}{n \cdot \sqrt{n}}) \).
 
+# Divide and Conquer Approach
 
