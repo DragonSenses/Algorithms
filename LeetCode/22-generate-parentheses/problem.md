@@ -585,3 +585,46 @@ public class Solution2 {
 }
 ```
 
+#### **Explanation**
+
+- **Base Case**: If `n == 0`, return a list containing an empty string using `return new ArrayList<>(Arrays.asList(""));`.
+- **Initialize Result List**: Create an empty list to store the results.
+- **Iterate Over Possible Splits**: Use a loop to iterate over possible splits of the parentheses pairs.
+- **Generate Left and Right Subproblems**: For each split, recursively generate valid strings for the left and right subproblems.
+- **Construct Valid Strings**: Combine the left and right strings with an enclosing pair of parentheses and add to the result list.
+- **Return Result**: Return the list of valid strings after completing the iterations.
+
+#### Note: Multi-line vs Single-line
+
+Using `return new ArrayList<>(Arrays.asList(""));` is generally more efficient and concise. Here's why:
+
+1. **Conciseness**: The single line `return new ArrayList<>(Arrays.asList(""));` is more concise and easier to read compared to the multi-line approach.
+
+2. **Efficiency**: The `Arrays.asList` method creates a fixed-size list backed by the specified array, and then `new ArrayList<>(...)` creates a new `ArrayList` from this list. This is slightly more efficient than manually creating a list and adding an element to it.
+
+Here's a comparison:
+
+##### Multi-line Approach
+```java
+if (n == 0) {
+    List<String> baseCase = new ArrayList<>();
+    baseCase.add("");
+    return baseCase;
+}
+```
+
+##### Single-line Approach
+```java
+return new ArrayList<>(Arrays.asList(""));
+```
+
+- **Multi-line Approach**: 
+  - Creates an empty `ArrayList`.
+  - Adds an empty string to the list.
+  - Returns the list.
+
+- **Single-line Approach**:
+  - Uses `Arrays.asList` to create a fixed-size list containing the empty string.
+  - Wraps this list in a new `ArrayList` to allow modifications if needed.
+  - Returns the list.
+
