@@ -26,6 +26,7 @@
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity**: `O([4^n / sqrt(n)])`
 - [Brute Force Naive Approach](#brute-force-naive-approach)
+  - **Time Complexity**: `O(2^{2n} * n)`
 
 # Backtracking Approach
 
@@ -410,6 +411,61 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function generateParenthesis(n: number): string[] {
+  const result: string[] = [];
+  const queue: string[] = [""];
+  
+  while (queue.length > 0) {
+    const current = queue.shift()!;
+    if (current.length === 2 * n) {
+      if (isValid(current)) {
+        result.push(current);
+      }
+    } else {
+      queue.push(current + "(");
+      queue.push(current + ")");
+    }
+  }
+  
+  return result;
+}
+
+function isValid(parenthesis: string): boolean {
+  let open_count = 0;
+  for (const p of parenthesis) {
+    if (p === '(') {
+      open_count++;
+    } else {
+      open_count--;
+    }
+    if (open_count < 0) {
+      return false;
+    }
+  }
+  return open_count === 0;
+}
+```
+
+#### Implementation Details
+
+1. **Initialization**:
+   - `result` is an array to store the valid combinations.
+   - `queue` is an array used to facilitate the BFS, starting with an empty string.
+
+2. **BFS Loop**:
+   - While the queue is not empty, dequeue the front string `current`.
+   - If `current` has reached the length `2n`, check its validity using `isValid`.
+   - If valid, add `current` to `result`.
+   - If `current` is shorter than `2n`, enqueue new strings formed by appending `(` and `)`.
+
+3. **Validation Function**:
+   - `isValid` checks if a given string of parentheses is valid by maintaining an `open_count`.
+   - Increment `open_count` for each `(` and decrement for each `)`.
+   - If `open_count` becomes negative, the string is invalid.
+   - The string is valid if `open_count` is zero at the end.
 
 ## **Complexity Analysis**
 
@@ -429,3 +485,5 @@ public class Solution {
 - **Result Storage**:
   - The result list stores all valid combinations, which corresponds to the \( n \)-th Catalan number.
   - The \( n \)-th Catalan number is asymptotically \( O(\frac{4^n}{\sqrt{n}}) \), which is bounded by \( O(\frac{4^n}{n \cdot \sqrt{n}}) \).
+
+
