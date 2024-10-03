@@ -30,6 +30,8 @@
 - [Divide and Conquer Approach](#divide-and-conquer-approach)
   - **Time Complexity**: `O([4^n / sqrt(n)])`
 
+Endnotes: [Catalan Numbers](#catalan-numbers)
+
 # Backtracking Approach
 
 Backtracking is a powerful algorithmic technique used to solve problems that involve searching through all possible configurations to find a solution.
@@ -642,6 +644,39 @@ return new ArrayList<>(Arrays.asList(""));
 - **Recursion Call Stack**: The space complexity would be the maximum depth of the recursion stack. At any given time, the recursive function call stack would contain at most `n` function calls.
 - **Maximum Depth**: Therefore, at most `O(n)` levels of recursion will be created, and each level consumes a constant amount of space.
 
+# Catalan Numbers
+
+### **Connection to Catalan Numbers**
+
+Recall that we discussed Catalan numbers earlier. Here, we can find the connection between these numbers and our problem.
+
+### **Catalan Numbers Formula**
+
+The general formula for Catalan numbers is:
+
+```
+C(n) = C(0) * C(n - 1) + C(1) * C(n - 2) + ... + C(n - 1) * C(0)
+```
+
+### **Deriving the Formula for Parentheses**
+
+We have deduced the number of valid strings formed with `n` pairs of parentheses as follows:
+
+```
+F(n) = F(0) * F(n - 1) + F(1) * F(n - 2) + ... + F(n - 1) * F(0)
+```
+
+### **Observation**
+
+We observe that this general formula matches exactly with the general formula for Catalan numbers. Therefore, the `n`th Catalan number is precisely the number of ways to form valid combinations of `n` pairs of parentheses.
+
+### **Complexity Considerations**
+
+Note that the mathematics behind Catalan numbers is quite complex and beyond the scope of a typical technical coding interview. If an interviewer asks you to derive the time complexity for a problem like this, aim to find an upper bound. Usually, backtracking solutions have very complicated time complexities that are extremely difficult to derive.
+
+### **What are Catalan Numbers?**
+
+Catalan numbers are a fascinating sequence of natural numbers that appear in various combinatorial problems. Here's an intuitive explanation:
 
 ### **Intuition Behind Catalan Numbers**
 
