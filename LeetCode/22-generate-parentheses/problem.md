@@ -28,6 +28,7 @@
 - [Brute Force Naive Approach](#brute-force-naive-approach)
   - **Time Complexity**: `O(2^{2n} * n)`
 - [Divide and Conquer Approach](#divide-and-conquer-approach)
+  - **Time Complexity**: `O([4^n / sqrt(n)])`
 
 # Backtracking Approach
 
@@ -627,4 +628,17 @@ return new ArrayList<>(Arrays.asList(""));
   - Uses `Arrays.asList` to create a fixed-size list containing the empty string.
   - Wraps this list in a new `ArrayList` to allow modifications if needed.
   - Returns the list.
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O([4^n / sqrt(n)])`
+
+- **Procedure**: We begin generating all valid parentheses strings of length `2`, `4`, ..., `2n`. The time complexity for generating all valid parentheses strings of length `2n` is given by the expression `O([4^n / sqrt(n)])`.
+- **Dividing into Subproblems**: The divide and conquer approach splits the problem into smaller subproblems, each generating valid combinations for fewer pairs of parentheses. These subproblems are then combined to form the final result.
+- **Limiting Redundant Computation**: By removing the outermost parentheses from the left subproblem, we can ensure that the maximum number of parentheses pairs in the subproblem is limited to `n-1`. This solves the issue of redundant computation/calculations of `F(n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursion Call Stack**: The space complexity would be the maximum depth of the recursion stack. At any given time, the recursive function call stack would contain at most `n` function calls.
+- **Maximum Depth**: Therefore, at most `O(n)` levels of recursion will be created, and each level consumes a constant amount of space.
 
