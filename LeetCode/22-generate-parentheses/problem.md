@@ -521,3 +521,24 @@ Take a look at how valid strings of length `2n` are constructed in the following
 
 ![](img/22-6.jpg)
 
+## **Algorithm**
+
+1. **Base Case**:
+    - If `n == 0`, return `[""]`.
+
+2. **Initialize Result List**:
+    - Create an empty list `result = new ArrayList<>()`.
+
+3. **Iterate Over Possible Splits**:
+    - Iterate over the number of parentheses pairs with a variable `open_count` from `0` to `n - 1`.
+
+4. **Generate Left and Right Subproblems**:
+    - For each `open_count`, iterate over each valid string `leftPart` from `generateParenthesis(open_count)`.
+    - Iterate over each valid string `rightPart` from `generateParenthesis(n - open_count - 1)`.
+
+5. **Construct Valid Strings**:
+    - Construct a valid string of length `2n` by enclosing `leftPart` with a pair of parentheses `( + leftPart + )`, then concatenate it with `rightPart`, and add the resulting string to `result`.
+
+6. **Return Result**:
+    - Return `result` when the nested iterations are complete.
+
