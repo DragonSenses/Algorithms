@@ -183,6 +183,49 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+/**
+ * Computes x raised to the power n using recursive binary exponentiation.
+ *
+ * @param {number} x - The base number.
+ * @param {number} n - The exponent.
+ * @returns {number} - The result of x raised to the power n.
+ */
+function myPow(x: number, n: number): number {
+  /**
+   * Helper function for recursive binary exponentiation.
+   *
+   * @param {number} x - The base number.
+   * @param {number} n - The exponent.
+   * @returns {number} - The result of x raised to the power n.
+   */
+  function binaryExp(x: number, n: number): number {
+    // Base case to stop recursive calls.
+    if (n === 0) {
+      return 1;
+    }
+
+    // Handle case where n < 0.
+    if (n < 0) {
+      return 1.0 / binaryExp(x, -n);
+    }
+
+    // Perform Binary Exponentiation.
+    // If 'n' is odd, perform Binary Exponentiation on 'n - 1' and multiply result with 'x'.
+    if (n % 2 === 1) {
+      return x * binaryExp(x * x, Math.floor((n - 1) / 2));
+    } else {
+      // Otherwise calculate result by performing Binary Exponentiation on 'n'.
+      return binaryExp(x * x, Math.floor(n / 2));
+    }
+  }
+
+  return binaryExp(x, n);
+}
+```
+
 ## **Complexity Analysis**
 
 ### **Time Complexity**: `O(log n)`
