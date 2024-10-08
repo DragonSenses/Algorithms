@@ -80,3 +80,50 @@ The basic idea here is to use the fact that `x^n` can be expressed as:
 
 This method might not seem intuitive, so let's try to understand it with the help of some examples.
 
+### Example of Recursive Binary Exponentiation
+
+Say, we need to find `2^100`
+
+Using the previously discussed recursive approach we will have to multiply `2` in `100` steps.
+
+```text
+2^100 = 2 * 2^99
+2 * 2^99 = 2 * 2 * 2^98
+2 * 2 * 2^98 = 2 * 2 * 2 * 2^97
+.
+.
+.
+(100 steps)
+.
+.
+.
+2^100 = 2 * 2 * ... * (100 multiplications) * ... * 2^0
+2^100 = 1,267,650,600,228,229,401,496,703,205,376
+```
+
+But using binary exponentiation, it will be reduced to just about `10` steps.
+
+```text
+2^100=(2*2)^50
+
+4^50 = (4* 4)^25
+
+16^25 =16*(16)^24
+
+16^25=16*(16*16)^12
+
+16*256^12=16*(256*256)^6
+
+16*65536^6 =16*(65536 * 65536)^3
+
+16*4294967296^3 = 16 * 4294967296 * (4294967296)^2
+
+16*4294967296^3 = 16 * 4294967296 * (4294967296 * 4294967296)^1
+
+2^100 = 1267650600228229401496703205376
+```
+
+Instead of reducing the exponent `n` by `1` at each recursive call like in the brute-force method, we will reduce it by half here. Thus, instead of linear steps, it will take us logarithmic steps to perform all the multiplications.
+
+![Linear Exponentiation vs Binary Exponentiation of 2^100](img/50-1.png)
+
