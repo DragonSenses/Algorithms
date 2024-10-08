@@ -127,3 +127,17 @@ Instead of reducing the exponent `n` by `1` at each recursive call like in the b
 
 ![Linear Exponentiation vs Binary Exponentiation of 2^100](img/50-1.png)
 
+### Pseudo Code for Optimized Recursive Function
+
+Thus, now our optimized recursive function will be:
+
+```Pseudo
+func binaryExp(x, n):
+  if n == 0: return 1.0
+  if n < 0; return 1.0 / binaryExp(x, -n)
+
+  // Binary Exponentiation steps
+  if n is odd: return x * binaryExp(x * x, (n-1) / 2)
+  otherwise: return binaryExp(x * x, n / 2)
+```
+
