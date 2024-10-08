@@ -265,3 +265,14 @@ public class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(log n)`
+
+- **Constant-Time Multiplication**: Multiplication of two numbers is considered a constant-time operation.
+- **Iteration Reduction**: At each iteration, `n` is halved, resulting in only `log n` iterations within the while loop.
+- **Overall Complexity**: The overall time complexity is `O(log n)`.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space Usage**: The algorithm does not use additional space beyond the storage for the `result`.
