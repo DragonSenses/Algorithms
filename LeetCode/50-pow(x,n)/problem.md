@@ -38,23 +38,20 @@
 ---
 
 # Solution
+- [Recursive Binary Exponentiation](#recursive-binary-exponentiation)
+  - **Time Complexity**: `O(log n)`
 
 # Recursive Binary Exponentiation
 
 ## **Intuition**
 
-We know `x^n` means we multiply a with itself n-times. The most naïve way to solve this problem is to simply multiply a
-`n`-times. This method of multiplying will lead to a linear time complexity and is not efficient, but we will discuss a bit
-about it as it will be a stepping stone to our optimized approach.
+We know `x^n` means we multiply a with itself n-times. The most naïve way to solve this problem is to simply multiply a `n`-times. This method of multiplying will lead to a linear time complexity and is not efficient, but we will discuss a bit about it as it will be a stepping stone to our optimized approach.
 
 ### Brute-force approach
 
-The current problem can be broken into smaller similar subproblems, `x^n = x * x^n-1`. Thus, this gives us our recurrence
-relation.
+The current problem can be broken into smaller similar subproblems, `x^n = x * x^n-1`. Thus, this gives us our recurrence relation.
 
-We can write a recursive function here that calculates the result of the smaller similar sub-problem and using that
-calculates the result for the current problem, `pow(x, n) = x * pow(x, n - 1)` . And we know if `n = 0` then `x^n` will always
-be `1`, this will be our base case to stop the recursive calls.
+We can write a recursive function here that calculates the result of the smaller similar sub-problem and using that calculates the result for the current problem, `pow(x, n) = x * pow(x, n - 1)` . And we know if `n = 0` then `x^n` will always be `1`, this will be our base case to stop the recursive calls.
 
 Also, we need to handle the case if `n` is negative. In that case, the answer will be the reciprocal of the result if `n` were positive: \[ x^n = \frac{1}{x^{-n}}, \text{ where } n < 0 \]
 
@@ -182,7 +179,6 @@ public class Solution {
     return binaryExp(x, (long) n);
   }
 }
-
 ```
 
 ## **Complexity Analysis**
@@ -196,3 +192,4 @@ public class Solution {
 ### **Space Complexity**: `O(log n)`
 
 - **Recursion Call Stack**: The recursive stack can use at most `O(log n)` space at any time.
+
