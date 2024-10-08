@@ -40,6 +40,8 @@
 # Solution
 - [Recursive Binary Exponentiation](#recursive-binary-exponentiation)
   - **Time Complexity**: `O(log n)`
+- [Iterative Binary Exponentiation]()
+  - **Time Complexity**: `O(log n)`
 
 # Recursive Binary Exponentiation
 
@@ -192,4 +194,18 @@ public class Solution {
 ### **Space Complexity**: `O(log n)`
 
 - **Recursion Call Stack**: The recursive stack can use at most `O(log n)` space at any time.
+
+# Iterative Binary Exponentiation
+
+## **Intuition**
+
+We can convert the recursive binary exponentiation approach to an iterative one using loops:
+
+- **While Loop**: We'll use a while loop that continues until `n` reaches `0`.
+  - **Odd `n`**: If `n` is odd, we multiply `x` once with the `result`, reducing `n` by `1` to make it even.
+  - **Even `n`**: When `n` is even, we square `x` and reduce `n` by half, transforming `x^n` into `(x^2)^{n/2}`.
+
+- **Handling Negative `n`**: If `n < 0`, we need to find `1 / (x^{-n})`. In this case, we multiply `1/x` with itself, not `x`.
+
+This iterative approach mirrors the recursive strategy but uses loops to avoid stack overflow issues and can be more efficient in terms of space complexity.
 
