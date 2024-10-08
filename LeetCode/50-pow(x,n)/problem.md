@@ -69,3 +69,14 @@ func pow(x, n):
   return x * pow(x, n-1)
 ```
 
+### Optimized Approach
+
+Binary exponentiation, also known as exponentiation by squaring, is a technique for efficiently computing the power of a number. By repeatedly squaring `x` and halving `n`, we can quickly compute `x^n` using a logarithmic number of multiplications.
+
+The basic idea here is to use the fact that `x^n` can be expressed as:
+
+ - `(x^2)^(n/2)` if `n` is **even**
+ - `x*(x^2)^((n/2)/2)` if `n` is **odd** (we separate out one `x`, then `n-1` will become even)
+
+This method might not seem intuitive, so let's try to understand it with the help of some examples.
+
