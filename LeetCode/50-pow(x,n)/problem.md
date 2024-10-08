@@ -33,3 +33,17 @@
 	<li><code>-10<sup>4</sup> &lt;= x<sup>n</sup> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<br>
+
+---
+
+# Solution
+
+# Recursive Binary Exponentiation
+
+## **Intuition**
+
+We know `x^n` means we multiply a with itself n-times. The most naïve way to solve this problem is to simply multiply a
+`n`-times. This method of multiplying will lead to a linear time complexity and is not efficient, but we will discuss a bit
+about it as it will be a stepping stone to our optimized approach.
+
