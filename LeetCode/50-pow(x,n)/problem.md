@@ -150,4 +150,49 @@ func binaryExp(x, n):
 
 2. **Call `binaryExp(x, n)`** method and return the result.
 
+## **Implementation**
 
+### Java
+
+```java
+public class Solution {
+  public double binaryExp(double x, long n) {
+    // Base case to stop recursive calls.
+    if (n == 0) {
+      return 1;
+    }
+
+    // Handle case where n < 0.
+    if (n < 0) {
+      return 1.0 / binaryExp(x, -n);
+    }
+
+    // Perform Binary Exponentiation.
+    // If 'n' is odd, perform Binary Exponentiation on 'n - 1' and multiply result
+    // with 'x'.
+    if (n % 2 == 1) {
+      return x * binaryExp(x * x, (n - 1) / 2);
+    } else {
+      // Otherwise calculate result by performing Binary Exponentiation on 'n'.
+      return binaryExp(x * x, n / 2);
+    }
+  }
+
+  public double myPow(double x, int n) {
+    return binaryExp(x, (long) n);
+  }
+}
+
+```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(log n)`
+
+- **Constant Time Operation**: Multiplication of two numbers is considered a constant time operation.
+- **Recursion Procedure**: At each recursive call, we reduce `n` by half, so we will make only `log n` number of calls for the `binaryExp` function.
+- **Overall Complexity**: Thus, it will take overall `O(log n)` time.
+
+### **Space Complexity**: `O(log n)`
+
+- **Recursion Call Stack**: The recursive stack can use at most `O(log n)` space at any time.
