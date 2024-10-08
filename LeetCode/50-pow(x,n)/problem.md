@@ -209,3 +209,20 @@ We can convert the recursive binary exponentiation approach to an iterative one 
 
 This iterative approach mirrors the recursive strategy but uses loops to avoid stack overflow issues and can be more efficient in terms of space complexity.
 
+## **Algorithm**
+
+1. **Create a method `binaryExp`**:
+   - **Parameters**: `x` and `n`
+   - **Base Case**: If `n` is `0`, return `1`
+   - **Negative `n`**: 
+     - Change `n` to `-n`
+     - Change `x` to `1 / x` 
+     - Ensure `n` is a 64-bit integer to handle range overflow
+   - **Initialize `result`**: Set `result` to `1` to store the result of multiplications
+   - **While Loop**: Continue until `n` becomes `0`:
+     - **Odd `n`**: If `n` is odd, multiply `result` by `x` and reduce `n` by `1`
+     - **Even `n`**: Square `x` and reduce `n` by half
+   - **Return `result`**: Return the final `result`
+
+2. **Call `binaryExp(x, n)`**: Invoke the method and return its result.
+
