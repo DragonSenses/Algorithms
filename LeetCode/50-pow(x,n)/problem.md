@@ -141,3 +141,13 @@ func binaryExp(x, n):
   otherwise: return binaryExp(x * x, n / 2)
 ```
 
+## **Algorithm**
+
+1. **Create a method `binaryExp`**:
+   - **If `n` is `0`**: Return `1`.
+   - **If `n` is negative**: Calculate the result as if `n` were positive and return the reciprocal. Thus, return `1 / binaryExp(x, -n)`. (Note: `-n` can exceed the integer range, so `n` should be a 64-bit integer.)
+   - **Otherwise**: Use binary exponentiation to reduce `n` by half. Compute and return the result after solving the sub-problem recursively.
+
+2. **Call `binaryExp(x, n)`** method and return the result.
+
+
