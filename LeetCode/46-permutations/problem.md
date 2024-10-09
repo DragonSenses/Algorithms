@@ -91,3 +91,54 @@ func backtrack(nums, first, result):
         swap(nums[first], nums[i])  // backtrack
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+  // Generates all permutations of the given array of integers
+  public List<List<Integer>> permute(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    backtrack(nums, 0, result);
+    return result;
+  }
+
+  // Helper method to generate permutations using backtracking
+  private void backtrack(int[] nums, int first, List<List<Integer>> result) {
+    // Base case: If first integer has index equal to length of nums
+    // then all integers are consumed
+    if (first == nums.length) {
+      List<Integer> currentPermutation = new ArrayList<>();
+      for (int num : nums) {
+        currentPermutation.add(num);
+      }
+      result.add(currentPermutation);
+      return;
+    }
+
+    // Iterate over the integers from index 'first' to the end of the array
+    for (int i = first; i < nums.length; i++) {
+      // Swap the current index with the 'first' index to place the i-th integer first
+      // in the permutation
+      swap(nums, first, i);
+      // Recursively generate permutations for the next position
+      backtrack(nums, first + 1, result);
+      // Backtrack by undoing the swap
+      swap(nums, first, i);
+    }
+  }
+
+  // Swaps two elements in the given array
+  private void swap(int[] nums, int i, int j) {
+    int temp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = temp;
+  }
+}
+```
+
