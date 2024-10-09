@@ -30,6 +30,7 @@ A <strong>permutation</strong> is a rearrangement of all the elements of an arra
 
 # Solution
 - [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(P(N, k))`
 
 # **Backtracking Approach**
 
@@ -142,3 +143,18 @@ public class Solution {
 }
 ```
 
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(P(N, k))`
+
+The so-called \( k \)-permutations of \( n \), or partial permutations. Here, \( \text{first} + 1 = k \) for expression simplicity.
+
+- **Formula Explanation**: For each \( k \) (each starting index), the algorithm performs \( N \times (N-1) \times \ldots \times (N-k+1) \) operations.
+- **Range of Values**: \( k \) ranges from 1 to \( N \) (and \( \text{first} \) ranges from 0 to \( N-1 \)).
+
+Rough estimation: The algorithm performs better than \( O(N \times N!) \) and a bit slower than \( O(N!) \).
+
+### **Space Complexity**: `O(N!)`
+
+- **Factorial Space Usage**: The algorithm has to store all \( N! \) solutions. Hence, it uses \( O(N!) \) space to keep the solutions.
