@@ -60,3 +60,15 @@ Here is a backtrack function which takes the index of the first integer to consi
      - **Swap**: Place the `i`-th integer first in the permutation, i.e., `swap(nums[first], nums[i])`.
      - **Recur**: Proceed to create all permutations starting from the `i`-th integer by calling `backtrack(first + 1)`.
      - **Backtrack**: Undo the swap by calling `swap(nums[first], nums[i])` to reset for the next iteration.
+
+## **Algorithm**
+
+1. Define a backtracking function that will be used to generate permutations.
+
+2. Use a base case to check if the current permutation is complete.
+
+3. Iterate over the elements, swapping to generate different permutations.
+
+4. Recursively call the backtracking function to generate permutations for the next position.
+
+5. Backtrack by swapping back to revert the changes.
