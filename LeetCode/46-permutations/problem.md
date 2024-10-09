@@ -143,6 +143,35 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+Similar to the Java approach but the private `swap` utility method is replaced by the more elegant Destructuring Assignment (ES6) to swap elements.
+
+```typescript
+function permute(nums: number[]): number[][] {
+  const result: number[][] = [];
+  backtrack(nums, 0, result);
+  return result;
+}
+
+function backtrack(nums: number[], startIndex: number, result: number[][]): void {
+  // Base case: If the startIndex equals the length of nums, the current permutation is complete.
+  if (startIndex === nums.length) {
+      result.push([...nums]);
+      return;
+  }
+
+  // Iterate over the integers from startIndex to the end of the array
+  for (let i = startIndex; i < nums.length; i++) {
+      // Swap the current index with startIndex to place the i-th integer first in the permutation
+      [nums[startIndex], nums[i]] = [nums[i], nums[startIndex]];
+      // Recursively generate permutations for the next position
+      backtrack(nums, startIndex + 1, result);
+      // Backtrack by undoing the swap
+      [nums[startIndex], nums[i]] = [nums[i], nums[startIndex]];
+  }
+}
+```
 
 ## **Complexity Analysis**
 
