@@ -24,3 +24,23 @@ A <strong>permutation</strong> is a rearrangement of all the elements of an arra
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
+<br>
+
+---
+
+# Solution
+- [Backtracking Approach]()
+
+## **Backtracking Approach**
+
+Backtracking is a powerful algorithmic technique used to solve problems by searching through all possible configurations to find a solution. It helps keep the space complexity linear relative to the input size.
+
+### **What is Backtracking?**
+
+Backtracking is a method for incrementally finding solutions to problems, adding one piece at a time and removing those solutions that fail to satisfy the problem's constraints. It's often utilized for permutations, combinations, and other exhaustive search problems.
+
+### **How Does Backtracking Work?**
+
+1. **Choose**: Select a starting point or make an initial decision.
+2. **Explore**: Move forward by making choices and recursively exploring further decisions.
+3. **Check**: If the current path leads to a solution, record it. If not, backtrack by undoing the last choice and trying another path.
