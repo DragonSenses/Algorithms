@@ -72,3 +72,22 @@ Here is a backtrack function which takes the index of the first integer to consi
 4. Recursively call the backtracking function to generate permutations for the next position.
 
 5. Backtrack by swapping back to revert the changes.
+
+### Pseudocode
+
+```pseudo
+func permute(nums):
+    result = []
+    backtrack(nums, 0, result)
+    return result
+
+func backtrack(nums, first, result):
+    if first == length(nums):
+        result.append(copy of nums)
+        return
+    for i = first to length(nums) - 1:
+        swap(nums[first], nums[i])
+        backtrack(nums, first + 1, result)
+        swap(nums[first], nums[i])  // backtrack
+```
+
