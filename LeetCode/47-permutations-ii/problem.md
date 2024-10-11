@@ -79,3 +79,41 @@ Given the array `[1, 1, 2]`:
 - Pick a number, proceed to the next stage, and repeat until a complete permutation is formed.
 - Backtrack when no valid choices are left at a stage, and try another path.
 
+### **Detailed Walkthrough**
+
+#### **Initial Stage**
+
+- **Input**: `[1, 1, 2]`
+- At the first stage, we have 2 choices to pick a number as the first number in the final permutation: `1` and `2`.
+- **Choice 1**: Pick `1`
+  - **Remaining Numbers**: `[1, 2]`
+
+**Note**: The reason we have only 2 choices instead of 3 is due to the duplicate `1` in the input. Picking either duplicate `1` first leads to the same permutation.
+
+#### **Second Stage**
+
+- With `[1, 2]` remaining, we again have  2 choices for the next number.
+- **Choice 1**: Pick `1`
+  - **Remaining Number**: `[2]`
+
+#### **Third Stage**
+
+- With `[2]` remaining, we only have one candidate left.
+- **Choice**: Pick `2`
+  - **Final Permutation**: `[1, 1, 2]`
+
+#### **Backtracking**
+
+- After generating `[1, 1, 2]`, we backtrack to previous stages and make different choices to explore all possibilities.
+- The process of reverting choices and trying alternatives is known as **backtracking**.
+
+#### **Illustration of Exploration**
+
+Below is a graphical representation where each node depicts a choice at a specific stage.
+
+![Graphical representation of backtracking without duplicates on input array [1,1,2], where each node represents a choice at a specific stage](img/47-1.jpg)
+
+**Key Insight**: To avoid generating **redundant** permutations, consider only each **unique** number as a true candidate at each step.
+
+For instance, with the input `[1, 1, 2]`, we have two true candidates (`1` and `2`) at the start, instead of three.
+
