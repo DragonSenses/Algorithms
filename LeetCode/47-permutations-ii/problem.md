@@ -117,3 +117,36 @@ Below is a graphical representation where each node depicts a choice at a specif
 
 For instance, with the input `[1, 1, 2]`, we have two true candidates (`1` and `2`) at the start, instead of three.
 
+## **Algorithm**
+
+### **Step 1: Build the Hash Map**
+
+Create a hash map (`numsMap`) with each unique number as the key and its occurrence as the corresponding value.
+
+### **Step 2: Define the Backtracking Function**
+
+Define a function `backtrack(currCombination, numsMap)` that generates all permutations.
+
+#### **Backtracking Function**
+
+1. **Base Case**: 
+   - If the length of `currCombination` equals the length of the input array, add `currCombination` to the result.
+   
+2. **Iterate Over numsMap**:
+   - For each unique number in `numsMap`, check if it can be used in the current combination.
+   
+3. **Add to Current Combination**:
+   - Add the number to `currCombination`.
+   - Decrease its count in `numsMap`.
+
+4. **Recursive Call**:
+   - Call `backtrack` with the updated `currCombination` and `numsMap`.
+
+5. **Backtrack**:
+   - Remove the number from `currCombination`.
+   - Restore its count in `numsMap`.
+
+### **Step 3: Initialize and Invoke the Function**
+
+Invoke the `backtrack` function with an empty `currCombination` and the hash map `numsMap` built from the input array to solve the problem.
+
