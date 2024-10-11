@@ -209,3 +209,44 @@ class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(P(N, k))`
+
+The so-called \( k \)-permutations of \( n \), or partial permutations. Here, \( \text{first} + 1 = k \) for simplicity.
+
+- **Formula Explanation**: For each \( k \) (each starting index), the algorithm performs \( N \times (N-1) \times \ldots \times (N-k+1) \) operations.
+- **Range of Values**: \( k \) ranges from 1 to \( N \) (and \( \text{first} \) ranges from 0 to \( N-1 \)).
+
+The execution of the backtracking algorithm unfolds as a tree, where each node is an invocation of the recursive function `backtrack(currCombination, numsMap)`. The total number of steps to complete the exploration is the number of nodes in the tree, directly linking the time complexity to the tree's size.
+
+#### **Estimating Nodes in the Tree**
+
+Each level of the tree corresponds to a stage of exploration. At each stage, the number of candidates is **bounded**:
+- **First Stage**: At most \( N \) candidates to explore.
+- **Next Stages**: Each node at stage one has \( N-1 \) child nodes, so on and so forth.
+
+By summing all nodes across stages, the total number of nodes is:
+\[ \sum_{i=1}^{k} P(N, k) \]
+where \( P(N, k) = \frac{N!}{(N-k)!} \).
+
+Thus, the exact time complexity of the algorithm is:
+\[ O \left( \sum_{i=1}^{N} \frac{N!}{(N-i)!} \right) \]
+
+#### **Upper Bound**
+
+A loose upper bound: It takes \( N \) steps to generate a single permutation. With \( N! \) permutations in total, it would take at most \( N \times N! \) steps, assuming no overlapping effort.
+
+![](img/47-2.jpg)
+
+### **Space Complexity**: `O(N)`
+
+1. **Hash Table**: We build a hash table from the input numbers. In the worst case, where each number is unique, we need `O(N)` space.
+2. **Recursion Stack**: Applying recursion consumes extra space in the function call stack, requiring another `O(N)` space.
+3. **Current Permutation**: During exploration, we keep a candidate permutation, which requires yet another `O(N)`.
+
+Summing these, the total space complexity is:
+\[ O(N) + O(N) + O(N) = O(3N) = O(N) \]
+
+**Note**: This does not include space for the results. Including results storage, space complexity would be:
+\[ O(N \times N!) \]
