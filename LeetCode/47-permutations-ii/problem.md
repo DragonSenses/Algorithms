@@ -26,3 +26,23 @@
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<br>
+
+---
+
+# Solution
+- [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(P(N, k))`
+
+# Backtracking Approach
+
+## **Overview**
+
+Backtracking explores all potential candidates for solutions. If a candidate is not a solution, the algorithm discards it and tries another path by backtracking.
+
+**Note**: This problem extends the permutation challenge by allowing the input array to contain ***duplicates***. Therefore, we must adapt our backtracking algorithm to ensure the *generated* solutions are unique and free from duplicates.
+
+### **What is Backtracking?**
+
+Backtracking incrementally finds solutions, adding one piece at a time and removing those that fail to satisfy constraints. It's often used for permutations, combinations, and other exhaustive search problems.
+
