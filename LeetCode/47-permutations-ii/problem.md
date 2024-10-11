@@ -46,3 +46,36 @@ Backtracking explores all potential candidates for solutions. If a candidate is 
 
 Backtracking incrementally finds solutions, adding one piece at a time and removing those that fail to satisfy constraints. It's often used for permutations, combinations, and other exhaustive search problems.
 
+### **How Does Backtracking Work?**
+
+1. **Choose**: Select a starting point or initial decision.
+2. **Explore**: Move forward by making choices and exploring further decisions recursively.
+3. **Check**: If the current path leads to a solution, record it. If not, backtrack by undoing the last choice and trying another path.
+
+## **Intuition**
+
+To understand permutations, let’s review the concept with an example. Given the input array `[1, 1, 2]`, we aim to generate all possible permutations using the **Depth-First Search** (DFS) approach, specifically the backtracking technique.
+
+### **Concept**
+
+The main idea is to pick the numbers one by one. For a permutation of length `N`, we need `N` stages to generate a valid permutation. At each stage, we pick one number from the remaining available numbers.
+
+### **Process**
+
+1. **Stage Division**: 
+   - For a permutation of length `N`, divide the process into `N` stages.
+
+2. **Picking Numbers**:
+   - At each stage, pick one number from the remaining available options.
+
+3. **Exploring Choices**:
+   - Explore all available choices at each stage by progressively building up candidates for the solution.
+   - Revert each choice with another alternative until no more choices are available.
+
+### **Example**
+
+Given the array `[1, 1, 2]`:
+- Start with an empty permutation.
+- Pick a number, proceed to the next stage, and repeat until a complete permutation is formed.
+- Backtrack when no valid choices are left at a stage, and try another path.
+
