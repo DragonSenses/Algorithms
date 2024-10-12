@@ -480,3 +480,20 @@ We can optimize the Two Sum problem by using a single-pass hash table approach. 
 3. **Return Result**:
    - If no valid pair is found, return an empty array.
 
+### Pseudocode
+
+```plaintext
+function twoSum(nums, target):
+    // Step 1: Initialize a hash table
+    hashTable = {}
+
+    // Step 2: Iterate through the array
+    for i from 0 to length(nums) - 1:
+        complement = target - nums[i]
+        if complement in hashTable:
+            return [hashTable[complement], i]
+        hashTable[nums[i]] = i
+
+    // Step 3: If no valid pair is found
+    return []
+```
