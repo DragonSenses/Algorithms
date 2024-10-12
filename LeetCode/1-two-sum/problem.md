@@ -295,6 +295,36 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+/**
+ * Finds two numbers in the given array that add up to the specified target.
+ * Assumes that each input would have exactly one solution, and you may not
+ * use the same element twice.
+ *
+ * @param nums - An array of integers.
+ * @param target - The sum that two numbers in the array should add up to.
+ * @returns An array of indices of the two numbers within the array that add
+ * up to the target, or an empty array if no valid pair exists.
+ */
+function twoSum(nums: number[], target: number): number[] {
+  // Iterate through each element in the array
+  for (let i = 0; i < nums.length; i++) {
+    // For each element, iterate through the remaining elements
+    for (let j = i + 1; j < nums.length; j++) {
+      // Check if the sum of the two elements equals the target
+      if (nums[j] === target - nums[i]) {
+        // If the target is found, return their indices
+        return [i, j];
+      }
+    }
+  }
+  // If no valid pair is found, return an empty array
+  return [];
+}
+```
+
 ## **Complexity Analysis**
 
 Let \( n \) be the length of the input array.
@@ -309,3 +339,4 @@ Let \( n \) be the length of the input array.
 ### **Space Complexity**: \( O(1) \)
 
 - **Constant Storage**: The space required does not depend on the size of the input array. No additional data structures are used that grow with the input size, thus the space complexity is \( O(1) \).
+
