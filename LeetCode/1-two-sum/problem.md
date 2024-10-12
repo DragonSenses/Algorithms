@@ -384,3 +384,25 @@ A simple implementation uses two iterations. In the first iteration, we add each
 3. **Return Result**:
    - If no pair is found that sums to the target, return an empty array.
 
+### Pseudocode
+
+```plaintext
+function twoSum(nums, target):
+    // Step 1: Initialize a hash table
+    hashTable = {}
+
+    // Step 2: First iteration to build the hash table
+    for i from 0 to length(nums) - 1:
+        hashTable[nums[i]] = i
+
+    // Step 3: Second iteration to find complements
+    for i from 0 to length(nums) - 1:
+        complement = target - nums[i]
+        if complement in hashTable and hashTable[complement] != i:
+            return [i, hashTable[complement]]
+
+    // Step 4: Return result if no pair is found
+    return []
+```
+
+
