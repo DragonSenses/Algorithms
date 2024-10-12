@@ -464,3 +464,19 @@ We can optimize the Two Sum problem by using a single-pass hash table approach. 
      2. Check if the complement exists in the hash table.
      3. If the complement exists, return the indices of the current element and its complement immediately.
      4. If the complement does not exist, insert the current element and its index into the hash table for future reference.
+
+### Algorithm
+
+1. **Initialize a Hash Table**:
+   - Create an empty hash table to store each element's value as the key and its index as the value.
+
+2. **Iterate Through the Array**:
+   - For each element in the array:
+     1. Calculate the complement needed to reach the target (`complement = target - nums[i]`).
+     2. Check if the complement exists in the hash table.
+     3. If the complement exists, return the indices of the current element and its complement immediately.
+     4. If the complement does not exist, insert the current element and its index into the hash table for future reference.
+
+3. **Return Result**:
+   - If no valid pair is found, return an empty array.
+
