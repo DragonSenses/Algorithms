@@ -226,3 +226,32 @@ function twoSum(nums, target):
     return []
 ```
 
+### Best Case Example
+
+Let's say `nums = [2, 7, 11, 15]` and `target = 9`.
+
+1. **Iteration**:
+   - i = 0, j = 1: nums[0] + nums[1] = 2 + 7 = 9 (matches target, return [0, 1])
+   - If no match, continue iteration.
+
+2. **Result**:
+   - The result is `[0, 1]` because nums[0] + nums[1] equals the target.
+
+### Worst Case Example
+
+Let's say `nums = [1, 2, 3, 4, 5]` and `target = 10`.
+
+1. **Iteration**:
+   - i = 0, j = 1: nums[0] + nums[1] = 1 + 2 = 3 (no match, continue)
+   - i = 0, j = 2: nums[0] + nums[2] = 1 + 3 = 4 (no match, continue)
+   - i = 0, j = 3: nums[0] + nums[3] = 1 + 4 = 5 (no match, continue)
+   - i = 0, j = 4: nums[0] + nums[4] = 1 + 5 = 6 (no match, continue)
+   - i = 1, j = 2: nums[1] + nums[2] = 2 + 3 = 5 (no match, continue)
+   - i = 1, j = 3: nums[1] + nums[3] = 2 + 4 = 6 (no match, continue)
+   - i = 1, j = 4: nums[1] + nums[4] = 2 + 5 = 7 (no match, continue)
+   - i = 2, j = 3: nums[2] + nums[3] = 3 + 4 = 7 (no match, continue)
+   - i = 2, j = 4: nums[2] + nums[4] = 3 + 5 = 8 (no match, continue)
+   - i = 3, j = 4: nums[3] + nums[4] = 4 + 5 = 9 (no match, continue)
+
+2. **Result**:
+   - No pair of numbers adds up to the target. Thus, the result is an empty array `[]`.
