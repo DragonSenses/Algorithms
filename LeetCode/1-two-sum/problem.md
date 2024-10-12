@@ -367,3 +367,20 @@ A hash table is ideal for this purpose because it supports near-constant time lo
 - **Space Complexity**: The hash table requires extra space proportional to the size of the input array, resulting in `O(n)` space complexity.
 - **Advantages**: This approach significantly reduces the time complexity compared to the brute force method, making it more efficient for larger datasets.
 
+## **Algorithm**
+
+A simple implementation uses two iterations. In the first iteration, we add each element's value as a key and its index as a value to the hash table. Then, in the second iteration, we check if each element's complement (`target - nums[i]`) exists in the hash table. If it does exist, we return current element's index and its complement's index. Beware that the complement must not be `nums[i]` itself!
+
+1. **First Pass - Build the Hash Table**:
+   - Traverse the array and insert each element along with its index into the hash table.
+   - This creates a mapping of each element to its index, which will be useful for quick lookups in the next pass.
+
+2. **Second Pass - Find Complements**:
+   - Traverse the array again and for each element, calculate the complement needed to reach the target (`complement = target - nums[i]`).
+   - Check if this complement exists in the hash table.
+   - Ensure the complement is not the same as the current element by comparing their indices.
+   - If the complement is found, return the indices of the current element and its complement.
+
+3. **Return Result**:
+   - If no pair is found that sums to the target, return an empty array.
+
