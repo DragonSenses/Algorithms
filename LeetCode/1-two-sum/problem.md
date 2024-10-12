@@ -44,10 +44,12 @@
 ---
 
 # Solution
--[Brute Force Approach](#brute-force-approach)
-  - **Time Complexity**: `O(n^2)`
+-[One Pass Hash Table](#one-pass-hash-table-approach)
+  -**Time Complexity**: `O(n)`
 -[Two Pass Hash Table](#two-pass-hash-table-approach)
   -**Time Complexity**: `O(n)`
+-[Brute Force Approach](#brute-force-approach)
+  - **Time Complexity**: `O(n^2)`
 
 ## Solution Overview
 
@@ -342,7 +344,7 @@ Let \( n \) be the length of the input array.
 
 - **Constant Storage**: The space required does not depend on the size of the input array. No additional data structures are used that grow with the input size, thus the space complexity is \( O(1) \).
 
-# Two-pass Hash Table Approach
+# Two-Pass Hash Table Approach
 
 ## **Intuition**
 
@@ -445,3 +447,20 @@ Let \( n \) be the length of the input array.
 
 - **Hash Table Storage**: The hash table used to store elements and their indices requires space proportional to the size of the input array, which is \( O(n) \).
 
+# One-Pass Hash Table Approach
+
+## Intuition
+
+We can optimize the Two Sum problem by using a single-pass hash table approach. As we iterate through the array, we not only insert each element into the hash table but also check if the complement of the current element already exists in the hash table. If the complement is found, it means we have found a pair of indices that add up to the target. This allows us to return the result immediately without needing a second pass through the array.
+
+### Detailed Explanation
+
+1. **Initialize a Hash Table**:
+   - Create an empty hash table to store each element's value as the key and its index as the value.
+
+2. **Iterate Through the Array**:
+   - For each element in the array:
+     1. Calculate the complement needed to reach the target (`complement = target - nums[i]`).
+     2. Check if the complement exists in the hash table.
+     3. If the complement exists, return the indices of the current element and its complement immediately.
+     4. If the complement does not exist, insert the current element and its index into the hash table for future reference.
