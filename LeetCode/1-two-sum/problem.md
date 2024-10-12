@@ -255,3 +255,42 @@ Let's say `nums = [1, 2, 3, 4, 5]` and `target = 10`.
 
 2. **Result**:
    - No pair of numbers adds up to the target. Thus, the result is an empty array `[]`.
+
+## **Implementation**
+
+### Java
+
+```java
+/**
+ * This class provides a solution to the Two Sum problem.
+ */
+class Solution {
+
+  /**
+   * Given an array of integers and a target integer, returns the indices of the
+   * two numbers such that they add up to the target.
+   *
+   * Assumes: that each input has exactly one solution, and the same element
+   * cannot be used twice.
+   *
+   * @param nums   An array of integers
+   * @param target The target sum
+   * @return An array of indices of the two numbers that add up to the target
+   */
+  public int[] twoSum(int[] nums, int target) {
+    // Iterate through each element in the array
+    for (int i = 0; i < nums.length; i++) {
+      // For each element, iterate through the remaining elements
+      for (int j = i + 1; j < nums.length; j++) {
+        // Check if the sum of the two elements equals the target
+        if (nums[j] == target - nums[i]) {
+          // If the target is found, return their indices
+          return new int[] { i, j };
+        }
+      }
+    }
+    // If no valid pair is found, return an empty array
+    return new int[0];
+  }
+}
+```
