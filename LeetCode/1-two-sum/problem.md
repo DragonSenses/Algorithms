@@ -431,3 +431,17 @@ class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### **Time Complexity**: \( O(n) \)
+
+- **Two-Pass**: We traverse the list containing \( n \) elements exactly twice: first to build the hash table and second to find the complements. This results in \( O(n) + O(n) = O(2n) = O(n) \).
+- **Hash Table Lookups**: The hash table reduces the lookup time for each element to \( O(1) \).
+- **Overall Complexity**: Combining the two passes and constant time operations, the overall time complexity is \( O(n) \).
+
+### **Space Complexity**: \( O(n) \)
+
+- **Hash Table Storage**: The hash table used to store elements and their indices requires space proportional to the size of the input array, which is \( O(n) \).
+
