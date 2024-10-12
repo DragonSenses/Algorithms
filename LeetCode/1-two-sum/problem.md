@@ -183,7 +183,7 @@ In summary, the non-null assertion operator allows us to express our confidence 
 
 The brute force approach involves iterating through each element `x` in the array and searching for another value that equals `target - x`, which we call the **complement**.
 
-In this context, the term "complement" refers to the value needed to reach a certain target sum when combined with another value. It’s not about the arithmetic "difference" between two numbers, but rather about finding the missing piece that completes a specific requirement.
+In this context, the term "complement" refers to the value needed to reach a certain target sum when combined with another value. It's not about the arithmetic "difference" between two numbers, but rather about finding the missing piece that completes a specific requirement.
 
 Here, `complement = target - nums[i]` is the number that, when added to `nums[i]`, equals the target. If this complement exists in our data structure, it means we have found two numbers that add up to the target.
 
@@ -195,3 +195,34 @@ So, it's called "complement" because it's the value that complements `nums[i]` t
 - **Time Complexity:** The time complexity of this approach is `O(n^2)` since for each element in the array, we potentially scan through all other elements.
 - **Space Complexity:** The space complexity is `O(1)` because no additional data structures are used that grow with the input size.
 - **Limitations:** While this approach guarantees finding a solution (if one exists), it is inefficient for large input sizes due to its quadratic time complexity.
+
+## **Algorithm**
+
+1. **Initialize**:
+   - Create an empty array or list to store the indices of the numbers that sum up to the target.
+
+2. **Iterate through the array**:
+   - Use a nested loop to iterate through each element in the array. The outer loop runs from the first element to the second-to-last element, and the inner loop runs from the element next to the outer loop's current element to the last element.
+
+3. **Check for complement**:
+   - Inside the inner loop, check if the sum of the current element (from the outer loop) and the current element (from the inner loop) equals the target.
+
+4. **Store result**:
+   - If the sum equals the target, store the indices of the two elements in the array or list initialized in step 1.
+
+5. **Return result**:
+   - Once the loops complete, return the array or list containing the indices of the two numbers that add up to the target.
+
+### Pseudocode
+
+Here's what the algorithm looks like in pseudocode:
+
+```plaintext
+function twoSum(nums, target):
+    for i from 0 to length(nums) - 1:
+        for j from i + 1 to length(nums):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return []
+```
+
