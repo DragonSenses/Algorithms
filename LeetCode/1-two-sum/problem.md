@@ -45,6 +45,8 @@
 
 # Solution
 
+## Solution Overview
+
 Let's breakdown the problem. Analyze the key points:
 
 - Output: indices / indexes of the two numbers in `nums` that sum to target
@@ -66,6 +68,14 @@ Here's the algorithm:
 4. Check if map has the difference
    1. If it has the difference, return an array containing the index where the difference is found and `i` the current index
    2. Otherwise, set the entry for the value of the number and its current index `[nums[i], i]` in the map
+
+### Note about complement
+
+In this context, the term "complement" refers to the value needed to reach a certain target sum when combined with another value. It's not about the arithmetic "difference" between two numbers, but rather about finding the missing piece that completes a specific requirement.
+
+Here, `complement = target - nums[i]` is the number that, when added to `nums[i]`, equals the `target`. If this complement exists in the map, it means you have found two numbers that add up to the target.
+
+So, it's called "complement" because it's the value that complements `nums[i]` to meet the target sum.
 
 Now for the implementations and key explanations:
 
@@ -164,4 +174,3 @@ Here's why we need it in this context:
    - If, by any chance, the key was not found (which shouldn't happen in our case), TypeScript would throw a runtime error.
 
 In summary, the non-null assertion operator allows us to express our confidence that the value will indeed be present, avoiding unnecessary null checks in the code.
-
