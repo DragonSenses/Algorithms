@@ -46,6 +46,8 @@
 # Solution
 -[Brute Force Approach](#brute-force-approach)
   - **Time Complexity**: `O(n^2)`
+-[Two Pass Hash Table](#two-pass-hash-table-approach)
+  -**Time Complexity**: `O(n)`
 
 ## Solution Overview
 
@@ -339,4 +341,29 @@ Let \( n \) be the length of the input array.
 ### **Space Complexity**: \( O(1) \)
 
 - **Constant Storage**: The space required does not depend on the size of the input array. No additional data structures are used that grow with the input size, thus the space complexity is \( O(1) \).
+
+# Two-pass Hash Table Approach
+
+## **Intuition**
+
+To improve our runtime complexity, we need a more efficient way to check if the complement exists in the array and retrieve its index if it does. The best way to achieve this is by using a hash table. A hash table allows for fast lookup times, reducing the time complexity from `O(n)` to `O(1)` by trading space for speed.
+
+A hash table is ideal for this purpose because it supports near-constant time lookups. "Near" in this conttext because collisions can cause lookups to degrade to `O(n)` time. However, as long as the hash function is well-designed, lookups should be amortized `O(1)` time.
+
+### Detailed Explanation
+
+1. **First Pass - Build the Hash Table**:
+   - Traverse the array and insert each element along with its index into the hash table.
+   - This creates a mapping of each element to its index, which will be useful for quick lookups in the next pass.
+
+2. **Second Pass - Find Complements**:
+   - Traverse the array again and for each element, calculate the complement needed to reach the target (`complement = target - nums[i]`).
+   - Check if the complement exists in the hash table and ensure it’s not the same element by comparing indices.
+   - If the complement is found, return the indices of the current element and its complement.
+
+### Additional Notes
+
+- **Time Complexity**: Building the hash table and looking up elements are both `O(n)` operations. Thus, the overall time complexity is `O(n)`.
+- **Space Complexity**: The hash table requires extra space proportional to the size of the input array, resulting in `O(n)` space complexity.
+- **Advantages**: This approach significantly reduces the time complexity compared to the brute force method, making it more efficient for larger datasets.
 
