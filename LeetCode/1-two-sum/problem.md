@@ -44,6 +44,8 @@
 ---
 
 # Solution
+-[Brute Force Approach](#brute-force-approach)
+  - **Time Complexity**: `O(n^2)`
 
 ## Solution Overview
 
@@ -174,3 +176,22 @@ Here's why we need it in this context:
    - If, by any chance, the key was not found (which shouldn't happen in our case), TypeScript would throw a runtime error.
 
 In summary, the non-null assertion operator allows us to express our confidence that the value will indeed be present, avoiding unnecessary null checks in the code.
+
+# Brute Force Approach
+
+## **Intuition**
+
+The brute force approach involves iterating through each element `x` in the array and searching for another value that equals `target - x`, which we call the **complement**.
+
+In this context, the term "complement" refers to the value needed to reach a certain target sum when combined with another value. It’s not about the arithmetic "difference" between two numbers, but rather about finding the missing piece that completes a specific requirement.
+
+Here, `complement = target - nums[i]` is the number that, when added to `nums[i]`, equals the target. If this complement exists in our data structure, it means we have found two numbers that add up to the target.
+
+So, it's called "complement" because it's the value that complements `nums[i]` to meet the target sum.
+
+### Additional Notes
+
+- **Nested Loops:** The brute force method leverages two nested loops to compare each element with every other element. This ensures that every possible pair is considered.
+- **Time Complexity:** The time complexity of this approach is `O(n^2)` since for each element in the array, we potentially scan through all other elements.
+- **Space Complexity:** The space complexity is `O(1)` because no additional data structures are used that grow with the input size.
+- **Limitations:** While this approach guarantees finding a solution (if one exists), it is inefficient for large input sizes due to its quadratic time complexity.
