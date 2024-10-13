@@ -598,3 +598,17 @@ function twoSum(nums: number[], target: number): number[] {
 }
 ```
 
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### **Time Complexity**: \( O(n) \)
+
+- **Single Pass**: We traverse the list containing \( n \) elements exactly once. Each lookup and insertion operation in the hash table takes \( O(1) \) time.
+- **Overall Complexity**: Combining these operations, the overall time complexity is \( O(n) \).
+
+### **Space Complexity**: \( O(n) \)
+
+- **Hash Table Storage**: The hash table used to store elements and their indices requires space proportional to the size of the input array. Therefore, the space complexity is \( O(n) \).
+
+In summary, the one-pass hash table approach provides an efficient solution with \( O(n) \) time complexity and \( O(n) \) space complexity.
