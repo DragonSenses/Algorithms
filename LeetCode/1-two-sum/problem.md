@@ -537,3 +537,33 @@ class Solution {
 }
 ```
 
+#### Breakdown of the Steps
+
+1. **Initialize a Hash Table**:
+
+  - `Map<Integer, Integer> map = new HashMap<>();` matches the step to initialize the hash table.
+
+2. **Iterate Through the Array**:
+
+  - The `for` loop iterates through each element in the array.
+
+  ```java
+  for (int i = 0; i < nums.length; i++) {
+    int complement = target - nums[i];
+    if (map.containsKey(complement)) {
+      return new int[]{map.get(complement), i};
+    }
+    map.put(nums[i], i);
+  }
+  ```
+
+  - This part of the code calculates the complement, checks if it exists in the hash table, and returns the indices if a match is found. If not, it adds the current element to the hash table.
+
+1. **Return Result**:
+
+  - The method returns an empty array if no valid pair is found.
+
+  ```java
+  return new int[0];
+  ```
+
