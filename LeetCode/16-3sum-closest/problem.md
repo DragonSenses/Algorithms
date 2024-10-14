@@ -92,3 +92,28 @@ In the sorted array, we process each value from left to right. For value `v`, we
 
 By following these steps, you can efficiently solve the 3Sum problem while ensuring unique triplets and maintaining optimal time complexity.
 
+## **Algorithm**
+
+### Step 1: Initialize
+1. **Initialize the minimum difference `diff` with a large value**:
+   - This will help keep track of the smallest difference found.
+
+### Step 2: Sort the Input Array
+2. **Sort the input array `nums`**:
+   - Sorting the array will facilitate the two-pointer approach.
+
+### Step 3: Iterate Through the Array
+3. **Iterate through the array**:
+   - For the current position `i`, set `lo` to `i + 1` and `hi` to the last index.
+   - While the `lo` pointer is smaller than `hi`:
+     1. Calculate `sum` as `nums[i] + nums[lo] + nums[hi]`.
+     2. If the absolute difference between `sum` and `target` is smaller than the absolute value of `diff`:
+        - Update `diff` to `target - sum`.
+     3. If `sum` is less than `target`, increment `lo`.
+     4. Else, decrement `hi`.
+     5. If `diff` is zero, break from the loop as we have found the closest possible sum.
+
+### Step 4: Return the Result
+4. **Return the value of the closest triplet**:
+   - The closest triplet sum is `target - diff`.
+
