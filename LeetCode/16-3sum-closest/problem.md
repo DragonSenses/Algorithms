@@ -60,7 +60,35 @@ For the same reason as in 3Sum Smaller, we can't use a hash set in 3Sum Closest 
 
 Let's solve 3Sum Cloest using the two pointers pattern.
 
+## **Intuition**
+
 The two pointers pattern requires the array to be sorted, so we do that first. As our BCR is `O(n^2)`, the sort operation would not change the overall time complexity.
 
 In the sorted array, we process each value from left to right. For value `v`, we need to find a pair which sum, ideally, is equal to `target - v` . We will follow the same two pointers approach as for 3Sum, however, since this 'ideal' pair may not exist, we will track the smallest absolute difference between the sum and the target. The two pointers approach naturally enumerates pairs so that the sum moves toward the target.
+
+### Step-by-Step Strategy
+
+1. **Sorting the Array**:
+   - We will follow the two-pointer pattern as in Two Sum II, which requires the array to be sorted.
+   - Sorting the array first ensures that our overall time complexity remains O(n²), as sorting is O(n log n).
+
+2. **Handling Duplicates**:
+   - To ensure the result contains unique triplets, we need to skip duplicate values.
+   - This is straightforward because duplicate values are adjacent in a sorted array.
+
+### Detailed Explanation
+
+1. **Pivot Element and Pair Finding**:
+   - After sorting the array, we move our pivot element `nums[i]` and analyze elements to its right.
+   - We find all pairs whose sum equals `-nums[i]` using the two-pointer pattern, ensuring the sum of the pivot element (`nums[i]`) and the pair (`-nums[i]`) equals zero.
+
+2. **Two-Pointer Technique Refresher**:
+   - Initially, set the pointers to the first and last elements respectively.
+   - Compare the sum of these two elements to the target:
+     - If the sum is smaller, increment the lower pointer `lo`.
+     - If the sum is larger, decrement the higher pointer `hi`.
+   - This ensures the sum always moves toward the target, pruning pairs that would move it further away.
+   - This technique works effectively only if the array is sorted. For a detailed explanation, refer to the Two Sum II solution.
+
+By following these steps, you can efficiently solve the 3Sum problem while ensuring unique triplets and maintaining optimal time complexity.
 
