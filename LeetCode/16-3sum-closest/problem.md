@@ -35,6 +35,8 @@
 ---
 
 # Solution
+- [Two Pointers](#two-pointers)
+  - **Time Complexity**: `O(n^2)`
 
 ## Overview
 
@@ -53,4 +55,12 @@ The 3Sum Closest problem is a variation of the 3Sum problem. Unlike 3Sum, the go
 ### Approach to 3Sum Closest
 
 For the same reason as in 3Sum Smaller, we can't use a hash set in 3Sum Closest because there is no specific value to search for. Thus, our focus will be on utilizing the two pointers pattern, targeting an `O(n^2)` time complexity as the best conceivable runtime (BCR).
+
+# Two Pointers
+
+Let's solve 3Sum Cloest using the two pointers pattern.
+
+The two pointers pattern requires the array to be sorted, so we do that first. As our BCR is `O(n^2)`, the sort operation would not change the overall time complexity.
+
+In the sorted array, we process each value from left to right. For value `v`, we need to find a pair which sum, ideally, is equal to `target - v` . We will follow the same two pointers approach as for 3Sum, however, since this 'ideal' pair may not exist, we will track the smallest absolute difference between the sum and the target. The two pointers approach naturally enumerates pairs so that the sum moves toward the target.
 
