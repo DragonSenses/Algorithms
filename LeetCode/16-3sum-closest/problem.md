@@ -206,3 +206,19 @@ function threeSumClosest(nums: number[], target: number): number {
   return target - diff;
 }
 ```
+
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### **Time Complexity**: \( O(n^2) \)
+
+- **Outer and Inner Loops**: The outer loop iterates through `n` elements, and for each iteration, the inner loop also goes through `n` elements, resulting in a time complexity of \( O(n^2) \).
+- **Sorting the Array**: Sorting the array with `Arrays.sort()` has a time complexity of \( O(n \log n) \).
+- **Overall Complexity**: Combining these operations, the overall time complexity is dominated by the nested loops, giving us \( O(n \log n + n^2) \). As \( n^2 \) grows faster than \( n \log n \), the time complexity simplifies to \( O(n^2) \).
+
+### **Space Complexity**: \( O(\log n) \) to \( O(n) \)
+
+- **Sorting Algorithm**: The space complexity depends on the implementation of the sorting algorithm. As for the case with Java's `Arrays.sort()`, it depends on the type of elements being sorted:
+  - **Primitive Types**: For sorting primitive types like `int`, `char`, `float`, etc., `Arrays.sort()` uses a dual-pivot Quicksort algorithm with a space complexity of \( O(\log n) \) due to the recursive nature of Quicksort.
+  - **Object Types**: For sorting objects, `Arrays.sort()` uses a modified Timsort algorithm with a space complexity of \( O(n) \) because of the additional memory required for temporary arrays used in the merge process.
