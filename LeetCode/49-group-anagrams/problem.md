@@ -63,3 +63,27 @@ Two strings are anagrams if and only if their sorted strings are equal. This ins
 
 - An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.
 - By sorting each string, all anagrams will have the same sorted representation.
+
+## **Algorithm**
+
+1. **Initialize a HashMap**:
+   - Create a hash map where each key is a sorted string and each value is a list of strings that, when sorted, are equal to the key.
+
+2. **Iterate Through the Array**:
+   - For each string in the input array:
+     1. Sort the string.
+     2. Use the sorted string as a key in the hash map.
+     3. Append the original string to the list of anagrams for that key.
+
+3. **Return the Values of the HashMap**:
+   - The values of the hash map represent the grouped anagrams.
+
+### Example
+
+**Input**: `strs = ["eat", "tea", "tan", "ate", "nat", "bat"]`
+
+**Output**: `[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]`
+
+**Explanation**:
+- `map = {"aet": ["eat", "tea", "ate"], "ant": ["tan", "nat"], "abt": ["bat"]}`
+
