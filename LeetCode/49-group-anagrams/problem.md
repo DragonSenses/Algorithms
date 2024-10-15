@@ -45,3 +45,21 @@
 	<li><code>0 &lt;= strs[i].length &lt;= 100</code></li>
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+-[Categorize by Sorted String Approach](#categorize-by-sorted-string)
+
+# Categorize by Sorted String
+
+## **Intuition**
+
+Two strings are anagrams if and only if their sorted strings are equal. This insight allows us to group anagrams by sorting each string and using the sorted string as a key.
+
+### Additional Details
+
+- An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.
+- By sorting each string, all anagrams will have the same sorted representation.
