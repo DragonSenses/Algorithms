@@ -38,6 +38,7 @@
 - [Two Pointers](#two-pointers)
   - **Time Complexity**: `O(n^2)`
 - [Binary Search Approach](#binary-search-approach)
+  - **Time Complexity**: `O(n^2 * log n)`
 
 ## Overview
 
@@ -324,3 +325,25 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array.
+
+### **Time Complexity**: \( O(n^2 \log n) \)
+
+- **Outer and Inner Loops**: The outer loop iterates through \( n \) elements, and for each iteration, the inner loop also iterates through \( n \) elements, resulting in \( O(n^2) \).
+- **Sorting the Array**: Sorting the array with `Arrays.sort()` has a time complexity of \( O(n \log n) \).
+- **Binary Search**: Binary search takes \( O(\log n) \) time and is performed \( n \) times for each combination in the inner loop.
+- **Overall Complexity**: Combining these operations, the overall time complexity is dominated by the nested loops and binary search, giving us \( O(n^2 \log n) \).
+
+### **Space Complexity**: \( O(\log n) \) to \( O(n) \)
+
+- **Sorting Algorithm**: The space complexity depends on the implementation of the sorting algorithm:
+  - **Primitive Types**: For sorting primitive types like `int`, `char`, `float`, etc., `Arrays.sort()` uses a dual-pivot Quicksort algorithm with a space complexity of \( O(\log n) \) due to the recursive nature of Quicksort.
+  - **Object Types**: For sorting objects, `Arrays.sort()` uses a modified Timsort algorithm with a space complexity of \( O(n) \) because of the additional memory required for temporary arrays used in the merge process.
+
+In summary, the refined complexity analysis for this approach is:
+
+- **Time Complexity**: \( O(n^2 \log n) \)
+- **Space Complexity**: \( O(\log n) \) to \( O(n) \)
