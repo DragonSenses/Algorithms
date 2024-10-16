@@ -54,6 +54,7 @@
 -[Categorize by Sorted String Approach](#categorize-by-sorted-string)
   - **Time Complexity**: `O(n*k*logk)`
 - [Categorize by Character Count Approach](#categorize-by-character-count)
+  - **Time Complexity**: `O(n * k)`
 
 # Categorize by Sorted String
 
@@ -315,3 +316,21 @@ class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array, and \( k \) be the maximum length of a string in `strs`.
+
+### **Time Complexity**: \( O(n \cdot k) \)
+
+- **Outer Loop**: We iterate through each string in the input array, so this part takes \( O(n) \).
+- **Character Counting**: Counting each string is linear in the size of the string, i.e., \( O(k) \), and we count every string.
+- **Overall Complexity**: Combining these operations, the overall time complexity is \( O(n \cdot k) \).
+
+### **Space Complexity**: \( O(n \cdot k) \)
+
+- **Map Storage**: The hash map used to store each character count string as the key and the list of anagrams as the value requires space proportional to the number of strings and the maximum length of the strings, which is \( O(n \cdot k) \).
+
+In summary, the refined complexity analysis for this approach is:
+
+- **Time Complexity**: \( O(n \cdot k) \)
+- **Space Complexity**: \( O(n \cdot k) \)
