@@ -228,3 +228,28 @@ Two strings are anagrams if and only if their character counts (i.e., the respec
 **Explanation**:
 - `map = {"#1#0#0#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0": ["bat"], "#1#0#0#0#1#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0": ["tan", "nat"], "#1#0#1#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0": ["eat", "tea", "ate"]}`
 
+## **Implementation**
+
+### Implementation Details
+
+1. **Initialize the Result List**:
+   - If the input array is empty, return an empty list.
+
+2. **Initialize a HashMap**:
+   - Create a hash map where each key is the character count string, and each value is a list of anagrams.
+
+3. **Iterate Through Each String**:
+   - For each string in the input array:
+     1. **Reset the Count Array**:
+        - Initialize an array to count character occurrences and reset it for each string.
+     2. **Count Character Occurrences**:
+        - Iterate through the characters in the string and count the occurrences of each character.
+     3. **Convert the Count Array to a String**:
+        - Convert the character count array into a string representation, where counts are separated by `#`.
+     4. **Update the HashMap**:
+        - If the key is not in the map, add it with a new list.
+        - Add the original string to the list corresponding to the key.
+
+4. **Return the List of Anagram Groups**:
+   - Return the values of the hash map as the result list.
+
