@@ -316,6 +316,50 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+/**
+ * Groups anagrams together from the given array of strings.
+ * This implementation categorizes anagrams by character count.
+ * @param strs - An array of strings.
+ * @returns A list of lists, where each inner list contains strings that are anagrams of each other.
+ */
+function groupAnagrams(strs: string[]): string[][] {
+  // Step 1: Initialize the result list
+  if (strs.length === 0) {
+    return [];
+  }
+
+  // Step 2: Initialize a HashMap
+  const map: { [key: string]: string[] } = {};
+
+  // Step 3: Iterate through each string
+  const count: number[] = new Array(26).fill(0);
+  for (const str of strs) {
+    // Step 3.1: Reset the count array
+    count.fill(0);
+
+    // Step 3.2: Count character occurrences
+    for (const char of str) {
+      count[char.charCodeAt(0) - 97]++;
+    }
+
+    // Step 3.3: Convert the count array to a string
+    const key = count.map(num => `#${num}`).join('');
+
+    // Step 3.4: Update the HashMap
+    if (!map[key]) {
+      map[key] = [];
+    }
+    map[key].push(str);
+  }
+
+  // Step 4: Return the list of anagram groups
+  return Object.values(map);
+}
+```
+
 ## **Complexity Analysis**
 
 Let \( n \) be the length of the input array, and \( k \) be the maximum length of a string in `strs`.
