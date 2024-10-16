@@ -260,3 +260,67 @@ Let \( n \) be the length of the input array.
 4. **Return the Result**:
    - Return the value of the closest triplet, which is `target - diff`.
 
+## **Implementation**
+
+**Note**: Starting the outer loop at `nums.length - 2` ensures there are at least two more elements available for the inner loops, preserving space for the trio needed in the sum. This ensures that when `i` is at its maximum valid index, there are still two more indices (`j` and the third number) to work with. 
+
+### Java
+
+```java
+import java.util.Arrays;
+
+class Solution {
+
+  /**
+   * Finds the sum of three integers in nums such that the sum is closest to the target.
+   * This implementation uses a binary search approach.
+   *
+   * @param nums - array of integers
+   * @param target - the target sum
+   * @return The sum of the three integers closest to the target
+   */
+  public int threeSumClosest(int[] nums, int target) {
+    // Step 1: Initialize the minimum difference diff with a large value
+    int diff = Integer.MAX_VALUE;
+
+    // Step 2: Sort the input array nums
+    Arrays.sort(nums);
+
+    // Step 3: Iterate through the array
+    for (int i = 0; i < nums.length - 2; i++) {
+      for (int j = i + 1; j < nums.length - 1; j++) {
+        int complement = target - nums[i] - nums[j];
+        
+        // Perform binary search for the complement
+        int lo = j + 1, hi = nums.length - 1, mid;
+        while (lo <= hi) {
+          mid = lo + (hi - lo) / 2;
+          if (nums[mid] == complement) {
+            return target; // Found the exact complement
+          } else if (nums[mid] < complement) {
+            lo = mid + 1;
+          } else {
+            hi = mid - 1;
+          }
+        }
+
+        // Check differences with the closest possible values
+        if (lo < nums.length && Math.abs(nums[lo] - complement) < Math.abs(diff)) {
+          diff = complement - nums[lo];
+        }
+        if (hi > j && Math.abs(nums[hi] - complement) < Math.abs(diff)) {
+          diff = complement - nums[hi];
+        }
+        
+        // If diff is zero, closest sum found
+        if (diff == 0) {
+          return target;
+        }
+      }
+    }
+
+    // Step 4: Return the value of the closest triplet sum
+    return target - diff;
+  }
+}
+```
