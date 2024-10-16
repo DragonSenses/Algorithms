@@ -253,3 +253,65 @@ Two strings are anagrams if and only if their character counts (i.e., the respec
 4. **Return the List of Anagram Groups**:
    - Return the values of the hash map as the result list.
 
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * This class provides a solution to group anagrams from a given array of strings.
+ * 
+ * This implementation categorizes anagrams by character count.
+ */
+class Solution {
+
+  /**
+   * Groups anagrams together from the given array of strings.
+   *
+   * @param strs An array of strings.
+   * @return A list of lists, where each inner list contains strings that are anagrams of each other.
+   */
+  public List<List<String>> groupAnagrams(String[] strs) {
+    // Step 1: Initialize the result list
+    if (strs.length == 0) {
+      return new ArrayList<>();
+    }
+
+    // Step 2: Initialize a HashMap
+    Map<String, List<String>> map = new HashMap<>();
+
+    // Step 3: Iterate through each string
+    int[] count = new int[26];
+    for (String str : strs) {
+      // Step 3.1: Reset the count array
+      Arrays.fill(count, 0);
+
+      // Step 3.2: Count character occurrences
+      for (char c : str.toCharArray()) {
+        count[c - 'a']++;
+      }
+
+      // Step 3.3: Convert the count array to a string
+      StringBuilder sb = new StringBuilder();
+      for (int i = 0; i < 26; i++) {
+        sb.append('#').append(count[i]);
+      }
+      String key = sb.toString();
+
+      // Step 3.4: Update the HashMap
+      if (!map.containsKey(key)) {
+        map.put(key, new ArrayList<>());
+      }
+      map.get(key).add(str);
+    }
+
+    // Step 4: Return the list of anagram groups
+    return new ArrayList<>(map.values());
+  }
+}
+```
+
