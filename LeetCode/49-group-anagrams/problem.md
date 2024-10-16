@@ -52,7 +52,8 @@
 
 # Solution
 -[Categorize by Sorted String Approach](#categorize-by-sorted-string)
-  -**Time Complexity**: `O(n*klogk)`
+  - **Time Complexity**: `O(n*k*logk)`
+- [Categorize by Character Count Approach](#categorize-by-character-count)
 
 # Categorize by Sorted String
 
@@ -188,3 +189,15 @@ In summary, the refined complexity analysis for this approach is:
 
 - **Time Complexity**: \( O(n \cdot k \log k) \)
 - **Space Complexity**: \( O(n \cdot k) \)
+
+# Categorize by Character Count
+
+## **Intuition**
+
+Two strings are anagrams if and only if their character counts (i.e., the respective number of occurrences of each character) are the same. By converting each string into a character count representation, we can effectively group anagrams together.
+
+### Detailed Explanation
+
+- An anagram is a word or phrase formed by rearranging the letters of another, using all original letters exactly once.
+- By counting the occurrences of each character, anagrams will have identical character count representations.
+
