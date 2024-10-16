@@ -239,3 +239,24 @@ Let \( n \) be the length of the input array.
 
 4. **Example**:
    - For instance, if the complement is 42 and our array is `[-10, -4, 15, 30, 60]`, the next higher number is 60 (with a difference of -18), and the previous lower number is 30 (with a difference of 12).
+
+### Algorithm
+
+1. **Initialize**:
+   - Initialize the minimum difference `diff` with a large value.
+
+2. **Sort the Input Array**:
+   - Sort the input array `nums`.
+
+3. **Iterate Through the Array**:
+   - **Outer Loop**: Iterate through the array with the current position `i`.
+   - **Inner Loop**: For each position `i`, iterate through the array starting from `j = i + 1`:
+     1. Perform binary search for the complement (`target - nums[i] - nums[j]`) in the rest of the array.
+     2. For the next higher value, check its absolute difference with the complement against `diff`.
+     3. For the previous lower value, check its absolute difference with the complement against `diff`.
+     4. Update `diff` based on the smallest absolute difference found.
+     5. If `diff` is zero, break from the loop as we have found the closest possible sum.
+
+4. **Return the Result**:
+   - Return the value of the closest triplet, which is `target - diff`.
+
