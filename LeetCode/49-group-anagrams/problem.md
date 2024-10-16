@@ -201,3 +201,30 @@ Two strings are anagrams if and only if their character counts (i.e., the respec
 - An anagram is a word or phrase formed by rearranging the letters of another, using all original letters exactly once.
 - By counting the occurrences of each character, anagrams will have identical character count representations.
 
+## **Algorithm**
+
+1. **Initialize a HashMap**:
+   - Create a hash map where each key is a string representing the character count, and each value is a list of strings that share this character count.
+
+2. **Transform Each String**:
+   - For each string `s` in the input array `strs`:
+     1. Initialize an array `count` of size 26 to represent the character counts for `a` to `z`.
+     2. Increment the appropriate index in the `count` array for each character in `s`.
+     3. Convert the `count` array into a string representation, with counts separated by a delimiter (e.g., `#`).
+
+3. **Build the HashMap**:
+   - Use the string representation of the `count` array as the key in the hash map.
+   - Append the original string to the list of anagrams for that key.
+
+4. **Return the Values of the HashMap**:
+   - The values of the hash map represent the grouped anagrams.
+
+### Example
+
+**Input**: `strs = ["eat", "tea", "tan", "ate", "nat", "bat"]`
+
+**Output**: `[["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]`
+
+**Explanation**:
+- `map = {"#1#0#0#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0": ["bat"], "#1#0#0#0#1#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0": ["tan", "nat"], "#1#0#1#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0": ["eat", "tea", "ate"]}`
+
