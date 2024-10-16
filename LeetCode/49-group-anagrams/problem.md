@@ -52,6 +52,7 @@
 
 # Solution
 -[Categorize by Sorted String Approach](#categorize-by-sorted-string)
+  -**Time Complexity**: `O(n*klogk)`
 
 # Categorize by Sorted String
 
@@ -168,3 +169,22 @@ function groupAnagrams(strs: string[]): string[][] {
   return Object.values(map);
 };
 ```
+
+## **Complexity Analysis**
+
+Let \( n \) be the length of the input array, and \( k \) be the maximum length of a string in `strs`.
+
+### **Time Complexity**: \( O(n \cdot k \log k) \)
+
+- **Outer Loop**: We iterate through each string in the input array, so this part takes \( O(n) \).
+- **Sorting Each String**: Sorting each string takes \( O(k \log k) \).
+- **Overall Complexity**: Combining these operations, the overall time complexity is \( O(n \cdot k \log k) \), as we are sorting each string and then performing the operations.
+
+### Space Complexity: \( O(n \cdot k) \)
+
+- **Map Storage**: The hash map used to store each sorted string as the key and the list of anagrams as the value requires space proportional to the number of strings and the maximum length of the strings, which is \( O(n \cdot k) \).
+
+In summary, the refined complexity analysis for this approach is:
+
+- **Time Complexity**: \( O(n \cdot k \log k) \)
+- **Space Complexity**: \( O(n \cdot k) \)
