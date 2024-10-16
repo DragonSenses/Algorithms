@@ -37,6 +37,7 @@
 # Solution
 - [Two Pointers](#two-pointers)
   - **Time Complexity**: `O(n^2)`
+- [Binary Search Approach](#binary-search-approach)
 
 ## Overview
 
@@ -222,3 +223,19 @@ Let \( n \) be the length of the input array.
 - **Sorting Algorithm**: The space complexity depends on the implementation of the sorting algorithm. As for the case with Java's `Arrays.sort()`, it depends on the type of elements being sorted:
   - **Primitive Types**: For sorting primitive types like `int`, `char`, `float`, etc., `Arrays.sort()` uses a dual-pivot Quicksort algorithm with a space complexity of \( O(\log n) \) due to the recursive nature of Quicksort.
   - **Object Types**: For sorting objects, `Arrays.sort()` uses a modified Timsort algorithm with a space complexity of \( O(n) \) because of the additional memory required for temporary arrays used in the merge process.
+
+# Binary Search Approach
+
+### Intuition
+
+1. **Comparison to Two-Pointer Approach**:
+   - In the two-pointer approach, we fix one number and use two pointers to enumerate pairs. In this binary search approach, we fix two numbers and use binary search to find the third complement number.
+
+2. **Efficiency**:
+   - This method is less efficient than the two-pointer approach but can be more intuitive to develop.
+
+3. **Handling Complement**:
+   - We may not find the exact complement number. Instead, we check the differences between the complement and the next higher and previous lower numbers.
+
+4. **Example**:
+   - For instance, if the complement is 42 and our array is `[-10, -4, 15, 30, 60]`, the next higher number is 60 (with a difference of -18), and the previous lower number is 30 (with a difference of 12).
