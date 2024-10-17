@@ -32,3 +32,23 @@
 	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+
+## 4Sum Problem Overview
+
+### Follow-Up of 3Sum
+
+4Sum and 3Sum are very similar; the difference is that we are looking for unique quadruplets instead of triplets.
+
+### Wrapping Two Sum
+
+3Sum essentially wraps Two Sum in an outer loop. As it iterates through each value `v`, it finds all pairs whose sum is equal to `target - v` using one of these approaches:
+1. **Two Sum**: Uses a hash set to check for a matching value.
+2. **Two Sum II**: Uses the two-pointers pattern in a sorted array.
+
+### Extending to 4Sum
+
+Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loop.
+
+### Generalizing to kSum
+
+If asked to solve 4Sum, the interviewer might follow up with 5Sum, 6Sum, and so on. What they really expect is a `kSum` solution. Therefore, we will focus on a generalized implementation here.
