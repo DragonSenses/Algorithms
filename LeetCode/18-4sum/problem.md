@@ -77,3 +77,27 @@ For the 3Sum problem, we wrap Two Sum in an outer loop. As we iterate through ea
 1. **Two Sum with Hash Set**: Use a hash set to check for matching values.
 2. **Two Sum II with Two Pointers**: Use the two-pointers technique in a sorted array.
 
+### Generalizing to kSum
+
+Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loop. When asked for higher sums like 5Sum, 6Sum, etc., the interviewer expects a generalized kSum solution. Here’s how:
+
+1. **Initialization**: Initialize the result list.
+2. **Sorting**: Sort the input array `nums`.
+3. **Recursive kSum Function**:
+   - **Base Case**: If k equals 2, use the Two Sum approach.
+   - **Recursive Case**: Iterate through the array, fixing one number and recursively finding the (k-1)Sum.
+4. **Return the Results**: Collect and return the results from the recursive calls.
+
+### Example and Walkthrough
+
+**Input**: `nums = [1,0,-1,0,-2,2]`, `target = 0`
+
+1. **Initialization**:
+   - Result list: `[]`
+2. **Sorting**:
+   - Sorted `nums`: `[-2, -1, 0, 0, 1, 2]`
+3. **Recursive Calls**:
+   - **4Sum**: Iterate with the first number, then call 3Sum with the remaining array.
+   - **3Sum**: Fix the second number, then call 2Sum.
+   - **2Sum**: Use two pointers to find pairs that match the target.
+
