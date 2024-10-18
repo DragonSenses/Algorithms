@@ -111,3 +111,53 @@ We can implement `k-2` loops using recursion. We will pass the starting point an
    - Sort the input array `nums`.
 2. **Call kSum**:
    - Call `kSum` with `start = 0`, `k = 4`, and `target`, and return the result.
+
+### kSum Function
+
+1. **Initial Checks**:
+   - At the start of the `kSum` function, check three conditions:
+     1. Have we run out of numbers to choose from?
+     2. Is the smallest number remaining greater than `target / k`?
+        - If so, then any `k` numbers we choose will be too large.
+     3. Is the largest number remaining smaller than `target / k`?
+        - If so, then any `k` numbers we choose will be too small.
+   - If any of these conditions are true, there is no need to continue as no combination of the remaining elements can sum to `target`.
+
+2. **Base Case**:
+   - If `k` equals 2, call `twoSum` and return the result.
+
+3. **Iterate Through the Array**:
+   - Iterate `i` through the array from `start`:
+     1. If the current value is the same as the one before, skip it.
+     2. Recursively call `kSum` with `start = i + 1`, `k = k - 1`, and `target - nums[i]`.
+     3. For each returned subset of values:
+        - Include the current value `nums[i]` into the subset.
+        - Add the subset to the result `res`.
+
+4. **Return the Result**:
+   - Return the result `res`.
+
+### twoSum Function
+
+1. **Initialize Pointers**:
+   - Set the low pointer `lo` to `start`, and high pointer `hi` to the last index.
+
+2. **While Loop**:
+   - While the low pointer is smaller than high:
+     1. If the sum of `nums[lo]` and `nums[hi]` is less than `target`, increment `lo`.
+        - Also increment `lo` if the value is the same as for `lo - 1`.
+     2. If the sum is greater than `target`, decrement `hi`.
+        - Also decrement `hi` if the value is the same as for `hi + 1`.
+     3. Otherwise, we found a pair:
+        - Add it to the result `res`.
+        - Decrement `hi` and increment `lo`.
+
+3. **Return the Result**:
+   - Return the result `res`.
+
+## **Implementation**
+
+**Note:** Handle the folowing edge cases:
+  - Large Numbers
+  - Negative Targets
+
