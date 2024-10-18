@@ -165,8 +165,12 @@ We can implement `k-2` loops using recursion. We will pass the starting point an
 
 ### Java
 
-- Implementation for `fourSum` with `kSum` function
+#### Implementation 1
+
+- Implementation for `fourSum` with `kSum` and `twoSum` functions
   - It handles large integers and prevents overflow by using `long` data type for calculations.
+
+**Note**: This implementation ran in 4ms, placing it within the 5.4% of solutions that ran in 2ms. The next group of 2.04% of solutions ran in 8ms, followed by 30.54% of solutions that ran in 13ms, and 32.96% of solutions that ran in 19ms.
 
 fix(#18): Handle overflow in 4Sum implementation
 
@@ -263,6 +267,8 @@ public class Solution {
   }
 }
 ```
+
+#### Implementation 2
 
 - Implementation for `fourSum` with `kSum` and `twoSum` functions
 
