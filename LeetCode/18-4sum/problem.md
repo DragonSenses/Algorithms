@@ -101,3 +101,13 @@ Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loo
    - **3Sum**: Fix the second number, then call 2Sum.
    - **2Sum**: Use two pointers to find pairs that match the target.
 
+## **Algorithm**
+
+We can implement `k-2` loops using recursion. We will pass the starting point and `k` as the parameters. When `k == 2`, we will call `twoSum`, terminating the recursion.
+
+### Main Function
+
+1. **Sort the Input Array**:
+   - Sort the input array `nums`.
+2. **Call kSum**:
+   - Call `kSum` with `start = 0`, `k = 4`, and `target`, and return the result.
