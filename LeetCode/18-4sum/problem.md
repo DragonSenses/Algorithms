@@ -168,6 +168,10 @@ We can implement `k-2` loops using recursion. We will pass the starting point an
 - Implementation for `fourSum` with `kSum` function
   - It handles large integers and prevents overflow by using `long` data type for calculations.
 
+fix(#18): Handle overflow in 4Sum implementation
+
+Resolved an issue where the conditions `nums[start] * k > target` and `nums[nums.length - 1] * k < target` were incorrect for large values and negative targets. Updated to handle potential overflows more carefully.
+
 ```java
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -201,7 +205,15 @@ public class Solution {
    */
   private List<List<Integer>> kSum(int[] nums, long target, int k, int start) {
     List<List<Integer>> res = new ArrayList<>();
-    if (start == nums.length || nums[start] * k > target || nums[nums.length - 1] * k < target) {
+
+    // Base case: if start reaches the end of the array, return an empty list
+    // Check if we have run out of numbers to choose from
+    if (start == nums.length) {
+      return res;
+    }
+    
+    // Check for overflow and underflow
+    if (k * (long) nums[start] > target || k * (long) nums[nums.length - 1] < target) {
       return res;
     }
 

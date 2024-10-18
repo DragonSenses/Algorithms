@@ -30,7 +30,15 @@ public class Solution {
    */
   private List<List<Integer>> kSum(int[] nums, long target, int k, int start) {
     List<List<Integer>> res = new ArrayList<>();
-    if (start == nums.length || nums[start] * k > target || nums[nums.length - 1] * k < target) {
+
+    // Base case: if start reaches the end of the array, return an empty list
+    // Check if we have run out of numbers to choose from
+    if (start == nums.length) {
+      return res;
+    }
+
+    // Check for overflow and underflow
+    if (k * (long) nums[start] > target || k * (long) nums[nums.length - 1] < target) {
       return res;
     }
 
