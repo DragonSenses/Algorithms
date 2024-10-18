@@ -32,6 +32,12 @@
 	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<br>
+
+---
+
+# Solution
+- [Two Pointers Approach](#two-pointers)
 
 ## 4Sum Problem Overview
 
@@ -52,3 +58,16 @@ Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loo
 ### Generalizing to kSum
 
 If asked to solve 4Sum, the interviewer might follow up with 5Sum, 6Sum, and so on. What they really expect is a `kSum` solution. Therefore, we will focus on a generalized implementation here.
+
+# Two Pointers
+
+### Key Concept
+
+The kSum problem can be generalized from the 2Sum and 3Sum problems. By understanding the pattern and extending it, we can create a solution that works for any kSum.
+
+### Wrapping Two Sum
+
+For the 3Sum problem, we wrap Two Sum in an outer loop. As we iterate through each value `v`, we find all pairs whose sum is equal to `target - v`. We can use:
+1. **Two Sum with Hash Set**: Use a hash set to check for matching values.
+2. **Two Sum II with Two Pointers**: Use the two-pointers technique in a sorted array.
+
