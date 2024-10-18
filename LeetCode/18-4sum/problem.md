@@ -61,6 +61,12 @@ If asked to solve 4Sum, the interviewer might follow up with 5Sum, 6Sum, and so 
 
 # Two Pointers
 
+## **Intuition**
+
+The two pointers pattern requires the array to be sorted, so we do that first. Also, it's easier to deal with duplicates if the array is sorted: repeated values are next to each other and easy to skip.
+
+For 3Sum, we enumerate each value in a single loop, and use the two pointers pattern for the rest of the array. For kSum, we will have `k - 2` nested loops to enumerate all combinations of `k - 2` values.
+
 ### Key Concept
 
 The kSum problem can be generalized from the 2Sum and 3Sum problems. By understanding the pattern and extending it, we can create a solution that works for any kSum.
