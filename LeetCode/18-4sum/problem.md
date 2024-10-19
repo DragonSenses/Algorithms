@@ -40,6 +40,7 @@
 - [Two Pointers Approach](#two-pointers)
   - **Time Complexity**: `O(n^3)`. 
   - `O(n^{k-1})` for `kSum`, where `k = 4` for **4Sum**.
+- [Hash Set Approach](#hash-set-approach)
 
 ## 4Sum Problem Overview
 
@@ -81,7 +82,7 @@ For the 3Sum problem, we wrap Two Sum in an outer loop. As we iterate through ea
 
 ### Generalizing to kSum
 
-Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loop. When asked for higher sums like 5Sum, 6Sum, etc., the interviewer expects a generalized kSum solution. Here’s how:
+Following a similar logic, we can implement 4Sum by wrapping 3Sum in another loop. When asked for higher sums like 5Sum, 6Sum, etc., the interviewer expects a generalized kSum solution. Here's how:
 
 1. **Initialization**: Initialize the result list.
 2. **Sorting**: Sort the input array `nums`.
@@ -424,3 +425,7 @@ In summary, the complexity analysis for the two pointer approach is:
 
 - **Time Complexity**: \( O(n^{k-1}) \) or \( O(n^3) \) for 4Sum
 - **Space Complexity**: \( O(n) \)
+
+# Hash Set Approach
+
+For the 4Sum problem, where elements must sum up to the exact target value, we can utilize the Two Sum: One-pass Hash Table approach.
