@@ -467,3 +467,39 @@ For the 4Sum problem, where elements must sum up to the exact target value, we c
   - Use the hash set to find pairs that sum up to `target - (-2 + 0) = 2`
   - Continue this process, skipping duplicates and collecting valid quadruplets.
 
+## **Algorithm**
+
+### Initialization
+
+1. **Sort the Array**:
+   - Sort the input array `nums` to handle duplicates efficiently.
+
+### Main Function (`fourSum`)
+
+1. **Initialize the Result List**:
+   - Create an empty list `res` to store the quadruplets.
+
+2. **Iterate Through the Array**:
+   - Use three nested loops to fix the first and second numbers.
+   - For each combination of the first two numbers, use the `twoSum` function to find pairs that sum to the remaining target.
+
+### Helper Function (`kSum`)
+
+1. **Base Case**:
+   - If `k == 2`, call the `twoSum` function.
+
+2. **Recursive Case**:
+   - Iterate through the array starting from the `start` index.
+   - For each element, recursively call `kSum` with `k-1`.
+   - Skip duplicates to ensure unique quadruplets.
+
+### Two Sum Function (`twoSum`)
+
+1. **Initialize Hash Set**:
+   - Use a hash set to track complements.
+
+2. **Iterate Through the Array**:
+   - For each element, check if its complement exists in the hash set.
+   - If a pair is found, add it to the result list `res`.
+   - Skip duplicates by comparing with the last added pair in the result list.
+
