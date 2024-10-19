@@ -428,4 +428,19 @@ In summary, the complexity analysis for the two pointer approach is:
 
 # Hash Set Approach
 
-For the 4Sum problem, where elements must sum up to the exact target value, we can utilize the Two Sum: One-pass Hash Table approach.
+## **Intuition**
+
+For the 4Sum problem, where elements must sum up to the exact target value, we can utilize the Two Sum: One-pass Hash Table approach. Here's how:
+
+1. **Use Two Sum: One-pass Hash Table Approach**:
+   - This approach leverages a hash set to efficiently find pairs of numbers that sum up to a specific value.
+
+2. **Transition from 3Sum to 4Sum**:
+   - In the 3Sum: Hash Set approach, we solve the problem without sorting the array by sorting values within triplets and tracking them in a hash set. Extending this method to k values can be impractical due to increasing complexity.
+
+3. **Sorting and Skipping Duplicates**:
+   - For the 4Sum problem, we will sort the array and skip duplicates, similar to the Two Pointers approach. This ensures that our solution is efficient and avoids repeated calculations.
+
+4. **Key Differences in `twoSum` Implementation**:
+   - The main difference in this approach lies in the `twoSum` implementation, which utilizes a hash set to track complements and quickly identify pairs that meet the target sum.
+
