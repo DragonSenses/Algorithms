@@ -41,6 +41,8 @@
   - **Time Complexity**: `O(n^3)`. 
   - `O(n^{k-1})` for `kSum`, where `k = 4` for **4Sum**.
 - [Hash Set Approach](#hash-set-approach)
+  - **Time Complexity**: `O(n^3)`. 
+  - `O(n^{k-1})` for `kSum`, where `k = 4` for **4Sum**.
 
 ## 4Sum Problem Overview
 
@@ -577,3 +579,21 @@ class Solution2 {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: \( O(n^3) \) for **4Sum**, \( O(n^{k-1}) \) for **kSum**
+
+- **Outer and Inner Loops**: For 4Sum, we have `k-2` loops. The outer loop iterates through \( n \) elements, and for each iteration, the inner loops also iterate through \( n \) elements, resulting in \( O(n^{k-1}) \). Specifically for 4Sum, this translates to \( O(n^3) \). `twoSum` is \( O(n) \).
+- **Sorting the Array**: Sorting the array with `Arrays.sort()` has a time complexity of \( O(n \log n) \). Note that for `k > 2`, sorting the array does not change the overall time complexity.
+- **Overall Complexity**: Combining these operations, the overall time complexity is dominated by the nested loops, giving us \( O(n^{k-1}) \). i.e., `O(n^3)` for **4Sum** since `k = 4` and we have `k - 2` nested loops to enumerate all combinations of `k - 2` values.
+
+### **Space Complexity**: \( O(n) \)
+
+- **Hash Table Storage**: The hash set used to store elements and their indices requires space proportional to the size of the input array.
+- **Recursion Stack**: We need \( O(k) \) space for the recursion stack. For the generalized algorithm, `k` can be the same as \( n \) in the worst case. The space needed for recursion will not exceed \( O(n) \).
+- **Sorting Algorithm**: Depending on the implementation of the sorting algorithm, as for Java's `Arrays.sort()`, it uses a dual-pivot Quicksort for primitive types with a space complexity of \( O(\log n) \) due to the recursive nature of Quicksort, and Timsort for objects with a space complexity of \( O(n) \) due to the additional memory for temporary arrays.
+
+In summary, the complexity analysis for the hash set approach is:
+
+- **Time Complexity**: \( O(n^{k-1}) \) or \( O(n^3) \) for 4Sum
+- **Space Complexity**: \( O(n) \)
