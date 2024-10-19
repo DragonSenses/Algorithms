@@ -444,3 +444,26 @@ For the 4Sum problem, where elements must sum up to the exact target value, we c
 4. **Key Differences in `twoSum` Implementation**:
    - The main difference in this approach lies in the `twoSum` implementation, which utilizes a hash set to track complements and quickly identify pairs that meet the target sum.
 
+### Example and Walkthrough
+
+**Input**: `nums = [1, 0, -1, 0, -2, 2]`, `target = 0`
+
+1. **Sorting**:
+   - Sorted `nums`: `[-2, -1, 0, 0, 1, 2]`
+2. **Fix First and Second Numbers**:
+   - Iterate through the sorted array, fixing the first and second numbers.
+3. **Find Pairs with Two Sum Hash Set Approach**:
+   - Use a hash set to find pairs of numbers in the remaining array that sum up to the target minus the fixed first and second numbers.
+4. **Collect Results**:
+   - Store the unique quadruplets that meet the target sum in the result set.
+
+### Detailed Example
+
+- **Iteration 1**: Fix `nums[0] = -2` and `nums[1] = -1`
+  - Use the hash set to find pairs that sum up to `target - (-2 + -1) = 3`
+  - Find pairs and add valid quadruplets to the result set.
+
+- **Iteration 2**: Fix `nums[0] = -2` and `nums[2] = 0`
+  - Use the hash set to find pairs that sum up to `target - (-2 + 0) = 2`
+  - Continue this process, skipping duplicates and collecting valid quadruplets.
+
