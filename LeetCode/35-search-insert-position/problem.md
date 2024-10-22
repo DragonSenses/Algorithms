@@ -39,6 +39,7 @@
 
 # Solution
 -[Binary Search Approach](#binary-search-approach)
+  -**Time complexity**: `O(log n)`
 
 # Binary Search Approach
 
@@ -115,3 +116,24 @@ Both approaches ensure that the calculation stays within the safe range of integ
      - If `target < nums[pivot]`: search the left subarray by setting `right = pivot - 1`
      - If `target > nums[pivot]`: search the right subarray by setting `left = pivot + 1`
 3. If the target is not found, return `left`
+
+
+## **Complexity Analysis**
+
+### **Time complexity**: `O(log n)`
+- **Binary Search via Master Theorem**:
+  Let's compute the time complexity using the Master Theorem for divide-and-conquer recurrences: \( T(n) = aT(n/b) + f(n) \).
+  - Here, at each step, there is only one subproblem, so \( a = 1 \).
+  - The size of the subproblem is half of the original problem, so \( b = 2 \).
+  - The work done outside the recursive calls is constant, so \( f(n) = O(1) \).
+
+  According to the Master Theorem:
+  - \( T(n) = aT(n/b) + f(n) \)
+  - \( T(n) = T(n/2) + O(1) \)
+  
+  This recurrence relation falls into case 2 of the Master Theorem, where \( f(n) = O(n^c) \) and \( c < \log_b(a) \). Here, \( c = 0 \), \( \log_2(1) = 0 \).
+
+  Therefore, the time complexity is \( O(\log n) \).
+
+### **Space complexity**: `O(1)`
+- The algorithm uses constant space, as it only requires a few variables to keep track of the left, right, and pivot indices.
