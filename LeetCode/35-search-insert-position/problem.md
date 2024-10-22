@@ -83,3 +83,24 @@ To mark the search boundaries, one could use two pointers: `left` and `right`. S
 
 In this case, the loop will stop when `right < left` and `nums[right] < target < nums[left]`. Hence, the proper position to insert the target is at the index `left`.
 
+### Integer Overflow
+
+Note that `pivot = (left + right) // 2` works fine for languages with arbitrary precision integers such as Python3, but it could cause some issues in Java and C++.
+
+If `left + right` is greater than the maximum `int` value `2^31 - 1`, it overflows to a negative value. In Java, it would trigger an exception of `ArrayIndexOutOfBoundsException`, and in C++, it causes an illegal write, which leads to memory corruption and unpredictable results.
+
+Ways to fix it:
+
+- Using `pivot = left + (right - left) / 2`; prevents the addition of left and right from exceeding the maximum integer value. 
+```java
+pivot = left + (right - left) / 2;
+```
+
+Or using the bit shift operator
+  - `pivot = (left + right) >> 1` uses a bitwise right shift operation to achieve the same result.
+
+```java
+pivot = (left + right) >> 1;
+```
+
+Both approaches ensure that the calculation stays within the safe range of integer values.
