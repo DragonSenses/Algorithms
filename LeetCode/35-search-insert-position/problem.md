@@ -32,3 +32,20 @@
 	<li><code>nums</code> contains <strong>distinct</strong> values sorted in <strong>ascending</strong> order.</li>
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+-[Binary Search Approach](#binary-search-approach)
+
+# Binary Search Approach
+
+## **Intuition**
+
+Usually, within binary search, we compare the target value to the middle element of the array at each iteration:
+- If the target value is equal to the middle element, the job is done.
+- If the target value is less than the middle element, continue to search on the left.
+- If the target value is greater than the middle element, continue to search on the right.
+
