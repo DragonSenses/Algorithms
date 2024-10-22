@@ -49,3 +49,24 @@ Usually, within binary search, we compare the target value to the middle element
 - If the target value is less than the middle element, continue to search on the left.
 - If the target value is greater than the middle element, continue to search on the right.
 
+### Example Walkthrough
+
+Let's take example 1, where:
+
+- **Input**: `nums = [1,3,5,6]`, `target = 5`
+- **Output**: `2`
+
+1. **Initial Array**: `nums = [1,3,5,6]`
+   - `left = 0`, `right = 3` (indices of the array)
+2. **First Iteration**:
+   - Calculate pivot: `pivot = (left + right) / 2 = (0 + 3) / 2 = 1`
+   - Compare `nums[pivot] = nums[1] = 3` with `target = 5`
+     - `3 < 5` --> Continue to search on the right
+   - Move `left` pointer: `left = pivot + 1 = 2`
+3. **Second Iteration**:
+   - Calculate new pivot: `pivot = (left + right) / 2 = (2 + 3) / 2 = 2`
+   - Compare `nums[pivot] = nums[2] = 5` with `target = 5`
+     - `5 == 5` --> Target found. Return pivot `2`
+
+Thus, the index of the target value `5` in the array `[1,3,5,6]` is `2`.
+
