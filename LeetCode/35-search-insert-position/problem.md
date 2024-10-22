@@ -70,3 +70,16 @@ Let's take example 1, where:
 
 Thus, the index of the target value `5` in the array `[1,3,5,6]` is `2`.
 
+### Search Boundaries
+
+To mark the search boundaries, one could use two pointers: `left` and `right`. Starting from `left = 0` and `right = n - 1`, we then move either of the pointers according to various situations:
+- While `left < right`:
+    - Pivot index is the one in the middle: `pivot = (left + right) / 2`. The pivot also divides the original array into two subarrays.
+    - If the target value is equal to the pivot element: `target == nums[pivot]`, we're done.
+    - If the target value is less than the pivot element `target < nums[pivot]`, continue to search on the left subarray by moving the right pointer `right = pivot - 1`.
+    - If the target value is greater than the pivot element `target > nums[pivot]`, continue to search on the right subarray by moving the left pointer `left = pivot + 1`.
+
+### What if the Target Value is Not Found?
+
+In this case, the loop will stop when `right < left` and `nums[right] < target < nums[left]`. Hence, the proper position to insert the target is at the index `left`.
+
