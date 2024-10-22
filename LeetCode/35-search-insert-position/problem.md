@@ -104,3 +104,14 @@ pivot = (left + right) >> 1;
 ```
 
 Both approaches ensure that the calculation stays within the safe range of integer values.
+
+## **Algorithm**
+
+1. Initialize the pointers: `left = 0`, `right = n - 1`
+2. While `left <= right`:
+   - Calculate the pivot index: `pivot = left + (right - left) / 2`
+   - Compare `nums[pivot]` with `target`:
+     - If `target == nums[pivot]`: return `pivot`
+     - If `target < nums[pivot]`: search the left subarray by setting `right = pivot - 1`
+     - If `target > nums[pivot]`: search the right subarray by setting `left = pivot + 1`
+3. If the target is not found, return `left`
