@@ -144,6 +144,28 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function searchInsert(nums: number[], target: number): number {
+  let left: number = 0;
+  let right: number = nums.length - 1;
+
+  while (left <= right) {
+    let pivot: number = Math.floor((left + right) / 2);
+
+    if (nums[pivot] === target) {
+      return pivot;
+    } else if (nums[pivot] > target) {
+      right = pivot - 1;
+    } else {
+      left = pivot + 1;
+    }
+  }
+
+  return left;
+}
+```
 
 ## **Complexity Analysis**
 
