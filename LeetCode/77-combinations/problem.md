@@ -34,6 +34,7 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 
 # Solution
 - [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(C(k, n))`
 
 ## Overview of Combinations
 
@@ -192,3 +193,18 @@ function combine(n: number, k: number): number[][] {
   return result;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(C(k, n))`
+- **Combinations**: The number of combinations `C(k, n)` is given by the binomial coefficient: \[ C(k, n) = \frac{n!}{k!(n - k)!} \]
+- **Operations**: 
+  - The `append` and `pop` operations (`add`/`removeLast`) are constant-time operations.
+  - The most time-consuming part is appending each built combination of length `k` to the output.
+- **Overall**: The time complexity is `O(C(k, n))`.
+
+### **Space Complexity**: `O(C(k, n))`
+- **Space for Output**: It uses `O(C(k, n))` space to store all the combinations.
+- **Auxiliary Space**: Additional space is used for the recursion stack, which is `O(k)` in the worst case, but the dominant factor remains the space needed for the output.
+
+In summary, both the time and space complexities are `O(C(k, n))`, where `C(k, n)` represents the number of combinations.
