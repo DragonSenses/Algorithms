@@ -296,3 +296,23 @@ In contrast, **Java** has:
 
 Thus, the benefits of iterative approaches like the lexicographic (binary sorted) combinations are more noticeable in Python and TypeScript due to their higher function call overhead compared to Java.
 
+## Lexicographic Binary Sorted Combinations: Key Terms
+
+"Lexicographic binary sorted combinations" refers to generating all combinations of a set in a systematic, dictionary-like order, using an approach that resembles binary representations for easier traversal. This method ensures that all possible combinations are produced in a neat and orderly manner.
+
+### Lexicographic
+- **Definition**: Refers to the order in which words (or sequences) are arranged in a dictionary-like sequence.
+- **Context**: When generating combinations, lexicographic order means producing them in a sorted manner as if they were arranged in a dictionary. For example, combinations of {1, 2, 3} from {1, 2, 3, 4} would appear as [1, 2], [1, 3], [2, 3] in lexicographic order.
+
+### Binary Sorted
+- **Definition**: A way to generate combinations where each combination is represented and generated in a binary-like fashion.
+- **Context**: In this context, "binary sorted" means generating combinations in a way that reflects the binary representation of numbers. This usually helps in systematically generating and traversing all possible combinations.
+
+### Combinations
+- **Definition**: A selection of items from a larger set where the order of selection does not matter.
+- **Context**: For example, given a set {1, 2, 3, 4}, the combinations of 3 elements would be {1, 2, 3}, {1, 2, 4}, {1, 3, 4}, and {2, 3, 4}. 
+
+## **Intuition**
+
+The goal is not only to generate all combinations but to produce them in lexicographic (binary sorted) order. This ensures that the combinations are listed in a sorted manner, which can be useful for certain applications like systematic enumeration.
+
