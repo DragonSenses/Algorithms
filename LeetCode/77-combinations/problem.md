@@ -316,3 +316,43 @@ Thus, the benefits of iterative approaches like the lexicographic (binary sorted
 
 The goal is not only to generate all combinations but to produce them in lexicographic (binary sorted) order. This ensures that the combinations are listed in a sorted manner, which can be useful for certain applications like systematic enumeration.
 
+## **Algorithm**
+
+The algorithm follows these steps:
+
+1. **Initialize**:
+   - Create `nums` as a list of integers from `1` to `k`.
+   - Add `n + 1` as the last element of `nums`, serving as a sentinel.
+   
+2. **Set Pointer**:
+   - Initialize `j` to `0`, which will be used to traverse the `nums` list.
+   
+3. **Generate Combinations**:
+   - While `j < k`:
+     1. Add the first `k` elements of `nums` (excluding the sentinel) to the output.
+     2. Find the first number in `nums` such that `nums[j] + 1 != nums[j + 1]`.
+     3. Increase `nums[j]` by 1 to move to the next combination.
+     4. Reset `j` to 0.
+
+### Example Walkthrough
+
+Let's consider `n = 5` and `k = 3`:
+
+1. **Initialize**:
+   - `nums = [1, 2, 3, 6]` (6 as the sentinel)
+
+2. **Generate Combinations**:
+   - Iteration 1:
+     - Output: `[1, 2, 3]`
+     - `nums = [1, 2, 4, 6]` (increment `nums[2]`)
+     - Reset `j` to 0.
+   - Iteration 2:
+     - Output: `[1, 2, 4]`
+     - `nums = [1, 2, 5, 6]` (increment `nums[2]`)
+     - Reset `j` to 0.
+   - Iteration 3:
+     - Output: `[1, 2, 5]`
+     - `nums = [1, 3, 4, 6]` (increment `nums[1]`)
+     - Reset `j` to 0.
+   - Continue this process until all combinations are generated.
+
