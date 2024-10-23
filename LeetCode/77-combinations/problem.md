@@ -84,3 +84,22 @@ function backtrack(first, curr):
         backtrack(i + 1, curr)
         curr.remove(i)
 ```
+
+### Implementation Details
+
+1. **Define the Backtrack Function**: Define a function that will take the starting number and the current combination as parameters.
+
+2. **Base Case**: Check if the current combination is complete, and if so, add it to the result.
+
+3. **Iterate and Recurse**: Iterate over the possible numbers, add them to the current combination, and recurse with the next number.
+
+4. **Backtrack**: Remove the number from the current combination to backtrack.
+
+### Combine Function
+
+**Combine Function**: The main function combine initializes the result array and starts the backtracking process.
+
+### Backtrack Function
+
+**Backtrack Function**: The inner function backtrack takes the current start number and the current combination array. It checks if the current combination is complete and adds it to the result if so. Otherwise, it iterates over the possible numbers, adds each to the current combination, recurses with the next number, and then backtracks by removing the last number.
+
