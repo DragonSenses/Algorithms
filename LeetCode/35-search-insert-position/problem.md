@@ -117,6 +117,33 @@ Both approaches ensure that the calculation stays within the safe range of integ
      - If `target > nums[pivot]`: search the right subarray by setting `left = pivot + 1`
 3. If the target is not found, return `left`
 
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+   public int searchInsert(int[] nums, int target) {
+     int left = 0;
+     int right = nums.length - 1;
+
+     while (left <= right) {
+       int pivot = (left + right) >> 1;
+
+       if (nums[pivot] == target) {
+         return pivot;
+       } else if (nums[pivot] > target) {
+         right = pivot - 1;
+       } else {
+         left = pivot + 1;
+       }
+     }
+
+     return left;
+   }
+}
+```
+
 
 ## **Complexity Analysis**
 
