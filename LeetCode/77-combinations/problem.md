@@ -33,7 +33,9 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 ---
 
 # Solution
-- [Backtracking Approach](#backtracking-approach)
+- [Backtracking Recursive Approach](#backtracking-recursive-approach)
+  - **Time Complexity**: `O(C(k, n))`
+- [Lexicographic (Binary Sorted) Combinations (Iterative Approach)](#lexicographic-binary-sorted-combinations-iterative-approach)
   - **Time Complexity**: `O(C(k, n))`
 
 ## Overview of Combinations
@@ -53,7 +55,7 @@ The process involves:
 
 Backtracking helps in exploring all possible solutions in a systematic way by pruning invalid paths, making it efficient for combinatorial problems.
 
-# Backtracking Approach
+# Backtracking (Recursive Approach)
 
 ## **Intuition**
 
@@ -270,3 +272,27 @@ function combine(n: number, k: number): number[][] {
 - **Auxiliary Space**: Additional space is used for the recursion stack, which is `O(k)` in the worst case, but the dominant factor remains the space needed for the output.
 
 In summary, both the time and space complexities are `O(C(k, n))`, where `C(k, n)` represents the number of combinations.
+
+# Lexicographic (Binary Sorted) Combinations (Iterative Approach)
+
+The lexicographic (binary sorted) combinations iterative algorithm is an improvement over the recursive backtracking algorithm despite having the same time complexity due to avoiding the overhead of recursive call stacks and using straightforward iteration instead. 
+
+### Performance Comparison
+
+- This algorithm is generally faster than the backtracking approach in languages like Python and TypeScript due to higher function call overhead.
+- In Java, this effect is less pronounced due to optimized handling of recursion.
+
+The impact of the recursive call overhead can indeed be more pronounced in languages like TypeScript and Python compared to Java. This is because:
+
+- **Python**: Has a higher function call overhead due to its dynamic nature and interpreted execution. The global interpreter lock (GIL) can also make recursive calls less efficient.
+
+-**TypeScript**: Similarly, being a superset of JavaScript, suffers from function call overhead in the V8 engine, and recursive calls can be more taxing.
+
+In contrast, **Java** has:
+
+- **Optimized Recursion**: Java compilers and the JVM are better optimized for handling recursion.
+
+- **Tail Call Optimization**: Java can perform certain optimizations for recursive calls, reducing overhead.
+
+Thus, the benefits of iterative approaches like the lexicographic (binary sorted) combinations are more noticeable in Python and TypeScript due to their higher function call overhead compared to Java.
+
