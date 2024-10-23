@@ -57,3 +57,30 @@ Backtracking helps in exploring all possible solutions in a systematic way by pr
 ## **Intuition**
 
 Backtracking is an algorithm for finding all solutions by exploring all potential candidates. If a candidate turns out to be not a solution (or at least not the final one), the backtracking algorithm discards it by backtracking to the previous step and then trying again.
+
+## **Algorithm**
+
+1. **Backtrack Function**: 
+   - Define a backtrack function that takes an integer `first` to start adding numbers from and the current combination `curr` as arguments: `backtrack(first, curr)`.
+2. **Check Completion**: 
+   - If the current combination `curr` is done (i.e., it has `k` numbers), add it to the output.
+3. **Iterate and Add**:
+   - Iterate over the integers from `first` to `n`.
+   - Add integer `i` to the current combination `curr`.
+   - Proceed to add more integers into the combination by recursively calling `backtrack(i + 1, curr)`.
+4. **Backtrack**:
+   - Remove integer `i` from `curr` to backtrack.
+
+### Pseudocode
+
+```plaintext
+function backtrack(first, curr):
+    if curr is complete:
+        add curr to output
+        return
+
+    for i in range(first, n + 1):
+        curr.add(i)
+        backtrack(i + 1, curr)
+        curr.remove(i)
+```
