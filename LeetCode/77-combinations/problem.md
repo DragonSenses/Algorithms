@@ -28,6 +28,12 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<br>
+
+---
+
+# Solution
+- [Backtracking Approach](#backtracking-approach)
 
 ## Overview of Combinations
 
@@ -46,3 +52,8 @@ The process involves:
 
 Backtracking helps in exploring all possible solutions in a systematic way by pruning invalid paths, making it efficient for combinatorial problems.
 
+# Backtracking Approach
+
+## **Intuition**
+
+Backtracking is an algorithm for finding all solutions by exploring all potential candidates. If a candidate turns out to be not a solution (or at least not the final one), the backtracking algorithm discards it by backtracking to the previous step and then trying again.
