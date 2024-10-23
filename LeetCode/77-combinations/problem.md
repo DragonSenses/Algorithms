@@ -356,3 +356,41 @@ Let's consider `n = 5` and `k = 3`:
      - Reset `j` to 0.
    - Continue this process until all combinations are generated.
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution2 {
+  public List<List<Integer>> combine(int n, int k) {
+    List<List<Integer>> output = new ArrayList<>();
+    int[] nums = new int[k + 1];
+
+    for (int i = 0; i < k; i++) {
+      nums[i] = i + 1;
+    }
+    nums[k] = n + 1; // Sentinel value
+
+    int j = 0;
+    while (j < k) {
+      List<Integer> combination = new ArrayList<>();
+      for (int i = 0; i < k; i++) {
+        combination.add(nums[i]);
+      }
+      output.add(combination);
+
+      j = 0;
+      while (j < k && nums[j] + 1 == nums[j + 1]) {
+        nums[j] = j + 1;
+        j++;
+      }
+      nums[j]++;
+    }
+    return output;
+  }
+}
+```
+
