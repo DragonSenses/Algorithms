@@ -32,6 +32,8 @@
 
 ---
 
+# Solution
+- [Lexicographic (Binary Sorted) Subsets](#lexicographic-binary-sorted-subsets)
 
 ## **Problem Overview**
 
@@ -74,3 +76,45 @@ Given their exponential solution space, ensuring that generated solutions are co
 ### Summary
 Understanding these strategies and their implications helps tackle problems related to Permutations, Combinations, and Subsets effectively. The Lexicographic Generation method stands out due to its simplicity and efficiency.
 
+# Lexicographic (Binary Sorted) Subsets
+
+The idea of this solution is originated from [**Donald E. Knuth**](https://www-cs-faculty.stanford.edu/~knuth/taocp.html).
+
+## **Intuition**
+
+The idea is to map each subset to a bitmask of length `n`, where `1` on the `i`th position in the bitmask means the presence of `nums[i]` in the subset, and `0` means its absence.
+
+### Example
+For `nums = [1, 2, 3]`:
+- **bitmask**: `[0, 0, 0]` | **subset**: `[ , , ]`
+- **bitmask**: `[0, 0, 1]` | **subset**: `[ , , 3]`
+- **bitmask**: `[0, 1, 0]` | **subset**: `[ , 2, ]`
+- **bitmask**: `[1, 1, 1]` | **subset**: `[1, 2, 3]`
+
+### Concept
+- The bitmask `0..00` (all zeros) corresponds to an empty subset.
+- The bitmask `1..11` (all ones) corresponds to the entire input array `nums`.
+
+### Goal
+To solve the problem, generate `2^n` bitmasks from `0..00` to `1..11`.
+
+### Challenges
+Generating binary numbers involves dealing with zero left padding, as bitmasks must have a fixed length (e.g., `001` instead of `1`).
+
+### Solution
+**Standard Bit Manipulation Trick**:
+```java
+int nthBit = 1 << n;
+for (int i = 0; i < (int)Math.pow(2, n); ++i) {
+    // generate bitmask, from 0..00 to 1..11
+    String bitmask = Integer.toBinaryString(i | nthBit).substring(1);
+}
+```
+
+or keep it simple and shift iteration limits:
+
+```java
+for (int i = (int)Math.pow(2, n); i < (int)Math.pow(2, n + 1); ++i) {
+  // generate bitmask, from 0..00 to 1..11
+  String bitmask = Integer.toBinaryString(i).substring(1);
+```
