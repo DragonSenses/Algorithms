@@ -438,3 +438,27 @@ function combine(n: number, k: number): number[][] {
 };
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(C(k, n))`
+- **Combinations**: The number of combinations `C(k, n)` is given by the binomial coefficient: 
+  \[ C(k, n) = \frac{n!}{k!(n - k)!} \]
+- **Operations**: 
+  - The `add` operation is constant-time.
+  - The most time-consuming part is appending each combination of length `k` to the output.
+  - The external while loop runs `C(k, n)` times, as it iterates over all combinations.
+  - The inner while loop performs less than one execution per visit on average.
+- **Overall**: The time complexity is `O(C(k, n))`.
+
+### **Space Complexity**: `O(C(k, n))`
+- **Space for Output**: Uses `O(C(k, n))` space to store all combinations.
+- **Auxiliary Space**: Minimal auxiliary space is required, making the dominant factor the space needed for the output.
+- **Overall**: Both the time and space complexities are `O(C(k, n))`, where `C(k, n)` represents the number of combinations.
+
+### Performance Comparison
+- This algorithm is generally faster than the backtracking approach in languages like Python and TypeScript due to higher function call overhead.
+- In Java, this effect is less pronounced due to optimized handling of recursion.
+
+### Summary
+- This algorithm is much faster than the backtracking approach despite having the same time complexity due to avoiding the overhead of recursive call stacks and using straightforward iteration instead.
+- It's a consequence of dealing with the recusrive call stack frame for the backtracking approach, and the effect is much more pronounced in Typescript and Python than in Java
