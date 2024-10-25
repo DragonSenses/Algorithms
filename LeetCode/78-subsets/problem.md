@@ -118,3 +118,19 @@ for (int i = (int)Math.pow(2, n); i < (int)Math.pow(2, n + 1); ++i) {
   // generate bitmask, from 0..00 to 1..11
   String bitmask = Integer.toBinaryString(i).substring(1);
 ```
+
+## **Algorithm**
+
+### Steps
+
+1. **Generate Bitmasks**:
+   - Generate all possible binary bitmasks of length `n`.
+   - This ranges from `0..00` to `1..11`.
+
+2. **Map Subsets**:
+   - For each bitmask:
+     - `1` on the `i`th position in the bitmask means the presence of `nums[i]` in the subset.
+     - `0` means its absence.
+
+3. **Return Output**:
+   - Collect all mapped subsets and return them as the output list.
