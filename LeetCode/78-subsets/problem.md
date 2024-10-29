@@ -230,3 +230,19 @@ Start from an empty subset in the output list. At each step, take a new integer 
 
 This cascading approach helps you build subsets step-by-step by progressively adding each element to the existing subsets. This ensures you cover all possible combinations without duplicating subsets.
 
+## **Algorithm**
+
+### Algorithm Steps
+
+1. **Initialize the Output List**: Start with a list that contains an empty subset.
+
+2. **Iterate Over Each Element in Input Array**: For each element in the input array, perform the following steps.
+
+  a. **Capture Current Size of Output List**: Record the current size of the output list.
+
+  b. **Generate New Subsets**: For each existing subset in the output list, create a new subset by adding the current element.
+
+  c. **Add New Subsets to Output List**: Append all newly generated subsets to the output list.
+
+3. **Return the Output List**: Once all elements have been processed, return the output list containing all subsets.
+
