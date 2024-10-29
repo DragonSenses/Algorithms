@@ -37,7 +37,8 @@
   - **Time Complexity**: `O(N × 2^N)`
 - [Cascading (Iterative) Approach](#cascading-approach)
   - **Time Complexity**: `O(N × 2^N)`
-
+- [Backtracking (Recursive) Approach](#backtracking-recursive-approach)
+  - **Time Complexity**: `O(N × 2^N)`
 
 ## **Problem Overview**
 
@@ -326,4 +327,8 @@ function subsets(nums: number[]): number[][] {
 ### **Space Complexity**: `O(N × 2^N)`
 - **Explanation**: The space complexity is `O(N × 2^N)`. This is due to the number of solutions for subsets multiplied by the number `N` of elements to keep for each subset. For a given number, it could be present or absent (i.e., a binary choice) in a subset solution. As a result, for `N` numbers, we would have a total of `2^N` choices (solutions).
 - **Overall**: The space complexity is `O(N × 2^N)`.
+
+# Backtracking (Recursive) Approach
+
+**Backtracking** is an algorithm for finding all solutions by exploring all potential candidates. If a candidate turns out to be not a solution (or at least not the last one), the backtracking algorithm discards it by making some changes on the previous step, i.e., backtracks and then tries again.
 
