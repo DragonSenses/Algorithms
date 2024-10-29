@@ -507,3 +507,13 @@ function subsets(nums: number[]): number[][] {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(N × 2^N)`
+- **Generating Subsets**: The time complexity is `O(N × 2^N)` to generate all subsets and copy them into the output list.
+- **Overall**: The time complexity remains `O(N × 2^N)`.
+
+### **Space Complexity**: `O(N × 2^N)`
+- **Output List Size**: We use `O(N × 2^N)` space to maintain the list `output` that holds all the subsets. This accounts for the exponential growth of subsets as each element in the input array can either be included or excluded, resulting in `2^N` subsets.
+- **Current Subset Size**: We use `O(N)` space to maintain `curr`, a list of size `N`. This space is required for the temporary storage of elements while generating subsets. Since we modify `curr` in-place with backtracking, its size at any point is bounded by the maximum length of a subset, which is `N`.
+- **Overall**: The space complexity is `O(N × 2^N)` because we need space to store all possible subsets, each of which can be up to length `N`.
