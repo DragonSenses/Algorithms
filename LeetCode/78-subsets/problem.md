@@ -246,3 +246,18 @@ This cascading approach helps you build subsets step-by-step by progressively ad
 
 3. **Return the Output List**: Once all elements have been processed, return the output list containing all subsets.
 
+### Pseudocode
+
+```pseudo
+function findSubsets(nums):
+    output = [[]]
+    for each num in nums:
+        currentSize = size(output)
+        for i from 0 to currentSize - 1:
+            newSubset = copy(output[i])
+            add num to newSubset
+            add newSubset to output
+    return output
+```
+
+
