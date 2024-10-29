@@ -34,6 +34,7 @@
 
 # Solution
 - [Lexicographic (Binary Sorted) Subsets](#lexicographic-binary-sorted-subsets)
+  - **Time Complexity**: `O(N × 2^N)`
 
 ## **Problem Overview**
 
@@ -184,3 +185,14 @@ function subsets(nums: number[]): number[][] {
     return output;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(N × 2^N)`
+- **Generating Subsets**: `O(N × 2^N)` to generate all subsets and copy them into the output list.
+- **Overall**: The time complexity is `O(N × 2^N)`.
+
+### **Space Complexity**: `O(N)`
+- **Space for Bitset**: `O(N)` to store the bitset of length `N`.
+- **Output Space**: For space complexity analysis, the output array is ignored as it is used for returning the final result.
+- **Overall**: The space complexity is `O(N)`.
