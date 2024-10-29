@@ -36,6 +36,7 @@
 - [Lexicographic (Binary Sorted) Subsets](#lexicographic-binary-sorted-subsets)
   - **Time Complexity**: `O(N × 2^N)`
 - [Cascading (iterative) Approach](#cascading-approach)
+  - **Time Complexity**: `O(N × 2^N)`
 
 ## **Problem Overview**
 
@@ -288,3 +289,12 @@ public class Solution2 {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(N × 2^N)`
+- **Generating Subsets**: The time complexity is `O(N × 2^N)` to generate all subsets and copy them into the output list.
+- **Overall**: The time complexity remains `O(N × 2^N)`.
+
+### **Space Complexity**: `O(N × 2^N)`
+- **Explanation**: The space complexity is `O(N × 2^N)`. This is due to the number of solutions for subsets multiplied by the number `N` of elements to keep for each subset. For a given number, it could be present or absent (i.e., a binary choice) in a subset solution. As a result, for `N` numbers, we would have a total of `2^N` choices (solutions).
+- **Overall**: The space complexity is `O(N × 2^N)`.
