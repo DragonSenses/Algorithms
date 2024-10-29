@@ -332,3 +332,25 @@ function subsets(nums: number[]): number[][] {
 
 **Backtracking** is an algorithm for finding all solutions by exploring all potential candidates. If a candidate turns out to be not a solution (or at least not the last one), the backtracking algorithm discards it by making some changes on the previous step, i.e., backtracks and then tries again.
 
+## **Intuition**
+A power set is all possible combinations of elements in the array, ranging from 0 to n in length. Given the definition, the problem can also be interpreted as finding the power set from a sequence. This time, we loop over the length of the combination, rather than the candidate numbers, and generate all combinations for a given length using the backtracking technique.
+
+### Steps:
+1. **Start with an empty subset.**
+2. **Iterate over all possible lengths**: from 0 to n.
+
+For example, with `nums = [1, 2, 3]`:
+- All subsets of length 0: `[]`
+- All subsets of length 1: `[1], [2], [3]`
+- All subsets of length 2: `[1, 2], [2, 3], [1, 3]`
+- All subsets of length 3: `[1, 2, 3]`
+
+### Detailed Algorithm:
+1. **Initialization**: Start with an empty list to hold all subsets.
+2. **Iterate over lengths**: Loop from 0 to the length of the input array.
+3. **Backtracking to generate combinations**: For each length, use backtracking to generate all possible combinations of that length.
+
+By following these steps, the backtracking approach explores all subsets, ensuring no duplicates and covering all possible lengths.
+
+This refined approach helps systematically explore and generate the power set using the backtracking method.
+
