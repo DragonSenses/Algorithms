@@ -35,8 +35,9 @@
 # Solution
 - [Lexicographic (Binary Sorted) Subsets](#lexicographic-binary-sorted-subsets)
   - **Time Complexity**: `O(N × 2^N)`
-- [Cascading (iterative) Approach](#cascading-approach)
+- [Cascading (Iterative) Approach](#cascading-approach)
   - **Time Complexity**: `O(N × 2^N)`
+
 
 ## **Problem Overview**
 
@@ -289,6 +290,33 @@ public class Solution2 {
 }
 ```
 
+### TypeScript
+
+```typescript
+/**
+ * Finds all possible subsets of the given integer array using a cascading 
+ * iterative approach.
+ *
+ * @param {number[]} nums - An array of unique integers.
+ * @returns {number[][]} A list of all possible subsets.
+ */
+function subsets(nums: number[]): number[][] {
+  const output: number[][] = [];
+  output.push([]); // Start with the empty subset
+
+  for (const num of nums) {
+    const currentSize = output.length;
+    for (let i = 0; i < currentSize; i++) {
+      const newSubset = output[i].slice(); // Create a new subset from an existing subset
+      newSubset.push(num); // Add the current number to the new subset
+      output.push(newSubset); // Add the new subset to the output list
+    }
+  }
+
+  return output;
+};
+```
+
 ## **Complexity Analysis**
 
 ### **Time Complexity**: `O(N × 2^N)`
@@ -298,3 +326,4 @@ public class Solution2 {
 ### **Space Complexity**: `O(N × 2^N)`
 - **Explanation**: The space complexity is `O(N × 2^N)`. This is due to the number of solutions for subsets multiplied by the number `N` of elements to keep for each subset. For a given number, it could be present or absent (i.e., a binary choice) in a subset solution. As a result, for `N` numbers, we would have a total of `2^N` choices (solutions).
 - **Overall**: The space complexity is `O(N × 2^N)`.
+
