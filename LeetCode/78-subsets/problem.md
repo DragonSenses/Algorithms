@@ -35,6 +35,7 @@
 # Solution
 - [Lexicographic (Binary Sorted) Subsets](#lexicographic-binary-sorted-subsets)
   - **Time Complexity**: `O(N × 2^N)`
+- [Cascading (iterative) Approach](#cascading-approach)
 
 ## **Problem Overview**
 
@@ -196,3 +197,17 @@ function subsets(nums: number[]): number[][] {
 - **Space for Bitset**: `O(N)` to store the bitset of length `N`.
 - **Output Space**: For space complexity analysis, the output array is ignored as it is used for returning the final result.
 - **Overall**: The space complexity is `O(N)`.
+
+# Cascading Approach
+
+### Cascading in this Context
+
+In this context, **cascading** refers to the process of building new subsets by taking each element and generating new subsets based on the existing ones. It's like a domino effect where each step builds on the previous steps, resulting in all possible combinations.
+
+Therefore the cascading approach is an **iterative approach**. Here's why:
+- You start with an initial state (the empty subset).
+- For each element in the array, you iterate through the existing subsets and generate new subsets by including the current element.
+- This process is repeated for every element in the array until all possible subsets are generated.
+
+This method ensures you comprehensively generate all subsets without any duplicates, building up from smaller to larger subsets in an orderly manner.
+
