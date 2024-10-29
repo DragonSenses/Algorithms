@@ -211,3 +211,22 @@ Therefore the cascading approach is an **iterative approach**. Here's why:
 
 This method ensures you comprehensively generate all subsets without any duplicates, building up from smaller to larger subsets in an orderly manner.
 
+## **Intuition**
+
+Start from an empty subset in the output list. At each step, take a new integer into consideration and generate new subsets from the existing ones.
+
+1. **Start** from an empty subset.
+   - `nums = [1, 2, 3]`
+   - Initial output: `[]`
+
+2. **Take 1** into consideration and add new subsets by updating existing ones.
+   - Current output: `[], [1]`
+
+3. **Take 2** into consideration and add new subsets by updating existing ones.
+   - Current output: `[], [1], [2], [1, 2]`
+
+4. **Take 3** into consideration and add new subsets by updating existing ones.
+   - Final output: `[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]`
+
+This cascading approach helps you build subsets step-by-step by progressively adding each element to the existing subsets. This ensures you cover all possible combinations without duplicating subsets.
+
