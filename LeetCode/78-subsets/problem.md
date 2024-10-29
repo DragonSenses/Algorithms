@@ -382,3 +382,47 @@ function findSubsets(nums):
     return output
 ```
 
+### Backtracking Walkthrough Example
+
+#### Steps:
+1. **First Element**:
+    - Take `nums[0] = 1` as the first element.
+
+2. **Complete Subset**:
+    - Use the next elements: `nums[1]` and `nums[2]` to complete the subset.
+        - **Use `nums[1] = 2`**:
+            - The subset `[1, 2]` is complete.
+        - **Backtrack**:
+            - Pop `nums[1]` out.
+        - **Use `nums[2] = 3`**:
+            - The subset `[1, 3]` is complete.
+
+3. **Resulting Subsets**:
+    - `[1, 2]`
+    - `[1, 3]`
+
+4. **Next Element**:
+    - Take `nums[1] = 2` as the first element.
+
+5. **Complete Subset**:
+    - Use the next element: `nums[2]` to complete the subset.
+        - **Use `nums[2] = 3`**:
+            - The subset `[2, 3]` is complete.
+
+6. **Resulting Subsets**:
+    - `[2, 3]`
+
+### Backtracking Function
+We define a backtrack function named `backtrack(first, curr)` which takes the index of the first element to add and a current combination as arguments.
+
+- **Complete Combination**:
+    - If the current combination is done, add the combination to the final output.
+- **Iterate Over Indices**:
+    - Iterate over the indices `i` from `first` to the length of the entire sequence `n`.
+    - **Add Element**:
+        - Add integer `nums[i]` into the current combination `curr`.
+    - **Recursively Add More Elements**:
+        - Proceed to add more integers into the combination: `backtrack(i + 1, curr)`.
+    - **Backtrack**:
+        - Backtrack by removing `nums[i]` from `curr`.
+
