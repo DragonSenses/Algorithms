@@ -260,4 +260,31 @@ function findSubsets(nums):
     return output
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution2 {
+
+  public static List<List<Integer>> findSubsets(int[] nums) {
+    List<List<Integer>> output = new ArrayList<>();
+    output.add(new ArrayList<>()); // Start with the empty subset
+
+    for (int num : nums) {
+      int currentSize = output.size();
+      for (int i = 0; i < currentSize; i++) {
+        List<Integer> newSubset = new ArrayList<>(output.get(i));
+        newSubset.add(num);
+        output.add(newSubset);
+      }
+    }
+
+    return output;
+  }
+}
+```
 
