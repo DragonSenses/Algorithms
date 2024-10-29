@@ -354,3 +354,31 @@ By following these steps, the backtracking approach explores all subsets, ensuri
 
 This refined approach helps systematically explore and generate the power set using the backtracking method.
 
+## **Algorithm**
+
+### Steps:
+1. **Initialize Output List**: Start with an empty subset.
+2. **Iterate Over All Lengths**: From 0 to the length of the input array.
+3. **Backtracking Function**: Generate all combinations of the current length.
+   - Add the current element to the subset.
+   - Recursively generate combinations by moving to the next element.
+   - Backtrack by removing the last added element from the subset.
+
+### Pseudocode
+```plaintext
+function backtrack(first, curr):
+    if the current combination is complete:
+        add curr to output
+        return
+    for i from first to n:
+        add nums[i] to curr
+        backtrack(i + 1, curr)
+        remove nums[i] from curr
+
+function findSubsets(nums):
+    output = []
+    for k from 0 to length(nums):
+        backtrack(0, [])
+    return output
+```
+
