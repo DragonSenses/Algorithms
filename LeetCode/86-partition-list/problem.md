@@ -69,3 +69,27 @@ We can use two pointers, `lessThanX` and `greaterOrEqualX`, to keep track of two
 
 ### Note on Relative Order Constraint
 Since we traverse the linked list from left to right, the relative order of nodes in each list remains unchanged. In the implementation, nodes are moved from the original list to the `lessThanX` or `greaterOrEqualX` lists, rather than creating new nodes, ensuring no additional space is used.
+
+### Pseudocode
+```plaintext
+function partition(head, x):
+    lessThanXHead = new ListNode(0)
+    lessThanX = lessThanXHead
+    greaterOrEqualXHead = new ListNode(0)
+    greaterOrEqualX = greaterOrEqualXHead
+
+    while head is not null:
+        if head.val < x:
+            lessThanX.next = head
+            lessThanX = lessThanX.next
+        else:
+            greaterOrEqualX.next = head
+            greaterOrEqualX = greaterOrEqualX.next
+        head = head.next
+
+    greaterOrEqualX.next = null
+    lessThanX.next = greaterOrEqualXHead.next
+
+    return lessThanXHead.next
+```
+
