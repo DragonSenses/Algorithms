@@ -53,3 +53,19 @@ To achieve this, we split the list into two smaller lists: one containing elemen
 ## **Intuition**
 We can use two pointers, `lessThanX` and `greaterOrEqualX`, to keep track of two separate linked lists for nodes less than `x` and nodes greater than or equal to `x`, respectively. These lists are then combined to form the desired partitioned list.
 
+## **Algorithm**
+1. **Initialize**:
+   - Create two sentinel nodes `lessThanX` and `greaterOrEqualX` to reduce conditional checks.
+   - Use pointers to traverse and build these lists.
+
+2. **Iterate through the Original List**:
+   - Use the `head` pointer to traverse the linked list.
+   - If the current node's value is less than `x`, add it to the `lessThanX` list.
+   - Otherwise, add it to the `greaterOrEqualX` list.
+
+3. **Combine the Two Lists**:
+   - Once traversal is complete, combine the `lessThanX` and `greaterOrEqualX` lists.
+   - Ensure the sentinel nodes are not part of the final result.
+
+### Note on Relative Order Constraint
+Since we traverse the linked list from left to right, the relative order of nodes in each list remains unchanged. In the implementation, nodes are moved from the original list to the `lessThanX` or `greaterOrEqualX` lists, rather than creating new nodes, ensuring no additional space is used.
