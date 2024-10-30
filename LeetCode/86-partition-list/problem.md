@@ -21,7 +21,26 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[0, 200]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-	<li><code>-200 &lt;= x &lt;= 200</code></li>
+  <li>The number of nodes in the list is in the range <code>[0, 200]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li><code>-200 &lt;= x &lt;= 200</code></li>
 </ul>
+
+<br>
+
+---
+
+### Problem Overview
+
+The goal is to partition a linked list such that all nodes with values less than `x` come before nodes with values greater than or equal to `x`, while preserving the original relative order of the nodes in each partition. 
+
+We refer to the partition point as the `partitionPoint` or **"split point"**, where elements before this point are smaller than `x` and elements after this point are greater than or equal to `x`.
+
+To achieve this, we split the list into two smaller lists: one containing elements less than `x` and the other containing elements greater than or equal to `x`, then join these lists.
+
+### Example
+- **Input**: head = [1, 4, 3, 2, 5, 2], x = 3
+- **Output**: [1, 2, 2, 4, 3, 5]
+  
+- **Input**: head = [2, 1], x = 2
+- **Output**: [1, 2]
