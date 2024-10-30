@@ -30,6 +30,9 @@
 
 ---
 
+# Solution
+- [Two Pointer Approach](#two-pointer-approach)
+
 ### Problem Overview
 
 The goal is to partition a linked list such that all nodes with values less than `x` come before nodes with values greater than or equal to `x`, while preserving the original relative order of the nodes in each partition. 
@@ -44,3 +47,9 @@ To achieve this, we split the list into two smaller lists: one containing elemen
   
 - **Input**: head = [2, 1], x = 2
 - **Output**: [1, 2]
+
+# Two Pointer Approach
+
+## **Intuition**
+We can use two pointers, `lessThanX` and `greaterOrEqualX`, to keep track of two separate linked lists for nodes less than `x` and nodes greater than or equal to `x`, respectively. These lists are then combined to form the desired partitioned list.
+
