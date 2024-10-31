@@ -93,3 +93,42 @@ function partition(head, x):
     return lessThanXHead.next
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+
+  public ListNode partition(ListNode head, int x) {
+    // Create sentinel nodes to start the lessThanX and greaterOrEqualX lists
+    ListNode lessThanXHead = new ListNode(0);
+    ListNode lessThanX = lessThanXHead;
+    ListNode greaterOrEqualXHead = new ListNode(0);
+    ListNode greaterOrEqualX = greaterOrEqualXHead;
+
+    // Traverse the original linked list
+    while (head != null) {
+      if (head.val < x) {
+        // Add node to the lessThanX list
+        lessThanX.next = head;
+        lessThanX = lessThanX.next;
+      } else {
+        // Add node to the greaterOrEqualX list
+        greaterOrEqualX.next = head;
+        greaterOrEqualX = greaterOrEqualX.next;
+      }
+      head = head.next;
+    }
+
+    // Terminate the greaterOrEqualX list
+    greaterOrEqualX.next = null;
+    // Combine the lessThanX and greaterOrEqualX lists
+    lessThanX.next = greaterOrEqualXHead.next;
+
+    // Return the head of the new partitioned linked list
+    return lessThanXHead.next;
+  }
+}
+```
+
