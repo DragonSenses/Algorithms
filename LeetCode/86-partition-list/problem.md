@@ -32,6 +32,7 @@
 
 # Solution
 - [Two Pointer Approach](#two-pointer-approach)
+  - **Time Complexity**: `O(N)`
 
 ### Problem Overview
 
@@ -181,3 +182,15 @@ function partition(head: ListNode | null, x: number): ListNode | null {
   return lessThanXHead.next;
 }
 ```
+
+### **Complexity Analysis**
+
+#### **Time Complexity**: `O(N)`
+- **Traversal**: The linked list is traversed once, ensuring each node is processed exactly one time.
+- **Combining Lists**: Combining the `lessThanX` and `greaterOrEqualX` lists takes constant time, `O(1)`.
+- **Overall**: The time complexity is `O(N)`, where `N` is the number of nodes in the linked list.
+
+#### **Space Complexity**: `O(1)`
+- **In-Place Reordering**: We use a constant amount of extra space to maintain the `lessThanX` and `greaterOrEqualX` pointers.
+- **No Additional Structures**: The algorithm modifies the original list without creating new nodes.
+- **Overall**: The space complexity is `O(1)` as no additional space proportional to the input size is used.
