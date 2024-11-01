@@ -27,6 +27,7 @@ Given an array of `n` integers `nums` and an integer `target`, find the number o
 
 # Solution
 - [Two Pointers Approach](#two-pointers)
+  - **Time Complexity**: `O(n^2)`
 
 ## Overview
 
@@ -186,3 +187,16 @@ function threeSumSmaller(nums: number[], target: number): number {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n^2)`
+- **Sorting the Array**: `O(n log n)` time complexity for sorting the array.
+- **Outer Loop**: The `threeSumSmaller` function sorts the array and then iterates over `(n - 2)` elements, invoking `twoSumSmaller` at each iteration.
+- **Inner Loop**: The `twoSumSmaller` function performs a single-pass traversal with `O(n)` time complexity.
+- **Overall Complexity**: Combining these operations, the overall time complexity is dominated by the nested loops, so the time complexity is `O(n log n + n^2)`. As `n^2` grows faster than `n log n`, it simplifies to `O(n^2)`.
+
+### **Space Complexity**: `O(1)` or `O(log n)` to `O(n)` including sort
+- **Sorting Algorithm**: The space complexity depends on the implementation of the sorting algorithm. As for the case with Java's `Arrays.sort()`, it depends on the type of elements being sorted:
+  - **Primitive Types**: For sorting primitive types like `int`, `char`, `float`, etc., `Arrays.sort()` uses a dual-pivot Quicksort algorithm with a space complexity of `O(log n)` due to the recursive nature of Quicksort.
+  - **Object Types**: For sorting objects, `Arrays.sort()` uses a modified Timsort algorithm with a space complexity of `O(n)` because of the additional memory required for temporary arrays used in the merge process.
+- **No Additional Data Structures**: The algorithm uses constant space, `O(1)`, aside from the sort.
