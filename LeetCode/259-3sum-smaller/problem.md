@@ -25,6 +25,9 @@ Given an array of `n` integers `nums` and an integer `target`, find the number o
 
 ---
 
+# Solution
+- [Two Pointers Approach](#two-pointers)
+
 ## Overview
 
 The 3Sum Smaller problem is a variation of the 3Sum problem. Unlike 3Sum, the goal here is not to find triplets that sum up to a target value but to find triplets whose sum is closest to the target. This problem bears some resemblance to the 3Sum Closest variant.
@@ -43,3 +46,31 @@ The 3Sum Smaller problem is a variation of the 3Sum problem. Unlike 3Sum, the go
 
 For the same reason as in 3Sum Closest, we can't use a hash set in 3Sum Smaller because there is no specific value to search for. Thus, our focus will be on utilizing the two pointers pattern, targeting an `O(n^2)` time complexity as the best conceivable runtime (BCR).
 
+# Two Pointers
+
+## **Intuition**
+
+First, sort the array. For example, `nums = [3, 5, 2, 8, 1]` becomes `[1, 2, 3, 5, 8]`.
+
+Let’s say we have `nums = [1, 2, 3, 5, 8]` and `target = 7`.
+
+1. Initialize two indices, `left` and `right`, pointing to the first and last element respectively.
+
+```plaintext
+[1, 2, 3, 5, 8]
+left = 1
+right = 8
+```
+
+2. Check the sum of the first and last element: `1 + 8 = 9`, which is `>= target`. No index pair will include `right`, so move the `right` pointer one step to the left.
+
+```plaintext
+[1, 2, 3, 5, 8]
+left = 1
+right = 5
+```
+
+3. Now the sum is `1 + 5 = 6`, which is `< target`. 
+  - Count all pairs with left that satisfy the condition. 
+  - The difference between `right` and `left` is 3, so the pairs are `(1, 2)`, `(1, 3)`, and `(1, 5)`.
+  - Move `left` one step to the right.
