@@ -224,3 +224,12 @@ To extend this logic to the **threeSumSmaller** problem, wrap an outer loop arou
 
 With this intuitive approach, we can efficiently count the number of triplets with a sum smaller than the target.
 
+### **Algorithm**
+
+1. **Sort the Array**: Sort the input array.
+2. **Initialize Counter**: Create a counter to keep track of the valid triplets.
+3. **Outer Loop**: Iterate through the array to fix the first element of the triplet.
+4. **Binary Search for Pairs**: For each fixed element, use binary search to find the largest index where the pair sum is less than the target.
+5. **Count Valid Triplets**: Add the count of valid pairs to the counter.
+6. **Return Result**: After the loop, return the counter.
+
