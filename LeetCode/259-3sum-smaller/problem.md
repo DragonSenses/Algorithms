@@ -112,3 +112,46 @@ function twoSumSmaller(nums, startIndex, target):
     return count
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.Arrays;
+
+class Solution {
+public int threeSumSmaller(int[] nums, int target) {
+    // Sort the array to enable the two-pointer technique
+    Arrays.sort(nums);
+    int count = 0;
+    // Iterate through the array, treating each element as the potential first
+    // element of the triplet
+    for (int i = 0; i < nums.length - 2; i++) {
+      // Use two-pointer technique to find pairs that sum to less than the target -
+      // nums[i]
+      count += twoSumSmaller(nums, i + 1, target - nums[i]);
+    }
+    return count;
+  }
+
+  private int twoSumSmaller(int[] nums, int startIndex, int target) {
+    int count = 0;
+    int left = startIndex;
+    int right = nums.length - 1;
+    // Use two pointers to find pairs that sum to less than the target
+    while (left < right) {
+      if (nums[left] + nums[right] < target) {
+        // If the sum is less than the target, all pairs between left and right satisfy
+        // the condition
+        count += right - left;
+        left++;
+      } else {
+        // Move the right pointer to the left to reduce the sum
+        right--;
+      }
+    }
+    return count;
+  }
+}
+```
+
