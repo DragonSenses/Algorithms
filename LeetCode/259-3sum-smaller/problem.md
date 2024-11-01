@@ -28,6 +28,7 @@ Given an array of `n` integers `nums` and an integer `target`, find the number o
 # Solution
 - [Two Pointers Approach](#two-pointers)
   - **Time Complexity**: `O(n^2)`
+- [Binary Search Approach](#binary-search)
 
 ## Overview
 
@@ -200,3 +201,26 @@ function threeSumSmaller(nums: number[], target: number): number {
   - **Primitive Types**: For sorting primitive types like `int`, `char`, `float`, etc., `Arrays.sort()` uses a dual-pivot Quicksort algorithm with a space complexity of `O(log n)` due to the recursive nature of Quicksort.
   - **Object Types**: For sorting objects, `Arrays.sort()` uses a modified Timsort algorithm with a space complexity of `O(n)` because of the additional memory required for temporary arrays used in the merge process.
 - **No Additional Data Structures**: The algorithm uses constant space, `O(1)`, aside from the sort.
+
+# Binary Search
+
+## **Intuition**
+
+To solve the **threeSumSmaller** problem, let's first tackle the simpler **twoSumSmaller** problem:
+
+Given a `nums` array, find the number of index pairs `i` and `j` with `0 < i < j < n` that satisfy `nums[i] + nums[j] < target`.
+
+**1. Sort the Array**:
+Sort the array first to allow for binary search, making it easier to find pairs that meet the condition.
+
+**2. Binary Search for Pairs**:
+For each element `i` in the array, use binary search to find the largest index `j` such that `nums[i] + nums[j] < target`. This approach ensures that all elements between `i` and `j` form valid pairs.
+
+**3. Count Valid Pairs**:
+Once the largest index `j` is found, the number of valid pairs for a fixed `i` is `j - i`. Count these pairs for each `i`.
+
+**4. Extend to ThreeSum**:
+To extend this logic to the **threeSumSmaller** problem, wrap an outer loop around the **twoSumSmaller** solution. For each element, use the two-pointer technique on the remaining elements to find valid pairs.
+
+With this intuitive approach, we can efficiently count the number of triplets with a sum smaller than the target.
+
