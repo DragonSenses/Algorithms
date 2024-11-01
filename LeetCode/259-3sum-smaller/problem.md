@@ -295,3 +295,49 @@ class Solution2 {
 }
 ```
 
+### TypeScript
+
+```typescript
+function threeSumSmaller(nums: number[], target: number): number {
+    // Step 1: Sort the input array nums
+    nums.sort((a, b) => a - b);
+    let count = 0;
+
+    // Step 2: Iterate through the array to fix the first element of the triplet
+    for (let i = 0; i < nums.length - 2; i++) {
+        // Step 3: Use binary search to find pairs that sum to less than target - nums[i]
+        count += twoSumSmaller(nums, i + 1, target - nums[i]);
+    }
+
+    // Step 4: Return the count of valid triplets
+    return count;
+}
+
+function twoSumSmaller(nums: number[], startIndex: number, target: number): number {
+    let count = 0;
+
+    // Iterate through the array to find pairs
+    for (let i = startIndex; i < nums.length - 1; i++) {
+        // Use binary search to find the largest index where nums[i] + nums[j] < target
+        let j = binarySearch(nums, i, target - nums[i]);
+        // Count the pairs between i and j
+        count += j - i;
+    }
+    return count;
+}
+
+function binarySearch(nums: number[], startIndex: number, target: number): number {
+    let left = startIndex;
+    let right = nums.length - 1;
+    while (left < right) {
+        let mid = Math.floor((left + right + 1) / 2);
+        if (nums[mid] < target) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+```
+
