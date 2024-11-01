@@ -233,3 +233,65 @@ With this intuitive approach, we can efficiently count the number of triplets wi
 5. **Count Valid Triplets**: Add the count of valid pairs to the counter.
 6. **Return Result**: After the loop, return the counter.
 
+## **Implementation**
+
+#### Implementation Details
+
+**Note**: In the binary search implementation, we choose the upper middle element (`(left + right + 1) / 2`) instead of the lower middle element (`(left + right) / 2`). This approach ensures that the loop terminates correctly, even when there are only two elements left. If the lower middle element were chosen and `nums[mid] < target` evaluated to `true`, the loop could become infinite. Choosing the upper middle element guarantees termination.
+
+### Java
+
+```java
+import java.util.Arrays;
+
+class Solution2 {
+
+  public int threeSumSmaller(int[] nums, int target) {
+    // Step 1: Sort the array to enable the binary search
+    Arrays.sort(nums);
+
+    // Step 2: Initialize the counter to keep track of valid triplets
+    int count = 0;
+
+    // Step 3: Iterate through the array to fix the first element of the triplet
+    for (int i = 0; i < nums.length - 2; i++) {
+      // Step 4: Use binary search to find pairs that sum to less than target -
+      // nums[i]
+      count += twoSumSmaller(nums, i + 1, target - nums[i]);
+    }
+    // Step 6: Return the count of valid triplets
+    return count;
+  }
+
+  private int twoSumSmaller(int[] nums, int startIndex, int target) {
+    int count = 0;
+
+    // Iterate through the array to find pairs
+    for (int i = startIndex; i < nums.length - 1; i++) {
+      // Step 4: Use binary search to find the largest index where nums[i] + nums[j] <
+      // target
+      int j = binarySearch(nums, i, target - nums[i]);
+      // Step 5: Count the pairs between i and j
+      count += j - i;
+    }
+    return count;
+  }
+
+  private int binarySearch(int[] nums, int startIndex, int target) {
+    int left = startIndex;
+    int right = nums.length - 1;
+    while (left < right) {
+      int mid = (left + right + 1) / 2;
+      if (nums[mid] < target) {
+        // If nums[mid] is less than the target, move left to mid
+        left = mid;
+      } else {
+        // Otherwise, move right to mid - 1
+        right = mid - 1;
+      }
+    }
+    return left;
+  }
+}
+```
+
