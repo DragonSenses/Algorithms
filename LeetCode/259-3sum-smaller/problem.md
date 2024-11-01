@@ -89,3 +89,26 @@ right = 5
 7. **Repeat for all elements**: Continue until all possible triplets are checked.
 8. **Return the counter**: After the loop, return the total count of valid triplets.
 
+### Pseudocode
+
+```plaintext
+function threeSumSmaller(nums, target):
+    sort(nums)
+    count = 0
+    for i from 0 to length(nums) - 2:
+        count += twoSumSmaller(nums, i + 1, target - nums[i])
+    return count
+
+function twoSumSmaller(nums, startIndex, target):
+    count = 0
+    left = startIndex
+    right = length(nums) - 1
+    while left < right:
+        if nums[left] + nums[right] < target:
+            count += right - left
+            left += 1
+        else:
+            right -= 1
+    return count
+```
+
