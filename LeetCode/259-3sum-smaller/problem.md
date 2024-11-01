@@ -74,3 +74,18 @@ right = 5
   - Count all pairs with left that satisfy the condition. 
   - The difference between `right` and `left` is 3, so the pairs are `(1, 2)`, `(1, 3)`, and `(1, 5)`.
   - Move `left` one step to the right.
+
+## **Algorithm**
+
+1. **Sort the array**: Begin by sorting the input array to enable efficient use of the two-pointer technique.
+2. **Initialize a counter**: Create a variable to count the valid triplets.
+3. **Iterate through the array**: Loop through the array, treating each element as the potential first element of the triplet.
+4. **Use a two-pointer technique**: For each first element, use two pointers to find pairs that sum to less than the target.
+    - **Left Pointer**: Start at the element immediately after the current first element.
+    - **Right Pointer**: Start at the last element of the array.
+5. **Count valid pairs**: If the sum of elements at the left and right pointers is less than the target, count all pairs from the left pointer to the right pointer and move the left pointer one step to the right.
+    - **Update Counter**: Add the count of valid pairs to the counter.
+6. **Move pointers accordingly**: If the sum is greater than or equal to the target, move the right pointer one step to the left.
+7. **Repeat for all elements**: Continue until all possible triplets are checked.
+8. **Return the counter**: After the loop, return the total count of valid triplets.
+
