@@ -29,6 +29,7 @@ Given an array of `n` integers `nums` and an integer `target`, find the number o
 - [Two Pointers Approach](#two-pointers)
   - **Time Complexity**: `O(n^2)`
 - [Binary Search Approach](#binary-search)
+  - **Time Complexity**: `O(n^2 log n)`
 
 ## Overview
 
@@ -341,3 +342,17 @@ function binarySearch(nums: number[], startIndex: number, target: number): numbe
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n^2 log n)`
+- **Sorting the Array**: `O(n log n)` time complexity for sorting the array.
+- **Outer Loop**: The `threeSumSmaller` function sorts the array and then iterates over `(n - 2)` elements, invoking `twoSumSmaller` at each iteration.
+- **Inner Loop**: The `twoSumSmaller` function includes a binary search that takes `O(log n)` time, making its overall time complexity `O(n log n)`.
+- **Overall Complexity**: Combining these operations, the overall time complexity is `O(n log n + n^2 log n)`. As `n^2 log n` grows faster than `n log n`, it simplifies to `O(n^2 log n)`.
+
+### **Space Complexity**: `O(1)` or `O(log n)` to `O(n)` including sort
+- **Sorting Algorithm**: The space complexity depends on the implementation of the sorting algorithm. For Java's `Arrays.sort()`:
+  - **Primitive Types**: Uses dual-pivot Quicksort with `O(log n)` space complexity.
+  - **Object Types**: Uses modified Timsort with `O(n)` space complexity due to temporary arrays used in the merge process.
+- **Constant Space Usage**: The algorithm uses a constant amount of extra space for variables, thus `O(1)` space is used.
+- **No Additional Data Structures**: The algorithm uses constant space, `O(1)`, aside from the sort.
