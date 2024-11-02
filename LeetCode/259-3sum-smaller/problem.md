@@ -30,6 +30,7 @@ Given an array of `n` integers `nums` and an integer `target`, find the number o
   - **Time Complexity**: `O(n^2)`
 - [Binary Search Approach](#binary-search)
   - **Time Complexity**: `O(n^2 log n)`
+- [Brute Force Approach](#brute-force)
 
 ## Overview
 
@@ -356,3 +357,10 @@ function binarySearch(nums: number[], startIndex: number, target: number): numbe
   - **Object Types**: Uses modified Timsort with `O(n)` space complexity due to temporary arrays used in the merge process.
 - **Constant Space Usage**: The algorithm uses a constant amount of extra space for variables, thus `O(1)` space is used.
 - **No Additional Data Structures**: The algorithm uses constant space, `O(1)`, aside from the sort.
+
+# Brute Force
+
+## **Intuition**
+
+Find every possible set of triplets (`i, j, k`) such that `i < j < k` and test for the condition `nums[i] + nums[j] + nums[k] < target`. This straightforward approach ensures that all combinations are checked, albeit at the expense of efficiency.
+
