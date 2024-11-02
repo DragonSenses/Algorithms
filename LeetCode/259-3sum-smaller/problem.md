@@ -31,6 +31,7 @@ Given an array of `n` integers `nums` and an integer `target`, find the number o
 - [Binary Search Approach](#binary-search)
   - **Time Complexity**: `O(n^2 log n)`
 - [Brute Force Approach](#brute-force)
+  - **Time Complexity**: `O(n^3)`
 
 ## Overview
 
@@ -436,3 +437,15 @@ function threeSumSmaller(nums: number[], target: number): number {
 };
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n^3)`
+
+- **Triplet Combinations**: The total number of triplets can be represented using the binomial coefficient, `C(n, 3)`, which evaluates to `(n * (n-1) * (n-2)) / 6`. However, due to the nested loop structure of the brute force algorithm, this computation simplifies to `O(n^3)`.
+- **Nested Loops**: The three nested loops iteratively go through all possible combinations of triplets. Each loop runs approximately `n` times, leading to a time complexity of `O(n * n * n) = O(n^3)`.
+- **Overall Complexity**: Despite the exact formula for combinations, the dominant factor is the cubic growth rate, thus the overall time complexity is `O(n^3)`.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space Usage**: The algorithm uses a constant amount of extra space for variables, so the space complexity is `O(1)`.
+- **No Additional Data Structures**: The algorithm does not use any additional data structures that scale with input size.
