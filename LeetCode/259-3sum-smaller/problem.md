@@ -412,3 +412,27 @@ class Solution3 {
 }
 ```
 
+### TypeScript
+
+```typescript
+function threeSumSmaller(nums: number[], target: number): number {
+  let count = 0;
+
+  // Triple nested loop to generate all possible triplets
+  for (let i = 0; i < nums.length - 2; i++) {
+    for (let j = i + 1; j < nums.length - 1; j++) {
+      for (let k = j + 1; k < nums.length; k++) {
+        // Check if the sum of the triplet is less than the target
+        if (nums[i] + nums[j] + nums[k] < target) {
+          // Increment the counter if the condition is met
+          count++;
+        }
+      }
+    }
+  }
+
+  // Return the count of valid triplets
+  return count;
+};
+```
+
