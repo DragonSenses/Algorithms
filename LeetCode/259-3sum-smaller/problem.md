@@ -364,3 +364,13 @@ function binarySearch(nums: number[], startIndex: number, target: number): numbe
 
 Find every possible set of triplets (`i, j, k`) such that `i < j < k` and test for the condition `nums[i] + nums[j] + nums[k] < target`. This straightforward approach ensures that all combinations are checked, albeit at the expense of efficiency.
 
+## **Algorithm**
+
+1. **Initialize Counter**: Create a counter to keep track of the valid triplets.
+2. **Triple Nested Loop**: Use three nested loops to generate all possible triplets.
+    - Outer loop for the first element `i`.
+    - Middle loop for the second element `j`.
+    - Inner loop for the third element `k`.
+3. **Check Condition**: For each triplet, check if the sum of the elements is less than the target.
+4. **Count Valid Triplets**: If the condition is met, increment the counter.
+5. **Return Result**: After all triplets are checked, return the counter.
