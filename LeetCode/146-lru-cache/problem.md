@@ -43,3 +43,20 @@ lRUCache.get(4);    // return 4
 	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
 	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
+
+<br>
+
+---
+
+## **Overview of LRU Cache**
+
+An LRU (Least Recently Used) cache is a type of data structure that removes the least recently used item when the cache reaches its capacity. It keeps track of the order in which keys are accessed to ensure that the least recently used item is the first to be evicted when a new item is added. The typical operations are:
+- **get(key)**: Fetch the value associated with the key.
+- **put(key, value)**: Add or update the key-value pair in the cache.
+
+To implement an LRU cache efficiently, data structures such as a hash map (for `O(1)` access time) and a doubly linked list (to keep track of the order of usage) are often used.
+
+## **Implementing an LRU Cache**
+
+Let's start by thinking about how we can implement the data structure without caring about time complexity.
+
