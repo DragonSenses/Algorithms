@@ -137,3 +137,44 @@ Many programming languages offer built-in data structures that simplify the impl
 
 Using these built-in data structures, you can quickly create an LRU cache with minimal effort, but always be mindful of the context in which you're applying this approach.
 
+## **Algorithm**
+
+The only difference between using built-in data structures and implementing our own data structure is that much of the code we needed to implement the linked list logic is now done automatically for us by the built-in data structure we are using.
+
+Here are the steps:
+
+1. **Adding a Node to the Back of the Linked List**
+2. **Removing a Node from the Linked List**
+3. **The `get(int key)` Method**
+4. **The `put(int key, int value)` Method**
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LRUCache extends LinkedHashMap<Integer, Integer> {
+    private int capacity;
+
+    public LRUCache(int capacity) {
+        super(capacity, 0.75f, true);
+        this.capacity = capacity;
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return size() > capacity;
+    }
+
+    public int get(int key) {
+        return super.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        super.put(key, value);
+    }
+}
+```
