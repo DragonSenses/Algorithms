@@ -48,6 +48,8 @@ lRUCache.get(4);    // return 4
 
 ---
 
+
+
 ## **Overview of LRU Cache**
 
 An LRU (Least Recently Used) cache is a type of data structure that removes the least recently used item when the cache reaches its capacity. It keeps track of the order in which keys are accessed to ensure that the least recently used item is the first to be evicted when a new item is added. The typical operations are:
@@ -59,4 +61,39 @@ To implement an LRU cache efficiently, data structures such as a hash map (for `
 ## **Implementing an LRU Cache**
 
 Let's start by thinking about how we can implement the data structure without caring about time complexity.
+
+### Key Concepts
+
+#### Key-Value Storage
+
+The description of the `put` method states that we are storing key-value pairs. This means the data structure is similar to a hash map, which also stores key-value pairs. It's easy enough to add new key-value pairs or update existing ones using a hash map. 
+
+#### Capacity Limitation
+
+The challenge arises because the hash map is limited to a size of `capacity`. When the hash map exceeds this capacity, we cannot arbitrarily remove a key - we need to remove the least recently used one. After we remove it, we need to know what the second least recently used one was (as it will be the next one to be deleted).
+
+#### Maintaining Usage Order
+
+To keep track of the order in which keys have been used, we can implement a queue. The key at the front of the queue is the least recently used key, and the key at the back of the queue is the most recently used key.
+
+#### Operations on the Queue
+
+- **Insertion**: When we insert a key for the first time, we put it at the back of the queue.
+- **Access**: When we use an existing key (with either `get` or `put`), we locate it in the queue and move it to the back.
+- **Eviction**: If the data structure exceeds capacity, we can reference the front of the queue to find the key that should be deleted.
+
+#### Efficiency Considerations
+
+If we use an array/list to implement the queue, operations will cost `O(n)`. This is because we will frequently be removing elements from arbitrary positions in the list, which costs `O(n)`.
+
+#### Optimization
+
+We need a way to implement this queue such that the operations will run in `O(1)`.
+
+To achieve `O(1)` operations, we can use a combination of:
+
+1. **Hash Map**: For storing the key-value pairs and providing `O(1)` access to keys.
+2. **Doubly Linked List**: To maintain the order of usage and enable `O(1)` insertion, deletion, and update operations.
+
+By using these data structures, we can ensure that both the `get` and `put` methods run in `O(1)` average time complexity.
 
