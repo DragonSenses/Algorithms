@@ -178,3 +178,10 @@ public class LRUCache extends LinkedHashMap<Integer, Integer> {
     }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(1)` for both `get` and `put`
+
+### **Space Complexity**: `O(capacity)`
+
