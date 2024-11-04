@@ -48,7 +48,14 @@ lRUCache.get(4);    // return 4
 
 ---
 
+# Solution
 
+Preferred Solution:
+- [Custom Data Structure: Doubly Linked List](#custom-data-structure-doubly-linked-list)
+  - **Time Complexity**: `O(1)` for both `get` and `put`
+  
+- [Built-In Data Structure](#built-in-data-structures)
+  - **Time Complexity**: `O(1)` for both `get` and `put`
 
 ## **Overview of LRU Cache**
 
