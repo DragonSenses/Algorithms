@@ -104,3 +104,36 @@ To achieve `O(1)` operations, we can use a combination of:
 
 By using these data structures, we can ensure that both the `get` and `put` methods run in `O(1)` average time complexity.
 
+# Built-In Data Structures
+
+The major programming languages have built-in data structures that make this problem much easier. This approach is included for the sake of completeness.
+
+## **Intuition**
+
+Many programming languages offer built-in data structures that simplify the implementation of an LRU cache. These built-in structures can handle most of the heavy lifting, making the solution more straightforward.
+
+### **Interview Note**
+
+**Warning**: Using these built-in data structures might defeat the purpose of the problem. If you are asked this problem in an interview, the interviewer likely wants to see you implement the LRU cache from scratch. It is recommended to ask the interviewer before using built-in data structures.
+
+### Using Built-In Data Structures
+
+#### Key Points
+
+- **Built-In Efficiency**: Built-in data structures are optimized and tested for efficiency and reliability.
+- **Simplified Implementation**: Using built-in structures can significantly reduce the complexity of your code.
+
+#### Examples
+
+- **Java**: The `LinkedHashMap` class.
+- **C++**: The `std::list` class.
+- **Python**: The `OrderedDict` class from the `collections` module.
+
+- In **Java**, we will be using [LinkedHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html), which is a hash map that maintains insertion order. It essentially implements the linked list for us in the same data structure as the hash map, with the add and remove methods built into the hash map operations.
+
+- In **C++**, we will be using [std::list](https://en.cppreference.com/w/cpp/container/list), which implements the doubly linked list.
+
+- In **Python**, we will be using [collections.OrderedDict](https://docs.python.org/3/library/collections.html#collections.OrderedDict). This is similar to the Java data structure - it is a hash map that maintains insertion order.
+
+Using these built-in data structures, you can quickly create an LRU cache with minimal effort, but always be mindful of the context in which you're applying this approach.
+
