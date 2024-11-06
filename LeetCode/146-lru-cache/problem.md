@@ -231,3 +231,22 @@ Tasks 4 - 6 follow the process determined in the overview.
 
 Tasks 1, 2, and 3 can be easily achieved using a standard built-in hash map. But how do we accomplish tasks 4, 5, and 6?
 
+## **Implementation Plan**
+
+### Adding Nodes to the Back
+
+In tasks 4 and 5, we need to add nodes to the back of the linked list. Because we are aiming for an `O(1)` time complexity, we must keep a reference to the tail of our linked list. 
+
+### Removing Nodes from the Front
+
+In task 6, we need to remove from the front of the linked list. This means we must also keep a reference to the head (although we would probably do this anyways since you always want to keep the head of a linked list).
+
+We can easily detect when the size of the data structure exceeds capacity by checking the size of our hash map.
+
+### Moving Nodes to the Back
+
+When an existing key is updated or fetched, we need to find its associated linked list node and move it to the back. This requires a reference to the node. By mapping each key to its associated node in the hash map (`int: Node`), we can achieve this in `O(1)` time.
+
+### Using Sentinel Nodes
+
+To handle edge cases, we use sentinel nodes. We set our head and tail attributes to dummy nodes. The "real" head will be `head.next` and the "real" tail will be `tail.prev`. These dummy nodes prevent `head` or `tail` from being null. Initialize `head.next = tail` and `tail.prev = head`.
