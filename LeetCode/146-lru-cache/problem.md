@@ -265,3 +265,29 @@ If the linked list is empty and we call `put` to create a new key-value pair, we
 
 We now have everything we need! Let's implement some methods.
 
+## **Algorithm**
+
+### Adding a Node to the Back of the Linked List
+
+To add a node to the end of our linked list whenever we add a new key or update an existing one, we can write a helper method `add(Node node)`:
+
+**Steps:**
+
+1. Get the current node at the end of the linked list, `tail.prev`, and call it `previousEnd`.
+2. Insert `node` after `previousEnd` by setting `previousEnd.next = node`.
+3. Set `node.prev = previousEnd`.
+4. Set `node.next = tail`, as the "real" tail is before `tail`.
+5. Update `tail.prev = node`.
+
+This method ensures that the new node is added to the end of the linked list efficiently.
+
+```java
+public void add(Node node) {
+   Node previousEnd = tail.prev;
+   previousEnd.next = node;
+   node.prev = previousEnd;
+   node.next = tail;
+   tail.prev = node;
+}
+```
+
