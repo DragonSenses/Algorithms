@@ -316,3 +316,27 @@ public void remove(Node node) {
 }
 ```
 
+### The `get(int key)` Method
+
+Now that we have helper methods for adding and removing from our linked list, we can easily implement the `get` method using simple logic:
+
+1. **Check Key in Hash Map**: Check if the key exists in the hash map. If not, return `-1`.
+2. **Get Node from Hash Map**: Retrieve the node associated with the key from the hash map.
+3. **Move Node to Back**: Move it to the back of the linked list by first calling `remove(node)` and then `add(node)`.
+4. **Return Value**: Return the value associated with the key, which is `node.val`.
+
+```java
+public int get(int key) {
+    if (!map.containsKey(key)) {
+        return -1;
+    }
+
+    Node node = map.get(key);
+    remove(node);
+    add(node);
+    return node.val;
+}
+```
+
+This `get(int key)` method retrieves the value associated with the key, updates the node's position to the back of the doubly linked list, and ensures the node's recent usage is recorded.
+
