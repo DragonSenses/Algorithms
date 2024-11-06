@@ -5,9 +5,9 @@
 <p>Implement the <code>LRUCache</code> class:</p>
 
 <ul>
-	<li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>
-	<li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>
-	<li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
+  <li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>
+  <li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>
+  <li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
 </ul>
 
 <p>The functions <code>get</code> and <code>put</code> must each run in <code>O(1)</code> average time complexity.</p>
@@ -38,10 +38,10 @@ lRUCache.get(4);    // return 4
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= capacity &lt;= 3000</code></li>
-	<li><code>0 &lt;= key &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
-	<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
+  <li><code>1 &lt;= capacity &lt;= 3000</code></li>
+  <li><code>0 &lt;= key &lt;= 10<sup>4</sup></code></li>
+  <li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
+  <li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
 
 <br>
@@ -216,4 +216,18 @@ public class Node {
 **Note**: We use `Node` to avoid confusion with the online judge environment, which may already have a `ListNode` class defined.
 
 As each node represents an element in the data structure, we can also store the key-value pair in each node.
+
+### **Functionality**
+
+We need to achieve the following functionality:
+1. Store a key-value pair
+2. Update a key-value pair
+3. Given a key, determine if it exists in the data structure. If it does, return the value. If it doesn't, return -1.
+4. When a new key-value pair is added, create a new linked list node and put it at the back.
+5. When an existing key is updated or fetched, find its associated linked list node. Move it to the back.
+6. When a new key-value pair is added and the size of the data structure exceeds capacity, remove the linked list node at the front.
+
+Tasks 4 - 6 follow the process determined in the overview.
+
+Tasks 1, 2, and 3 can be easily achieved using a standard built-in hash map. But how do we accomplish tasks 4, 5, and 6?
 
