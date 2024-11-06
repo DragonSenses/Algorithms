@@ -340,3 +340,38 @@ public int get(int key) {
 
 This `get(int key)` method retrieves the value associated with the key, updates the node's position to the back of the doubly linked list, and ensures the node's recent usage is recorded.
 
+### The `put(int key, int value)` Method
+
+This method updates `key: value` if it already exists, and inserts `key: value` otherwise. If inserting causes the size to exceed capacity, we need to remove the least recently used key (which we know is the head of our linked list).
+
+**Steps:**
+
+1. **Check Key in Hash Map**: First, check if the key already exists in the hash map. If it does, find the node associated with it and call `remove` on it. We are going to move the key to the back of the queue, so we need to first remove it from the linked list.
+2. **Create New Node**: Create a new node using `key, value`.
+3. **Update Hash Map**: Set `key: node` in the hash map.
+4. **Add Node to Back**: Add the node to the back of the linked list with `add(node)`.
+5. **Check Capacity**: Finally, check if the data structure has exceeded capacity by using the hash map's size.
+    - If it has, then get the `nodeToDelete` as `head.next`.
+    - Delete the node with `remove(nodeToDelete)`.
+    - Delete the key from the hash map. The key is `nodeToDelete.key`.
+
+```java
+public void put(int key, int value) {
+    if (map.containsKey(key)) {
+        Node oldNode = map.get(key);
+        remove(oldNode);
+    }
+
+    Node node = new Node(key, value);
+    map.put(key, node);
+    add(node);
+
+    if (map.size() > capacity) {
+        Node nodeToDelete = head.next;
+        remove(nodeToDelete);
+        map.remove(nodeToDelete.key);
+    }
+}
+```
+
+This `put(int key, int value)` method handles insertion, updating, and potential eviction of nodes in the doubly linked list.
