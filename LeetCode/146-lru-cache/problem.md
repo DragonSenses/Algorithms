@@ -185,3 +185,35 @@ public class LRUCache extends LinkedHashMap<Integer, Integer> {
 
 ### **Space Complexity**: `O(capacity)`
 
+# Custom Data Structure: Doubly Linked List
+
+## **Intuition**
+
+We need a way to store data in an ordered manner such that elements can be removed from any position in constant time.
+
+A linked list is a great candidate for this task. Removing from arbitrary positions is one of the few things that a linked list does better than an array.
+
+For example, in a linked list `A -> B -> C -> D -> E`, we can remove `C` from the list by performing `B.next = D`. As `C` is no longer reachable, it is effectively "removed" from the list. If you were to traverse from the head (`A`), you would visit nodes `A`, `B`, `D`, `E`. This operation is done in constant time, no matter how large the list is.
+
+To remove `C` from the list, we needed a reference to the node before it (`B`), so that we could change `B.next`. Therefore, we shall use a doubly linked list. This way, when we want to remove a node, we have a `prev` pointer to reference the node before it.
+
+```java
+public class Node {
+  int key;
+  int val;
+  Node next;
+  Node prev;
+
+  public Node(int key, int val) {
+    this.key = key;
+    this.val = val;
+    this.next = null;
+    this.prev = null;
+  }
+}
+```
+
+**Note**: We use `Node` to avoid confusion with the online judge environment, which may already have a `ListNode` class defined.
+
+As each node represents an element in the data structure, we can also store the key-value pair in each node.
+
