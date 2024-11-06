@@ -250,3 +250,18 @@ When an existing key is updated or fetched, we need to find its associated linke
 ### Using Sentinel Nodes
 
 To handle edge cases, we use sentinel nodes. We set our head and tail attributes to dummy nodes. The "real" head will be `head.next` and the "real" tail will be `tail.prev`. These dummy nodes prevent `head` or `tail` from being null. Initialize `head.next = tail` and `tail.prev = head`.
+
+## **Attributes**
+
+For our `LRUCache` class, we need the following attributes:
+1. `capacity` - to detect when we need to start deleting key-value pairs.
+2. `map` - our hash map that maps keys to nodes.
+3. `head` - the head of our linked list.
+4. `tail` - the tail of our linked list.
+
+## **Edge Cases**
+
+If the linked list is empty and we call `put` to create a new key-value pair, we create a node for this pair and set it as both the head and tail. Handling scenarios where capacity is 1 or the list is empty is simplified using sentinel nodes.
+
+We now have everything we need! Let's implement some methods.
+
