@@ -606,3 +606,22 @@ class LRUCache {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(1)` for both `get` and `put`
+- **For `get`**:
+  - Check if a key is in the hash map: `O(1)`
+  - Retrieve the node associated with the key: `O(1)`
+  - Call `remove(node)` and `add(node)`: Both are `O(1)`
+- **For `put`**:
+  - Check if a key is in the hash map: `O(1)`
+  - If the key exists, remove the node: `O(1)`
+  - Create a new node and insert it into the hash map: `O(1)`
+  - Call `add(node)`: `O(1)`
+  - If capacity is exceeded, remove the least recently used node and delete from the hash map: Both are `O(1)`
+
+### **Space Complexity**: `O(capacity)`
+- **Hash Map**: Stores up to `capacity` key-value pairs.
+- **Linked List**: Holds up to `capacity` nodes, each with references to previous and next nodes.
+- **Overall Data Structure**: The combined space usage of the hash map and the linked list will not exceed `O(capacity)`.
