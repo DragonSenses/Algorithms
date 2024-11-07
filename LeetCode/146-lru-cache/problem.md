@@ -378,7 +378,56 @@ This `put(int key, int value)` method handles insertion, updating, and potential
 
 ## **Implementation**
 
+### C++
 
+```c++
+#include <unordered_map>
+#include <list>
+#include <utility>
+
+class LRUCache {
+public:
+    int capacity;
+    std::unordered_map<int, std::list<std::pair<int, int>>::iterator> dic;
+    std::list<std::pair<int, int>> Iru;
+
+    LRUCache(int capacity) {
+        this->capacity = capacity;
+    }
+
+    int get(int key) {
+        auto it = dic.find(key);
+        if (it == dic.end()) {
+            return -1;
+        }
+
+        int value = it->second->second;
+        Iru.erase(it->second);
+        Iru.push_front({key, value});
+
+        dic.erase(it);
+        dic[key] = Iru.begin();
+        return value;
+    }
+
+    void put(int key, int value) {
+        auto it = dic.find(key);
+        if (it != dic.end()) {
+            Iru.erase(it->second);
+            dic.erase(it);
+        }
+
+        Iru.push_front({key, value});
+        dic[key] = Iru.begin();
+
+        if (dic.size() > capacity) {
+            auto last = Iru.back();
+            dic.erase(last.first);
+            Iru.pop_back();
+        }
+    }
+};
+```
 
 ### Python
 
