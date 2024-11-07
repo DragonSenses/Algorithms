@@ -1,13 +1,26 @@
 import java.util.HashMap;
 
+/**
+ * A custom-built LRU (Least Recently Used) Cache using a
+ * doubly linked list and a HashMap.
+ */
 class LRUCache {
 
+  /**
+   * Node class representing each entry in the LRU Cache.
+   */
   public class Node {
     int key; // Key for the cache entry
     int val; // Value for the cache entry
     Node next; // Pointer to the next node in the linked list
     Node prev; // Pointer to the previous node in the linked list
 
+    /**
+     * Constructs a new Node with the specified key and value.
+     * 
+     * @param key The key for the cache entry.
+     * @param val The value for the cache entry.
+     */
     public Node(int key, int val) {
       this.key = key;
       this.val = val;
@@ -21,6 +34,11 @@ class LRUCache {
   private Node head;
   private Node tail;
 
+  /**
+   * Constructs an LRUCache with the specified capacity.
+   * 
+   * @param capacity The maximum number of items the cache can hold.
+   */
   public LRUCache(int capacity) {
     this.capacity = capacity;
     this.map = new HashMap<>();
@@ -30,6 +48,11 @@ class LRUCache {
     tail.prev = head;
   }
 
+  /**
+   * Adds a node to the end of the doubly linked list.
+   * 
+   * @param node The node to be added.
+   */
   public void add(Node node) {
     Node previousEnd = tail.prev;
     previousEnd.next = node;
@@ -38,11 +61,23 @@ class LRUCache {
     tail.prev = node;
   }
 
+  /**
+   * Removes a node from the doubly linked list.
+   * 
+   * @param node The node to be removed.
+   */
   public void remove(Node node) {
     node.prev.next = node.next;
     node.next.prev = node.prev;
   }
 
+  /**
+   * Retrieves the value associated with the specified key.
+   * 
+   * @param key The key whose associated value is to be returned.
+   * @return The value associated with the specified key, or -1 if the key does
+   *         not exist.
+   */
   public int get(int key) {
     if (!map.containsKey(key)) {
       return -1;
@@ -54,6 +89,12 @@ class LRUCache {
     return node.val;
   }
 
+  /**
+   * Adds a key-value pair to the cache.
+   * 
+   * @param key   The key with which the specified value is to be associated.
+   * @param value The value to be associated with the specified key.
+   */
   public void put(int key, int value) {
     if (map.containsKey(key)) {
       Node oldNode = map.get(key);
@@ -71,10 +112,3 @@ class LRUCache {
     }
   }
 }
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache obj = new LRUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
