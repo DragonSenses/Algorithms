@@ -92,3 +92,19 @@ Given the input list `input = [4, 3, 5]`:
 
 After these steps, the input list is sorted as `result = [3, 4, 5]`.
 
+## **Algorithm**
+
+To translate the above intuition into implementation, we applied two tricks:
+
+1. **Sentinel Node**:
+    - Create a sentinel node that serves as a pointer to the resulting list.
+    - This node helps us maintain a reference to the resulting list, especially when inserting a new element at the head.
+    - It greatly simplifies the logic, as we will see later.
+
+2. **Pointers for Insertion**:
+    - In a singly-linked list, each node points only to the next node.
+    - To insert a new node (B) before a certain node (A), we need to know the node (C) that is currently before A (i.e., C -> A).
+    - With the reference to node C, we can insert the new node: C -> B -> A.
+
+    - The trick is to use a pair of pointers (prev -> next) to guard the position where we would insert a new element (i.e., prev -> new_node -> next).
+
