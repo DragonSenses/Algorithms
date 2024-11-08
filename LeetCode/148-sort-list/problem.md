@@ -31,3 +31,27 @@
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you sort the linked list in <code>O(n logn)</code> time and <code>O(1)</code> memory (i.e. constant space)?</p>
+
+<br>
+
+---
+
+# Solution
+- [Merge Sort Top Down Approach]()
+
+# Merge Sort Top Down Approach
+
+## Intuition
+
+Merge sort is a well-known algorithm that follows the Divide and Conquer strategy. This strategy can be split into two main phases:
+
+1. **Divide Phase**: Divide the problem into smaller subproblems.
+2. **Conquer Phase**: Repeatedly solve each subproblem independently and combine the results to form the original problem.
+
+In the Top-Down approach for merge sort:
+- The original list is recursively split into sublists of equal sizes.
+- Each sublist is sorted independently.
+- The sorted sublists are eventually merged back together.
+
+Let's look at the algorithm to implement merge sort in the Top-Down fashion.
+
