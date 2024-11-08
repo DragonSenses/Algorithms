@@ -90,3 +90,37 @@ For the linked list [10, 1, 60, 30, 5]:
 4. **Merge Sorted Sublists**:
     - Merge `[1, 10, 60]` and `[5, 30]` to form `[1, 5, 10, 30, 60]`
 
+## **Implementation**
+
+### Implementation Details
+
+**Key Points:**
+
+- **Base Case**: The `sortList` function checks if the list is empty or has only one node, in which case it is already sorted.
+
+- **Splitting the List**: The `getMiddle` helper function is used to find the middle of the list, which is then split into two halves.
+
+- **Recursive Sorting**: Each half is recursively sorted by calling `sortList` on the left and right halves.
+
+- **Merging**: The `merge` helper function is used to merge the two sorted halves into a single sorted list.
+
+This implementation ensures the linked list is sorted in `O(n log n)` time using the top-down merge sort approach.
+
+#### ListNode implementation
+
+```java
+//  Definition for singly-linked list.
+public class ListNode {
+  int val;
+  ListNode next;
+  ListNode() {}
+  ListNode(int val) {
+    this.val = val;
+  }
+  ListNode(int val, ListNode next) {
+    this.val = val;
+    this.next = next;
+  }
+}
+```
+
