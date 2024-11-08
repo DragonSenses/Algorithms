@@ -36,6 +36,11 @@
 <br>
 
 ---
+
+# Solution
+- [Insertion Sort](#insertion-sort)
+
+
 ## Insertion Sort List Overview
 
 [**Insertion sort**](https://en.wikipedia.org/wiki/Insertion_sort) is an intuitive, yet less efficient sorting algorithm compared to quicksort or merge sort.
@@ -43,4 +48,19 @@
 While typically applied to arrays, this problem requires performing insertion sort on a linked list, adding complexity.
 
 This article offers tricks to simplify linked list manipulation for easier implementation.
+
+# Insertion Sort
+
+## **Intuition**
+
+## Intuition
+
+Let's review the idea of the insertion sort algorithm, which can be broken down into the following steps:
+
+1. **Create an empty list** to hold the sorted elements.
+
+2. **Iterate through each element** in the input list:
+    - For each element, find the correct position in the sorted list to insert it, maintaining the order.
+
+3. Once the iteration completes, you will have a sorted list.
 
