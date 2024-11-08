@@ -55,3 +55,22 @@ In the Top-Down approach for merge sort:
 
 Let's look at the algorithm to implement merge sort in the Top-Down fashion.
 
+## **Algorithm**
+
+1. **Recursively Split the List**:
+    - Recursively split the original list into two halves. This splitting continues until there is only one node in each linked list (Divide Phase).
+    - To split the list into two halves, find the middle of the linked list using the Fast and Slow pointer approach.
+
+2. **Merge Sorted Sublists**:
+    - Recursively sort each sublist and combine them into a single sorted list (Merge Phase).
+    - This is similar to merging two sorted linked lists.
+
+The process continues until we get the original list in sorted order.
+
+### Detailed Steps:
+1. **Base Case**: If the list is empty or has only one node, it's already sorted.
+2. **Find the Middle**: Use the Fast and Slow pointer approach to find the middle of the list.
+3. **Split the List**: Split the list into two halves from the middle.
+4. **Recursively Sort**: Recursively sort each half.
+5. **Merge**: Merge the two sorted halves into a single sorted list.
+
