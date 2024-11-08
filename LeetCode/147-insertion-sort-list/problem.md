@@ -32,3 +32,15 @@
   <li>The number of nodes in the list is in the range <code>[1, 5000]</code>.</li>
   <li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
 </ul>
+
+<br>
+
+---
+## Insertion Sort List Overview
+
+[**Insertion sort**](https://en.wikipedia.org/wiki/Insertion_sort) is an intuitive, yet less efficient sorting algorithm compared to quicksort or merge sort.
+
+While typically applied to arrays, this problem requires performing insertion sort on a linked list, adding complexity.
+
+This article offers tricks to simplify linked list manipulation for easier implementation.
+
