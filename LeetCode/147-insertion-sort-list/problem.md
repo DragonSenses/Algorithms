@@ -108,3 +108,38 @@ To translate the above intuition into implementation, we applied two tricks:
 
     - The trick is to use a pair of pointers (prev -> next) to guard the position where we would insert a new element (i.e., prev -> new_node -> next).
 
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public ListNode insertionSortList(ListNode head) {
+    // Sentinel node acts as a placeholder for the sorted list's head.
+    ListNode sentinel = new ListNode();
+    ListNode curr = head; // Current node to be sorted.
+
+    // Iterate through each node in the input list.
+    while (curr != null) {
+      ListNode prev = sentinel; // Pointer to traverse the sorted part of the list.
+
+      // Find the correct position in the sorted list to insert the current node.
+      while (prev.next != null && prev.next.val <= curr.val) {
+        prev = prev.next;
+      }
+
+      // Save the next node to be processed.
+      ListNode next = curr.next;
+      // Insert the current node into the sorted part.
+      curr.next = prev.next;
+      prev.next = curr;
+
+      // Move to the next node in the input list.
+      curr = next;
+    }
+
+    // Return the head of the sorted list, which is the next node after sentinel.
+    return sentinel.next;
+  }
+}
+```
