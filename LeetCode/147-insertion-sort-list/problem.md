@@ -39,7 +39,7 @@
 
 # Solution
 - [Insertion Sort](#insertion-sort)
-
+  - **Time Complexity**: `O(n^2)`
 
 ## Insertion Sort List Overview
 
@@ -176,3 +176,17 @@ function insertionSortList(head: ListNode | null): ListNode | null {
 };
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n^2)`
+- **Iteration**: We run an iteration over the input list.
+- **Insertion**: At each iteration, we insert an element into the resulting list. In the worst case, if the position to insert is at the tail of the list, we have to traverse the entire resulting list.
+- **Worst-case steps**: The total steps in the worst case would be the sum of the first `N` natural numbers: 
+\[
+  \sum_{i=1}^{N} i = \frac{N(N+1)}{2}
+\]
+- **Overall complexity**: Thus, the overall time complexity of the algorithm is `O(n^2)`.
+
+### **Space Complexity**: `O(1)`
+- **Pointers**: We use some pointers within the algorithm, but their memory consumption is constant regardless of the input size.
+- **Node reordering**: We do not create new nodes to hold the values of the input list but simply reorder the existing nodes.
