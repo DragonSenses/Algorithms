@@ -108,6 +108,96 @@ To translate the above intuition into implementation, we applied two tricks:
 
     - The trick is to use a pair of pointers (prev -> next) to guard the position where we would insert a new element (i.e., prev -> new_node -> next).
 
+### Insertion Sort List Walkthrough
+
+Using this implementation in Java, let's go through an example in detail:
+
+```java
+class Solution {
+  public ListNode insertionSortList(ListNode head) {
+    // Sentinel node acts as a placeholder for the sorted list's head.
+    ListNode sentinel = new ListNode();
+    ListNode curr = head; // Current node to be sorted.
+
+    // Iterate through each node in the input list.
+    while (curr != null) {
+      ListNode prev = sentinel; // Pointer to traverse the sorted part of the list.
+
+      // Find the correct position in the sorted list to insert the current node.
+      while (prev.next != null && prev.next.val <= curr.val) {
+        prev = prev.next;
+      }
+
+      // Save the next node to be processed.
+      ListNode next = curr.next;
+      // Insert the current node into the sorted part.
+      curr.next = prev.next;
+      prev.next = curr;
+
+      // Move to the next node in the input list.
+      curr = next;
+    }
+
+    // Return the head of the sorted list, which is the next node after sentinel.
+    return sentinel.next;
+  }
+}
+```
+
+#### Initial List:
+- The input linked list: `4 -> 2 -> 1 -> 3`
+
+#### First Iteration Breakdown
+
+##### Initialize Sentinel Node and Curr:
+- `sentinel = ListNode()` (an empty node)
+- `curr = head` (points to the first node of the list with value 4)
+
+##### Traverse the Sorted Part:
+- `prev = sentinel` (initially pointing to the sentinel node)
+- Since `prev.next` is `null`, we don't enter the inner `while` loop to move `prev`.
+
+##### Save Next Node:
+- `next = curr.next` (points to the node with value 2)
+
+##### Insert the Current Node:
+- `curr.next = prev.next` (which is `null`)
+- `prev.next = curr` (the sentinel node now points to the node with value 4)
+
+##### Move to the Next Node:
+- `curr = next` (moves to the next node in the input list, which is the node with value 2)
+
+#### First Iteration:
+- **Curr**: 4
+- **Next**: 2
+- **Sorted Part**: 4
+- **Remaining Part**: 2 -> 1 -> 3
+- **Sentinel List**: sentinel -> 4
+
+#### Second Iteration:
+- **Curr**: 2
+- **Next**: 1
+- **Sorted Part**: 2 -> 4
+- **Remaining Part**: 1 -> 3
+- **Sentinel List**: sentinel -> 2 -> 4
+
+#### Third Iteration:
+- **Curr**: 1
+- **Next**: 3
+- **Sorted Part**: 1 -> 2 -> 4
+- **Remaining Part**: 3
+- **Sentinel List**: sentinel -> 1 -> 2 -> 4
+
+#### Fourth Iteration:
+- **Curr**: 3
+- **Next**: null
+- **Sorted Part**: 1 -> 2 -> 3 -> 4
+- **Remaining Part**: None
+- **Sentinel List**: sentinel -> 1 -> 2 -> 3 -> 4
+
+#### Final Sorted List:
+- `1 -> 2 -> 3 -> 4`
+
 ## **Implementation**
 
 ### Java
