@@ -74,3 +74,19 @@ The process continues until we get the original list in sorted order.
 4. **Recursively Sort**: Recursively sort each half.
 5. **Merge**: Merge the two sorted halves into a single sorted list.
 
+### Example Walkthrough:
+
+For the linked list [10, 1, 60, 30, 5]:
+
+1. **Initial List**: `[10, 1, 60, 30, 5]`
+2. **Divide Phase**:
+    - Split into `[10, 1, 60]` and `[30, 5]`
+    - Further split `[10, 1, 60]` into `[10, 1]` and `[60]`
+    - Split `[10, 1]` into `[10]` and `[1]`
+3. **Conquer Phase**:
+    - Merge `[10]` and `[1]` to form `[1, 10]`
+    - Merge `[1, 10]` and `[60]` to form `[1, 10, 60]`
+    - Merge `[30]` and `[5]` to form `[5, 30]`
+4. **Merge Sorted Sublists**:
+    - Merge `[1, 10, 60]` and `[5, 30]` to form `[1, 5, 10, 30, 60]`
+
