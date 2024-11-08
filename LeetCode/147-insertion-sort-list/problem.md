@@ -64,3 +64,31 @@ Let's review the idea of the insertion sort algorithm, which can be broken down 
 
 3. Once the iteration completes, you will have a sorted list.
 
+### Example Walkthrough:
+
+Given the input list `input = [4, 3, 5]`:
+
+1. Start with an empty sorted list: `result = []`.
+
+2. **First element (4)**:
+    - Insert 4 into the empty sorted list.
+    - `result = [4]`.
+
+![](img/147-4.jpg)
+
+3. **Second element (3)**:
+    - Find the correct position for 3 in the sorted list.
+    - Insert 3 before 4.
+    - `result = [3, 4]`.
+
+![](img/147-5.jpg)
+
+4. **Third element (5)**:
+    - Find the correct position for 5 in the sorted list.
+    - Insert 5 at the end.
+    - `result = [3, 4, 5]`.
+
+![](img/147-6.jpg)
+
+After these steps, the input list is sorted as `result = [3, 4, 5]`.
+
