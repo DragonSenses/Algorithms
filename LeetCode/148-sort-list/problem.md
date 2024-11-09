@@ -37,9 +37,11 @@
 ---
 
 # Solution
-- [Merge Sort Top Down Approach]()
+- [Merge Sort Top-Down Approach](#merge-sort-top-down-approach)
+  - **Time Complexity**: `O(n log n)`
 
-# Merge Sort Top Down Approach
+
+# Merge Sort Top-Down Approach
 
 ## Intuition
 
@@ -89,6 +91,10 @@ For the linked list [10, 1, 60, 30, 5]:
     - Merge `[30]` and `[5]` to form `[5, 30]`
 4. **Merge Sorted Sublists**:
     - Merge `[1, 10, 60]` and `[5, 30]` to form `[1, 5, 10, 30, 60]`
+
+The following figure illustrates the merge sort process using a top down approach.
+
+![Top-down merge sort of the array {10,1,60,30,5}](img/148-3.jpg)
 
 ## **Implementation**
 
