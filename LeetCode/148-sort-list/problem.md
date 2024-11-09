@@ -39,7 +39,8 @@
 # Solution
 - [Merge Sort Top-Down Approach](#merge-sort-top-down-approach)
   - **Time Complexity**: `O(n log n)`
-
+- [Merge Sort Bottom-Up Approach](#merge-sort-bottom-up-approach)
+  - **Time Complexity**: `O(n log n)`
 
 # Merge Sort Top-Down Approach
 
@@ -306,3 +307,10 @@ At each level, we merge `n` nodes, which takes `O(n)` time.
 ##### Total Time Complexity
 The total time complexity for split and merge operations is `O(n log n)`.
 
+# Merge Sort Bottom-Up Approach
+
+### Space Efficiency
+The Top-Down Approach for merge sort uses `O(log n)` extra space due to the recursive call stack. The Bottom-Up Approach, on the other hand, uses constant extra space, making it more space-efficient.
+
+### Concept
+The Bottom-Up approach for merge sort starts by breaking down the problem into the smallest subproblems and then iteratively merging the results to solve the original problem.
