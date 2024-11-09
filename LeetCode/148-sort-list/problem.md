@@ -269,3 +269,22 @@ function merge(left: ListNode | null, right: ListNode | null): ListNode | null {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n log n)`
+- **Splitting the List**:
+  - Each split operation runs in `O(n)` time, as it involves finding the middle of the list using the Fast and Slow pointer approach.
+  - The list is split into halves recursively, resulting in `log n` levels of recursion.
+- **Merging the Sublists**:
+  - Each merge operation runs in `O(n)` time, as it involves merging two sorted lists.
+  - With `log n` levels of recursion, merging occurs `log n` times.
+- **Overall Time Complexity**:
+  - The overall time complexity of the algorithm is `O(n log n)`, as both splitting and merging contribute to this complexity.
+
+### **Space Complexity**: `O(log n)`
+- **Recursive Call Stack**:
+  - The additional space is used to store the recursive call stack.
+  - The maximum depth of the recursion tree is `log n`, leading to `O(log n)` space complexity.
+- **In-place Merging**:
+  - The merge process does not require additional space beyond the input list, making it space-efficient.
+
