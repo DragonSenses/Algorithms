@@ -309,8 +309,36 @@ The total time complexity for split and merge operations is `O(n log n)`.
 
 # Merge Sort Bottom-Up Approach
 
+## **Intuition**
+
 ### Space Efficiency
 The Top-Down Approach for merge sort uses `O(log n)` extra space due to the recursive call stack. The Bottom-Up Approach, on the other hand, uses constant extra space, making it more space-efficient.
 
 ### Concept
 The Bottom-Up approach for merge sort starts by breaking down the problem into the smallest subproblems and then iteratively merging the results to solve the original problem.
+
+### Steps Involved
+
+1. **Initial Splitting**:
+   - The list is initially split into sublists of size 1. Each of these sublists is inherently sorted.
+
+2. **Iterative Merging**:
+   - The sublists are then iteratively merged in sorted order. After the first iteration, you have sublists of size 2, then size 4, and so on.
+
+3. **Continuation**:
+   - This process continues until the entire list is sorted. At each iteration, the size of the sublists being merged doubles.
+
+### Efficiency
+This iterative approach can be implemented using constant extra space, unlike the recursive approach, which requires additional space for the call stack. 
+
+### Example
+For a list with `n` elements:
+- **Iteration 1**: Merge pairs of elements to form sublists of size 2.
+- **Iteration 2**: Merge sublists of size 2 to form sublists of size 4.
+- **Iteration 3**: Continue this process until you merge sublists of size `n/2` to form the final sorted list.
+
+### Summary
+The Bottom-Up approach of merge sort systematically and iteratively splits and merges the list, ensuring that the entire list is sorted efficiently with minimal space overhead.
+
+Let's look at the algorithm to implement merge sort in Bottom-Up fashion.
+
