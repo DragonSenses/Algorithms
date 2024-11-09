@@ -288,3 +288,21 @@ function merge(left: ListNode | null, right: ListNode | null): ListNode | null {
 - **In-place Merging**:
   - The merge process does not require additional space beyond the input list, making it space-efficient.
 
+#### Time Complexity Illustration
+
+Let's assume that `n` is a power of 2. For `n = 16`, the split and merge operation in the Top-Down fashion can be visualized as follows:
+
+![Merge Sort Illustration](img/148-4.jpg)
+
+##### Split
+The recursion tree expands in the form of a complete binary tree, splitting the list into two halves recursively.
+- The number of levels in a complete binary tree is given by `log₂(n)`.
+- For `n = 16`, the number of splits = `log₂(16) = 4`.
+
+##### Merge
+At each level, we merge `n` nodes, which takes `O(n)` time.
+- For `n = 16`, we perform the merge operation on 16 nodes at each of the 4 levels.
+
+##### Total Time Complexity
+The total time complexity for split and merge operations is `O(n log n)`.
+
