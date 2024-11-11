@@ -528,3 +528,106 @@ class Solution {
   }
 }
 ```
+
+### TypeScript
+
+```ts
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
+}
+
+function sortList(head: ListNode | null): ListNode | null {
+  if (!head || !head.next) {
+    return head; // Base case: if the list is empty or has only one node, it's already sorted.
+  }
+
+  // Sentinel node to simplify edge cases and merging
+  let sentinel: ListNode = new ListNode(0);
+  sentinel.next = head;
+  let sublistSize = 1;
+
+  while (true) {
+    let current: ListNode | null = sentinel.next; // Start of the current sublist to be processed
+    let prevTail: ListNode = sentinel;
+    let listMerged = false; // Flag to check if any merging happened in this pass
+
+    while (current !== null) {
+      let left: ListNode | null = current; // Left sublist starts from current node
+      let right: ListNode | null = split(left, sublistSize); // Split the list into two parts of given size
+      current = split(right, sublistSize); // Update current to the next sublist to be processed
+
+      prevTail.next = merge(left, right); // Merge the two sublists
+
+      // Update prevTail to the end of the merged list
+      while (prevTail.next !== null) {
+        prevTail = prevTail.next;
+      }
+      listMerged = true;
+    }
+
+    if (!listMerged) {
+      break; // If no merging happened, the list is sorted
+    }
+    sublistSize *= 2; // Double the sublist size for the next iteration
+  }
+
+  return sentinel.next; // Return the sorted list, skipping the sentinel node
+}
+
+/**
+ * Splits the list into two parts of the given size.
+ *
+ * @param start The start node of the list to be split.
+ * @param size The size of the first part.
+ * @return The start node of the second part.
+ */
+function split(start: ListNode | null, size: number): ListNode | null {
+  if (start === null) {
+    return null;
+  }
+  for (let i = 1; i < size && start.next !== null; i++) {
+    start = start.next;
+  }
+  let nextSubList: ListNode | null = start.next;
+  start.next = null; // Split the list
+  return nextSubList;
+}
+
+/**
+ * Merges two sorted linked lists into one sorted list.
+ *
+ * @param left The head of the first sorted linked list.
+ * @param right The head of the second sorted linked list.
+ * @return The head of the merged sorted linked list.
+ */
+function merge(left: ListNode | null, right: ListNode | null): ListNode | null {
+  let sentinel: ListNode = new ListNode(0); // Sentinel node to simplify merging
+  let current: ListNode = sentinel;
+
+  while (left !== null && right !== null) {
+    if (left.val <= right.val) {
+      current.next = left;
+      left = left.next;
+    } else {
+      current.next = right;
+      right = right.next;
+    }
+    current = current.next;
+  }
+
+  // Append any remaining nodes
+  if (left !== null) {
+    current.next = left;
+  } else {
+    current.next = right;
+  }
+
+  return sentinel.next; // Return the merged list, skipping the sentinel node
+}
+```
+
