@@ -546,15 +546,22 @@ function sortList(head: ListNode | null): ListNode | null {
     return head; // Base case: if the list is empty or has only one node, it's already sorted.
   }
 
+  // Find the length of the linked list
+  let length = 0;
+  let node: ListNode | null = head;
+  while (node !== null) {
+    length++;
+    node = node.next;
+  }
+
   // Sentinel node to simplify edge cases and merging
   let sentinel: ListNode = new ListNode(0);
   sentinel.next = head;
-  let sublistSize = 1;
 
-  while (true) {
-    let current: ListNode | null = sentinel.next; // Start of the current sublist to be processed
+  // Bottom-up merge sort
+  for (let sublistSize = 1; sublistSize < length; sublistSize *= 2) {
+    let current: ListNode | null = sentinel.next;
     let prevTail: ListNode = sentinel;
-    let listMerged = false; // Flag to check if any merging happened in this pass
 
     while (current !== null) {
       let left: ListNode | null = current; // Left sublist starts from current node
@@ -567,13 +574,7 @@ function sortList(head: ListNode | null): ListNode | null {
       while (prevTail.next !== null) {
         prevTail = prevTail.next;
       }
-      listMerged = true;
     }
-
-    if (!listMerged) {
-      break; // If no merging happened, the list is sorted
-    }
-    sublistSize *= 2; // Double the sublist size for the next iteration
   }
 
   return sentinel.next; // Return the sorted list, skipping the sentinel node
@@ -587,12 +588,10 @@ function sortList(head: ListNode | null): ListNode | null {
  * @return The start node of the second part.
  */
 function split(start: ListNode | null, size: number): ListNode | null {
-  if (start === null) {
-    return null;
-  }
-  for (let i = 1; i < size && start.next !== null; i++) {
+  for (let i = 1; start !== null && i < size; i++) {
     start = start.next;
   }
+  if (start === null) return null;
   let nextSubList: ListNode | null = start.next;
   start.next = null; // Split the list
   return nextSubList;
