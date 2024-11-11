@@ -663,6 +663,38 @@ Let's assume that `n` is a power of 2. For `n = 16`, the split and merge operati
 
 ![Merge Sort Bottom-Up Illustration](img/148-6.jpg)
 
+#### Key Steps for Bottom-Up Merge Sort (n = 6)
+
+### Initial List
+- The initial list: `[6, 5, 4, 3, 2, 1]`
+
+### Iteration 1: Merge Sublists of Size 1
+1. **Split Sublists of Size 1**:
+   - `[6]` and `[5]` are merged to form `[5, 6]`
+   - `[4]` and `[3]` are merged to form `[3, 4]`
+   - `[2]` and `[1]` are merged to form `[1, 2]`
+
+2. **Result after Iteration 1**:
+   - `[5, 6]`
+   - `[3, 4]`
+   - `[1, 2]`
+
+### Iteration 2: Merge Sublists of Size 2
+1. **Split Sublists of Size 2**:
+   - `[5, 6]` and `[3, 4]` are merged to form `[3, 4, 5, 6]`
+   - `[1, 2]` remains as is, since there are no more sublists to merge with
+
+2. **Result after Iteration 2**:
+   - `[3, 4, 5, 6]`
+   - `[1, 2]`
+
+### Iteration 3: Merge Sublists of Size 4
+1. **Split Sublists of Size 4**:
+   - `[3, 4, 5, 6]` and `[1, 2]` are merged to form `[1, 2, 3, 4, 5, 6]`
+
+2. **Result after Iteration 3**:
+   - `[1, 2, 3, 4, 5, 6]`
+
 ### Visual Summary
 After these iterations, the entire list is sorted using the bottom-up merge sort approach.
 
