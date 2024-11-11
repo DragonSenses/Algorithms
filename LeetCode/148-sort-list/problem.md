@@ -364,3 +364,65 @@ For the linked list = `[10,1,30,2,5]`, the following figure illustrates the merg
 
 ![Merge Sort Bottom-Up Illustration](img/148-5.jpg)
 
+### Pseudocode
+
+```text
+function mergeSortBottomUp(head)
+  if head is null or head.next is null
+    return head
+
+  sublistSize = 1
+  while true
+    current = head
+    prevTail = new ListNode() // Sentinel node
+    listMerged = false
+
+    while current is not null
+      left = current
+      right = split(left, sublistSize)
+      current = split(right, sublistSize)
+
+      prevTail.next = merge(left, right)
+
+      while prevTail.next is not null
+        prevTail = prevTail.next
+      listMerged = true
+
+    if not listMerged
+      break
+    sublistSize *= 2
+
+  return sentinel.next
+
+function split(start, size)
+  if start is null
+    return null
+  for i from 1 to size
+    if start.next is null
+      break
+    start = start.next
+  nextSubList = start.next
+  start.next = null
+  return nextSubList
+
+function merge(left, right)
+  sentinel = new ListNode()
+  current = sentinel
+
+  while left is not null and right is not null
+    if left.val <= right.val
+      current.next = left
+      left = left.next
+    else
+      current.next = right
+      right = right.next
+    current = current.next
+
+  if left is not null
+    current.next = left
+  else
+    current.next = right
+
+  return sentinel.next
+```
+
