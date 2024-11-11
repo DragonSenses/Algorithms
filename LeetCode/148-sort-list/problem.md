@@ -657,3 +657,28 @@ function merge(left: ListNode | null, right: ListNode | null): ListNode | null {
   - The bottom-up merge sort approach uses constant space for storing reference pointers (like `current`, `prevTail`, `left`, `right`).
   - Unlike the recursive top-down approach, which requires `O(log n)` space for the call stack, the iterative nature of the bottom-up approach allows it to achieve `O(1)` space complexity.
 
+#### Time Complexity Illustration
+
+Let's assume that `n` is a power of 2. For `n = 16`, the split and merge operation in the Bottom-Up approach can be visualized as follows:
+
+![Merge Sort Bottom-Up Illustration](img/148-6.jpg)
+
+### Visual Summary
+After these iterations, the entire list is sorted using the bottom-up merge sort approach.
+
+### Illustration
+The split and merge operations can be visualized as follows:
+
+```text
+Initial List: [6, 5, 4, 3, 2, 1]
+
+Iteration 1:
+[6, 5, 4, 3, 2, 1]
+[5, 6]    [3, 4]    [1, 2]
+
+Iteration 2:
+[3, 4, 5, 6]    [1, 2]
+
+Iteration 3:
+[1, 2, 3, 4, 5, 6]
+```
