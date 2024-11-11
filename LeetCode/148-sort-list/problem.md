@@ -631,3 +631,29 @@ function merge(left: ListNode | null, right: ListNode | null): ListNode | null {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n log n)`
+
+- **Count Nodes**: 
+  - Counting the number of nodes in the linked list requires `O(n)` time.
+
+- **Splitting the List**:
+  - The list is split iteratively into sublists of increasing sizes (1, 2, 4, 8, etc.).
+  - Each iteration processes the entire list, leading to a linear time complexity `O(n)` for each split operation.
+  - The total number of iterations required is `log₂(n)`.
+
+- **Merging the Sublists**:
+  - Each merge operation also runs in `O(n)` time, as it involves merging two sorted sublists.
+  - With `log₂(n)` levels of iteration, merging occurs `log₂(n)` times.
+
+- **Overall Time Complexity**: 
+  - The total time complexity for the entire process, including splitting and merging, is `O(n log n)`.
+  - Therefore, the overall time complexity of the bottom-up merge sort algorithm is `O(n log n)`.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Memory Usage**: 
+  - The bottom-up merge sort approach uses constant space for storing reference pointers (like `current`, `prevTail`, `left`, `right`).
+  - Unlike the recursive top-down approach, which requires `O(log n)` space for the call stack, the iterative nature of the bottom-up approach allows it to achieve `O(1)` space complexity.
+
