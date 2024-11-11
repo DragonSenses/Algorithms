@@ -342,3 +342,19 @@ The Bottom-Up approach of merge sort systematically and iteratively splits and m
 
 Let's look at the algorithm to implement merge sort in Bottom-Up fashion.
 
+## **Algorithm**
+
+1. **Initial Splitting**:
+   - Start by splitting the list into sublists of size 1. Each adjacent pair of sublists of size 1 is merged in sorted order.
+   - After the first iteration, we get sorted lists of size 2. This process is repeated for sublists of size 2, then 4, 8, and so on, until we reach the size of `n`.
+
+2. **Splitting Using Pointers**:
+   - To split the list into two sublists of a given size, we use two pointers, `mid` and `end`, that reference the start and end of the second linked list, respectively.
+   - The split process finds the middle of the linked lists for the given size.
+
+3. **Merge Sublists**:
+   - Merge the sublists in sorted order, similar to the top-down approach.
+
+4. **Track Progress**:
+   - Keep track of the previous merged list using pointer `tail` and the next sublist to be sorted using pointer `nextSubList`.
+
