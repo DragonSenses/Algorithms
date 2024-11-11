@@ -358,3 +358,9 @@ Let's look at the algorithm to implement merge sort in Bottom-Up fashion.
 4. **Track Progress**:
    - Keep track of the previous merged list using pointer `tail` and the next sublist to be sorted using pointer `nextSubList`.
 
+#### Bottom-Up Merge Sort Illustration
+
+For the linked list = `[10,1,30,2,5]`, the following figure illustrates the merge sort process using a Bottom-Up approach.
+
+![Merge Sort Bottom-Up Illustration](img/148-5.jpg)
+
