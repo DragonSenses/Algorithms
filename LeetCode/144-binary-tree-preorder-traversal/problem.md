@@ -60,7 +60,8 @@
 
 # Solution
 
-- [Iteration Approach](#iterative-approach)
+- [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
 
 # Iterative Approach
 
@@ -197,3 +198,20 @@ function preorderTraversal(root: TreeNode | null): number[] {
   return answer;
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Stack Operations**: We use a stack to store all nodes to be visited. Each of the `n` nodes is added to and popped from the stack once, which takes `O(1)` time.
+  - **Key Point**: Adding and removing each node from the stack is done in constant time.
+
+- **Node Processing**: All other work done at each node is `O(1)`, so the overall time complexity is `O(n)`.
+  - **Key Point**: Each node is processed once, and the operations performed at each node (like adding its value to the answer list) are constant time operations.
+
+### **Space Complexity**: `O(n)`
+
+- **Stack Usage**: We use a stack to store all the nodes to be visited. Similar to the previous approach, the stack takes up space equivalent to the depth of the tree. The max depth of the tree could be `O(n)` in the worst-case scenario when the tree is skewed.
+  - **Key Point**: In the worst case of a skewed tree, the stack could grow to contain all `n` nodes, leading to a linear space complexity.
