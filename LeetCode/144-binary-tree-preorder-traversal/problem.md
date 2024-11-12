@@ -72,4 +72,41 @@ Since stacks follow a last-in-first-out order, we need to push the right child o
 
 ![Depth-First Search Iterative Binary Tree Preorder Traversal](img/144-5.jpg)
 
+## **Algorithm**
+
+1. Initialize an empty array `answer` to store the preorder traversal.
+2. Initialize an empty stack `stack`.
+3. Add the `root` node to the `stack`.
+4. While the `stack` is not empty, do the following:
+   - Pop the top node `currNode` from the `stack`.
+   - If `currNode` is not `null`:
+     - Add `currNode`'s value to the `answer`.
+     - Push `currNode`'s right child onto the `stack`.
+     - Push `currNode`'s left child onto the `stack`.
+5. Repeat step 4 until the `stack` is empty.
+6. Return `answer` after the `stack` is empty.
+
+### Example
+
+Let's go through an example with the input `root = [1, null, 2, 3]`.
+
+1. **Initialization**:
+   - `answer = []`
+   - `stack = [1]`
+
+2. **First iteration**:
+   - Pop `1` from the stack: `stack = []`
+   - Add `1` to `answer`: `answer = [1]`
+   - Push `2` (right child of `1`) onto the stack: `stack = [2]`
+
+3. **Second iteration**:
+   - Pop `2` from the stack: `stack = []`
+   - Add `2` to `answer`: `answer = [1, 2]`
+   - Push `3` (left child of `2`) onto the stack: `stack = [3]`
+
+4. **Third iteration**:
+   - Pop `3` from the stack: `stack = []`
+   - Add `3` to `answer`: `answer = [1, 2, 3]`
+
+The stack is now empty, so we return `answer = [1, 2, 3]`.
 
