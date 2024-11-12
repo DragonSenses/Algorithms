@@ -219,6 +219,10 @@ Let `n` be the number of nodes in the tree.
 
 # Recursive Approach
 
+## **Intuition**
+
+In a preorder traversal, we visit the root node first, then recursively traverse the left subtree, and finally the right subtree. The key idea is to handle the root node and then recursively solve for its left and right subtrees. This method follows a depth-first search (DFS) approach.
+
 ![Depth-First Search Recursive Binary Tree Preorder Traversal where left and right subtrees are subproblems to be recursively solved](img/144-3.jpg)
 ![Depth-First Search Recursive Binary Tree Preorder Traversal steps](img/144-4.jpg)
 
