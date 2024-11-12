@@ -226,3 +226,23 @@ In a preorder traversal, we visit the root node first, then recursively traverse
 ![Depth-First Search Recursive Binary Tree Preorder Traversal where left and right subtrees are subproblems to be recursively solved](img/144-3.jpg)
 ![Depth-First Search Recursive Binary Tree Preorder Traversal steps](img/144-4.jpg)
 
+## **Algorithm**
+
+1. Initialize an empty list `answer` to store the preorder traversal.
+2. Define a recursive helper function `preorder(node)` that:
+   - If `node` is `null`, return.
+   - Add the value of `node` to `answer`.
+   - Recursively call `preorder(node.left)` to traverse the left subtree.
+   - Recursively call `preorder(node.right)` to traverse the right subtree.
+3. Call the helper function `preorder` starting from the `root` node.
+4. Return the `answer` list containing the preorder traversal.
+
+### Pseudocode
+
+```plaintext
+function preorderTraversal(root): answer = []
+
+function preorder(node): if node is null: return answer.append(node.val) preorder(node.left) preorder(node.right)
+
+preorder(root) return answer
+```
