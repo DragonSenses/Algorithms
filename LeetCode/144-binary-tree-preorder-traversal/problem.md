@@ -63,6 +63,7 @@
 - [Iterative Approach](#iterative-approach)
   - **Time Complexity**: `O(n)`
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
 
 # Iterative Approach
 
@@ -326,3 +327,20 @@ function preorderTraversal(root: TreeNode | null): number[] {
   return answer;
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass**: We visit each node once and perform a constant amount of work at each node.
+  - Summary: `O(1)` work per node.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursive Call Stack**: The space is taken up by the recursive call stack.
+  - Key Point: The recursion internally uses a call stack that takes up space equivalent to the depth of the tree.
+  - Summary: Depth of the tree dictates the space complexity.
+- **Worst-Case Scenario**: The max depth of the tree could be `O(n)` when the tree is skewed.
+  - Summary: Worst-case space complexity is linear.
