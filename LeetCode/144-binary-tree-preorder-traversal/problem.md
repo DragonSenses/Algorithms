@@ -62,6 +62,7 @@
 
 - [Iterative Approach](#iterative-approach)
   - **Time Complexity**: `O(n)`
+- [Recursive Approach](#recursive-approach)
 
 # Iterative Approach
 
@@ -215,3 +216,9 @@ Let `n` be the number of nodes in the tree.
 
 - **Stack Usage**: We use a stack to store all the nodes to be visited. Similar to the previous approach, the stack takes up space equivalent to the depth of the tree. The max depth of the tree could be `O(n)` in the worst-case scenario when the tree is skewed.
   - **Key Point**: In the worst case of a skewed tree, the stack could grow to contain all `n` nodes, leading to a linear space complexity.
+
+# Recursive Approach
+
+![Depth-First Search Recursive Binary Tree Preorder Traversal where left and right subtrees are subproblems to be recursively solved](img/144-3.jpg)
+![Depth-First Search Recursive Binary Tree Preorder Traversal steps](img/144-4.jpg)
+
