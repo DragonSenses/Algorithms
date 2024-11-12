@@ -110,3 +110,52 @@ Let's go through an example with the input `root = [1, null, 2, 3]`.
 
 The stack is now empty, so we return `answer = [1, 2, 3]`.
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+class TreeNode {
+  int val;
+  TreeNode left;
+  TreeNode right;
+
+  TreeNode(int val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+public class BinaryTreePreorderTraversal {
+  public List<Integer> preorderTraversal(TreeNode root) {
+    List<Integer> answer = new ArrayList<>();
+    Stack<TreeNode> stack = new Stack<>();
+
+    if (root != null) {
+      stack.push(root);
+    }
+
+    while (!stack.isEmpty()) {
+      TreeNode currNode = stack.pop();
+      if (currNode != null) {
+        answer.add(currNode.val);
+        if (currNode.right != null) {
+          stack.push(currNode.right);
+        }
+        if (currNode.left != null) {
+          stack.push(currNode.left);
+        }
+      }
+    }
+
+    return answer;
+  }
+
+}
+```
+
