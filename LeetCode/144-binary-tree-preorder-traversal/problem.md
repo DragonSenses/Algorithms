@@ -47,9 +47,29 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
+
+<br>
+
+---
+
+# Solution
+
+- [Iteration Approach](#iterative-approach)
+
+# Iterative Approach
+
+## **Intuition**
+
+To perform a preorder traversal of a binary tree iteratively, we can use a stack to mimic the behavior of the call stack in the recursive solution. In preorder traversal, we visit the root node first, then the left subtree, and finally the right subtree. By using a stack, we can ensure that we access nodes in this order.
+
+Since stacks follow a last-in-first-out order, we need to push the right child onto the stack first, and then the left child. This ensures that when we pop nodes from the stack, we process the left child before the right child.
+
+![Depth-First Search Iterative Binary Tree Preorder Traversal](img/144-5.jpg)
+
+
