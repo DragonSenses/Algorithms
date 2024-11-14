@@ -396,3 +396,30 @@ Take the following figure as an example of how we can calculate the preorder tra
        - Move to `curr`'s right child (`curr = curr.right`).
 4. Return `answer`.
 
+### Pseudocode
+
+```plaintext
+function morrisPreorderTraversal(root):
+    answer = []
+    curr = root
+
+    while curr is not null:
+        if curr.left is null:
+            answer.append(curr.val)
+            curr = curr.right
+        else:
+            last = curr.left
+            while last.right is not null and last.right is not curr:
+                last = last.right
+
+            if last.right is null:
+                last.right = curr
+                answer.append(curr.val)
+                curr = curr.left
+            else:
+                last.right = null
+                curr = curr.right
+
+    return answer
+```
+
