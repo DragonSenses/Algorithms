@@ -65,6 +65,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
 - [Morris Traversal Approach](#morris-traversal-approach)
+  - **Time Complexity**: `O(n)`
 
 # Iterative Approach
 
@@ -468,3 +469,29 @@ public class Solution3 {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Traversal**: Each edge in the tree is visited at most twice: once to find the `last` node and once when traversing nodes.
+  - This ensures every node is processed efficiently, resulting in `O(n)` time complexity.
+
+- There are `n - 1` edges in a tree (by definition). Each edge is visited at most two times: first, when we find `last` and second when we traverse the nodes.
+
+- We visited each node at most 2 times, which takes `O(n)` time. Refer to the picture below, the colored edges
+stand for the revisited edges when finding the 'last' nodes.
+
+![](img/144-10.jpg)
+
+- When visisting each node, other than traversing edges we do `O(1)` work, so the time complexity is `O(n)`
+
+### **Space Complexity**: `O(1)`
+
+- **Efficient Space Usage**: Morris Traversal modifies the tree in place and uses only two pointers (`curr` and `last`), thus requiring constant space.
+  - By leveraging the tree's structure and creating temporary threads, the traversal is achieved without additional memory overhead.
+  - The algorithm uses constant space because it does not rely on additional data structures like stacks or queues.
+
+Morris Traversal achieves an efficient traversal with `O(n)` time complexity and `O(1)` space complexity.
