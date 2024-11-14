@@ -376,3 +376,23 @@ Take the following figure as an example of how we can calculate the preorder tra
 
 ![](img/144-9.jpg)
 
+
+## **Algorithm**
+
+1. Initialize an empty list `answer` to store the preorder traversal.
+2. Set `curr` to the root node.
+3. While `curr` is not null:
+   - If `curr` has no left child:
+     - Add `curr`'s value to `answer`.
+     - Move to `curr`'s right child (`curr = curr.right`).
+   - Otherwise:
+     - Find the rightmost node in `curr`'s left subtree (`last`).
+     - If `last`'s right is null:
+       - Set `last`'s right to `curr` (create a temporary thread).
+       - Add `curr`'s value to `answer`.
+       - Move to `curr`'s left child (`curr = curr.left`).
+     - If `last`'s right is `curr`:
+       - Remove the temporary thread (`last.right = null`).
+       - Move to `curr`'s right child (`curr = curr.right`).
+4. Return `answer`.
+
