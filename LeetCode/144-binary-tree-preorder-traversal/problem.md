@@ -351,3 +351,28 @@ Let `n` be the number of nodes in the tree.
 The Morris Traversal is a method for traversing a binary tree using only constant space. Traditionally, tree traversals require O(n) space to maintain a stack or recursion stack. The Morris Traversal modifies the tree in place to avoid using extra space. The idea is to link the rightmost node of a node's left subtree to the node itself, creating a temporary "thread". This allows us to traverse back to a node after finishing its left subtree, enabling a traversal without extra space.
 
 **Interview Note:** This approach is an extension and wouldn't be expected to come up in an interview.
+
+## **Intuition**
+
+Here we briefly introduce the Morris Traversal which only takes constant space.
+
+Recall the previous solutions which have `O(n)` space complexity, let's think about why we need that much space:
+
+Imagine we are in the middle of a traversal, and the current root node `root` has left and right subtrees. As we finish visiting the last node last of the left subtree, we would like to continue visiting the right subtree of `root` , but how?
+
+![](img/144-6.jpg)
+
+This approach takes `O(n)` space because we need to track all the previous root nodes so that we can always return to each root and visit the right child once we have finished visiting its left child.
+
+We can modify the tree in place instead of using extra space. Note that the `last` node has no right child, so we can `let` root be its right child. Therefore, whenever we finished visiting `last`, we can just visit its right child and return to `root`.
+
+![](img/144-7.jpg)
+
+For each unvisited node `curr` , we can find the `last` node if it exists, so once we finish iterating over the left subtree, we can always return to `curr` by visiting `last.right`.
+
+![](img/144-8.jpg)
+
+Take the following figure as an example of how we can calculate the preorder traversal of `root` using the Morris Traversal Approach and only taking constant space.
+
+![](img/144-9.jpg)
+
