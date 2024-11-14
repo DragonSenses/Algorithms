@@ -64,6 +64,7 @@
   - **Time Complexity**: `O(n)`
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
+- [Morris Traversal Approach](#morris-traversal-approach)
 
 # Iterative Approach
 
@@ -344,3 +345,9 @@ Let `n` be the number of nodes in the tree.
   - Summary: Depth of the tree dictates the space complexity.
 - **Worst-Case Scenario**: The max depth of the tree could be `O(n)` when the tree is skewed.
   - Summary: Worst-case space complexity is linear.
+
+# Morris Traversal Approach
+
+The Morris Traversal is a method for traversing a binary tree using only constant space. Traditionally, tree traversals require O(n) space to maintain a stack or recursion stack. The Morris Traversal modifies the tree in place to avoid using extra space. The idea is to link the rightmost node of a node's left subtree to the node itself, creating a temporary "thread". This allows us to traverse back to a node after finishing its left subtree, enabling a traversal without extra space.
+
+**Interview Note:** This approach is an extension and wouldn't be expected to come up in an interview.
