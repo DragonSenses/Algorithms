@@ -423,3 +423,48 @@ function morrisPreorderTraversal(root):
     return answer
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution3 {
+
+  /**
+   * Method to perform a Morris preorder traversal of a binary tree.
+   * 
+   * @param root The root node of the binary tree.
+   * @return A list of integers representing the preorder traversal.
+   */
+  public List<Integer> morrisPreorderTraversal(TreeNode root) {
+    List<Integer> answer = new ArrayList<>();
+    TreeNode curr = root;
+
+    while (curr != null) {
+      if (curr.left == null) {
+        answer.add(curr.val);
+        curr = curr.right;
+      } else {
+        TreeNode last = curr.left;
+        while (last.right != null && last.right != curr) {
+          last = last.right;
+        }
+
+        if (last.right == null) {
+          last.right = curr;
+          answer.add(curr.val);
+          curr = curr.left;
+        } else {
+          last.right = null;
+          curr = curr.right;
+        }
+      }
+    }
+
+    return answer;
+  }
+}
+```
