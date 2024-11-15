@@ -31,12 +31,28 @@
 ---
 
 # Solution
-- [48. Rotate Image](#48-rotate-image)
-- [Solution](#solution)
 - [Transpose and Reflect Approach](#transpose-and-reflect-approach)
-    - [**Advantages**](#advantages)
+  - **Time Complexity**: `O(N^2)`
 
 # Transpose and Reflect Approach
+
+## **Intuition**
+
+### **Cell Movements**
+To rotate an n x n matrix by 90 degrees clockwise, observe how each element's position changes:
+- The element in the top left moves to the top right.
+- The element in the top right moves to the bottom right.
+- The element in the bottom right moves to the bottom left.
+- The element in the bottom left moves to the top left.
+
+The key idea is to handle these movements in groups of four cells, so each cell is rotated to its new position in one pass, modifying the matrix in place.
+
+### **Elegant Solution**
+The most elegant solution for rotating the matrix is to:
+1. **Transpose the Matrix**: Reverse the matrix around the main diagonal.
+2. **Reflect the Matrix**: Reverse it from left to right.
+
+These operations are called **transpose** and **reflect** in linear algebra.
 
 ### **Advantages**
 This approach does twice as many reads and writes compared to the approach of rotating groups of four cells. However, many consider this the better approach because:
