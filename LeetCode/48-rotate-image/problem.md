@@ -25,3 +25,20 @@
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 	<li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+- [48. Rotate Image](#48-rotate-image)
+- [Solution](#solution)
+- [Transpose and Reflect Approach](#transpose-and-reflect-approach)
+    - [**Advantages**](#advantages)
+
+# Transpose and Reflect Approach
+
+### **Advantages**
+This approach does twice as many reads and writes compared to the approach of rotating groups of four cells. However, many consider this the better approach because:
+- The code is simpler.
+- It is built with standard matrix operations that can be found in any matrix library.
