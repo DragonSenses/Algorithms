@@ -204,3 +204,26 @@ We can make an inference based on the observation that the cells move in groups 
 
 We can iterate over each group of four cells and rotate them.
 
+## **Algorithm**
+
+1. **Initialize Variables**:
+   - Determine the length of the matrix `n`.
+
+2. **Outer Loop for Layers**:
+   - Loop through each layer `i` from `0` to `(n + 1) / 2` (inclusive).
+
+3. **Inner Loop for Elements within Layers**:
+   - For each layer `i`, loop through each element `j` from `0` to `n / 2` (inclusive).
+
+4. **Rotate Group of Four Cells**:
+   - Store the value of the bottom-left cell in a temporary variable `temp`.
+   - Move the value from the bottom-right cell to the bottom-left cell.
+   - Move the value from the top-right cell to the bottom-right cell.
+   - Move the value from the top-left cell to the top-right cell.
+   - Assign the value stored in `temp` (original bottom-left) to the top-left cell.
+
+5. **Repeat Steps 3-4 for All Elements in All Layers**:
+   - Continue iterating through all elements and layers to complete the rotation.
+
+6. **End Algorithm**:
+   - The matrix is now rotated 90 degrees clockwise in place.
