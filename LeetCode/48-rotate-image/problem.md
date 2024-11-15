@@ -33,6 +33,8 @@
 # Solution
 - [Transpose and Reflect Approach](#transpose-and-reflect-approach)
   - **Time Complexity**: `O(N^2)`
+- [Rotate Groups of Four Cells (Naive Approach)](#rotate-groups-of-four-cells-naive-approach)
+  - **Time Complexity**: `O(N^2)`
 
 # Transpose and Reflect Approach
 
@@ -193,4 +195,12 @@ Let `n` be the number of cells in the matrix, and `N` be the side length of the 
   - Hence, the space complexity is `O(1)`.
 
 By efficiently transposing the matrix and then reversing each row in place, the algorithm achieves a time complexity of `O(N^2)` and a space complexity of `O(1)`.
+
+# Rotate Groups of Four Cells (Naive Approach)
+
+## **Intuition**
+
+We can make an inference based on the observation that the cells move in groups when we rotate the image.
+
+We can iterate over each group of four cells and rotate them.
 
