@@ -174,3 +174,23 @@ function reverseRow(row: number[]): void {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of cells in the matrix, and `N` be the side length of the matrix (`N x N`).
+
+### **Time Complexity**: `O(N^2)`
+
+- **Double Pass**: We perform two major operations: transposing the matrix and then reversing each row.
+  - **Transpose Operation**: Each element is visited once, leading to `O(N^2)` operations since the matrix is `N x N`.
+  - **Reverse Row Operation**: Each element is visited once during the reversal of rows, leading to another `O(N^2)` operations.
+  - Combining these two, the overall time complexity is `O(2 * N^2)`, which simplifies to `O(N^2)`.
+
+### **Space Complexity**: `O(1)`
+
+- **In-Place Transformation**: The algorithm modifies the matrix in place without using any additional data structures.
+  - Only a few extra variables are used for swapping and looping, which occupy constant space.
+  - Hence, the space complexity is `O(1)`.
+
+By efficiently transposing the matrix and then reversing each row in place, the algorithm achieves a time complexity of `O(N^2)` and a space complexity of `O(1)`.
+
