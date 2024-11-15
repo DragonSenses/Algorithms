@@ -58,3 +58,20 @@ These operations are called **transpose** and **reflect** in linear algebra.
 This approach does twice as many reads and writes compared to the approach of rotating groups of four cells. However, many consider this the better approach because:
 - The code is simpler.
 - It is built with standard matrix operations that can be found in any matrix library.
+
+## **Algorithm**
+
+1. **Transpose the Matrix**:
+   - Convert all rows into columns. For example, the first row becomes the first column, the second row becomes the second column, and so on.
+
+2. **Reverse Each Row**:
+   - Reverse the elements in each row of the transposed matrix to achieve the 90-degree rotation.
+
+## **Detailed Steps**
+
+1. **Transpose the Matrix**:
+   - Loop through the matrix elements where `i` is the row index and `j` is the column index.
+   - Swap the element at `[i][j]` with the element at `[j][i]`.
+
+2. **Reverse Each Row**:
+   - Loop through each row and reverse its elements.
