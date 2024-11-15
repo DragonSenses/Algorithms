@@ -75,3 +75,19 @@ This approach does twice as many reads and writes compared to the approach of ro
 
 2. **Reverse Each Row**:
    - Loop through each row and reverse its elements.
+
+### Pseudocode
+
+```plaintext
+function rotate(matrix):
+    n = matrix.length
+    
+    // Transpose the matrix
+    for i from 0 to n-1:
+        for j from i to n-1:
+            swap(matrix[i][j], matrix[j][i])
+    
+    // Reverse each row
+    for i from 0 to n-1:
+        reverse(matrix[i])
+```
