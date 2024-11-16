@@ -35,6 +35,7 @@
 
 # Solution
 - [Breadth-First Search (BFS) Approach](#breadth-first-search-bfs-approach)
+  - **Time Complexity**: `O(m * n)`
 - [Brute Force (Naive Approach)](#brute-force-naive-approach)
   - **Time Complexity**: `O((m * n)^2)`
 
@@ -269,3 +270,19 @@ function updateMatrix(matrix):
     return distances
 ```
 
+
+## **Complexity Analysis**
+
+Let `m` be the number of rows and `n` be the number of columns in the matrix.
+
+### **Time Complexity**: `O(m * n)`
+
+- **Initialization**: We iterate over each cell once to initialize the queue with all 0s, which takes `O(m * n)`.
+- **BFS Traversal**: Each cell is added to the queue at most once, and we examine each of its four neighbors (up, down, left, right). Thus, each cell and its neighbors are processed in constant time, resulting in `O(m * n)`.
+
+### **Space Complexity**: `O(m * n)`
+
+- **Queue Space**: The maximum space used by the queue occurs when all the 0s and some 1s are in the queue. This is `O(m * n)`, the space required to maintain the queue.
+- **Distances Matrix**: The space used by the output matrix `distances` is `O(m * n)`. Although this is required by the problem, it contributes to space usage.
+
+By starting BFS from all 0s and updating distances for all 1s, the algorithm achieves `O(m * n)` time complexity and `O(m * n)` space complexity.
