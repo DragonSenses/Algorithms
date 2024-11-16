@@ -33,6 +33,9 @@
 
 ---
 
+# Solution
+- [Brute Force (Naive Approach)](#brute-force-naive-approach)
+
 ## Problem Overview
 
 **Objective**:
@@ -55,4 +58,18 @@ Given an m x n binary matrix (with 0s and 1s), return the distance of the neares
 - The matrix dimensions (m and n) can be as large as 10,000.
 - Each matrix cell is either 0 or 1.
 - There is at least one 0 in the matrix.
+
+# Brute Force (Naive Approach)
+
+For the most naive approach: for each cell, we can find the distance of the closest zero.
+
+Note: This brute force approach is simple but inefficient, with a time complexity of `O(m^2 * n^2)`, which is impractical for large matrices. There are more efficient approaches for this problem, but this lays the groundwork for understanding the basic idea.
+
+## **Intuition**
+
+**Approach**:
+1. For each cell in the matrix, check all other cells to find the nearest 0.
+2. Use nested loops to iterate over all pairs of cells and calculate their distances.
+
+## **Algorithm**
 
