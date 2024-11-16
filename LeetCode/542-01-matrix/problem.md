@@ -28,3 +28,31 @@
 	<li><code>mat[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 	<li>There is at least one <code>0</code> in <code>mat</code>.</li>
 </ul>
+
+<br>
+
+---
+
+## Problem Overview
+
+**Objective**:
+Given an m x n binary matrix (with 0s and 1s), return the distance of the nearest 0 for each cell.
+
+**Key Points**:
+- Each cell in the matrix contains either a 0 or a 1.
+- The distance between two adjacent cells is 1.
+- For each cell in the matrix, you need to determine the distance to the nearest cell containing a 0.
+
+**Examples**:
+1. Input: `[[0,0,0],[0,1,0],[0,0,0]]`
+   - Output: `[[0,0,0],[0,1,0],[0,0,0]]`
+   - Explanation: Each 1 is adjacent to a 0, so the distance is 1.
+2. Input: `[[0,0,0],[0,1,0],[1,1,1]]`
+   - Output: `[[0,0,0],[0,1,0],[1,2,1]]`
+   - Explanation: The distance for the bottom-left and bottom-right 1s are 1 and 2, respectively.
+
+**Constraints**:
+- The matrix dimensions (m and n) can be as large as 10,000.
+- Each matrix cell is either 0 or 1.
+- There is at least one 0 in the matrix.
+
