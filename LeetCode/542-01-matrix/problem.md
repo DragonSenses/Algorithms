@@ -82,4 +82,25 @@ Note: This brute force approach is simple but inefficient, with a time complexit
      - If the cell (x, y) is 0, calculate the distance to (i, j) and update if it’s smaller.
 3. Return the new matrix with the calculated distances.
 
+### **Pseudocode**:
+
+```plaintext
+function updateMatrix(matrix):
+    m = matrix.length
+    n = matrix[0].length
+    distances = new matrix of size m x n with all values set to infinity
+    
+    for i from 0 to m-1:
+        for j from 0 to n-1:
+            if matrix[i][j] == 0:
+                distances[i][j] = 0
+            else:
+                for x from 0 to m-1:
+                    for y from 0 to n-1:
+                        if matrix[x][y] == 0:
+                            distance = abs(x - i) + abs(y - j)
+                            distances[i][j] = min(distances[i][j], distance)
+    
+    return distances
+```
 
