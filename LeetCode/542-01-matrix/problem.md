@@ -34,6 +34,7 @@
 ---
 
 # Solution
+- [Breadth-First Search (BFS) Approach](#breadth-first-search-bfs-approach)
 - [Brute Force (Naive Approach)](#brute-force-naive-approach)
   - **Time Complexity**: `O((m * n)^2)`
 
@@ -215,3 +216,14 @@ Let `m` be the number of rows and `n` be the number of columns in the matrix.
 - **No Additional Data Structures**: Apart from the output matrix, no extra space is utilized, leading to a constant space complexity of `O(1)`.
 
 By understanding these complexities, we see why the brute force approach can be impractical for large matrices due to its quadratic time complexity.
+
+# Breadth-First Search (BFS) Approach
+
+## **Intuition**
+
+**Optimized Brute Force**:
+Searching the entire matrix is inefficient. Instead, we use Breadth-First Search (BFS) to find the nearest 0 for each 1. As soon as we encounter a 0 during BFS, we know it's the closest, so we can stop searching for that particular 1 and move to the next.
+
+**Refinement**:
+Starting BFS from each 1 is inefficient as it only updates one cell per BFS, potentially resulting in high complexity. To optimize, start BFS from all 0s, updating the distances of all 1s along the way.
+
