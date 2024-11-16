@@ -35,6 +35,7 @@
 
 # Solution
 - [Brute Force (Naive Approach)](#brute-force-naive-approach)
+  - **Time Complexity**: `O((m * n)^2)`
 
 ## Problem Overview
 
@@ -153,3 +154,20 @@ public class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
+Let `m` be the number of rows and `n` be the number of columns in the matrix.
+
+### **Time Complexity**: `O((m * n)^2)`
+
+- **Double Nested Loops**: The brute force approach involves double nested loops to iterate over each cell in the matrix, leading to `O(m * n)` iterations.
+- **Distance Calculation**: For each cell, we check the distance to every other cell, resulting in another `O(m * n)` operations.
+- **Overall Complexity**: Combining these, the total time complexity is `O((m * n) * (m * n))`, which simplifies to `O((m * n)^2)`.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space Usage**: The algorithm uses a constant amount of space for variables like `temp` and loop counters.
+- **Output Matrix**: The space used to store the output matrix `distances` does not count towards the space complexity as it is required by the problem statement.
+- **No Additional Data Structures**: Apart from the output matrix, no extra space is utilized, leading to a constant space complexity of `O(1)`.
+
+By understanding these complexities, we see why the brute force approach can be impractical for large matrices due to its quadratic time complexity.
