@@ -114,7 +114,8 @@ import java.util.Arrays;
 
 public class Solution {
   /**
-   * Method to update the matrix with the distance of the nearest 0 for each cell.
+   * Uses the brute force (naive approach) to update the matrix with the 
+   * distance of the nearest 0 for each cell.
    *
    * @param mat The input binary matrix.
    * @return The matrix with updated distances.
