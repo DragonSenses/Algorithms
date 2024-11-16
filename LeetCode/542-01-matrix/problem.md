@@ -241,3 +241,31 @@ Starting BFS from each 1 is inefficient as it only updates one cell per BFS, pot
    - Pop a cell from the queue and examine its neighbors.
    - If a calculated distance for a neighbor (i, j) is smaller, add (i, j) to the queue and update `dist[i][j]`.
 
+### **Pseudocode**
+
+```plaintext
+function updateMatrix(matrix):
+    m = matrix.length
+    n = matrix[0].length
+    distances = new matrix of size m x n with all values set to infinity
+    queue = empty queue
+
+    for i from 0 to m-1:
+        for j from 0 to n-1:
+            if matrix[i][j] == 0:
+                distances[i][j] = 0
+                queue.push((i, j))
+
+    directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    while queue is not empty:
+        (i, j) = queue.pop()
+        for (di, dj) in directions:
+            ni, nj = i + di, j + dj
+            if ni >= 0 and ni < m and nj >= 0 and nj < n:
+                if distances[ni][nj] > distances[i][j] + 1:
+                    distances[ni][nj] = distances[i][j] + 1
+                    queue.push((ni, nj))
+
+    return distances
+```
+
