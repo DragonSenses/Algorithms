@@ -227,3 +227,17 @@ Searching the entire matrix is inefficient. Instead, we use Breadth-First Search
 **Refinement**:
 Starting BFS from each 1 is inefficient as it only updates one cell per BFS, potentially resulting in high complexity. To optimize, start BFS from all 0s, updating the distances of all 1s along the way.
 
+## **Algorithm**
+
+1. **Initialize Queue**:
+   - Use a queue `q` to keep track of cells to examine next.
+   - Start by adding all cells containing 0 to `q`.
+
+2. **Initial Distances**:
+   - Set the distance for each 0 cell to 0.
+   - Set the distance for each 1 cell to infinity (INT_MAX), to be updated during BFS.
+
+3. **BFS Process**:
+   - Pop a cell from the queue and examine its neighbors.
+   - If a calculated distance for a neighbor (i, j) is smaller, add (i, j) to the queue and update `dist[i][j]`.
+
