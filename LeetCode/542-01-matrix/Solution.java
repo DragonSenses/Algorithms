@@ -1,10 +1,12 @@
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Solution {
+
   /**
-   * Uses the brute force (naive approach) to update the matrix with the 
-   * distance of the nearest 0 for each cell.
-   *
+   * Updates the matrix with the distance of the nearest 0 for each cell using
+   * BFS.
+   * 
    * @param mat The input binary matrix.
    * @return The matrix with updated distances.
    */
@@ -14,25 +16,37 @@ public class Solution {
 
     // Initialize the distances matrix with a large value
     int[][] distances = new int[m][n];
-    for (int[] row : distances) {
-      Arrays.fill(row, Integer.MAX_VALUE);
-    }
+    Queue<int[]> queue = new LinkedList<>();
 
-    // Iterate through each cell in the matrix
+    // Populate the queue with all 0s and set their distances to 0
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
-        // If the cell is 0, set distance to 0
         if (mat[i][j] == 0) {
           distances[i][j] = 0;
+          queue.offer(new int[] { i, j }); // Add 0 cell to the queue
         } else {
-          // Check all cells in the matrix to find the nearest 0
-          for (int x = 0; x < m; x++) {
-            for (int y = 0; y < n; y++) {
-              if (mat[x][y] == 0) {
-                int distance = Math.abs(x - i) + Math.abs(y - j);
-                distances[i][j] = Math.min(distances[i][j], distance);
-              }
-            }
+          distances[i][j] = Integer.MAX_VALUE; // Set distance for 1 cell to infinity
+        }
+      }
+    }
+
+    // Define directions for moving up, down, left, right
+    int[][] directions = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
+
+    // Process cells in the queue
+    while (!queue.isEmpty()) {
+      int[] cell = queue.poll();
+      int i = cell[0], j = cell[1];
+
+      // Check all 4 possible directions
+      for (int[] dir : directions) {
+        int ni = i + dir[0], nj = j + dir[1];
+
+        // If the new cell is within bounds and can be updated
+        if (ni >= 0 && ni < m && nj >= 0 && nj < n) {
+          if (distances[ni][nj] > distances[i][j] + 1) {
+            distances[ni][nj] = distances[i][j] + 1; // Update distance
+            queue.offer(new int[] { ni, nj }); // Add the cell to the queue
           }
         }
       }
