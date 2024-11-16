@@ -73,3 +73,13 @@ Note: This brute force approach is simple but inefficient, with a time complexit
 
 ## **Algorithm**
 
+**Steps**:
+1. Initialize a new matrix with the same dimensions to store distances.
+2. For each cell (i, j) in the matrix:
+   - If the cell is 0, the distance is 0.
+   - If the cell is 1, initialize its distance to infinity.
+   - For each other cell (x, y) in the matrix:
+     - If the cell (x, y) is 0, calculate the distance to (i, j) and update if it’s smaller.
+3. Return the new matrix with the calculated distances.
+
+
