@@ -120,3 +120,19 @@
 #### **Call the Recursive Function**:
 - Begin the DFS traversal by calling `longestPath(root)`.
 
+### **Pseudocode**
+
+```plaintext
+initialize diameter as 0
+
+function longestPath(TreeNode node):
+    if node is None:
+        return 0
+    leftPath = longestPath(node.left)
+    rightPath = longestPath(node.right)
+    diameter = max(diameter, leftPath + rightPath)
+    return max(leftPath, rightPath) + 1
+
+longestPath(root)
+```
+
