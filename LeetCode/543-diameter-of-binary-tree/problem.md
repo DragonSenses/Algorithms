@@ -27,3 +27,27 @@
 	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.</li>
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+<br>
+
+---
+
+### **Understanding the Longest Path in a Tree**
+
+#### **Leaf Nodes Definition**
+- A leaf node is defined as any node with a degree of 1, including the root node if it has a degree of 1 or less.
+
+#### **Key Observation**
+- The longest path in a tree must be between two leaf nodes. 
+
+**Proof by Contradiction**:
+1. Assume the longest path is not between two leaf nodes.
+2. We can extend this path by adding the child node of one of the end nodes (since they aren't both leaves, at least one must have a child).
+3. This extension contradicts the assumption that our path is the longest.
+4. Therefore, the longest path must be between two leaf nodes.
+
+#### **Longest Path Structure**
+- In a tree, each node is connected to its parent and up to two children.
+- The longest path consists of a node, its longest left branch, and its longest right branch.
+- To find the node where the sum of its longest left and right branches is maximized, we apply Depth-First Search (DFS).
+
