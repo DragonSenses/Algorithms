@@ -75,3 +75,30 @@
 
 ![Two cases of the longest path for a binary tree during Depth-First Search](img/543-2.jpg)
 
+## **Algorithm**
+
+**Algorithm to Find the Longest Path Using DFS:**
+
+#### **Initialize Variables**
+- **Diameter**: Initialize an integer variable `diameter` to keep track of the longest path found during the DFS traversal.
+
+#### **Recursive Function `longestPath`**
+- **Function Definition**: Implement a recursive function `longestPath` that takes a `TreeNode` as input and explores the entire tree rooted at the given node.
+
+**Steps in `longestPath` Function**:
+1. **Base Case**:
+   - If the node is `None`, it means we have reached the end of the tree. Return `0`.
+
+2. **Recursive Exploration**:
+   - Recursively explore the left and right children of the node by calling `longestPath` on them.
+   - Store the results in `leftPath` and `rightPath`.
+
+3. **Update Diameter**:
+   - If the sum of `leftPath` and `rightPath` is greater than the current longest diameter found, update the diameter.
+
+4. **Return Value**:
+   - Return the longer one of `leftPath` and `rightPath`. Add `1` to account for the edge connecting the node with its parent.
+
+#### **Main Function**
+- Call the `longestPath` function with the root node to start the DFS traversal and calculate the longest path.
+
