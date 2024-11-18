@@ -32,6 +32,13 @@
 
 ---
 
+# Solution
+- [Depth-First Search (DFS) Approach](#depth-first-search-approach)
+
+# Depth-First Search Approach
+
+## **Intuition**
+
 ### **Understanding the Longest Path in a Tree**
 
 #### **Leaf Nodes Definition**
@@ -50,4 +57,21 @@
 - In a tree, each node is connected to its parent and up to two children.
 - The longest path consists of a node, its longest left branch, and its longest right branch.
 - To find the node where the sum of its longest left and right branches is maximized, we apply Depth-First Search (DFS).
+
+#### **Depth-First Search (DFS) Approach**
+- DFS is a common graph traversal algorithm. We use DFS to count each node's branch lengths, starting from the leaves and working upwards.
+- If unfamiliar with DFS, refer to resources like Explore Cards to learn preorder, inorder, and postorder traversal.
+
+### **Applying DFS to Find the Longest Path**
+
+1. **Recursive Function `longestPath`**:
+   - Input: A TreeNode
+   - Output: The longest path from this node to a leaf node.
+   - Approach: Recursively visit children nodes, retrieve the longest paths, and return the longer one plus one.
+
+2. **Handling Special Cases in DFS**:
+   - The longest path might include both left and right branches of the current node.
+   - The longest path might include only one of the current node's left or right branches.
+
+![Two cases of the longest path for a binary tree during Depth-First Search](img/543-2.jpg)
 
