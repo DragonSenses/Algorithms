@@ -24,8 +24,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 <br>
@@ -101,4 +101,22 @@
 
 #### **Main Function**
 - Call the `longestPath` function with the root node to start the DFS traversal and calculate the longest path.
+
+### **Detailed Steps**
+
+#### **Initialization**:
+- `diameter = 0`: Keep track of the maximum diameter found during the DFS.
+
+#### **Recursive Function**:
+
+- **Base Case**: If the node is `None`, return `0`.
+
+- **Recursive Calls**: Calculate the longest path of the left and right children.
+
+- **Update Diameter**: Update the diameter if the current path is longer.
+
+- **Return Statement**: Return the longer path plus `1`.
+
+#### **Call the Recursive Function**:
+- Begin the DFS traversal by calling `longestPath(root)`.
 
