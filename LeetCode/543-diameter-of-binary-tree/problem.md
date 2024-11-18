@@ -34,6 +34,7 @@
 
 # Solution
 - [Depth-First Search (DFS) Approach](#depth-first-search-approach)
+  - **Time Complexity**: `O(n)`
 
 # Depth-First Search Approach
 
@@ -147,3 +148,24 @@ function longestPath(TreeNode node):
     update longest path if leftPath + rightPath is greater
     return max(leftPath, rightPath) + 1
 ```
+
+
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the binary tree `T`.
+
+### **Time Complexity**: `O(n)`
+
+- **DFS Traversal**: The algorithm performs a Depth-First Search (DFS) on the tree. In a DFS, each node is visited exactly once.
+- **Linear Traversal**: Since each node is visited once, the time complexity is proportional to the number of nodes, resulting in `O(n)` time complexity.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursion Stack**: The space complexity is determined by the depth of the recursion stack. In the worst case, the depth of the recursion stack can be equal to the height of the tree.
+  - **Balanced Tree**: For a balanced tree, the height is `O(log n)`.
+  - **Skewed Tree**: For a skewed tree (e.g., a tree that resembles a linked list), the height is `O(n)`.
+- **Auxiliary Space**: Apart from the recursion stack, the algorithm uses a fixed amount of additional space, resulting in `O(1)` additional space.
+- **Overall Space Complexity**: Combining the space used by the recursion stack, the overall space complexity is `O(n)` in the worst case.
+
+By traversing each node exactly once and considering the worst-case scenario for the recursion stack, the algorithm achieves `O(n)` time complexity and `O(n)` space complexity.
