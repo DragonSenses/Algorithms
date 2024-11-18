@@ -136,3 +136,14 @@ function longestPath(TreeNode node):
 longestPath(root)
 ```
 
+#### **Example Code**
+
+```plaintext
+function longestPath(TreeNode node):
+    if node is null:
+        return 0
+    leftPath = longestPath(node.left)
+    rightPath = longestPath(node.right)
+    update longest path if leftPath + rightPath is greater
+    return max(leftPath, rightPath) + 1
+```
