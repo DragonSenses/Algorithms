@@ -54,7 +54,6 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?
 
-
 <br>
 
 ---
@@ -62,9 +61,10 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
 
 # Recursive Approach
 
 ## **Intuition**
 
-In a postorder traversal, we visit the root node first, then recursively traverse the left subtree, and finally the right subtree. The key idea is to handle the root node and then recursively solve for its left and right subtrees. This method follows a depth-first search (DFS) approach.
+In a postorder traversal, we first recursively traverse the left subtree, then the right subtree, and finally visit the root node. The key idea is to process the root node **after** we have solved for its left and right subtrees. This method follows a depth-first search (DFS) approach.
