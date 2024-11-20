@@ -87,3 +87,19 @@ In a postorder traversal, we first recursively traverse the left subtree, then t
 4. **Return Result**:
    - Return the `answer` list containing the postorder traversal.
 
+### **Pseudocode**
+
+```plaintext
+function postorderTraversal(root):
+    answer = []
+    
+    function postorder(node):
+        if node is None:
+            return
+        postorder(node.left)
+        postorder(node.right)
+        answer.append(node.val)
+
+    postorder(root)
+    return answer
+```
