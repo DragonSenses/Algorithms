@@ -103,3 +103,30 @@ function postorderTraversal(root):
     postorder(root)
     return answer
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+
+  public List<Integer> postorderTraversal(TreeNode root) {
+    List<Integer> answer = new ArrayList<>();
+    postorder(root, answer);
+    return answer;
+  }
+
+  private void postorder(TreeNode node, List<Integer> answer) {
+    if (node == null) {
+      return;
+    }
+    postorder(node.left, answer);
+    postorder(node.right, answer);
+    answer.add(node.val);
+  }
+}
+```
