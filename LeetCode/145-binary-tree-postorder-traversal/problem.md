@@ -62,6 +62,8 @@
 
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
 
 # Recursive Approach
 
@@ -180,3 +182,13 @@ Let `n` be the number of nodes in the tree.
 - **Overall Space Complexity**: Combining the space used by the recursion stack and the result storage, the overall space complexity is `O(n)`.
 
 By visiting each node once and accounting for the maximum possible depth of the recursion stack, the algorithm achieves `O(n)` time and `O(n)` space complexity.
+
+# Iterative Approach
+
+## **Intuition**
+
+To perform a postorder traversal of a binary tree iteratively, we use a stack to simulate the behavior of the call stack in a recursive solution. In postorder traversal, we first traverse the left subtree, then the right subtree, and finally visit the root node. By using a stack, we can ensure that we access nodes in this correct order.
+
+Given that stacks follow a last-in-first-out order, we should push the left child onto the stack first, and then the right child. This ensures that when we pop nodes from the stack, we process the right child before the left child. However, because we want to visit the root last, we need a way to keep track of nodes we have already visited.
+
+One effective method is to use a stack and a second data structure (like a deque) to store the postorder traversal. After visiting a node, we push it to the front of the deque. This effectively reverses the order, ensuring that nodes are processed in postorder: left, right, root.
