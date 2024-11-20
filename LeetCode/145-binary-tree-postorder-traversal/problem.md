@@ -68,3 +68,22 @@
 ## **Intuition**
 
 In a postorder traversal, we first recursively traverse the left subtree, then the right subtree, and finally visit the root node. The key idea is to process the root node **after** we have solved for its left and right subtrees. This method follows a depth-first search (DFS) approach.
+
+## **Algorithm**
+
+1. **Initialize List**:
+   - Initialize an empty list `answer` to store the postorder traversal.
+
+2. **Define Recursive Helper Function**:
+   - Define a recursive helper function `postorder(node)`:
+     - If `node` is `null`, return.
+     - Recursively call `postorder(node.left)` to traverse the left subtree.
+     - Recursively call `postorder(node.right)` to traverse the right subtree.
+     - Add the value of `node` to `answer`.
+
+3. **Start Traversal**:
+   - Call the helper function `postorder` starting from the `root` node.
+
+4. **Return Result**:
+   - Return the `answer` list containing the postorder traversal.
+
