@@ -162,3 +162,21 @@ function postorderTraversal(root: TreeNode | null): number[] {
 };
 ```
 
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Traversal of Nodes**: In the postorder traversal, each node in the tree is visited exactly once. During this traversal, we perform a constant amount of work per node (visiting the node, processing its children, and adding it to the result list).
+- **Linear Time**: Therefore, the time complexity is directly proportional to the number of nodes, resulting in `O(n)` time complexity.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursion Stack**: The space complexity is primarily determined by the depth of the recursion stack. In the worst case (for a skewed tree), the depth of the recursion stack can be equal to the height of the tree.
+  - **Balanced Tree**: For a balanced binary tree, the height is `O(log n)`, and thus the recursion stack would also be `O(log n)`.
+  - **Skewed Tree**: For a skewed binary tree, the height can be `O(n)`, leading to a recursion stack of `O(n)`.
+- **Result Storage**: Additionally, we use a list to store the postorder traversal result, which contains all `n` nodes.
+- **Overall Space Complexity**: Combining the space used by the recursion stack and the result storage, the overall space complexity is `O(n)`.
+
+By visiting each node once and accounting for the maximum possible depth of the recursion stack, the algorithm achieves `O(n)` time and `O(n)` space complexity.
