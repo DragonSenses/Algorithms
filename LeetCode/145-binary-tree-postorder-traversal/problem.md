@@ -215,3 +215,24 @@ One effective method is to use a stack and a second data structure (like a deque
 5. **Return Result**:
    - Return the `answer` list containing the postorder traversal.
 
+### **Pseudocode**
+
+```plaintext
+function postorderTraversal(root):
+    answer = deque()
+    stack = []
+
+    if root is not null:
+        stack.push(root)
+
+    while stack is not empty:
+        currNode = stack.pop()
+        answer.appendleft(currNode.val)
+        if currNode.left is not null:
+            stack.push(currNode.left)
+        if currNode.right is not null:
+            stack.push(currNode.right)
+
+    return list(answer)
+```
+
