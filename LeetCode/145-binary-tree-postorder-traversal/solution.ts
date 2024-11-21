@@ -9,37 +9,32 @@ class TreeNode {
   }
 }
 
-/**
- * Performs a recursive postorder traversal of a binary tree.
- *
- * @param root - The root node of the binary tree.
- * @returns An array of numbers representing the postorder traversal.
- */
 function postorderTraversal(root: TreeNode | null): number[] {
   const answer: number[] = [];
-
-  /**
-   * Helper function to perform the postorder traversal recursively.
-   *
-   * @param node - The current node being visited.
-   */
-  function postorder(node: TreeNode | null): void {
-    // Base case: If the node is null, return
-    if (node === null) {
-      return;
-    }
-
-    // Recursively traverse the left subtree
-    postorder(node.left);
-
-    // Recursively traverse the right subtree
-    postorder(node.right);
-
-    // Add the current node's value to the result list
-    answer.push(node.val);
+  if (!root) {
+    return answer;
   }
 
-  // Start the postorder traversal from the root
-  postorder(root);
+  const stack: TreeNode[] = [];
+  const output: TreeNode[] = [];
+
+  stack.push(root);
+
+  while (stack.length) {
+    const currNode = stack.pop()!;
+    output.push(currNode);
+
+    if (currNode.left) {
+      stack.push(currNode.left);
+    }
+    if (currNode.right) {
+      stack.push(currNode.right);
+    }
+  }
+
+  while (output.length) {
+    answer.push(output.pop()!.val);
+  }
+
   return answer;
 }
