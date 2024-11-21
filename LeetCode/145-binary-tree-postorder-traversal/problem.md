@@ -380,3 +380,20 @@ function postorderTraversal(root: TreeNode | null): number[] {
   return answer;
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Traversal of Nodes**: Each node in the binary tree is visited exactly once during the traversal. This is because each node is pushed and popped from the stack once. As a result, the total number of operations is proportional to the number of nodes in the tree.
+- **Linear Time**: Therefore, the time complexity is `O(n)`, where `n` is the number of nodes in the tree.
+
+### **Space Complexity**: `O(n)`
+
+- **Stack Usage**: The space complexity is determined by the space required for the stack. In the worst case, the stack will contain all the nodes at once. This happens if the tree is skewed (i.e., all nodes are either on the left or right side).
+- **Output List**: Additionally, the space required to store the output list is `O(n)`, since we store the value of each node in the traversal result.
+- **Overall Space Complexity**: Combining these two factors, the overall space complexity is `O(n)`.
+
+By visiting each node once and accounting for the space required by the stack and the output list, the algorithm achieves `O(n)` time and `O(n)` space complexity.
