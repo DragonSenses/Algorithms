@@ -47,8 +47,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of the nodes in the tree is in the range <code>[0, 100]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of the nodes in the tree is in the range <code>[0, 100]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -192,3 +192,26 @@ To perform a postorder traversal of a binary tree iteratively, we use a stack to
 Given that stacks follow a last-in-first-out order, we should push the left child onto the stack first, and then the right child. This ensures that when we pop nodes from the stack, we process the right child before the left child. However, because we want to visit the root last, we need a way to keep track of nodes we have already visited.
 
 One effective method is to use a stack and a second data structure (like a deque) to store the postorder traversal. After visiting a node, we push it to the front of the deque. This effectively reverses the order, ensuring that nodes are processed in postorder: left, right, root.
+
+## **Algorithm**
+
+1. **Initialize Deque and Stack**:
+   - Initialize an empty deque `answer` to store the postorder traversal.
+   - Initialize an empty stack `stack`.
+
+2. **Add Root to Stack**:
+   - Add the `root` node to the `stack`.
+
+3. **Iterate While Stack is Not Empty**:
+   - While the `stack` is not empty, do the following:
+     - Pop the top node `currNode` from the `stack`.
+     - Add the value of `currNode` to the front of the `answer` deque.
+     - Push `currNode`'s left child onto the `stack`.
+     - Push `currNode`'s right child onto the `stack`.
+
+4. **Convert Deque to List**:
+   - Convert `answer` deque to a list before returning.
+
+5. **Return Result**:
+   - Return the `answer` list containing the postorder traversal.
+
