@@ -1,42 +1,49 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
-/**
- * Solution class to perform postorder traversal on a binary tree.
- */
 public class Solution {
 
-  /**
-   * Performs a recursive postorder traversal of a binary tree.
-   *
-   * @param root The root node of the binary tree.
-   * @return A list of integers representing the postorder traversal.
-   */
   public List<Integer> postorderTraversal(TreeNode root) {
     List<Integer> answer = new ArrayList<>();
-    postorder(root, answer);
+    if (root == null) {
+      return answer;
+    }
+
+    Deque<TreeNode> stack = new ArrayDeque<>();
+    Deque<TreeNode> output = new ArrayDeque<>();
+
+    stack.push(root);
+    while (!stack.isEmpty()) {
+      TreeNode currNode = stack.pop();
+      output.push(currNode);
+
+      if (currNode.left != null) {
+        stack.push(currNode.left);
+      }
+      if (currNode.right != null) {
+        stack.push(currNode.right);
+      }
+    }
+
+    while (!output.isEmpty()) {
+      answer.add(output.pop().val);
+    }
+
     return answer;
   }
 
   /**
-   * Helper method to recursively perform postorder traversal.
-   *
-   * @param node The current node being processed.
-   * @param answer The list to store the traversal result.
+   * Definition for a binary tree node.
    */
-  private void postorder(TreeNode node, List<Integer> answer) {
-    // Base case: If the node is null, return
-    if (node == null) {
-      return;
+  public static class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+      val = x;
     }
-
-    // Recursively traverse the left subtree
-    postorder(node.left, answer);
-
-    // Recursively traverse the right subtree
-    postorder(node.right, answer);
-
-    // Add the current node's value to the result list
-    answer.add(node.val);
   }
 }
