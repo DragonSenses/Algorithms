@@ -236,3 +236,47 @@ function postorderTraversal(root):
     return list(answer)
 ```
 
+### Example
+
+Let's go through an example with the input `root = [1, null, 2, 3]`.
+
+The tree structure will be:
+
+```plaintext
+1
+  \
+    2
+  /
+3
+```
+
+1. **Initialization**:
+   - Initialize `answer` as an empty deque.
+   - Initialize `stack` as an empty stack.
+   - Add the `root` node to `stack`: `[1]`.
+
+2. **First Iteration**:
+   - Pop `1` from `stack`: `stack` is now `[]`.
+   - Add `1` to the front of `answer`: `answer` becomes `[1]`.
+   - Push the left child of `1` (which is `null`) onto `stack`: `stack` remains `[]`.
+   - Push the right child of `1` (`2`) onto `stack`: `stack` becomes `[2]`.
+
+3. **Second Iteration**:
+   - Pop `2` from `stack`: `stack` is now `[]`.
+   - Add `2` to the front of `answer`: `answer` becomes `[2, 1]`.
+   - Push the left child of `2` (`3`) onto `stack`: `stack` becomes `[3]`.
+   - Push the right child of `2` (which is `null`) onto `stack`: `stack` remains `[3]`.
+
+4. **Third Iteration**:
+   - Pop `3` from `stack`: `stack` is now `[]`.
+   - Add `3` to the front of `answer`: `answer` becomes `[3, 2, 1]`.
+   - Push the left child of `3` (which is `null`) onto `stack`: `stack` remains `[]`.
+   - Push the right child of `3` (which is `null`) onto `stack`: `stack` remains `[]`.
+
+5. **Final Result**:
+   - Convert `answer` to a list: `answer` becomes `[3, 2, 1]`.
+
+### Final Output
+
+The postorder traversal of the tree `[1, null, 2, 3]` is `[3, 2, 1]`.
+
