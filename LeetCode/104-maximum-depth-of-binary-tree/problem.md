@@ -233,3 +233,18 @@ By visiting each node once and accounting for the space required by the recursiv
 
 To convert the recursive solution into an iterative one, we can use a stack data structure. The stack mimics the function call stack used in recursion, following a First-In-Last-Out (FILO) pattern. By maintaining a stack of nodes to visit next, we can achieve a similar traversal order as the recursive approach.
 
+## **Algorithm**
+
+1. **Initialization**:
+   - Create an empty stack.
+   - Push the root node and its corresponding depth (1) onto the stack.
+
+2. **Iteration**:
+   - While the stack is not empty:
+     - Pop the top element from the stack. This gives you the current node and its depth.
+     - Update the maximum depth if the current depth is greater.
+     - Push the left and right children of the current node onto the stack, with their corresponding depths incremented by 1.
+
+3. **Termination**:
+   - Once the stack is empty, the maximum depth recorded is the maximum depth of the binary tree.
+
