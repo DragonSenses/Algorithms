@@ -44,3 +44,11 @@ We can traverse the tree using either Depth-First Search (DFS) or Breadth-First 
 The intuition behind the recursive approach is as follows:
 - At each node, compute the depth of its left subtree and its right subtree.
 - The maximum depth at the current node is the greater of the two depths plus one (to account for the current node).
+
+## **Algorithm**
+
+1. **Base Case**: If the current node is null, return 0.
+2. **Recursive Case**: 
+   - Recursively calculate the maximum depth of the left subtree.
+   - Recursively calculate the maximum depth of the right subtree.
+   - The depth of the current node is the greater of the depths of its left and right subtrees plus one.
