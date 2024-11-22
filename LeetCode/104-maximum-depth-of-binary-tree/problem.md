@@ -21,6 +21,26 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+
+- [Recursive Approach](#recursive-approach)
+
+# Recursive Approach
+
+## **Intuition**
+
+By definition, the maximum depth of a binary tree is the maximum number of steps to reach a leaf node from the root node. The idea is to traverse the tree and keep track of the maximum depth encountered.
+
+We can traverse the tree using either Depth-First Search (DFS) or Breadth-First Search (BFS) strategies. Here, we'll use a DFS approach implemented with recursion.
+
+The intuition behind the recursive approach is as follows:
+- At each node, compute the depth of its left subtree and its right subtree.
+- The maximum depth at the current node is the greater of the two depths plus one (to account for the current node).
