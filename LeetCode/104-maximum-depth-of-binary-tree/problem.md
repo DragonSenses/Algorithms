@@ -335,3 +335,23 @@ class Pair<K, V> {
   }
 }
 ```
+
+### TypeScript
+
+
+
+#### Class Definition:
+- The `TreeNode` class defines the structure of a binary tree node with properties `val`, `left`, and `right`.
+- The constructor initializes these properties with default values if they are not provided.
+
+#### maxDepth Function:
+- Checks if the root node is `null`. If so, returns `0` as the depth (base case).
+- Uses a stack to perform an iterative traversal of the tree. Each stack element is an object containing a node and its depth.
+- Initializes the stack with the root node and a depth of `1`.
+- Iterates while the stack is not empty, popping elements and updating the maximum depth encountered.
+- Pushes the left and right children of the current node onto the stack with their corresponding depths incremented by `1`.
+
+#### Type Checking and Handling Null Nodes:
+- Ensure that `node.left` and `node.right` are not `null` before pushing them onto the stack. This prevents type errors.
+- The stack holds objects where the node can be `TreeNode | null`, ensuring even null values are handled correctly within the iteration.
+
