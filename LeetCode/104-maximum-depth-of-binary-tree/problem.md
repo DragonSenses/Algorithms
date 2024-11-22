@@ -34,6 +34,46 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
 
+
+### Binary Tree in Array Form
+
+A binary tree can be represented using an array, where the array elements correspond to the nodes of the tree. This representation is particularly useful for complete binary trees.
+
+Representing a binary tree in array form is a simple and efficient method for complete binary trees. It leverages the properties of array indexing to quickly access parent and child nodes, making it suitable for certain applications where the tree structure is predictable and does not change dynamically.
+
+#### Key Points:
+
+1. **Root Node**:
+   - The root node of the binary tree is stored at index 0 of the array.
+
+2. **Left Child**:
+   - For a node at index `i`, its left child is located at index `2i + 1`.
+
+3. **Right Child**:
+   - For a node at index `i`, its right child is located at index `2i + 2`.
+
+4. **Parent Node**:
+   - For a node at index `i`, its parent is located at index `(i - 1) / 2`.
+
+#### Example:
+
+Consider the following binary tree:
+
+```code
+      1
+    /   \
+   2     3
+  / \   / \
+ 4   5 6   7
+```
+
+This binary tree can be represented in an array as:
+
+```code
+[1, 2, 3, 4, 5, 6, 7]
+```
+
+
 # Recursive Approach
 
 ## **Intuition**
