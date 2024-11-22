@@ -248,3 +248,34 @@ To convert the recursive solution into an iterative one, we can use a stack data
 3. **Termination**:
    - Once the stack is empty, the maximum depth recorded is the maximum depth of the binary tree.
 
+## **Implementation**
+
+### Implementation Details
+
+In Java, we will use the `Pair` class to store the tree node and its depth. This simplifies the management of node-depth pairs and makes the iterative algorithm more maintainable.
+
+#### Reasons for Using `Pair`
+
+1. **Association of Node and Depth**:
+   - By storing the node and its depth in a `Pair`, we can easily manage and access the depth information associated with each node.
+   - This helps in keeping the code clean and maintaining the relationship between the node and its depth throughout the traversal.
+
+2. **Stack Management**:
+   - When we push elements onto the stack, we can push both the node and its corresponding depth together.
+   - This simplifies the stack operations and ensures that we always have access to the depth information when popping elements from the stack.
+
+3. **Code Readability**:
+   - Using a `Pair` class makes the code more readable and intuitive.
+   - It clearly indicates that we are dealing with both the node and its depth, making the logic easier to understand and maintain.
+
+#### Alternative Approaches
+
+While using a `Pair` class is a common and convenient approach, there are other ways to achieve the same result:
+
+- **Array**: Use an array or tuple to store the node and its depth.
+  ```java
+  Stack<Object[]> stack = new Stack<>();
+  stack.push(new Object[]{root, 1});
+  ```
+- **Custom Data Structure**: Define a custom class to hold the node and depth information, similar to the `Pair` class.
+
