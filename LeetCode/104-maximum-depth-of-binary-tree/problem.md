@@ -32,6 +32,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
 
 # Recursive Approach
 
@@ -131,4 +132,22 @@ function maxDepth(root: TreeNode | null): number {
   return Math.max(leftDepth, rightDepth) + 1;
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Traversal of Nodes**: Each node in the binary tree is visited exactly once during the traversal. 
+  - During the recursive traversal, we make a call to each node, process it, and move on to its children.
+- **Linear Time**: Therefore, the time complexity is `O(n)`, where `n` is the number of nodes in the tree.
+
+### **Space Complexity**: `O(n)`
+
+- **Function Call Stack**: In the worst case, the maximum depth of the binary tree can be `n` (in the case of a skewed tree where each node only has one child). Thus, the function call stack can grow up to `n` calls deep.
+  - For a balanced binary tree, the depth would be closer to `log(n)`, but we consider the worst-case scenario for space complexity.
+- **Overall Space Complexity**: Combining these two factors, the overall space complexity is `O(n)`, as we have to account for the space required by the function call stack during recursion.
+
+By visiting each node once and accounting for the space required by the recursive call stack, the algorithm achieves `O(n)` time and `O(n)` space complexity.
 
