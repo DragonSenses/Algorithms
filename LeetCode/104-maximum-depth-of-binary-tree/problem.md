@@ -52,3 +52,46 @@ The intuition behind the recursive approach is as follows:
    - Recursively calculate the maximum depth of the left subtree.
    - Recursively calculate the maximum depth of the right subtree.
    - The depth of the current node is the greater of the depths of its left and right subtrees plus one.
+
+## **Implementation**
+
+### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ */
+public class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    
+    TreeNode(int x) {
+        val = x;
+    }
+}
+
+public class Solution {
+    /**
+     * Finds the maximum depth of a binary tree.
+     *
+     * @param root The root node of the binary tree.
+     * @return The maximum depth of the binary tree.
+     */
+    public int maxDepth(TreeNode root) {
+        // Base case: if the current node is null, the depth is 0
+        if (root == null) {
+            return 0;
+        }
+        
+        // Recursively find the maximum depth of the left subtree
+        int leftDepth = maxDepth(root.left);
+        
+        // Recursively find the maximum depth of the right subtree
+        int rightDepth = maxDepth(root.right);
+        
+        // The depth of the current node is the greater of the depths of its subtrees plus one
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+}
+```
