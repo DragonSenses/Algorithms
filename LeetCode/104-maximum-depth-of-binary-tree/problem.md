@@ -33,6 +33,7 @@
 
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ## Binary Tree Overview
 
@@ -225,4 +226,10 @@ Let `n` be the number of nodes in the tree.
 - **Overall Space Complexity**: Combining these two factors, the overall space complexity is `O(n)`, as we have to account for the space required by the function call stack during recursion.
 
 By visiting each node once and accounting for the space required by the recursive call stack, the algorithm achieves `O(n)` time and `O(n)` space complexity.
+
+# Iterative Approach
+
+## **Intuition**
+
+To convert the recursive solution into an iterative one, we can use a stack data structure. The stack mimics the function call stack used in recursion, following a First-In-Last-Out (FILO) pattern. By maintaining a stack of nodes to visit next, we can achieve a similar traversal order as the recursive approach.
 
