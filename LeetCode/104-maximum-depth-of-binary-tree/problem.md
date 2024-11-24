@@ -34,6 +34,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
 
 ## Binary Tree Overview
 
@@ -316,7 +317,78 @@ public class Solution {
   }
 }
 
-// Helper class to store tree node and its depth
+// Auxiliary class to store tree node and its depth
+class Pair<K, V> {
+  private final K key;
+  private final V value;
+
+  public Pair(K key, V value) {
+    this.key = key;
+    this.value = value;
+  }
+
+  public K getKey() {
+    return key;
+  }
+
+  public V getValue() {
+    return value;
+  }
+}
+```
+
+#### Optimized Implementation
+
+Declaring variables outside the loop can improve performance in some cases by reducing the overhead of creating new variables in each iteration. 
+  - However, the impact on performance might not be significant for small loops or when dealing with modern JVM optimizations.
+
+But for our specific code, we can move the Pair object creation outside the loop and reuse it.
+
+1. **Variable Declaration**:
+  - Declared `Pair<TreeNode, Integer> current`, `TreeNode currentNode`, and `int currentDepth` outside the loop.
+  - These variables are reused in each iteration, which reduces the overhead of creating new variables in each iteration.
+
+While this can marginally improve performance, the gain might not be noticeable unless the tree is very large. The modern JVM optimizations are generally efficient at handling such scenarios.
+
+```java
+import java.util.Stack;
+
+public class Solution {
+  /**
+   * Finds the maximum depth of a binary tree using an iterative approach.
+   *
+   * @param root The root node of the binary tree.
+   * @return The maximum depth of the binary tree.
+   */
+  public int maxDepth(TreeNode root) {
+    if (root == null) {
+      return 0;
+    }
+
+    Stack<Pair<TreeNode, Integer>> stack = new Stack<>();
+    Pair<TreeNode, Integer> current;
+    TreeNode currentNode;
+    int currentDepth;
+    stack.push(new Pair<>(root, 1));
+    int maxDepth = 0;
+
+    while (!stack.isEmpty()) {
+      current = stack.pop();
+      currentNode = current.getKey();
+      currentDepth = current.getValue();
+
+      if (currentNode != null) {
+        maxDepth = Math.max(maxDepth, currentDepth);
+        stack.push(new Pair<>(currentNode.left, currentDepth + 1));
+        stack.push(new Pair<>(currentNode.right, currentDepth + 1));
+      }
+    }
+
+    return maxDepth;
+  }
+}
+
+// Auxiliary class to store tree node and its depth
 class Pair<K, V> {
   private final K key;
   private final V value;
