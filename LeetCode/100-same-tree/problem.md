@@ -36,6 +36,9 @@
 
 ---
 
+# Solution
+
+- [Recursive Approach](#recursive-approach)
 
 ## Binary Tree Overview
 
@@ -102,3 +105,18 @@ This binary tree can be represented in an array as:
 
 - **Sparse Trees**: For binary trees that are not complete, this representation may lead to wasted space in the array.
 - **Fixed Size**: The size of the array needs to be known in advance, which can be a limitation for dynamically growing trees.
+
+# Recursive Approach
+
+## **Intuition**
+
+The simplest strategy here is to use recursion. The idea is to compare each node of the two trees. 
+
+1. **Base Case**:
+    - If both nodes are `null`, return `true`. This means both trees are structurally identical up to this point.
+    - If one of the nodes is `null` and the other is not, return `false`. This means the trees are not structurally identical.
+
+2. **Recursive Case**:
+    - Check if the values of the current nodes are equal.
+    - If equal, recursively check the left subtree and right subtree.
+    - If both subtrees are identical, return `true`; otherwise, return `false`.
