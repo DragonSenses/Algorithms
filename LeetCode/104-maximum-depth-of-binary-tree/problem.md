@@ -474,3 +474,26 @@ function maxDepth(root: TreeNode | null): number {
 - Ensure that `node.left` and `node.right` are not `null` before pushing them onto the stack. This prevents type errors.
 - The stack holds objects where the node can be `TreeNode | null`, ensuring even null values are handled correctly within the iteration.
 
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Traversal of Nodes**: Each node in the binary tree is visited exactly once. We perform a single pass through all the nodes during the iteration.
+  - During the while loop, every node is pushed onto the stack once and popped from the stack once.
+  - Thus, the total operations for pushing and popping are proportional to the number of nodes `n`.
+- **Overall Time Complexity**: Since each node is processed only once, the time complexity is `O(n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Stack Space**: In the worst case, the maximum depth of the binary tree can be `n` (e.g., in the case of a skewed tree where each node has only one child). Therefore, the stack can grow up to `n` elements deep.
+  - For a balanced binary tree, the depth would be closer to `log(n)`, but we consider the worst-case scenario for space complexity.
+- **Auxiliary Space**: Apart from the stack, a few variables like the current node and the maximum depth are used, which require `O(1)` space.
+- **Overall Space Complexity**: Combining the stack space with the auxiliary space, the overall space complexity remains `O(n)`.
+
+### Summary
+
+For the iterative approach to finding the maximum depth of a binary tree, the time complexity is `O(n)` because each node is visited exactly once. 
+  - In the average case, where the tree is balanced, the height of the tree would be `log(n)`, and therefore the space complexity could be `O(log n)`.
+  - The space complexity is `O(n)` due to the potential depth of the stack, especially in the worst-case scenario of a skewed tree. 
