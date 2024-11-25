@@ -140,3 +140,28 @@ The simplest strategy here is to use recursion. The idea is to compare each node
 4. Recursively check the left children of `p` and `q`.
 5. Recursively check the right children of `p` and `q`.
 6. Return `true` if both recursive checks return `true`, otherwise return `false`.
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public boolean isSameTree(TreeNode p, TreeNode q) {
+    // Base case: Both trees are null
+    if (p == null && q == null) {
+      return true;
+    }
+    // Base case: One tree is null and the other is not
+    if (p == null || q == null) {
+      return false;
+    }
+    // If the values of the nodes are not equal
+    if (p.val != q.val) {
+      return false;
+    }
+    // Recursively check the left and right subtrees
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+  }
+}
+```
