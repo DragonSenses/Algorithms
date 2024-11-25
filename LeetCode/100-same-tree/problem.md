@@ -230,3 +230,15 @@ Instead of using recursion, we can utilize an iterative approach to compare two 
 - Utilizing a data structure to keep track of nodes to visit, starting with the root nodes of both trees.
 - Comparing nodes level by level to ensure both trees have the same structure and node values.
 
+## **Algorithm**
+
+1. Initialize a stack (or queue) to store pairs of nodes from both trees.
+2. Start by pushing the root nodes of both trees into the stack.
+3. While the stack is not empty:
+   1. Pop a pair of nodes from the stack.
+   2. If both nodes are `null`, continue to the next iteration.
+   3. If one node is `null` and the other is not, or if the values of the nodes are not equal, return `false`.
+   4. Push the left children of both nodes into the stack.
+   5. Push the right children of both nodes into the stack.
+4. If all nodes are compared successfully and no mismatches are found, return `true`.
+
