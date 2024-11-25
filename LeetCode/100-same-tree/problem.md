@@ -348,3 +348,20 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
   return true;
 };
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- The time complexity is `O(n)` because each node in both trees is visited exactly once. We traverse the entire structure of the two trees to compare them, resulting in a linear time complexity.
+- **Traversal**: Each node is processed (checked for equality) exactly once, meaning that the algorithm performs a constant amount of work for each node, leading to an `O(n)` time complexity.
+- **Queue Operations**: Adding and removing nodes from the queue (or stack) also take constant time, `O(1)`, per operation. Since these operations are performed `n` times (once for each node), they do not affect the overall linear time complexity.
+
+### **Space Complexity**: `O(n)`
+
+- The space complexity is `O(n)` due to the use of the queue (or stack) for iterative traversal.
+- **Worst Case**: In the worst-case scenario, the tree is completely unbalanced (e.g., a degenerate tree resembling a linked list), the space complexity for the stack/queue will be `O(n)`, as we might need to store up to `n` nodes in the worst case.
+- **Best Case**: In the best-case scenario, where the tree is perfectly balanced, the height of the tree will be `log(n)`. However, since we still might need to store nodes up to the height of the tree, the space complexity remains `O(n)` for simplicity.
+- **Memory Usage**: Each node added to the queue requires additional memory. Since we might store up to `n` nodes in the queue, the space complexity is `O(n)`.
