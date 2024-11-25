@@ -39,6 +39,8 @@
 
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
 
 ## Binary Tree Overview
 
@@ -218,4 +220,13 @@ Let `n` be the number of nodes in tree `T` with height `h`, rooted at `root`.
 - **Best Case**: In the best case, where the tree is completely balanced, the height of the tree will be `log(n)`. However, since the call stack still grows with the height of the tree, it influences the space complexity.
 - **Average Case**: In the average case, the tree height varies, but we often assume `O(n)` space complexity for simplicity, considering the nature of recursion and potential unbalanced structures.
 - **Memory Usage**: Each recursive call consumes memory on the stack. If `n` is large, the stack can grow significantly, leading to a higher space complexity. Hence, space complexity is generally considered `O(n)`.
+
+# Iterative Approach
+
+## **Intuition**
+
+Instead of using recursion, we can utilize an iterative approach to compare two binary trees. By employing a stack or queue, we can simulate the depth-first traversal that recursion provides. The iterative approach involves:
+- Checking if both trees are initially empty.
+- Utilizing a data structure to keep track of nodes to visit, starting with the root nodes of both trees.
+- Comparing nodes level by level to ensure both trees have the same structure and node values.
 
