@@ -27,10 +27,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in both trees is in the range <code>[0, 100]</code>.</li>
-	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
+  <li>The number of nodes in both trees is in the range <code>[0, 100]</code>.</li>
+  <li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
-
 
 <br>
 
@@ -120,3 +119,24 @@ The simplest strategy here is to use recursion. The idea is to compare each node
     - Check if the values of the current nodes are equal.
     - If equal, recursively check the left subtree and right subtree.
     - If both subtrees are identical, return `true`; otherwise, return `false`.
+
+## **Algorithm**
+
+1. **Base Cases**:
+    - If both nodes `p` and `q` are `null`, return `true`.
+    - If one of the nodes is `null` and the other is not, return `false`.
+2. **Check Values**:
+    - If the values of the nodes `p` and `q` are not equal, return `false`.
+3. **Recursive Calls**:
+    - Recursively check the left children of both nodes.
+    - Recursively check the right children of both nodes.
+    - Return `true` if both recursive calls return `true`.
+
+### Step-by-Step Algorithm
+
+1. Check if both nodes `p` and `q` are `null`. If they are, return `true`.
+2. If one of the nodes is `null` and the other is not, return `false`.
+3. If the values of the nodes `p` and `q` are not equal, return `false`.
+4. Recursively check the left children of `p` and `q`.
+5. Recursively check the right children of `p` and `q`.
+6. Return `true` if both recursive checks return `true`, otherwise return `false`.
