@@ -38,6 +38,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
 
 ## Binary Tree Overview
 
@@ -201,3 +202,20 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
   return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 }
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in tree `T` with height `h`, rooted at `root`.
+
+### **Time Complexity**: `O(n)`
+
+- The time complexity is `O(n)` because each node in both trees is visited exactly once. We traverse the entire structure of the two trees to compare them, resulting in a linear time complexity.
+- **Traversal**: Each node is compared exactly once, meaning that the algorithm performs a constant amount of work for each node, leading to `O(n)` time complexity.
+
+### **Space Complexity**: `O(n)`
+
+- The space complexity is `O(n)` due to the recursive call stack. In the worst case, when the tree is completely unbalanced (like a linked list), the recursion will go as deep as the number of nodes, which is `n`.
+- **Best Case**: In the best case, where the tree is completely balanced, the height of the tree will be `log(n)`. However, since the call stack still grows with the height of the tree, it influences the space complexity.
+- **Average Case**: In the average case, the tree height varies, but we often assume `O(n)` space complexity for simplicity, considering the nature of recursion and potential unbalanced structures.
+- **Memory Usage**: Each recursive call consumes memory on the stack. If `n` is large, the stack can grow significantly, leading to a higher space complexity. Hence, space complexity is generally considered `O(n)`.
+
