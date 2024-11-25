@@ -10,18 +10,11 @@ class Solution {
    */
   public boolean isEqual(TreeNode p, TreeNode q) {
     // Both nodes are null
-    if (p == null && q == null) {
-      return true;
-    }
+    if (p == null && q == null) return true;
     // One of the nodes is null
-    if (q == null || p == null) {
-      return false;
-    }
+    if (q == null || p == null) return false;
     // Node values are not equal
-    if (p.val != q.val) {
-      return false;
-    }
-    return true;
+    return p.val == q.val;
   }
 
   /**
@@ -34,13 +27,9 @@ class Solution {
    */
   public boolean isSameTree(TreeNode p, TreeNode q) {
     // Check if both trees are initially empty
-    if (p == null && q == null) {
-      return true;
-    }
+    if (p == null && q == null) return true;
     // Check if the initial nodes are not equal
-    if (!isEqual(p, q)) {
-      return false;
-    }
+    if (!isEqual(p, q)) return false;
 
     // Initialize deques to store nodes for comparison
     ArrayDeque<TreeNode> queueP = new ArrayDeque<>();
@@ -54,13 +43,18 @@ class Solution {
       q = queueQ.removeFirst();
 
       // If nodes are not equal
-      if (!isEqual(p, q)) {
-        return false;
-      }
-      // If current nodes are not null, add their children to the queues
-      if (p != null) {
+      if (!isEqual(p, q)) return false;
+
+      // Check left children
+      if (!isEqual(p.left, q.left)) return false;
+      if (p.left != null && q.left != null) {
         queueP.addLast(p.left);
         queueQ.addLast(q.left);
+      }
+
+      // Check right children
+      if (!isEqual(p.right, q.right)) return false;
+      if (p.right != null && q.right != null) {
         queueP.addLast(p.right);
         queueQ.addLast(q.right);
       }
