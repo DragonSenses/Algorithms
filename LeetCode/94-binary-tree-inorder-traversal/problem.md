@@ -133,3 +133,15 @@ This binary tree can be represented in an array as:
 ## **Intuition**
 
 In an in-order traversal, we recursively visit the left subtree, then the root node, and finally the right subtree. The key idea is to recursively solve for the left subtree first, then handle the root node, and finally recursively solve for the right subtree.
+
+## **Algorithm**
+
+1. Initialize an empty list `answer` to store the in-order traversal.
+2. Define a recursive helper function `inorder(node)` that:
+   - If `node` is `null`, return.
+   - Recursively call `inorder(node.left)` to traverse the left subtree.
+   - Add the value of `node` to `answer`.
+   - Recursively call `inorder(node.right)` to traverse the right subtree.
+3. Call the helper function `inorder` starting from the `root` node.
+4. Return the `answer` list containing the in-order traversal.
+
