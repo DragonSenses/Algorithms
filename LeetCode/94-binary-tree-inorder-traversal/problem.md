@@ -162,3 +162,40 @@ function inorderTraversal(root):
     return answer
 ```
 
+## **Implementation**
+
+#### Implementation Details
+
+- **Initialization**: Initialize an empty `ArrayList` to store the in-order traversal result.
+
+- **Recursive Helper Function**: The `inorder` function recursively traverses the left subtree, adds the current node's value to the `answer` list, and then traverses the right subtree.
+
+- **Start Traversal**: The traversal starts with the root node by calling `inorder(root, answer)`.
+
+- **Return Result**: Finally, the list containing the in-order traversal result is returned.
+
+##### Binary Tree Definition
+
+```java
+/**
+ * Definition for a binary tree node.
+ */
+public class TreeNode {
+  int val;
+  TreeNode left;
+  TreeNode right;
+
+  TreeNode() {
+  }
+
+  TreeNode(int val) {
+    this.val = val;
+  }
+
+  TreeNode(int val, TreeNode left, TreeNode right) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+  }
+}
+```
