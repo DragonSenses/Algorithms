@@ -61,6 +61,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
 
 ## Binary Tree Overview
 
@@ -269,3 +270,24 @@ function inorderTraversal(root: TreeNode | null): number[] {
   return answer;
 };
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass**: Each node is visited exactly once, and constant work is performed at each node.
+- **Explanation**: Since the traversal visits each node exactly once, the total time taken is proportional to the number of nodes in the tree.
+- **Master's Theorem Notation**: The recurrence relation for this recursive function is `T(n) = 2 * T(n/2) + 1`, which simplifies to `O(n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursive Call Stack**: The space required is proportional to the maximum depth of the recursion stack.
+  - **Depth of the Tree**: The recursion internally uses a call stack that takes up space equivalent to the depth of the tree.
+- **Average-Case**: `O(log n)` when the tree is balanced.
+- **Worst-Case Scenario**: `O(n)` when the tree is skewed (either left or right).
+
+#### **Summary**
+- **Time Complexity**: `O(n)`
+- **Space Complexity**: `O(n)` (worst-case), `O(log n)` (average-case for balanced trees)
