@@ -58,6 +58,10 @@
 
 ---
 
+# Solution
+
+- [Recursive Approach](#recursive-approach)
+
 ## Binary Tree Overview
 
 **Key Points**:
@@ -123,3 +127,9 @@ This binary tree can be represented in an array as:
 
 - **Sparse Trees**: For binary trees that are not complete, this representation may lead to wasted space in the array.
 - **Fixed Size**: The size of the array needs to be known in advance, which can be a limitation for dynamically growing trees.
+
+# Recursive Approach
+
+## **Intuition**
+
+In an in-order traversal, we recursively visit the left subtree, then the root node, and finally the right subtree. The key idea is to recursively solve for the left subtree first, then handle the root node, and finally recursively solve for the right subtree.
