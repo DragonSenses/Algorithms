@@ -145,3 +145,20 @@ In an in-order traversal, we recursively visit the left subtree, then the root n
 3. Call the helper function `inorder` starting from the `root` node.
 4. Return the `answer` list containing the in-order traversal.
 
+### Pseudocode
+
+```plaintext
+function inorderTraversal(root):
+    answer = []
+
+    function inorder(node):
+        if node is null:
+            return
+        inorder(node.left)
+        answer.append(node.val)
+        inorder(node.right)
+
+    inorder(root)
+    return answer
+```
+
