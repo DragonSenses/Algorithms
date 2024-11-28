@@ -65,7 +65,7 @@
 - [Iterative Approach](#iterative-approach)
   - **Time Complexity**: `O(n)`
 
-
+- [Comparison: Iterative vs. Recursive In-Order Traversal](#comparison-iterative-vs-recursive-in-order-traversal)
 
 ## Binary Tree Overview
 
@@ -447,3 +447,32 @@ Let `n` be the number of nodes in the tree.
 - **Space Complexity**: `O(n)`
   - Worst-case due to the depth of the stack, especially in skewed trees.
 
+## **Comparison: Iterative vs. Recursive In-Order Traversal**
+
+### **Advantages of the Iterative Approach**
+
+1. **Space Efficiency**:
+   - **Reduced Call Stack**: The iterative approach does not rely on the call stack to handle recursion. Instead, it uses an explicit stack (usually implemented with a data structure like an array or a stack). This can save space, especially for trees with a large depth.
+   - **Controlled Memory Usage**: In deeply nested recursive calls, the call stack can grow significantly and might lead to a stack overflow. The iterative approach mitigates this risk by controlling memory usage.
+
+2. **Performance Consistency**:
+   - **Avoid Stack Overflow**: For very deep or unbalanced trees, recursive calls can result in a stack overflow due to the limited size of the call stack. The iterative approach avoids this issue by using a manually managed stack.
+   - **Predictable Space Complexity**: While the worst-case space complexity of an iterative approach can still be `O(n)` for skewed trees, it is often more predictable and manageable compared to the call stack growth in recursion.
+
+3. **Easier Debugging**:
+   - **Step-by-Step Execution**: Iterative code can be easier to debug and trace since it explicitly shows the state changes of variables and the stack at each step.
+   - **Readability and Maintenance**: For some developers, iterative code might be easier to read and maintain, especially when dealing with languages that lack optimized recursion handling.
+
+### **Comparison Example**
+
+#### **Recursive Approach**:
+- **Space Complexity**: `O(n)` in the worst case due to the call stack.
+- **Risk**: Potential stack overflow for deep trees.
+
+#### **Iterative Approach**:
+- **Space Complexity**: `O(n)` in the worst case due to the auxiliary stack.
+- **Benefit**: Avoids stack overflow, more predictable memory usage, and easier debugging.
+
+### **Conclusion**
+
+While the recursive approach is often more elegant and easier to implement for tree traversal problems, the iterative approach provides better control over memory usage and avoids the risks associated with deep recursion. It can be particularly useful in environments with limited stack space or when dealing with very large and unbalanced trees.
