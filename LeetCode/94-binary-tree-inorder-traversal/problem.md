@@ -63,6 +63,9 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
+
+
 
 ## Binary Tree Overview
 
@@ -421,4 +424,26 @@ function inorderTraversal(root: TreeNode | null): number[] {
   return result;
 };
 ```
+
+## **Complexity Analysis**
+
+Let `n` be the number of nodes in the tree.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass**: Each node in the tree is visited exactly once during the traversal.
+- **Explanation**: The while loop ensures that each node is pushed onto the stack once and popped from the stack once. Thus, the time taken is proportional to the number of nodes in the tree.
+
+### **Space Complexity**: `O(n)`
+
+- **Auxiliary Stack Space**: The space required is proportional to the maximum depth of the stack.
+  - **Worst-Case Scenario**: In the worst-case scenario, the tree is skewed (either left or right), and the depth of the tree (and thus the stack) is `n`, leading to `O(n)` space complexity.
+  - **Balanced Tree**: In a balanced binary tree, the height of the tree is `O(log n)`, which would result in an average space complexity of `O(log n)`. However, we consider the worst-case scenario for space complexity analysis.
+- **Result List**: An additional space of `O(n)` is required to store the traversal result.
+
+#### **Summary**
+- **Time Complexity**: `O(n)`
+  - Each node is processed once.
+- **Space Complexity**: `O(n)`
+  - Worst-case due to the depth of the stack, especially in skewed trees.
 
