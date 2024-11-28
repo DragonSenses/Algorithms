@@ -62,6 +62,7 @@
 
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ## Binary Tree Overview
 
@@ -291,3 +292,9 @@ Let `n` be the number of nodes in the tree.
 #### **Summary**
 - **Time Complexity**: `O(n)`
 - **Space Complexity**: `O(n)` (worst-case), `O(log n)` (average-case for balanced trees)
+
+# Iterative Approach
+
+## **Intuition**
+
+To perform an in-order traversal of a binary tree iteratively, we can use a stack to simulate the recursive traversal process. In in-order traversal, we visit the left subtree first, then the root node, and finally the right subtree. By using a stack, we can ensure that nodes are visited in this order without using recursion.
