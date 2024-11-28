@@ -298,3 +298,18 @@ Let `n` be the number of nodes in the tree.
 ## **Intuition**
 
 To perform an in-order traversal of a binary tree iteratively, we can use a stack to simulate the recursive traversal process. In in-order traversal, we visit the left subtree first, then the root node, and finally the right subtree. By using a stack, we can ensure that nodes are visited in this order without using recursion.
+
+### **Algorithm**
+
+1. Initialize an empty list `result` to store the in-order traversal.
+2. Initialize an empty stack `stack` to aid in traversal.
+3. Set `current` to the root node.
+4. While `current` is not `null` or the `stack` is not empty:
+   - While `current` is not `null`:
+     - Push `current` onto the stack.
+     - Move to the left child of `current`.
+   - Pop an element from the stack, set it as `current`.
+   - Add the value of `current` to `result`.
+   - Move to the right child of `current`.
+5. Return the `result` list containing the in-order traversal.
+
