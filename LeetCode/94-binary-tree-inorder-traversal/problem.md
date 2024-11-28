@@ -313,3 +313,22 @@ To perform an in-order traversal of a binary tree iteratively, we can use a stac
    - Move to the right child of `current`.
 5. Return the `result` list containing the in-order traversal.
 
+### **Pseudocode**
+
+```plaintext
+function inorderTraversal(root):
+    result = []
+    stack = []
+    current = root
+
+    while current is not null or stack is not empty:
+        while current is not null:
+            stack.push(current)
+            current = current.left
+
+        current = stack.pop()
+        result.append(current.val)
+        current = current.right
+
+    return result
+```
