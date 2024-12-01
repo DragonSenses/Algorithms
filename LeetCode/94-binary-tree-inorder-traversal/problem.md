@@ -480,5 +480,7 @@ While the recursive approach is often more elegant and easier to implement for t
 
 # **Morris Traversal for In-Order Traversal**
 
-The Morris Traversal algorithm modifies the tree structure during the traversal to create temporary links (threads) that allow it to traverse the tree in-order without using additional space.
+## **Intuition**
+
+The Morris Traversal algorithm modifies the tree structure during the traversal to create temporary links (threads) that allow it to traverse the tree in-order without using additional space. The key idea is to find the inorder predecessor of the current node and establish a temporary thread from the predecessor to the current node. This allows us to return to the current node after finishing the left subtree traversal.
 
