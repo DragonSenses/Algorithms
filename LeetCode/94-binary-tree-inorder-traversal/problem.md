@@ -501,3 +501,31 @@ The Morris Traversal algorithm modifies the tree structure during the traversal 
        - Visit `current` (add its value to the result).
        - Move to the right child of `current`.
 3. Return the result containing the in-order traversal.
+
+### **Pseudocode**
+
+```plaintext
+function morrisTraversal(root):
+    result = []
+    current = root
+
+    while current is not null:
+        if current.left is null:
+            result.append(current.val)
+            current = current.right
+        else:
+            predecessor = current.left
+            while predecessor.right is not null and predecessor.right is not current:
+                predecessor = predecessor.right
+
+            if predecessor.right is null:
+                predecessor.right = current
+                current = current.left
+            else:
+                predecessor.right = null
+                result.append(current.val)
+                current = current.right
+
+    return result
+```
+
