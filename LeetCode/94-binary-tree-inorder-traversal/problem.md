@@ -65,6 +65,7 @@
 - [Iterative Approach](#iterative-approach)
   - **Time Complexity**: `O(n)`
 - [Morris Traversal for In-Order Traversal](#morris-traversal-for-in-order-traversal)
+  - **Time Complexity**: `O(n)`
 - [Comparison: Iterative vs. Recursive In-Order Traversal](#comparison-iterative-vs-recursive-in-order-traversal)
 
 ## Binary Tree Overview
@@ -566,3 +567,23 @@ public class Solution3 {
   }
 }
 ```
+
+
+## **Complexity Analysis**
+
+#### **Time Complexity**: `O(n)`
+
+- **Traversal Process**: Each node is visited at most twice (once to create a thread and once to remove it).
+- **Reasoning**: The while loop ensures that each node is processed for creating and removing threads, leading to a total time complexity of `O(n)`.
+
+#### **Space Complexity**: `O(1)`
+
+- **Auxiliary Space**: No additional space is used apart from a few pointers.
+  - **Reasoning**: Morris Traversal modifies the tree temporarily to create threads, thus not using extra space for recursion or a stack.
+- **Result List**: An additional space of `O(n)` is required to store the traversal result.
+
+#### **Summary**
+- **Time Complexity**: `O(n)`
+  - Each node is processed at most twice.
+- **Space Complexity**: `O(1)` (excluding the result list)
+  - Minimal extra space is used due to the threaded binary tree approach.
