@@ -484,3 +484,20 @@ While the recursive approach is often more elegant and easier to implement for t
 
 The Morris Traversal algorithm modifies the tree structure during the traversal to create temporary links (threads) that allow it to traverse the tree in-order without using additional space. The key idea is to find the inorder predecessor of the current node and establish a temporary thread from the predecessor to the current node. This allows us to return to the current node after finishing the left subtree traversal.
 
+## **Algorithm**
+
+1. Initialize `current` to the root of the tree.
+2. While `current` is not `null`:
+   - If `current` has no left child:
+     - Visit `current` (add its value to the result).
+     - Move to the right child of `current`.
+   - Else:
+     - Find the inorder predecessor of `current` (rightmost node in the left subtree of `current`).
+     - If the predecessor's right child is `null`:
+       - Set the predecessor's right child to `current` (create a thread).
+       - Move to the left child of `current`.
+     - Else (the thread already exists):
+       - Remove the thread (set the predecessor's right child to `null`).
+       - Visit `current` (add its value to the result).
+       - Move to the right child of `current`.
+3. Return the result containing the in-order traversal.
