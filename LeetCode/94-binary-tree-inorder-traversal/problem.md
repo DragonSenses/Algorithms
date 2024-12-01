@@ -47,8 +47,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -64,6 +64,7 @@
   - **Time Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
   - **Time Complexity**: `O(n)`
+- [Morris Traversal for In-Order Traversal](#morris-traversal-for-in-order-traversal)
 
 - [Comparison: Iterative vs. Recursive In-Order Traversal](#comparison-iterative-vs-recursive-in-order-traversal)
 
@@ -476,3 +477,8 @@ Let `n` be the number of nodes in the tree.
 ### **Conclusion**
 
 While the recursive approach is often more elegant and easier to implement for tree traversal problems, the iterative approach provides better control over memory usage and avoids the risks associated with deep recursion. It can be particularly useful in environments with limited stack space or when dealing with very large and unbalanced trees.
+
+# **Morris Traversal for In-Order Traversal**
+
+The Morris Traversal algorithm modifies the tree structure during the traversal to create temporary links (threads) that allow it to traverse the tree in-order without using additional space.
+
