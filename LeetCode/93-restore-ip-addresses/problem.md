@@ -41,12 +41,24 @@
 
 # Solution
 
-- [93. Restore IP Addresses](#93-restore-ip-addresses)
-- [Solution](#solution)
 - [Backtracking Approach](#backtracking-approach)
-    - [Backtracking](#backtracking)
 
 # Backtracking Approach
 
+## **Intuition**
+
+### Concept
+A valid IP address consists of 4 integers, meaning we need to place 3 dots. We can try placing dots at all possible different positions using backtracking. If an invalid number forms, we backtrack to try another combination.
+
 ### Backtracking
 Backtracking is a general algorithmic technique that searches every possible combination to solve a computational problem. It incrementally builds candidates to the solution and abandons a candidate ("backtracks") when it determines that the candidate cannot lead to the solution.
+
+### Approach
+We will recursively enumerate all possibilities. Whenever we get a new integer because of a dot (or 2 integers for the last dot), we check whether the integer(s) is valid (i.e., the integer cannot have leading zeros, other than being 0 itself, and it's no larger than 255).
+
+### Possibilities
+There are 3 possibilities to add each dot: it can be added after 1, 2, or 3 digits from the last dot or the beginning of the string, so there are at most `3^3 = 27` possibilities to add all 3 dots.
+
+### Optimization
+An optimization is to return an empty result if the input string's length is longer than 12 since each integer can have at most 3 digits.
+
