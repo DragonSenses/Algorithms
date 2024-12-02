@@ -3,7 +3,7 @@
 <p>A <strong>valid IP address</strong> consists of exactly four integers separated by single dots. Each integer is between <code>0</code> and <code>255</code> (<strong>inclusive</strong>) and cannot have leading zeros.</p>
 
 <ul>
-	<li>For example, <code>"0.1.2.201"</code> and <code>"192.168.1.1"</code> are <strong>valid</strong> IP addresses, but <code>"0.011.255.245"</code>, <code>"192.168.1.312"</code> and <code>"192.168@1.1"</code> are <strong>invalid</strong> IP addresses.</li>
+  <li>For example, <code>"0.1.2.201"</code> and <code>"192.168.1.1"</code> are <strong>valid</strong> IP addresses, but <code>"0.011.255.245"</code>, <code>"192.168.1.312"</code> and <code>"192.168@1.1"</code> are <strong>invalid</strong> IP addresses.</li>
 </ul>
 
 <p>Given a string <code>s</code> containing only digits, return <em>all possible valid IP addresses that can be formed by inserting dots into </em><code>s</code>. You are <strong>not</strong> allowed to reorder or remove any digits in <code>s</code>. You may return the valid IP addresses in <strong>any</strong> order.</p>
@@ -31,6 +31,22 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 20</code></li>
-	<li><code>s</code> consists of digits only.</li>
+  <li><code>1 &lt;= s.length &lt;= 20</code></li>
+  <li><code>s</code> consists of digits only.</li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+
+- [93. Restore IP Addresses](#93-restore-ip-addresses)
+- [Solution](#solution)
+- [Backtracking Approach](#backtracking-approach)
+    - [Backtracking](#backtracking)
+
+# Backtracking Approach
+
+### Backtracking
+Backtracking is a general algorithmic technique that searches every possible combination to solve a computational problem. It incrementally builds candidates to the solution and abandons a candidate ("backtracks") when it determines that the candidate cannot lead to the solution.
