@@ -99,3 +99,48 @@ Create a utility function, named `backtrack`, which takes the original string `s
     - Call the utility function recursively: `helper(s, startIndex + curPos, dots, ans)`.
   - Remove the dot that we placed to backtrack.
 
+### Pseudocode
+
+```plaintext
+function valid_segment(s, start, length):
+    if length == 1:
+        return True
+    if s[start] == '0':
+        return False
+    if length == 2:
+        return 10 <= int(s[start:start + 2]) <= 99
+    if length == 3:
+        return 100 <= int(s[start:start + 3]) <= 255
+    return False
+
+function helper(s, startIndex, dots, ans):
+    remainingLength = length(s) - startIndex
+    remainingNumberOfIntegers = 4 - length(dots)
+    
+    if remainingLength > remainingNumberOfIntegers * 3 or remainingLength < remainingNumberOfIntegers:
+        return
+    
+    if remainingNumberOfIntegers == 1:
+        if valid_segment(s, startIndex, remainingLength):
+            last = 0
+            ip_address = []
+            for dot in dots:
+                ip_address.append(s[last:last + dot] + '.')
+                last += dot
+            ip_address.append(s[startIndex:])
+            ans.append(''.join(ip_address))
+        return
+    
+    for curPos in range(1, min(4, remainingLength + 1)):
+        if valid_segment(s, startIndex, curPos):
+            dots.append(curPos)
+            helper(s, startIndex + curPos, dots, ans)
+            dots.pop()
+
+function restore_ip_addresses(s):
+    ans = []
+    helper(s, 0, [], ans)
+    return ans
+```
+
+
