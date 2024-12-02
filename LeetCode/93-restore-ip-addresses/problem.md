@@ -67,6 +67,35 @@ We can create a utility function `validSegment(s, start, length)` to check wheth
 1. If the substring's first character is 0 (i.e., `s[start]` is '0'), then the length must be 1.
 2. If the length is 3, the substring should not be larger than "255" lexically. If the length is 1 or 2 and the first case was not triggered, then it will be in the acceptable range.
 
+## **Algorithm**
 
 Create a utility function, named `backtrack`, which takes the original string `s`, the processing index `startIndex` (consider the substring starting from `startIndex` where the prefix part is already separated into valid integers), a list of integers `dots` which saves the positions for the dots added so far, and a list of strings `ans` to save the answers.
+
+### Key Steps:
+
+#### 1. Initialization:
+- Set `remainingLength` to `length of s - startIndex` which is the length of the string we want to process.
+- Set `remainingNumberOfIntegers` to `4 - dots.length`. This is how many integers we have left to form.
+
+#### 2. Validation Check:
+- Return if `remainingLength` is larger than `remainingNumberOfIntegers * 3` or smaller than `remainingNumberOfIntegers`, since each integer has 1-3 digits. This catches the case where `s.length() > 12` since at the very beginning `remainingLength` is `s.length()`.
+
+#### 3. Final Integer Check:
+- If `remainingNumberOfIntegers == 1`:
+  - Check if the last integer `s.substring(startIndex, startIndex + remainingLength)` is valid:
+    - Create an empty string to save this answer using the following steps:
+      - Set `last` to 0.
+      - Iterate over all elements `dot` in the list `dots`.
+      - Append `s.substring(last, last + dot)` and a '.' into the answer string.
+      - Increase `last` by `dot` and repeat these steps for each dot.
+      - Append `s.substring(last, s.length)` which is the final integer after the last dot.
+      - Add the answer string into `ans`.
+    - Return.
+
+#### 4. Recursive Backtracking:
+- Iterate over `curPos` from 1 to `min(3, remainingLength)`. `curPos` is the number of digits we are including before placing a dot.
+  - Place a dot by adding `curPos` into `dots`.
+  - If the integer `s.substring(startIndex, startIndex + curPos)` is valid:
+    - Call the utility function recursively: `helper(s, startIndex + curPos, dots, ans)`.
+  - Remove the dot that we placed to backtrack.
 
