@@ -62,3 +62,11 @@ There are 3 possibilities to add each dot: it can be added after 1, 2, or 3 digi
 ### Optimization
 An optimization is to return an empty result if the input string's length is longer than 12 since each integer can have at most 3 digits.
 
+### Utility Function
+We can create a utility function `validSegment(s, start, length)` to check whether the substring from `start` to `start + length` is a valid number in the range 0-255. The logic is to check both conditions (the caller guarantees that the length is in the range of [1, 3]):
+1. If the substring's first character is 0 (i.e., `s[start]` is '0'), then the length must be 1.
+2. If the length is 3, the substring should not be larger than "255" lexically. If the length is 1 or 2 and the first case was not triggered, then it will be in the acceptable range.
+
+
+Create a utility function, named `backtrack`, which takes the original string `s`, the processing index `startIndex` (consider the substring starting from `startIndex` where the prefix part is already separated into valid integers), a list of integers `dots` which saves the positions for the dots added so far, and a list of strings `ans` to save the answers.
+
