@@ -1,9 +1,21 @@
+/**
+ * Restores IP addresses from a given string using backtracking.
+ * @param {string} s - The input string containing digits.
+ * @returns {string[]} - An array of valid IP addresses.
+ */
 function restoreIpAddresses(s: string): string[] {
   const result: string[] = [];
   backtrack(s, 0, [], result);
   return result;
 };
 
+/**
+ * Helper function to perform backtracking and restore IP addresses.
+ * @param {string} s - The input string.
+ * @param {number} startIndex - The current start index in the string.
+ * @param {number[]} dots - List of segment lengths.
+ * @param {string[]} result - List to store the resulting IP addresses.
+ */
 function backtrack(
   s: string,
   startIndex: number,
@@ -47,6 +59,13 @@ function backtrack(
   }
 }
 
+/**
+ * Validates whether the segment of the string is a valid IP address segment.
+ * @param {string} s - The input string.
+ * @param {number} start - The start index of the segment.
+ * @param {number} length - The length of the segment.
+ * @returns {boolean} - True if the segment is valid, false otherwise.
+ */
 function isValidSegment(s: string, start: number, length: number): boolean {
   if (length === 1) {
     return true;
