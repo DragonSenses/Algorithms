@@ -210,6 +210,28 @@ public class Solution {
 }
 ```
 
+
+
+
+### **Time Complexity**: `O(M^N * N)`
+
+#### Key Points:
+- **Number of Possibilities**: There are at most `M^(N-1)` ways to place the dots.
+- **Validation Time**: Checking whether all parts are valid takes `O(M * N)` time for each possibility.
+
+#### Analysis:
+1. **Number of Possibilities**:
+   - There are `M^(N-1)` ways to place the dots since each of the `(N-1)` positions can have `M` different options for placing a dot.
+
+2. **Validation**:
+   - For each combination, we need to check if each part is valid, which takes `O(M * N)` time.
+
+3. **Final Complexity**:
+   - The total time complexity is given by multiplying the number of possibilities with the time taken for validation: `O(M^(N-1) * (M * N))`.
+   - Simplifying this, we get: `O(M^(N-1) * M * N) = O(M^N * N)`.
+
+For this question, `M = 3` and `N = 4`, so the time complexity is `O(3^3 * 4) = O(27 * 4) = O(108)` which simplifies to `O(1)` as it is constant for small, fixed values of `M` and `N`.
+
 ### **Space Complexity**: `O(M * N)`
 
 #### Key Points:
