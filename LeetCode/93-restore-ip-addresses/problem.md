@@ -337,3 +337,20 @@ To restore IP addresses from a given string, we need to split it into 4 parts, e
 
 By doing so, the length of the fourth part will always be in the valid range `[1, 3]`. We can then validate each part as we form them, preventing any invalid segments from being considered.
 
+## **Algorithm**
+
+1. **Initialize Result List**: Start with an empty list to store valid IP addresses.
+2. **Iterate Over `len1`**:
+   - Determine valid ranges for the first part.
+   - If the first part is valid, proceed to the next step.
+3. **Iterate Over `len2`**:
+   - Determine valid ranges for the second part within the remaining string.
+   - If the second part is valid, proceed to the next step.
+4. **Iterate Over `len3`**:
+   - Determine valid ranges for the third part within the remaining string.
+   - If the third part is valid, check the fourth part.
+5. **Validate and Concatenate**:
+   - If all four parts are valid, concatenate them with dots in between and add the resulting IP address to the result list.
+6. **Return Result**: After iterating through all possible combinations, return the list of valid IP addresses.
+
+
