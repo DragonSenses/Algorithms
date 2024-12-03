@@ -209,3 +209,22 @@ public class Solution {
   }
 }
 ```
+
+### **Space Complexity**: `O(M * N)`
+
+#### Key Points:
+- **Storing Dots**: For each possibility, we store `(N - 1)` numbers, representing the positions of the dots.
+- **Temporary Storage**: We need temporary space to store a solution string before adding it to the answer list.
+
+#### Analysis:
+1. **Storing Dot Positions**:
+   - We store `(N - 1)` numbers, each representing the position of a dot, taking `O(N)` space.
+
+2. **Temporary Storage**:
+   - The length of each solution string is `M * N + M - 1 = O(M * N)`, since each integer has up to `M` digits, and we need `(M - 1)` dots.
+   - The total space complexity for storing the solution string is `O(M * N)`.
+
+3. **Final Complexity**:
+   - Adding these up, the total space complexity, excluding the output space, is `O(N) + O(M * N) = O(M * N)`.
+
+For this question, `M = 3` and `N = 4`, so the space complexity is also `O(1)` for small, fixed values of `M` and `N`.
