@@ -42,6 +42,7 @@
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(M^N * N)`
 
 # Backtracking Approach
 
@@ -211,7 +212,9 @@ public class Solution {
 ```
 
 
+## **Complexity Analysis**
 
+Let's assume we need to separate the input string into `N` integers, with each integer being at most `M` digits.
 
 ### **Time Complexity**: `O(M^N * N)`
 
