@@ -43,6 +43,7 @@
 
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity**: `O(M^N * N)`
+- [Iterative Approach](#iterative-approach)
 
 # Backtracking Approach
 
@@ -322,3 +323,17 @@ For this question, `M = 3` and `N = 4`, so the time complexity is `O(3^3 * 4) = 
    - Adding these up, the total space complexity, excluding the output space, is `O(N) + O(M * N) = O(M * N)`.
 
 For this question, `M = 3` and `N = 4`, so the space complexity is also `O(1)` for small, fixed values of `M` and `N`.
+
+# Iterative Approach
+
+## **Intuition**
+
+To restore IP addresses from a given string, we need to split it into 4 parts, each representing a valid integer between 0 and 255. We can achieve this by iterating over the possible lengths of the first three parts (`len1`, `len2`, `len3`) and ensuring the fourth part is the remainder of the string.
+
+### Length Ranges:
+1. **`len1`**: The length of the first part should be in the range `[ max(1, s.length() - 9), min(3, s.length() - 3) ]`. This ensures there are enough characters left for the other three parts.
+2. **`len2`**: The length of the second part should be in the range `[ max(1, s.length() - len1 - 6), min(3, s.length() - len1 - 2) ]`. This ensures there are enough characters left for the remaining two parts.
+3. **`len3`**: The length of the third part should be in the range `[ max(1, s.length() - len1 - len2 - 3), min(3, s.length() - len1 - len2 - 1) ]`. This ensures the last part is of valid length.
+
+By doing so, the length of the fourth part will always be in the valid range `[1, 3]`. We can then validate each part as we form them, preventing any invalid segments from being considered.
+
