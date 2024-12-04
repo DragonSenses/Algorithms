@@ -487,3 +487,11 @@ function isValidSegment(segment: string): boolean {
 3. **Concatenation of Segments**: For each valid combination, we concatenate the segments to form an IP address, which takes `O(N)` time.
 
 Combining these factors, the overall time complexity is `O(3^(N-1) * N)` which simplifies to `O(M^N * N)` since `M` is a constant upper bound for segment length.
+
+### **Space Complexity**: `O(M * N)`
+
+1. **Storage for Results**: We store up to `M^N` valid IP addresses, each of which is represented by a string of length `N + N - 1` (including dots). Therefore, the space required for storing the results is `O(M * N * (N + N - 1))`.
+2. **Call Stack**: The iterative approach does not use a call stack extensively like the recursive approach, so additional space for function calls is minimized.
+3. **Temporary Variables**: We use a few temporary variables and arrays to store intermediate results, which takes linear space `O(N)`.
+
+Combining these factors, the overall space complexity is `O(M * N)`.
