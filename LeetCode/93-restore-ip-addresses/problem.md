@@ -479,3 +479,11 @@ function isValidSegment(segment: string): boolean {
 }
 ```
 
+
+### **Time Complexity**: `O(M^N * N)`
+
+1. **Iterative Loops**: We have `N-1` nested loops, each ranging from 1 to 3. Thus, there are at most `3^(N-1)` iterations.
+2. **Validation of Each Segment**: For each combination of segments, we validate each segment to ensure it is a valid part of an IP address. This involves checking the length and value of each segment, which takes constant time `O(1)` for each segment.
+3. **Concatenation of Segments**: For each valid combination, we concatenate the segments to form an IP address, which takes `O(N)` time.
+
+Combining these factors, the overall time complexity is `O(3^(N-1) * N)` which simplifies to `O(M^N * N)` since `M` is a constant upper bound for segment length.
