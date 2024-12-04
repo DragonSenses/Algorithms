@@ -353,4 +353,38 @@ By doing so, the length of the fourth part will always be in the valid range `[1
    - If all four parts are valid, concatenate them with dots in between and add the resulting IP address to the result list.
 6. **Return Result**: After iterating through all possible combinations, return the list of valid IP addresses.
 
+### Pseudocode
+
+```plaintext
+function restoreIpAddresses(s):
+    result = []
+    
+    for len1 in range(max(1, s.length - 9), min(3, s.length - 3) + 1):
+        part1 = substring(s, 0, len1)
+        if not isValidSegment(part1):
+            continue
+            
+        for len2 in range(max(1, s.length - len1 - 6), min(3, s.length - len1 - 2) + 1):
+            part2 = substring(s, len1, len1 + len2)
+            if not isValidSegment(part2):
+                continue
+                
+            for len3 in range(max(1, s.length - len1 - len2 - 3), min(3, s.length - len1 - len2 - 1) + 1):
+                part3 = substring(s, len1 + len2, len1 + len2 + len3)
+                part4 = substring(s, len1 + len2 + len3)
+                
+                if isValidSegment(part3) and isValidSegment(part4):
+                    result.append(part1 + "." + part2 + "." + part3 + "." + part4)
+                    
+    return result
+
+function isValidSegment(segment):
+    if segment is empty or segment.length > 3:
+        return false
+    if segment[0] == '0' and segment.length > 1:
+        return false
+    if int(segment) < 0 or int(segment) > 255:
+        return false
+    return true
+```
 
