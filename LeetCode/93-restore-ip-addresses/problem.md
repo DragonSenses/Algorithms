@@ -44,6 +44,7 @@
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity**: `O(M^N * N)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(M^N * N)`
 
 # Backtracking Approach
 
@@ -479,6 +480,9 @@ function isValidSegment(segment: string): boolean {
 }
 ```
 
+## **Complexity Analysis**
+
+Let's assume we need to separate the input string into `N` integers, with each integer being at most `M` digits.
 
 ### **Time Complexity**: `O(M^N * N)`
 
@@ -495,3 +499,9 @@ Combining these factors, the overall time complexity is `O(3^(N-1) * N)` which s
 3. **Temporary Variables**: We use a few temporary variables and arrays to store intermediate results, which takes linear space `O(N)`.
 
 Combining these factors, the overall space complexity is `O(M * N)`.
+
+### Summary
+- **Time Complexity**: `O(M^N * N)`
+- **Space Complexity**: `O(M * N)`
+
+This complexity analysis assumes that `N` is the number of segments (which is 4 for IP addresses) and `M` is the maximum length of each segment (which is 3 for IP addresses).
