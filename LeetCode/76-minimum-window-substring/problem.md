@@ -74,3 +74,20 @@ For example, given `S = "ABAACBAB"` and `T = "ABC"`, our answer window is "ACB".
 
 4. If the window is no longer valid, we repeat step 2 onward.
 
+### Steps
+
+#### **Initialization**
+
+  - Create a frequency map for all characters in `T`.
+  - Initialize two pointers, `left` and `right`, both set to the beginning of `S`.
+  - Maintain a count of required characters from `T` and initialize a variable to track the number of characters matched so far.
+  - Keep a minimum length for the valid window and store the start index of that window.
+
+#### **Expanding and Contracting the Window**
+
+  - Expand the window by moving the right pointer.
+  - Include the character at the right pointer in the window and update the matched character count.
+  - Check if the current window is valid.
+  - If valid, attempt to contract the window by moving the left pointer.
+  - Keep updating the minimum valid window length and start index.
+
