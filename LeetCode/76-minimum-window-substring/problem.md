@@ -91,3 +91,15 @@ For example, given `S = "ABAACBAB"` and `T = "ABC"`, our answer window is "ACB".
   - If valid, attempt to contract the window by moving the left pointer.
   - Keep updating the minimum valid window length and start index.
 
+#### Implementation Details
+
+1. **Initialization**: We create frequency maps for characters in `T` and initialize the two pointers, `left` and `right`, for the sliding window. We also initialize variables to keep track of the number of required characters and the count of matched characters.
+
+2. **Expanding the Window**: We expand the window by moving the `right` pointer, including the character at the `right` pointer in the window.
+
+3. **Valid Window Check**: We check if the current window contains all characters of `T` by comparing the current window's character frequency with the target frequency.
+
+4. **Contracting the Window**: If the current window is valid, we try to contract it by moving the `left` pointer and update the result if we find a smaller valid window.
+
+5. **Result**: Finally, we return the smallest valid window found.
+
