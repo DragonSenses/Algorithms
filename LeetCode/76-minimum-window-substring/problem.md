@@ -41,3 +41,30 @@ Since the largest window of s only has one 'a', return empty string.
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?</p>
+
+<br>
+
+---
+
+# Solution
+
+
+- [76. Minimum Window Substring](#76-minimum-window-substring)
+- [Solution](#solution)
+- [Sliding Window Approach](#sliding-window-approach)
+  - [**Intuition**](#intuition)
+
+# Sliding Window Approach
+
+## **Intuition**
+
+The problem asks us to return the minimum window from the string `S` that contains all the characters of the string `T`. Let's call a window **valid** if it contains all the characters from `T`.
+
+We can use a sliding window approach to solve this problem. This approach involves maintaining a window with two pointers: a right pointer that expands the current window and a left pointer that contracts it. At any given time, only one of these pointers moves while the other remains fixed.
+
+The solution is intuitive. We keep expanding the window by moving the right pointer. When the window becomes valid (contains all desired characters), we try to contract it (if possible) to save the smallest window seen so far.
+
+The answer is the smallest valid window.
+
+For example, given `S = "ABAACBAB"` and `T = "ABC"`, our answer window is "ACB". Below is one of the possible valid windows.
+
