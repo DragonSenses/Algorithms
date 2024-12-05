@@ -158,8 +158,8 @@ public class Solution {
 
         // Remove character from the left from the window
         windowCounts.put(c, windowCounts.get(c) - 1);
-        if (targetFreq.containsKey(c) && windowCounts.get(c).intValue() < targetFreq.get(c).intValue()) {
-          formed--;
+        if (targetFreq.containsKey(c) && windowCounts.get(c) < targetFreq.get(c)) {
+            formed--;
         }
         left++;
       }
