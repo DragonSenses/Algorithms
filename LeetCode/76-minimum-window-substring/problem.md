@@ -33,10 +33,10 @@ Since the largest window of s only has one 'a', return empty string.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>m == s.length</code></li>
-	<li><code>n == t.length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> and <code>t</code> consist of uppercase and lowercase English letters.</li>
+  <li><code>m == s.length</code></li>
+  <li><code>n == t.length</code></li>
+  <li><code>1 &lt;= m, n &lt;= 10<sup>5</sup></code></li>
+  <li><code>s</code> and <code>t</code> consist of uppercase and lowercase English letters.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -48,11 +48,7 @@ Since the largest window of s only has one 'a', return empty string.
 
 # Solution
 
-
-- [76. Minimum Window Substring](#76-minimum-window-substring)
-- [Solution](#solution)
-- [Sliding Window Approach](#sliding-window-approach)
-  - [**Intuition**](#intuition)
+- [**Sliding Window Approach**](#sliding-window-approach)
 
 # Sliding Window Approach
 
@@ -67,4 +63,14 @@ The solution is intuitive. We keep expanding the window by moving the right poin
 The answer is the smallest valid window.
 
 For example, given `S = "ABAACBAB"` and `T = "ABC"`, our answer window is "ACB". Below is one of the possible valid windows.
+
+## **Algorithm**
+
+1. We start with two pointers, `left` and `right`, both initially pointing to the first element of the string `S`.
+
+2. We use the right pointer to expand the window until we get a valid window, i.e., a window that contains all the characters of `T`.
+
+3. Once we have a valid window, we move the left pointer ahead one step at a time. If the window remains valid, we keep updating the minimum window size.
+
+4. If the window is no longer valid, we repeat step 2 onward.
 
