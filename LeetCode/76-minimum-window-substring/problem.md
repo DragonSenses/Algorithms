@@ -49,6 +49,7 @@ Since the largest window of s only has one 'a', return empty string.
 # Solution
 
 - [**Sliding Window Approach**](#sliding-window-approach)
+  - **Time Complexity**: `O(m + n)`
 
 # Sliding Window Approach
 
@@ -229,3 +230,23 @@ function minWindow(s: string, t: string): string {
   return result[0] === -1 ? "" : s.substring(result[1], result[2] + 1);
 }
 ```
+
+## **Complexity Analysis**
+
+Given two strings `s` and `t` of lengths `m` and `n` respectively.
+
+### **Time Complexity**: `O(m + n)`
+
+- **Worst case**: We visit each character in the string `S` at most twice: once by the right pointer and once by the left pointer.
+  - Initializing the frequency map for `T` takes `O(n)` time.
+  - The sliding window process involves the right pointer moving over `S` and potentially expanding until the end, making `O(m)` operations.
+  - The left pointer may also move across `S` in the worst case, resulting in another `O(m)` operations.
+  - Therefore, the total time complexity is `O(m + n)`.
+
+### **Space Complexity**: `O(m + n)`
+
+- **Worst case**: 
+  - The space complexity depends on the characters in `S` and `T`.
+  - We store the frequency of characters from `T` in a map, which takes `O(n)` space.
+  - We maintain a window of characters from `S`, which at most can be equal to the length of `S` in the worst case, taking `O(m)` space.
+  - Thus, the total space complexity is `O(m + n)`.
