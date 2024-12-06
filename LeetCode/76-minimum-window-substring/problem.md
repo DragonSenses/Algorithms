@@ -51,6 +51,7 @@ Since the largest window of s only has one 'a', return empty string.
 - [**Sliding Window Approach**](#sliding-window-approach)
   - **Time Complexity**: `O(m + n)`
 - [**Optimized Sliding Window Approach**](#optimized-sliding-window)
+  - **Time Complexity**: `O(2*|filtered_S| + m + n)`
 
 # Sliding Window Approach
 
@@ -441,3 +442,15 @@ function minWindow(s: string, t: string): string {
   return result[0] === -1 ? "" : s.substring(result[1], result[2] + 1);
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(2*|filtered_S| + m + n)`
+  - Filtering `s` to create `filtered_S` takes `O(m)`.
+  - The sliding window process on `filtered_S` takes `O(2*|filtered_S|)`.
+  - The overall complexity reduces significantly when `|filtered_S| <<< |s|`.
+
+### **Space Complexity**: `O(m + n)`
+  - Space for the frequency maps and `filtered_S`.
+
+This approach streamlines the sliding window algorithm by focusing only on the relevant characters, resulting in improved efficiency and readability.
