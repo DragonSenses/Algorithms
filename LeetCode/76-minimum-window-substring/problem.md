@@ -50,6 +50,7 @@ Since the largest window of s only has one 'a', return empty string.
 
 - [**Sliding Window Approach**](#sliding-window-approach)
   - **Time Complexity**: `O(m + n)`
+- [**Optimized Sliding Window Approach**](#optimized-sliding-window)
 
 # Sliding Window Approach
 
@@ -250,3 +251,9 @@ Given two strings `s` and `t` of lengths `m` and `n` respectively.
   - We store the frequency of characters from `T` in a map, which takes `O(n)` space.
   - We maintain a window of characters from `S`, which at most can be equal to the length of `S` in the worst case, taking `O(m)` space.
   - Thus, the total space complexity is `O(m + n)`.
+
+# Optimized Sliding Window Approach
+
+- We create a new list `filtered_S` that contains only the characters from `s` that are present in `t`, along with their indices in `s`.
+- The sliding window approach is then applied to this smaller, more relevant string.
+
