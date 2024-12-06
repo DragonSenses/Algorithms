@@ -254,6 +254,14 @@ Given two strings `s` and `t` of lengths `m` and `n` respectively.
 
 # Optimized Sliding Window Approach
 
+## **Intuition**
+
+Given two strings `s` and `t` of lengths `m` and `n` respectively, we can optimize the sliding window approach to reduce its time complexity. The key improvement is to focus only on the relevant characters from `s` that are present in `t`.
+
+This optimization can be particularly beneficial when the length of `t` is much smaller than the length of `s`, and `s` contains many characters not present in `t`. By filtering out irrelevant characters, we can significantly reduce the number of operations required.
+
+### Key Insight
+
 - We create a new list `filtered_S` that contains only the characters from `s` that are present in `t`, along with their indices in `s`.
 - The sliding window approach is then applied to this smaller, more relevant string.
 
