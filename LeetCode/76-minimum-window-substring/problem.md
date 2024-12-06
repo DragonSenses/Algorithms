@@ -265,3 +265,28 @@ This optimization can be particularly beneficial when the length of `t` is much 
 - We create a new list `filtered_S` that contains only the characters from `s` that are present in `t`, along with their indices in `s`.
 - The sliding window approach is then applied to this smaller, more relevant string.
 
+## **Algorithm**
+
+1. **Filter `S`**: Create a list `filtered_S` which includes all characters from `s` that are in `t` and their indices.
+   
+   Example:
+   ```markdown
+   S = "ABCDDDDDDEEAFFBC"
+   T = "ABC"
+   filtered_S = [(0, 'A'), (1, 'B'), (2, 'C'), (11, 'A'), (14, 'B'), (15, 'C')]
+   ```
+   Here, `(0, 'A')` means in string `s`, character `A` is at index 0.
+
+2. **Initialize Pointers**: Use two pointers for the sliding window on `filtered_S`.
+   
+   - Start with both pointers at the beginning of `filtered_S`.
+
+3. **Expand and Contract the Window**:
+   
+   - Expand the window by moving the right pointer to include characters.
+   - Once the window contains all characters from `t`, contract it by moving the left pointer to minimize the window size.
+
+4. **Track the Smallest Window**: Keep track of the smallest valid window seen so far.
+
+5. **Return Result**: The smallest window in the original string `s` that contains all characters from `t`.
+
