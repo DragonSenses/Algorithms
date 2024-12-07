@@ -40,7 +40,14 @@
 - [75. Sort Colors](#75-sort-colors)
 - [Solution](#solution)
   - [Problem Overview](#problem-overview)
+- [One-Pass Approach](#one-pass-approach)
 
 ## Problem Overview
 
 The problem is known as [Dutch National Flag Problem](https://en.wikipedia.org/wiki/Dutch_national_flag_problem) and first was proposed by [Edsger W. Dijkstra](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra).
+
+# One-Pass Approach
+
+The goal is to attribute a color to each number and then to arrange them following the order of colors on the Dutch flag.
+
+The Dutch National Flag problem requires sorting an array consisting of three distinct values (0, 1, and 2) in a single pass with constant space. This can be efficiently achieved using the Dutch National Flag algorithm, which is a variant of the three-way partitioning.
