@@ -37,9 +37,6 @@
 
 # Solution
 
-- [75. Sort Colors](#75-sort-colors)
-- [Solution](#solution)
-  - [Problem Overview](#problem-overview)
 - [One-Pass Approach](#one-pass-approach)
 
 ## Problem Overview
@@ -50,4 +47,47 @@ The problem is known as [Dutch National Flag Problem](https://en.wikipedia.org/w
 
 The goal is to attribute a color to each number and then to arrange them following the order of colors on the Dutch flag.
 
+## **Intuition**
+
 The Dutch National Flag problem requires sorting an array consisting of three distinct values (0, 1, and 2) in a single pass with constant space. This can be efficiently achieved using the Dutch National Flag algorithm, which is a variant of the three-way partitioning.
+
+### Key Concepts
+
+1. **Three Pointers**: We use three pointers to manage the sorting process:
+    - **p0**: This pointer tracks the boundary for zeros (0).
+    - **p2**: This pointer tracks the boundary for twos (2).
+    - **curr**: This is the current pointer that iterates through the array.
+
+2. **Invariants**:
+    - All elements before `p0` are zeros (0).
+    - All elements after `p2` are twos (2).
+    - The elements between `p0` and `curr` are ones (1).
+
+### Steps
+
+1. **Initialization**:
+    - Set `p0` to the start of the array.
+    - Set `p2` to the end of the array.
+    - Set `curr` to the start of the array.
+
+2. **Traversal**:
+    - Iterate through the array with `curr`, ensuring that elements are moved to their respective sections based on their value.
+    - **If `nums[curr]` is 0**:
+        - Swap `nums[curr]` with `nums[p0]`.
+        - Increment both `p0` and `curr`.
+    - **If `nums[curr]` is 2**:
+        - Swap `nums[curr]` with `nums[p2]`.
+        - Decrement `p2`.
+    - **If `nums[curr]` is 1**:
+        - Simply move the `curr` pointer to the next element.
+
+### Visualization
+
+Imagine you are sorting the colors in the Dutch national flag:
+
+- **Initial State**: `nums = [2, 0, 2, 1, 1, 0]`, `p0 = 0`, `p2 = 5`, `curr = 0`
+- **After processing the first element** (nums[curr] = 2): Swap with nums[p2], decrement p2, move curr to next.
+- **Midway through**: `nums = [0, 0, 2, 1, 1, 2]`, `p0 = 1`, `p2 = 4`, `curr = 1`
+- **Final State**: `nums = [0, 0, 1, 1, 2, 2]`, `p0 = 2`, `p2 = 3`, `curr = 5`
+
+By maintaining these invariants and processing each element efficiently, we ensure the array is sorted in one pass with constant space.
