@@ -38,6 +38,7 @@
 # Solution
 
 - [One-Pass Approach](#one-pass-approach)
+  - **Time Complexity**: `O(n)`  
 
 ## Problem Overview
 
@@ -152,3 +153,9 @@ public class Solution {
   }
 }
 ```
+
+
+### **Time Complexity**: `O(n)`
+
+- **Single-Pass**: The algorithm processes each element of the array exactly once. This linear pass is achieved using the `curr` pointer, which traverses the array from the start to the end, while the `p0` and `p2` pointers help partition the array into three sections (for 0s, 1s, and 2s). Thus, the time complexity is `O(n)`, where `n` is the number of elements in the array.
+
