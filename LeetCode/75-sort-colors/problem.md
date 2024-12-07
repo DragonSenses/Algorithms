@@ -91,3 +91,24 @@ Imagine you are sorting the colors in the Dutch national flag:
 - **Final State**: `nums = [0, 0, 1, 1, 2, 2]`, `p0 = 2`, `p2 = 3`, `curr = 5`
 
 By maintaining these invariants and processing each element efficiently, we ensure the array is sorted in one pass with constant space.
+
+## **Algorithm**
+
+### Steps
+
+1. **Initialization**:
+   - Initialize `p0` to 0, representing the boundary for the red (0) section.
+   - Initialize `p2` to `n - 1`, representing the boundary for the blue (2) section.
+   - Initialize `curr` to 0, representing the current element being considered.
+
+2. **Traverse and Sort**:
+   - While `curr` is less than or equal to `p2`:
+     - **If `nums[curr] == 0`**:
+        - Swap `nums[curr]` with `nums[p0]`.
+        - Increment both `p0` and `curr`.
+     - **If `nums[curr] == 2`**:
+        - Swap `nums[curr]` with `nums[p2]`.
+        - Decrement `p2`.
+     - **If `nums[curr] == 1`**:
+        - Simply move `curr` to the next element.
+
