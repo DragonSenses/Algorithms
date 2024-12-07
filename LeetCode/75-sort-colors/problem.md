@@ -23,10 +23,24 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == nums.length</code></li>
-	<li><code>1 &lt;= n &lt;= 300</code></li>
-	<li><code>nums[i]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
+  <li><code>n == nums.length</code></li>
+  <li><code>1 &lt;= n &lt;= 300</code></li>
+  <li><code>nums[i]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Could you come up with a one-pass algorithm using only&nbsp;constant extra space?</p>
+
+<br>
+
+---
+
+# Solution
+
+- [75. Sort Colors](#75-sort-colors)
+- [Solution](#solution)
+  - [Problem Overview](#problem-overview)
+
+## Problem Overview
+
+The problem is known as [Dutch National Flag Problem](https://en.wikipedia.org/wiki/Dutch_national_flag_problem) and first was proposed by [Edsger W. Dijkstra](https://en.wikipedia.org/wiki/Edsger_W._Dijkstra).
