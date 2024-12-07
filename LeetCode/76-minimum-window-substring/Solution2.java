@@ -3,7 +3,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Solution class to find the minimum window substring containing all characters
+ * of another string.
+ */
 public class Solution2 {
+
+  /**
+   * Finds the minimum window substring in the given string 's' that contains all
+   * characters of the string 't'.
+   *
+   * @param s the source string
+   * @param t the target string containing characters to be found in the window
+   * @return the minimum window substring containing all characters of 't', or an
+   *         empty string if no such window exists
+   */
   public static String minWindow(String s, String t) {
     // Edge Case: Return empty string if either argument is empty
     if (s.length() == 0 || t.length() == 0) {
