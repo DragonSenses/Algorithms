@@ -237,3 +237,6 @@ function sortColors(nums: number[]): void {
 
 - **Single-Pass**: The algorithm processes each element of the array exactly once. This linear pass is achieved using the `curr` pointer, which traverses the array from the start to the end, while the `p0` and `p2` pointers help partition the array into three sections (for 0s, 1s, and 2s). Thus, the time complexity is `O(n)`, where `n` is the number of elements in the array.
 
+### **Space Complexity**: `O(1)`
+
+- **Constant Space**: The algorithm uses a constant amount of extra space, regardless of the size of the input array. The only additional space used is for the three pointers (`p0`, `curr`, `p2`) and a few temporary variables for swapping elements. Therefore, the space complexity is `O(1)`.
