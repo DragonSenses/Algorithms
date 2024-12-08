@@ -13,21 +13,25 @@ public class Solution {
 
     // Traverse the array
     while (curr <= p2) {
-      if (nums[curr] == 0) {
-        // Swap current element with the element at p0
-        int temp = nums[p0];
-        nums[p0] = nums[curr];
-        nums[curr] = temp;
-        p0++;
-        curr++;
-      } else if (nums[curr] == 2) {
-        // Swap current element with the element at p2
-        int temp = nums[p2];
-        nums[p2] = nums[curr];
-        nums[curr] = temp;
-        p2--;
-      } else {
-        curr++;
+      switch (nums[curr]) {
+        case 0:
+          // Swap current element with the element at p0
+          int temp0 = nums[p0];
+          nums[p0] = nums[curr];
+          nums[curr] = temp0;
+          p0++;
+          curr++;
+          break;
+        case 2:
+          // Swap current element with the element at p2
+          int temp2 = nums[p2];
+          nums[p2] = nums[curr];
+          nums[curr] = temp2;
+          p2--;
+          break;
+        default:
+          curr++;
+          break;
       }
     }
   }
