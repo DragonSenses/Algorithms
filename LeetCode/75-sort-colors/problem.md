@@ -231,7 +231,11 @@ function sortColors(nums: number[]): void {
 }
 ```
 
+## **Complexity Analysis**
 
+1. **Initialization**: The initialization of pointers `p0`, `curr`, and `p2` takes constant time and space.
+2. **Traversal**: The while loop runs `n` times, where `n` is the length of the array. During each iteration, the algorithm may perform swaps and pointer increments, all of which take constant time.
+3. **Swapping**: Swapping elements is an in-place operation, which does not require additional space beyond a few temporary variables. Since the swaps are conducted within the existing array, the space complexity remains constant.
 
 ### **Time Complexity**: `O(n)`
 
@@ -240,3 +244,8 @@ function sortColors(nums: number[]): void {
 ### **Space Complexity**: `O(1)`
 
 - **Constant Space**: The algorithm uses a constant amount of extra space, regardless of the size of the input array. The only additional space used is for the three pointers (`p0`, `curr`, `p2`) and a few temporary variables for swapping elements. Therefore, the space complexity is `O(1)`.
+
+### Summary
+
+- The algorithm efficiently sorts the array in a single pass, making the time complexity `O(n)`.
+- The use of constant additional space for pointers and temporary variables ensures the space complexity is `O(1)`.
