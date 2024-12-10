@@ -154,6 +154,7 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 };
 ```
 
+## **Complexity Analysis**
 
 ### **Time Complexity**: `O(log(mn))`
 
@@ -167,3 +168,19 @@ function searchMatrix(matrix: number[][], target: number): boolean {
   - The space required is for a few variables: pointers (`left`, `right`, `pivot_idx`), and the temporary variables for the row, column, and pivot element.
   - No additional data structures are used that grow with the input size.
   - Therefore, the space complexity is `O(1)`, indicating constant space usage.
+
+### Detailed Explanation
+
+1. **Initialization**: Setting up the pointers (`left`, `right`) takes constant time and space.
+2. **Binary Search Loop**:
+   - Each iteration of the loop involves a constant number of operations: calculating the middle index (`pivot_idx`), transforming the index to row and column, comparing the `pivot_element` with the target, and adjusting the pointers.
+   - The number of iterations of the loop is proportional to the logarithm of the number of elements in the matrix, resulting in a time complexity of `O(log(mn))`.
+3. **Memory Usage**:
+   - The algorithm maintains a few variables to manage the binary search process, all of which use constant space.
+   - No additional arrays, lists, or other data structures are utilized that would scale with the size of the input matrix.
+
+### Summary
+
+- The algorithm efficiently searches for a target value in a sorted 2D matrix by leveraging binary search on a virtual 1D array representation.
+- The time complexity is `O(log(mn))` due to the binary search mechanism.
+- The space complexity is `O(1)` because only a constant amount of extra space is used.
