@@ -56,3 +56,24 @@ The crucial insight is that the index in this virtual 1D array can be easily map
 
 This transformation allows us to leverage binary search to efficiently find the target value within the 2D matrix.
 
+## **Algorithm**
+
+The algorithm is a standard binary search adapted for a 2D matrix:
+
+1. **Initialization**:
+   - Initialize two pointers: `left` at the start of the virtual array (`0`) and `right` at the end of the virtual array (`m * n - 1`).
+
+2. **Binary Search**:
+   - While `left` is less than or equal to `right`:
+     - Calculate the middle index of the virtual array: `pivot_idx = (left + right) // 2`.
+     - Convert the `pivot_idx` to the corresponding row and column in the 2D matrix:
+       - `row = pivot_idx // n`
+       - `col = pivot_idx % n`
+     - Retrieve the element at the calculated row and column: `pivot_element = matrix[row][col]`.
+     - Compare the `pivot_element` with the target:
+       - If `pivot_element` equals the target, return `true` (target found).
+       - If `pivot_element` is less than the target, move the `left` pointer to `pivot_idx + 1` (search in the right half).
+       - If `pivot_element` is greater than the target, move the `right` pointer to `pivot_idx - 1` (search in the left half).
+
+3. **End of Search**:
+   - If the search completes without finding the target, return `false`.
