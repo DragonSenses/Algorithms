@@ -160,3 +160,10 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 - **Binary Search**: The algorithm performs binary search on a conceptual flattened version of the `m x n` matrix. 
   - In each iteration of the binary search, the search space is halved, which gives us the logarithmic time complexity.
   - Since we are dealing with a virtual array of length `m * n`, the time complexity is `O(log(mn))`.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space**: The algorithm uses a constant amount of extra space.
+  - The space required is for a few variables: pointers (`left`, `right`, `pivot_idx`), and the temporary variables for the row, column, and pivot element.
+  - No additional data structures are used that grow with the input size.
+  - Therefore, the space complexity is `O(1)`, indicating constant space usage.
