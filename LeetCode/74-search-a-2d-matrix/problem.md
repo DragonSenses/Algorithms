@@ -33,3 +33,18 @@
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>-10<sup>4</sup> &lt;= matrix[i][j], target &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+
+- [74. Search a 2D Matrix](#74-search-a-2d-matrix)
+- [Solution](#solution)
+- [Binary Search Approach](#binary-search-approach)
+
+# Binary Search Approach
+
+When dealing with a sorted 2D matrix, it can be conceptually flattened into a sorted 1D array of length `m * n` where `m` is the number of rows and `n` is the number of columns. This flattened array retains the sorted order and allows us to perform binary search, an efficient search algorithm.
+
