@@ -49,6 +49,8 @@
 
 When dealing with a sorted 2D matrix, it can be conceptually flattened into a sorted 1D array of length `m * n` where `m` is the number of rows and `n` is the number of columns. This flattened array retains the sorted order and allows us to perform binary search, an efficient search algorithm.
 
+![**Matrix `m x n` visualized as an array of length `m x n`**](img/74-2.jpg)
+
 The crucial insight is that the index in this virtual 1D array can be easily mapped to the corresponding row and column in the original 2D matrix using simple arithmetic operations:
 
 - **Row**: `row = index // n`
