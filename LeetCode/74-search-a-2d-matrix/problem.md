@@ -77,3 +77,48 @@ The algorithm is a standard binary search adapted for a 2D matrix:
 
 3. **End of Search**:
    - If the search completes without finding the target, return `false`.
+
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+    
+    /**
+     * Searches for a target value in a sorted 2D matrix using binary search.
+     *
+     * @param matrix The 2D matrix of integers.
+     * @param target The target value to search for.
+     * @return true if the target is found, otherwise false.
+     */
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int left = 0;
+        int right = m * n - 1;
+        
+        while (left <= right) {
+            int pivot_idx = (left + right) / 2;
+            int row = pivot_idx / n;
+            int col = pivot_idx % n;
+            int pivot_element = matrix[row][col];
+            
+            if (pivot_element == target) {
+                return true;
+            } else if (pivot_element < target) {
+                left = pivot_idx + 1;
+            } else {
+                right = pivot_idx - 1;
+            }
+        }
+        
+        return false;
+    }
+}
+```
+
