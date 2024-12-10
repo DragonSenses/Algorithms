@@ -154,3 +154,9 @@ function searchMatrix(matrix: number[][], target: number): boolean {
 };
 ```
 
+
+### **Time Complexity**: `O(log(mn))`
+
+- **Binary Search**: The algorithm performs binary search on a conceptual flattened version of the `m x n` matrix. 
+  - In each iteration of the binary search, the search space is halved, which gives us the logarithmic time complexity.
+  - Since we are dealing with a virtual array of length `m * n`, the time complexity is `O(log(mn))`.
