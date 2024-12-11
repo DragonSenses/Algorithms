@@ -38,6 +38,7 @@
 # Solution
 
 - [Brute Force Approach](#brute-force-approach)
+  - **Time Complexity**: `O(2^n)`
 
 # Brute Force Approach
 
@@ -109,3 +110,22 @@ function climbStairs(n: number): number {
   return climbStairs(n - 1) + climbStairs(n - 2);
 };
 ```
+
+## **Complexity Analysis**
+
+The recursion tree created for `n = 5`:
+
+![](img/70-1.jpg)
+
+### **Time Complexity**: `O(2^n)`
+
+- **Exponential Growth**: For each step `i`, two recursive calls are made (`climbStairs(i + 1, n)` and `climbStairs(i + 2, n)`), forming a binary tree.
+- **Height of Tree**: The height of this binary tree is `n`.
+- **Total Nodes**: The total number of nodes in the recursion tree is `2^n`.
+- **Result**: Therefore, the time complexity is `O(2^n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Recursion Depth**: The maximum depth of the recursion tree is `n`.
+- **Call Stack**: The recursion stack will hold at most `n` function calls simultaneously.
+- **Result**: This results in a space complexity of `O(n)`.
