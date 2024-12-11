@@ -30,3 +30,17 @@
 <ul>
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+
+- [70. Climbing Stairs](#70-climbing-stairs)
+- [Solution](#solution)
+- [Brute Force Approach](#brute-force-approach)
+
+# Brute Force Approach
+
+In this brute force approach, we take all possible step combinations, i.e., 1 and 2, at every step. At each step, we call the function `climbStairs` for step 1 and step 2, and return the sum of returned values of both functions.
