@@ -57,3 +57,13 @@ The recursion tree for `n = 5`:
 
 ![](img/70-1.jpg)
 
+## **Algorithm**
+
+1. Define the base cases:
+   - If the current step `i` equals `n`, return 1 (one way to reach the top).
+   - If `i` exceeds `n`, return 0 (no way to reach the top from this position).
+2. Recursively call `climbStairs` with `i+1` and `i+2`.
+3. Sum the results of the two recursive calls to get the total number of ways to reach the top from step `i`.
+4. Use the base cases to terminate the recursion.
+
+
