@@ -37,10 +37,23 @@
 
 # Solution
 
-- [70. Climbing Stairs](#70-climbing-stairs)
-- [Solution](#solution)
 - [Brute Force Approach](#brute-force-approach)
 
 # Brute Force Approach
 
+## **Intuition**
+
 In this brute force approach, we take all possible step combinations, i.e., 1 and 2, at every step. At each step, we call the function `climbStairs` for step 1 and step 2, and return the sum of returned values of both functions.
+
+The recurrence relation is:
+
+`climbStairs(i, n) = climbStairs(i + 1, n) + climbStairs(i + 2, n)`
+
+where `i` defines the current step and `n` defines the destination step.
+
+### Visualization of Recursion Tree
+
+The recursion tree for `n = 5`:
+
+![](img/70-1.jpg)
+
