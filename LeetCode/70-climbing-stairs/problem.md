@@ -28,7 +28,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 45</code></li>
+  <li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
 
 <br>
@@ -40,6 +40,7 @@
 - [Brute Force (Naive Approach)](#brute-force-naive-approach)
   - **Time Complexity**: `O(2^n)`
 - [Recursion with Memoization](#recursion-with-memoization)
+  - **Time Complexity**: `O(n)`
 
 # Brute Force (Naive Approach)
 
@@ -214,3 +215,16 @@ function climbStairsWithMemoization(n: number, memo: number[]): number {
   return memo[n];
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n)`
+
+- **Reason**: In the memoization approach, each unique subproblem is solved only once. Once computed, the result is stored in the memo array and reused whenever needed. Hence, we perform a constant amount of work for each step from `0` to `n`.
+- **Linear Growth**: The number of steps, `n`, directly determines the number of calculations. Therefore, the time complexity is linear, `O(n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Memoization Storage**: We use a memo array of size `n+1` to store the results of subproblems. This requires additional space proportional to the number of steps, `n`.
+- **Recursion Depth**: The recursion stack depth also grows up to `n` in the worst case, contributing to the space complexity.
+- **Total Space Usage**: Combining the memo array and the recursion stack, the overall space complexity is `O(n)`.
