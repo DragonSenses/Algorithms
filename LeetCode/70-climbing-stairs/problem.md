@@ -46,6 +46,7 @@
 - [Dynamic Programming Approach](#dynamic-programming-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Fibonacci Number (Naive Approach)](#fibonacci-number-naive-approach)
 
 
 # Brute Force (Naive Approach)
@@ -311,4 +312,12 @@ public class Solution {
 ### **Space Complexity**: `O(n)`
 
 - **Array Storage**: The algorithm uses an array `dp` of size `n+1` to store the number of ways to reach each step. The space complexity is linear, `O(n)`.
+
+# Fibonacci Number (Naive Approach)
+
+This approach efficiently calculates the number of ways to climb stairs by leveraging the properties of the Fibonacci sequence, resulting in both optimal time and space complexity.
+
+### Fibonacci Number Overview
+
+For those unfamiliar with the Fibonacci sequence, it is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1. In this problem, however, we start with 1 and 2 because the first step can be taken in 1 way, and the second step can be reached directly in 2 ways (either two single steps or one double step).
 
