@@ -253,3 +253,15 @@ Let `dp[i]` denote the number of ways to reach the i-th step:
 
 Dynamic programming is a method for solving problems by breaking them down into simpler subproblems and solving each subproblem only once, storing their solutions - usually in an array or hash table. This approach reduces the computational overhead associated with solving the same subproblems multiple times.
 
+## **Algorithm**
+
+1. **Initialization**: 
+   - Create an array `dp` of size `n+1` to store the number of ways to reach each step.
+   - Initialize `dp[1]` to 1 and `dp[2]` to 2, as there is only one way to reach step 1 and two ways to reach step 2.
+
+2. **Iteration**:
+   - Use a loop from 3 to `n`.
+   - For each step `i`, set `dp[i]` to the sum of `dp[i-1]` and `dp[i-2]`.
+
+3. **Return Result**: 
+   - The result is the value of `dp[n]`.
