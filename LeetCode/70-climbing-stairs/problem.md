@@ -187,3 +187,30 @@ public class Solution {
 
 This implementation leverages memoization to efficiently compute the number of distinct ways to climb the stairs, drastically reducing the time complexity compared to the brute force approach. 
 
+### TypeScript
+
+```typescript
+function climbStairs(n: number): number {
+  // Create a memo array to store results of each step
+  const memo: number[] = new Array(n + 1).fill(0);
+  return climbStairsWithMemoization(n, memo);
+}
+
+function climbStairsWithMemoization(n: number, memo: number[]): number {
+  // Base cases: If the steps are 0 or 1, there's only one way to climb
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+
+  // If result is already computed, return it
+  if (memo[n] !== 0) {
+    return memo[n];
+  }
+
+  // Compute the result for the current step
+  memo[n] =
+    climbStairsWithMemoization(n - 1, memo) +
+    climbStairsWithMemoization(n - 2, memo);
+  return memo[n];
+}
+```
