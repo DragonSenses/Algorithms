@@ -44,6 +44,9 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(n)`
+
 
 # Brute Force (Naive Approach)
 
@@ -298,3 +301,14 @@ public class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n)`
+
+- **Single Loop**: The algorithm iterates from 3 to `n`, performing a constant amount of work in each iteration. The time complexity is linear, `O(n)`.
+
+### **Space Complexity**: `O(n)`
+
+- **Array Storage**: The algorithm uses an array `dp` of size `n+1` to store the number of ways to reach each step. The space complexity is linear, `O(n)`.
+
