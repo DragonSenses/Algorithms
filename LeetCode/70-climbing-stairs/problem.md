@@ -236,6 +236,18 @@ function climbStairsWithMemoization(n: number, memo: number[]): number {
 
 This dynamic programming approach efficiently calculates the number of ways to climb stairs, utilizing both optimal time and space complexity.
 
+## **Intuition**
+
+This problem can be broken into subproblems and contains the optimal substructure property, meaning its optimal solution can be constructed efficiently from the optimal solutions of its subproblems. Therefore, dynamic programming can be used to solve this problem.
+
+One can reach the i-th step in one of two ways:
+1. Taking a single step from the (i-1)-th step.
+2. Taking a step of 2 from the (i-2)-th step.
+
+Thus, the total number of ways to reach the i-th step is equal to the sum of ways of reaching the (i-1)-th step and the ways of reaching the (i-2)-th step.
+
+Let `dp[i]` denote the number of ways to reach the i-th step:
+\[ \text{dp[i]} = \text{dp[i-1]} + \text{dp[i-2]} \]
 
 ### Dynamic Programming Overview
 
