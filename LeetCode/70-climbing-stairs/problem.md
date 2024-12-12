@@ -39,10 +39,11 @@
 
 - [Brute Force (Naive Approach)](#brute-force-naive-approach)
   - **Time Complexity**: `O(2^n)`
+- [Recursion with Memoization](#recursion-with-memoization)
 
 # Brute Force (Naive Approach)
 
-**Note:** This method is impractical due to its exponential time complexity of `O(2^n)`, which will result in a *Time Limit Exceeded* error. While the brute force (naive) approach is useful for grasping the fundamentals of the climbing stairs problem, we will soon explore more efficient solutions, such as the Recursion with Memoization approach, to improve performance.
+**Note:** This method is impractical due to its exponential time complexity of `O(2^n)`, which will result in a *Time Limit Exceeded* error. While the brute force (naive) approach is useful for grasping the fundamentals of the climbing stairs problem, we will soon explore more efficient solutions, such as the [Recursion with Memoization](#recursion-with-memoization) approach, to improve performance.
 
 ## **Intuition**
 
@@ -131,3 +132,14 @@ The recursion tree created for `n = 5`:
 - **Recursion Depth**: The maximum depth of the recursion tree is `n`.
 - **Call Stack**: The recursion stack will hold at most `n` function calls simultaneously.
 - **Result**: This results in a space complexity of `O(n)`.
+
+# Recursion with Memoization
+
+## **Intuition**
+
+In the previous approach, we were redundantly calculating the result for every step, which resulted in an exponential time complexity. Instead, we can use a technique called **memoization** to store the result at each step in a memo array. By directly returning the result from the memo array whenever that function is called again, we avoid redundant calculations.
+
+### Memoization Overview
+
+Memoization is an optimization technique that involves storing the results of expensive function calls and reusing those results when the same inputs occur again. By doing this, we significantly reduce the time complexity of the algorithm by avoiding redundant computations. 
+
