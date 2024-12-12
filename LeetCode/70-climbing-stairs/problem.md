@@ -37,10 +37,12 @@
 
 # Solution
 
-- [Brute Force Approach](#brute-force-approach)
+- [Brute Force (Naive Approach)](#brute-force-naive-approach)
   - **Time Complexity**: `O(2^n)`
 
-# Brute Force Approach
+# Brute Force (Naive Approach)
+
+**Note:** This method is impractical due to its exponential time complexity of `O(2^n)`, which will result in a *Time Limit Exceeded* error. While the brute force (naive) approach is useful for grasping the fundamentals of the climbing stairs problem, we will soon explore more efficient solutions, such as the Recursion with Memoization approach, to improve performance.
 
 ## **Intuition**
 
