@@ -39,8 +39,11 @@
 
 - [Brute Force (Naive Approach)](#brute-force-naive-approach)
   - **Time Complexity**: `O(2^n)`
+  - **Space Complexity**: `O(n)`
 - [Recursion with Memoization](#recursion-with-memoization)
   - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(n)`
+- [Dynamic Programming Approach](#dynamic-programming-approach)
 
 # Brute Force (Naive Approach)
 
@@ -186,7 +189,7 @@ public class Solution {
 }
 ```
 
-This implementation leverages memoization to efficiently compute the number of distinct ways to climb the stairs, drastically reducing the time complexity compared to the brute force approach. 
+This implementation leverages memoization to efficiently compute the number of distinct ways to climb the stairs, drastically reducing the time complexity compared to the brute force approach.
 
 ### TypeScript
 
@@ -228,3 +231,13 @@ function climbStairsWithMemoization(n: number, memo: number[]): number {
 - **Memoization Storage**: We use a memo array of size `n+1` to store the results of subproblems. This requires additional space proportional to the number of steps, `n`.
 - **Recursion Depth**: The recursion stack depth also grows up to `n` in the worst case, contributing to the space complexity.
 - **Total Space Usage**: Combining the memo array and the recursion stack, the overall space complexity is `O(n)`.
+
+# Dynamic Programming Approach
+
+This dynamic programming approach efficiently calculates the number of ways to climb stairs, utilizing both optimal time and space complexity.
+
+
+### Dynamic Programming Overview
+
+Dynamic programming is a method for solving problems by breaking them down into simpler subproblems and solving each subproblem only once, storing their solutions - usually in an array or hash table. This approach reduces the computational overhead associated with solving the same subproblems multiple times.
+
