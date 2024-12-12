@@ -143,3 +143,12 @@ In the previous approach, we were redundantly calculating the result for every s
 
 Memoization is an optimization technique that involves storing the results of expensive function calls and reusing those results when the same inputs occur again. By doing this, we significantly reduce the time complexity of the algorithm by avoiding redundant computations. 
 
+## **Algorithm**
+
+1. **Initialize**: Create a memo array to store the results of each step.
+2. **Base Cases**: 
+   - If `n` is 0 or 1, return 1.
+3. **Recursive Case**: 
+   - If the result for the current step is already computed (present in the memo array), return that result.
+   - Otherwise, compute the result by recursively calling the function for `n-1` and `n-2` and store this result in the memo array.
+4. **Return the Result**: Finally, return the result for the given `n`.
