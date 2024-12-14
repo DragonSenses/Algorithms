@@ -372,3 +372,7 @@ public class Solution {
 
 - **Single Loop**: The algorithm iterates from 3 to `n`, performing a constant amount of work in each iteration (calculating the sum of the previous two Fibonacci numbers). Since this linear iteration directly depends on the input size `n`, the time complexity is `O(n)`.
 
+### **Space Complexity**: `O(1)`
+
+- **Constant Space**: We use a constant amount of space to store the last two Fibonacci numbers. No additional space is required that grows with the input size `n`, making the space complexity constant, `O(1)`.
+
