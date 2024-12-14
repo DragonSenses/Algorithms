@@ -333,3 +333,38 @@ For those unfamiliar with the Fibonacci sequence, it is a series of numbers wher
    - Update the variables to hold the last two computed values.
 3. **Return** the value of the n-th Fibonacci number.
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  /**
+   * Function to calculate the number of ways to climb stairs using the Fibonacci number approach.
+   *
+   * @param n The total number of steps to reach the top.
+   * @return The number of distinct ways to reach the top.
+   */
+  public int climbStairs(int n) {
+    // Base case: If there's only one step, there's only one way to climb
+    if (n == 1) {
+      return 1;
+    }
+
+    int first = 1; // First Fibonacci number
+    int second = 2; // Second Fibonacci number
+
+    // Calculate the nth Fibonacci number
+    for (int i = 3; i <= n; i++) {
+      int third = first + second; // The current Fibonacci number
+      first = second; // Update first
+      second = third; // Update second
+    }
+
+    return second; // The nth Fibonacci number
+  }
+}
+```
+
+
+
