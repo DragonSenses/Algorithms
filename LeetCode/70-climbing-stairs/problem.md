@@ -325,3 +325,11 @@ The problem of climbing stairs is analogous to finding the Fibonacci sequence. I
 
 For those unfamiliar with the Fibonacci sequence, it is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1. In this problem, however, we start with 1 and 2 because the first step can be taken in 1 way, and the second step can be reached directly in 2 ways (either two single steps or one double step).
 
+## **Algorithm**
+
+1. **Initialize** two variables to represent the first two Fibonacci numbers, `first = 1` and `second = 2`.
+2. **Iterate** from 3 to `n` (inclusive) to compute the i-th Fibonacci number:
+   - Calculate the i-th Fibonacci number as the sum of the previous two numbers.
+   - Update the variables to hold the last two computed values.
+3. **Return** the value of the n-th Fibonacci number.
+
