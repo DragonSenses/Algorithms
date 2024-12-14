@@ -368,3 +368,7 @@ public class Solution {
 
 
 
+### **Time Complexity**: `O(n)`
+
+- **Single Loop**: The algorithm iterates from 3 to `n`, performing a constant amount of work in each iteration (calculating the sum of the previous two Fibonacci numbers). Since this linear iteration directly depends on the input size `n`, the time complexity is `O(n)`.
+
