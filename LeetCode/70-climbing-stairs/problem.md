@@ -47,6 +47,8 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Fibonacci Number (Naive Approach)](#fibonacci-number-naive-approach)
+  - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(1)`
 
 
 # Brute Force (Naive Approach)
@@ -366,7 +368,7 @@ public class Solution {
 }
 ```
 
-
+## **Complexity Analysis**
 
 ### **Time Complexity**: `O(n)`
 
