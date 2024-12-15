@@ -464,3 +464,24 @@ For the given problem, we consider the first and second steps as the base cases,
 3. **Return Result**: 
    - Convert the result to an integer (since the number of ways to climb stairs must be a whole number).
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  /**
+   * Function to calculate the number of ways to climb stairs using the Fibonacci formula.
+   *
+   * @param n The total number of steps to reach the top.
+   * @return The number of distinct ways to reach the top.
+   */
+  public int climbStairs(int n) {
+    double sqrt5 = Math.sqrt(5);
+    double phi = (1 + sqrt5) / 2;
+    double psi = (1 - sqrt5) / 2;
+    return (int) ((Math.pow(phi, n + 1) - Math.pow(psi, n + 1)) / sqrt5);
+  }
+}
+```
+
