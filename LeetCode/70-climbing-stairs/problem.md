@@ -436,3 +436,7 @@ function climbStairs(n: number): number {
 
 - **Constant Space**: We use a constant amount of space to store the last two Fibonacci numbers. No additional space is required that grows with the input size `n`, making the space complexity constant, `O(1)`.
 
+# Fibonacci Formula (Optimized Approach)
+
+This optimized approach provides an efficient way to compute the number of ways to climb stairs, leveraging the mathematical properties of the Fibonacci sequence to achieve constant time and space complexity.
+
