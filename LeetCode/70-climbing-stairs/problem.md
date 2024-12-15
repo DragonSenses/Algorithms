@@ -454,3 +454,13 @@ where:
 
 For the given problem, we consider the first and second steps as the base cases, i.e., \( F(1) = 1 \) and \( F(2) = 2 \). The Fibonacci sequence for this problem is defined such that \( F(n+2) = F(n+1) + F(n) \). By solving the recurrence relation using the quadratic formula, we arrive at the above closed-form expression.
 
+## **Algorithm**
+
+1. **Calculate Constants**: 
+   - Compute \( \sqrt{5} \).
+   - Compute \( \phi \) and \( \psi \).
+2. **Apply Binet's Formula**: 
+   - Use the formula \( F(n) = \frac{\phi^{(n+1)} - \psi^{(n+1)}}{\sqrt{5}} \) to compute the n-th Fibonacci number.
+3. **Return Result**: 
+   - Convert the result to an integer (since the number of ways to climb stairs must be a whole number).
+
