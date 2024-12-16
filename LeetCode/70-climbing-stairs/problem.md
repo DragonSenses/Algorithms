@@ -507,3 +507,7 @@ function climbStairs(n: number): number {
 ### **Time Complexity**: `O(1)`
 
 - **Constant Time**: Calculating the n-th Fibonacci number using Binet's formula involves a constant number of arithmetic operations, regardless of the value of `n`. Thus, the time complexity is `O(1)`.
+
+### **Space Complexity**: `O(1)`
+
+- **Fixed Space**: The algorithm uses a fixed amount of extra space to store the constants \( \sqrt{5} \), \( \phi \), and \( \psi \). No additional space is required that grows with the input size `n`, making the space complexity constant, `O(1)`.
