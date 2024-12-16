@@ -527,3 +527,12 @@ The Fibonacci sequence can be represented using matrix multiplication:
 
 By raising this matrix to the power of (n-1), the top left element of the resulting matrix will give us the n-th Fibonacci number.
 
+## **Algorithm**
+
+1. **Matrix Initialization**:
+   - Initialize the transformation matrix \( Q = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \).
+2. **Matrix Exponentiation**:
+   - Raise the matrix Q to the power of (n-1) using efficient exponentiation by squaring.
+3. **Extract Result**:
+   - The resulting matrix's top left element will be the n-th Fibonacci number.
+
