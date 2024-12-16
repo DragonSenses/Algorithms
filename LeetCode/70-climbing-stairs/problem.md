@@ -536,3 +536,59 @@ By raising this matrix to the power of (n-1), the top left element of the result
 3. **Extract Result**:
    - The resulting matrix's top left element will be the n-th Fibonacci number.
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution6 {
+  /**
+   * Function to calculate the number of ways to climb stairs using matrix exponentiation.
+   *
+   * @param n The total number of steps to reach the top.
+   * @return The number of distinct ways to reach the top.
+   */
+  public int climbStairs(int n) {
+    int[][] q = {{1, 1}, {1, 0}};
+    int[][] res = matrixPower(q, n);
+    return res[0][0];
+  }
+
+  /**
+   * Function to raise a 2x2 matrix to the power n using exponentiation by squaring.
+   *
+   * @param a The matrix to be raised to the power.
+   * @param n The exponent.
+   * @return The resultant matrix after exponentiation.
+   */
+  private int[][] matrixPower(int[][] a, int n) {
+    int[][] result = {{1, 0}, {0, 1}}; // Identity matrix
+    while (n > 0) {
+      if ((n & 1) == 1) {
+        result = multiplyMatrices(result, a);
+      }
+      n >>= 1;
+      a = multiplyMatrices(a, a);
+    }
+    return result;
+  }
+
+  /**
+   * Function to multiply two 2x2 matrices.
+   *
+   * @param a The first matrix.
+   * @param b The second matrix.
+   * @return The resultant matrix after multiplication.
+   */
+  private int[][] multiplyMatrices(int[][] a, int[][] b) {
+    int[][] c = new int[2][2];
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 2; j++) {
+        c[i][j] = a[i][0] * b[0][j] + a[i][1] * b[1][j];
+      }
+    }
+    return c;
+  }
+}
+```
+
