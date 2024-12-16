@@ -516,3 +516,14 @@ function climbStairs(n: number): number {
 
 Binet's method efficiently computes the number of ways to climb stairs using matrix exponentiation, achieving logarithmic time complexity and constant space complexity.
 
+## **Intuition**
+
+This approach uses matrix exponentiation to compute the n-th Fibonacci number efficiently. By leveraging the properties of matrix multiplication, we can calculate the n-th Fibonacci number in logarithmic time.
+
+### Matrix Representation of Fibonacci Numbers
+
+The Fibonacci sequence can be represented using matrix multiplication:
+\[ Q = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \]
+
+By raising this matrix to the power of (n-1), the top left element of the resulting matrix will give us the n-th Fibonacci number.
+
