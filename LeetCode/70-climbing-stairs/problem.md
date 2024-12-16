@@ -501,3 +501,9 @@ function climbStairs(n: number): number {
   return Math.round((Math.pow(phi, n + 1) - Math.pow(psi, n + 1)) / sqrt5);
 }
 ```
+
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(1)`
+
+- **Constant Time**: Calculating the n-th Fibonacci number using Binet's formula involves a constant number of arithmetic operations, regardless of the value of `n`. Thus, the time complexity is `O(1)`.
