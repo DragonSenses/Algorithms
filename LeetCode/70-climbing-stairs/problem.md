@@ -511,3 +511,8 @@ function climbStairs(n: number): number {
 ### **Space Complexity**: `O(1)`
 
 - **Fixed Space**: The algorithm uses a fixed amount of extra space to store the constants \( \sqrt{5} \), \( \phi \), and \( \psi \). No additional space is required that grows with the input size `n`, making the space complexity constant, `O(1)`.
+
+# Binet's Method Approach
+
+Binet's method efficiently computes the number of ways to climb stairs using matrix exponentiation, achieving logarithmic time complexity and constant space complexity.
+
