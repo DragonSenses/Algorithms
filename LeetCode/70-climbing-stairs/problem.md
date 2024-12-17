@@ -644,6 +644,8 @@ function multiplyMatrices(a: number[][], b: number[][]): number[][] {
 }
 ```
 
+## **Complexity Analysis**
+
 ### **Time Complexity**: `O(log n)`
 
 - **Exponentiation by Squaring**: The matrix exponentiation is performed using the method of exponentiation by squaring, which requires `log n` multiplications. Each matrix multiplication operation takes constant time `O(1)` for a fixed-size 2x2 matrix.
@@ -652,3 +654,11 @@ function multiplyMatrices(a: number[][], b: number[][]): number[][] {
 
 - **Fixed Space**: The algorithm uses a constant amount of extra space to store the matrices and intermediate results. The space complexity is therefore `O(1)`.
 
+### Proof of Time Complexity
+
+Let's consider raising a matrix \( M \) to the power of `n`. If `n` is a power of 2, we can represent it as \( n = 2^k \). The matrix exponentiation process involves squaring the matrix \( k \) times:
+\[ M^n = M^{2^k} = ((...((M^2)^2)^2...)^2) \]
+
+![Matrix `M` in the form a tree](img/70-2.jpg)
+
+Thus, the number of multiplication operations required is proportional to the height of the exponentiation tree, which is `log n`. Since each matrix multiplication operation is performed in constant time for a 2x2 matrix, the overall time complexity is `O(log n)`.
