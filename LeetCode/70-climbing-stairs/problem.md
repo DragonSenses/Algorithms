@@ -643,3 +643,8 @@ function multiplyMatrices(a: number[][], b: number[][]): number[][] {
   return c;
 }
 ```
+
+### **Space Complexity**: `O(1)`
+
+- **Fixed Space**: The algorithm uses a constant amount of extra space to store the matrices and intermediate results. The space complexity is therefore `O(1)`.
+
