@@ -50,7 +50,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 - [Fibonacci Formula (Optimized Approach)](#fibonacci-formula-optimized-approach)
-  - **Time Complexity**: `O(log n)`
+  - **Time Complexity**: `O(1)`
   - **Space Complexity**: `O(1)`
 - [Binet's Method](#binets-method-approach)
   - **Time Complexity**: `O(log n)`
