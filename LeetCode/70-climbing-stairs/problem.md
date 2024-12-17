@@ -644,6 +644,10 @@ function multiplyMatrices(a: number[][], b: number[][]): number[][] {
 }
 ```
 
+### **Time Complexity**: `O(log n)`
+
+- **Exponentiation by Squaring**: The matrix exponentiation is performed using the method of exponentiation by squaring, which requires `log n` multiplications. Each matrix multiplication operation takes constant time `O(1)` for a fixed-size 2x2 matrix.
+
 ### **Space Complexity**: `O(1)`
 
 - **Fixed Space**: The algorithm uses a constant amount of extra space to store the matrices and intermediate results. The space complexity is therefore `O(1)`.
