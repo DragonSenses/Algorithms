@@ -42,9 +42,9 @@
 
 # Solution
 
-- [Two Pass Matrix Zeroing(Naive Approach)](#two-pass-naive-approach)
+- [Two Pass Matrix Zeroing (Naive Approach)](#two-pass-naive-approach)
 
-### Two-Pass Matrix Zeroing (Naive)
+### Two-Pass Matrix Zeroing (Naive Approach)
 
 This approach uses extra memory to record rows and columns with zeroes, completed in two passes.
 
@@ -124,4 +124,11 @@ function setZeroes(matrix: number[][]): void {
   }
 }
 ```
+
+
+Given `R` and `C` are the number of rows and columns respectively in the matrix.
+
+### **Space Complexity**
+
+- The space complexity is determined by the additional space used to store the indices of rows and columns that contain zeros. In the worst case, all rows and columns may contain zeros, resulting in the space complexity being proportional to the sum of the number of rows and columns.
 
