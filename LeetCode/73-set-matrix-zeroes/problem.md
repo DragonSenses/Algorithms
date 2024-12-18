@@ -42,11 +42,13 @@
 
 # Solution
 
-- [73. Set Matrix Zeroes](#73-set-matrix-zeroes)
-- [Solution](#solution)
-    - [Two-Pass Matrix Zeroing (Naive)](#two-pass-matrix-zeroing-naive)
+- [Two Pass Matrix Zeroing(Naive Approach)](#two-pass-naive-approach)
 
 ### Two-Pass Matrix Zeroing (Naive)
 
 This approach uses extra memory to record rows and columns with zeroes, completed in two passes.
+
+## **Intuition**
+
+If any cell in the matrix contains a zero, the entire row and column of that cell should be set to zero. All of the cells of this recorded row and column can be marked zero in the next iteration.
 
