@@ -128,6 +128,10 @@ function setZeroes(matrix: number[][]): void {
 
 Given `R` and `C` are the number of rows and columns respectively in the matrix.
 
+### **Time Complexity**
+
+- The algorithm makes two passes over the entire matrix. The first pass to find zeros and the second pass to set the required cells to zero. Hence, the time complexity is linear with respect to the number of cells in the matrix.
+
 ### **Space Complexity**
 
 - The space complexity is determined by the additional space used to store the indices of rows and columns that contain zeros. In the worst case, all rows and columns may contain zeros, resulting in the space complexity being proportional to the sum of the number of rows and columns.
