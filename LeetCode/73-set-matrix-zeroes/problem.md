@@ -21,17 +21,32 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>m == matrix.length</code></li>
-	<li><code>n == matrix[0].length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 200</code></li>
-	<li><code>-2<sup>31</sup> &lt;= matrix[i][j] &lt;= 2<sup>31</sup> - 1</code></li>
+  <li><code>m == matrix.length</code></li>
+  <li><code>n == matrix[0].length</code></li>
+  <li><code>1 &lt;= m, n &lt;= 200</code></li>
+  <li><code>-2<sup>31</sup> &lt;= matrix[i][j] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong></p>
 
 <ul>
-	<li>A straightforward solution using <code>O(mn)</code> space is probably a bad idea.</li>
-	<li>A simple improvement uses <code>O(m + n)</code> space, but still not the best solution.</li>
-	<li>Could you devise a constant space solution?</li>
+  <li>A straightforward solution using <code>O(mn)</code> space is probably a bad idea.</li>
+  <li>A simple improvement uses <code>O(m + n)</code> space, but still not the best solution.</li>
+  <li>Could you devise a constant space solution?</li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+
+- [73. Set Matrix Zeroes](#73-set-matrix-zeroes)
+- [Solution](#solution)
+    - [Two-Pass Matrix Zeroing (Naive)](#two-pass-matrix-zeroing-naive)
+
+### Two-Pass Matrix Zeroing (Naive)
+
+This approach uses extra memory to record rows and columns with zeroes, completed in two passes.
+
