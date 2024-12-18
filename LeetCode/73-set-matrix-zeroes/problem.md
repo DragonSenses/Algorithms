@@ -52,3 +52,9 @@ This approach uses extra memory to record rows and columns with zeroes, complete
 
 If any cell in the matrix contains a zero, the entire row and column of that cell should be set to zero. All of the cells of this recorded row and column can be marked zero in the next iteration.
 
+## **Algorithm**
+
+1. **Initialize Sets**: Use two sets to record the rows and columns that contain zeros.
+2. **First Pass**: Iterate over the matrix to find cells with zeros and record their row and column indices in the sets.
+3. **Second Pass**: Iterate over the matrix again and set cells to zero if their row or column is in the recorded sets.
+
