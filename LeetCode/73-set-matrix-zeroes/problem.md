@@ -43,6 +43,7 @@
 # Solution
 
 - [Two Pass Matrix Zeroing (Naive Approach)](#two-pass-naive-approach)
+  - **Time Complexity**: `O(R*C)`
 
 ### Two-Pass Matrix Zeroing (Naive Approach)
 
@@ -125,14 +126,15 @@ function setZeroes(matrix: number[][]): void {
 }
 ```
 
+## **Complexity Analysis**
 
 Given `R` and `C` are the number of rows and columns respectively in the matrix.
 
-### **Time Complexity**
+### **Time Complexity**: `O(R * C)`
 
 - The algorithm makes two passes over the entire matrix. The first pass to find zeros and the second pass to set the required cells to zero. Hence, the time complexity is linear with respect to the number of cells in the matrix.
 
-### **Space Complexity**
+### **Space Complexity**: `O(R + C)`
 
 - The space complexity is determined by the additional space used to store the indices of rows and columns that contain zeros. In the worst case, all rows and columns may contain zeros, resulting in the space complexity being proportional to the sum of the number of rows and columns.
 
