@@ -172,3 +172,21 @@ matrix[i][0] = 0;
 matrix[0][j] = 0;
 ```
 These flags are later used to update the matrix. If the first cell of a row is set to zero, it means the entire row should be marked zero, and similarly for columns.
+
+## **Algorithm**
+
+1. **Mark the Rows and Columns:**
+   - Iterate over the matrix to find zeros.
+   - If `matrix[i][j] == 0`, set `matrix[i][0]` and `matrix[0][j]` to zero.
+
+2. **Use Additional Variable:**
+   - Use an additional variable to mark whether the first column should be zeroed, because the first cell of the first row and first column overlap at `matrix[0][0]`.
+
+3. **Update the Matrix:**
+   - Iterate over the matrix starting from the second row and second column (`matrix[1][1]` onwards).
+   - If `matrix[i][0] == 0` or `matrix[0][j] == 0`, set `matrix[i][j]` to zero.
+
+4. **Update the First Row and Column:**
+   - If `matrix[0][0] == 0`, set the entire first row to zero.
+   - If the first column was marked, set the entire first column to zero.
+
