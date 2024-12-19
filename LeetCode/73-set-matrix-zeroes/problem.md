@@ -161,3 +161,14 @@ Given `R` and `C` are the number of rows and columns respectively in the matrix.
 
 This approach uses `O(1)` space by utilizing the matrix itself as indicators to achieve space efficiency.
 
+## **Intuition**
+
+Instead of using additional memory to track rows and columns to be reset, we can use the matrix itself as indicators. The idea is to use the first cell of each row and column as a flag to determine whether that row or column should be set to zero. This way, for every zero found, we mark the corresponding row and column by setting the first cell of the row and the first cell of the column to zero.
+
+For example, if `matrix[i][j] == 0`:
+
+```java
+matrix[i][0] = 0;
+matrix[0][j] = 0;
+```
+These flags are later used to update the matrix. If the first cell of a row is set to zero, it means the entire row should be marked zero, and similarly for columns.
