@@ -44,6 +44,7 @@
 
 - [Two Pass Matrix Zeroing (Naive Approach)](#two-pass-naive-approach)
   - **Time Complexity**: `O(R*C)`
+- [Mark and Sweep (Optimized Approach)](#mark-and-sweep-optimized-approach)
 
 ### Two-Pass Matrix Zeroing (Naive Approach)
 
@@ -155,4 +156,8 @@ Given `R` and `C` are the number of rows and columns respectively in the matrix.
 ### **Space Complexity**: `O(R + C)`
 
 - The space complexity is determined by the additional space used to store the indices of rows and columns that contain zeros. In the worst case, all rows and columns may contain zeros, resulting in the space complexity being proportional to the sum of the number of rows and columns.
+
+# Mark and Sweep (Optimized Approach)
+
+This approach uses `O(1)` space by utilizing the matrix itself as indicators to achieve space efficiency.
 
