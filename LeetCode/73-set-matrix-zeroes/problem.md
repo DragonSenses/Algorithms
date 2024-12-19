@@ -190,3 +190,11 @@ These flags are later used to update the matrix. If the first cell of a row is s
    - If `matrix[0][0] == 0`, set the entire first row to zero.
    - If the first column was marked, set the entire first column to zero.
 
+## **Implementation**
+
+#### Implementation Details
+
+1. **First Pass**: Mark the rows and columns that need to be zeroed.
+2. **Second Pass**: Use the markers to set cells to zero.
+3. **Special Handling**: Adjust the first row and column if needed based on markers.
+
