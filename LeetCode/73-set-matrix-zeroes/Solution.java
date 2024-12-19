@@ -1,38 +1,44 @@
-import java.util.HashSet;
-import java.util.Set;
-
-/**
- * Sets matrix zeroes in an R x C matrix.
- * If an element is 0, sets its entire row and column to 0's.
- * 
- * This function uses a two-pass matrix zeroing approach,
- * but it requires additional memory of O(R + C).
- * 
- * @param matrix the matrix to be modified
- */
-class Solution {
+public class Solution {
   public void setZeroes(int[][] matrix) {
+    boolean isCol = false;
     int R = matrix.length;
     int C = matrix[0].length;
-    Set<Integer> rows = new HashSet<>();
-    Set<Integer> cols = new HashSet<>();
 
-    // First pass to find all rows and columns that contain zero
+    // First pass to mark zeros
     for (int i = 0; i < R; i++) {
-      for (int j = 0; j < C; j++) {
+      // Check if the first column should be zeroed
+      if (matrix[i][0] == 0) {
+        isCol = true;
+      }
+      // Check rest of the matrix
+      for (int j = 1; j < C; j++) {
         if (matrix[i][j] == 0) {
-          rows.add(i);
-          cols.add(j);
+          matrix[0][j] = 0;
+          matrix[i][0] = 0;
         }
       }
     }
 
-    // Second pass to set the cells to zero
-    for (int i = 0; i < R; i++) {
-      for (int j = 0; j < C; j++) {
-        if (rows.contains(i) || cols.contains(j)) {
+    // Second pass to set matrix cells to zero using markers
+    for (int i = 1; i < R; i++) {
+      for (int j = 1; j < C; j++) {
+        if (matrix[i][0] == 0 || matrix[0][j] == 0) {
           matrix[i][j] = 0;
         }
+      }
+    }
+
+    // Set the first row to zero if needed
+    if (matrix[0][0] == 0) {
+      for (int j = 0; j < C; j++) {
+        matrix[0][j] = 0;
+      }
+    }
+
+    // Set the first column to zero if needed
+    if (isCol) {
+      for (int i = 0; i < R; i++) {
+        matrix[i][0] = 0;
       }
     }
   }
