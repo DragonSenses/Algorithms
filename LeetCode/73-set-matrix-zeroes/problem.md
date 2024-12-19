@@ -45,6 +45,7 @@
 - [Two Pass Matrix Zeroing (Naive Approach)](#two-pass-naive-approach)
   - **Time Complexity**: `O(R*C)`
 - [Mark and Sweep (Optimized Approach)](#mark-and-sweep-optimized-approach)
+  - **Time Complexity**: `O(R*C)`
 
 ### Two-Pass Matrix Zeroing (Naive Approach)
 
@@ -314,8 +315,12 @@ function setZeroes(matrix: number[][]): void {
 }
 ```
 
+## **Complexity Analysis**
 
 Given `R` and `C` are the number of rows and columns respectively in the matrix.
 
-### **Space Complexity**
+### **Time Complexity**: `O(R * C)`
+- We make two passes over the matrix: one to mark the rows and columns, and another to update the matrix.
+
+### **Space Complexity**: `O(1)`
 - **Constant Space**: This approach uses constant extra space by utilizing the matrix itself for indicators.
