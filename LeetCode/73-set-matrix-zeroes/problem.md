@@ -313,3 +313,9 @@ function setZeroes(matrix: number[][]): void {
   }
 }
 ```
+
+
+Given `R` and `C` are the number of rows and columns respectively in the matrix.
+
+### **Space Complexity**
+- **Constant Space**: This approach uses constant extra space by utilizing the matrix itself for indicators.
