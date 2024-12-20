@@ -40,3 +40,34 @@ exection -&gt; execution (insert 'u')
 	<li><code>0 &lt;= word1.length, word2.length &lt;= 500</code></li>
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
+
+## Problem Overview
+
+### Introduction to Edit Distance
+[Edit distance](https://en.wikipedia.org/wiki/Edit_distance) is a string metric used in computer science to quantify how dissimilar two strings are. It measures the minimum number of operations required to transform one string into another. 
+
+### Types of Edit Distance
+There are various types of "edit distance," each allowing different operations to transform one string into another. In this problem, we refer specifically to **Levenshtein distance**.
+
+### Levenshtein Distance
+The Levenshtein distance allows three types of operations:
+- **Insertion**: Adding a character
+- **Deletion**: Removing a character
+- **Replacement**: Replacing a character
+
+### Real-World Applications
+Solving this problem has several real-world applications. For example, it can help find the similarity score between two strings. A lower edit distance indicates higher similarity.
+
+One prominent application is the auto-correct feature in text editors. When a spelling mistake is made, advanced text editors like Microsoft Word suggest the nearest matching words. These suggestions are based on words with the least edit distance from the dictionary.
+
+Additionally, edit distance has applications in fields such as computational biology and natural language processing.
+
+### Goal
+The goal is to find the edit distance between two given strings, `word1` and `word2`.
+
+Levenshtein distance finds edit distances by allowing three types of transformation operations: **addition**, **deletions**, and **replacements**
+
+![Example of word 1: "Wenesfays" and word 2: "Wednesday" shows the use of add, replace, and delete operations.](img/72-1.jpg)
+
+Let us now discuss the approaches to solving this problem.
+
