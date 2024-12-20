@@ -1,4 +1,13 @@
 public class Solution {
+  /**
+   * Sets matrix zeroes in an R x C matrix.
+   * If an element is 0, sets its entire row and column to 0's.
+   * 
+   * This optimized mark-and-sweep approach improves upon the two-pass matrix zeroing approach.
+   * It has a time complexity of O(R * C) and space complexity of O(1).
+   * 
+   * @param matrix the matrix to be modified
+   */
   public void setZeroes(int[][] matrix) {
     boolean isCol = false;
     int R = matrix.length;
