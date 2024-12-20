@@ -114,3 +114,20 @@ To find the minimum number of operations to transform `word1` into `word2`, we m
 From this example, we see that Option 3 is the optimal choice, resulting in an edit distance of 1.
 
 ![Illustration of the three operations (delete 'c' from word1, insert 'e' into word1, or replace 'c' with 'e' in word 1) to transform word1: "abc" to word2: "abe"](img/72-2.jpg)
+
+### Conclusion
+The edit distance to transform `word1` to `word2` can be calculated as:
+```plaintext
+Edit distance = Minimum (
+    Number of operations after deleting character from "word1",
+    Number of operations after inserting character in "word1",
+    Number of operations after replacing character in "word1"
+) + 1
+```
+The `+1` accounts for the current operation.
+
+### Recursive Implementation
+When it comes to trying all possible solutions and finding the most optimal one, recursion is a natural approach.
+
+Whenever there is a mismatch between two characters in the strings, we need to try all possible operations and choose the best among them.
+
