@@ -5,9 +5,9 @@
 <p>You have the following three operations permitted on a word:</p>
 
 <ul>
-	<li>Insert a character</li>
-	<li>Delete a character</li>
-	<li>Replace a character</li>
+  <li>Insert a character</li>
+  <li>Delete a character</li>
+  <li>Replace a character</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -37,9 +37,17 @@ exection -&gt; execution (insert 'u')
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= word1.length, word2.length &lt;= 500</code></li>
-	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
+  <li><code>0 &lt;= word1.length, word2.length &lt;= 500</code></li>
+  <li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
+
+<br>
+
+---
+
+# Solution
+
+- [Recursive Approach](#recursive-approach)
 
 ## Problem Overview
 
@@ -71,3 +79,24 @@ Levenshtein distance finds edit distances by allowing three types of transformat
 
 Let us now discuss the approaches to solving this problem.
 
+# Recursive Approach
+
+## **Intuition**
+
+Let's start by identifying the key principles of this approach:
+
+1. **Identical Strings**: If the two strings are the same, the edit distance is zero.
+   ```plaintext
+   Example: word1 = "abcd", word2 = "abcd"
+   Edit Distance = 0
+   ```
+   Since `word1` is equal to `word2`, there is no need to add, remove, or replace any characters.
+
+2. **Different Characters**: Operations (add, delete, replace) are performed only if a character at a certain position in `word1` is different from the corresponding character in `word2`.
+   ```plaintext
+   Example: word1 = "abc", word2 = "abe"
+   ```
+   The character at the 3rd position in `word1` ('c') is different from the character in `word2` ('e'). In this case, we have three options to transform `word1` into `word2`:
+   - **Option 1**: Delete 'c' from `word1`.
+   - **Option 2**: Insert 'e' into `word1`.
+   - **Option 3**: Replace 'c' with 'e' in `word1`.
