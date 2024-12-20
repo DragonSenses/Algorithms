@@ -100,3 +100,16 @@ Let's start by identifying the key principles of this approach:
    - **Option 1**: Delete 'c' from `word1`.
    - **Option 2**: Insert 'e' into `word1`.
    - **Option 3**: Replace 'c' with 'e' in `word1`.
+
+### Choosing the Optimal Operation
+To find the minimum number of operations to transform `word1` into `word2`, we must evaluate each operation:
+
+1. **Delete 'c' from `word1`**:
+   - Transforms "abc" to "ab" (Edit Distance = 2)
+2. **Insert 'e' into `word1`**:
+   - Transforms "abc" to "abec" (Edit Distance = 2)
+3. **Replace 'c' with 'e' in `word1`**:
+   - Transforms "abc" to "abe" (Edit Distance = 1)
+
+From this example, we see that Option 3 is the optimal choice, resulting in an edit distance of 1.
+
