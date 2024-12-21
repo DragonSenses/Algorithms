@@ -1,7 +1,24 @@
+/**
+ * Finds the minimum number of operations required to convert word1 to word2.
+ * The operations allowed are insertion, deletion, and replacement.
+ * 
+ * @param {string} word1 - The source string to be transformed.
+ * @param {string} word2 - The target string to transform into.
+ * @returns {number} - The minimum number of operations required.
+ */
 function minDistance(word1: string, word2: string): number {
   return computeEditDistance(word1, word2, word1.length, word2.length);
 };
 
+/**
+ * Recursive helper function to compute the edit distance.
+ * 
+ * @param {string} word1 - The source string to be transformed.
+ * @param {string} word2 - The target string to transform into.
+ * @param {number} word1Index - The current index in the source string.
+ * @param {number} word2Index - The current index in the target string.
+ * @returns {number} - The minimum number of operations required.
+ */
 function computeEditDistance(
   word1: string,
   word2: string,
