@@ -358,6 +358,10 @@ function computeEditDistance(
 5. **Return Minimum Operation**:
    - Return the minimum value among the three operations (insert, delete, replace).
 
+### **Time Complexity**
+
+- **Exponential Time Complexity**: For every pair of `word1` and `word2`, if the characters do not match, we recursively explore three possibilities (insert, delete, replace). 
+- **Worst Case Scenario**: In the worst case, where none of the characters match, we will explore `3^L` possibilities. This is because each character mismatch triggers three recursive calls, leading to an exponential growth in the number of operations.
 
 ### **Space Complexity**
 
