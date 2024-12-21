@@ -357,3 +357,8 @@ function computeEditDistance(
 
 5. **Return Minimum Operation**:
    - Return the minimum value among the three operations (insert, delete, replace).
+
+
+### **Space Complexity**
+
+- **Depth of Recursion Call Stack**: The space complexity is determined by the depth of the recursion tree. In the worst case, the depth of the recursion tree is `M + N` because the recursive process continues until either `word1` or `word2` is empty. Therefore, the maximum depth of the call stack will be `M + N`.
