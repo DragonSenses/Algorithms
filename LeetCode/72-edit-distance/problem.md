@@ -146,6 +146,13 @@ The goal is to transform `word1` into `word2` using the minimum number of operat
    - **Match**: If `word1[word1Index] == word2[word2Index]`, move to the next index. No operation is needed.
    - **Mismatch**: If `word1[word1Index] != word2[word2Index]`, perform one of the three operations: delete, insert, or replace.
 
+### Recursive Function Definition
+
+Define the recursive function `computeEditDistance`, which finds the edit distance for `word1` ending at `word1Index` and `word2` ending at `word2Index`.
+
+```plaintext
+computeEditDistance(word1, word2, word1Index, word2Index)
+```
 
 ### Recurrence Relations
 
@@ -175,3 +182,16 @@ computeEditDistance(word1, word2, word1Index, word2Index) = minimum (
 ```
 
 If `word1[word1Index] == word2[word2Index]`, move to the next index without performing any operation.
+
+### Base Cases
+
+The base case is the terminating condition for the recursive function:
+
+1. **word1 is empty**
+   - If `word1` is an empty string, the only operation needed is to add the characters of `word2` to `word1`.
+   - Edit Distance: Number of characters in `word2`.
+
+2. **word2 is empty**
+   - If `word2` is an empty string, the only operation needed is to delete all remaining characters in `word1`.
+   - Edit Distance: Number of characters in `word1`.
+
