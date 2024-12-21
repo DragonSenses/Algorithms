@@ -131,3 +131,17 @@ When it comes to trying all possible solutions and finding the most optimal one,
 
 Whenever there is a mismatch between two characters in the strings, we need to try all possible operations and choose the best among them.
 
+## **Algorithm**
+
+### Overview
+The goal is to transform `word1` into `word2` using the minimum number of operations (insert, delete, replace). We achieve this by comparing each character in `word1` and `word2` while tracking their respective indices.
+
+### Steps
+
+1. **Initial Setup**
+   - Compare every character in `word1` and `word2`.
+   - Track the current character index as `word1Index` and `word2Index`.
+
+2. **Character Comparison**
+   - **Match**: If `word1[word1Index] == word2[word2Index]`, move to the next index. No operation is needed.
+   - **Mismatch**: If `word1[word1Index] != word2[word2Index]`, perform one of the three operations: delete, insert, or replace.
