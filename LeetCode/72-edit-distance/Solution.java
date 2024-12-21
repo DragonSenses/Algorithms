@@ -1,9 +1,29 @@
+/**
+ * Class to find the minimum number of operations required to convert word1 to word2.
+ * The operations allowed are insertion, deletion, and replacement.
+ */
 class Solution {
+  
+  /**
+   * Finds the minimum number of operations required to convert word1 to word2.
+   * 
+   * @param word1 the source string to be transformed.
+   * @param word2 the target string to transform into.
+   * @return the minimum number of operations required.
+   */
   public int minDistance(String word1, String word2) {
     return computeEditDistance(word1, word2, word1.length(), word2.length());
   }
 
-  // Recursive auxiliary function to compute the edit distance
+  /**
+   * Recursive auxiliary function to compute the edit distance.
+   * 
+   * @param word1 the source string to be transformed.
+   * @param word2 the target string to transform into.
+   * @param word1Index the current index in the source string.
+   * @param word2Index the current index in the target string.
+   * @return the minimum number of operations required.
+   */
   private int computeEditDistance(String word1, String word2, int word1Index, int word2Index) {
     // Base Case 1: If word1 is empty, return the number of characters left in word2
     if (word1Index == 0) {
