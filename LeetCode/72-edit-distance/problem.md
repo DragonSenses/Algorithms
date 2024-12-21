@@ -145,3 +145,33 @@ The goal is to transform `word1` into `word2` using the minimum number of operat
 2. **Character Comparison**
    - **Match**: If `word1[word1Index] == word2[word2Index]`, move to the next index. No operation is needed.
    - **Mismatch**: If `word1[word1Index] != word2[word2Index]`, perform one of the three operations: delete, insert, or replace.
+
+
+### Recurrence Relations
+
+Let's derive the recurrence relation for each possible operation:
+
+1. **Replace Character**
+   - Recurrence Relation: `computeEditDistance(word1, word2, word1Index - 1, word2Index - 1) + 1`
+   - Example: Transform `"abc"` to `"abe"` by replacing 'c' with 'e'.
+
+2. **Insert Character**
+   - Recurrence Relation: `computeEditDistance(word1, word2, word1Index, word2Index - 1) + 1`
+   - Example: Transform `"abc"` to `"abec"` by inserting 'e'.
+
+3. **Delete Character**
+   - Recurrence Relation: `computeEditDistance(word1, word2, word1Index - 1, word2Index) + 1`
+   - Example: Transform `"abc"` to `"ab"` by deleting 'c'.
+
+### Overall Recurrence Relation
+
+If `word1[word1Index] != word2[word2Index]`, we have:
+```plaintext
+computeEditDistance(word1, word2, word1Index, word2Index) = minimum (
+    computeEditDistance(word1, word2, word1Index - 1, word2Index - 1),
+    computeEditDistance(word1, word2, word1Index, word2Index - 1),
+    computeEditDistance(word1, word2, word1Index - 1, word2Index)
+) + 1
+```
+
+If `word1[word1Index] == word2[word2Index]`, move to the next index without performing any operation.
