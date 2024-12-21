@@ -51,6 +51,7 @@ exection -&gt; execution (insert 'u')
   - **Time Complexity**: `O(3^L)`
     - `L = max(len(word1), len(word2)).`
   - **Space Complexity**: `O(M + N)`
+- [Memoization: Top-Down Dynamic Programming Approach](#memoization-top-down-dynamic-programming-approach)
 
 ## Problem Overview
 
@@ -377,8 +378,18 @@ function computeEditDistance(
 
 - **Depth of Recursion Call Stack**: The space complexity is determined by the depth of the recursion tree. In the worst case, the depth of the recursion tree is `M + N` because the recursive process continues until either `word1` or `word2` is empty. Therefore, the maximum depth of the call stack will be `M + N`.
 
+# Memoization: Top-Down Dynamic Programming Approach
+
+## **Intuition**
+
 Although the recursive solution works well, it is exhaustive. To see how many repetitive calculations occur, refer to the illustration below:
 
 ![Illustration of the recursion tree created when computing the edit distance for word1: "apc" and word2: "aqe"](img/72-3.jpg)
 
 In the illustration, you can see that the same substring combination of `word1` and `word2` is evaluated multiple times (highlighted in the same color). There is no need for this repeated computation.
+
+#### Optimizing Recursive Calls
+
+We can optimize these recursive calls by storing the results of every computed sub-problem and reusing them whenever needed. This eliminates unnecessary repetitive calculations.
+
+By caching or memorizing the result of every operation, the algorithm can check if the result for a problem is already present in the cache before computing it again. This optimization technique is known as **memoization**.
