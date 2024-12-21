@@ -376,3 +376,9 @@ function computeEditDistance(
 ### **Space Complexity**: `O(M + N)`
 
 - **Depth of Recursion Call Stack**: The space complexity is determined by the depth of the recursion tree. In the worst case, the depth of the recursion tree is `M + N` because the recursive process continues until either `word1` or `word2` is empty. Therefore, the maximum depth of the call stack will be `M + N`.
+
+Although the recursive solution works well, it is exhaustive. To see how many repetitive calculations occur, refer to the illustration below:
+
+![Illustration of the recursion tree created when computing the edit distance for word1: "apc" and word2: "aqe"](img/72-3.jpg)
+
+In the illustration, you can see that the same substring combination of `word1` and `word2` is evaluated multiple times (highlighted in the same color). There is no need for this repeated computation.
