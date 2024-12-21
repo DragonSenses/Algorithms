@@ -48,6 +48,9 @@ exection -&gt; execution (insert 'u')
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(3^L)`
+    - `L = max(len(word1), len(word2)).`
+  - **Space Complexity**: `O(M + N)`
 
 ## Problem Overview
 
@@ -358,11 +361,18 @@ function computeEditDistance(
 5. **Return Minimum Operation**:
    - Return the minimum value among the three operations (insert, delete, replace).
 
-### **Time Complexity**
+## **Complexity Analysis**
+
+### Assumptions
+- Let `M` be the length of string `word1`.
+- Let `N` be the length of string `word2`.
+- Let `L` be `max(M, N)`. In another way `L = max(len(word1), len(word2)).`
+
+### **Time Complexity**: `O(3^L)`
 
 - **Exponential Time Complexity**: For every pair of `word1` and `word2`, if the characters do not match, we recursively explore three possibilities (insert, delete, replace). 
 - **Worst Case Scenario**: In the worst case, where none of the characters match, we will explore `3^L` possibilities. This is because each character mismatch triggers three recursive calls, leading to an exponential growth in the number of operations.
 
-### **Space Complexity**
+### **Space Complexity**: `O(M + N)`
 
 - **Depth of Recursion Call Stack**: The space complexity is determined by the depth of the recursion tree. In the worst case, the depth of the recursion tree is `M + N` because the recursive process continues until either `word1` or `word2` is empty. Therefore, the maximum depth of the call stack will be `M + N`.
