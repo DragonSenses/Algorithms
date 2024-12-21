@@ -195,3 +195,45 @@ The base case is the terminating condition for the recursive function:
    - If `word2` is an empty string, the only operation needed is to delete all remaining characters in `word1`.
    - Edit Distance: Number of characters in `word1`.
 
+### **Pseudocode**
+
+```plaintext
+function minDistance(word1, word2):
+    return computeEditDistance(word1, word2, len(word1) - 1, len(word2) - 1)
+
+function computeEditDistance(word1, word2, word1Index, word2Index):
+    # Base Case 1: If word1 is empty, return the number of characters left in word2
+    if word1Index < 0:
+        return word2Index + 1
+
+    # Base Case 2: If word2 is empty, return the number of characters left in word1
+    if word2Index < 0:
+        return word1Index + 1
+
+    # If characters at current position match, move to the next position
+    if word1[word1Index] == word2[word2Index]:
+        return computeEditDistance(word1, word2, word1Index - 1, word2Index - 1)
+
+    # If characters at current position do not match, consider all three operations
+    insertOp = computeEditDistance(word1, word2, word1Index, word2Index - 1) + 1
+    deleteOp = computeEditDistance(word1, word2, word1Index - 1, word2Index) + 1
+    replaceOp = computeEditDistance(word1, word2, word1Index - 1, word2Index - 1) + 1
+
+    # Return the minimum of the three operations
+    return min(insertOp, deleteOp, replaceOp)
+```
+
+### Explanation:
+1. **Base Cases**:
+   - If `word1` is empty (i.e., `word1Index < 0`), return the number of characters left in `word2`.
+   - If `word2` is empty (i.e., `word2Index < 0`), return the number of characters left in `word1`.
+
+2. **Matching Characters**:
+   - If the characters at the current positions in `word1` and `word2` match, recursively move to the next position.
+
+3. **Non-Matching Characters**:
+   - Consider all three operations (insert, delete, replace) and recursively calculate the minimum number of operations needed for each.
+
+4. **Minimum Operations**:
+   - Return the minimum value among the three operations.
+
