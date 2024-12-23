@@ -420,3 +420,20 @@ Memoization is a top-down dynamic programming approach that involves breaking do
 
 1. **Caching Sub-Problems**: Store the results of sub-problems in a cache (2-dimensional array) to reuse them and avoid redundant computations.
 2. **Recursive Function**: Use a recursive function to solve the problem, enhanced with memoization to store and retrieve precomputed results.
+
+### Steps
+
+1. **Define Parameters**:
+   - `word1`: The source string.
+   - `word2`: The target string.
+   - `word1Index`: Current index in `word1` (0-indexed).
+   - `word2Index`: Current index in `word2` (0-indexed).
+
+2. **Use a 2-Dimensional Array (Cache)**:
+   - Create a 2-dimensional array `memo` where `memo[word1Index][word2Index]` stores the result of transforming `word1` ending at `word1Index` to `word2` ending at `word2Index`.
+
+3. **Check Cache Before Computation**:
+   - Before computing the result of a sub-problem, check if it is already present in `memo[word1Index][word2Index]`. If yes, return the stored result.
+
+4. **Store Results in Cache**:
+   - After computing the result of a sub-problem, store it in `memo[word1Index][word2Index]` for future reference.
