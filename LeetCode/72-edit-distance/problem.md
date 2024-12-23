@@ -393,3 +393,25 @@ In the illustration, you can see that the same substring combination of `word1` 
 We can optimize these recursive calls by storing the results of every computed sub-problem and reusing them whenever needed. This eliminates unnecessary repetitive calculations.
 
 By caching or memorizing the result of every operation, the algorithm can check if the result for a problem is already present in the cache before computing it again. This optimization technique is known as **memoization**.
+
+### Memoization Overview
+
+Memoization is a top-down dynamic programming approach that involves breaking down a problem into smaller sub-problems, solving each sub-problem only once, and storing their results for future use. This approach ensures that each sub-problem is solved just once, avoiding the exponential time complexity of pure recursive solutions.
+
+### Steps Involved in Memoization
+
+1. **Define a Recursive Function**: The function should solve the problem by recursively calling itself for smaller sub-problems.
+2. **Use a Cache**: Implement a cache (e.g., a dictionary or an array) to store the results of solved sub-problems.
+3. **Check Cache Before Computation**: Before solving a sub-problem, check if its result is already in the cache. If it is, use the cached result instead of recomputing it.
+4. **Store Results in Cache**: After computing the result for a sub-problem, store it in the cache for future use.
+
+### Top-Down Dynamic Programming (Memoization) Process
+
+1. **Initialization**: Start solving the problem from the top (the original problem) and break it down into smaller sub-problems.
+2. **Recursion with Memoization**: Use recursion to solve each sub-problem and store the results in the cache.
+3. **Reuse Cached Results**: For each sub-problem, check if its result is already in the cache. If it is, use the cached result; otherwise, compute and store the result.
+
+### Advantages of Memoization
+
+- **Efficiency**: Reduces the time complexity by avoiding repeated calculations of the same sub-problems.
+- **Simplicity**: Maintains the simplicity and elegance of the recursive approach while optimizing performance.
