@@ -507,3 +507,10 @@ Using memoization to optimize the recursive approach reduces redundant calculati
     - If characters match, move to the next indices without any operation.
   - **Character Mismatch**: 
     - If characters do not match, compute the edit distance by considering the three operations (insert, delete, replace) and update the cache with the minimum result.
+
+
+### **Time Complexity**
+
+- **Memoization Uses Cache**: For every combination of `word1` and `word2`, the result is computed only once and then stored in the `memo` cache. This avoids redundant calculations.
+- **Recursive Calls**: Without memoization, the recursive calls would result in exponential time complexity. However, memoization ensures that each sub-problem is solved only once, leading to a linear number of computations.
+- **Worst Case Scenario**: In the worst case, where none of the characters match, every cell in the `memo` table will be filled, resulting in `M * N` operations.
