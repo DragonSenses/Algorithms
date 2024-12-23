@@ -463,3 +463,27 @@ The algorithm processes as follows:
 
 3. **Character Mismatch**:
    - If characters do not match, compute the minimum edit distance by considering the three operations (insert, delete, replace) and update the cache.
+
+### **Pseudocode**
+
+```plaintext
+function minDistance(word1, word2):
+    initialize memo as a 2-dimensional array with -1
+    return minDistanceMemo(word1, word2, word1.length, word2.length, memo)
+
+function minDistanceMemo(word1, word2, word1Index, word2Index, memo):
+    if word1Index == 0:
+        return word2Index
+    if word2Index == 0:
+        return word1Index
+    if memo[word1Index][word2Index] != -1:
+        return memo[word1Index][word2Index]
+    if word1[word1Index - 1] == word2[word2Index - 1]:
+        memo[word1Index][word2Index] = minDistanceMemo(word1, word2, word1Index - 1, word2Index - 1, memo)
+    else:
+        insertOp = minDistanceMemo(word1, word2, word1Index, word2Index - 1, memo) + 1
+        deleteOp = minDistanceMemo(word1, word2, word1Index - 1, word2Index, memo) + 1
+        replaceOp = minDistanceMemo(word1, word2, word1Index - 1, word2Index - 1, memo) + 1
+        memo[word1Index][word2Index] = min(insertOp, deleteOp, replaceOp)
+    return memo[word1Index][word2Index]
+```
