@@ -443,3 +443,23 @@ By adding memoization to the recursive function, the top-down dynamic programmin
 
 4. **Store Results in Cache**:
    - After computing the result of a sub-problem, store it in `memo[word1Index][word2Index]` for future reference.
+
+### Example
+
+Consider a recursive call with the following parameters:
+- `word1 = "abc"`
+- `word2 = "ad"`
+- `word1Index = 2` (0-indexed)
+- `word2Index = 1` (0-indexed)
+
+The algorithm processes as follows:
+
+1. **Base Case Checks**:
+   - If `word1Index` is `0`, return `word2Index`.
+   - If `word2Index` is `0`, return `word1Index`.
+
+2. **Character Match**:
+   - If `word1[word1Index - 1] == word2[word2Index - 1]`, move to the next indices without any operation.
+
+3. **Character Mismatch**:
+   - If characters do not match, compute the minimum edit distance by considering the three operations (insert, delete, replace) and update the cache.
