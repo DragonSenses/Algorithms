@@ -416,6 +416,12 @@ Memoization is a top-down dynamic programming approach that involves breaking do
 - **Efficiency**: Reduces the time complexity by avoiding repeated calculations of the same sub-problems.
 - **Simplicity**: Maintains the simplicity and elegance of the recursive approach while optimizing performance.
 
+## **Algorithm**
+
+The top-down dynamic programming approach, also known as memoization, improves the efficiency of the recursive solution by caching the results of sub-problems. This prevents repeated calculations of the same sub-problems.
+
+By adding memoization to the recursive function, the top-down dynamic programming approach effectively reduces the number of redundant calculations, leading to a more efficient solution.
+
 ### Key Concepts
 
 1. **Caching Sub-Problems**: Store the results of sub-problems in a cache (2-dimensional array) to reuse them and avoid redundant computations.
