@@ -514,3 +514,8 @@ Using memoization to optimize the recursive approach reduces redundant calculati
 - **Memoization Uses Cache**: For every combination of `word1` and `word2`, the result is computed only once and then stored in the `memo` cache. This avoids redundant calculations.
 - **Recursive Calls**: Without memoization, the recursive calls would result in exponential time complexity. However, memoization ensures that each sub-problem is solved only once, leading to a linear number of computations.
 - **Worst Case Scenario**: In the worst case, where none of the characters match, every cell in the `memo` table will be filled, resulting in `M * N` operations.
+
+### **Space Complexity**
+
+- **Memoization Table (`memo`)**: The space complexity is determined by the size of the `memo` table, which stores the results of sub-problems. The `memo` table is a 2-dimensional array of size `M * N`.
+- **Depth of Recursion Call Stack**: The maximum depth of the recursion tree is `M + N`, but since the space required for the `memo` table (`M * N`) dominates, the overall space complexity is `O(M * N)`.
