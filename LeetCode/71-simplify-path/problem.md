@@ -127,3 +127,41 @@ Return the simplified canonical path.
 This problem mimics the functionality of the `cd` command in Unix-like operating systems, which helps users navigate directories. While the `cd` command allows for various combinations of directory navigation, our implementation needs to correctly handle all special characters and scenarios. For example, when navigating from `/a/b/c` to `/a/b/c/..`, the `..` signifies moving up one directory level to `/a/b`. The core idea is to utilize a stack to handle these movements effectively. Here's a more structured representation of the problem and the approach to solve it.
 
 ![Tree representation of a simple directory path in Unix](img/71-1.jpg)
+
+### Example
+
+Consider the input path `/a//b/c/../././//d`:
+- Split into components: `['', 'a', '', 'b', 'c', '..', '.', '.', '', '', 'd']`
+- Process each component:
+  - `''` -> skip
+  - `a` -> push `a`
+  - `''` -> skip
+  - `b` -> push `b`
+  - `c` -> push `c`
+  - `..` -> pop `c`
+  - `.` -> skip
+  - `.` -> skip
+  - `''` -> skip
+  - `''` -> skip
+  - `d` -> push `d`
+- Final stack: `['a', 'b', 'd']`
+- Simplified path: `/a/b/d`
+
+## **Algorithm**
+
+1. **Initialize the Stack**:
+   - Create an empty stack `s` to store the valid directory names.
+   
+2. **Split the Input Path**:
+   - Split the input string by the delimiter `/`. This step converts the path into components, where each component is either a directory name or a special character.
+   
+3. **Process Each Component**:
+   - Iterate through the split components:
+     - If the component is `.` or an empty string, continue to the next component as they signify the current directory or multiple slashes.
+     - If the component is `..`, pop the top element from the stack if it's not empty. This signifies moving up one directory level.
+     - Otherwise, push the component onto the stack as it represents a valid directory name.
+
+4. **Construct the Simplified Path**:
+   - After processing all components, join the elements in the stack with `/` to form the simplified canonical path.
+   - Ensure the path starts with `/`.
+
