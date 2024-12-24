@@ -5,19 +5,19 @@
 <p>The <em>rules</em> of a Unix-style file system are as follows:</p>
 
 <ul>
-	<li>A single period <code>'.'</code> represents the current directory.</li>
-	<li>A double period <code>'..'</code> represents the previous/parent directory.</li>
-	<li>Multiple consecutive slashes such as <code>'//'</code> and <code>'///'</code> are treated as a single slash <code>'/'</code>.</li>
-	<li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file </strong><strong>name</strong>. For example, <code>'...' </code>and <code>'....'</code> are valid directory or file names.</li>
+  <li>A single period <code>'.'</code> represents the current directory.</li>
+  <li>A double period <code>'..'</code> represents the previous/parent directory.</li>
+  <li>Multiple consecutive slashes such as <code>'//'</code> and <code>'///'</code> are treated as a single slash <code>'/'</code>.</li>
+  <li>Any sequence of periods that does <strong>not match</strong> the rules above should be treated as a <strong>valid directory or</strong> <strong>file </strong><strong>name</strong>. For example, <code>'...' </code>and <code>'....'</code> are valid directory or file names.</li>
 </ul>
 
 <p>The simplified canonical path should follow these <em>rules</em>:</p>
 
 <ul>
-	<li>The path must start with a single slash <code>'/'</code>.</li>
-	<li>Directories within the path must be separated by exactly one slash <code>'/'</code>.</li>
-	<li>The path must not end with a slash <code>'/'</code>, unless it is the root directory.</li>
-	<li>The path must not have any single or double periods (<code>'.'</code> and <code>'..'</code>) used to denote current or parent directories.</li>
+  <li>The path must start with a single slash <code>'/'</code>.</li>
+  <li>Directories within the path must be separated by exactly one slash <code>'/'</code>.</li>
+  <li>The path must not end with a slash <code>'/'</code>, unless it is the root directory.</li>
+  <li>The path must not have any single or double periods (<code>'.'</code> and <code>'..'</code>) used to denote current or parent directories.</li>
 </ul>
 
 <p>Return the <strong>simplified canonical path</strong>.</p>
@@ -87,7 +87,31 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= path.length &lt;= 3000</code></li>
-	<li><code>path</code> consists of English letters, digits, period <code>'.'</code>, slash <code>'/'</code> or <code>'_'</code>.</li>
-	<li><code>path</code> is a valid absolute Unix path.</li>
+  <li><code>1 &lt;= path.length &lt;= 3000</code></li>
+  <li><code>path</code> consists of English letters, digits, period <code>'.'</code>, slash <code>'/'</code> or <code>'_'</code>.</li>
+  <li><code>path</code> is a valid absolute Unix path.</li>
 </ul>
+
+<br>
+
+---
+
+## Problem Overview
+
+You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. Your task is to transform this absolute path into its simplified canonical path.
+
+**Rules of a Unix-style file system:**
+
+1. A single period `.` represents the current directory.
+2. A double period `..` represents the previous/parent directory.
+3. Multiple consecutive slashes such as `//` and `///` are treated as a single slash `/`.
+4. Any sequence of periods that does not match the rules above should be treated as a valid directory or file name. For example, `...` and `....` are valid directory or file names.
+
+**Simplified canonical path should follow these rules:**
+
+1. The path must start with a single slash `/`.
+2. Directories within the path must be separated by exactly one slash `/`.
+3. The path must not end with a slash `/`, unless it is the root directory.
+4. The path must not have any single or double periods (`.` and `..`) used to denote current or parent directories.
+
+Return the simplified canonical path.
