@@ -52,6 +52,8 @@ exection -&gt; execution (insert 'u')
     - `L = max(len(word1), len(word2)).`
   - **Space Complexity**: `O(M + N)`
 - [Memoization: Top-Down Dynamic Programming Approach](#memoization-top-down-dynamic-programming-approach)
+  - **Time Complexity**: `O(M * N)`
+  - **Space Complexity**: `O(M * N)`
 
 ## Problem Overview
 
@@ -509,13 +511,21 @@ Using memoization to optimize the recursive approach reduces redundant calculati
     - If characters do not match, compute the edit distance by considering the three operations (insert, delete, replace) and update the cache with the minimum result.
 
 
-### **Time Complexity**
+
+
+## **Complexity Analysis**
+
+### Assumptions
+- Let `M` be the length of string `word1`.
+- Let `N` be the length of string `word2`.
+
+### **Time Complexity**: `O(M * N)`
 
 - **Memoization Uses Cache**: For every combination of `word1` and `word2`, the result is computed only once and then stored in the `memo` cache. This avoids redundant calculations.
 - **Recursive Calls**: Without memoization, the recursive calls would result in exponential time complexity. However, memoization ensures that each sub-problem is solved only once, leading to a linear number of computations.
 - **Worst Case Scenario**: In the worst case, where none of the characters match, every cell in the `memo` table will be filled, resulting in `M * N` operations.
 
-### **Space Complexity**
+### **Space Complexity**: `O(M * N)`
 
 - **Memoization Table (`memo`)**: The space complexity is determined by the size of the `memo` table, which stores the results of sub-problems. The `memo` table is a 2-dimensional array of size `M * N`.
 - **Depth of Recursion Call Stack**: The maximum depth of the recursion tree is `M + N`, but since the space required for the `memo` table (`M * N`) dominates, the overall space complexity is `O(M * N)`.
