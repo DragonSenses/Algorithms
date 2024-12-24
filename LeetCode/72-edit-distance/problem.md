@@ -512,6 +512,21 @@ Using memoization to optimize the recursive approach reduces redundant calculati
 
 
 
+### Explanation:
+
+1. **Main Function `minDistance`**:
+   - Initializes the memoization table (`memo`) with `-1` values and starts the recursive process with `computeEditDistance`.
+
+2. **Recursive Function `computeEditDistance`**:
+   - **Base Cases**:
+     - If `word1Index` is `0`, return `word2Index` (remaining characters in `word2`).
+     - If `word2Index` is `0`, return `word1Index` (remaining characters in `word1`).
+   - **Memoization Check**:
+     - Before computing the result for a sub-problem, check if it's already cached in `memo`.
+   - **Character Match**:
+     - If characters match, move to the next indices without any operation.
+   - **Character Mismatch**:
+     - If characters do not match, compute the edit distance by considering the three operations (insert, delete, replace) and update the cache with the minimum result.
 
 ## **Complexity Analysis**
 
