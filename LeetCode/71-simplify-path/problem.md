@@ -125,3 +125,5 @@ Return the simplified canonical path.
 ## **Intuition**
 
 This problem mimics the functionality of the `cd` command in Unix-like operating systems, which helps users navigate directories. While the `cd` command allows for various combinations of directory navigation, our implementation needs to correctly handle all special characters and scenarios. For example, when navigating from `/a/b/c` to `/a/b/c/..`, the `..` signifies moving up one directory level to `/a/b`. The core idea is to utilize a stack to handle these movements effectively. Here's a more structured representation of the problem and the approach to solve it.
+
+![Tree representation of a simple directory path in Unix](img/71-1.jpg)
