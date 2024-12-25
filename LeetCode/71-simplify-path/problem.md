@@ -319,6 +319,16 @@ function simplifyPath(path: string): string {
 - The final simplified path is constructed by joining the stack elements with a `/`.
 
 
+### **Time Complexity**: `O(N)`
+
+The time complexity of this algorithm is `O(N)`.
+
+1. **Splitting the Path**: The first step is to split the input path into components based on the delimiter `/`. This operation requires traversing the entire path, resulting in `O(N)` time complexity.
+  
+2. **Processing Each Component**: After splitting, we iterate through each component. For each component, we perform constant-time operations such as checking its value and manipulating the stack. Since we process each component exactly once, this step also has `O(N)` time complexity.
+
+Thus, the overall time complexity is `O(N) + O(N) = O(N)`.
+
 ### **Space Complexity**: `O(N)`
 
 The space complexity of this algorithm is `O(N)`.
