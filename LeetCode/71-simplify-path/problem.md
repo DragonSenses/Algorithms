@@ -99,6 +99,8 @@
 # Solution
 
 - [Stack Approach](#stack-approach)
+  - **Time Complexity**: `O(N)`
+  - **Space Complexity**: `O(N)`
 
 ## Problem Overview
 
@@ -318,6 +320,17 @@ function simplifyPath(path: string): string {
 - A stack is employed to keep track of the directory names, handling special cases for `.` and `..`.
 - The final simplified path is constructed by joining the stack elements with a `/`.
 
+## **Complexity Analysis**
+
+### Key Points
+
+- **Efficiency**: The algorithm efficiently handles the path simplification process by splitting the path and using a stack to manage directory names.
+- **Scalability**: Both the time and space complexities are linear, making the algorithm scalable for large input paths.
+- **Simplicity**: Using a stack provides a straightforward way to handle the navigation commands (`.`, `..`, and directory names) and construct the simplified path.
+
+### Assumptions
+
+- Let `N` be the length of the original path.
 
 ### **Time Complexity**: `O(N)`
 
