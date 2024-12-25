@@ -318,3 +318,13 @@ function simplifyPath(path: string): string {
 - A stack is employed to keep track of the directory names, handling special cases for `.` and `..`.
 - The final simplified path is constructed by joining the stack elements with a `/`.
 
+
+### **Space Complexity**: `O(N)`
+
+The space complexity of this algorithm is `O(N)`.
+
+1. **Storage for Split Components**: We store the components of the path after splitting it, which requires `O(N)` space.
+
+2. **Stack Storage**: In the worst case, all components of the path could be legitimate directory names, resulting in each component being pushed onto the stack. This requires additional `O(N)` space.
+
+Therefore, the overall space complexity is `O(N) + O(N) = O(2N)`, which simplifies to `O(N)`.
