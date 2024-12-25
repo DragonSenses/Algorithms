@@ -195,3 +195,28 @@ function simplifyPath(path: string) -> string:
     return "/" + simplifiedPath
 ```
 
+### Explanation:
+
+1. **Initialize the Stack**:
+   - Create an empty stack to store directory names.
+
+2. **Split the Input Path**:
+   - Split the input string by `/` to get the components.
+
+3. **Process Each Component**:
+   - Iterate through the components:
+     - Skip empty components and current directory (`.`).
+     - If the component is `..`, pop from the stack if it's not empty (move up one directory level).
+     - Push valid directory names to the stack.
+
+4. **Construct the Simplified Path**:
+   - Join the elements in the stack with `/` to form the simplified canonical path.
+   - Ensure the path starts with `/`.
+
+### Example:
+Given the input path `/a//b/c/../././//d`:
+
+- Split components: `['', 'a', '', 'b', 'c', '..', '.', '.', '', '', 'd']`
+- Processed stack: `['a', 'b', 'd']`
+- Simplified path: `/a/b/d`
+
