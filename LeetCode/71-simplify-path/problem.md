@@ -296,3 +296,25 @@ function simplifyPath(path: string): string {
 };
 ```
 
+### Explanation
+
+1. **Initialize the Stack**:
+   - `const stack: string[] = [];`: Creates an empty stack to keep track of valid directory names.
+
+2. **Split the Input Path**:
+   - `const components = path.split("/");`: Splits the input string by `/` to get individual components.
+
+3. **Process Each Component**:
+   - Iterate through each `directory` in `components`:
+     - `if (directory === "." || directory === "")`: Ignore `.` and empty components.
+     - `else if (directory === "..")`: If `..` is encountered and the stack is not empty, pop the stack.
+     - `else`: Push valid directory names onto the stack.
+
+4. **Construct the Simplified Path**:
+   - `const simplifiedPath = "/" + stack.join("/");`: Concatenate the stack elements with `/` to form the simplified path.
+
+### Key Points:
+- The `split` method is used to break the path into components.
+- A stack is employed to keep track of the directory names, handling special cases for `.` and `..`.
+- The final simplified path is constructed by joining the stack elements with a `/`.
+
