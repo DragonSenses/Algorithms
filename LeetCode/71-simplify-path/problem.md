@@ -165,3 +165,33 @@ Consider the input path `/a//b/c/../././//d`:
    - After processing all components, join the elements in the stack with `/` to form the simplified canonical path.
    - Ensure the path starts with `/`.
 
+### **Pseudocode**
+
+```
+function simplifyPath(path: string) -> string:
+    # Step 1: Initialize the stack
+    stack = []
+
+    # Step 2: Split the input path by '/'
+    components = split(path, '/')
+
+    # Step 3: Process each component
+    for each component in components:
+        if component == "" or component == ".":
+            # Skip empty components and current directory
+            continue
+        elif component == "..":
+            # Pop from stack if it's not empty (move up one directory level)
+            if stack is not empty:
+                pop(stack)
+        else:
+            # Push the valid directory name to the stack
+            push(stack, component)
+
+    # Step 4: Construct the simplified path
+    simplifiedPath = join(stack, "/")
+    
+    # Ensure path starts with '/'
+    return "/" + simplifiedPath
+```
+
