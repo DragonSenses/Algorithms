@@ -1,3 +1,10 @@
+/**
+ * Simplifies the given absolute path for a Unix-style file system. The path must be transformed
+ * into its simplified canonical form.
+ *
+ * @param {string} path - The absolute path to be simplified.
+ * @returns {string} The simplified canonical path.
+ */
 function simplifyPath(path: string): string {
   // Initialize a stack to keep track of valid directory names
   const stack: string[] = [];
