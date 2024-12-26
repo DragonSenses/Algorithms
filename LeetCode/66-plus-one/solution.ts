@@ -1,3 +1,9 @@
+/**
+ * Increment the given array of digits representing a large integer by one.
+ *
+ * @param {number[]} digits - The array of digits representing the large integer.
+ * @returns {number[]} - The array of digits after incrementing by one.
+ */
 function plusOne(digits: number[]): number[] {
   // Traverse the array from the end (least significant digit) to the start (most significant digit)
   for (let i = digits.length - 1; i >= 0; i--) {
