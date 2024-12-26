@@ -51,8 +51,30 @@ You are given a large integer represented as an integer array `digits`, where ea
 
 **Task**: Increment the large integer by one and return the resulting array of digits.
 
+
 ### Constraints
 
 - `1 <= digits.length <= 100`
 - `0 <= digits[i] <= 9`
 - `digits` does not contain any leading zeros.
+
+### Key Concepts and Approaches
+
+All these problems can be solved in linear time. The challenge is to solve it without using the addition operation or how to solve it in constant space complexity.
+
+### **Choice of Algorithm Based on Input Format**
+
+1. **Integers**:
+   - Usually, the addition operation is not allowed in such cases.
+   - **Approach**: Use Bit Manipulation.
+
+2. **Strings**:
+   - Use bit-by-bit computation.
+   - Note: It might not always be feasible to come up with a solution with constant space for languages with immutable strings, such as Java and Python.
+
+3. **Linked Lists**:
+   - Use Sentinel Head + Schoolbook Addition with Carry.
+
+4. **Arrays** (the current problem):
+   - Use Traditional Addition with Carry.
+
