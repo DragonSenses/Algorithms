@@ -134,3 +134,22 @@ To increment a large integer represented as an array of digits, we need to manag
     - **Input**: `digits = [9, 9, 9]`
     - **Output**: `[1, 0, 0, 0]`
     - **Explanation**: The array represents `999`. Incrementing by one gives `1000`.
+
+## **Algorithm**
+
+### Key Steps
+
+1. **Initialize Variables**:
+    - We don't need an explicit carry variable; instead, handle the logic directly within the loop.
+
+2. **Traverse the Array from Right to Left**:
+    - Start from the least significant digit and move towards the most significant digit.
+    - If the current digit is `9`, set it to `0`.
+    - If the current digit is not `9`, increment it by one and return the array.
+
+3. **Handle Edge Case**:
+    - If all digits were `9`, the loop will complete with all digits set to `0`.
+    - In this case, insert `1` at the beginning of the array.
+
+4. **Return the Resulting Array**:
+    - The updated array represents the incremented integer.
