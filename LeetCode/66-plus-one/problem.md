@@ -103,3 +103,34 @@ All these problems can be solved in linear time. The challenge is to solve it wi
 ## **Intuition**
 
 To increment a large integer represented as an array of digits, we need to manage the carry that results from the addition, especially when the digits include the value `9`. The key is to identify the rightmost digit that is not `9`, increment it by one, and set all following consecutive `9`s to zero. If all digits are `9`, we need to handle the overflow by adding a new leading digit `1`.
+
+### Steps
+
+1. **Move along the input array starting from the end**:
+    - This ensures we handle the least significant digit first.
+
+2. **Set all the nines at the end of the array to zero**:
+    - If the last digits are `9`, they need to become `0` after the increment.
+
+3. **Increment the first not-nine digit**:
+    - When we encounter a digit that is not `9`, increment it by one. This stops the carry, and the job is done.
+
+4. **Handle the case where all digits are `9`**:
+    - If all digits were `9`, they will all have been set to `0`. We need to append a leading `1` to handle this overflow.
+
+### Use Cases
+
+1. **Simple Increment**:
+    - **Input**: `digits = [1, 2, 3]`
+    - **Output**: `[1, 2, 4]`
+    - **Explanation**: The array represents `123`. Incrementing by one gives `123 + 1 = 124`.
+
+2. **Handling Trailing Nines**:
+    - **Input**: `digits = [4, 3, 2, 9, 9]`
+    - **Output**: `[4, 3, 3, 0, 0]`
+    - **Explanation**: The array represents `43299`. Incrementing by one gives `43300`.
+
+3. **All Nines**:
+    - **Input**: `digits = [9, 9, 9]`
+    - **Output**: `[1, 0, 0, 0]`
+    - **Explanation**: The array represents `999`. Incrementing by one gives `1000`.
