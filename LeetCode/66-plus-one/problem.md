@@ -36,14 +36,18 @@ Thus, the result should be [1,0].
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= digits.length &lt;= 100</code></li>
-	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
-	<li><code>digits</code> does not contain any leading <code>0</code>'s.</li>
+  <li><code>1 &lt;= digits.length &lt;= 100</code></li>
+  <li><code>0 &lt;= digits[i] &lt;= 9</code></li>
+  <li><code>digits</code> does not contain any leading <code>0</code>'s.</li>
 </ul>
 
 <br>
 
 ---
+
+# Solution
+
+- [Traditional Addition with Carry Approach](#traditional-addition-with-carry)
 
 ## Problem Overview
 
@@ -94,3 +98,8 @@ All these problems can be solved in linear time. The challenge is to solve it wi
 4. **Arrays** (the current problem):
    - Use Traditional Addition with Carry.
 
+# Traditional Addition with Carry
+
+## **Intuition**
+
+To increment a large integer represented as an array of digits, we need to manage the carry that results from the addition, especially when the digits include the value `9`. The key is to identify the rightmost digit that is not `9`, increment it by one, and set all following consecutive `9`s to zero. If all digits are `9`, we need to handle the overflow by adding a new leading digit `1`.
