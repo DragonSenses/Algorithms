@@ -238,3 +238,19 @@ function plusOne(digits: number[]): number[] {
   return digits;
 };
 ```
+
+#### Implementation Explanation:
+
+1. **Traverse the Array from Right to Left**:
+   - We start from the least significant digit (rightmost) and move towards the most significant digit (leftmost).
+
+2. **Check and Increment**:
+   - If the current digit is not `9`, increment it by one and return the modified array.
+   - If the current digit is `9`, set it to `0` and continue the loop to handle the carry over to the next more significant digit.
+
+3. **Handle Edge Case (All Nines)**:
+   - If all digits are `9`, after the loop completes, we need to add a new leading digit `1` to handle the overflow.
+   - Use `digits.unshift(1);` to insert `1` at the beginning of the array.
+
+
+
