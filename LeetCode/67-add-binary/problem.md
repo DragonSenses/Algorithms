@@ -45,3 +45,17 @@ Given two binary strings `a` and `b`, return their sum as a binary string.
 - `a` and `b` consist only of '0' or '1' characters.
 - Each string does not contain leading zeros except for the zero itself.
 
+### Drawbacks of Using Built-In Functions
+
+Using built-in functions to solve this problem can have some drawbacks, particularly in a technical interview setting. The overall algorithm has `O(N + M)` time complexity and two significant drawbacks:
+
+1. **Limitation by Input Length**:
+   - In languages like Java, this approach is limited by the length of the input strings `a` and `b`. As the length increases, converting these strings into integers might exceed the limits of data types like `Integer`, `Long`, or even `BigInteger`.
+     - For example:
+       - 33 1-bits: doesn't fit into `Integer`.
+       - 65 1-bits: doesn't fit into `Long`.
+       - 500,000,001 1-bits: doesn't fit into `BigInteger`.
+   - To fix this issue, you could use the standard Bit-by-Bit Computation approach, suitable for longer input strings.
+
+2. **Performance Issues**:
+   - This method can have relatively low performance for large input numbers, as the conversion and computation may become expensive.
