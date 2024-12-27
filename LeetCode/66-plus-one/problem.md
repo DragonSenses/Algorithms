@@ -276,3 +276,16 @@ The time complexity of this algorithm is `O(N)`. Here’s why:
 
 Combining these operations, the overall time complexity remains `O(N)`.
 
+### **Space Complexity**
+
+The space complexity of this algorithm is `O(N)`. Here’s why:
+
+1. **In-place Modifications**:
+   - The array `digits` is modified in place during the traversal.
+   - No additional space is used for storing intermediate values during the traversal.
+
+2. **Edge Case Handling**:
+   - In the worst case, where all elements are `9`, a new array of size `N + 1` is created to accommodate the carry-over `1`.
+   - This requires additional space proportional to the size of the input, which is `O(N)`.
+
+Therefore, the space complexity in the worst case is `O(N)`.
