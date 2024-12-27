@@ -254,3 +254,25 @@ function plusOne(digits: number[]): number[] {
 
 
 
+### Assumptions
+
+- Let `N` be the number of elements in the input list.
+
+### **Time Complexity**
+
+The time complexity of this algorithm is `O(N)`. Here’s why:
+
+1. **Traversal of the Array**:
+   - We traverse the array from the last element to the first element to handle the addition and carry propagation.
+   - This traversal takes `O(N)` time because each element is processed exactly once.
+
+2. **Conditional Operations**:
+   - During the traversal, each element is checked to determine if it is `9` or not.
+   - These checks and subsequent operations (increment, setting to `0`, etc.) are constant time operations `O(1)`.
+
+3. **Handling Edge Case**:
+   - In the worst case, where all elements are `9`, we create a new array of size `N + 1` and set its first element to `1`.
+   - This operation still runs in linear time `O(N)`.
+
+Combining these operations, the overall time complexity remains `O(N)`.
+
