@@ -74,3 +74,9 @@ We can compute the sum of two binary strings using built-in functions to handle 
 
 - In Java, we can use the `Integer` class's `toBinaryString()` method.
 - In TypeScript, we can use `BigInt` for the conversion and computation.
+
+## **Algorithm**
+
+1. **Convert**: Convert the binary strings `a` and `b` into integers.
+2. **Sum**: Compute the sum of these integers.
+3. **Convert Back**: Convert the resulting sum back into a binary string and return the result.
