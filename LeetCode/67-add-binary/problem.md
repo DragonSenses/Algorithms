@@ -80,3 +80,23 @@ We can compute the sum of two binary strings using built-in functions to handle 
 1. **Convert**: Convert the binary strings `a` and `b` into integers.
 2. **Sum**: Compute the sum of these integers.
 3. **Convert Back**: Convert the resulting sum back into a binary string and return the result.
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  /**
+   * Adds two binary strings and returns their sum as a binary string.
+   *
+   * @param a The first binary string.
+   * @param b The second binary string.
+   * @return The sum of the two binary strings as a binary string.
+   */
+  public String addBinary(String a, String b) {
+    return Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2));
+  }
+}
+```
+
