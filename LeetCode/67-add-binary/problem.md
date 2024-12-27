@@ -26,6 +26,7 @@
 # Solution
 
 - [Using Built-In Functions (Naive Approach)](#using-built-in-functions-naive-approach)
+  - **Space Complexity**: `O(N + M)`
 
 ## Problem Overview
 
@@ -117,3 +118,18 @@ function addBinary(a: string, b: string): string {
   return sum.toString(2);
 }
 ```
+
+
+
+### **Space Complexity**: `O(N + M)`
+
+1. **Storage for Integer Conversion**:
+   - The conversion of binary strings `a` and `b` into integers requires space proportional to the lengths of the input strings. This is `O(N)` for `a` and `O(M)` for `b`.
+
+2. **Result Storage**:
+   - The resulting integer from the addition will be stored, and its size could be up to the sum of the lengths of the input strings. Therefore, the space required to store the result is `O(N + M)`.
+
+3. **Final Binary String**:
+   - The final binary string representation of the result, `Integer.toBinaryString()`, will require space proportional to the length of the resulting binary string, which can be `O(N + M)` in the worst case.
+
+Therefore, the overall space complexity is `O(N + M)`.
