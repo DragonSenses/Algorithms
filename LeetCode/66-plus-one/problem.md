@@ -153,3 +153,27 @@ To increment a large integer represented as an array of digits, we need to manag
 
 4. **Return the Resulting Array**:
     - The updated array represents the incremented integer.
+
+### Pseudocode
+
+```typescript
+function incrementDigits(digits: number[]): number[] {
+    for (let i = digits.length - 1; i >= 0; i--) {
+        if (digits[i] === 9) {
+            digits[i] = 0;
+        } else {
+            digits[i]++;
+            return digits;
+        }
+    }
+    digits.unshift(1);
+    return digits;
+}
+```
+
+### Key Points
+
+- **Efficiency**: The algorithm processes the input array in a single pass (O(N) time complexity).
+- **Scalability**: It handles edge cases, such as when all digits are `9`, by dynamically adjusting the array size.
+- **Simplicity**: Incrementing digits directly and managing carry within the loop makes the implementation straightforward and easy to understand.
+
