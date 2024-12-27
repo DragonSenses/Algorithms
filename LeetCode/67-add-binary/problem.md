@@ -23,6 +23,10 @@
 
 ---
 
+# Solution
+
+- [Using Built-In Functions (Naive Approach)](#using-built-in-functions-naive-approach)
+
 ## Problem Overview
 
 Given two binary strings `a` and `b`, return their sum as a binary string.
@@ -59,3 +63,14 @@ Using built-in functions to solve this problem can have some drawbacks, particul
 
 2. **Performance Issues**:
    - This method can have relatively low performance for large input numbers, as the conversion and computation may become expensive.
+
+# Using Built-In Functions (Naive Approach)
+
+Using built-in functions is a quick and straightforward approach but comes with limitations, especially for large input sizes. To handle larger inputs efficiently, a bit-by-bit computation method is recommended.
+
+## **Intuition**
+
+We can compute the sum of two binary strings using built-in functions to handle the conversion between binary strings and integers.
+
+- In Java, we can use the `Integer` class's `toBinaryString()` method.
+- In TypeScript, we can use `BigInt` for the conversion and computation.
