@@ -48,6 +48,8 @@ Thus, the result should be [1,0].
 # Solution
 
 - [Traditional Addition with Carry Approach](#traditional-addition-with-carry)
+  - **Time Complexity**: `O(N)`
+  - **Space Complexity**: `O(N)`
 
 ## Problem Overview
 
@@ -253,12 +255,13 @@ function plusOne(digits: number[]): number[] {
    - Use `digits.unshift(1);` to insert `1` at the beginning of the array.
 
 
+## **Complexity Analysis**
 
 ### Assumptions
 
 - Let `N` be the number of elements in the input list.
 
-### **Time Complexity**
+### **Time Complexity**: `O(N)`
 
 The time complexity of this algorithm is `O(N)`. Here’s why:
 
@@ -276,7 +279,7 @@ The time complexity of this algorithm is `O(N)`. Here’s why:
 
 Combining these operations, the overall time complexity remains `O(N)`.
 
-### **Space Complexity**
+### **Space Complexity**: `O(N)`
 
 The space complexity of this algorithm is `O(N)`. Here’s why:
 
@@ -289,3 +292,9 @@ The space complexity of this algorithm is `O(N)`. Here’s why:
    - This requires additional space proportional to the size of the input, which is `O(N)`.
 
 Therefore, the space complexity in the worst case is `O(N)`.
+
+### Key Points
+
+- **Efficiency**: The algorithm efficiently processes each element of the input array once, leading to linear time complexity.
+- **Scalability**: It handles edge cases (e.g., all digits being `9`) by dynamically creating a larger array if needed.
+- **Simplicity**: The algorithm’s in-place modifications and straightforward handling of carry-over ensure that it remains simple and efficient.
