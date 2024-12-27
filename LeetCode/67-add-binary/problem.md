@@ -26,6 +26,7 @@
 # Solution
 
 - [Using Built-In Functions (Naive Approach)](#using-built-in-functions-naive-approach)
+  - **Time Complexity**: `O(N + M)`
   - **Space Complexity**: `O(N + M)`
 
 ## Problem Overview
@@ -119,7 +120,26 @@ function addBinary(a: string, b: string): string {
 }
 ```
 
+## **Complexity Analysis**
 
+### Assumptions
+
+- Let `N` be the length of the binary string `a`.
+- Let `M` be the length of the binary string `b`.
+
+### **Time Complexity**: `O(N + M)`
+
+1. **Conversion to Integers**:
+   - `Integer.parseInt(a, 2)` converts the binary string `a` into an integer. This operation scans each character of the string, taking `O(N)` time.
+   - `Integer.parseInt(b, 2)` converts the binary string `b` into an integer, taking `O(M)` time.
+
+2. **Addition**:
+   - The addition of two integers, `Integer.parseInt(a, 2) + Integer.parseInt(b, 2)`, is efficient and operates in constant time, `O(1)`, since Java handles integer addition natively.
+
+3. **Conversion Back to Binary String**:
+   - The final conversion of the result back into a binary string, `Integer.toBinaryString()`, involves scanning the resulting integer, which takes `O(N + M)` time in the worst case (where the length of the resulting binary string is approximately the sum of the lengths of the input strings).
+
+Combining these steps, the overall time complexity is `O(N) + O(M) + O(1) + O(N + M)`, which simplifies to `O(N + M)`.
 
 ### **Space Complexity**: `O(N + M)`
 
