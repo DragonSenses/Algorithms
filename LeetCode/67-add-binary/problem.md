@@ -272,3 +272,30 @@ function addBinary(a: string, b: string): string {
   return result.reverse().join("");
 }
 ```
+
+#### Implementation Details
+
+- **Initialize Variables**:
+  - Use a `string[]` array named `result` to build the resulting binary string.
+  - Initialize an integer `carry` to store the carry during addition.
+  - Use integer indices `i` and `j` to traverse the binary strings `a` and `b` from the end towards the beginning.
+
+- **Iterate from End to Beginning**:
+  - Traverse the binary strings from right to left using the indices `i` and `j`.
+  - For each bit:
+    - Convert the character to its integer value by using `parseInt`:
+      - Characters `'0'` and `'1'` have ASCII values of 48 and 49, respectively.
+      - `parseInt` converts these characters to their corresponding integer values (`'0'` to 0 and `'1'` to 1).
+      - This conversion facilitates arithmetic operations on the binary digits.
+
+- **Update Result and Carry**:
+  - Compute the sum of the corresponding bits from `a`, `b`, and the current `carry`.
+  - Append the least significant bit of the sum (i.e., `sum % 2`) to the `result` array.
+  - Update the `carry` to the most significant bit of the sum (i.e., `carry = Math.floor(sum / 2)`).
+
+- **Handle Remaining Carry**:
+  - After the loop, if there is any remaining carry, append it to the `result` array.
+
+- **Reverse Result**:
+  - Reverse the `result` array to construct the correct binary sum.
+  - Join the `result` array elements to form the final binary string.
