@@ -180,3 +180,15 @@ To add two binary strings without converting them to decimal and back, we can us
    - Collect the results of each bit addition in reverse order.
    - Reverse the collected result to get the correct binary sum.
 
+## **Algorithm**
+
+1. Initialize a carry variable to `0`.
+2. Initialize an empty result string or list.
+3. Iterate from the end of both binary strings towards the beginning:
+   - Convert the current bits of `a` and `b` to integers.
+   - Compute the sum of the current bits and the carry.
+   - Append the least significant bit of the sum (current bit of the result) to the result.
+   - Update the carry to the most significant bit of the sum.
+4. If a carry remains after the loop, append it to the result.
+5. Reverse the result string or list to get the final binary sum.
+
