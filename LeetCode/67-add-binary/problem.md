@@ -192,3 +192,38 @@ To add two binary strings without converting them to decimal and back, we can us
 4. If a carry remains after the loop, append it to the result.
 5. Reverse the result string or list to get the final binary sum.
 
+## **Implementation**
+
+### Java 
+
+```java
+class Solution2 {
+  public String addBinary(String a, String b) {
+    StringBuilder result = new StringBuilder();
+    int carry = 0;
+    int i = a.length() - 1;
+    int j = b.length() - 1;
+
+    while (i >= 0 || j >= 0) {
+      int sum = carry;
+      if (i >= 0) {
+        sum += a.charAt(i--) - '0';
+      }
+      if (j >= 0) {
+        sum += b.charAt(j--) - '0';
+      }
+
+      result.append(sum % 2);
+
+      carry = sum / 2;
+    }
+
+
+    if (carry != 0) {
+      result.append(carry);
+    }
+
+    return result.reverse().toString();
+  }
+}
+```
