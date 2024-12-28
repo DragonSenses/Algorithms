@@ -227,3 +227,20 @@ class Solution2 {
   }
 }
 ```
+
+#### Implementation Details
+
+- **Initialize Variables**: We use a `StringBuilder` to build the result, and an integer `carry` to store the carry.
+  
+- **Iterate from End to Beginning**: We iterate over the bits of both strings from right to left. For each bit:
+  - Convert the character to its integer value by subtracting the ASCII value of `'0'`:
+    - Characters `'0'` and `'1'` have ASCII values of 48 and 49, respectively.
+    - Subtracting `'0'` (ASCII value 48) from a character converts it to its corresponding integer value (`'0'` to 0 and `'1'` to 1).
+    - This conversion allows us to perform arithmetic operations on the binary digits.
+
+- **Update Result and Carry**: We append the least significant bit of the sum to the result and update the carry to the most significant bit of the sum.
+
+- **Handle Remaining Carry**: After the loop, if there's any remaining carry, we append it to the result.
+
+- **Reverse Result**: Finally, we reverse the `StringBuilder` to get the correct binary sum.
+
