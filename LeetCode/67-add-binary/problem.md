@@ -158,3 +158,25 @@ Therefore, the overall space complexity is `O(N + M)`.
 # Bit-by-Bit Computation
 
 The bit-by-bit computation method efficiently adds two binary strings without converting them to decimal, making it suitable for handling large inputs.
+
+## **Intuition**
+
+To add two binary strings without converting them to decimal and back, we can use a bit-by-bit addition approach, much like how addition is performed manually. We start from the least significant bit (rightmost bit) and move towards the most significant bit (leftmost bit), maintaining a carry that propagates through the addition process.
+
+### Steps
+
+1. **Initialize Carry**:
+   - Start with a carry of `0`.
+
+2. **Bit-by-Bit Addition**:
+   - Iterate over each bit of the binary strings from right to left.
+   - For each bit, add the corresponding bits of the two binary strings and the current carry.
+   - Determine the new value of the current bit and update the carry for the next more significant bit.
+
+3. **Handle Remaining Carry**:
+   - If there is any carry left after processing all bits, append it to the result.
+
+4. **Construct the Result**:
+   - Collect the results of each bit addition in reverse order.
+   - Reverse the collected result to get the correct binary sum.
+
