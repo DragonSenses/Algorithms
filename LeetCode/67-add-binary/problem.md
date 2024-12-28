@@ -14,9 +14,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= a.length, b.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>a</code> and <code>b</code> consist&nbsp;only of <code>'0'</code> or <code>'1'</code> characters.</li>
-	<li>Each string does not contain leading zeros except for the zero itself.</li>
+  <li><code>1 &lt;= a.length, b.length &lt;= 10<sup>4</sup></code></li>
+  <li><code>a</code> and <code>b</code> consist&nbsp;only of <code>'0'</code> or <code>'1'</code> characters.</li>
+  <li>Each string does not contain leading zeros except for the zero itself.</li>
 </ul>
 
 <br>
@@ -28,6 +28,7 @@
 - [Using Built-In Functions (Naive Approach)](#using-built-in-functions-naive-approach)
   - **Time Complexity**: `O(N + M)`
   - **Space Complexity**: `O(N + M)`
+- [Bit-by-Bit Computation](#bit-by-bit-computation)
 
 ## Problem Overview
 
@@ -153,3 +154,7 @@ Combining these steps, the overall time complexity is `O(N) + O(M) + O(1) + O(N 
    - The final binary string representation of the result, `Integer.toBinaryString()`, will require space proportional to the length of the resulting binary string, which can be `O(N + M)` in the worst case.
 
 Therefore, the overall space complexity is `O(N + M)`.
+
+# Bit-by-Bit Computation
+
+The bit-by-bit computation method efficiently adds two binary strings without converting them to decimal, making it suitable for handling large inputs.
