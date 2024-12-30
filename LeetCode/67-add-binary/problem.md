@@ -29,6 +29,8 @@
   - **Time Complexity**: `O(N + M)`
   - **Space Complexity**: `O(N + M)`
 - [Bit-by-Bit Computation](#bit-by-bit-computation)
+  - **Time Complexity**: `O(max(N, M))`
+  - **Space Complexity**: `O(max(N, M))`
 
 ## Problem Overview
 
@@ -325,6 +327,7 @@ function addBinary(a: string, b: string): string {
   - Reverse the `result` array to construct the correct binary sum.
   - Join the `result` array elements to form the final binary string.
 
+## **Complexity Analysis**
 
 ### Assumptions
 
@@ -363,4 +366,10 @@ The space complexity of this algorithm is `O(max(N, M))`. Here's why:
    - The final string constructed from the `StringBuilder` will also have a length of at most `max(N, M) + 1`, requiring `O(max(N, M))` space.
 
 Therefore, the overall space complexity is `O(max(N, M))`.
+
+### Key Points
+
+- **Efficiency**: The algorithm processes each bit of the input strings once, making it efficient with linear time complexity relative to the lengths of the input strings.
+- **Scalability**: It handles large binary strings effectively, ensuring that the space used is proportional to the length of the longer input string.
+- **Simplicity**: The algorithm's bit-by-bit addition approach provides a straightforward and clear method for summing binary strings without converting to and from decimal.
 
