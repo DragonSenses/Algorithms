@@ -425,3 +425,17 @@ With the understanding of XOR and carry:
 - The process is iterated until there are no more carries left.
 - The final binary result is constructed by reversing the accumulated bits.
 
+## **Algorithm**
+
+1. **Convert**: Convert `a` and `b` into integers `x` and `y`.
+   - `x` will hold the result of the addition.
+   - `y` will hold the carry.
+
+2. **Iterate**: While the carry `y` is nonzero (`y != 0`):
+   - Calculate the current result without the carry as the XOR of `x` and `y`: `x = x ^ y`.
+   - Calculate the current carry as the left-shifted AND of `x` and `y`: `y = (x & y) << 1`.
+
+3. **Update**: Assign the newly calculated result to `x` and the carry to `y`.
+
+4. **Return**: Once the loop exits, return `x` converted back to a binary string.
+
