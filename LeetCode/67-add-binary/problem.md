@@ -324,3 +324,23 @@ function addBinary(a: string, b: string): string {
 - **Reverse Result**:
   - Reverse the `result` array to construct the correct binary sum.
   - Join the `result` array elements to form the final binary string.
+
+
+
+
+### **Space Complexity**: `O(max(N, M))`
+
+The space complexity of this algorithm is `O(max(N, M))`. Here's why:
+
+1. **Result Storage**:
+   - The `StringBuilder` used to store the result will contain at most `max(N, M) + 1` characters (in case there is an additional carry).
+   - Therefore, the space required for the result is `O(max(N, M))`.
+
+2. **Carry Handling**:
+   - The carry is a single integer variable, which requires constant space `O(1)`.
+
+3. **Final Result**:
+   - The final string constructed from the `StringBuilder` will also have a length of at most `max(N, M) + 1`, requiring `O(max(N, M))` space.
+
+Therefore, the overall space complexity is `O(max(N, M))`.
+
