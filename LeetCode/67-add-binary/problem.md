@@ -326,7 +326,27 @@ function addBinary(a: string, b: string): string {
   - Join the `result` array elements to form the final binary string.
 
 
+### Assumptions
 
+- Let `N` be the length of the binary string `a`.
+- Let `M` be the length of the binary string `b`.
+
+### **Time Complexity**: `O(max(N, M))`
+
+The time complexity of this algorithm is `O(max(N, M))`. Here's why:
+
+1. **Bit-by-Bit Iteration**:
+   - We iterate over each bit of the binary strings `a` and `b` from right to left.
+   - The loop runs for the maximum length of the two strings, which is `max(N, M)`.
+   - Inside the loop, all operations (bit addition, carry update, and appending to the result) are constant-time operations `O(1)`.
+
+2. **Final Carry Handling**:
+   - After the loop, we check and append the carry if it exists, which is also a constant-time operation `O(1)`.
+
+3. **Reversing the Result**:
+   - The final step involves reversing the result string, which takes linear time `O(max(N, M))`.
+
+Combining these steps, the overall time complexity is `O(max(N, M))`.
 
 ### **Space Complexity**: `O(max(N, M))`
 
