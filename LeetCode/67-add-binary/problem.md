@@ -396,3 +396,32 @@ The current carry can be obtained by computing the AND of the two input numbers 
 
 This reduces the problem to a simpler one: finding the sum of the result without the carry and the carry itself. This can be iteratively solved in a loop with the condition "while carry is not zero".
 
+### Introduction to Bit Manipulation
+
+When addition operations are not allowed, bit manipulation becomes a key technique. A useful tip for bit manipulation problems is to start by computing the XOR of the input data. This technique helps in a wide range of problems, including finding single numbers, maximum XOR values, and more.
+
+### Understanding XOR and Carry
+
+In binary addition, XOR plays a crucial role because it adds two binary numbers without considering the carry. To handle the carry, we compute the AND of the two input numbers and then shift it one bit to the left. This approach effectively breaks down the problem into manageable steps.
+
+### Iterative Summation
+
+With the understanding of XOR and carry:
+1. **Start with a Carry of Zero**:
+    - Initialize the carry to zero.
+2. **Bit-by-Bit Processing**:
+    - Process each bit of the two binary strings using XOR and AND operations.
+    - XOR provides the current bit of the result without carry.
+    - AND, followed by a left shift, gives the carry for the next bit.
+3. **Repeat Until Carry is Zero**:
+    - Continue the process until there is no carry left.
+4. **Construct the Result**:
+    - Reverse the accumulated bits to form the final binary sum.
+
+### Key Points
+
+- XOR computes the sum of the bits without carry.
+- AND followed by a left shift computes the carry.
+- The process is iterated until there are no more carries left.
+- The final binary result is constructed by reversing the accumulated bits.
+
