@@ -382,3 +382,17 @@ Using bit manipulation efficiently handles the addition of binary strings withou
 
 A variation of the add binary strings problem is to sum them ***without using the addition operation***.
 
+## **Intuition**
+
+When addition is restricted, bit manipulation becomes the key. An effective strategy for bit manipulation problems is to start by computing the XOR of the input data. This technique is applicable to numerous problems, such as Single Number II, Single Number III, Maximum XOR of Two Numbers in an Array, Repeated DNA Sequences, Maximum Product of Word Lengths, and more.
+
+In this context, XOR is crucial because it performs binary addition without accounting for the carry. 
+
+![Finds the sum of two binary strings "1111" and "0010" without accounting for the carry](img/67-1.jpg)
+
+The current carry can be obtained by computing the AND of the two input numbers and then shifting it one bit to the left.
+
+![Finds the carry of two binary strings "1111" and "0010"](img/67-2.jpg)
+
+This reduces the problem to a simpler one: finding the sum of the result without the carry and the carry itself. This can be iteratively solved in a loop with the condition "while carry is not zero".
+
