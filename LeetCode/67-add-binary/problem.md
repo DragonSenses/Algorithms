@@ -31,6 +31,7 @@
 - [Bit-by-Bit Computation](#bit-by-bit-computation)
   - **Time Complexity**: `O(max(N, M))`
   - **Space Complexity**: `O(max(N, M))`
+-  [Bit Manipulation Approach](#bit-manipulation-approach)
 
 ## Problem Overview
 
@@ -372,4 +373,12 @@ Therefore, the overall space complexity is `O(max(N, M))`.
 - **Efficiency**: The algorithm processes each bit of the input strings once, making it efficient with linear time complexity relative to the lengths of the input strings.
 - **Scalability**: It handles large binary strings effectively, ensuring that the space used is proportional to the length of the longer input string.
 - **Simplicity**: The algorithm's bit-by-bit addition approach provides a straightforward and clear method for summing binary strings without converting to and from decimal.
+
+# Bit Manipulation Approach
+
+Using bit manipulation efficiently handles the addition of binary strings without using conventional addition operations, making it well-suited for handling large inputs.
+
+### **Challenge**
+
+A variation of the add binary strings problem is to sum them ***without using the addition operation***.
 
