@@ -439,3 +439,56 @@ With the understanding of XOR and carry:
 
 4. **Return**: Once the loop exits, return `x` converted back to a binary string.
 
+## **Implementation**
+
+### Java
+
+```java
+import java.math.BigInteger;
+
+class Solution3 {
+  /**
+   * Adds two binary strings using bit manipulation and returns their sum as a binary string.
+   *
+   * @param a The first binary string.
+   * @param b The second binary string.
+   * @return The sum of the two binary strings as a binary string.
+   */
+  public String addBinary(String a, String b) {
+    // Convert binary strings to BigInteger objects
+    BigInteger x = new BigInteger(a, 2);
+    BigInteger y = new BigInteger(b, 2);
+
+    // Define a BigInteger object representing zero
+    BigInteger zero = new BigInteger("0", 2);
+
+    BigInteger carry, answer;
+
+    // Loop until there is no carry left
+    while (y.compareTo(zero) != 0) {
+      // XOR the two numbers to get the sum without carry
+      answer = x.xor(y);
+
+      // AND the two numbers and shift left to get the carry
+      carry = x.and(y).shiftLeft(1);
+
+      // Update x to the current answer
+      x = answer;
+
+      // Update y to the current carry
+      y = carry;
+    }
+
+    // Convert the result back to a binary string and return it
+    return x.toString(2);
+  }
+}
+```
+
+### Explanation
+
+- **Convert**: Binary strings `a` and `b` are converted into `BigInteger` objects `x` and `y`.
+- **Iteration**: As long as `y` (the carry) is not zero, compute the XOR of `x` and `y` for the current result and the left-shifted AND of `x` and `y` for the carry.
+- **Update**: Update `x` to be the current result without the carry and `y` to be the new carry.
+- **Return**: Once there is no carry left, convert `x` back to a binary string and return it.
+
