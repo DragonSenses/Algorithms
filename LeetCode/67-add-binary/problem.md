@@ -571,3 +571,14 @@ When dealing with very large input numbers, such as those exceeding `2^100`, the
 
 In summary, both Python and TypeScript offer efficient solutions for handling large binary numbers due to their support for arbitrary-precision arithmetic, while Java's `BigInteger` provides a necessary but slower solution for very large inputs.
 
+
+### **Space Complexity**: `O(max(N, M))`
+
+The space complexity of this algorithm is `O(max(N, M))`.
+
+1. **Storage for Integers**:
+   - The space required to store the integers `x` and `y` is proportional to the number of bits in the binary strings, which is `O(N)` for `a` and `O(M)` for `b`.
+2. **Intermediate Results**:
+   - During each iteration of the loop, intermediate results are stored in `x` and `y`, but this does not require additional space beyond what is needed for `x` and `y`.
+3. **Final Binary String**:
+   - The final result is a binary string whose length is at most the sum of the lengths of the input strings, requiring `O(N + M)` space.
