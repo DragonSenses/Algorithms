@@ -552,3 +552,22 @@ class Solution:
             x, y = x ^ y, (x & y) << 1
         return bin(x)[2:]
 ```
+
+## Performance Discussion
+
+When dealing with very large input numbers, such as those exceeding `2^100`, the choice of language and data type becomes crucial.
+
+### Java
+- **BigInteger**: In Java, `BigInteger` is used to handle very large numbers, but it comes with a performance cost due to its complexity and overhead.
+- **Integers and Longs**: The Java solution could be optimized by using primitive data types like `int` or `long` for smaller numbers. However, for very large numbers, `BigInteger` remains necessary, albeit slower.
+
+### Python
+- **Dynamic Typing**: Python's `int` type inherently supports arbitrary-precision arithmetic, making it more efficient for handling large numbers without additional overhead.
+- **Simplicity and Performance**: The Python solution benefits from Python's dynamic typing, providing a performance advantage for large inputs compared to Java's `BigInteger`.
+
+### TypeScript
+- **BigInt**: TypeScript provides the `BigInt` type for handling very large integers, which supports arbitrary-precision arithmetic similar to Python's `int`.
+- **Simplicity and Performance**: The use of `BigInt` in TypeScript allows for efficient handling of large binary strings without the overhead associated with Java's `BigInteger`. This makes the TypeScript solution both simple and performant for large inputs.
+
+In summary, both Python and TypeScript offer efficient solutions for handling large binary numbers due to their support for arbitrary-precision arithmetic, while Java's `BigInteger` provides a necessary but slower solution for very large inputs.
+
