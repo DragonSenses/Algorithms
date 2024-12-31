@@ -571,6 +571,17 @@ When dealing with very large input numbers, such as those exceeding `2^100`, the
 
 In summary, both Python and TypeScript offer efficient solutions for handling large binary numbers due to their support for arbitrary-precision arithmetic, while Java's `BigInteger` provides a necessary but slower solution for very large inputs.
 
+### **Time Complexity**: `O(N + M)`
+
+The time complexity of this algorithm is `O(N + M)`.
+
+1. **Bit Conversion**:
+   - Converting the binary strings `a` and `b` to integers `x` and `y` takes `O(N)` and `O(M)` time, respectively.
+2. **Bit-by-Bit Processing**:
+   - The loop iterates until the carry is zero. In each iteration, it processes all bits, making the total time complexity dependent on the length of the input strings.
+   - Since the number of iterations is bounded by the length of the binary strings, the loop runs for `O(N + M)` iterations in the worst case.
+3. **Binary Conversion**:
+   - Converting the integer result back to a binary string takes linear time in the number of bits, which is `O(N + M)`.
 
 ### **Space Complexity**: `O(max(N, M))`
 
