@@ -32,6 +32,8 @@
   - **Time Complexity**: `O(max(N, M))`
   - **Space Complexity**: `O(max(N, M))`
 -  [Bit Manipulation Approach](#bit-manipulation-approach)
+  - **Time Complexity**: `O(N + M)`
+  - **Space Complexity**: `O(max(N, M))`
 
 ## Problem Overview
 
@@ -571,6 +573,13 @@ When dealing with very large input numbers, such as those exceeding `2^100`, the
 
 In summary, both Python and TypeScript offer efficient solutions for handling large binary numbers due to their support for arbitrary-precision arithmetic, while Java's `BigInteger` provides a necessary but slower solution for very large inputs.
 
+## **Complexity Analysis**
+
+### Assumptions
+
+- Let `N` be the length of the binary string `a`.
+- Let `M` be the length of the binary string `b`.
+
 ### **Time Complexity**: `O(N + M)`
 
 The time complexity of this algorithm is `O(N + M)`.
@@ -583,6 +592,8 @@ The time complexity of this algorithm is `O(N + M)`.
 3. **Binary Conversion**:
    - Converting the integer result back to a binary string takes linear time in the number of bits, which is `O(N + M)`.
 
+Combining these steps, the overall time complexity is `O(N + M)`.
+
 ### **Space Complexity**: `O(max(N, M))`
 
 The space complexity of this algorithm is `O(max(N, M))`.
@@ -593,3 +604,11 @@ The space complexity of this algorithm is `O(max(N, M))`.
    - During each iteration of the loop, intermediate results are stored in `x` and `y`, but this does not require additional space beyond what is needed for `x` and `y`.
 3. **Final Binary String**:
    - The final result is a binary string whose length is at most the sum of the lengths of the input strings, requiring `O(N + M)` space.
+
+Therefore, the overall space complexity is `O(max(N, M))`.
+
+### Key Points
+
+- **Efficiency**: The algorithm effectively processes each bit of the input strings, ensuring linear time complexity relative to the lengths of the input strings.
+- **Scalability**: It handles very large binary strings efficiently, with space usage proportional to the length of the longer input string.
+- **Simplicity**: The bit manipulation approach simplifies the addition process, eliminating the need for conventional addition operations.
