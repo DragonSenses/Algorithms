@@ -492,3 +492,53 @@ class Solution3 {
 - **Update**: Update `x` to be the current result without the carry and `y` to be the new carry.
 - **Return**: Once there is no carry left, convert `x` back to a binary string and return it.
 
+### TypeScript
+
+```typescript
+/**
+ * Adds two binary strings and returns their sum as a binary string.
+ *
+ * @param {string} a - The first binary string.
+ * @param {string} b - The second binary string.
+ * @returns {string} - The sum of the two binary strings as a binary string.
+ */
+function addBinary(a: string, b: string): string {
+  // Convert binary strings to BigInt
+  let x = BigInt(`0b${a}`);
+  let y = BigInt(`0b${b}`);
+
+  // Loop until there is no carry
+  while (y !== 0n) {
+    // Current answer without carry is XOR of x and y
+    const answer = x ^ y;
+    // Current carry is left-shifted AND of x and y
+    const carry = (x & y) << 1n;
+    // Prepare for the next loop
+    x = answer;
+    y = carry;
+  }
+
+  // Convert the final result back to a binary string
+  return x.toString(2);
+};
+```
+
+### Explanation
+
+1. **Function Signature**: The function `addBinary` takes two binary string inputs `a` and `b`, and returns their sum as a binary string.
+
+2. **Convert Binary Strings to BigInt**: 
+   - `BigInt("0b" + a)` converts the binary string `a` to a BigInt.
+   - `BigInt("0b" + b)` converts the binary string `b` to a BigInt.
+
+3. **Bit-by-Bit Processing**:
+   - The loop continues until `y` (carry) is zero.
+   - Within the loop:
+     - `answer = x ^ y` computes the sum of the bits without the carry.
+     - `carry = (x & y) << 1n` computes the carry for the next bit position.
+     - `x` is updated to `answer`.
+     - `y` is updated to `carry`.
+
+4. **Return Result**:
+   - After the loop, the final result `x` is converted back to a binary string using `x.toString(2)`.
+
