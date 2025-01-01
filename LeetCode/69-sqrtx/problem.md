@@ -109,3 +109,13 @@ The mathematical relationship we use is:
 \[ \sqrt{x} = e^{(\frac{1}{2} \cdot \log x)} \]
 
 Although this method isn't simple or basic, it is very practical and works similarly to how real-world calculators perform these calculations.
+
+## **Algorithm**
+
+1. **Input**: A non-negative integer \( x \).
+2. **Special Case**: If \( x \) is 0, return 0 immediately since the square root of 0 is 0.
+3. **Compute the Natural Logarithm**: Calculate the natural logarithm (\( \log x \)) of \( x \).
+4. **Scale the Logarithm**: Multiply the natural logarithm by 0.5.
+5. **Compute the Exponential Function**: Calculate the exponential function \( e \) raised to the power of the scaled logarithm (\( e^{(\frac{1}{2} \cdot \log x)} \)).
+6. **Round Down**: Since we need the integer part of the result, round down the computed value to the nearest integer.
+7. **Return the Result**: Output the result as the integer square root of \( x \).
