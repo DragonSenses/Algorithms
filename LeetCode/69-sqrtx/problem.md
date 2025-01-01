@@ -82,3 +82,15 @@ Here's the relationship in summary:
 
 Since 10 lies between 9 and 16, the integer square root is the one corresponding to \( 3 \). 
 
+### Algorithm Insight
+To solve this problem, you can use a binary search algorithm, which efficiently finds the integer square root by narrowing down the possible values. Here's a brief outline of how it works:
+1. Initialize two pointers: `left` and `right`. `left` starts at \( 0 \) and `right` starts at \( x \).
+2. Perform a binary search:
+    - Calculate the midpoint `mid`.
+    - If `mid * mid` is equal to \( x \), return `mid`.
+    - If `mid * mid` is less than \( x \), move `left` to `mid + 1`.
+    - Otherwise, move `right` to `mid - 1`.
+3. The loop continues until `left` is greater than `right`.
+4. The integer square root is `right` at the end of the search.
+
+This method ensures that you find the largest integer `a` such that \( a^2 \leq x \).
