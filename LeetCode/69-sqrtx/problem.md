@@ -58,3 +58,27 @@ The value \( a \) we're supposed to compute could be defined as:
 \[ a^2 \leq x < (a+1)^2 \]
 This value is called the *integer square root*. 
 
+#### Geometrical Interpretation
+From a geometrical perspective, it represents the side of the largest integer-sided square with an area less than or equal to \( x \).
+
+![When x = 10, we find the integer square root using the the candidates 4, 9, and 16](img/69-1.jpg)
+
+Let's explore the relationship between 4, 9, and 16 when looking for the integer square root of \( x = 10 \).
+
+The integer square root of \( x \) is the largest integer \( a \) such that \( a^2 \leq x \). For \( x = 10 \):
+
+1. **4**: \( 2^2 = 4 \). This is less than 10, so \( 2 \) is a possible candidate.
+2. **9**: \( 3^2 = 9 \). This is also less than 10, so \( 3 \) is another candidate.
+3. **16**: \( 4^2 = 16 \). This is greater than 10, so \( 4 \) is not a candidate.
+
+The largest integer whose square is less than or equal to 10 is \( 3 \). However, we are looking for the integer part of the square root, rounded down. The square root of 10 is approximately \( 3.162 \), and rounding down gives us \( 3 \).
+
+So, the integer square root of \( x = 10 \) is \( 3 \).
+
+Here's the relationship in summary:
+- 4: \( 2^2 \)
+- 9: \( 3^2 \)
+- 16: \( 4^2 \)
+
+Since 10 lies between 9 and 16, the integer square root is the one corresponding to \( 3 \). 
+
