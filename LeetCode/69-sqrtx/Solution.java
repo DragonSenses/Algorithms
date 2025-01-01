@@ -1,5 +1,15 @@
+/**
+ * This class contains a method to calculate the integer square root of a non-negative integer
+ * without using any built-in exponent function or operator.
+ */
 class Solution {
-  // Returns the integer square root of x, rounded down to the nearest integer.
+
+  /**
+   * Returns the integer square root of x, rounded down to the nearest integer.
+   *
+   * @param x The non-negative integer whose integer square root is to be computed.
+   * @return The integer square root of x.
+   */
   public int mySqrt(int x) {
     // Special case: If x is 0 or 1, return x as the square root is the number itself.
     if (x < 2) {
