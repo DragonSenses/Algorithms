@@ -5,7 +5,7 @@
 <p>You <strong>must not use</strong> any built-in exponent function or operator.</p>
 
 <ul>
-	<li>For example, do not use <code>pow(x, 0.5)</code> in c++ or <code>x ** 0.5</code> in python.</li>
+  <li>For example, do not use <code>pow(x, 0.5)</code> in c++ or <code>x ** 0.5</code> in python.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -27,12 +27,16 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
+  <li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 <br>
 
 ---
+
+# Solution
+
+- [Pocket Calculator Algorithm]()
 
 ## Problem Overview
 
@@ -94,3 +98,14 @@ To solve this problem, you can use a binary search algorithm, which efficiently 
 4. The integer square root is `right` at the end of the search.
 
 This method ensures that you find the largest integer `a` such that \( a^2 \leq x \).
+
+# Pocket Calculator Algorithm Approach
+
+## **Intuition**
+
+Pocket calculators often compute exponential functions and natural logarithms efficiently by using precomputed logarithm tables or other methods. To find the square root of a number, we can leverage these capabilities by reducing the problem to a combination of exponential and logarithmic functions.
+
+The mathematical relationship we use is:
+\[ \sqrt{x} = e^{(\frac{1}{2} \cdot \log x)} \]
+
+Although this method isn't simple or basic, it is very practical and works similarly to how real-world calculators perform these calculations.
