@@ -119,3 +119,32 @@ Although this method isn't simple or basic, it is very practical and works simil
 5. **Compute the Exponential Function**: Calculate the exponential function \( e \) raised to the power of the scaled logarithm (\( e^{(\frac{1}{2} \cdot \log x)} \)).
 6. **Round Down**: Since we need the integer part of the result, round down the computed value to the nearest integer.
 7. **Return the Result**: Output the result as the integer square root of \( x \).
+
+### **Pseudocode**
+
+```plaintext
+function integerSquareRoot(x):
+    if x == 0:
+        return 0
+    
+    // Step 3: Compute the natural logarithm of x
+    logX = log(x)
+    
+    // Step 4: Scale the logarithm by 0.5
+    halfLogX = 0.5 * logX
+    
+    // Step 5: Compute the exponential function
+    sqrtX = exp(halfLogX)
+    
+    // Step 6: Round down to the nearest integer
+    result = floor(sqrtX)
+    
+    return result
+```
+
+### Note on Implementation
+
+- The functions `log(x)` and `exp(x)` represent the natural logarithm and exponential functions, respectively.
+- The function `floor(x)` rounds down \( x \) to the nearest integer.
+
+By following this approach, you can leverage the efficiency of logarithmic and exponential computations to find the integer square root of \( x \).
