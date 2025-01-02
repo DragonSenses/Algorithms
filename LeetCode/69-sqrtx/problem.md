@@ -230,3 +230,14 @@ Given that \( a \) must be an integer, the problem translates into finding the s
 
 ### **Key Insight**
 Binary search leverages the sorted property of integers. By iteratively halving the search space, we can quickly converge on the integer square root, ensuring the approach is both time-efficient and straightforward to implement.
+
+## **Algorithm**
+
+1. If \( x < 2 \), return \( x \).
+2. Set the left boundary to 2 and the right boundary to \( x / 2 \).
+3. While \( \text{left} \leq \text{right} \):
+   - Take \( \text{pivot} = \text{left} + (\text{right} - \text{left}) / 2 \) as a guess. Compute \( \text{pivot} \times \text{pivot} \) and compare it with \( x \):
+     - If \( \text{pivot} \times \text{pivot} > x \), move the right boundary to \( \text{right} = \text{pivot} - 1 \).
+     - Else, if \( \text{pivot} \times \text{pivot} < x \), move the left boundary to \( \text{left} = \text{pivot} + 1 \).
+     - Otherwise, if \( \text{pivot} \times \text{pivot} == x \), the integer square root is found; return \( \text{pivot} \).
+4. Return \( \text{right} \).
