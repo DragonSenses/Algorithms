@@ -39,6 +39,7 @@
 - [Pocket Calculator Algorithm Approach](#pocket-calculator-algorithm-approach)
   - **Time Complexity**: `O(1)`
   - **Space Complexity**: `O(1)`
+- [Binary Search Approach](#binary-search-approach)
 
 ## Problem Overview
 
@@ -216,3 +217,16 @@ function mySqrt(x: number): number {
 
 ### **Space Complexity**: `O(1)`
 - **Fixed Additional Space**: The algorithm uses a small, fixed amount of additional space for variables such as `logX`, `halfLogX`, `sqrtX`, and `result`. These variables require a constant amount of memory, regardless of the input size. Hence, the space complexity remains \( O(1) \).
+
+# Binary Search Approach
+
+## **Intuition**
+
+### **Context**
+In an interview setting, it's essential to understand the nature of the problem thoroughly. For any integer \( a \geq 2 \), the square root of a number \( x \) will always be less than \( x/2 \) and greater than 0: \( 0 < a < x/2 \).
+
+### **Binary Search Justification**
+Given that \( a \) must be an integer, the problem translates into finding the square root within a sorted set of integer values. This ordered nature of the set makes binary search an ideal method to solve the problem efficiently.
+
+### **Key Insight**
+Binary search leverages the sorted property of integers. By iteratively halving the search space, we can quickly converge on the integer square root, ensuring the approach is both time-efficient and straightforward to implement.
