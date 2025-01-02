@@ -196,3 +196,7 @@ function mySqrt(x: number): number {
   return (right * right > x) ? left : right;
 }
 ```
+
+
+### **Space Complexity**: `O(1)`
+- **Fixed Additional Space**: The algorithm uses a small, fixed amount of additional space for variables such as `logX`, `halfLogX`, `sqrtX`, and `result`. These variables require a constant amount of memory, regardless of the input size. Hence, the space complexity remains \( O(1) \).
