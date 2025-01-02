@@ -37,6 +37,8 @@
 # Solution
 
 - [Pocket Calculator Algorithm Approach](#pocket-calculator-algorithm-approach)
+  - **Time Complexity**: `O(1)`
+  - **Space Complexity**: `O(1)`
 
 ## Problem Overview
 
@@ -197,6 +199,20 @@ function mySqrt(x: number): number {
 }
 ```
 
+## **Complexity Analysis**
+
+### Assumptions
+- The value of \( x \) is a non-negative integer.
+- The logarithm and exponential functions are computed in constant time, which is reasonable given their efficient implementation in most programming languages.
+
+### **Time Complexity**: `O(1)`
+- **Constant Time Operations**: The algorithm consists of a fixed number of operations:
+  - Checking if \( x < 2 \)
+  - Calculating the natural logarithm of \( x \)
+  - Scaling the logarithm by 0.5
+  - Computing the exponential function \( e \) raised to the scaled logarithm
+  - Rounding down the result to the nearest integer
+  These operations are all performed in constant time, meaning they do not depend on the size of the input \( x \). Thus, the overall time complexity is \( O(1) \).
 
 ### **Space Complexity**: `O(1)`
 - **Fixed Additional Space**: The algorithm uses a small, fixed amount of additional space for variables such as `logX`, `halfLogX`, `sqrtX`, and `result`. These variables require a constant amount of memory, regardless of the input size. Hence, the space complexity remains \( O(1) \).
