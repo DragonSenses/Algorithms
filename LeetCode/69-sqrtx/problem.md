@@ -330,3 +330,19 @@ To speed up computations, let's use bit shifts. Left and right shifts are fast b
 Thus, we can rewrite the recursion above as:
 \[ \text{mySqrt}(x) = \text{mySqrt}(x >> 2) << 1 \]
 
+## **Algorithm**
+
+1. Define the base case: If \( x < 2 \), return \( x \).
+2. Reduce \( x \) by shifting it right by 2 bits: \( x >> 2 \).
+3. Recursively compute the square root of the reduced \( x \): \( \text{mySqrt}(x >> 2) \).
+4. Multiply the result by 2 by shifting it left by 1 bit: \( << 1 \).
+
+### Steps
+
+1. Define the function `mySqrt` that takes an integer `x`.
+2. Check if `x` is less than 2:
+   - If true, return `x`.
+3. Reduce `x` by shifting it right by 2 bits.
+4. Recursively compute the square root of the reduced `x`.
+5. Multiply the result by 2 by shifting it left by 1 bit.
+6. Return the final result.
