@@ -42,6 +42,7 @@
 - [Binary Search Approach](#binary-search-approach)
   - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(1)`
+- [Recursion & Bit Shifts Approach](#recursion--bit-shifts-approach)
 
 ## Problem Overview
 
@@ -310,3 +311,22 @@ function mySqrt(x: number): number {
 ### **Space Complexity**: `O(1)`
 
 - **Constant Space:** The space complexity is \( O(1) \) since we are only using a fixed amount of extra space for variables such as `left`, `right`, `pivot`, and `num`.
+
+# Recursion & Bit Shifts Approach
+
+## **Intuition**
+
+Let's use recursion for this approach. The base case is when \( x < 2 \), in which case the value is \( x \) itself. The idea is to reduce \( x \) recursively at each step until we reach the base case.
+
+How do we reduce \( x \)? 
+
+Notice that \( \sqrt{x} = 2 \times \sqrt{\frac{x}{4}} \). Hence, the square root can be computed recursively as:
+\[ \text{mySqrt}(x) = 2 \times \text{mySqrt}\left(\frac{x}{4}\right) \]
+
+To speed up computations, let's use bit shifts. Left and right shifts are fast bit manipulation operations:
+- \( x << y \) means \( x \times 2^y \)
+- \( x >> y \) means \( x \div 2^y \)
+
+Thus, we can rewrite the recursion above as:
+\[ \text{mySqrt}(x) = \text{mySqrt}(x >> 2) << 1 \]
+
