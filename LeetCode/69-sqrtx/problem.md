@@ -241,3 +241,27 @@ Binary search leverages the sorted property of integers. By iteratively halving 
      - Else, if \( \text{pivot} \times \text{pivot} < x \), move the left boundary to \( \text{left} = \text{pivot} + 1 \).
      - Otherwise, if \( \text{pivot} \times \text{pivot} == x \), the integer square root is found; return \( \text{pivot} \).
 4. Return \( \text{right} \).
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public int mySqrt(int x) {
+    if (x < 2) return x;
+
+    long num;
+    int pivot, left = 2, right = x / 2;
+    while (left <= right) {
+      pivot = left + (right - left) / 2;
+      num = (long) pivot * pivot;
+      if (num > x) right = pivot - 1;
+      else if (num < x) left = pivot + 1;
+      else return pivot;
+    }
+
+    return right;
+  }
+}
+```
