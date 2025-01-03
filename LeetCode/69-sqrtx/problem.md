@@ -288,3 +288,10 @@ function mySqrt(x: number): number {
 }
 ```
 
+### Assumptions
+- The value of \( x \) is a non-negative integer.
+- The logarithm and exponential functions are computed in constant time, which is reasonable given their efficient implementation in most programming languages.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space:** The space complexity is \( O(1) \) since we are only using a fixed amount of extra space for variables such as `left`, `right`, `pivot`, and `num`.
