@@ -293,12 +293,19 @@ function mySqrt(x: number): number {
 ## **Complexity Analysis**
 
 ### Assumptions
-- The value of \( x \) is a non-negative integer.
+- The value of \( n \) is a non-negative integer.
 - The logarithm and exponential functions are computed in constant time, which is reasonable given their efficient implementation in most programming languages.
 
-### **Time Complexity**: `O(log x)`
+### **Time Complexity**: `O(log n)`
 
-- **Binary Search:** The time complexity is \( O(\log x) \). The binary search algorithm divides the search interval in half each time, which leads to a logarithmic time complexity.
+- **Binary Search:** The time complexity is \( O(\log n) \). The binary search algorithm divides the search interval in half each time, which leads to a logarithmic time complexity.
+  
+- **Master Theorem Analysis:**
+  Let's compute the time complexity with the help of the master theorem \( T(n) = aT\left(\frac{n}{b}\right) + f(n) \).
+  - Here, \( a = 1 \), \( b = 2 \), and \( f(n) = O(1) \).
+  - According to the master theorem, we compare \( f(n) \) to \( n^{\log_b a} \). 
+  - In this case, \( \log_b a = \log_2 1 = 0 \), and thus we have \( n^0 = 1 \), which matches \( f(n) = O(1) \).
+  - Therefore, this falls under case 2 of the master theorem, which results in \( T(n) = O(\log n) \).
 
 ### **Space Complexity**: `O(1)`
 
