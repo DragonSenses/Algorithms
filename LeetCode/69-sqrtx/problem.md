@@ -346,3 +346,20 @@ Thus, we can rewrite the recursion above as:
 4. Recursively compute the square root of the reduced `x`.
 5. Multiply the result by 2 by shifting it left by 1 bit.
 6. Return the final result.
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution2 {
+  public int mySqrt(int x) {
+    if (x < 2)
+      return x;
+
+    int left = mySqrt(x >> 2) << 1;
+    int right = left + 1;
+    return (long) right * right > x ? left : right;
+  }
+}
+```
