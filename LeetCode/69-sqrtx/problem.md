@@ -40,6 +40,8 @@
   - **Time Complexity**: `O(1)`
   - **Space Complexity**: `O(1)`
 - [Binary Search Approach](#binary-search-approach)
+  - **Time Complexity**: `O(log n)`
+  - **Space Complexity**: `O(1)`
 
 ## Problem Overview
 
@@ -288,9 +290,15 @@ function mySqrt(x: number): number {
 }
 ```
 
+## **Complexity Analysis**
+
 ### Assumptions
 - The value of \( x \) is a non-negative integer.
 - The logarithm and exponential functions are computed in constant time, which is reasonable given their efficient implementation in most programming languages.
+
+### **Time Complexity**: `O(log x)`
+
+- **Binary Search:** The time complexity is \( O(\log x) \). The binary search algorithm divides the search interval in half each time, which leads to a logarithmic time complexity.
 
 ### **Space Complexity**: `O(1)`
 
