@@ -234,6 +234,8 @@ Given that \( a \) must be an integer, the problem translates into finding the s
 ### **Key Insight**
 Binary search leverages the sorted property of integers. By iteratively halving the search space, we can quickly converge on the integer square root, ensuring the approach is both time-efficient and straightforward to implement.
 
+![Illustration of binary search for the square root of x = 10](img/69-2.jpg)
+
 ## **Algorithm**
 
 1. If \( x < 2 \), return \( x \).
