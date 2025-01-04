@@ -246,3 +246,73 @@ As one may notice, we simply return `true` if the result of the recursive call t
 Instead of doing the boundary checks before the recursive call on the `backtrack()` function, we do it within the function.
 
 This is an important choice. Doing the boundary check within the function would allow us to reach the bottom case, for the test case where the board contains only a single cell, since either of the neighbor indices would not be valid.
+
+### TypeScript
+
+```typescript
+function exist(board: string[][], word: string): boolean {
+  const ROWS = board.length;
+  const COLS = board[0].length;
+
+  function backtrack(row: number, col: number, index: number): boolean {
+    // Step 1: Check the bottom case
+    if (index >= word.length) {
+      return true;
+    }
+
+    // Step 2: Check the boundaries
+    if (
+      row < 0 ||
+      row >= ROWS ||
+      col < 0 ||
+      col >= COLS ||
+      board[row][col] !== word[index]
+    ) {
+      return false;
+    }
+
+    // Step 3: Mark the current cell as visited
+    const temp = board[row][col];
+    board[row][col] = "#";
+
+    // Explore the four possible directions: up, down, left, right
+    const rowOffsets = [0, 1, 0, -1];
+    const colOffsets = [1, 0, -1, 0];
+    for (let d = 0; d < 4; ++d) {
+      if (backtrack(row + rowOffsets[d], col + colOffsets[d], index + 1)) {
+        return true;
+      }
+    }
+
+    // Step 4: Revert the current cell to its original state
+    board[row][col] = temp;
+
+    return false;
+  }
+
+  // Iterate through each cell in the board
+  for (let row = 0; row < ROWS; ++row) {
+    for (let col = 0; col < COLS; ++col) {
+      if (backtrack(row, col, 0)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+```
+
+### Explanation:
+1. **Function Definition**:
+   - `exist(board: string[][], word: string): boolean`: This is the main function that initiates the search for the word in the given board.
+   
+2. **Backtracking Function**:
+   - `function backtrack(row: number, col: number, index: number): boolean`: This recursive function performs the depth-first search and backtracking.
+   
+3. **Steps**:
+   - **Step 1**: Check if we have reached the end of the word (`index >= word.length`).
+   - **Step 2**: Check boundaries and character match (`row`, `col` boundaries and `board[row][col]` with `word[index]`).
+   - **Step 3**: Mark the current cell as visited by replacing its content with a placeholder (`'#'`).
+   - **Explore Directions**: Use `rowOffsets` and `colOffsets` arrays to explore the four possible directions.
+   - **Step 4**: Revert the current cell back to its original state.
