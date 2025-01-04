@@ -43,10 +43,7 @@
 
 # Solution
 
-- [79. Word Search](#79-word-search)
-- [Solution](#solution)
 - [Backtracking Approach](#backtracking-approach)
-  - [**Intuition**](#intuition)
 
 # Backtracking Approach
 
@@ -60,3 +57,32 @@ A more accurate term to summarize the solution is backtracking. Backtracking is 
 
 In the general approach to the solution, we traverse the 2D grid. At each step, we mark our choice before moving to the next step. At the end of each step, we revert our mark so that we have a clean slate to try another direction. The exploration is done using the DFS strategy, where we go as far as possible before trying the next direction.
 
+### What is Backtracking?
+
+Backtracking is an algorithmic technique for solving problems incrementally, by trying to build a solution piece by piece and removing those solutions that fail to satisfy the constraints of the problem at any point. It's akin to a trial-and-error method for finding solutions, where you attempt a possibility, and if it doesn’t lead to a solution, you backtrack to the previous step and try the next alternative.
+
+### Steps Involved in Backtracking
+
+1. **Choose**: Select a choice that can be made.
+2. **Explore**: Proceed with this choice by moving forward in the problem space and attempting to solve the problem under this choice.
+3. **Check**: Determine if the current state is a solution. If it is, we are done; if not:
+4. **Backtrack**: Revert the last choice (undo the last step) and try another possibility.
+
+### When to Use Backtracking?
+
+Backtracking is particularly useful for problems where:
+- The solution space is large but can be pruned through constraints.
+- We need to find all solutions or just one valid solution.
+- The problem can be divided into smaller sub-problems that can be tackled incrementally.
+
+### Example Applications
+
+- Solving puzzles like Sudoku or crossword puzzles.
+- Finding all permutations or combinations of a set.
+- Traversing a maze or 2D grid to find paths.
+
+### Key Points to Remember
+
+- **Recursive Approach**: Backtracking solutions are often implemented using recursion, which allows us to systematically explore and revert choices.
+- **Pruning**: Effective backtracking involves pruning unnecessary paths early by checking constraints, thus reducing the overall search space.
+- **Stack-Like Nature**: The exploration of possible choices can be visualized as a depth-first traversal of a decision tree.
