@@ -101,3 +101,35 @@ For the backtracking function `backtrack(row, col, suffix)`, as a DFS algorithm,
 
 4. **Step 4:** At the end of the exploration, we revert the cell back to its original state. Finally, we return the result of the exploration.
 
+### Pseudocode
+
+```pseudo
+function exist(board, word):
+    for each row in board:
+        for each col in row:
+            if backtrack(board, row, col, word):
+                return true
+    return false
+
+function backtrack(board, row, col, suffix):
+    if suffix is empty:
+        return true
+    
+    if row is out of boundary or col is out of boundary or board[row][col] != first letter of suffix:
+        return false
+    
+    # Mark the current cell as visited
+    temp = board[row][col]
+    board[row][col] = '#'
+    
+    # Explore the four possible directions
+    result = backtrack(board, row + 1, col, suffix[1:]) or
+             backtrack(board, row - 1, col, suffix[1:]) or
+             backtrack(board, row, col + 1, suffix[1:]) or
+             backtrack(board, row, col - 1, suffix[1:])
+    
+    # Revert the current cell to its original state
+    board[row][col] = temp
+    
+    return result
+```
