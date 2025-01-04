@@ -207,3 +207,42 @@ class Solution {
 
 - Instead of returning directly once we find a match, we simply break out of the loop and do the cleanup before returning.
 
+#### Alternative Solution
+
+```java
+protected boolean backtrack(int row, int col, String word, int index) {
+    // Step 1: Check the bottom case. If we have found the match for each prefix of the word.
+    if (index >= word.length()) {
+        return true;
+    }
+
+    // Step 2: Check the boundaries and character match.
+    if (row < 0 || row == this.ROWS || col < 0 || col == this.COLS || this.board[row][col] != word.charAt(index)) {
+        return false;
+    }
+
+    // Step 3: Explore the neighbors in DFS.
+    // Mark the current cell as visited
+    this.board[row][col] = '#';
+
+    int[] rowOffsets = {0, 1, 0, -1};
+    int[] colOffsets = {1, 0, -1, 0};
+    for (int d = 0; d < 4; ++d) {
+        // Recursively call backtrack to explore the next cell
+        if (this.backtrack(row + rowOffsets[d], col + colOffsets[d], word, index + 1)) {
+            // Return without cleanup
+            return true;
+        }
+    }
+
+    // Step 4: Clean up and return the result.
+    this.board[row][col] = word.charAt(index);
+    return false;
+}
+```
+
+As one may notice, we simply return `true` if the result of the recursive call to `backtrack()` is positive. Though this minor modification would have no impact on the time or space complexity, it would, however, leave us with a "side-effect," i.e., the matched letters in the original board would be altered to `#`.
+
+Instead of doing the boundary checks before the recursive call on the `backtrack()` function, we do it within the function.
+
+This is an important choice. Doing the boundary check within the function would allow us to reach the bottom case, for the test case where the board contains only a single cell, since either of the neighbor indices would not be valid.
