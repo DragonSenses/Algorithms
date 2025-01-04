@@ -44,6 +44,8 @@
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(N * 3^L)`
+  - **Space Complexity**: `O(L)`
 
 # Backtracking Approach
 
@@ -316,3 +318,30 @@ function exist(board: string[][], word: string): boolean {
    - **Step 3**: Mark the current cell as visited by replacing its content with a placeholder (`'#'`).
    - **Explore Directions**: Use `rowOffsets` and `colOffsets` arrays to explore the four possible directions.
    - **Step 4**: Revert the current cell back to its original state.
+
+## **Complexity Analysis**
+
+### Assumptions
+- Let `N` be the number of cells in the board.
+- Let `L` be the length of the word to be matched.
+
+### **Time Complexity**: `O(N * 3^L)`
+
+1. **Backtracking Function**:
+   - Initially, we have up to 4 directions to explore (up, down, left, right).
+   - After the first step, choices are reduced to 3 (as we avoid revisiting the previous cell).
+   - The execution trace can be visualized as a 3-ary tree, with each branch representing a potential exploration direction.
+   - In the worst case, the total number of function invocations is the number of nodes in a full 3-ary tree, which is `3^L`.
+
+2. **Iterating Through the Board**:
+   - The backtracking function is invoked for each cell in the board, leading to `N` invocations in the worst case.
+
+Therefore, the overall time complexity of the algorithm is `O(N * 3^L)`.
+
+### **Space Complexity**: `O(L)`
+
+1. **Recursion Call Stack**:
+   - The main memory consumption lies in the recursion calls of the backtracking function.
+   - The maximum length of the call stack is the length of the word, `L`.
+
+Therefore, the space complexity of the algorithm is `O(L)`.
