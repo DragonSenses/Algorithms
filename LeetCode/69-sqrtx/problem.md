@@ -399,3 +399,7 @@ function mySqrt(x: number): number {
 
 - **Recursive Approach:** The time complexity is \( O(\log n) \). Each recursive call reduces the problem size by a factor of 4 (through bit shifts), leading to a logarithmic time complexity.
 
+### **Space Complexity**: `O(log n)`
+
+- **Recursion Stack:** The space complexity is \( O(\log n) \) due to the recursive calls. Each call adds a new frame to the stack, and there are \( O(\log n) \) recursive calls.
+
