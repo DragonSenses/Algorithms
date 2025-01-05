@@ -390,3 +390,12 @@ function mySqrt(x: number): number {
 }
 ```
 
+
+### Assumptions
+- The value of \( n \) is a non-negative integer.
+- The logarithm and exponential functions are computed in constant time, which is reasonable given their efficient implementation in most programming languages.
+
+### **Time Complexity**: `O(log n)`
+
+- **Recursive Approach:** The time complexity is \( O(\log n) \). Each recursive call reduces the problem size by a factor of 4 (through bit shifts), leading to a logarithmic time complexity.
+
