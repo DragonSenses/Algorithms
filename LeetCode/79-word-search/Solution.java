@@ -1,8 +1,18 @@
+/**
+ * Solution class that implements the word search problem using backtracking.
+ */
 class Solution {
   private char[][] board;
   private int ROWS;
   private int COLS;
 
+  /**
+   * Determines if the word exists in the given board.
+   * 
+   * @param board the 2D grid of characters
+   * @param word the word to be searched in the grid
+   * @return true if the word exists in the grid, false otherwise
+   */
   public boolean exist(char[][] board, String word) {
     this.board = board;
     this.ROWS = board.length;
@@ -20,6 +30,15 @@ class Solution {
     return false;
   }
 
+  /**
+   * Recursive backtracking function to search for the word in the grid.
+   * 
+   * @param row the current row index
+   * @param col the current column index
+   * @param word the word to be searched
+   * @param index the current index of the character in the word
+   * @return true if the word can be found starting from the current cell, false otherwise
+   */
   protected boolean backtrack(int row, int col, String word, int index) {
     // Step 1: Check the bottom case. If we have found the match for each prefix of the word
     if (index >= word.length()) {
