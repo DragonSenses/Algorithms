@@ -431,3 +431,14 @@ We'll implement a simplified version without seed trimming. Using the textbook f
 \[ x_{k+1} = \frac{1}{2} \left( x_k + \frac{x}{x_k} \right) \]
 
 converges to \( \sqrt{x} \) if the initial guess \( x_0 \) is set to \( x \). The process is straightforward: define the error tolerance as less than 1 and proceed iteratively.
+
+## **Algorithm**
+
+1. Define the base case: If \( x < 2 \), return \( x \).
+2. Initialize \( x_0 \) with \( x \).
+3. Compute the next estimate \( x_1 \) using the formula \( x_1 = \frac{1}{2} (x_0 + \frac{x}{x_0}) \).
+4. Iterate until the difference between \( x_0 \) and \( x_1 \) is less than 1:
+   - Update \( x_0 \) to \( x_1 \).
+   - Recompute \( x_1 \) using the formula.
+5. Return the integer part of \( x_1 \).
+
