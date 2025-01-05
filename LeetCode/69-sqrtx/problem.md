@@ -416,6 +416,18 @@ function mySqrt(x: number): number {
 
 # Newton's Method
 
+## **Intuition**
+
+One of the most efficient methods to compute the square root is Newton's Method, also known as the Newton-Raphson method.
+
 ### Newton-Raphson Method
 
 In calculus, Newton's method is an iterative approach for finding the roots of a differentiable function \( f(x) \), which are solutions to the equation \( f(x) = 0 \). To find the roots of \( f'(x) = 0 \) (the critical points of \( f \)), we can use Newton's method on its derivative \( f'(x) \). These solutions may be minima, maxima, or saddle points, which are relevant in optimization.
+
+### Key Point
+
+We'll implement a simplified version without seed trimming. Using the textbook fact that the sequence:
+
+\[ x_{k+1} = \frac{1}{2} \left( x_k + \frac{x}{x_k} \right) \]
+
+converges to \( \sqrt{x} \) if the initial guess \( x_0 \) is set to \( x \). The process is straightforward: define the error tolerance as less than 1 and proceed iteratively.
