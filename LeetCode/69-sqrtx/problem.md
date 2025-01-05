@@ -45,6 +45,7 @@
 - [Recursion & Bit Shifts Approach](#recursion--bit-shifts-approach)
   - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(log n)`
+- [Newton's Method Approach](#newtons-method)
 
 ## Problem Overview
 
@@ -413,3 +414,8 @@ function mySqrt(x: number): number {
 
 - **Recursion Stack:** The space complexity is \( O(\log n) \) due to the recursive calls. Each call adds a new frame to the stack, and there are \( O(\log n) \) recursive calls.
 
+# Newton's Method
+
+### Newton-Raphson Method
+
+In calculus, Newton's method is an iterative approach for finding the roots of a differentiable function \( f(x) \), which are solutions to the equation \( f(x) = 0 \). To find the roots of \( f'(x) = 0 \) (the critical points of \( f \)), we can use Newton's method on its derivative \( f'(x) \). These solutions may be minima, maxima, or saddle points, which are relevant in optimization.
