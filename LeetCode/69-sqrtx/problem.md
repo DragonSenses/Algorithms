@@ -46,6 +46,8 @@
   - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(log n)`
 - [Newton's Method Approach](#newtons-method)
+  - **Time Complexity**: `O(log n)`
+  - **Space Complexity**: `O(1)`
 
 ## Problem Overview
 
@@ -505,3 +507,17 @@ function mySqrt(x: number): number {
   return Math.floor(x1);
 }
 ```
+
+## **Complexity Analysis**
+
+### Assumptions
+- The value of \( n \) is a non-negative integer.
+
+### **Time Complexity**: `O(log n)`
+
+- **Quadratic Convergence:** Newton's method converges quadratically, resulting in a logarithmic time complexity for this problem.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space:** The algorithm uses a fixed constant amount of space for variables to compute the square root using Newton's method.
+
