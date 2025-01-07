@@ -93,3 +93,24 @@ This method ensures that all potential jump sequences are considered, although i
 2. **Jump**: From the current index, jump to every index that is reachable within the maximum jump length.
 3. **Recursive Call**: For each new index, recursively attempt to reach the last index.
 4. **Backtrack**: If stuck, backtrack and try the next possible jump.
+
+### **Pseudocode**
+
+```pseudo
+function canJump(nums):
+    return backtrack(0, nums)
+
+function backtrack(index, nums):
+    if index == length(nums) - 1:
+        return true
+    furthestJump = min(index + nums[index], length(nums) - 1)
+    for nextIndex from index + 1 to furthestJump:
+        if backtrack(nextIndex, nums):
+            return true
+    return false
+```
+
+This pseudocode outlines the backtracking approach:
+- The `canJump` function initializes the process.
+- The `backtrack` function recursively checks each reachable position from the current index. If the last index is reached, it returns true. Otherwise, it backtracks to explore other paths.
+
