@@ -86,3 +86,10 @@ This approach involves:
 3. **Backtracking**: If a jump sequence doesn't lead to a solution, backtrack to explore other possible paths.
 
 This method ensures that all potential jump sequences are considered, although it is inefficient due to its exhaustive nature.
+
+## **Algorithm**
+
+1. **Initialize**: Start at the first index.
+2. **Jump**: From the current index, jump to every index that is reachable within the maximum jump length.
+3. **Recursive Call**: For each new index, recursively attempt to reach the last index.
+4. **Backtrack**: If stuck, backtrack and try the next possible jump.
