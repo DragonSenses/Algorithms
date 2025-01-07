@@ -42,3 +42,14 @@ This problem involves determining if you can reach the last index of an integer 
 **Input**: `nums = [3, 2, 1, 0, 4]`  
 **Output**: `false`  
 **Explanation**: You will always arrive at index 3, which has a maximum jump length of 0, making it impossible to reach the last index.
+
+### 4-Step Process of a Dynamic Programming Problem
+
+To solve and fully understand a dynamic programming problem, follow these four steps:
+
+1. **Start with the recursive backtracking solution**: Identify the simplest recursive solution, exploring all possible jump combinations.
+2. **Optimize using a memoization table (top-down dynamic programming)**: Store intermediate results to avoid redundant calculations and improve efficiency.
+3. **Remove the need for recursion (bottom-up dynamic programming)**: Transform the recursive solution into an iterative one, building the solution from the ground up.
+4. **Apply final tricks to reduce time/memory complexity**: Refine the solution further by optimizing time and space complexity.
+
+The solutions presented below vary in runtime and memory requirements, but all produce the correct result.
