@@ -23,6 +23,22 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+  <li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+  <li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<br>
+
+## Problem Overview
+
+This problem involves determining if you can reach the last index of an integer array `nums`. Each element in the array represents your maximum jump length at that position. Starting at the first index, you need to decide if it's possible to jump to the last index.
+
+### Example 1:
+**Input**: `nums = [2, 3, 1, 1, 4]`  
+**Output**: `true`  
+**Explanation**: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+
+### Example 2:
+**Input**: `nums = [3, 2, 1, 0, 4]`  
+**Output**: `false`  
+**Explanation**: You will always arrive at index 3, which has a maximum jump length of 0, making it impossible to reach the last index.
