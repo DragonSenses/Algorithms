@@ -29,6 +29,12 @@
 
 <br>
 
+---
+
+# Solution
+
+- [Backtracking Approach](#backtracking-approach)
+
 ## Problem Overview
 
 This problem involves determining if you can reach the last index of an integer array `nums`. Each element in the array represents your maximum jump length at that position. Starting at the first index, you need to decide if it's possible to jump to the last index.
@@ -67,3 +73,16 @@ When approaching such a question in an interview scenario, it's important to con
 **Practice Makes Perfect**: Converting from top-down dynamic programming (naturally expressed in recursion) to a bottom-up approach can be challenging. Regular practice with similar problems will help you become more adept at this transition.
 
 By following this structured approach, you can effectively demonstrate your problem-solving skills and knowledge of dynamic programming techniques during an interview.
+
+# Backtracking Approach
+
+## **Intuition**
+
+Backtracking is a problem-solving technique where you try every possible path to find a solution. In this context, we attempt every jump pattern from the first position to the last. The idea is to explore each reachable index from the current position recursively until we either reach the last index or exhaust all possibilities.
+
+This approach involves:
+1. **Exploring All Options**: From each position, jump to every possible next position.
+2. **Recursive Exploration**: For each new position, repeat the process until the last index is reached.
+3. **Backtracking**: If a jump sequence doesn't lead to a solution, backtrack to explore other possible paths.
+
+This method ensures that all potential jump sequences are considered, although it is inefficient due to its exhaustive nature.
