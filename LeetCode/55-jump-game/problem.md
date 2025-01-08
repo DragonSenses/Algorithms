@@ -225,3 +225,25 @@ For `nums = [5, 4, 3, 2, 1, 0, 0]`:
 - At index 5, you can only jump to index 6, which has a jump length of 0.
 - Since the last index cannot be reached from any position, the algorithm must explore all combinations before concluding it is impossible, leading to the worst-case performance.
 
+### TypeScript
+
+```typescript
+function canJump(nums: number[]): boolean {
+    return backtrack(0, nums);
+}
+
+function backtrack(position: number, nums: number[]): boolean {
+    if (position === nums.length - 1) {
+        return true;
+    }
+
+    const furthestJump = Math.min(position + nums[position], nums.length - 1);
+    for (let nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++) {
+        if (backtrack(nextPosition, nums)) {
+            return true;
+        }
+    }
+
+    return false;
+};
+```
