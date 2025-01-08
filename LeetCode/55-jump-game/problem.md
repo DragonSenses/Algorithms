@@ -208,3 +208,20 @@ public class Solution {
 ```
 
 By implementing this change, the algorithm prioritizes the longest jumps first, potentially reducing the number of iterations needed to reach a solution.
+
+##### Best and Worst Cases for the Backtracking Optimization
+
+###### Best Case:
+
+For example, with `nums = [1, 5, 2, 1, 0, 2, 0]`, starting from index 0:
+- Jump from index 0 to index 1.
+- From index 1, jump 5 steps to reach the end at index 6.
+- This completes the task in 3 iterations.
+
+###### Worst Case:
+
+For `nums = [5, 4, 3, 2, 1, 0, 0]`:
+- From index 0, you can jump to any of the indices 1 to 5.
+- At index 5, you can only jump to index 6, which has a jump length of 0.
+- Since the last index cannot be reached from any position, the algorithm must explore all combinations before concluding it is impossible, leading to the worst-case performance.
+
