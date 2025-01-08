@@ -34,6 +34,8 @@
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(2^n)`
+  - **Space Complexity**: `O(n)`
 
 ## Problem Overview
 
@@ -252,10 +254,16 @@ function backtrack(position: number, nums: number[]): boolean {
 };
 ```
 
+## **Complexity Analysis**
+
 ### Assumptions
 
 - `n` is the length of the array `nums`.
 
-### **Time Complexity**
+### **Time Complexity**: `O(2^n)`
 
 - **Exponential Possibilities**: In the worst case, there are `2^n` possible ways to jump from the first position to the last. This is because, from each index, we can either move forward by making a jump or backtrack to explore other possibilities. As a result, the time complexity can be described as `O(2^n)`. This exponential time complexity arises from the recursive calls that explore each potential jump combination.
+
+### **Space Complexity**: `O(n)`
+
+- **Depth of Recursion Call Stack**: The space complexity is `O(n)` due to the depth of the recursion call stack. Each recursive call adds a new frame to the stack, and in the worst case, the depth of the recursion can be equal to the length of the array `nums` (i.e., `n`). Therefore, the additional memory required for the stack frames is proportional to the length of the input array.
