@@ -36,6 +36,7 @@
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity**: `O(2^n)`
   - **Space Complexity**: `O(n)`
+- [Dynamic Programming Top-Down Approach](#dynamic-programming-top-down-approach)
 
 ## Problem Overview
 
@@ -267,3 +268,13 @@ function backtrack(position: number, nums: number[]): boolean {
 ### **Space Complexity**: `O(n)`
 
 - **Depth of Recursion Call Stack**: The space complexity is `O(n)` due to the depth of the recursion call stack. Each recursive call adds a new frame to the stack, and in the worst case, the depth of the recursion can be equal to the length of the array `nums` (i.e., `n`). Therefore, the additional memory required for the stack frames is proportional to the length of the input array.
+
+# Dynamic Programming Top-Down Approach
+
+## **Intuition**
+
+Top-down Dynamic Programming can be thought of as optimized backtracking. It relies on the observation that once we determine that a certain index is valid or invalid, this result will never change. This means that we can store the result and not need to recompute it every time.
+
+Therefore, for each position in the array, we remember whether the index is valid or bad. Let's call this array `memo`, with its values being either one of: `VALID`, `INVALID`, or `UNKNOWN`. This technique is called memoization.
+
+An example of a memoization table for the input array `nums = [2, 4, 2, 1, 0, 2, 0]` can be seen in the diagram below. We write `V` for a valid position and `I` for an invalid one. We can see that we cannot start from indices 2, 3, or 4 and eventually reach the last index (6), but we can do that from indices 0, 1, 5 and (trivially) 6.
