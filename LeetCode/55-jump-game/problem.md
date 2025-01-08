@@ -155,3 +155,56 @@ public class Solution {
 }
 ```
 
+#### Optimization: Check `nextPosition` from right to left
+
+One effective optimization for the code above is to check `nextPosition` from right to left. While the theoretical worst-case performance remains the same, this approach can enhance runtime for certain examples. The idea is to always attempt the largest possible jump first, aiming to reach the end as quickly as possible.
+
+The required change is:
+
+```java
+// Previous Approach
+for (int nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++)
+
+// Optimized Approach
+for (int nextPosition = furthestJump; nextPosition > position; nextPosition--)
+```
+
+The optimized implementation:
+
+```java
+public class Solution {
+  /**
+   * Determines if you can jump from a given position to the last index in the array.
+   */
+  public boolean canJumpFromPosition(int position, int[] nums) {
+    // Base case: If the current position is the last index, return true.
+    if (position == nums.length - 1) {
+      return true;
+    }
+
+    // Calculate the furthest position we can jump to from the current position.
+    int furthestJump = Math.min(position + nums[position], nums.length - 1);
+
+    // Try to jump to each position from the furthest jump position down to the next position.
+    for (int nextPosition = furthestJump; nextPosition > position; nextPosition--) {
+      // Recursively check if we can jump from the next position to the last index.
+      if (canJumpFromPosition(nextPosition, nums)) {
+        return true;
+      }
+    }
+
+    // If none of the jumps work, return false.
+    return false;
+  }
+
+  /**
+   * Determines if you can jump from the first index to the last index in the array.
+   */
+  public boolean canJump(int[] nums) {
+    // Start the jump check from the first position in the array.
+    return canJumpFromPosition(0, nums);
+  }
+}
+```
+
+By implementing this change, the algorithm prioritizes the longest jumps first, potentially reducing the number of iterations needed to reach a solution.

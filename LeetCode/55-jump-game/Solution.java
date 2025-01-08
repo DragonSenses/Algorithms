@@ -19,8 +19,8 @@ public class Solution {
     // Calculate the furthest position we can jump to from the current position.
     int furthestJump = Math.min(position + nums[position], nums.length - 1);
 
-    // Try to jump to each position from the next position up to the furthest jump position.
-    for (int nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++) {
+    // Try to jump to each position from the furthest jump position down to the next position.
+    for (int nextPosition = furthestJump; nextPosition > position; nextPosition--) {
       // Recursively check if we can jump from the next position to the last index.
       if (canJumpFromPosition(nextPosition, nums)) {
         return true;
