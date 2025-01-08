@@ -114,3 +114,29 @@ This pseudocode outlines the backtracking approach:
 - The `canJump` function initializes the process.
 - The `backtrack` function recursively checks each reachable position from the current index. If the last index is reached, it returns true. Otherwise, it backtracks to explore other paths.
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  public boolean canJumpFromPosition(int position, int[] nums) {
+    if (position == nums.length - 1) {
+      return true;
+    }
+
+    int furthestJump = Math.min(position + nums[position], nums.length - 1);
+    for (int nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++) {
+      if (canJumpFromPosition(nextPosition, nums)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean canJump(int[] nums) {
+    return canJumpFromPosition(0, nums);
+  }
+}
+```
+
