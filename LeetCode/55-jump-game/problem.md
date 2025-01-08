@@ -252,3 +252,10 @@ function backtrack(position: number, nums: number[]): boolean {
 };
 ```
 
+### Assumptions
+
+- `n` is the length of the array `nums`.
+
+### **Time Complexity**
+
+- **Exponential Possibilities**: In the worst case, there are `2^n` possible ways to jump from the first position to the last. This is because, from each index, we can either move forward by making a jump or backtrack to explore other possibilities. As a result, the time complexity can be described as `O(2^n)`. This exponential time complexity arises from the recursive calls that explore each potential jump combination.
