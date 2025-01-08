@@ -229,21 +229,26 @@ For `nums = [5, 4, 3, 2, 1, 0, 0]`:
 
 ```typescript
 function canJump(nums: number[]): boolean {
-    return backtrack(0, nums);
+  return backtrack(0, nums);
 }
 
 function backtrack(position: number, nums: number[]): boolean {
-    if (position === nums.length - 1) {
-        return true;
-    }
+  if (position === nums.length - 1) {
+    return true;
+  }
 
-    const furthestJump = Math.min(position + nums[position], nums.length - 1);
-    for (let nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++) {
-        if (backtrack(nextPosition, nums)) {
-            return true;
-        }
+  const furthestJump = Math.min(position + nums[position], nums.length - 1);
+  for (
+    let nextPosition = position + 1;
+    nextPosition <= furthestJump;
+    nextPosition++
+  ) {
+    if (backtrack(nextPosition, nums)) {
+      return true;
     }
+  }
 
-    return false;
+  return false;
 };
 ```
+
