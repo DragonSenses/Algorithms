@@ -491,3 +491,13 @@ function canJump(nums):
     return memo[0] == VALID
 ```
 
+## **Implementation**
+
+### Implementation Details
+
+- Initialize memoization table.
+- Process the array from right to left.
+- Check for valid jumps.
+- Mark positions as `VALID` or `INVALID` accordingly.
+- If the first position is `VALID`, it means we can jump from the first position to the last.
+
