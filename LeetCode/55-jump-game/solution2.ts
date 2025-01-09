@@ -1,9 +1,17 @@
+/**
+ * Enum representing the state of each position in the array.
+ */
 enum Index {
   VALID,
   INVALID,
-  UNKNOWN
+  UNKNOWN,
 }
 
+/**
+ * Determines if you can reach the last index in the array.
+ * @param nums - An array of non-negative integers representing the maximum jump length at each position.
+ * @returns True if you can reach the last index, otherwise false.
+ */
 function canJump(nums: number[]): boolean {
   const n = nums.length;
   const memo: Index[] = new Array(n).fill(Index.UNKNOWN);
