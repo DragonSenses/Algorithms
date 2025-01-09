@@ -429,3 +429,10 @@ function canJump(nums: number[]): boolean {
   - In the worst case, this can lead to a nested loop where the inner loop runs up to `n` times for each of the `n` elements.
 - **Memoization**: Using memoization helps avoid redundant calculations, but in the worst-case scenario, we still have to evaluate each position and its possible jumps at least once.
 - **Total Time Complexity**: Therefore, the total time complexity is `O(n * n)` or `O(n^2)`, as we might need to check up to `n` elements for each of the `n` positions.
+
+### **Space Complexity**
+
+- **Memo Table Usage**: We use a memoization table of size `n` to store the validity of each index, leading to a space complexity of `O(n)`.
+- **Recursion Call Stack**: In the worst case, the depth of the recursion tree can go up to `n`, leading to an additional space complexity of `O(n)` due to the recursion call stack.
+- **Total Space Complexity**: Therefore, the total space complexity is `O(n) + O(n)` which simplifies to `O(2n)` or `O(n)`.
+
