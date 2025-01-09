@@ -445,3 +445,6 @@ function canJump(nums: number[]): boolean {
 This bottom-up approach eliminates recursion and processes the array from right to left, ensuring that each position is evaluated based on previously computed results.
 
 
+### What is Bottom-Up?
+
+The bottom-up approach involves building up a solution from the smallest subproblems to the larger ones. This is done iteratively, starting from the base cases and combining them to solve the larger problems. Unlike the top-down approach that relies on recursion and memoization to break down problems, the bottom-up approach iteratively solves the problem by reversing the order of computation and leveraging previously computed results.
