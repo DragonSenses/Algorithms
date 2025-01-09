@@ -456,3 +456,18 @@ Top-down to bottom-up conversion is done by eliminating recursion. In practice, 
 
 The observation to make here is that we only ever jump to the right. This means that if we start from the right of the array, every time we query a position to our right, that position has already been determined as being `VALID` or `INVALID`. This means we don't need to recurse anymore, as we will always hit the memo table.
 
+## **Algorithm**
+
+1. **Initialization**:
+   - Create a memoization table `memo` where each entry is initially set to `UNKNOWN`.
+   - The last position in the array is always `VALID` because it can reach itself.
+
+2. **Bottom-Up Processing**:
+   - Iterate from the second-to-last position to the first position.
+   - For each position, check the range of jumps that can be made from that position.
+   - If any of the jumps lead to a `VALID` position, mark the current position as `VALID` and break the loop.
+   - If no valid jumps are found, mark the current position as `INVALID`.
+
+3. **Result**:
+   - The result is stored in the first position of the memo table, indicating whether we can jump from the first position to the last.
+
