@@ -471,3 +471,23 @@ The observation to make here is that we only ever jump to the right. This means 
 3. **Result**:
    - The result is stored in the first position of the memo table, indicating whether we can jump from the first position to the last.
 
+### **Pseudocode**
+
+```pseudo
+function canJump(nums):
+    n = length(nums)
+    memo = array of size n filled with UNKNOWN
+    memo[n - 1] = VALID
+
+    for i = n - 2 to 0:
+        furthestJump = min(i + nums[i], n - 1)
+        for j = i + 1 to furthestJump:
+            if memo[j] == VALID:
+                memo[i] = VALID
+                break
+        if memo[i] != VALID:
+            memo[i] = INVALID
+
+    return memo[0] == VALID
+```
+
