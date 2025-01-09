@@ -39,7 +39,7 @@
 - [Dynamic Programming **Top-Down** Approach](#dynamic-programming-top-down-approach)
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(n)`
-
+- [Dynamic Programming **Bottom-Up** Approach](#dynamic-programming-bottom-up-approach)
 
 ## Problem Overview
 
@@ -439,4 +439,9 @@ function canJump(nums: number[]): boolean {
 - **Memo Table Usage**: We use a memoization table of size `n` to store the validity of each index, leading to a space complexity of `O(n)`.
 - **Recursion Call Stack**: In the worst case, the depth of the recursion tree can go up to `n`, leading to an additional space complexity of `O(n)` due to the recursion call stack.
 - **Total Space Complexity**: Therefore, the total space complexity is `O(n) + O(n)` which simplifies to `O(2n)` or `O(n)`.
+
+# Dynamic Programming Bottom-Up Approach
+
+This bottom-up approach eliminates recursion and processes the array from right to left, ensuring that each position is evaluated based on previously computed results.
+
 
