@@ -303,3 +303,25 @@ By using memoization, we optimize the backtracking algorithm by avoiding redunda
 
 3. **Memoization**:
    - Once we determine the value of the current index, we store it in the `memo` table.
+
+### **Pseudocode**
+
+```pseudo
+function canJumpFromPosition(position, nums, memo):
+    if memo[position] != UNKNOWN:
+        return memo[position] == VALID
+
+    furthestJump = min(position + nums[position], length(nums) - 1)
+    for nextPosition = position + 1 to furthestJump:
+        if canJumpFromPosition(nextPosition, nums, memo):
+            memo[position] = VALID
+            return True
+
+    memo[position] = INVALID
+    return False
+
+function canJump(nums):
+    memo = array of length(nums) filled with UNKNOWN
+    memo[length(nums) - 1] = VALID
+    return canJumpFromPosition(0, nums, memo)
+```
