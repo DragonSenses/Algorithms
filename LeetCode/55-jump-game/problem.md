@@ -290,3 +290,16 @@ An example of a memoization table for the input array `nums = [2, 4, 2, 1, 0, 2,
 - Indices 0, 1, 5, and (trivially) 6 are marked as `VALID` because they can reach the last index.
 
 By using memoization, we optimize the backtracking algorithm by avoiding redundant checks and leveraging previously computed results.
+
+## **Algorithm**
+
+1. **Initialization**:
+   - All elements of the `memo` table are `UNKNOWN`, except for the last one, which is (trivially) `VALID` (it can reach itself).
+
+2. **Modification of Backtracking Algorithm**:
+   - The recursive step first checks if the index is known (`VALID` or `INVALID`).
+   - If it is known, then return `True` or `False`.
+   - Otherwise, perform the backtracking steps as before.
+
+3. **Memoization**:
+   - Once we determine the value of the current index, we store it in the `memo` table.
