@@ -1,10 +1,25 @@
+/**
+ * Enum representing the state of each position in the array.
+ */
 enum Index {
   VALID, INVALID, UNKNOWN
 }
 
+
+/**
+ * Class to determine if it's possible to jump to the last index.
+ */
 public class Solution2 {
   private Index[] memo;
 
+  /**
+   * Determines if you can jump to the last index starting from a given position.
+   * 
+   * @param position - The current position in the array.
+   * @param nums - An array of non-negative integers representing the maximum jump length at each
+   *        position.
+   * @return True if you can reach the last index from the current position, otherwise false.
+   */
   public boolean canJumpFromPosition(int position, int[] nums) {
     // Check if this position has already been evaluated
     if (memo[position] != Index.UNKNOWN) {
@@ -28,6 +43,13 @@ public class Solution2 {
     return false;
   }
 
+  /**
+   * Determines if you can reach the last index in the array.
+   * 
+   * @param nums - An array of non-negative integers representing the maximum jump length at each
+   *        position.
+   * @return True if you can reach the last index, otherwise false.
+   */
   public boolean canJump(int[] nums) {
     memo = new Index[nums.length];
     // Initialize all positions as UNKNOWN except the last one, which is VALID
