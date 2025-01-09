@@ -1,38 +1,46 @@
-# Container With Most Water
+# 11. Container With Most Water
 
-You are given an integer array `height` of length `n`. There are n vertical lines drawn such that the two endpoints of the `ith` line are `(i, 0)` and `(i, height[i])`.
+<div><p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i<sup>th</sup></code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.</p>
 
-Find two lines that together with the x-axis form a container, such that the container contains the most water.
+<p>Find two lines that together with the x-axis form a container, such that the container contains the most water.</p>
 
-*Return the maximum amount of water a container can store.*
+<p>Return <em>the maximum amount of water a container can store</em>.</p>
 
-**Notice** that you may not slant the container.
+<p><strong>Notice</strong> that you may not slant the container.</p>
 
-#### Example 1:
-
-![](img/1.jpg)
-
-<pre>
-Input: height = [1,8,6,2,5,4,8,3,7]
-
-Output: 49
-
-Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="img/1.jpg" style="width: 600px; height: 287px;">
+<pre><strong>Input:</strong> height = [1,8,6,2,5,4,8,3,7]
+<strong>Output:</strong> 49
+<strong>Explanation:</strong> The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
 </pre>
 
-#### Example 2:
+<p><strong class="example">Example 2:</strong></p>
 
-<pre>
-Input: height = [1,1]
-
-Output: 1
+<pre><strong>Input:</strong> height = [1,1]
+<strong>Output:</strong> 1
 </pre>
 
-#### Constraints:
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-- `n == height.length`
-- `2 <= n <= 10^5`
-- `0 <= height[i] <= 10^4`
+<ul>
+	<li><code>n == height.length</code></li>
+	<li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+</div>
+
+<br>
+
+---
+
+# Solution
+
+For this problem we will solve it with these approaches:
+  - [**Two Pointer**](#two-pointer)
+    - Time complexity: `O(n)`
 
 ### Overview
 
@@ -63,12 +71,6 @@ The two lines chosen are: `A[1]` = `8` and `A[8]` = `7`.
 The area is `7` (height) * `7` (width).
   - height: Between `8` and `7` the shorter line length is `7`
   - width: The (array index) distance is `A[8] - A[1]` = `A[7]`, so `7` width
-
-# Solution
-
-For this problem we will solve it with these approaches:
-  - [**Two Pointer**](#two-pointer)
-    - Time complexity: `O(n)`
 
 ## Two Pointer
 
