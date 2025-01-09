@@ -36,7 +36,7 @@
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity**: `O(2^n)`
   - **Space Complexity**: `O(n)`
-- [Dynamic Programming Top-Down Approach](#dynamic-programming-top-down-approach)
+- [Dynamic Programming **Top-Down** Approach](#dynamic-programming-top-down-approach)
 
 ## Problem Overview
 
@@ -273,8 +273,20 @@ function backtrack(position: number, nums: number[]): boolean {
 
 ## **Intuition**
 
-Top-down Dynamic Programming can be thought of as optimized backtracking. It relies on the observation that once we determine that a certain index is valid or invalid, this result will never change. This means that we can store the result and not need to recompute it every time.
+### **What is Top-Down?**
 
-Therefore, for each position in the array, we remember whether the index is valid or bad. Let's call this array `memo`, with its values being either one of: `VALID`, `INVALID`, or `UNKNOWN`. This technique is called memoization.
+The top-down approach, also known as memoized recursion, involves solving a problem by breaking it down into simpler subproblems and storing the results of these subproblems to avoid redundant computations. This is achieved by leveraging recursion and a memoization table to cache results.
 
-An example of a memoization table for the input array `nums = [2, 4, 2, 1, 0, 2, 0]` can be seen in the diagram below. We write `V` for a valid position and `I` for an invalid one. We can see that we cannot start from indices 2, 3, or 4 and eventually reach the last index (6), but we can do that from indices 0, 1, 5 and (trivially) 6.
+In the context of dynamic programming, the top-down approach can be viewed as an optimized version of backtracking. It relies on the observation that once we determine whether a specific index is valid or invalid, this result will never change. By storing these results, we can avoid recomputing them multiple times, significantly improving the performance.
+
+### **Applying Top-Down Approach**
+
+To apply the top-down approach to the "Jump Game" problem, we use a memoization table, `memo`, to store the validity of each index. The values in this table can be either `VALID`, `INVALID`, or `UNKNOWN`.
+
+For each position in the array, we remember whether the index is valid or invalid. If we determine that an index can reach the last position, it is marked as `VALID`. Conversely, if it cannot reach the last position, it is marked as `INVALID`. Initially, all positions are marked as `UNKNOWN`.
+
+An example of a memoization table for the input array `nums = [2, 4, 2, 1, 0, 2, 0]` can be illustrated as follows:
+- Indices 2, 3, and 4 are marked as `INVALID` because we cannot start from these indices and eventually reach the last index (6).
+- Indices 0, 1, 5, and (trivially) 6 are marked as `VALID` because they can reach the last index.
+
+By using memoization, we optimize the backtracking algorithm by avoiding redundant checks and leveraging previously computed results.
