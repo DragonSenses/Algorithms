@@ -37,6 +37,9 @@
   - **Time Complexity**: `O(2^n)`
   - **Space Complexity**: `O(n)`
 - [Dynamic Programming **Top-Down** Approach](#dynamic-programming-top-down-approach)
+  - **Time Complexity**: `O(n^2)`
+  - **Space Complexity**: `O(n)`
+
 
 ## Problem Overview
 
@@ -417,11 +420,12 @@ function canJump(nums: number[]): boolean {
 }
 ```
 
+## **Complexity Analysis**
 
 ### Assumptions
 - `n` is the length of the input array `nums`.
 
-### **Time Complexity**
+### **Time Complexity**: `O(n^2)`
 
 - **Initialization**: Initializing the memoization table with `UNKNOWN` values takes `O(n)` time.
 - **Recursive Backtracking with Memoization**:
@@ -430,7 +434,7 @@ function canJump(nums: number[]): boolean {
 - **Memoization**: Using memoization helps avoid redundant calculations, but in the worst-case scenario, we still have to evaluate each position and its possible jumps at least once.
 - **Total Time Complexity**: Therefore, the total time complexity is `O(n * n)` or `O(n^2)`, as we might need to check up to `n` elements for each of the `n` positions.
 
-### **Space Complexity**
+### **Space Complexity**: `O(n)`
 
 - **Memo Table Usage**: We use a memoization table of size `n` to store the validity of each index, leading to a space complexity of `O(n)`.
 - **Recursion Call Stack**: In the worst case, the depth of the recursion tree can go up to `n`, leading to an additional space complexity of `O(n)` due to the recursion call stack.
