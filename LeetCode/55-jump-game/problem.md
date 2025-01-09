@@ -417,3 +417,15 @@ function canJump(nums: number[]): boolean {
 }
 ```
 
+
+### Assumptions
+- `n` is the length of the input array `nums`.
+
+### **Time Complexity**
+
+- **Initialization**: Initializing the memoization table with `UNKNOWN` values takes `O(n)` time.
+- **Recursive Backtracking with Memoization**:
+  - For each position, we may recursively check up to `nums[i]` positions to its right.
+  - In the worst case, this can lead to a nested loop where the inner loop runs up to `n` times for each of the `n` elements.
+- **Memoization**: Using memoization helps avoid redundant calculations, but in the worst-case scenario, we still have to evaluate each position and its possible jumps at least once.
+- **Total Time Complexity**: Therefore, the total time complexity is `O(n * n)` or `O(n^2)`, as we might need to check up to `n` elements for each of the `n` positions.
