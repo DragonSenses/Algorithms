@@ -1,9 +1,20 @@
+/**
+ * Enum representing the status of a position in the `nums` array.
+ */
 enum Index {
   VALID,
   INVALID,
   UNKNOWN
 }
 
+/**
+ * Determines whether you can reach the last position starting from the first position in the given `nums` array.
+ * 
+ * This function uses dynamic programming with bottom-up processing to check the feasibility.
+ * 
+ * @param nums - The array of non-negative integers where each element represents the maximum jump length at that position.
+ * @returns `true` if you can reach the last position from the first position, otherwise `false`.
+ */
 function canJump(nums: number[]): boolean {
   const n = nums.length;
   const memo: Index[] = new Array(n).fill(Index.UNKNOWN);
