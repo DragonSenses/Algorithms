@@ -77,7 +77,7 @@ When approaching such a question in an interview scenario, it's important to con
 
 **Discuss Dynamic Programming Solutions**: If the interviewer doesn't specifically ask for the recursive solution, suggest that a dynamic programming approach might be more efficient. Explain how you could use a memoization table to optimize the solution. If you manage to work out this approach and the interviewer is interested in the top-down method, proceed with that. 
 
-**Highlight the Bottom-Up Approach**: While you may not have time to fully develop the bottom-up version during the interview, it’s beneficial to mention its advantages. This demonstrates your understanding of different optimization techniques.
+**Highlight the Bottom-Up Approach**: While you may not have time to fully develop the bottom-up version during the interview, it's beneficial to mention its advantages. This demonstrates your understanding of different optimization techniques.
 
 **Practice Makes Perfect**: Converting from top-down dynamic programming (naturally expressed in recursion) to a bottom-up approach can be challenging. Regular practice with similar problems will help you become more adept at this transition.
 
@@ -597,3 +597,11 @@ function canJump(nums: number[]): boolean {
 - **Memo Table Usage**: We use a memoization table of size `n` to store the validity of each index, leading to a space complexity of `O(n)`.
 - **Recursion Call Stack**: Since the bottom-up approach eliminates recursion, we do not need to consider the recursion call stack in this analysis.
 - **Total Space Complexity**: Therefore, the total space complexity is `O(n)`.
+
+## **Greedy Algorithm Overview**
+
+### **Definition**
+A greedy algorithm is an approach for solving optimization problems by making the most optimal choice at each step as you progress toward a global solution. The choice is "greedy" because it looks for the local best option with the hope that this will lead to the optimal global solution.
+
+### **What is the Greedy Approach?**
+The Greedy Algorithm Approach involves making a series of local decisions to find a global solution. For the "Jump Game" problem, this means iteratively determining whether we can jump to a `VALID` position and keeping track of the left-most `VALID` position.
