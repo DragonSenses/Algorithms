@@ -40,6 +40,9 @@
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(n)`
 - [Dynamic Programming **Bottom-Up** Approach](#dynamic-programming-bottom-up-approach)
+  - **Time Complexity**: `O(n^2)`
+  - **Space Complexity**: `O(n)`
+
 
 ## Problem Overview
 
@@ -576,7 +579,21 @@ function canJump(nums: number[]): boolean {
 }
 ```
 
+## **Complexity Analysis**
+
+### Assumptions
+- `n` is the length of the input array `nums`.
+
+### **Time Complexity**: `O(n^2)`
+
+- **Initialization**: Setting up the memoization table takes `O(n)` time since we initialize an array of size `n`.
+- **Bottom-Up Processing**:
+  - For each element in the array (from right to left), we potentially examine up to `nums[i]` elements to its right.
+  - In the worst case, `nums[i]` can be as large as `n`, leading to a nested loop where the inner loop runs up to `n` times for each of the `n` elements.
+- **Total Time Complexity**: This results in a total time complexity of `O(n * n)` or `O(n^2)`, as we might need to check up to `n` elements for each of the `n` positions.
+
 ### **Space Complexity**: `O(n)`
+
 - **Memo Table Usage**: We use a memoization table of size `n` to store the validity of each index, leading to a space complexity of `O(n)`.
 - **Recursion Call Stack**: Since the bottom-up approach eliminates recursion, we do not need to consider the recursion call stack in this analysis.
 - **Total Space Complexity**: Therefore, the total space complexity is `O(n)`.
