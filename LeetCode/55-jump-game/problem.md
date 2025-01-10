@@ -576,3 +576,7 @@ function canJump(nums: number[]): boolean {
 }
 ```
 
+### **Space Complexity**: `O(n)`
+- **Memo Table Usage**: We use a memoization table of size `n` to store the validity of each index, leading to a space complexity of `O(n)`.
+- **Recursion Call Stack**: Since the bottom-up approach eliminates recursion, we do not need to consider the recursion call stack in this analysis.
+- **Total Space Complexity**: Therefore, the total space complexity is `O(n)`.
