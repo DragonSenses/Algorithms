@@ -29,6 +29,10 @@
 
 ---
 
+# Solution
+
+- [Boundary-Shrinking Approach](#boundary-shrinking-approach)
+
 ## Problem Overview
 
 ### Problem: Spiral Matrix
@@ -76,4 +80,10 @@ The problem statement asks us to return all elements of the matrix in spiral ord
     - We have two strategies to handle this:
         - **Approach 1:** Move the boundaries towards the center of the matrix after traversing a row or a column. When we meet a boundary, we know it's time to change direction and update the boundary.
         - **Approach 2:** Record each location that we have visited while traversing the matrix. When we meet a matrix boundary or a previously visited cell, we know it's time to change direction.
+
+# Boundary-Shrinking Approach
+
+## **Intuition**
+
+Our goal is to update boundaries as we traverse the matrix. When we finish traversing a row or column, we set up a boundary on it so that next time we get there, we know we need to change direction. Below is the first round of updating the top, right, bottom, and left boundaries.
 
