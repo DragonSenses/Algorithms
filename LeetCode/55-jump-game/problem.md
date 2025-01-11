@@ -603,11 +603,30 @@ function canJump(nums: number[]): boolean {
 ### **Definition**
 A greedy algorithm is an approach for solving optimization problems by making the most optimal choice at each step as you progress toward a global solution. The choice is "greedy" because it looks for the local best option with the hope that this will lead to the optimal global solution.
 
+### **Characteristics**
+1. **Local Optimization:** At each step, the algorithm makes a choice that seems the best at that moment.
+2. **No Backtracking:** Once a choice is made, it's never reconsidered, which makes greedy algorithms faster and simpler.
+3. **Solution Construction:** The algorithm builds the solution piece by piece.
+
+### **When to Use**
+Greedy algorithms are suitable for problems that have the following properties:
+1. **Greedy Choice Property:** A global optimum can be arrived at by selecting the local optimum.
+2. **Optimal Substructure:** The optimal solution to the problem contains the optimal solutions to its subproblems.
+
 ### **Common Examples**
 1. **Dijkstra's Algorithm:** Finds the shortest path from a single source to all other nodes in a weighted graph.
 2. **Prim's Algorithm:** Finds the minimum spanning tree for a connected, weighted graph.
 3. **Kruskal's Algorithm:** Another algorithm for finding the minimum spanning tree of a graph.
 4. **Huffman Coding:** Used in data compression algorithms.
+
+### **Pros and Cons**
+**Pros:**
+- Simplicity: Greedy algorithms are often easier to understand and implement.
+- Efficiency: They can be very fast as they make a single pass through the data.
+  
+**Cons:**
+- Not Always Optimal: Greedy algorithms do not always guarantee the global optimum.
+- Problem-Specific: They work well for certain problems but not for all.
 
 ### **Example Problem: Coin Change**
 Given a set of coin denominations and a target amount, the goal is to find the minimum number of coins needed to make that amount.
@@ -633,6 +652,7 @@ function coinChange(coins, amount):
 ```
 
 This pseudocode demonstrates the essence of a greedy algorithm: making the best local choice (using the largest coin) at each step to achieve the desired global outcome (minimum number of coins).
+
 
 ### **What is the Greedy Approach?**
 The Greedy Algorithm Approach involves making a series of local decisions to find a global solution. For the "Jump Game" problem, this means iteratively determining whether we can jump to a `VALID` position and keeping track of the left-most `VALID` position.
