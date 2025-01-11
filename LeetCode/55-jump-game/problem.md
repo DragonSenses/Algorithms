@@ -700,3 +700,19 @@ memo  = [U, V, I, I, I, V, V]
 3. **Result**:
    - The result is whether the `leftmostValidIndex` is 0.
 
+### **Pseudocode**
+
+```pseudo
+function canJump(nums):
+    n = length(nums)
+    leftmostValidIndex = n - 1
+
+    for i = n - 2 to 0:
+        if i + nums[i] >= leftmostValidIndex:
+            leftmostValidIndex = i
+
+    return leftmostValidIndex == 0
+```
+
+This method effectively reduces the problem to a single scan from right to left, keeping track of the leftmost `VALID` position and ensuring we can reach the last index from the first position.
+
