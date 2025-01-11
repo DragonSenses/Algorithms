@@ -43,6 +43,7 @@
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(n)`
 - [Greedy Algorithm Approach](#greedy-algorithm-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## Problem Overview
@@ -761,7 +762,15 @@ function canJump(nums: number[]): boolean {
 3. **Checking Valid Jumps**: For each position, it checks if the current index `i` can reach or go beyond the `lastPos`. If it can, `lastPos` is updated to the current index `i`.
 4. **Result**: Finally, it returns whether `lastPos` is `0`, indicating whether it's possible to jump from the first position to the last.
 
+## **Complexity Analysis**
 
+### Assumptions
+- `n` is the length of the input array `nums`.
+
+### **Time Complexity**: `O(n)`
+
+- **Single-Pass**: The algorithm iterates through the array once from the last position to the first. This single pass over the array ensures that each element is processed exactly once.
+- **Total Time Complexity**: As a result, the overall time complexity is `O(n)` because we make a linear pass through the array.
 
 ### **Space Complexity**: `O(1)`
 
