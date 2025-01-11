@@ -677,3 +677,13 @@ Once we have our code in the bottom-up state, we can make one final, important o
 
 - If the first position is `VALID`, then we can reach the last index from the first position.
 
+#### **Example**
+
+To illustrate this scenario, consider the input array `nums = [9, 4, 2, 1, 0, 2, 0]`. We use **V** for `VALID`, **I** for `INVALID`, and **U** for `UNKNOWN`. Let's assume we have iterated all the way to position 0, and we need to decide if index 0 is `VALID`. Since index 1 was determined to be `VALID`, it is enough to jump there and be sure we can eventually reach index 6. It does not matter that `nums[0]` is big enough to jump all the way to the last index. All we need is **one** way.
+
+```
+index = [0, 1, 2, 3, 4, 5, 6]
+nums  = [9, 4, 2, 1, 0, 2, 0]
+memo  = [U, V, I, I, I, V, V]
+```
+
