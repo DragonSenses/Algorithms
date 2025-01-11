@@ -603,5 +603,36 @@ function canJump(nums: number[]): boolean {
 ### **Definition**
 A greedy algorithm is an approach for solving optimization problems by making the most optimal choice at each step as you progress toward a global solution. The choice is "greedy" because it looks for the local best option with the hope that this will lead to the optimal global solution.
 
+### **Common Examples**
+1. **Dijkstra's Algorithm:** Finds the shortest path from a single source to all other nodes in a weighted graph.
+2. **Prim's Algorithm:** Finds the minimum spanning tree for a connected, weighted graph.
+3. **Kruskal's Algorithm:** Another algorithm for finding the minimum spanning tree of a graph.
+4. **Huffman Coding:** Used in data compression algorithms.
+
+### **Example Problem: Coin Change**
+Given a set of coin denominations and a target amount, the goal is to find the minimum number of coins needed to make that amount.
+
+**Greedy Solution:**
+1. Start with the largest coin denomination.
+2. Use as many of that coin as possible.
+3. Move to the next largest denomination and repeat until the target amount is reached.
+
+### **Pseudocode for Coin Change**
+```pseudo
+function coinChange(coins, amount):
+    sort(coins in descending order)
+    numCoins = 0
+    for coin in coins:
+        while amount >= coin:
+            amount -= coin
+            numCoins += 1
+    if amount == 0:
+        return numCoins
+    else:
+        return -1  // not possible to make the exact amount
+```
+
+This pseudocode demonstrates the essence of a greedy algorithm: making the best local choice (using the largest coin) at each step to achieve the desired global outcome (minimum number of coins).
+
 ### **What is the Greedy Approach?**
 The Greedy Algorithm Approach involves making a series of local decisions to find a global solution. For the "Jump Game" problem, this means iteratively determining whether we can jump to a `VALID` position and keeping track of the left-most `VALID` position.
