@@ -687,3 +687,16 @@ nums  = [9, 4, 2, 1, 0, 2, 0]
 memo  = [U, V, I, I, I, V, V]
 ```
 
+## **Algorithm**
+
+1. **Initialization**:
+   - Initialize a variable `leftmostValidIndex` to the last index of the array.
+
+2. **Iteration**:
+   - Iterate from the second-to-last position to the first position.
+   - For each position, check if it can jump to or beyond the `leftmostValidIndex`.
+   - If it can, update `leftmostValidIndex` to the current position.
+
+3. **Result**:
+   - The result is whether the `leftmostValidIndex` is 0.
+
