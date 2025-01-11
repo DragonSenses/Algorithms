@@ -43,6 +43,7 @@
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(n)`
 - [Greedy Algorithm Approach](#greedy-algorithm-approach)
+  - **Space Complexity**: `O(1)`
 
 ## Problem Overview
 
@@ -760,3 +761,10 @@ function canJump(nums: number[]): boolean {
 3. **Checking Valid Jumps**: For each position, it checks if the current index `i` can reach or go beyond the `lastPos`. If it can, `lastPos` is updated to the current index `i`.
 4. **Result**: Finally, it returns whether `lastPos` is `0`, indicating whether it's possible to jump from the first position to the last.
 
+
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space**: The algorithm uses a fixed amount of space regardless of the input size. Specifically, it maintains a single variable, `lastPos`, to keep track of the left-most `VALID` position.
+- **No Additional Data Structures**: Unlike approaches that use additional data structures (like the memoization table in dynamic programming), the greedy approach does not require extra space proportional to the input size.
+- **Total Space Complexity**: Consequently, the space complexity is `O(1)` since the amount of space used remains constant.
