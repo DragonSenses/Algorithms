@@ -42,7 +42,7 @@
 - [Dynamic Programming **Bottom-Up** Approach](#dynamic-programming-bottom-up-approach)
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(n)`
-
+- [Greedy Algorithm Approach](#greedy-algorithm-approach)
 
 ## Problem Overview
 
@@ -598,6 +598,8 @@ function canJump(nums: number[]): boolean {
 - **Recursion Call Stack**: Since the bottom-up approach eliminates recursion, we do not need to consider the recursion call stack in this analysis.
 - **Total Space Complexity**: Therefore, the total space complexity is `O(n)`.
 
+# Greedy Algorithm Approach
+
 ## **Greedy Algorithm Overview**
 
 ### **Definition**
@@ -653,6 +655,25 @@ function coinChange(coins, amount):
 
 This pseudocode demonstrates the essence of a greedy algorithm: making the best local choice (using the largest coin) at each step to achieve the desired global outcome (minimum number of coins).
 
+## **Intuition**
 
 ### **What is the Greedy Approach?**
 The Greedy Algorithm Approach involves making a series of local decisions to find a global solution. For the "Jump Game" problem, this means iteratively determining whether we can jump to a `VALID` position and keeping track of the left-most `VALID` position.
+
+### **Convert Bottom-Up to Greedy**
+
+Once we have our code in the bottom-up state, we can make one final, important observation. From any given position, when we try to see if we can jump to a `VALID` position, we only ever use one—the left-most one. If we keep track of this left-most `VALID` position as a separate variable, we can avoid searching for it in the array. Furthermore, we can eliminate the use of the array altogether.
+
+#### **Approach**
+
+#### **Key Observation**
+
+- Iterating from right to left, we check for each position if there is a potential jump that reaches a `VALID` index.
+- If `currPosition + nums[currPosition] >= leftmostValidIndex`, then the current position is itself `VALID`.
+- This new `VALID` position becomes the new leftmost `VALID` index.
+- The iteration continues until the beginning of the array.
+
+#### **Decision Point**
+
+- If the first position is `VALID`, then we can reach the last index from the first position.
+
