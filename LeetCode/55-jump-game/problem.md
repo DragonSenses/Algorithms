@@ -716,3 +716,11 @@ function canJump(nums):
 
 This method effectively reduces the problem to a single scan from right to left, keeping track of the leftmost `VALID` position and ensuring we can reach the last index from the first position.
 
+## **Implementation**
+
+#### Implementation Details
+
+1. **Initialization**: `lastPos` is initialized to the last index of the array.
+2. **Iteration**: The loop iterates from the last position to the first position.
+3. **Checking Valid Jumps**: For each position, it checks if the current index `i` can reach or go beyond the `lastPos`. If it can, `lastPos` is updated to the current index `i`.
+4. **Result**: Finally, it returns whether `lastPos` is `0`, indicating whether it's possible to jump from the first position to the last.
