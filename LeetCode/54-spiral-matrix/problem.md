@@ -60,3 +60,20 @@ Output: [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
 - `1 <= m, n <= 10`
 - `-100 <= matrix[i][j] <= 100`
 
+### Spiral Order Traversal
+
+The problem statement asks us to return all elements of the matrix in spiral order, which means we will start from the top left corner and move towards the right, then down, then left, and then up. Let's break this into further details:
+
+1. **Direction Movements:**
+    - We can achieve moving in different directions by modifying row and column indices. Specifically, given that we are at `(row, col)`, where `row` is the row index, and `col` is the column index:
+        - Move right: `(row, col + 1)`
+        - Move down: `(row + 1, col)`
+        - Move left: `(row, col - 1)`
+        - Move up: `(row - 1, col)`
+
+2. **When to Change Direction:**
+    - We need to change direction when we either reach the matrix boundaries or visit cells that we have already visited. The matrix boundaries are fixed, but how do we know if we have visited a particular cell or not?
+    - We have two strategies to handle this:
+        - **Approach 1:** Move the boundaries towards the center of the matrix after traversing a row or a column. When we meet a boundary, we know it's time to change direction and update the boundary.
+        - **Approach 2:** Record each location that we have visited while traversing the matrix. When we meet a matrix boundary or a previously visited cell, we know it's time to change direction.
+
