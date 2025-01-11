@@ -724,3 +724,20 @@ This method effectively reduces the problem to a single scan from right to left,
 2. **Iteration**: The loop iterates from the last position to the first position.
 3. **Checking Valid Jumps**: For each position, it checks if the current index `i` can reach or go beyond the `lastPos`. If it can, `lastPos` is updated to the current index `i`.
 4. **Result**: Finally, it returns whether `lastPos` is `0`, indicating whether it's possible to jump from the first position to the last.
+
+### Java
+
+```java
+public class Solution4 {
+  public boolean canJump(int[] nums) {
+    int lastPos = nums.length - 1;
+    for (int i = nums.length - 1; i >= 0; i--) {
+      if (i + nums[i] >= lastPos) {
+        lastPos = i;
+      }
+    }
+    return lastPos == 0;
+  }
+}
+```
+
