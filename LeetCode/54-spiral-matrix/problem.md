@@ -99,3 +99,34 @@ Our goal is to update boundaries as we traverse the matrix. When we finish trave
     - Move the boundaries by updating `left`, `right`, `up`, and `down` accordingly.
 4. Return `result`.
 
+### Pseudocode
+
+Here's a language-agnostic pseudocode for the algorithm:
+
+```pseudocode
+Initialize boundaries:
+    top = 0
+    bottom = number of rows - 1
+    left = 0
+    right = number of columns - 1
+
+Initialize result as an empty array
+
+While top <= bottom and left <= right:
+    Traverse from left to right along the top boundary and add elements to result
+    Move the top boundary down
+    
+    Traverse from top to bottom along the right boundary and add elements to result
+    Move the right boundary left
+    
+    If top <= bottom:
+        Traverse from right to left along the bottom boundary and add elements to result
+        Move the bottom boundary up
+    
+    If left <= right:
+        Traverse from bottom to top along the left boundary and add elements to result
+        Move the left boundary right
+
+Return result
+```
+
