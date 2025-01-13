@@ -32,6 +32,8 @@
 # Solution
 
 - [Boundary-Shrinking Approach](#boundary-shrinking-approach)
+  - **Time Complexity**: `O(M * N)`
+  - **Space Complexity**: `O(1)`
 
 ## Problem Overview
 
@@ -231,6 +233,14 @@ function spiralOrder(matrix: number[][]): number[] {
 }
 ```
 
+## **Complexity Analysis**
+
+### Assumptions
+- Let `M` be the number of rows and `N` be the number of columns.
+
+### **Time Complexity**: `O(M * N)`
+
+- **Linear traversal of the matrix**: We visit every element in the `M x N` matrix exactly once. Thus, the time complexity is proportional to the number of elements in the matrix, which is `M * N`.
 
 ### **Space Complexity**: `O(1)`
 
