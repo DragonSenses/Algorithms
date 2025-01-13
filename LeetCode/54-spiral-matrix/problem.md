@@ -230,3 +230,12 @@ function spiralOrder(matrix: number[][]): number[] {
     return result;
 }
 ```
+
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space Usage**: The algorithm uses a fixed amount of space regardless of the input size. Specifically, it maintains several variables (`up`, `down`, `left`, `right`) to keep track of the boundaries.
+- **No Additional Data Structures**: Unlike some other approaches that might use additional data structures, this method only uses a few variables for boundary tracking.
+- **Total Space Complexity**: Therefore, the space complexity is `O(1)` since the amount of space used remains constant and does not depend on the size of the input matrix.
+
+
