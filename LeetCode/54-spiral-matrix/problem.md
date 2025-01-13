@@ -87,3 +87,15 @@ The problem statement asks us to return all elements of the matrix in spiral ord
 
 Our goal is to update boundaries as we traverse the matrix. When we finish traversing a row or column, we set up a boundary on it so that next time we get there, we know we need to change direction. Below is the first round of updating the top, right, bottom, and left boundaries.
 
+## **Algorithm**
+
+1. Initialize the top, right, bottom, and left boundaries as `up`, `right`, `down`, and `left`.
+2. Initialize the output array `result`.
+3. Traverse the elements in spiral order and add each element to `result`:
+    - Traverse from left boundary to right boundary.
+    - Traverse from up boundary to down boundary.
+    - Before traversing from right to left, ensure the row hasn't already been traversed. If it hasn't, traverse from right to left.
+    - Similarly, before traversing from top to bottom, ensure the column hasn't already been traversed. Then traverse from down to up.
+    - Move the boundaries by updating `left`, `right`, `up`, and `down` accordingly.
+4. Return `result`.
+
