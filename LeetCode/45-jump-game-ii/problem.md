@@ -38,6 +38,10 @@
 
 ---
 
+# Solution
+
+- [Greedy Shrinking Approach](#greedy-approach)
+
 ### Problem Overview
 
 You are given a 0-indexed array of integers `nums` of length `n`. You start at the first element `nums[0]`.
@@ -64,4 +68,15 @@ Your goal is to return the minimum number of jumps required to reach the last el
 - \(1 \leq nums.length \leq 10^4\)
 - \(0 \leq nums[i] \leq 1000\)
 - It's guaranteed that you can reach `nums[n - 1]`.
+
+### Solution Approach
+
+To solve this problem, you can use a greedy algorithm that keeps track of the furthest point you can reach with a given number of jumps. Here's a step-by-step explanation:
+
+1. Initialize variables to track the current end of the jump, the furthest point you can reach, and the number of jumps.
+2. Traverse the array, updating the furthest point you can reach.
+3. When you reach the end of the current jump, increment the number of jumps and update the current end to the furthest point.
+4. Continue this process until you reach the last element.
+
+# Greedy Approach
 
