@@ -103,3 +103,11 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 ![Worst case of `n` jumps and `O(n^2)` total updates shown in blue in the figure](img/45-3.jpg)
 
+### **Optimizing with a Greedy Approach**
+
+- We aim to minimize the number of jumps to reach the end by considering only necessary updates.
+- From the first jump at index `0`, suppose it covers indices `[0, 2]`.
+- For the next jump, instead of considering the entire range `[0, 2]` again, we only consider the furthest reachable indices.
+- So the valid range of reachable indices for jump `1` is `[3, 4]` instead of `[0, 4]`.
+
+![Valid range of reachable indicies for jump 1 with "newly-added range"](img/45-4.jpg)
