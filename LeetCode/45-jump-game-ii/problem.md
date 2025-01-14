@@ -95,3 +95,11 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 ![Possible jump destinations with starting range of jump `i + 1`](img/45-2.jpg)
 
+### **Time Complexity**
+
+- Since reaching the last index is guaranteed, each jump's range is larger than the previous one.
+- In the worst case (where `n` is the length of `nums`), we might have `n` jumps and `O(n^2)` total updates.
+- Given the input array's maximum size, an approach with `O(n^2)` complexity might be inefficient.
+
+![Worst case of `n` jumps and `O(n^2)` total updates shown in blue in the figure](img/45-3.jpg)
+
