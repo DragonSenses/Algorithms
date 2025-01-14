@@ -80,3 +80,11 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 # Greedy Approach
 
+### **Jump Analysis**
+
+- Consider being at index `i` where `nums[i] = 3`. From here, you can jump to any of the next three indices.
+- The values at these destinations might be `3`, `5`, and `2`, covering possible reachable indices.
+- All the indices covered by these ranges are the **reachable indices** after this jump
+
+![Reachable indices where `ith` jump has value of `3` and possible destinations for jump are `3`, `5`, and `2`](img/45-1.jpg)
+
