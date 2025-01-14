@@ -88,3 +88,10 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 ![Reachable indices where `ith` jump has value of `3` and possible destinations for jump are `3`, `5`, and `2`](img/45-1.jpg)
 
+### **Range of Reach**
+
+- For the next jump from `i + 1`, the starting indices are the reachable indices from the current jump `i`.
+- This pattern continues, expanding the range of indices you can reach with each successive jump.
+
+![Possible jump destinations with starting range of jump `i + 1`](img/45-2.jpg)
+
