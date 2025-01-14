@@ -80,6 +80,8 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 # Greedy Approach
 
+## **Intuition**
+
 ### **Jump Analysis**
 
 - Consider being at index `i` where `nums[i] = 3`. From here, you can jump to any of the next three indices.
@@ -120,3 +122,10 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 ![All updates marked in red will never be considered because they represent reaching an index with more jumps](img/45-5.jpg)
 
+### **Summary**
+
+- Each jump ends at `end`.
+- During the jump, we find the farthest reachable index `far`.
+- At the end of each jump, we increment the jump count and set `end = far` for the next jump.
+
+This approach ensures that we reach the last cell using the least number of jumps efficiently.
