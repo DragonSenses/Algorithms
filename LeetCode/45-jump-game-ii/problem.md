@@ -111,3 +111,12 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 - So the valid range of reachable indices for jump `1` is `[3, 4]` instead of `[0, 4]`.
 
 ![Valid range of reachable indicies for jump 1 with "newly-added range"](img/45-4.jpg)
+
+### **Efficient Range Consideration**
+
+- To minimize jumps, we should only consider the range `[3, 4]` for the next jump.
+- If we can reach an index using `j` jumps, we ignore any methods requiring more than `j` jumps.
+- This ensures we avoid unnecessary updates.
+
+![All updates marked in red will never be considered because they represent reaching an index with more jumps](img/45-5.jpg)
+
