@@ -5,8 +5,8 @@
 <p>Each element <code>nums[i]</code> represents the maximum length of a forward jump from index <code>i</code>. In other words, if you are at <code>nums[i]</code>, you can jump to any <code>nums[i + j]</code> where:</p>
 
 <ul>
-	<li><code>0 &lt;= j &lt;= nums[i]</code> and</li>
-	<li><code>i + j &lt; n</code></li>
+  <li><code>0 &lt;= j &lt;= nums[i]</code> and</li>
+  <li><code>i + j &lt; n</code></li>
 </ul>
 
 <p>Return <em>the minimum number of jumps to reach </em><code>nums[n - 1]</code>. The test cases are generated such that you can reach <code>nums[n - 1]</code>.</p>
@@ -29,7 +29,39 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
-	<li>It's guaranteed that you can reach <code>nums[n - 1]</code>.</li>
+  <li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+  <li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+  <li>It's guaranteed that you can reach <code>nums[n - 1]</code>.</li>
 </ul>
+
+<br>
+
+---
+
+### Problem Overview
+
+You are given a 0-indexed array of integers `nums` of length `n`. You start at the first element `nums[0]`.
+
+Each element `nums[i]` represents the maximum length of a forward jump from that index `i`. In other words, if you are at `nums[i]`, you can jump to any `nums[i + j]` where:
+- \(0 \leq j \leq nums[i]\)
+- \(i + j < n\)
+
+Your goal is to return the minimum number of jumps required to reach the last element `nums[n - 1]`. The test cases are generated to ensure that it is possible to reach the last element.
+
+#### Examples
+
+**Example 1:**
+- **Input:** `nums = [2, 3, 1, 1, 4]`
+- **Output:** `2`
+- **Explanation:** The minimum number of jumps to reach the last index is `2`. Jump `1` step from index `0` to `1`, then `3` steps to the last index.
+
+**Example 2:**
+- **Input:** `nums = [2, 3, 0, 1, 4]`
+- **Output:** `2`
+- **Explanation:** The minimum number of jumps to reach the last index is `2`.
+
+#### Constraints
+- \(1 \leq nums.length \leq 10^4\)
+- \(0 \leq nums[i] \leq 1000\)
+- It's guaranteed that you can reach `nums[n - 1]`.
+
