@@ -143,3 +143,20 @@ We need two auxiliary marks to help delimit ranges and to avoid repeated visits 
 - At the end of each jump, we increment the jump count and set `end = far` for the next jump.
 
 This approach ensures that we reach the last cell using the least number of jumps efficiently.
+
+## **Algorithm**
+
+1. **Initialize Variables**:
+   - `curEnd = 0`: The end of the range for the current jump.
+   - `curFar = 0`: The farthest index we can reach from the current range.
+   - `answer = 0`: The number of jumps needed.
+
+2. **Iterate through the array**:
+   - For each index `i` in `nums`, update the farthest reach: `curFar = max(curFar, i + nums[i])`.
+   - If `i` reaches `curEnd` (i.e., we've finished the current jump range):
+     - Increment the number of jumps: `answer += 1`.
+     - Update `curEnd` to the farthest reach: `curEnd = curFar`.
+
+3. **Repeat** the process until you reach the last index of the array.
+
+By following this algorithm, you ensure that you always take the minimum number of jumps necessary to reach the end of the array.
