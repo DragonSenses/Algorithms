@@ -129,6 +129,13 @@ We need two auxiliary marks to help delimit ranges and to avoid repeated visits 
 - **end**: The furthest starting index of the current jump.
 - **far**: The furthest reachable index of the current jump.
 
+### **Jump Execution**
+
+- Once we finish iterating over the current jump range (reaching `end`), we update the range to `[end + 1, far]`.
+- We skip overlapping ranges using the greedy approach.
+
+![Once finished iterating over range of current jump (reach `end`), next step is to continue iterating over reachable indices that are **larger** than `end`, represented by the range `[end + 1, far]`. The overlapped range (marked in red) is skipped using the greedy aproach](img/45-6.jpg)
+
 ### **Summary**
 
 - Each jump ends at `end`.
