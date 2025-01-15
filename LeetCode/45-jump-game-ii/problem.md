@@ -211,3 +211,29 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function jump(nums: number[]): number {
+  let curEnd = 0; // End of the current jump range
+  let curFar = 0; // Farthest index reachable from the current range
+  let jumps = 0; // Number of jumps
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    curFar = Math.max(curFar, i + nums[i]); // Update the farthest reach
+
+    if (i === curEnd) {
+      // End of the current jump range
+      jumps++; // Increment the jump count
+      curEnd = curFar; // Move to the next jump range
+
+      if (curEnd >= nums.length - 1) {
+        break; // If we can reach or exceed the last index, break
+      }
+    }
+  }
+
+  return jumps;
+}
+```
+
