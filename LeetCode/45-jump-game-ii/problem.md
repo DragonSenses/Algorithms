@@ -41,6 +41,7 @@
 # Solution
 
 - [Greedy Shrinking Approach](#greedy-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview
 
@@ -237,3 +238,9 @@ function jump(nums: number[]): number {
 }
 ```
 
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space Usage**: The algorithm uses a fixed amount of space for a few variables (`curEnd`, `curFar`, `jumps`).
+- **No Additional Data Structures**: The space complexity remains constant because there are no additional data structures used that grow with input size.
+- **Overall Space Complexity**: The space complexity is `O(1)` as the space used does not depend on the size of the input array.
