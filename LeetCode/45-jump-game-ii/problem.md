@@ -41,6 +41,7 @@
 # Solution
 
 - [Greedy Shrinking Approach](#greedy-approach)
+  - **Time Complexity**: `O(N)`
   - **Space Complexity**: `O(1)`
 
 ### Problem Overview
@@ -238,6 +239,15 @@ function jump(nums: number[]): number {
 }
 ```
 
+## **Complexity Analysis**
+
+- Let `n` be the length of the input array `nums`.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass**: The algorithm iterates through the array from the first element to the second last element.
+- **Constant Time Operations**: During each iteration, the calculations for updating `curFar` and checking the condition for `curEnd` are constant time operations.
+- **Overall Time Complexity**: Since each operation within the loop is constant time, the overall time complexity is `O(n)`.
 
 ### **Space Complexity**: `O(1)`
 
