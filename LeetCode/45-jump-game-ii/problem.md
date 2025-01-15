@@ -178,3 +178,36 @@ For each index i from 0 to length(nums) - 2 do:
 Return jumps
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  public int jump(int[] nums) {
+    if (nums.length <= 1) {
+      return 0;
+    }
+
+    int curEnd = 0; // End of the current jump range
+    int curFar = 0; // Farthest index reachable from the current range
+    int jumps = 0; // Number of jumps
+
+    for (int i = 0; i < nums.length - 1; i++) {
+      curFar = Math.max(curFar, i + nums[i]); // Update the farthest reach
+
+      if (i == curEnd) { // End of the current jump range
+        jumps++; // Increment the jump count
+        curEnd = curFar; // Move to the next jump range
+
+        if (curEnd >= nums.length - 1) {
+          break; // If we can reach or exceed the last index, break
+        }
+      }
+    }
+
+    return jumps;
+  }
+}
+```
+
