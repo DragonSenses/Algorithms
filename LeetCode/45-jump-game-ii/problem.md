@@ -122,6 +122,13 @@ To solve this problem, you can use a greedy algorithm that keeps track of the fu
 
 ![All updates marked in red will never be considered because they represent reaching an index with more jumps](img/45-5.jpg)
 
+### **Auxiliary Marks**
+
+We need two auxiliary marks to help delimit ranges and to avoid repeated visits to the same range:
+
+- **end**: The furthest starting index of the current jump.
+- **far**: The furthest reachable index of the current jump.
+
 ### **Summary**
 
 - Each jump ends at `end`.
