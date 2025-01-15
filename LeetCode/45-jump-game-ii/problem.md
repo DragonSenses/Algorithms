@@ -216,21 +216,38 @@ public class Solution {
 ### TypeScript
 
 ```typescript
+/**
+ * Greedy algorithm to determine the minimum number of jumps
+ * needed to reach the end of the array.
+ *
+ * @param {number[]} nums - Array of non-negative integers where each 
+ * element represents the maximum jump length from that position.
+ * @returns {number} - The minimum number of jumps required to reach the end.
+ */
 function jump(nums: number[]): number {
-  let curEnd = 0; // End of the current jump range
-  let curFar = 0; // Farthest index reachable from the current range
-  let jumps = 0; // Number of jumps
+  // End of the current jump range
+  let curEnd = 0; 
+  
+  // Farthest index reachable from the current range
+  let curFar = 0; 
+  
+  // Number of jumps
+  let jumps = 0; 
 
   for (let i = 0; i < nums.length - 1; i++) {
-    curFar = Math.max(curFar, i + nums[i]); // Update the farthest reach
+    // Update the farthest reach
+    curFar = Math.max(curFar, i + nums[i]); 
 
     if (i === curEnd) {
       // End of the current jump range
-      jumps++; // Increment the jump count
-      curEnd = curFar; // Move to the next jump range
+      jumps++; 
+      
+      // Move to the next jump range
+      curEnd = curFar; 
 
+      // If we can reach or exceed the last index, break
       if (curEnd >= nums.length - 1) {
-        break; // If we can reach or exceed the last index, break
+        break;
       }
     }
   }
