@@ -160,3 +160,21 @@ This approach ensures that we reach the last cell using the least number of jump
 3. **Repeat** the process until you reach the last index of the array.
 
 By following this algorithm, you ensure that you always take the minimum number of jumps necessary to reach the end of the array.
+
+### Pseudocode
+
+```plaintext
+Initialize curEnd = 0
+Initialize curFar = 0
+Initialize jumps = 0
+
+For each index i from 0 to length(nums) - 2 do:
+    Update curFar = max(curFar, i + nums[i])
+    
+    If i == curEnd then:
+        Increment jumps by 1
+        Update curEnd = curFar
+
+Return jumps
+```
+
