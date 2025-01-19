@@ -41,6 +41,13 @@ A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence
 
 ---
 
+# Solution
+
+- [58. Length of Last Word](#58-length-of-last-word)
+- [Solution](#solution)
+    - [Problem Overview: Length of Last Word](#problem-overview-length-of-last-word)
+- [String Index Manipulation Approach](#string-index-manipulation-approach)
+
 ### Problem Overview: Length of Last Word
 
 **Problem Description:**
@@ -72,4 +79,8 @@ Given a string `s` consisting of words and spaces, the task is to return the len
 1. `1 <= s.length <= 10^4`
 2. The string `s` consists of only English letters and spaces `' '`.
 3. There will be at least one word in `s`.
+
+# String Index Manipulation Approach
+
+String index manipulation is a powerful and fundamental technique in programming, enabling you to efficiently process and manipulate strings. By understanding how to work with string indices, you can perform a wide range of text-processing tasks effectively.
 
