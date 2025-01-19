@@ -112,3 +112,17 @@ String index manipulation is a technique used to access, modify, and analyze spe
 7. **Counting Characters:**
    - You can count occurrences of specific characters or substrings by iterating through the string using indices.
    - Example: Counting the number of `'l'` characters in the string `"Hello"`.
+
+## **Intuition**
+
+The concept is straightforward. Essentially, the problem's name hints at the solution: 
+1. Identify the last word in the string.
+2. Count the length of that last word.
+
+However, it's important to consider a few edge cases:
+
+1. **Empty Input String**: The input string could be empty.
+2. **Trailing Spaces**: There might be trailing spaces in the input string, e.g., "hello    ".
+3. **Single Word**: The string might consist of only one word.
+
+The challenge lies in devising a solution that is both concise and robust enough to handle all the above cases.
