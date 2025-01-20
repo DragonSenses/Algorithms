@@ -345,6 +345,24 @@ public class Solution {
 }
 ```
 
+#### Implementation Details
+
+1. **Initialize Pointer and Counter:**
+   - A pointer `i` is initialized to the last index of the string `s` (i.e., `s.length() - 1`).
+   - A counter `length` is initialized to `0` to keep track of the length of the last word.
+
+2. **Skip Trailing Spaces:**
+   - The outer `while` loop iterates from the end of the string to the beginning.
+   - If the current character `s.charAt(i)` is a space, the pointer `i` is decremented to skip the trailing spaces.
+
+3. **Count the Length of the Last Word:**
+   - When a non-space character is encountered, an inner `while` loop starts to count the length of the last word.
+   - The inner loop continues to decrement `i` and increment `length` as long as the current character is not a space.
+   - Once a space is encountered (or the beginning of the string is reached), the inner loop breaks.
+
+4. **Return the Length:**
+   - The value of `length`, which now holds the length of the last word, is returned as the result.
+
 ### TypeScript
 
 ```typescript
@@ -380,3 +398,20 @@ function lengthOfLastWord(s: string): number {
   return length;
 }
 ```
+
+#### Implementation Details
+
+1. **Initialize a Pointer:** 
+   - Start with a pointer `i` at the end of the string `s` (i.e., `i = s.length - 1`).
+
+2. **Initialize a Length Counter:** 
+   - Set a counter `length` to `0` to keep track of the length of the last word.
+
+3. **Iterate in Reverse:** 
+   - Traverse the string from the end to the start.
+   - **Skip Trailing Spaces:** Continue decrementing `i` while `i` is greater than or equal to `0` and `s.charAt(i)` is a space.
+   - **Count the Last Word:** Once a non-space character is encountered, start counting the length of the last word. Continue decrementing `i` and incrementing `length` as long as the current character is not a space.
+
+4. **Return the Length:** 
+   - The value of `length`, which now holds the length of the last word, is returned as the result.
+
