@@ -126,3 +126,31 @@ However, it's important to consider a few edge cases:
 3. **Single Word**: The string might consist of only one word.
 
 The challenge lies in devising a solution that is both concise and robust enough to handle all the above cases.
+
+## **Algorithm**
+
+### Step 1: Locate the Last Word
+
+1. **Initialize a Pointer:**
+   - Set `i` to the index of the last character in the string `s`.
+
+2. **Skip Trailing Spaces:**
+   - While `i` is greater than or equal to `0` and `s[i]` is a space character:
+     - Decrement `i` by 1.
+
+3. **Identify the End of the Last Word:**
+   - Once a non-space character is found, this marks the end of the last word.
+
+### Step 2: Count the Length of the Last Word
+
+1. **Initialize a Length Counter:**
+   - Set `length` to `0`.
+
+2. **Iterate through the Last Word:**
+   - While `i` is greater than or equal to `0` and `s[i]` is not a space character:
+     - Increment `length` by 1.
+     - Decrement `i` by 1.
+
+3. **Return the Length:**
+   - The value of `length` will be the length of the last word.
+
