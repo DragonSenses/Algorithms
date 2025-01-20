@@ -154,3 +154,25 @@ The challenge lies in devising a solution that is both concise and robust enough
 3. **Return the Length:**
    - The value of `length` will be the length of the last word.
 
+### **Pseudocode**
+
+```plaintext
+function length_of_last_word(s):
+    # Initialize the pointer to the end of the string
+    i = length of s - 1
+    
+    # Skip trailing spaces
+    while i >= 0 and s[i] == ' ':
+        i = i - 1
+    
+    # Initialize the length counter
+    length = 0
+    
+    # Count the length of the last word
+    while i >= 0 and s[i] != ' ':
+        length = length + 1
+        i = i - 1
+    
+    return length
+```
+
