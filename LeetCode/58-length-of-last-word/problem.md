@@ -256,3 +256,13 @@ function lengthOfLastWord(s: string): number {
 
 In the single pass approach, we can efficiently locate and count the last word in a single iteration, improving the performance and simplicity of our solution.
 
+## **Intuition**
+
+In the previous **string index manipulation approach**, we utilized two loops: one to locate the last word, and another to calculate its length.
+
+However, we can streamline the process and achieve both tasks within a single loop. The key is to define a clear condition that indicates when we should start counting the length of the word.
+
+1. **Single Iteration**: By traversing the string from the end to the start, we can handle locating the last word and counting its length simultaneously.
+2. **Define the Counting Condition**: We should start counting the length of the word when we encounter the first non-space character (starting from the end of the string). If we encounter another space character after starting the count, it means we have finished the last word.
+3. **Handling Edge Cases**: This approach should naturally handle trailing spaces, single-word strings, and empty strings effectively.
+
