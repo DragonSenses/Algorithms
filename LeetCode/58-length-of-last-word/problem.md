@@ -44,7 +44,9 @@ A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence
 # Solution
 
 - [String Index Manipulation Approach](#string-index-manipulation-approach)
+  - **Time Complexity**: `O(N)`
   - **Space Complexity**: `O(1)`
+
 
 ### Problem Overview: Length of Last Word
 
@@ -231,6 +233,17 @@ function lengthOfLastWord(s: string): number {
   return length;
 }
 ```
+
+## **Complexity Analysis**
+
+- Let `n` be the length of the input string.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass:** The algorithm iterates through the string once.
+- **Constant Time Operations:** Each operation within the loop is constant time.
+- **Worst-Case:** In the worst-case scenario, the entire input string is one single word, requiring a full iteration through the string.
+- **Overall Time Complexity:** Since the algorithm performs a single pass through the string, the overall time complexity is `O(n)`.
 
 ### **Space Complexity**: `O(1)`
 
