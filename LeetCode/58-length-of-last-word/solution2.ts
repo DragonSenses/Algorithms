@@ -1,18 +1,19 @@
+/**
+ * Finds the length of the last word in the given string.
+ *
+ * This function uses built-in string functions to trim the input string,
+ * find the position of the last space, and compute the length of the last word.
+ *
+ * @param {string} s - The input string containing words and spaces.
+ * @returns {number} - The length of the last word in the string.
+ */
 function lengthOfLastWord(s: string): number {
-  let i = s.length - 1;
+  // Step 1: Trim the string to remove leading and trailing spaces
+  s = s.trim();
 
-  let length = 0;
+  // Step 2: Find the position of the last space
+  const lastSpaceIndex = s.lastIndexOf(' ');
 
-  while (i >= 0) {
-    if (s.charAt(i) !== " ") {
-      while (i >= 0 && s.charAt(i) !== " ") {
-        length++;
-        i--;
-      }
-      break;
-    }
-    i--;
-  }
-
-  return length;
+  // Step 3: Compute the length of the last word
+  return (lastSpaceIndex === -1) ? s.length : s.length - lastSpaceIndex - 1;
 }
