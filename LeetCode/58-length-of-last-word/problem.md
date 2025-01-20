@@ -276,3 +276,32 @@ However, we can streamline the process and achieve both tasks within a single lo
    - **Count the Last Word**: Once a non-space character is found, start counting until another space is encountered or the start of the string is reached.
 4. **Return the Length**: Return the value of `length`.
 
+### Pseudocode
+
+```plaintext
+function lengthOfLastWord(s):
+    # Initialize the pointer to the end of the string
+    i = length of s - 1
+    
+    # Initialize the length counter
+    length = 0
+    
+    # Iterate in reverse
+    while i >= 0:
+        if s[i] != ' ':
+            # Start counting the length of the last word
+            while i >= 0 and s[i] != ' ':
+                length = length + 1
+                i = i - 1
+            break
+        i = i - 1
+    
+    return length
+```
+
+### Explanation
+
+- **Skipping Trailing Spaces**: The outer loop ensures that we skip any trailing spaces by decrementing `i`.
+- **Counting the Last Word**: When a non-space character is encountered, we enter an inner loop that counts the length of the word. If another space is encountered or the start of the string is reached, the loop terminates.
+- **Return the Length**: The length of the last word is returned.
+
