@@ -266,3 +266,13 @@ However, we can streamline the process and achieve both tasks within a single lo
 2. **Define the Counting Condition**: We should start counting the length of the word when we encounter the first non-space character (starting from the end of the string). If we encounter another space character after starting the count, it means we have finished the last word.
 3. **Handling Edge Cases**: This approach should naturally handle trailing spaces, single-word strings, and empty strings effectively.
 
+## **Algorithm**
+
+1. **Initialize a Pointer**: Set `i` to the last index of the string `s`.
+2. **Initialize a Length Counter**: Set `length` to `0`.
+3. **Iterate in Reverse**:
+   - Traverse the string from the end to the start.
+   - **Skip Trailing Spaces**: While `i` is greater than or equal to `0` and `s[i]` is a space, decrement `i`.
+   - **Count the Last Word**: Once a non-space character is found, start counting until another space is encountered or the start of the string is reached.
+4. **Return the Length**: Return the value of `length`.
+
