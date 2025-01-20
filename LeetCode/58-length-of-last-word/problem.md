@@ -44,6 +44,7 @@ A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence
 # Solution
 
 - [String Index Manipulation Approach](#string-index-manipulation-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Length of Last Word
 
@@ -230,4 +231,10 @@ function lengthOfLastWord(s: string): number {
   return length;
 }
 ```
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space Usage:** The algorithm uses a fixed amount of space for a few variables (`i`, `length`).
+- **No Additional Data Structures:** The space complexity remains constant because there are no additional data structures that grow with input size.
+- **Overall Space Complexity:** The space complexity is `O(1)` as the space used does not depend on the size of the input string.
 
