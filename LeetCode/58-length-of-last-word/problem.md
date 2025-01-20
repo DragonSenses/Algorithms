@@ -47,6 +47,7 @@ A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence
   - **Time Complexity**: `O(N)`
   - **Space Complexity**: `O(1)`
 - [Single Pass Approach](#single-pass-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Length of Last Word
 
@@ -414,4 +415,10 @@ function lengthOfLastWord(s: string): number {
 
 4. **Return the Length:** 
    - The value of `length`, which now holds the length of the last word, is returned as the result.
+
+### Space Complexity: `O(1)`
+
+- **Constant Space Usage:** The algorithm uses a fixed amount of space for a few variables (`i`, `length`).
+- **No Additional Data Structures:** The space complexity remains constant because there are no additional data structures that grow with input size.
+- **Overall Space Complexity:** The space complexity is `O(1)` as the space used does not depend on the size of the input string.
 
