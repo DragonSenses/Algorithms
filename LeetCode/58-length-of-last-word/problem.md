@@ -497,3 +497,18 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function lengthOfLastWord(s: string): number {
+  // Step 1: Trim the string to remove leading and trailing spaces
+  s = s.trim();
+
+  // Step 2: Find the position of the last space
+  const lastSpaceIndex = s.lastIndexOf(' ');
+
+  // Step 3: Compute the length of the last word
+  return (lastSpaceIndex === -1) ? s.length : s.length - lastSpaceIndex - 1;
+}
+```
+
