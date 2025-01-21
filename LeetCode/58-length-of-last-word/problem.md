@@ -49,6 +49,8 @@ A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence
 - [Single Pass Approach](#single-pass-approach)
   - **Time Complexity**: `O(N)`
   - **Space Complexity**: `O(1)`
+- [Built-In String Functions](#built-in-string-functions)
+
 
 ### Problem Overview: Length of Last Word
 
@@ -433,4 +435,22 @@ function lengthOfLastWord(s: string): number {
 - **Constant Space Usage:** The algorithm uses a fixed amount of space for a few variables (`i`, `length`).
 - **No Additional Data Structures:** The space complexity remains constant because there are no additional data structures that grow with input size.
 - **Overall Space Complexity:** The space complexity is `O(1)` as the space used does not depend on the size of the input string.
+
+# Built-In String Functions
+
+## **Intuition**
+
+Being proficient with built-in functions for the String data type in various programming languages can greatly simplify tasks such as trimming empty spaces, finding character positions, and more. These functions provide quick and efficient ways to manipulate strings.
+
+**In Java**, here are some useful built-in functions:
+- **String.trim()**: Returns a copy of the string with leading and trailing whitespaces removed.
+- **String.length()**: Returns the length of the string.
+- **String.lastIndexOf(char)**: Returns the index of the last occurrence of the given character.
+
+For more details on the Java String API, refer to the [official documentation](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html).
+
+**In TypeScript**, here are some equivalent functions:
+- **String.prototype.trim()**: Similar to Java's trim() function, it removes leading and trailing whitespaces.
+- **String.prototype.length**: Returns the length of the string.
+- **String.prototype.lastIndexOf()**: Finds the last occurrence of a specified value in a string.
 
