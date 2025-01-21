@@ -50,7 +50,8 @@ A <strong>substring</strong> is a contiguous <strong>non-empty</strong> sequence
   - **Time Complexity**: `O(N)`
   - **Space Complexity**: `O(1)`
 - [Built-In String Functions](#built-in-string-functions)
-
+  - **Time Complexity**: `O(N)`
+  - **Space Complexity**: `O(N)`
 
 ### Problem Overview: Length of Last Word
 
@@ -511,6 +512,22 @@ function lengthOfLastWord(s: string): number {
   return (lastSpaceIndex === -1) ? s.length : s.length - lastSpaceIndex - 1;
 }
 ```
+
+## Complexity Analysis
+
+- Let `n` be the length of the input string.
+
+### **Time Complexity: `O(n)`**
+
+To determine the overall time complexity, we need to evaluate the complexity of each built-in function used:
+
+1. **String.trim()**: This method iterates through the string to remove leading and trailing whitespace, making its time complexity `O(n)`.
+
+2. **String.lastIndexOf(' ')**: This method scans the entire string to find the last occurrence of a space character. In the worst-case scenario, it needs to scan the entire string, resulting in a time complexity of `O(n)`.
+
+3. **String.length()**: This method simply retrieves the length of the string, which is a constant-time operation, `O(1)`.
+
+The overall time complexity of the algorithm is dominated by the `trim()` and `lastIndexOf()` methods. Therefore, the time complexity of the algorithm is `O(n)`.
 
 ### **Space Complexity: `O(n)`**
 
