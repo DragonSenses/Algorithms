@@ -459,3 +459,22 @@ For more details on the Java String API, refer to the [official documentation](h
 1. **Trim the String**: Remove leading and trailing whitespace characters from the string.
 2. **Find Last Word**: Locate the last word in the string by finding the position of the last space and computing the length from that position to the end of the string.
 
+### **Pseudocode**
+
+```plaintext
+function lengthOfLastWord(s: String) -> int:
+    // Step 1: Trim the string to remove leading and trailing spaces
+    s = s.trim()
+
+    // Step 2: Find the position of the last space
+    lastSpaceIndex = s.lastIndexOf(' ')
+
+    // Step 3: Compute the length of the last word
+    if lastSpaceIndex == -1:
+        return s.length() // No space found, the entire string is one word
+    else:
+        return s.length() - lastSpaceIndex - 1
+```
+
+This organized approach ensures that we can accurately find the length of the last word in a string using built-in functions. This method leverages efficient string manipulation techniques provided by programming languages like Java and TypeScript.
+
