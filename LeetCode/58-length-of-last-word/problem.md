@@ -478,3 +478,22 @@ function lengthOfLastWord(s: String) -> int:
 
 This organized approach ensures that we can accurately find the length of the last word in a string using built-in functions. This method leverages efficient string manipulation techniques provided by programming languages like Java and TypeScript.
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  public static int lengthOfLastWord(String s) {
+    // Step 1: Trim the string to remove leading and trailing spaces
+    s = s.trim();
+
+    // Step 2: Find the position of the last space
+    int lastSpaceIndex = s.lastIndexOf(' ');
+
+    // Step 3: Compute the length of the last word
+    return (lastSpaceIndex == -1) ? s.length() : s.length() - lastSpaceIndex - 1;
+  }
+}
+```
+
