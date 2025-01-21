@@ -454,3 +454,8 @@ For more details on the Java String API, refer to the [official documentation](h
 - **String.prototype.length**: Returns the length of the string.
 - **String.prototype.lastIndexOf()**: Finds the last occurrence of a specified value in a string.
 
+## **Algorithm**
+
+1. **Trim the String**: Remove leading and trailing whitespace characters from the string.
+2. **Find Last Word**: Locate the last word in the string by finding the position of the last space and computing the length from that position to the end of the string.
+
