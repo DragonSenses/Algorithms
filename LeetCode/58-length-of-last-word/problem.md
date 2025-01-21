@@ -512,3 +512,10 @@ function lengthOfLastWord(s: string): number {
 }
 ```
 
+### **Space Complexity: `O(n)`**
+
+1. **String.trim()**: This method returns a new string with the leading and trailing whitespace removed. The space complexity for this operation is `O(n)` because a copy of the input string, without the whitespace, is created.
+
+2. **Other Operations**: The `lastIndexOf()` and `length()` methods do not use additional space proportional to the input size. They operate in constant space, `O(1)`.
+
+Since the `trim()` method requires `O(n)` space to store the trimmed copy of the string, the overall space complexity of the algorithm is `O(n)`.
