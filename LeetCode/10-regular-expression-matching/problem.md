@@ -88,7 +88,28 @@ The matching must cover the **entire** input string (not just a part of it).
 
 ## Overview: Recursion, Dynamic Programming, Top-Down (Memoization), Bottom-Up (Tabulation)
 
+### Recursion
 Recursion is a programming technique where a function calls itself to solve a smaller instance of the same problem. This process continues until the function reaches a base case, which is a condition that stops the recursion. Recursion is particularly useful for problems that can be broken down into smaller, similar subproblems.
+
+**Example**: Calculating the factorial of a number `n`:
+```java
+public class RecursionExample {
+    public int factorial(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        RecursionExample example = new RecursionExample();
+        System.out.println(example.factorial(5)); // Output: 120
+    }
+}
+```
+
+In this example, the method `factorial` calls itself with `n - 1` until it reaches the base case (`n == 1`).
 
 Dynamic programming is a technique used to solve complex problems by breaking them down into simpler subproblems. It stores the results of subproblems to avoid redundant computations, making the overall solution more efficient. DP is particularly effective for optimization problems and problems with overlapping subproblems and optimal substructure.
 
