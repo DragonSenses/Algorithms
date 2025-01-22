@@ -111,7 +111,50 @@ public class RecursionExample {
 
 In this example, the method `factorial` calls itself with `n - 1` until it reaches the base case (`n == 1`).
 
+### Dynamic Programming (DP)
 Dynamic programming is a technique used to solve complex problems by breaking them down into simpler subproblems. It stores the results of subproblems to avoid redundant computations, making the overall solution more efficient. DP is particularly effective for optimization problems and problems with overlapping subproblems and optimal substructure.
+
+**Example**: Fibonacci sequence
+- **Recursive approach**: 
+```java
+public class FibonacciRecursive {
+    public int fib(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fib(n - 1) + fib(n - 2);
+    }
+
+    public static void main(String[] args) {
+        FibonacciRecursive example = new FibonacciRecursive();
+        System.out.println(example.fib(10)); // Output: 55
+    }
+}
+```
+
+- **Dynamic programming approach**:
+```java
+public class FibonacciDP {
+    public int fib(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int[] dp = new int[n + 1];
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+        FibonacciDP example = new FibonacciDP();
+        System.out.println(example.fib(10)); // Output: 55
+    }
+}
+```
+
+In the DP approach, the results of previous calculations are stored in an array `dp`, avoiding redundant calculations.
 
 Top-down memoization is a technique in dynamic programming where the problem is solved recursively, but intermediate results are stored (memoized) to avoid redundant calculations. This approach is also known as "memoization." It combines the benefits of recursion and dynamic programming.
 
