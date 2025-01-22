@@ -188,8 +188,32 @@ public class FibonacciMemoization {
 
 In this example, the results of previous Fibonacci calculations are stored in the `memo` map, preventing redundant recursive calls.
 
+### Bottom-Up Tabulation
 Bottom-up tabulation is another dynamic programming technique where the problem is solved iteratively, starting from the base cases and building up to the final solution. This approach uses a table to store the results of subproblems.
 
+**Example**: Fibonacci sequence with bottom-up tabulation
+```java
+public class FibonacciBottomUp {
+    public int fib(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int[] dp = new int[n + 1];
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+
+    public static void main(String[] args) {
+        FibonacciBottomUp example = new FibonacciBottomUp();
+        System.out.println(example.fib(10)); // Output: 55
+    }
+}
+```
+
+In this example, the `dp` array is filled iteratively, starting from the base cases (`dp[0]` and `dp[1]`), and building up to `dp[n]`.
 
 ### Relationship Between Recursion, DP, Memoization, and Tabulation
 1. **Recursion**: A fundamental technique where a function calls itself to solve smaller instances of the problem.
