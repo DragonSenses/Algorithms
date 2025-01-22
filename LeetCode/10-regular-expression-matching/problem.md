@@ -156,9 +156,40 @@ public class FibonacciDP {
 
 In the DP approach, the results of previous calculations are stored in an array `dp`, avoiding redundant calculations.
 
+### Top-Down Memoization
 Top-down memoization is a technique in dynamic programming where the problem is solved recursively, but intermediate results are stored (memoized) to avoid redundant calculations. This approach is also known as "memoization." It combines the benefits of recursion and dynamic programming.
 
+**Example**: Fibonacci sequence with memoization
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class FibonacciMemoization {
+    private Map<Integer, Integer> memo = new HashMap<>();
+
+    public int fib(int n) {
+        if (memo.containsKey(n)) {
+            return memo.get(n);
+        }
+        if (n <= 1) {
+            return n;
+        }
+        int result = fib(n - 1) + fib(n - 2);
+        memo.put(n, result);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        FibonacciMemoization example = new FibonacciMemoization();
+        System.out.println(example.fib(10)); // Output: 55
+    }
+}
+```
+
+In this example, the results of previous Fibonacci calculations are stored in the `memo` map, preventing redundant recursive calls.
+
 Bottom-up tabulation is another dynamic programming technique where the problem is solved iteratively, starting from the base cases and building up to the final solution. This approach uses a table to store the results of subproblems.
+
 
 ### Relationship Between Recursion, DP, Memoization, and Tabulation
 1. **Recursion**: A fundamental technique where a function calls itself to solve smaller instances of the problem.
