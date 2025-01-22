@@ -86,3 +86,23 @@ The matching must cover the **entire** input string (not just a part of it).
   - **Output**: true
   - **Explanation**: The pattern ".*" means "zero or more (*) of any character (.)".
 
+## Overview: Recursion, Dynamic Programming, Top-Down (Memoization), Bottom-Up (Tabulation)
+
+Recursion is a programming technique where a function calls itself to solve a smaller instance of the same problem. This process continues until the function reaches a base case, which is a condition that stops the recursion. Recursion is particularly useful for problems that can be broken down into smaller, similar subproblems.
+
+Dynamic programming is a technique used to solve complex problems by breaking them down into simpler subproblems. It stores the results of subproblems to avoid redundant computations, making the overall solution more efficient. DP is particularly effective for optimization problems and problems with overlapping subproblems and optimal substructure.
+
+Top-down memoization is a technique in dynamic programming where the problem is solved recursively, but intermediate results are stored (memoized) to avoid redundant calculations. This approach is also known as "memoization." It combines the benefits of recursion and dynamic programming.
+
+Bottom-up tabulation is another dynamic programming technique where the problem is solved iteratively, starting from the base cases and building up to the final solution. This approach uses a table to store the results of subproblems.
+
+### Relationship Between Recursion, DP, Memoization, and Tabulation
+1. **Recursion**: A fundamental technique where a function calls itself to solve smaller instances of the problem.
+2. **Dynamic Programming**: An optimization technique to solve problems by breaking them into subproblems, storing results to avoid redundant calculations.
+3. **Top-Down Memoization**: Combines recursion and dynamic programming by solving subproblems recursively and storing intermediate results to avoid redundant computations.
+4. **Bottom-Up Tabulation**: Solves the problem iteratively by starting from the base cases and building up to the final solution using a table to store results.
+
+Top-down memoization and bottom-up tabulation are both dynamic programming techniques that aim to optimize the solution by storing intermediate results, but they differ in their approach. Memoization leverages recursion, while tabulation uses an iterative approach.
+
+By understanding these concepts, you can choose the most appropriate technique based on the problem's characteristics and constraints.
+
