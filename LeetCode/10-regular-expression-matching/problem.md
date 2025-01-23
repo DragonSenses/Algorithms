@@ -41,6 +41,10 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
 
 ---
 
+# Solution
+
+- [Recursive Approach](#recursive-approach)
+
 ## Overview: Regular Expressions
 
 Regular expression matching is a technique used to search for specific patterns within strings. It allows for complex search criteria using various special characters, often called wildcards.
@@ -225,3 +229,14 @@ Top-down memoization and bottom-up tabulation are both dynamic programming techn
 
 By understanding these concepts, you can choose the most appropriate technique based on the problem's characteristics and constraints.
 
+# Recursive Approach
+
+## **Intuition**
+
+Without the Kleene stars (the `*` wildcard character in regular expressions), the problem is straightforward—we check from left to right if each character in the input string matches the pattern. The presence of a star complicates things because we must evaluate various suffixes of the input string to see if they match the remaining pattern. A recursive approach elegantly represents this relationship and handles the complexity introduced by the `*`.
+
+When a star appears in the pattern (specifically at the second position, `pattern[1]`), we have two options:
+1. **Ignore the star and its preceding character**: This treats the star as if it matches zero occurrences of the preceding character.
+2. **Use the star to match one or more occurrences of the preceding character**: This allows us to delete a matching character in the text and continue checking.
+
+If any of these operations result in a successful match for the remaining strings, then the entire pattern matches the input string.
