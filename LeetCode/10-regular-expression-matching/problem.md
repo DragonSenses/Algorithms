@@ -257,3 +257,19 @@ If any of these operations result in a successful match for the remaining string
 4. **No Star**:
    - If the second character is not `*`, recursively check the remainder of the text and pattern.
 
+### **Pseudocode**
+
+```pseudo
+function isMatch(text, pattern):
+    if pattern is empty:
+        return text is empty
+
+    first_match = (not text is empty) and (pattern[0] == text[0] or pattern[0] == '.')
+
+    if len(pattern) >= 2 and pattern[1] == '*':
+        return (isMatch(text, pattern[2:]) or
+                (first_match and isMatch(text[1:], pattern)))
+    else:
+        return first_match and isMatch(text[1:], pattern[1:])
+```
+
