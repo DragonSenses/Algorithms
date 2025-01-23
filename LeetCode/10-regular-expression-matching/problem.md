@@ -319,3 +319,30 @@ function isMatch(s: string, p: string): boolean {
 ```
 
 In this version, the logic is simplified because there's no need to handle the `*` character. We simply check if each character in the string matches the corresponding character in the pattern, considering that `.` can match any character.
+
+### TypeScript Implementation With `*`
+
+```typescript
+function isMatch(s: string, p: string): boolean {
+  // Base case: If pattern is empty, check if text is also empty
+  if (p.length === 0) {
+    return s.length === 0;
+  }
+
+  // Check if the first character matches
+  const firstMatch = s.length !== 0 && (p[0] === s[0] || p[0] === ".");
+
+  // Check if the second character of the pattern is '*'
+  if (p.length >= 2 && p[1] === "*") {
+    // Ignore the '*' and its preceding character or use the '*' to match one or more occurrences
+    return (
+      isMatch(s, p.substring(2)) || (firstMatch && isMatch(s.substring(1), p))
+    );
+  } else {
+    // No '*', recursively check the rest of the text and pattern
+    return firstMatch && isMatch(s.substring(1), p.substring(1));
+  }
+}
+```
+
+In this TypeScript implementation, the logic is essentially the same as in the Java version, but adapted to TypeScript syntax and conventions. The key differences are the type annotations (`s: string, p: string`), and the use of TypeScript's string methods (`substring`) to handle string manipulations.
