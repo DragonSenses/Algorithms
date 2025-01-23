@@ -240,3 +240,20 @@ When a star appears in the pattern (specifically at the second position, `patter
 2. **Use the star to match one or more occurrences of the preceding character**: This allows us to delete a matching character in the text and continue checking.
 
 If any of these operations result in a successful match for the remaining strings, then the entire pattern matches the input string.
+
+## **Algorithm**
+
+1. **Base Case**:
+   - If the pattern is empty, the text must also be empty for a match.
+
+2. **First Character Match**:
+   - Determine if the first character of the text matches the first character of the pattern. The match is true if either the characters are identical, or the pattern contains a `.`.
+
+3. **Star Handling**:
+   - If the second character of the pattern is `*`, there are two possibilities:
+     - Ignore the `*` and its preceding character (`pattern[0]`): Recursively check the remainder of the pattern with the text.
+     - Use the `*` to match one or more occurrences of `pattern[0]`: Recursively check the text (with the first character removed) against the entire pattern.
+
+4. **No Star**:
+   - If the second character is not `*`, recursively check the remainder of the text and pattern.
+
