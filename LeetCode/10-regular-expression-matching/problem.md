@@ -440,3 +440,10 @@ The presence of the `*` wildcard significantly increases the complexity of the p
 
 The top-down memoization approach optimizes the recursive approach by using a memoization table to cache intermediate results. This prevents redundant calculations, thereby improving the efficiency of the solution. By storing previously computed results, we avoid recalculating the same subproblems, which significantly reduces the time complexity.
 
+## **Intuition**
+
+The problem exhibits an **optimal substructure**, which makes it suitable for dynamic programming. The key question here is: For `dp(i, j)`, does `text[i:]` match `pattern[j:]`?
+
+We can describe the answer in terms of smaller subproblems. Instead of making expensive recursive calls to check each substring, we use a memoization table `dp(i, j)` to store intermediate results. This allows us to avoid redundant computations and speeds up the process.
+
+By using dynamic programming, we can efficiently determine if `text[i:]` matches `pattern[j:]` by breaking the problem down into smaller, manageable subproblems.
