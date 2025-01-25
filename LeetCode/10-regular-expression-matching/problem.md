@@ -403,3 +403,12 @@ To clarify and set the context for the problem, here are some key assumptions:
 
 ### **Space Complexity**: `O(n)`
 - **Call Stack**: The recursive calls add to the call stack, leading to a maximum depth of `n` recursive calls in the worst case, requiring `O(n)` space for the call stack.
+
+#### With the `*` Wildcard:
+
+### **Time Complexity**: `O(2^(n+m))`
+- **Branching Factor**: When the pattern contains the `*` wildcard, each `*` can either be used to match zero characters or one or more characters. This introduces a branching factor in the recursion, leading to an exponential number of potential matches to check. In the worst case, we might need to consider all combinations of `s` and `p`, leading to a time complexity of `O(2^(n+m))`.
+
+### **Space Complexity**: `O(n+m)`
+- **Call Stack**: Similar to the without `*` case, each recursive call adds to the call stack. However, the presence of the `*` wildcard can potentially increase the depth of the recursion to a maximum of `n+m` recursive calls, leading to `O(n+m)` space for the call stack.
+
