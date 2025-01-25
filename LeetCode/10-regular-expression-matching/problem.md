@@ -44,6 +44,8 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(2^(n+m))`
+  - **Space Complexity**: `O(n+m)`
 
 ## Overview: Regular Expressions
 
@@ -374,6 +376,18 @@ function isMatch(s: string, p: string): boolean {
 
 In this TypeScript implementation, the logic is essentially the same as in the Java version, but adapted to TypeScript syntax and conventions. The key differences are the type annotations (`s: string, p: string`), and the use of TypeScript's string methods (`substring`) to handle string manipulations.
 
+## **Complexity Analysis**
+
+To analyze the complexity of the recursive approach to regular expression matching, let's break down the time and space complexity for both versions: without the `*` wildcard and with the `*` wildcard.
+
+- [Without the `*` Wildcard](#without-the--wildcard)
+  - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(n)`
+
+- [With the `*` Wildcard](#with-the--wildcard)
+  - **Time Complexity**: `O(2^(n+m))`
+  - **Space Complexity**: `O(n+m)`
+
 ### Assumptions
 
 To clarify and set the context for the problem, here are some key assumptions:
@@ -412,3 +426,11 @@ To clarify and set the context for the problem, here are some key assumptions:
 ### **Space Complexity**: `O(n+m)`
 - **Call Stack**: Similar to the without `*` case, each recursive call adds to the call stack. However, the presence of the `*` wildcard can potentially increase the depth of the recursion to a maximum of `n+m` recursive calls, leading to `O(n+m)` space for the call stack.
 
+### Summary
+
+| Approach       | Time Complexity | Space Complexity |
+|----------------|-----------------|------------------|
+| Without `*`    | `O(n)`          | `O(n)`           |
+| With `*`       | `O(2^(n+m))`    | `O(n+m)`         |
+
+The presence of the `*` wildcard significantly increases the complexity of the problem due to the branching factor introduced by the multiple ways `*` can be applied. The recursive calls add to the call stack, leading to space complexity proportional to the depth of the recursion.
