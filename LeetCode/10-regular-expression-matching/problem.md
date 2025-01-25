@@ -467,3 +467,29 @@ By using dynamic programming, we can efficiently determine if `text[i:]` matches
 5. Handle the `*` wildcard by either skipping it or using it to match multiple characters.
 6. Store and return the result in `dp`.
 
+### **Pseudocode**
+```pseudo
+function isMatch(text, pattern):
+    memo = {}
+
+    function dp(i, j):
+        if (i, j) in memo:
+            return memo[(i, j)]
+        if j == len(pattern):
+            return i == len(text)
+        
+        firstMatch = (i < len(text) and (pattern[j] == text[i] or pattern[j] == '.'))
+        
+        if j + 1 < len(pattern) and pattern[j + 1] == '*':
+            memo[(i, j)] = (dp(i, j + 2) or (firstMatch and dp(i + 1, j)))
+            return memo[(i, j)]
+        else:
+            memo[(i, j)] = firstMatch and dp(i + 1, j + 1)
+            return memo[(i, j)]
+
+    return dp(0, 0)
+```
+
+This top-down approach uses recursion and memoization to efficiently solve the regular expression matching problem. By storing intermediate results, we avoid redundant computations and ensure that each subproblem is solved only once.
+
+
