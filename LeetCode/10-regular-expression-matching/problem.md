@@ -395,3 +395,11 @@ To clarify and set the context for the problem, here are some key assumptions:
 5. **Case Sensitivity**:
    - Both the input string `s` and the pattern `p` are case-sensitive. For example, 'a' matches 'a' but does not match 'A'.
 
+#### Without the `*` Wildcard:
+
+### **Time Complexity**: `O(n)`
+- **Single Pass**: For each character in the input string `s` of length `n`, we perform a single comparison with the corresponding character in the pattern `p` of length `m`. Therefore, in the worst case, we make `n` comparisons.
+- **Recursive Call**: Each recursive call processes the next character in the string and pattern, leading to a maximum depth of `n` recursive calls.
+
+### **Space Complexity**: `O(n)`
+- **Call Stack**: The recursive calls add to the call stack, leading to a maximum depth of `n` recursive calls in the worst case, requiring `O(n)` space for the call stack.
