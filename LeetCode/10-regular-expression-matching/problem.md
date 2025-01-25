@@ -373,3 +373,25 @@ function isMatch(s: string, p: string): boolean {
 ```
 
 In this TypeScript implementation, the logic is essentially the same as in the Java version, but adapted to TypeScript syntax and conventions. The key differences are the type annotations (`s: string, p: string`), and the use of TypeScript's string methods (`substring`) to handle string manipulations.
+
+### Assumptions
+
+To clarify and set the context for the problem, here are some key assumptions:
+
+1. **Input Constraints**:
+   - The length of the input string `s` is between 1 and 20 characters: `1 <= s.length <= 20`.
+   - The length of the pattern `p` is between 1 and 20 characters: `1 <= p.length <= 20`.
+
+2. **Character Constraints**:
+   - The input string `s` contains only lowercase English letters (a-z).
+   - The pattern `p` contains only lowercase English letters (a-z), the special character `.` (which matches any single character), and the special character `*` (which matches zero or more of the preceding element).
+
+3. **Pattern Validity**:
+   - Each appearance of the character `*` in the pattern `p` has a preceding valid character to match. This means patterns like `*a` or `***` are not considered valid.
+
+4. **Matching Requirement**:
+   - The matching should cover the **entire** input string. Partial matches are not considered valid.
+
+5. **Case Sensitivity**:
+   - Both the input string `s` and the pattern `p` are case-sensitive. For example, 'a' matches 'a' but does not match 'A'.
+
