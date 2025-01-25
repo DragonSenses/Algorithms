@@ -46,6 +46,7 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(2^(n+m))`
   - **Space Complexity**: `O(n+m)`
+- [Top-Down (Dynamic Programming) Approach](#top-down-memoization-dynamic-programming-approach)
 
 ## Overview: Regular Expressions
 
@@ -434,3 +435,8 @@ To clarify and set the context for the problem, here are some key assumptions:
 | With `*`       | `O(2^(n+m))`    | `O(n+m)`         |
 
 The presence of the `*` wildcard significantly increases the complexity of the problem due to the branching factor introduced by the multiple ways `*` can be applied. The recursive calls add to the call stack, leading to space complexity proportional to the depth of the recursion.
+
+# Top-Down (Memoization) Dynamic Programming Approach
+
+The top-down memoization approach optimizes the recursive approach by using a memoization table to cache intermediate results. This prevents redundant calculations, thereby improving the efficiency of the solution. By storing previously computed results, we avoid recalculating the same subproblems, which significantly reduces the time complexity.
+
