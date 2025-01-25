@@ -447,3 +447,23 @@ The problem exhibits an **optimal substructure**, which makes it suitable for dy
 We can describe the answer in terms of smaller subproblems. Instead of making expensive recursive calls to check each substring, we use a memoization table `dp(i, j)` to store intermediate results. This allows us to avoid redundant computations and speeds up the process.
 
 By using dynamic programming, we can efficiently determine if `text[i:]` matches `pattern[j:]` by breaking the problem down into smaller, manageable subproblems.
+
+## **Algorithm**
+
+1. **Define a Memoization Table**: Create a memoization table `dp` to store results of subproblems.
+2. **Use Recursion**: Define a recursive function `dp(i, j)` to check if `text[i:]` matches `pattern[j:]`.
+3. **Check Memoization Table**: If the result for `dp(i, j)` is already in the memoization table, return it.
+4. **First Character Match**: Check if the first character of `text[i:]` matches the first character of `pattern[j:]`.
+5. **Handle `*` Wildcard**:
+   - If the next character in the pattern is `*`, consider two cases: ignoring the `*` or using the `*` to match multiple characters.
+6. **Store and Return Result**: Store the result in the memoization table `dp(i, j)` and return it.
+
+#### Steps
+
+1. Define a memoization table `dp` to store results of subproblems.
+2. Use recursion to check if `text[i:]` matches `pattern[j:]`.
+3. If the result is already in `dp`, return it.
+4. Check if the first character of `text[i:]` matches the first character of `pattern[j:]`.
+5. Handle the `*` wildcard by either skipping it or using it to match multiple characters.
+6. Store and return the result in `dp`.
+
