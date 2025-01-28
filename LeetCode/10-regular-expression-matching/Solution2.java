@@ -1,32 +1,43 @@
-/**
- * Recursively matches text with a given pattern using regex.
- *
- * `.` Matches any single character.
- * `*` Matches zero or more of the preceding element.
- *
- * @param text The text to be matched.
- * @param pattern The pattern to match against.
- * @return Returns true if the text matches the pattern, false otherwise.
- */
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution2 {
+  // Memoization table to store results of subproblems
+  private final Map<String, Boolean> memo = new HashMap<>();
+
   public boolean isMatch(String text, String pattern) {
-    // Base case: If pattern is empty, check if text is also empty
-    if (pattern.isEmpty()) {
-      return text.isEmpty();
+    return dp(0, 0, text, pattern);
+  }
+
+  private boolean dp(int i, int j, String text, String pattern) {
+    // Create a unique key for the current state
+    String key = i + "," + j;
+
+    // Check if the result for this state is already in the memoization table
+    if (memo.containsKey(key)) {
+      return memo.get(key);
+    }
+
+    // Base case: if pattern is exhausted, check if text is also exhausted
+    if (j == pattern.length()) {
+      return i == text.length();
     }
 
     // Check if the first character matches
-    boolean firstMatch =
-        (!text.isEmpty() && (pattern.charAt(0) == text.charAt(0) || pattern.charAt(0) == '.'));
+    boolean firstMatch = (i < text.length() && (pattern.charAt(j) == text.charAt(i) || pattern.charAt(j) == '.'));
 
-    // Check if the second character of the pattern is '*'
-    if (pattern.length() >= 2 && pattern.charAt(1) == '*') {
-      // Ignore the '*' and its preceding character or use the '*' to match one or more occurrences
-      return (isMatch(text, pattern.substring(2))
-          || (firstMatch && isMatch(text.substring(1), pattern)));
+    boolean result;
+    // Handle the '*' wildcard
+    if (j + 1 < pattern.length() && pattern.charAt(j + 1) == '*') {
+      // Consider two cases: ignoring '*' or using '*' to match one or more characters
+      result = (dp(i, j + 2, text, pattern) || (firstMatch && dp(i + 1, j, text, pattern)));
     } else {
-      // No '*', recursively check the rest of the text and pattern
-      return firstMatch && isMatch(text.substring(1), pattern.substring(1));
+      // No '*', proceed to the next characters
+      result = firstMatch && dp(i + 1, j + 1, text, pattern);
     }
+
+    // Store the result in the memoization table
+    memo.put(key, result);
+    return result;
   }
 }
