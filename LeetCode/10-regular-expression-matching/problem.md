@@ -47,7 +47,9 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
   - **Time Complexity**: `O(2^(n+m))`
   - **Space Complexity**: `O(n+m)`
 - [Top-Down (Dynamic Programming) Approach](#top-down-memoization-dynamic-programming-approach)
+  - **Time Complexity**: `O(n * m)`
   - **Space Complexity**: `O(n * m)`
+
 
 ## Overview: Regular Expressions
 
@@ -610,10 +612,20 @@ function isMatch(s: string, p: string): boolean {
    - If the next character in the pattern is `*`, consider two cases: ignoring the `*` or using the `*` to match multiple characters.
 6. **Store and Return Result**: Store the result in the memoization table `memo[key]` and return it.
 
+## **Complexity Analysis**
+
 ### Assumptions
 
 1. Let `n` be the length of the input string `s`.
 2. Let `m` be the length of the pattern `p`.
+
+### **Time Complexity**: `O(n * m)`
+- **Problem Breakdown**: The top-down memoization approach solves the problem by breaking it into subproblems and storing intermediate results.
+- **Subproblem Identification**: Each subproblem is identified by a pair of indices `(i, j)`, where `i` is the position in `text` and `j` is the position in `pattern`.
+- **Number of Positions**: There are `n` possible positions in the text and `m` possible positions in the pattern.
+- **Unique Subproblems**: Therefore, the number of unique subproblems is `n * m`.
+- **Constant Time Solution**: Each subproblem is solved in constant time `O(1)` due to memoization.
+- **Overall Complexity**: Hence, the overall time complexity is `O(n * m)`.
 
 ### **Space Complexity**: `O(n * m)`
 - **Memoization Table Size**: The memoization table (implemented as a map or 2D array) stores the results of subproblems.
