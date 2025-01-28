@@ -599,3 +599,13 @@ function isMatch(s: string, p: string): boolean {
 }
 ```
 
+#### Explanation:
+
+1. **Define a Memoization Table**: A memoization table `memo` is created using an object to store results of subproblems. The key is a string representation of the indices `i` and `j`.
+2. **Use Recursion**: The recursive function `dp(i, j)` checks if `text[i:]` matches `pattern[j:]`. It calls itself recursively.
+3. **Check Memoization Table**: If the result for `dp(i, j)` is already in the memoization table, return it.
+4. **First Character Match**: Check if the first character of `text[i:]` matches the first character of `pattern[j:]`.
+5. **Handle `*` Wildcard**:
+   - If the next character in the pattern is `*`, consider two cases: ignoring the `*` or using the `*` to match multiple characters.
+6. **Store and Return Result**: Store the result in the memoization table `memo[key]` and return it.
+
