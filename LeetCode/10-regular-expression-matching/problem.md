@@ -492,4 +492,14 @@ function isMatch(text, pattern):
 
 This top-down approach uses recursion and memoization to efficiently solve the regular expression matching problem. By storing intermediate results, we avoid redundant computations and ensure that each subproblem is solved only once.
 
+## **Implementation**
 
+#### Implementation Details
+
+1. **Define a Memoization Table**: A `HashMap<String, Boolean>` named `memo` is used to store the results of subproblems. The key is a string representation of the indices `i` and `j`.
+2. **Use Recursion**: The `dp` method is defined to check if `text[i:]` matches `pattern[j:]`. It calls itself recursively.
+3. **Check Memoization Table**: If the result for `dp(i, j)` is already in the memoization table, return it.
+4. **First Character Match**: Check if the first character of `text[i:]` matches the first character of `pattern[j:]`.
+5. **Handle `*` Wildcard**:
+   - If the next character in the pattern is `*`, consider two cases: ignoring the `*` or using the `*` to match multiple characters.
+6. **Store and Return Result**: Store the result in the memoization table and return it.
