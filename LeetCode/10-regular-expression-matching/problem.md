@@ -47,6 +47,7 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
   - **Time Complexity**: `O(2^(n+m))`
   - **Space Complexity**: `O(n+m)`
 - [Top-Down (Dynamic Programming) Approach](#top-down-memoization-dynamic-programming-approach)
+  - **Space Complexity**: `O(n * m)`
 
 ## Overview: Regular Expressions
 
@@ -608,4 +609,16 @@ function isMatch(s: string, p: string): boolean {
 5. **Handle `*` Wildcard**:
    - If the next character in the pattern is `*`, consider two cases: ignoring the `*` or using the `*` to match multiple characters.
 6. **Store and Return Result**: Store the result in the memoization table `memo[key]` and return it.
+
+### Assumptions
+
+1. Let `n` be the length of the input string `s`.
+2. Let `m` be the length of the pattern `p`.
+
+### **Space Complexity**: `O(n * m)`
+- **Memoization Table Size**: The memoization table (implemented as a map or 2D array) stores the results of subproblems.
+- **Entries in Table**: The table needs to store the result for each pair `(i, j)`, leading to `n * m` entries.
+- **Space per Entry**: Each entry in the table is `O(1)`, so the total space required for memoization is `O(n * m)`.
+- **Recursion Stack Depth**: Additionally, the recursion stack depth is `O(n + m)` due to the nature of the recursive calls.
+- **Dominating Factor**: However, the space complexity is dominated by the memoization table, resulting in an overall space complexity of `O(n * m)`.
 
