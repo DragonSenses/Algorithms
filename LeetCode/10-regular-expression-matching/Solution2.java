@@ -5,10 +5,25 @@ public class Solution2 {
   // Memoization table to store results of subproblems
   private final Map<String, Boolean> memo = new HashMap<>();
 
+  /**
+   * Main method to initiate the matching process.
+   * @param text The input text string to be matched.
+   * @param pattern The pattern string, which can include '.' and '*' as special characters.
+   * @return Returns true if the text matches the pattern, false otherwise.
+   */
   public boolean isMatch(String text, String pattern) {
     return dp(0, 0, text, pattern);
   }
 
+  /**
+   * Recursive function to check if text[i:] matches pattern[j:].
+   * This function uses dynamic programming memoization to optimize the recursive approach.
+   * @param i The current index in the text string.
+   * @param j The current index in the pattern string.
+   * @param text The input text string.
+   * @param pattern The pattern string.
+   * @return Returns true if the substring matches, false otherwise.
+   */
   private boolean dp(int i, int j, String text, String pattern) {
     // Create a unique key for the current state
     String key = i + "," + j;
