@@ -662,3 +662,22 @@ By using dynamic programming, we can efficiently determine if `text[i:]` matches
 3. Fill the table iteratively using the rules of regular expression matching.
 4. The final answer will be in `dp[0][0]`.
 
+### **Pseudocode**
+
+```pseudo
+function isMatch(text, pattern):
+    dp = [[False for _ in range(len(pattern) + 1)] for _ in range(len(text) + 1)]
+    dp[len(text)][len(pattern)] = True
+    
+    for i in range(len(text), -1, -1):
+        for j in range(len(pattern) - 1, -1, -1):
+            firstMatch = (i < len(text) and (pattern[j] == text[i] or pattern[j] == '.'))
+            
+            if j + 1 < len(pattern) and pattern[j + 1] == '*':
+                dp[i][j] = dp[i][j + 2] or (firstMatch and dp[i + 1][j])
+            else:
+                dp[i][j] = firstMatch and dp[i + 1][j + 1]
+
+    return dp[0][0]
+```
+
