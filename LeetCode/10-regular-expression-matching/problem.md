@@ -681,3 +681,24 @@ function isMatch(text, pattern):
     return dp[0][0]
 ```
 
+## **Implementation**
+
+##### Iterative Approach:
+- The algorithm uses nested loops to iterate over the `text` and `pattern` strings from end to beginning. This iteration is done explicitly with `for` loops, rather than using recursion.
+- Each iteration updates the `dp` table based on the current indices `i` and `j`.
+
+##### Bottom-Up Tabulation:
+- **Tabulation**: The `dp` table is a two-dimensional array that stores boolean values representing whether substrings of `text` and `pattern` match. This table is filled iteratively.
+- **Bottom-Up**: The table is filled starting from the "base case" at `dp[n][m]` (where both the `text` and `pattern` are empty) and working backwards to the beginning of the strings. This ensures that by the time the algorithm needs the value of `dp[i+1][j]` or `dp[i][j+2]`, it has already been computed.
+
+By employing these strategies, the algorithm avoids the overhead of recursion and provides an efficient way to solve the problem with dynamic programming.
+
+#### Implementation Details
+
+1. **Define the Table**: Create a 2D table `dp` where `dp[i][j]` represents if `text[i:]` matches `pattern[j:]`.
+2. **Initialize Base Cases**: Set the base case `dp[n][m] = true` since an empty pattern matches an empty text.
+3. **Fill the Table**: Iterate backward through the text and the pattern, filling in the table based on the matching rules:
+   - **First Match**: Determine if the current characters in `text` and `pattern` match or if the pattern has a `.`.
+   - **Handling `*`**: If the next character in the pattern is `*`, consider two cases: ignoring the `*` (i.e., `dp[i][j + 2]`) or using the `*` to match one or more characters (i.e., `firstMatch && dp[i + 1][j]`).
+4. **Return Result**: The final answer will be in `dp[0][0]`, indicating whether the entire text matches the entire pattern.
+
