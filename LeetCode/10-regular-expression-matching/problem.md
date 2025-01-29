@@ -646,3 +646,19 @@ We can describe the answer in terms of smaller subproblems. Instead of making ex
 
 By using dynamic programming, we can efficiently determine if `text[i:]` matches `pattern[j:]` by breaking the problem down into smaller, manageable subproblems.
 
+## **Algorithm**
+
+1. **Define the Table**: Create a 2D table `dp` where `dp[i][j]` represents if `text[i:]` matches `pattern[j:]`.
+2. **Initialize Base Cases**: Set the base case `dp[len(text)][len(pattern)] = True` since an empty pattern matches an empty text.
+3. **Fill the Table**: Iterate backward through the text and the pattern, filling in the table based on the matching rules:
+   - If the current characters match, or the pattern has a `.`, the result depends on the subsequent characters.
+   - If the next character in the pattern is `*`, consider two cases: ignoring the `*` or using the `*` to match one or more characters.
+4. **Return Result**: The final answer will be in `dp[0][0]`, indicating whether the entire text matches the entire pattern.
+
+#### Steps
+
+1. Define a 2D table `dp` where `dp[i][j]` represents if `text[i:]` matches `pattern[j:]`.
+2. Initialize the base cases.
+3. Fill the table iteratively using the rules of regular expression matching.
+4. The final answer will be in `dp[0][0]`.
+
