@@ -49,7 +49,7 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
 - [Top-Down (Dynamic Programming) Approach](#top-down-memoization-dynamic-programming-approach)
   - **Time Complexity**: `O(n * m)`
   - **Space Complexity**: `O(n * m)`
-
+- [Bottom-Up (Dynamic Programming) Approach](#bottom-up-tabulation-dynamic-programming-approach)
 
 ## Overview: Regular Expressions
 
@@ -633,4 +633,8 @@ function isMatch(s: string, p: string): boolean {
 - **Space per Entry**: Each entry in the table is `O(1)`, so the total space required for memoization is `O(n * m)`.
 - **Recursion Stack Depth**: Additionally, the recursion stack depth is `O(n + m)` due to the nature of the recursive calls.
 - **Dominating Factor**: However, the space complexity is dominated by the memoization table, resulting in an overall space complexity of `O(n * m)`.
+
+# Bottom-Up (Tabulation) Dynamic Programming Approach
+
+The bottom-up tabulation approach optimizes the problem-solving process by using a 2D table to iteratively fill in the solutions to subproblems. Instead of relying on recursion, this approach starts from the simplest subproblems (base cases) and builds up to the solution of the original problem through an iterative process. This method ensures that all subproblems are solved in a systematic and efficient manner, leveraging the stored results of previously computed subproblems to construct the final solution.
 
