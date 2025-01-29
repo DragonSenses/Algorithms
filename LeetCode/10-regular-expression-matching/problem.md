@@ -638,3 +638,11 @@ function isMatch(s: string, p: string): boolean {
 
 The bottom-up tabulation approach optimizes the problem-solving process by using a 2D table to iteratively fill in the solutions to subproblems. Instead of relying on recursion, this approach starts from the simplest subproblems (base cases) and builds up to the solution of the original problem through an iterative process. This method ensures that all subproblems are solved in a systematic and efficient manner, leveraging the stored results of previously computed subproblems to construct the final solution.
 
+## **Intuition**
+
+The problem exhibits an optimal substructure, which makes it suitable for dynamic programming. The key question here is: For `dp(i, j)`, does `text[i:]` match `pattern[j:]`?
+
+We can describe the answer in terms of smaller subproblems. Instead of making expensive recursive calls to check each substring, we use a dynamic programming table `dp(i, j)` to store intermediate results. This allows us to avoid redundant computations and speeds up the process.
+
+By using dynamic programming, we can efficiently determine if `text[i:]` matches `pattern[j:]` by breaking the problem down into smaller, manageable subproblems.
+
