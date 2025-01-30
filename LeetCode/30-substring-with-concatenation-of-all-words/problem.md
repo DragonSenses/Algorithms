@@ -5,7 +5,7 @@
 <p>A <strong>concatenated string</strong> is a string that exactly contains all the strings of any permutation of <code>words</code> concatenated.</p>
 
 <ul>
-	<li>For example, if <code>words = ["ab","cd","ef"]</code>, then <code>"abcdef"</code>, <code>"abefcd"</code>, <code>"cdabef"</code>, <code>"cdefab"</code>, <code>"efabcd"</code>, and <code>"efcdab"</code> are all concatenated strings. <code>"acdbef"</code> is not a concatenated string because it is not the concatenation of any permutation of <code>words</code>.</li>
+  <li>For example, if <code>words = ["ab","cd","ef"]</code>, then <code>"abcdef"</code>, <code>"abefcd"</code>, <code>"cdabef"</code>, <code>"cdefab"</code>, <code>"efabcd"</code>, and <code>"efcdab"</code> are all concatenated strings. <code>"acdbef"</code> is not a concatenated string because it is not the concatenation of any permutation of <code>words</code>.</li>
 </ul>
 
 <p>Return an array of <em>the starting indices</em> of all the concatenated substrings in <code>s</code>. You can return the answer in <strong>any order</strong>.</p>
@@ -54,15 +54,19 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= words.length &lt;= 5000</code></li>
-	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
-	<li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</li>
+  <li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+  <li><code>1 &lt;= words.length &lt;= 5000</code></li>
+  <li><code>1 &lt;= words[i].length &lt;= 30</code></li>
+  <li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</li>
 </ul>
 
 <br>
 
 ---
+
+# Solution
+
+- [Sliding Window with Hash Table Counting Approach](#sliding-window-with-hash-table-counting-approach)
 
 ### Problem Overview
 
@@ -99,3 +103,11 @@ The task is to return an array of the **starting indices** of all the concatenat
 - The string `s` and all `words[i]` consist of lowercase English letters.
 
 This problem involves identifying the starting indices of substrings within a given string that are composed of concatenations of all words in a given array. Each word in the array is of equal length, and the task requires identifying all permutations of these words concatenated together within the string `s`.
+
+# Sliding Window with Hash Table Counting Approach
+
+This approach could is named the **"Sliding Window with Hash Table Counting"** emphasizing the main techniques used:
+- **Sliding Window**: We iterate through the string `s` using a window of fixed size (`substringSize`) to check for valid substrings.
+- **Hash Table Counting**: We use a hash table to keep track of the count of each word and efficiently verify the presence and frequency of words in the substring.
+
+This method captures both the sliding window mechanism for traversing the string and the use of hash table data structures for quick lookups and counting.
