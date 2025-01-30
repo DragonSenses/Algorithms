@@ -736,3 +736,44 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function isMatch(s: string, p: string): boolean {
+  const n = s.length;
+  const m = p.length;
+
+  // Define the Table
+  const dp: boolean[][] = Array.from({ length: n + 1 }, () =>
+    Array(m + 1).fill(false)
+  );
+
+  // Initialize Base Cases
+  dp[n][m] = true; // An empty pattern matches an empty text
+
+  // Fill the Table
+  for (let i = n; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      const firstMatch = i < n && (p[j] === s[i] || p[j] === ".");
+
+      if (j + 1 < m && p[j + 1] === "*") {
+        dp[i][j] = dp[i][j + 2] || (firstMatch && dp[i + 1][j]);
+      } else {
+        dp[i][j] = firstMatch && dp[i + 1][j + 1];
+      }
+    }
+  }
+
+  // Return Result
+  return dp[0][0];
+}
+```
+
+#### Explanation:
+
+1. **Define the Table**: Create a 2D table `dp` where `dp[i][j]` represents if `text[i:]` matches `pattern[j:]`.
+2. **Initialize Base Cases**: Set the base case `dp[n][m] = true` since an empty pattern matches an empty text.
+3. **Fill the Table**: Iterate backward through the text and the pattern, filling in the table based on the matching rules:
+   - **First Match**: Determine if the current characters in `text` and `pattern` match or if the pattern has a `.`.
+   - **Handling `*`**: If the next character in the pattern is `*`, consider two cases: ignoring the `*` (i.e., `dp[i][j + 2]`) or using the `*` to match one or more characters (i.e., `firstMatch && dp[i + 1][j]`).
+4. **Return Result**: The final answer will be in `dp[0][0]`, indicating whether the entire text matches the entire pattern.
