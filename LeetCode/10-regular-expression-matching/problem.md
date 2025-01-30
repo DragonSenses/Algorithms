@@ -50,6 +50,7 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
   - **Time Complexity**: `O(n * m)`
   - **Space Complexity**: `O(n * m)`
 - [Bottom-Up (Dynamic Programming) Approach](#bottom-up-tabulation-dynamic-programming-approach)
+  - **Space Complexity**: `O(n * m)`
 
 ## Overview: Regular Expressions
 
@@ -777,3 +778,8 @@ function isMatch(s: string, p: string): boolean {
    - **First Match**: Determine if the current characters in `text` and `pattern` match or if the pattern has a `.`.
    - **Handling `*`**: If the next character in the pattern is `*`, consider two cases: ignoring the `*` (i.e., `dp[i][j + 2]`) or using the `*` to match one or more characters (i.e., `firstMatch && dp[i + 1][j]`).
 4. **Return Result**: The final answer will be in `dp[0][0]`, indicating whether the entire text matches the entire pattern.
+
+### **Space Complexity**: `O(n * m)`
+- **Table Storage**: The 2D table `dp` requires space to store results for each pair `(i, j)`, leading to `n * m` entries.
+- **Space per Entry**: Each entry in the table is `O(1)`, so the total space required for the table is `O(n * m)`.
+- **Additional Space**: The space complexity is dominated by the table, as there are no significant additional space requirements beyond the `dp` table.
