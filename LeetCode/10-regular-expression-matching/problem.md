@@ -50,6 +50,7 @@ Explanation: ".*" means "zero or more (*) of any character (.)".
   - **Time Complexity**: `O(n * m)`
   - **Space Complexity**: `O(n * m)`
 - [Bottom-Up (Dynamic Programming) Approach](#bottom-up-tabulation-dynamic-programming-approach)
+  - **Time Complexity**: `O(n * m)`
   - **Space Complexity**: `O(n * m)`
 
 ## Overview: Regular Expressions
@@ -778,6 +779,20 @@ function isMatch(s: string, p: string): boolean {
    - **First Match**: Determine if the current characters in `text` and `pattern` match or if the pattern has a `.`.
    - **Handling `*`**: If the next character in the pattern is `*`, consider two cases: ignoring the `*` (i.e., `dp[i][j + 2]`) or using the `*` to match one or more characters (i.e., `firstMatch && dp[i + 1][j]`).
 4. **Return Result**: The final answer will be in `dp[0][0]`, indicating whether the entire text matches the entire pattern.
+
+## **Complexity Analysis**
+
+### Assumptions
+
+1. Let `n` be the length of the input string `s`.
+2. Let `m` be the length of the pattern `p`.
+
+### **Time Complexity**: `O(n * m)`
+- **Problem Breakdown**: The bottom-up tabulation approach solves the problem by iterating through each position in the text and pattern.
+- **Table Size**: We define a 2D table `dp` of size `(n + 1) x (m + 1)` to store the results of subproblems.
+- **Iterations**: We have two nested loops iterating through the table—one for the text (with `n + 1` iterations) and one for the pattern (with `m + 1` iterations).
+- **Total Operations**: Each cell in the table requires constant time `O(1)` for computation.
+- **Overall Complexity**: Therefore, the total number of operations is `O(n * m)`.
 
 ### **Space Complexity**: `O(n * m)`
 - **Table Storage**: The 2D table `dp` requires space to store results for each pair `(i, j)`, leading to `n * m` entries.
