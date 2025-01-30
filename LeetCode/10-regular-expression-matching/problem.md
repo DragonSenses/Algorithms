@@ -702,3 +702,37 @@ By employing these strategies, the algorithm avoids the overhead of recursion an
    - **Handling `*`**: If the next character in the pattern is `*`, consider two cases: ignoring the `*` (i.e., `dp[i][j + 2]`) or using the `*` to match one or more characters (i.e., `firstMatch && dp[i + 1][j]`).
 4. **Return Result**: The final answer will be in `dp[0][0]`, indicating whether the entire text matches the entire pattern.
 
+### Java
+
+```java
+public class Solution {
+  public boolean isMatch(String text, String pattern) {
+    int n = text.length();
+    int m = pattern.length();
+
+    // Define the Table
+    boolean[][] dp = new boolean[n + 1][m + 1];
+
+    // Initialize Base Cases
+    dp[n][m] = true; // An empty pattern matches an empty text
+
+    // Fill the Table
+    for (int i = n; i >= 0; i--) {
+      for (int j = m - 1; j >= 0; j--) {
+        boolean firstMatch =
+            (i < n && (pattern.charAt(j) == text.charAt(i) || pattern.charAt(j) == '.'));
+
+        if (j + 1 < m && pattern.charAt(j + 1) == '*') {
+          dp[i][j] = dp[i][j + 2] || (firstMatch && dp[i + 1][j]);
+        } else {
+          dp[i][j] = firstMatch && dp[i + 1][j + 1];
+        }
+      }
+    }
+
+    // Return Result
+    return dp[0][0];
+  }
+}
+```
+
