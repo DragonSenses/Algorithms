@@ -1,40 +1,41 @@
+/**
+ * Determines if a given text matches a given pattern.
+ * This function employs dynamic programming with an iterative, bottom-up 
+ * tabulation approach
+ *
+ * @param s The input text string to be matched.
+ * @param p The pattern string, which can include '.' and '*' as special characters.
+ * @return Returns true if the text matches the pattern, false otherwise.
+ */
 function isMatch(s: string, p: string): boolean {
-  // Memoization table to store results of subproblems
-  const memo: { [key: string]: boolean } = {};
+  const n = s.length;
+  const m = p.length;
 
-  // Recursive function to check if text[i:] matches pattern[j:]
-  function dp(i: number, j: number): boolean {
-    // Create a unique key for the current state
-    const key = `${i},${j}`;
+  // Define the Table for dynamic programming
+  const dp: boolean[][] = Array.from({ length: n + 1 }, () =>
+    Array(m + 1).fill(false)
+  );
 
-    // Check if the result for this state is already in the memoization table
-    if (key in memo) {
-      return memo[key];
+  // Initialize Base Cases
+  dp[n][m] = true; // An empty pattern matches an empty text
+
+  // Fill the Table with the bottom-up approach
+  for (let i = n; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      // Check if the current characters match
+      const firstMatch = i < n && (p[j] === s[i] || p[j] === ".");
+
+      // Handle the '*' wildcard character
+      if (j + 1 < m && p[j + 1] === "*") {
+        // Consider two cases: ignoring '*' or using '*' to match one or more characters
+        dp[i][j] = dp[i][j + 2] || (firstMatch && dp[i + 1][j]);
+      } else {
+        // No '*', proceed to the next characters
+        dp[i][j] = firstMatch && dp[i + 1][j + 1];
+      }
     }
-
-    // Base case: if pattern is exhausted, check if text is also exhausted
-    if (j === p.length) {
-      return i === s.length;
-    }
-
-    // Check if the first character matches
-    const firstMatch = i < s.length && (p[j] === s[i] || p[j] === ".");
-
-    let result: boolean;
-    // Handle the '*' wildcard
-    if (j + 1 < p.length && p[j + 1] === "*") {
-      // Consider two cases: ignoring '*' or using '*' to match one or more characters
-      result = dp(i, j + 2) || (firstMatch && dp(i + 1, j));
-    } else {
-      // No '*', proceed to the next characters
-      result = firstMatch && dp(i + 1, j + 1);
-    }
-
-    // Store the result in the memoization table
-    memo[key] = result;
-    return result;
   }
 
-  // Start the recursion from the beginning of the text and pattern
-  return dp(0, 0);
+  // Return the result of the matching process
+  return dp[0][0];
 }
