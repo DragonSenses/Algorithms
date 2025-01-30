@@ -59,3 +59,43 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
 	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
 	<li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</li>
 </ul>
+
+<br>
+
+---
+
+### Problem Overview
+
+#### **Description**
+You are given a string `s` and an array of strings `words`. All the strings in `words` have the **same length**.
+
+A **concatenated string** is a string that exactly contains all the strings of any permutation of `words` concatenated together. For example, if `words = ["ab","cd","ef"]`, then `"abcdef"`, `"abefcd"`, `"cdabef"`, `"cdefab"`, `"efabcd"`, and `"efcdab"` are all concatenated strings. However, `"acdbef"` is not a concatenated string because it does not follow any permutation of `words`.
+
+The task is to return an array of the **starting indices** of all the concatenated substrings in `s`. You can return the answer in **any order**.
+
+#### **Examples**
+1. **Input:**
+   - `s = "barfoothefoobarman"`
+   - `words = ["foo","bar"]`
+   - **Output:** `[0, 9]`
+   - **Explanation:** The substring starting at index 0 is `"barfoo"`, which is a concatenation of `["bar", "foo"]`. The substring starting at index 9 is `"foobar"`, which is a concatenation of `["foo", "bar"]`.
+
+2. **Input:**
+   - `s = "wordgoodgoodgoodbestword"`
+   - `words = ["word","good","best","word"]`
+   - **Output:** `[]`
+   - **Explanation:** There is no concatenated substring in the given string.
+
+3. **Input:**
+   - `s = "barfoofoobarthefoobarman"`
+   - `words = ["bar","foo","the"]`
+   - **Output:** `[6, 9, 12]`
+   - **Explanation:** The substring starting at index 6 is `"foobarthe"`, starting at index 9 is `"barthefoo"`, and starting at index 12 is `"thefoobar"`, all of which are valid concatenations.
+
+#### **Constraints**
+- `1 <= s.length <= 10^4`
+- `1 <= words.length <= 5000`
+- `1 <= words[i].length <= 30`
+- The string `s` and all `words[i]` consist of lowercase English letters.
+
+This problem involves identifying the starting indices of substrings within a given string that are composed of concatenations of all words in a given array. Each word in the array is of equal length, and the task requires identifying all permutations of these words concatenated together within the string `s`.
