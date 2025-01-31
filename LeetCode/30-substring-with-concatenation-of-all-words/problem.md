@@ -67,6 +67,7 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
 # Solution
 
 - [Sliding Window with Hash Table Counting Approach](#sliding-window-with-hash-table-counting-approach)
+  - **Time Complexity**: `O(n * k * b - (k * b)^2)`
   - **Space Complexity**: `O(k)`
 
 ### Problem Overview
@@ -305,12 +306,31 @@ function findSubstring(s: string, words: string[]): number[] {
 3. **Sliding Window**: Iterate over possible starting indices and use an auxiliary function (`check`) to verify if a valid substring starts at each index.
 4. **Auxiliary Function**: This function checks if the substring starting from a given index contains all words with the required frequency.
 
+## **Complexity Analysis**
+
 ### Assumptions
 
 1. Let `n` be the length of the input string `s`.
 2. Let `k` be the number of words in the `words` array.
 3. Let `b` be the length of each word in `words`.
 4. Let `a` refer to `k` (the number of words).
+
+### **Time Complexity**: `O(n * k * b - (k * b)^2)`
+- **Problem Breakdown**: 
+  - First, let's analyze the time complexity of `check`. We start by creating a copy of our hash table, which in the worst-case scenario (all words are unique) will take `O(k)` time.
+  - Then, we iterate `k` times (from `i` to `i + substringSize`, `wordLength` at a time): `substringSize / wordLength = k`. At each iteration, we create a substring, which takes `b` time, and perform a hash table check.
+  
+- **Each Call to `check`**: 
+  - Each call to the `check` function uses `O(k + k * (b + 1))` time, simplified to `O(k * b)`.
+  
+- **Total Number of Calls to `check`**:
+  - We call the `check` function `n - k * b` times, where `substringSize` is `k * b`.
+
+- **Overall Complexity**: 
+  - Combining the above, the total time complexity is: 
+    \[ O((n - k * b) * k * b) \]
+  - Which can be expanded to: 
+    \[ O(n * k * b - (k * b)^2) \]
 
 ### **Space Complexity**: `O(k)`
 - **Hash Table Memory Usage**: 
