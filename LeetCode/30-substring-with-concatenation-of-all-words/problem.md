@@ -252,3 +252,55 @@ public class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function findSubstring(s: string, words: string[]): number[] {
+    const result: number[] = [];
+    if (!s || words.length === 0) {
+        return result;
+    }
+
+    const n = s.length;
+    const k = words.length;
+    const wordLength = words[0].length;
+    const substringSize = wordLength * k;
+    
+    const wordCount: { [key: string]: number } = {};
+    for (const word of words) {
+        wordCount[word] = (wordCount[word] || 0) + 1;
+    }
+
+    const check = (start: number): boolean => {
+        const remaining: { [key: string]: number } = { ...wordCount };
+        let wordsUsed = 0;
+
+        for (let j = start; j < start + k * wordLength; j += wordLength) {
+            const sub = s.substr(j, wordLength);
+            if (remaining[sub] && remaining[sub] > 0) {
+                remaining[sub]--;
+                wordsUsed++;
+            } else {
+                return false;
+            }
+        }
+
+        return wordsUsed === k;
+    };
+
+    for (let i = 0; i <= n - substringSize; i++) {
+        if (check(i)) {
+            result.push(i);
+        }
+    }
+
+    return result;
+}
+```
+
+### Explanation:
+1. **Initialization**: Variables are initialized to keep track of the length of the string, the length of the words array, and other necessary values.
+2. **Word Count**: A hash table (`wordCount`) is created to count the frequency of each word in the `words` array.
+3. **Sliding Window**: Iterate over possible starting indices and use an auxiliary function (`check`) to verify if a valid substring starts at each index.
+4. **Auxiliary Function**: This function checks if the substring starting from a given index contains all words with the required frequency.
+
