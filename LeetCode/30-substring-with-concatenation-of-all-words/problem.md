@@ -157,3 +157,37 @@ By running this auxiliary function for all candidate indices in the string `s`, 
    - Use the auxiliary function `check` to determine if a valid substring starts at each index.
    - Collect the starting indices that pass the `check` function and return them as the answer.
 
+### **Pseudocode**
+```pseudo
+function findSubstring(s, words):
+    n = length(s)
+    k = length(words)
+    wordLength = length(words[0])
+    substringSize = wordLength * k
+    wordCount = hashTable()
+
+    for word in words:
+        wordCount[word] += 1
+
+    function check(i):
+        remaining = copy(wordCount)
+        wordsUsed = 0
+
+        for j from i to i + substringSize step wordLength:
+            sub = s.substring(j, j + wordLength)
+            if sub in remaining and remaining[sub] > 0:
+                remaining[sub] -= 1
+                wordsUsed += 1
+            else:
+                return false
+
+        return wordsUsed == k
+
+    result = []
+    for i from 0 to n - substringSize:
+        if check(i):
+            result.append(i)
+
+    return result
+```
+
