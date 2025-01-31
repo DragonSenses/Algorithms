@@ -133,3 +133,27 @@ We can write an auxiliary function to determine if a valid substring starts at a
 ### **Building the Answer**
 By running this auxiliary function for all candidate indices in the string `s`, we can build our answer by collecting the starting indices of valid concatenated substrings.
 
+## **Algorithm**
+
+### **Initialization**
+1. Initialize some variables:
+   - `n` as the length of `s`.
+   - `k` as the length of `words`.
+   - `wordLength` as the length of each word in `words`.
+   - `substringSize` as `wordLength * k`, which represents the size of each valid substring.
+   - `wordCount` as a hash table that tracks how many times a word occurs in `words`.
+
+### **Auxiliary Function**
+2. Create an auxiliary function `check` that takes a starting index `i` and returns whether a valid substring starts at index `i`:
+   - Create a copy of `wordCount` called `remaining` for this particular index. Initialize an integer `wordsUsed` to track how many matches have been found so far.
+   - Iterate starting from `i` up to `i + substringSize` (exclusive). Since each valid substring will have this size, there's no need to go further.
+     - At each iteration, check for a word `sub = s.substring(j, j + wordLength)`, where `j` is the variable in the iteration.
+     - If `sub` exists in `remaining` and its count is greater than 0, decrease its count by 1 and increase `wordsUsed` by 1. Otherwise, break out of the loop.
+   - At the end, if `wordsUsed == k`, it means all words in `words` have been used, forming a valid substring. Return `true` if so, otherwise return `false`.
+
+### **Building the Answer**
+3. Iterate over all possible starting indices:
+   - Since a valid substring has a length of `substringSize`, iterate up to `n - substringSize`.
+   - Use the auxiliary function `check` to determine if a valid substring starts at each index.
+   - Collect the starting indices that pass the `check` function and return them as the answer.
+
