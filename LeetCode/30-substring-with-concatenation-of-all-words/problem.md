@@ -67,6 +67,7 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
 # Solution
 
 - [Sliding Window with Hash Table Counting Approach](#sliding-window-with-hash-table-counting-approach)
+  - **Space Complexity**: `O(k)`
 
 ### Problem Overview
 
@@ -303,4 +304,24 @@ function findSubstring(s: string, words: string[]): number[] {
 2. **Word Count**: A hash table (`wordCount`) is created to count the frequency of each word in the `words` array.
 3. **Sliding Window**: Iterate over possible starting indices and use an auxiliary function (`check`) to verify if a valid substring starts at each index.
 4. **Auxiliary Function**: This function checks if the substring starting from a given index contains all words with the required frequency.
+
+### Assumptions
+
+1. Let `n` be the length of the input string `s`.
+2. Let `k` be the number of words in the `words` array.
+3. Let `b` be the length of each word in `words`.
+4. Let `a` refer to `k` (the number of words).
+
+### **Space Complexity**: `O(k)`
+- **Hash Table Memory Usage**: 
+  - Most of the extra memory usage is the hash table (`wordCount`) to store word counts. In the worst-case scenario (all unique words), we store up to `k` keys.
+  
+- **Substring Storage**: 
+  - We also store substrings in a variable `sub`, which requires `O(b)` space.
+  
+- **Overall Space Complexity**: 
+  - Combining the above, the total space complexity is: 
+    \[ O(k + b) \]
+  - However, because the upper bound for `b` is small (30), we can consider the space complexity to be: 
+    \[ O(k) \]
 
