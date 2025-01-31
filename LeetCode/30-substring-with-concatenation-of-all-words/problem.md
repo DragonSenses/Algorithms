@@ -111,3 +111,25 @@ This approach could is named the **"Sliding Window with Hash Table Counting"** e
 - **Hash Table Counting**: We use a hash table to keep track of the count of each word and efficiently verify the presence and frequency of words in the substring.
 
 This method captures both the sliding window mechanism for traversing the string and the use of hash table data structures for quick lookups and counting.
+
+## **Intuition**
+
+### **Key Observation**
+One critical detail is that all elements in `words` have the same length. This gives us valuable information about the length of all valid substrings. Each valid substring is a concatenation of all `words` elements, so the length of a valid substring will be `words.length * words[0].length`.
+
+### **Approach**
+This makes it straightforward to check if a valid substring starts at a given index. For example, if the elements of `words` have a length of 3, we can look at the string in groups of 3 characters from any starting index and verify if those characters form a word in `words`.
+
+### **Hash Table Usage**
+Since `words` can contain duplicate words, we should use a hash table to maintain a count for each word. Additionally, a hash table allows for quick searches for word matches.
+
+### **Auxiliary Function**
+We can write an auxiliary function to determine if a valid substring starts at a specific index. This function will:
+1. Iterate over the substring starting at the given index and spanning the length of a valid concatenated substring.
+2. Examine `words[0].length` characters at a time. For each iteration, check a substring matching the length of elements in `words`.
+3. If the substring doesn't exist in `words`, or if it does exist but we've already reached the required count of it, return `false`.
+4. Use a hash table to keep an updated count of the words between the starting index and the current index.
+
+### **Building the Answer**
+By running this auxiliary function for all candidate indices in the string `s`, we can build our answer by collecting the starting indices of valid concatenated substrings.
+
