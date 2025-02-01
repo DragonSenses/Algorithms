@@ -404,3 +404,50 @@ Iterating over the same characters millions of times becomes inefficient. By usi
 
 5. **Avoid Redundant Starts**:
     - Instead of starting from every index, only start from indices that are `wordLength` apart. For example, with `words = ["foo", "bar"]`, starting from index 3 is redundant since it’s covered by index 0. However, we still need to start from indices 1 and 2 to handle cases like `s = "xfoobar"` or `s = "xyfoobar"`.
+
+## **Algorithm**
+
+### **1. Initialization**
+
+- **n**: Length of the string `s`.
+- **k**: Length of the list `words`.
+- **wordLength**: Length of each word in `words`.
+- **substringSize**: Total length of concatenated words (`wordLength * k`).
+- **wordCount**: Hash table tracking the frequency of each word in `words`.
+- **answer**: Array to store starting indices of valid substrings.
+
+### **2. Sliding Window Function**
+
+Create a function `slidingWindow` that takes an index `left` and starts a sliding window from `left`:
+
+#### **2.1. Initialization Inside Function**
+- **wordsFound**: Hash table to track the frequency of words in the current window.
+- **wordsUsed**: Integer to keep track of the number of valid words in the window.
+- **excessWord**: Boolean indicating if there is an excess word in the window (e.g., a third "foo" when `words = ["foo", "foo"]`).
+
+#### **2.2. Iteration Process**
+
+Using the right bound of our window, `right`:
+- Start at `left` and iterate until `n`, moving `wordLength` at a time.
+- At each iteration:
+  1. **Extract Word**: `sub = s.substring(right, right + wordLength)`.
+  2. **Check Word in wordCount**:
+     - If `sub` is not in `wordCount`, reset the window:
+       - Clear `wordsFound`.
+       - Reset `wordsUsed` and `excessWord`.
+       - Move `left` to `right + wordLength`.
+     - If `sub` is in `wordCount`, proceed:
+       - **Adjust Window for Excess Words**: 
+         - While the window is beyond the max size or has an excess word, move `left` and update hash table and variables.
+       - **Update wordsFound**: 
+         - Increment the count of `sub` in `wordsFound`.
+         - Compare the count in `wordsFound` with `wordCount`:
+           - If the count is ≤ the count in `wordCount`, increment `wordsUsed`.
+           - If it is greater, set `excessWord = true`.
+       - **Check for Valid Substring**:
+         - If `wordsUsed == k` and no excess words, add `left` to `answer`.
+
+### **3. Apply Sliding Window**
+
+- Call `slidingWindow` for each index from 0 to `wordLength`.
+- Return `answer` once finished.
