@@ -451,3 +451,50 @@ Using the right bound of our window, `right`:
 
 - Call `slidingWindow` for each index from 0 to `wordLength`.
 - Return `answer` once finished.
+
+### **Pseudocode**
+
+```pseudo
+function findSubstring(s, words):
+    n = length(s)
+    k = length(words)
+    wordLength = length(words[0])
+    substringSize = wordLength * k
+    wordCount = hashTable()
+
+    for word in words:
+        wordCount[word] += 1
+
+    result = []
+
+    for i from 0 to wordLength - 1:
+        left = i
+        right = i
+        currentCount = hashTable()
+        wordsUsed = 0
+
+        while right + wordLength <= n:
+            sub = s.substring(right, right + wordLength)
+            right += wordLength
+
+            if sub in wordCount:
+                currentCount[sub] = currentCount.getOrDefault(sub, 0) + 1
+                wordsUsed += 1
+
+                while currentCount[sub] > wordCount[sub]:
+                    leftWord = s.substring(left, left + wordLength)
+                    currentCount[leftWord] -= 1
+                    wordsUsed -= 1
+                    left += wordLength
+
+                if wordsUsed == k:
+                    result.append(left)
+
+            else:
+                currentCount.clear()
+                wordsUsed = 0
+                left = right
+
+    return result
+```
+
