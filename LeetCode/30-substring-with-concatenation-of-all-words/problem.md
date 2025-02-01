@@ -69,6 +69,7 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
 - [Sliding Window with Hash Table Counting Approach](#sliding-window-with-hash-table-counting-approach)
   - **Time Complexity**: `O(n * k * b - (k * b)^2)`
   - **Space Complexity**: `O(k)`
+- [Optimized Sliding Window Approach](#optimized-sliding-window-approach)
 
 ### Problem Overview
 
@@ -344,4 +345,12 @@ function findSubstring(s: string, words: string[]): number[] {
     \[ O(k + b) \]
   - However, because the upper bound for `b` is small (30), we can consider the space complexity to be: 
     \[ O(k) \]
+
+# Optimized Sliding Window Approach
+
+The previous sliding window implementation does involve some repeated computations for overlapping parts of the string `s`. For example, when processing substrings starting at different indices, it repeatedly computes the presence of the same words for overlapping parts. In the case of `s = "barfoobarfoo"` and `words = ["bar", "foo"]`, it would indeed recheck overlapping segments multiple times.
+
+To optimize and avoid redundant computations, we can use a sliding window technique that adjusts the window dynamically and reuses previously computed results.
+
+This optimized approach ensures that each character in `s` is processed only once, reducing redundant computations and improving overall efficiency.
 
