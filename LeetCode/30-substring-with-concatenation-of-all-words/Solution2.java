@@ -6,9 +6,9 @@ import java.util.Map;
 public class Solution2 {
 
   public List<Integer> findSubstring(String s, String[] words) {
-    List<Integer> result = new ArrayList<>();
+    List<Integer> answer = new ArrayList<>();
     if (s == null || words == null || words.length == 0) {
-      return result;
+      return answer;
     }
 
     int n = s.length();
@@ -18,42 +18,70 @@ public class Solution2 {
 
     // Early exit if the remaining string length is less than the substring size
     if (n < substringSize) {
-      return result;
+      return answer;
     }
 
-    // Step 1: Initialize the word count hash table
+    // Initialize the word count hash table
     Map<String, Integer> wordCount = new HashMap<>();
     for (String word : words) {
       wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
     }
 
-    // Step 3: Check all possible starting indices
-    for (int i = 0; i <= n - substringSize; i++) {
-      if (check(s, i, wordLength, k, wordCount)) {
-        result.add(i);
-      }
+    // Iterate over each possible starting index in the string
+    for (int i = 0; i < wordLength; i++) {
+      slidingWindow(i, n, wordLength, k, substringSize, s, wordCount, answer);
     }
 
-    return result;
+    return answer;
   }
 
-  private boolean check(String s, int start, int wordLength, int k,
-      Map<String, Integer> wordCount) {
-    // Create a copy of wordCount for the current index
-    Map<String, Integer> remaining = new HashMap<>(wordCount);
-    int wordsUsed = 0;
 
-    // Step 2: Iterate through the substring in groups of wordLength
-    for (int j = start; j < start + k * wordLength; j += wordLength) {
-      String sub = s.substring(j, j + wordLength);
-      if (remaining.containsKey(sub) && remaining.get(sub) > 0) {
-        remaining.put(sub, remaining.get(sub) - 1);
-        wordsUsed++;
+  private void slidingWindow(int left, int n, int wordLength, int k, int substringSize, String s,
+      Map<String, Integer> wordCount, List<Integer> answer) {
+
+    // HashMap to track words found in the current window
+    Map<String, Integer> wordsFound = new HashMap<>();
+    int wordsUsed = 0;
+    boolean excessWord = false;
+
+    // Slide the window over the string
+    for (int right = left; right <= n - wordLength; right += wordLength) {
+      // Extract the current word
+      String sub = s.substring(right, right + wordLength);
+
+      // If the word is not in the word count, reset the window
+      if (!wordCount.containsKey(sub)) {
+        wordsFound.clear();
+        wordsUsed = 0;
+        excessWord = false;
+        left = right + wordLength;
       } else {
-        return false;
+        // Adjust the window to fit within the substring size
+        while (right - left == substringSize || excessWord) {
+          String leftmostWord = s.substring(left, left + wordLength);
+          left += wordLength;
+          int count = wordsFound.get(leftmostWord);
+          if (count == wordCount.get(leftmostWord)) {
+            wordsUsed--;
+          }
+          wordsFound.put(leftmostWord, count - 1);
+          if (count - 1 < wordCount.get(leftmostWord)) {
+            excessWord = false;
+          }
+        }
+        // Add the current word to the words found
+        wordsFound.put(sub, wordsFound.getOrDefault(sub, 0) + 1);
+        if (wordsFound.get(sub) <= wordCount.get(sub)) {
+          wordsUsed++;
+        } else {
+          excessWord = true;
+        }
+
+        // Check if all words are used and there is no excess word
+        if (wordsUsed == k && !excessWord) {
+          answer.add(left);
+        }
       }
     }
-
-    return wordsUsed == k;
   }
 }
