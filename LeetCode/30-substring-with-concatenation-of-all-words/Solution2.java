@@ -3,8 +3,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Solution to find all starting indices of substring(s) in a given string `s` that is a
+ * concatenation of each word in given list `words` exactly once and without any intervening
+ * characters.
+ */
 public class Solution2 {
 
+  /**
+   * Finds all starting indices of substring(s) in `s` that is a concatenation of each word in
+   * `words` exactly once and without any intervening characters.
+   *
+   * @param s the string to search in.
+   * @param words the list of words to concatenate.
+   * @return a list of starting indices of concatenated substrings.
+   */
   public List<Integer> findSubstring(String s, String[] words) {
     List<Integer> answer = new ArrayList<>();
     if (s == null || words == null || words.length == 0) {
@@ -35,7 +48,18 @@ public class Solution2 {
     return answer;
   }
 
-
+  /**
+   * Uses a sliding window approach to find all valid substrings starting from a given index.
+   *
+   * @param left the starting index of the window.
+   * @param n the length of the string `s`.
+   * @param wordLength the length of each word.
+   * @param k the number of words.
+   * @param substringSize the size of the concatenated substring.
+   * @param s the string to search in.
+   * @param wordCount a map with the count of each word in `words`.
+   * @param answer a list to store starting indices of valid substrings.
+   */
   private void slidingWindow(int left, int n, int wordLength, int k, int substringSize, String s,
       Map<String, Integer> wordCount, List<Integer> answer) {
 
