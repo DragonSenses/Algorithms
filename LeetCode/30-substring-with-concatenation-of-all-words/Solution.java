@@ -28,6 +28,11 @@ public class Solution {
     int wordLength = words[0].length();
     int substringSize = wordLength * k;
 
+    // Early exit if the remaining string length is less than the substring size
+    if (n < substringSize) {
+      return result;
+    }
+
     // Step 1: Initialize the word count hash table
     Map<String, Integer> wordCount = new HashMap<>();
     for (String word : words) {
