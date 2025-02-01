@@ -374,3 +374,33 @@ words = ["a", "a", ..., "a", "a"] (length = 5,000)
 
 Iterating over the same characters millions of times becomes inefficient. By using a sliding window, we can efficiently identify all valid substrings in one pass.
 
+### Sliding Window Mechanics
+
+1. **Window Bounds**:
+    - **Left Bound (`left`)**: Start at index 0.
+    - **Right Bound (`right`)**: Moves by `wordLength` at each iteration.
+
+2. **Window Size**:
+    - When the window size reaches `substringSize` (i.e., the total length of concatenated words), we check for valid substrings.
+
+### Iteration Process
+
+1. **Initialization**:
+    - Use a hash map (`wordCount`) to store the frequency of words from the list `words`.
+
+2. **Sliding Window**:
+    - Iterate `right` through `s` by `wordLength` increments. At each step:
+      - Extract the word `sub = s.substring(right, right + wordLength)`.
+      - If `sub` is not in `words`, reset the window and start over with the next iteration.
+      - If `sub` is in `words`, track it using a hash map (`currentCount`) for the current window.
+
+3. **Validation**:
+    - When the window size reaches `substringSize`, check if it forms a valid substring:
+      - Use `wordsUsed` to verify if all elements of `words` are used.
+      - If valid, add `left` to the result list.
+
+4. **Excess Words**:
+    - If the count of `sub` in `currentCount` exceeds its count in `wordCount`, adjust the `left` bound to remove excess words until the window is valid.
+
+5. **Avoid Redundant Starts**:
+    - Instead of starting from every index, only start from indices that are `wordLength` apart. For example, with `words = ["foo", "bar"]`, starting from index 3 is redundant since it’s covered by index 0. However, we still need to start from indices 1 and 2 to handle cases like `s = "xfoobar"` or `s = "xyfoobar"`.
