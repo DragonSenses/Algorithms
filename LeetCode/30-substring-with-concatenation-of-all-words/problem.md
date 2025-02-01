@@ -354,3 +354,23 @@ To optimize and avoid redundant computations, we can use a sliding window techni
 
 This optimized approach ensures that each character in `s` is processed only once, reducing redundant computations and improving overall efficiency.
 
+## **Intuition**
+
+In the previous approach, we iterated over each character in the string `s` multiple times, which led to repeated computations. For instance, consider:
+
+```plaintext
+s = "barfoobarfoo"
+words = ["bar", "foo"]
+```
+
+Valid substrings start at indices 0, 3, and 6. Notice that substrings starting at indices 0 and 3 both include the same "foo". By iterating over the same characters more than once, we unnecessarily increase computational overhead. 
+
+To avoid this, let's consider a sliding window approach that processes characters in `s` only once. Imagine you have:
+
+```plaintext
+s = "aaaa...aaa" (length = 10,000)
+words = ["a", "a", ..., "a", "a"] (length = 5,000)
+```
+
+Iterating over the same characters millions of times becomes inefficient. By using a sliding window, we can efficiently identify all valid substrings in one pass.
+
