@@ -1,81 +1,56 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-/**
- * Solution class for finding starting indices of substrings that are concatenations of all words in
- * the given array.
- */
-public class Solution {
+class Solution {
+  // map to store count of each word in words array
+  private HashMap<String, Integer> wordCount = new HashMap<>();
+  private int wordLength;
+  private int substringSize;
+  private int k;
 
-  /**
-   * Finds the starting indices of all substrings in the string 's' that are concatenations of all
-   * words in the given array 'words'.
-   *
-   * @param s The input string.
-   * @param words The array of words.
-   * @return A list of starting indices of all concatenated substrings in 's'.
-   */
-  public List<Integer> findSubstring(String s, String[] words) {
-    List<Integer> result = new ArrayList<>();
-    if (s == null || words == null || words.length == 0) {
-      return result;
-    }
-
-    int n = s.length();
-    int k = words.length;
-    int wordLength = words[0].length();
-    int substringSize = wordLength * k;
-
-    // Early exit if the remaining string length is less than the substring size
-    if (n < substringSize) {
-      return result;
-    }
-
-    // Step 1: Initialize the word count hash table
-    Map<String, Integer> wordCount = new HashMap<>();
-    for (String word : words) {
-      wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
-    }
-
-    // Step 3: Check all possible starting indices
-    for (int i = 0; i <= n - substringSize; i++) {
-      if (check(s, i, wordLength, k, wordCount)) {
-        result.add(i);
-      }
-    }
-
-    return result;
-  }
-
-  /**
-   * Checks if a valid concatenated substring starts at the given index.
-   *
-   * @param s The input string.
-   * @param start The starting index to check.
-   * @param wordLength The length of each word.
-   * @param k The number of words.
-   * @param wordCount The hash table of word counts.
-   * @return True if a valid substring starts at the given index, false otherwise.
-   */
-  private boolean check(String s, int start, int wordLength, int k,
-      Map<String, Integer> wordCount) {
-    // Create a copy of wordCount for the current index
-    Map<String, Integer> remaining = new HashMap<>(wordCount);
+  private boolean check(int i, String s) {
+    // copy word count for index i
+    HashMap<String, Integer> remaining = new HashMap<>(wordCount);
     int wordsUsed = 0;
 
-    // Step 2: Iterate through the substring in groups of wordLength
-    for (int j = start; j < start + k * wordLength; j += wordLength) {
+    // Each iteration will check for a match in words
+    for (int j = i; j < i + substringSize; j += wordLength) {
       String sub = s.substring(j, j + wordLength);
-      if (remaining.containsKey(sub) && remaining.get(sub) > 0) {
+      if (remaining.getOrDefault(sub, 0) != 0) {
         remaining.put(sub, remaining.get(sub) - 1);
         wordsUsed++;
       } else {
-        return false;
+        break;
       }
     }
 
     return wordsUsed == k;
+  }
+
+  public List<Integer> findSubstring(String s, String[] words) {
+    List<Integer> indices = new ArrayList<>();
+    if (words.length == 0 || words[0].length() == 0 || s.length() == 0) {
+      return indices;
+    }
+
+    // Initialize wordCount, wordLength, substringSize, and k
+    wordCount = new HashMap<>();
+    wordLength = words[0].length();
+    k = words.length;
+    substringSize = wordLength * k;
+
+    for (String word : words) {
+      wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+    }
+
+    // Iterate over each possible starting point in the string `s`
+    for (int i = 0; i < s.length() - substringSize + 1; i++) {
+      if (check(i, s)) {
+        indices.add(i);
+      }
+    }
+
+    return indices;
   }
 }
