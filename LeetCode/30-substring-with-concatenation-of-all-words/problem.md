@@ -326,11 +326,22 @@ function findSubstring(s: string, words: string[]): number[] {
 }
 ```
 
-### Explanation:
-1. **Initialization**: Variables are initialized to keep track of the length of the string, the length of the words array, and other necessary values.
-2. **Word Count**: A hash table (`wordCount`) is created to count the frequency of each word in the `words` array.
-3. **Sliding Window**: Iterate over possible starting indices and use an auxiliary function (`check`) to verify if a valid substring starts at each index.
-4. **Auxiliary Function**: This function checks if the substring starting from a given index contains all words with the required frequency.
+### Explanation
+1. **Initialization**:
+   - Create an array `indices` to store the starting indices of valid substrings.
+   - Check for edge cases where `words` is empty, `words[0]` is empty, or `s` is empty.
+
+2. **Counting Words**:
+   - Create a hash table `wordCount` to track the frequency of each word in `words`.
+
+3. **Check Function**:
+   - Define the `check` function to verify if a valid substring starts at a given index `i`.
+   - Use a copy of `wordCount` to keep track of remaining words needed for the current substring.
+   - Iterate through the substring and update the remaining word counts.
+
+4. **Finding Substrings**:
+   - Iterate over all possible starting indices in `s`.
+   - For each starting index, call the `check` function and collect indices that pass the check.
 
 ## **Complexity Analysis**
 
