@@ -689,3 +689,14 @@ function slidingWindow(
   }
 }
 ```
+
+#### Explanation
+
+1. **Initialization**: Check for edge cases where the input string or words array might be empty and initialize essential variables (`wordLength`, `k`, `wordCount`).
+2. **Multiple Sliding Windows**: Start multiple sliding windows from indices within the first `wordLength` characters to ensure we check all possible concatenated substrings.
+3. **Adjustable Window**: Dynamically adjust the window by moving the `left` and `right` pointers, maintaining a window of words of the correct length.
+4. **Reuse Computations**: Maintain the count of words in the current window (`currentCount`) to reuse previously computed results and avoid redundant calculations.
+5. **Early Termination**: Clear `currentCount` and reset `wordsUsed` whenever encountering a word not in the provided `words` array to avoid unnecessary checks.
+6. **Add Valid Indices**: Whenever a valid concatenated substring is found (when `wordsUsed` equals `k`), add the starting index of that substring to the `indices` list.
+
+These steps ensure an efficient search for all starting indices of concatenated substrings formed by the `words` array in the given string `s`.
