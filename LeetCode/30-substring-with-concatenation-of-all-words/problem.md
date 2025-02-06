@@ -632,58 +632,60 @@ class Solution2 {
 
 ```typescript
 function findSubstring(s: string, words: string[]): number[] {
-  const result: number[] = [];
-  if (!s || words.length === 0) {
-    return result;
+  const indices: number[] = [];
+  if (words.length === 0 || words[0].length === 0 || s.length === 0) {
+    return indices;
   }
 
-  const n = s.length;
-  const k = words.length;
   const wordLength = words[0].length;
+  const k = words.length;
+  const wordCount: Map<string, number> = new Map();
 
-  // Build a map to count occurrences of each word in words array
-  const wordCount: { [key: string]: number } = {};
   for (const word of words) {
-    wordCount[word] = (wordCount[word] || 0) + 1;
+    wordCount.set(word, (wordCount.get(word) || 0) + 1);
   }
 
-  // Iterate over each possible starting index in the string
   for (let i = 0; i < wordLength; i++) {
-    let left = i;
-    let right = i;
-    let currentCount: { [key: string]: number } = {};
-    let wordsUsed = 0;
+    slidingWindow(i, s, wordCount, indices, wordLength, k);
+  }
 
-    // Slide the window over the string
-    while (right + wordLength <= n) {
-      const sub = s.substring(right, right + wordLength); // Extract the current word
-      right += wordLength;
+  return indices;
+}
 
-      if (sub in wordCount) {
-        currentCount[sub] = (currentCount[sub] || 0) + 1;
-        wordsUsed++;
+function slidingWindow(
+  start: number,
+  s: string,
+  wordCount: Map<string, number>,
+  indices: number[],
+  wordLength: number,
+  k: number
+): void {
+  const currentCount: Map<string, number> = new Map();
+  let wordsUsed = 0;
+  let left = start;
 
-        // Adjust the window to fit within the allowed counts
-        while (currentCount[sub] > wordCount[sub]) {
-          const leftWord = s.substring(left, left + wordLength);
-          currentCount[leftWord]--;
-          wordsUsed--;
-          left += wordLength;
-        }
+  for (let right = start; right + wordLength <= s.length; right += wordLength) {
+    const sub = s.substring(right, right + wordLength);
 
-        // If all words are used exactly once, record the starting index
-        if (wordsUsed === k) {
-          result.push(left);
-        }
-      } else {
-        // Reset the window if the current word is not part of the word count
-        currentCount = {};
-        wordsUsed = 0;
-        left = right;
+    if (wordCount.has(sub)) {
+      currentCount.set(sub, (currentCount.get(sub) || 0) + 1);
+      wordsUsed++;
+
+      while ((currentCount.get(sub) || 0) > (wordCount.get(sub) || 0)) {
+        const leftWord = s.substring(left, left + wordLength);
+        currentCount.set(leftWord, (currentCount.get(leftWord) || 0) - 1);
+        wordsUsed--;
+        left += wordLength;
       }
+
+      if (wordsUsed === k) {
+        indices.push(left);
+      }
+    } else {
+      currentCount.clear();
+      wordsUsed = 0;
+      left = right + wordLength;
     }
   }
-
-  return result;
 }
 ```
