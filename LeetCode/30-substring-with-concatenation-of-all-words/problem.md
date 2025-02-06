@@ -542,13 +542,13 @@ function findSubstring(s, words):
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Solution class to find starting indices of all concatenated substrings in a given string.
  */
 class Solution2 {
   private int wordLength;
-  private int substringSize;
   private int k;
 
   /**
@@ -564,13 +564,12 @@ class Solution2 {
       return indices;
     }
 
-    // Initialize wordLength, substringSize, and k
+    // Initialize wordLength and k
     wordLength = words[0].length();
     k = words.length;
-    substringSize = wordLength * k;
 
-    // Populate the wordCount hashmap with the frequency of each word
-    HashMap<String, Integer> wordCount = new HashMap<>();
+    // Populate the wordCount map with the frequency of each word
+    Map<String, Integer> wordCount = new HashMap<>();
     for (String word : words) {
       wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
     }
@@ -588,12 +587,12 @@ class Solution2 {
    *
    * @param start the starting index for the sliding window
    * @param s the given string
-   * @param wordCount the hashmap containing word frequencies
+   * @param wordCount the map containing word frequencies
    * @param indices the list of starting indices of concatenated substrings
    */
-  private void slidingWindow(int start, String s, HashMap<String, Integer> wordCount,
+  private void slidingWindow(int start, String s, Map<String, Integer> wordCount,
       List<Integer> indices) {
-    HashMap<String, Integer> currentCount = new HashMap<>();
+    Map<String, Integer> currentCount = new HashMap<>();
     int wordsUsed = 0;
     int left = start;
 
