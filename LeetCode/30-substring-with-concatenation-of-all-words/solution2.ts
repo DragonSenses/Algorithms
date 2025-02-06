@@ -1,55 +1,81 @@
+/**
+ * Finds all starting indices of concatenated substrings in the given string.
+ *
+ * @param s - The input string to search in.
+ * @param words - The array of words to form concatenated substrings.
+ * @returns An array of starting indices of the concatenated substrings.
+ */
 function findSubstring(s: string, words: string[]): number[] {
-  const result: number[] = [];
-  if (!s || words.length === 0) {
-    return result;
+  const indices: number[] = [];
+  if (words.length === 0 || words[0].length === 0 || s.length === 0) {
+    return indices;
   }
 
-  const n = s.length;
-  const k = words.length;
-  const wordLength = words[0].length;
+  const wordLength = words[0].length; // Length of each word
+  const k = words.length; // Total number of words
+  const wordCount: Map<string, number> = new Map();
 
-  // Build a map to count occurrences of each word in words array
-  const wordCount: { [key: string]: number } = {};
+  // Populate the wordCount map with the frequency of each word
   for (const word of words) {
-    wordCount[word] = (wordCount[word] || 0) + 1;
+    wordCount.set(word, (wordCount.get(word) || 0) + 1);
   }
 
-  // Iterate over each possible starting index in the string
+  // Iterate over each possible starting point in the string `s`
   for (let i = 0; i < wordLength; i++) {
-    let left = i;
-    let right = i;
-    let currentCount: { [key: string]: number } = {};
-    let wordsUsed = 0;
+    slidingWindow(i, s, wordCount, indices, wordLength, k);
+  }
 
-    // Slide the window over the string
-    while (right + wordLength <= n) {
-      const sub = s.substring(right, right + wordLength); // Extract the current word
-      right += wordLength;
+  return indices;
+}
 
-      if (sub in wordCount) {
-        currentCount[sub] = (currentCount[sub] || 0) + 1;
-        wordsUsed++;
+/**
+ * Applies a sliding window approach to find valid starting indices.
+ *
+ * @param start - The starting index for the sliding window.
+ * @param s - The input string to search in.
+ * @param wordCount - The map containing word frequencies.
+ * @param indices - The list of starting indices of concatenated substrings.
+ * @param wordLength - The length of each word.
+ * @param k - The total number of words.
+ */
+function slidingWindow(
+  start: number,
+  s: string,
+  wordCount: Map<string, number>,
+  indices: number[],
+  wordLength: number,
+  k: number
+): void {
+  const currentCount: Map<string, number> = new Map();
+  let wordsUsed = 0; // Count of words used in the current window
+  let left = start; // Left pointer for the sliding window
 
-        // Adjust the window to fit within the allowed counts
-        while (currentCount[sub] > wordCount[sub]) {
-          const leftWord = s.substring(left, left + wordLength);
-          currentCount[leftWord]--;
-          wordsUsed--;
-          left += wordLength;
-        }
+  // Iterate over the string `s` in steps of wordLength
+  for (let right = start; right + wordLength <= s.length; right += wordLength) {
+    const sub = s.substring(right, right + wordLength);
 
-        // If all words are used exactly once, record the starting index
-        if (wordsUsed === k) {
-          result.push(left);
-        }
-      } else {
-        // Reset the window if the current word is not part of the word count
-        currentCount = {};
-        wordsUsed = 0;
-        left = right;
+    // If the word is part of the words array
+    if (wordCount.has(sub)) {
+      currentCount.set(sub, (currentCount.get(sub) || 0) + 1);
+      wordsUsed++;
+
+      // If there are more occurrences of "sub" than needed, slide the window to the right
+      while ((currentCount.get(sub) || 0) > (wordCount.get(sub) || 0)) {
+        const leftWord = s.substring(left, left + wordLength);
+        currentCount.set(leftWord, (currentCount.get(leftWord) || 0) - 1);
+        wordsUsed--;
+        left += wordLength;
       }
+
+      // If all words are used, record the starting index
+      if (wordsUsed === k) {
+        indices.push(left);
+      }
+    } else {
+      // Reset the window if the word is not part of the words array
+      currentCount.clear();
+      wordsUsed = 0;
+      left = right + wordLength;
     }
   }
-
-  return result;
 }

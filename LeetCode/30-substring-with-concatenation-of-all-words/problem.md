@@ -714,6 +714,12 @@ function slidingWindow(
 }
 ```
 
+perf(#30): Dynamic adjustment in sliding window
+
+Optimized sliding window to reduce redundant computations for overlapping substrings. This approach ensures each character in `s` is processed only once, improving efficiency. 
+
+No longer exceeds time limit.
+
 #### Explanation
 
 1. **Initialization**: Check for edge cases where the input string or words array might be empty and initialize essential variables (`wordLength`, `k`, `wordCount`).
