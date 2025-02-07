@@ -84,7 +84,6 @@ To build a solid intuition for spiral traversal, let's delve deeper into the pro
 4. **Termination Condition**:
    - The process continues until all elements are traversed, which is typically when the current layer's boundaries meet or overlap.
 
-
 ### Diagram of Spiral Traversal by Layer
 
 ![Visualization of spiral traversal in a 5x5 matrix, layer-by-layer](img/59-2.jpg)
@@ -95,3 +94,31 @@ To build a solid intuition for spiral traversal, let's delve deeper into the pro
 2. After completing one full layer, move inward to the next layer and repeat the traversal steps.
 3. Continue the process until all elements are filled in a spiral manner.
 
+### Example
+
+Let's break down the example `n = 3` to illustrate the process:
+
+**Matrix Layout**:
+```
+Layer 1: [1, 2, 3]
+         [8,    , 4]
+         [7, 6, 5]
+Layer 2: [ 9 ]
+```
+
+**Steps**:
+1. **Start at the top-left corner of Layer 1**:
+   - Move right: `[1, 2, 3]`
+   - Move down: `[4]`
+   - Move left: `[5, 6, 7]`
+   - Move up: `[8]`
+
+2. **Move to Layer 2** (inner layer):
+   - Move right: `[9]`
+
+Resulting Matrix:
+```
+[[1, 2, 3],
+ [8, 9, 4],
+ [7, 6, 5]]
+```
