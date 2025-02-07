@@ -70,6 +70,7 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
   - **Time Complexity**: `O(n * k * b - (k * b)^2)`
   - **Space Complexity**: `O(k)`
 - [Optimized Sliding Window Approach](#optimized-sliding-window-approach)
+  - **Time Complexity**: `O(n * k)`
   - **Space Complexity**: `O(k)`
 
 ### Problem Overview
@@ -732,10 +733,25 @@ No longer exceeds time limit.
 
 These steps ensure an efficient search for all starting indices of concatenated substrings formed by the `words` array in the given string `s`.
 
+## **Complexity Analysis**
+
 #### Assumptions
 1. Let `n` be the length of the input string `s`.
 2. Let `k` be the number of words in the list `words`.
 3. Let `m` be the length of each word in the list `words`.
+
+### **Time Complexity**: `O(n * k)`
+
+1. **Initialization**:
+    - **Hash Table Construction**: Populating `wordCount` with the frequency of words in `words` takes `O(k)`, assuming `m` is a constant.
+
+2. **Sliding Window Processing**:
+    - The outer loop iterates `m` times (since there are `m` starting points, one for each possible offset).
+    - For each offset, the inner loop processes the string `s` by moving the `right` pointer in steps of `m`, taking `O(n / m)` iterations.
+    - Within each iteration, substring extraction and hash table updates are performed in `O(m)`, but since `m` is a constant, this simplifies to `O(1)`.
+    - Additionally, adjusting the `left` pointer when there is an excess word involves removing elements from the hash table, which also takes `O(1)` operations.
+
+Combining these factors, the total time complexity is `O(m * (n / m))`, which simplifies to `O(n * k)`.
 
 ### **Space Complexity**: `O(k)`
 
