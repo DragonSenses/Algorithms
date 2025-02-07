@@ -63,6 +63,24 @@ For `n = 1`, the matrix is simply:
 
 # Spiral Traversal
 
-The key idea is to recognize the repeating pattern of moving in a circular or spiral manner from the outermost layer towards the innermost layer.
+## **Intuition**
 
-Imagine the matrix is composed of layers or concentric rectangles. The outermost elements form the first layer, the next set of elements forms the second layer, and so on. Each layer can be traversed in four distinct steps: right, down, left, and up.
+To build a solid intuition for spiral traversal, let's delve deeper into the process. The key idea is to recognize the repeating pattern of moving in a circular or spiral manner from the outermost layer towards the innermost layer. Here's a step-by-step guide to understanding the pattern:
+
+1. **Understanding Layers**:
+   - Imagine the matrix is composed of layers or concentric rectangles. The outermost elements form the first layer, the next set of elements forms the second layer, and so on.
+   - Each layer can be traversed in four distinct steps: right, down, left, and up.
+
+2. **Traversal Steps**:
+   - **Right**: Start from the top-left corner of the current layer and move right until you reach the end of the layer.
+   - **Down**: Move down the last column of the current layer.
+   - **Left**: Move left along the bottom row of the current layer.
+   - **Up**: Move up the first column of the current layer.
+
+3. **Transitioning to the Next Layer**:
+   - After completing one full circular traversal (one layer), move inward to the next layer and repeat the process.
+   - The boundaries of each layer shrink after each traversal.
+
+4. **Termination Condition**:
+   - The process continues until all elements are traversed, which is typically when the current layer's boundaries meet or overlap.
+
