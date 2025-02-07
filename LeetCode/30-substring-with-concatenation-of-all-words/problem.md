@@ -70,6 +70,7 @@ The substring starting at 12 is <code>"thefoobar"</code>. It is the concatenatio
   - **Time Complexity**: `O(n * k * b - (k * b)^2)`
   - **Space Complexity**: `O(k)`
 - [Optimized Sliding Window Approach](#optimized-sliding-window-approach)
+  - **Space Complexity**: `O(k)`
 
 ### Problem Overview
 
@@ -730,3 +731,21 @@ No longer exceeds time limit.
 6. **Add Valid Indices**: Whenever a valid concatenated substring is found (when `wordsUsed` equals `k`), add the starting index of that substring to the `indices` list.
 
 These steps ensure an efficient search for all starting indices of concatenated substrings formed by the `words` array in the given string `s`.
+
+#### Assumptions
+1. Let `n` be the length of the input string `s`.
+2. Let `k` be the number of words in the list `words`.
+3. Let `m` be the length of each word in the list `words`.
+
+### **Space Complexity**: `O(k)`
+
+1. **Word Count Hash Table**:
+    - Stores `k` words with their respective counts, taking `O(k)` space.
+
+2. **Sliding Window Hash Table**:
+    - Stores the counts of words within the current window, also taking `O(k)` space.
+
+3. **Result Storage**:
+    - The result array may store up to `O(n)` starting indices in the worst case.
+
+Combining these, the overall space complexity is `O(n + k)`, but since `n` can be much larger than `k`, it simplifies to `O(n)`.
