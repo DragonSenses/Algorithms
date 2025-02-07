@@ -26,6 +26,10 @@
 
 ---
 
+# Solution
+
+- [Spiral Traversal Approach](#spiral-traversal)
+
 ## Problem Overview: Spiral Matrix II
 
 **Task**: Given a positive integer `n`, generate an `n x n` matrix filled with elements from `1` to `n^2` in spiral order.
@@ -56,3 +60,9 @@ For `n = 1`, the matrix is simply:
 ```
 1
 ```
+
+# Spiral Traversal
+
+The key idea is to recognize the repeating pattern of moving in a circular or spiral manner from the outermost layer towards the innermost layer.
+
+Imagine the matrix is composed of layers or concentric rectangles. The outermost elements form the first layer, the next set of elements forms the second layer, and so on. Each layer can be traversed in four distinct steps: right, down, left, and up.
