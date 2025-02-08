@@ -29,6 +29,7 @@
 # Solution
 
 - [Spiral Traversal Approach](#spiral-traversal)
+  - **Space Complexity**: `O(1)`
 
 ## Problem Overview: Spiral Matrix II
 
@@ -296,3 +297,12 @@ function generateMatrix(n: number): number[][] {
   return matrix;
 }
 ```
+
+### **Assumptions**
+- The matrix is an `n x n` square matrix.
+- We are filling the matrix in a spiral order from 1 to `n^2`.
+
+### **Space Complexity**: `O(1)`
+- **Extra Space Usage**: The space complexity is `O(1)` because the extra space used by the algorithm is constant.
+- **Matrix Exclusion**: The matrix itself is considered the input and output, so it does not count as extra space.
+- **Variable Storage**: Additional variables such as `top`, `bottom`, `left`, `right`, and `num` take up a constant amount of space regardless of the size of the matrix.
