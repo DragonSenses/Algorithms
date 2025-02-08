@@ -178,3 +178,38 @@ To perform a spiral traversal and generate the matrix, follow these steps:
 |       |
 7 <- 6 <- 5
 ```
+
+### **Pseudocode**
+
+```pseudocode
+function generateSpiralMatrix(n):
+    create a matrix of size n x n filled with 0
+    initialize variables: top = 0, bottom = n - 1, left = 0, right = n - 1, num = 1
+
+    while num <= n * n:
+        // Traverse from left to right
+        for col from left to right:
+            matrix[top][col] = num
+            num += 1
+        top += 1
+
+        // Traverse from top to bottom
+        for row from top to bottom:
+            matrix[row][right] = num
+            num += 1
+        right -= 1
+
+        // Traverse from right to left
+        for col from right to left:
+            matrix[bottom][col] = num
+            num += 1
+        bottom -= 1
+
+        // Traverse from bottom to top
+        for row from bottom to top:
+            matrix[row][left] = num
+            num += 1
+        left += 1
+
+    return matrix
+```
