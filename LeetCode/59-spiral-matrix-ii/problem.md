@@ -29,6 +29,7 @@
 # Solution
 
 - [Spiral Traversal Approach](#spiral-traversal)
+  - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
 
 ## Problem Overview: Spiral Matrix II
@@ -298,9 +299,15 @@ function generateMatrix(n: number): number[][] {
 }
 ```
 
+## **Complexity Analysis**
+
 ### **Assumptions**
 - The matrix is an `n x n` square matrix.
 - We are filling the matrix in a spiral order from 1 to `n^2`.
+
+### **Time Complexity**: `O(n^2)`
+- **Traversal Count**: The time complexity is `O(n^2)` because we need to fill `n^2` elements in the matrix.
+- **Element Operations**: Each element is written exactly once, and the traversal of the matrix involves a constant number of operations per element.
 
 ### **Space Complexity**: `O(1)`
 - **Extra Space Usage**: The space complexity is `O(1)` because the extra space used by the algorithm is constant.
