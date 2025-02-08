@@ -317,6 +317,15 @@ function generateMatrix(n: number): number[][] {
 
 # Optimized Spiral Traversal
 
-By using a direction array and direction d, we can make the traversal more efficient.
+## **Intuition**
 
-Our main goal is to walk in spiral form and fill array in a pattern fro 1 to n^2. In the previous approach we had define 4 directions and we also need to know when to change directions.
+Our goal is to traverse the matrix in a spiral order and fill it with elements from `1` to `n^2`. To achieve this, we need to move in four directions sequentially: right, down, left, and up. We'll use an array to pre-define the changes in row and column coordinates for each direction.
+
+### Directions
+
+1. **Right (direction 1)**: Row coordinate remains the same, column increments (`row change = 0, column change = 1`).
+2. **Down (direction 2)**: Row coordinate increments, column remains the same (`row change = 1, column change = 0`).
+3. **Left (direction 3)**: Row coordinate remains the same, column decrements (`row change = 0, column change = -1`).
+4. **Up (direction 4)**: Row coordinate decrements, column remains the same (`row change = -1, column change = 0`).
+
+We'll store these changes in an array `dir` that contains pairs of (row change, column change) for each direction.
