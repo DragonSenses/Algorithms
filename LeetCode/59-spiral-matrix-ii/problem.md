@@ -31,6 +31,7 @@
 - [Spiral Traversal Approach](#spiral-traversal)
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
+- [Optimized Spiral Traversal Approach](#optimized-spiral-traversal)
 
 ## Problem Overview: Spiral Matrix II
 
@@ -310,6 +311,12 @@ function generateMatrix(n: number): number[][] {
 - **Element Operations**: Each element is written exactly once, and the traversal of the matrix involves a constant number of operations per element.
 
 ### **Space Complexity**: `O(1)`
-- **Extra Space Usage**: The space complexity is `O(1)` because the extra space used by the algorithm is constant.
+- **Constant Space Usage**: The space complexity is `O(1)` because the extra space used by the algorithm is constant.
 - **Matrix Exclusion**: The matrix itself is considered the input and output, so it does not count as extra space.
 - **Variable Storage**: Additional variables such as `top`, `bottom`, `left`, `right`, and `num` take up a constant amount of space regardless of the size of the matrix.
+
+# Optimized Spiral Traversal
+
+By using a direction array and direction d, we can make the traversal more efficient.
+
+Our main goal is to walk in spiral form and fill array in a pattern fro 1 to n^2. In the previous approach we had define 4 directions and we also need to know when to change directions.
