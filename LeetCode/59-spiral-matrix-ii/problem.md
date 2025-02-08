@@ -19,7 +19,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 20</code></li>
+  <li><code>1 &lt;= n &lt;= 20</code></li>
 </ul>
 
 <br>
@@ -29,6 +29,8 @@
 # Solution
 
 - [Spiral Traversal Approach](#spiral-traversal)
+  - **Time Complexity**: `O()`
+  - **Space Complexity**: `O()`
 
 ## Problem Overview: Spiral Matrix II
 
@@ -63,9 +65,15 @@ For `n = 1`, the matrix is simply:
 
 # Spiral Traversal
 
+To construct a pattern for a given `n`, we notice that the sequence follows a recurring pattern after each complete circular pass around the matrix. Let's refer to each of these circular passes as a "layer." We begin the traversal from the outermost layer and progressively move towards the inner layers with each iteration.
+
+### Diagram of Spiral Traversal by Layer
+
+![Visualization of spiral traversal in a 5x5 matrix, layer-by-layer](img/59-2.jpg)
+
 ## **Intuition**
 
-To build a solid intuition for spiral traversal, let's delve deeper into the process. The key idea is to recognize the repeating pattern of moving in a circular or spiral manner from the outermost layer towards the innermost layer. Here's a step-by-step guide to understanding the pattern:
+The key idea is to recognize the repeating pattern of moving in a circular or spiral manner from the outermost layer towards the innermost layer. Here's a step-by-step guide to understanding the pattern:
 
 1. **Understanding Layers**:
    - Imagine the matrix is composed of layers or concentric rectangles. The outermost elements form the first layer, the next set of elements forms the second layer, and so on.
@@ -83,10 +91,6 @@ To build a solid intuition for spiral traversal, let's delve deeper into the pro
 
 4. **Termination Condition**:
    - The process continues until all elements are traversed, which is typically when the current layer's boundaries meet or overlap.
-
-### Diagram of Spiral Traversal by Layer
-
-![Visualization of spiral traversal in a 5x5 matrix, layer-by-layer](img/59-2.jpg)
 
 ### Summary of the Process
 
