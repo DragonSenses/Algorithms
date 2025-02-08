@@ -29,8 +29,6 @@
 # Solution
 
 - [Spiral Traversal Approach](#spiral-traversal)
-  - **Time Complexity**: `O()`
-  - **Space Complexity**: `O()`
 
 ## Problem Overview: Spiral Matrix II
 
@@ -144,3 +142,24 @@ To perform a spiral traversal and generate the matrix, follow these steps:
 2. **Traverse Each Layer**:
    - For each layer, traverse in four directions: right, down, left, and up.
    - In each direction, either the row or column remains constant while the other parameter changes (increments or decrements).
+
+![Visualization of each of the four traversal directions in a 5x5 matrix](img/59-3.jpg)
+
+### Traversal Directions:
+
+1. **Direction 1: From Top Left to Top Right**:
+   - **Row** remains constant as `layer`
+   - **Column** increments from `layer` to `n - layer - 1`
+
+2. **Direction 2: From Top Right to Bottom Right**:
+   - **Column** remains constant as `n - layer - 1`
+   - **Row** increments from `layer + 1` to `n - layer`
+
+3. **Direction 3: From Bottom Right to Bottom Left**:
+   - **Row** remains constant as `n - layer - 1`
+   - **Column** decrements from `n - layer - 2` to `layer`
+
+4. **Direction 4: From Bottom Left to Top Left**:
+   - **Column** remains constant as `layer`
+   - **Row** decrements from `n - layer - 2` to `layer + 1`
+
