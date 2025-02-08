@@ -163,3 +163,18 @@ To perform a spiral traversal and generate the matrix, follow these steps:
    - **Column** remains constant as `layer`
    - **Row** decrements from `n - layer - 2` to `layer + 1`
 
+### Repeat Process:
+- Repeat the above traversal directions for \((n + 1) / 2\) times until all layers are traversed and the matrix is filled.
+
+#### Diagram of matrix by each layer coordinate
+
+![Visualization of a 5x5 matrix diagram marks coordinates from (layer, layer) to (n-layer, n-layer-1), illustrating the traversal from top-left to bottom-right.](img/59-3.jpg)
+
+### Example for `n = 3`:
+```
+1 -> 2 -> 3
+         |
+8 <- 9   4
+|       |
+7 <- 6 <- 5
+```
