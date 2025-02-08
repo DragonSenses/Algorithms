@@ -1,9 +1,20 @@
+/**
+ * Class to generate a matrix with spiral traversal.
+ */
 class Solution {
+
+  /**
+   * Generates a matrix filled with numbers from 1 to n^2 in a spiral order.
+   * 
+   * @param n the size of the matrix (n x n)
+   * @return the generated spiral matrix
+   */
   public int[][] generateMatrix(int n) {
     int[][] matrix = new int[n][n];
-    int num = 1;
-    int top = 0, bottom = n - 1, left = 0, right = n - 1;
+    int num = 1; // Starting number to fill the matrix
+    int top = 0, bottom = n - 1, left = 0, right = n - 1; // Boundaries of the current layer
 
+    // Fill the matrix layer by layer
     while (num <= n * n) {
       // Traverse from left to right
       for (int col = left; col <= right; col++) {
