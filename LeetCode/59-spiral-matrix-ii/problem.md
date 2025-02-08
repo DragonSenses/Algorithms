@@ -329,3 +329,23 @@ Our goal is to traverse the matrix in a spiral order and fill it with elements f
 4. **Up (direction 4)**: Row coordinate decrements, column remains the same (`row change = -1, column change = 0`).
 
 We'll store these changes in an array `dir` that contains pairs of (row change, column change) for each direction.
+
+### Traversal Logic
+
+- **Initialization**: 
+  - Create a matrix of size `n x n` filled with zeros.
+  - Set the initial position at the top-left corner (row = 0, col = 0).
+  - Initialize the current direction index `d` to 0 (indicating "right").
+  - Use a variable `num` to fill the matrix, starting from 1 up to `n^2`.
+
+- **Traversal**:
+  - Continue filling the matrix while `num` is less than or equal to `n^2`.
+  - For each step:
+    - Assign `num` to the current position.
+    - Calculate the next position based on the current direction.
+    - If the next position is out of bounds or already filled, change the direction using `(d + 1) % 4`.
+    - Update the row and column coordinates to the next position.
+
+### Special Handling
+
+Use `Math.floorMod()` instead of the regular modulo operator `%` to handle negative indices gracefully.
