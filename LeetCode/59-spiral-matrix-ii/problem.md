@@ -126,3 +126,21 @@ Resulting Matrix:
  [8, 9, 4],
  [7, 6, 5]]
 ```
+
+## **Algorithm**
+
+To perform a spiral traversal and generate the matrix, follow these steps:
+
+### Step-by-Step Process:
+
+1. **Calculate Total Layers**:
+   - For any given `n`, the total number of layers is determined by \((n + 1) / 2\).
+   - This formula works for both even and odd values of `n`.
+
+   **Example**:
+   - For `n = 3`, the total layers = 2
+   - For `n = 6`, the total layers = 3
+
+2. **Traverse Each Layer**:
+   - For each layer, traverse in four directions: right, down, left, and up.
+   - In each direction, either the row or column remains constant while the other parameter changes (increments or decrements).
