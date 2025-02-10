@@ -349,3 +349,31 @@ We'll store these changes in an array `dir` that contains pairs of (row change, 
 ### Special Handling
 
 Use `Math.floorMod()` instead of the regular modulo operator `%` to handle negative indices gracefully.
+
+## **Algorithm**
+
+1. **Initialization**:
+    - Create a matrix of size `n x n` filled with zeros.
+    - Set the initial position at the top-left corner (`row = 0`, `col = 0`).
+    - Initialize the current direction index `d` to 0 (indicating "right").
+    - Use a variable `num` to fill the matrix, starting from `1` up to `n^2`.
+
+2. **Define Direction Changes**:
+    - Create an array `dir` to store the changes in row and column coordinates for each direction:
+        - `Right (direction 1)`: `dir[0] = {0, 1}`
+        - `Down (direction 2)`: `dir[1] = {1, 0}`
+        - `Left (direction 3)`: `dir[2] = {0, -1}`
+        - `Up (direction 4)`: `dir[3] = {-1, 0}`
+
+3. **Spiral Traversal**:
+    - Continue filling the matrix while `num` is less than or equal to `n^2`.
+    - For each step:
+        - Assign `num` to the current position (`matrix[row][col] = num++`).
+        - Calculate the next position based on the current direction (`nextRow = row + dir[d][0]`, `nextCol = col + dir[d][1]`).
+        - Check if the next position is out of bounds or already filled:
+            - If it is, change the direction using `(d + 1) % 4`.
+            - Calculate the next position again based on the new direction.
+        - Update the current position to the next position (`row = nextRow`, `col = nextCol`).
+
+4. **Return the Matrix**:
+    - Once the entire matrix is filled, return the matrix.
