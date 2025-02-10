@@ -481,3 +481,15 @@ function generateMatrix(n: number): number[][] {
 }
 ```
 
+#### Optimized Code Explanation:
+
+1. **Initialize the matrix**: Create an `n x n` matrix filled with zeros.
+2. **Direction Array**: Define an array `dir` that stores the changes in row and column coordinates for each direction: right, down, left, and up.
+3. **Set Starting Values**: Initialize `num` to 1, `row` to 0, `col` to 0, and the initial direction index `d` to 0 (indicating "right").
+4. **Fill the Matrix**: Continue filling the matrix while `num` is less than or equal to `n^2`.
+   - Assign `num` to the current position.
+   - Calculate the next position based on the current direction.
+   - Check if the next position is out of bounds or already filled:
+     - If it is, change the direction using `(d + 1) % 4`.
+     - Calculate the next position again based on the new direction.
+   - Update the current position to the next position.
