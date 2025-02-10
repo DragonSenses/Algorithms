@@ -32,6 +32,7 @@
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
 - [Optimized Spiral Traversal Approach](#optimized-spiral-traversal)
+  - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
 
 ## Problem Overview: Spiral Matrix II
@@ -495,6 +496,11 @@ function generateMatrix(n: number): number[][] {
      - Calculate the next position again based on the new direction.
    - Update the current position to the next position.
 
+## **Complexity Analysis**
+
+### **Time Complexity**: `O(n^2)`
+- **Traversal Count**: The time complexity is `O(n^2)` because we need to fill `n^2` elements in the matrix.
+- **Element Operations**: Each element is written exactly once, and the traversal of the matrix involves a constant number of operations per element.
 
 ### **Space Complexity**: `O(1)`
 - **Constant Space Usage**: The space complexity is `O(1)` because the extra space used by the algorithm is constant.
