@@ -1,38 +1,24 @@
 class Solution2 {
-
-  /**
-   * Generates a matrix filled with numbers from 1 to n^2 in a spiral order.
-   */
   public int[][] generateMatrix(int n) {
     int[][] matrix = new int[n][n];
-    int num = 1; // Starting number to fill the matrix
-    int top = 0, bottom = n - 1, left = 0, right = n - 1; // Boundaries of the current layer
+    int num = 1;
+    int row = 0, col = 0;
+    int[][] dir = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} };
+    int d = 0;
 
-    // Fill the matrix layer by layer
     while (num <= n * n) {
-      // Traverse from left to right
-      for (int col = left; col <= right; col++) {
-        matrix[top][col] = num++;
-      }
-      top++; // Move the top boundary down
+      matrix[row][col] = num++;
+      int nextRow = row + dir[d][0];
+      int nextCol = col + dir[d][1];
 
-      // Traverse from top to bottom
-      for (int row = top; row <= bottom; row++) {
-        matrix[row][right] = num++;
+      if (nextRow < 0 || nextRow >= n || nextCol < 0 || nextCol >= n || matrix[nextRow][nextCol] != 0) {
+        d = (d + 1) % 4;
+        nextRow = row + dir[d][0];
+        nextCol = col + dir[d][1];
       }
-      right--; // Move the right boundary left
 
-      // Traverse from right to left
-      for (int col = right; col >= left; col--) {
-        matrix[bottom][col] = num++;
-      }
-      bottom--; // Move the bottom boundary up
-
-      // Traverse from bottom to top
-      for (int row = bottom; row >= top; row--) {
-        matrix[row][left] = num++;
-      }
-      left++; // Move the left boundary right
+      row = nextRow;
+      col = nextCol;
     }
 
     return matrix;
