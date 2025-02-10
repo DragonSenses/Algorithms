@@ -377,3 +377,36 @@ Use `Math.floorMod()` instead of the regular modulo operator `%` to handle negat
 
 4. **Return the Matrix**:
     - Once the entire matrix is filled, return the matrix.
+
+### **Pseudocode**
+
+```pseudocode
+function generateMatrix(n):
+    // Step 1: Initialization
+    matrix = create n x n matrix filled with zeros
+    num = 1
+    row = 0
+    col = 0
+    dir = [(0, 1), (1, 0), (0, -1), (-1, 0)]  // Direction changes: right, down, left, up
+    d = 0  // Current direction index
+
+    // Step 2: Spiral Traversal
+    while num <= n * n:
+        matrix[row][col] = num
+        num = num + 1
+        nextRow = row + dir[d][0]
+        nextCol = col + dir[d][1]
+
+        // Check if the next position is out of bounds or already filled
+        if nextRow < 0 or nextRow >= n or nextCol < 0 or nextCol >= n or matrix[nextRow][nextCol] != 0:
+            d = (d + 1) % 4  // Change direction
+            nextRow = row + dir[d][0]
+            nextCol = col + dir[d][1]
+
+        // Update current position
+        row = nextRow
+        col = nextCol
+
+    return matrix
+```
+
