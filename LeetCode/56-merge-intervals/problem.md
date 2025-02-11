@@ -117,3 +117,31 @@ Sorted:
     - If the current interval does overlap with the previous one, merge them by updating the end value of the previous interval.
 4. **Return** the merged intervals.
 
+### **Pseudocode**
+
+```pseudo
+function mergeIntervals(intervals):
+    if intervals.length == 0:
+        return []
+
+    // Step 1: Sort intervals based on the start value
+    sort intervals by intervals[i][0]
+
+    // Step 2: Initialize the merged list with the first interval
+    merged = [intervals[0]]
+
+    // Step 3: Iterate through the sorted intervals
+    for i = 1 to intervals.length - 1:
+        // Get the last interval in the merged list
+        lastMerged = merged[-1]
+
+        // If the current interval does not overlap with the last merged interval
+        if intervals[i][0] > lastMerged[1]:
+            // Append the current interval to the merged list
+            merged.append(intervals[i])
+        else:
+            // Merge the current interval with the last merged interval
+            lastMerged[1] = max(lastMerged[1], intervals[i][1])
+
+    return merged
+```
