@@ -145,3 +145,13 @@ function mergeIntervals(intervals):
 
     return merged
 ```
+
+## **Implementation**
+
+#### Implementation Details
+
+1. We sort the intervals based on their start values.
+2. We use a `LinkedList` to store the merged intervals.
+3. We iterate through the sorted intervals and either merge them or append them to the merged list.
+4. Finally, we convert the merged list to an array and return it.
+
