@@ -108,3 +108,12 @@ Sorted:
 \{(0, 3), (0, 1), (0, 2), (1, 9), (2, 5), (10, 11), (12, 20), (19, 20)\}
 \]
 
+## **Algorithm**
+
+1. **Sort** the intervals based on their start values.
+2. **Initialize** an empty list to hold the merged intervals.
+3. **Iterate** through the sorted intervals:
+    - If the list of merged intervals is empty, or the current interval does not overlap with the previous one, append it.
+    - If the current interval does overlap with the previous one, merge them by updating the end value of the previous interval.
+4. **Return** the merged intervals.
+
