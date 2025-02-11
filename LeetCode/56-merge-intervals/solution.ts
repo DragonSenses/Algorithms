@@ -1,3 +1,9 @@
+/**
+ * Merges overlapping intervals.
+ *
+ * @param intervals - An array of intervals where each interval is represented as [start, end].
+ * @returns A new array of merged intervals.
+ */
 function merge(intervals: number[][]): number[][] {
   if (intervals.length === 0) return [];
 
@@ -23,4 +29,4 @@ function merge(intervals: number[][]): number[][] {
   }
 
   return merged;
-};
+}
