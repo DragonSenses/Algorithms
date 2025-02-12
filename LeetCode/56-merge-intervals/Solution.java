@@ -1,7 +1,18 @@
 import java.util.Arrays;
 import java.util.LinkedList;
 
+/**
+ * This class provides a method to merge overlapping intervals.
+ */
 public class Solution {
+
+  /**
+   * Merges overlapping intervals.
+   *
+   * @param intervals an array of intervals where each interval is represented as a two-element
+   *        array [start, end]
+   * @return a two-dimensional array containing the merged intervals
+   */
   public static int[][] merge(int[][] intervals) {
     // Step 1: Sort the intervals based on the start value
     Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
