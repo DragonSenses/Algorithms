@@ -33,6 +33,7 @@
 # Solution
 
 - [Sorting Approach](#sorting-approach)
+  - **Space Complexity**: `O(log n) to O(n)`
 
 ### Problem Overview: Merge Intervals
 
@@ -256,3 +257,10 @@ function merge(intervals: number[][]): number[][] {
   return merged;
 }
 ```
+
+### **Space Complexity**: `O(log n) to O(n)`
+
+- **Logarithmic Space Usage:** If we consider the additional space used by the sorting algorithm (which can be `O(log n)` for in-place sorting algorithms like quicksort), the space complexity would be `O(log n)`.
+- **Linear Space Usage:** In the worst case, the algorithm could use `O(n)` space to store the merged intervals. This is because in the worst case, none of the intervals overlap, and the merged list will contain all the intervals.
+
+Therefore, the overall space complexity of the algorithm can range from `O(log n)` to `O(n)` depending on the sorting algorithm used and the number of merged intervals.
