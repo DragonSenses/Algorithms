@@ -33,3 +33,39 @@
 	<li><code>newInterval.length == 2</code></li>
 	<li><code>0 &lt;= start &lt;= end &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<br>
+
+---
+
+### Problem Overview: Insert Interval
+
+You are given an array of non-overlapping intervals `intervals`, where `intervals[i] = [start_i, end_i]` represents the start and end of the `i-th` interval. The intervals are sorted in ascending order by their start value. Additionally, you are given a new interval `newInterval = [start, end]` representing the start and end of another interval.
+
+Your task is to insert `newInterval` into `intervals` such that the intervals remain sorted in ascending order by their start value and there are no overlapping intervals. If necessary, merge overlapping intervals. The function should return the modified intervals.
+
+**Note**: You do not need to modify `intervals` in-place. You can create a new array and return it.
+
+**Example 1**:
+```plaintext
+Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
+```
+
+**Example 2**:
+```plaintext
+Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
+Output: [[1,2],[3,10],[12,16]]
+Explanation: The new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+```
+
+**Constraints**:
+- \(0 \leq \text{intervals.length} \leq 10^4\)
+- Each interval \(\text{intervals[i]}\) has a length of 2.
+- \[0 \leq \text{start}_i \leq \text{end}_i \leq 10^5\]
+- `intervals` is sorted in ascending order by `start_i`.
+- `newInterval` has a length of 2.
+- \(0 \leq \text{start} \leq \text{end} \leq 10^5\)
+
+### Goal
+The goal is to insert the new interval into the sorted array of intervals while maintaining the order and merging any overlapping intervals.
