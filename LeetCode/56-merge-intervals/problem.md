@@ -33,6 +33,7 @@
 # Solution
 
 - [Sorting Approach](#sorting-approach)
+  - **Time Complexity**: `O(n log n)`
   - **Space Complexity**: `O(log n) to O(n)`
 
 ### Problem Overview: Merge Intervals
@@ -257,6 +258,17 @@ function merge(intervals: number[][]): number[][] {
   return merged;
 }
 ```
+
+## **Complexity Analysis**
+
+- Let `n` be the number of intervals in the input array.
+
+### **Time Complexity**: `O(n log n)`
+
+- **Single Pass:** The algorithm iterates through the intervals once, which is `O(n)`.
+- **Sort:** Sorting the intervals based on their start value takes `O(n log n)` time.
+- **Worst-Case:** In the worst-case scenario, all intervals overlap with each other. Even then, we iterate through the intervals only once.
+- **Overall Time Complexity:** Since the sorting step dominates the overall time complexity, the algorithm's overall time complexity is `O(n log n)`.
 
 ### **Space Complexity**: `O(log n) to O(n)`
 
