@@ -83,3 +83,12 @@ The solution to this problem will be straightforward to understand if we can fin
 2. How to merge two overlapping intervals?
 3. Given a list of N intervals in ascending order of their 'start' values, how can we merge any possible overlapping intervals in the list while keeping the ascending order intact?
 
+## **Intuition**
+
+To tackle the main problem, we need to understand three key sub-problems: 
+1. Determining if two intervals overlap.
+2. Merging two overlapping intervals.
+3. Merging overlapping intervals in a list sorted by start values, while maintaining the order.
+
+Given these insights, the original problem becomes: inserting a new interval into the existing sorted list and ensuring the list remains sorted while merging any overlapping intervals. By using a linear search, we can determine the correct position for the new interval and merge intervals as needed.
+
