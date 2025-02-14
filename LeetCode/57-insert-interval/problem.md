@@ -92,3 +92,21 @@ To tackle the main problem, we need to understand three key sub-problems:
 
 Given these insights, the original problem becomes: inserting a new interval into the existing sorted list and ensuring the list remains sorted while merging any overlapping intervals. By using a linear search, we can determine the correct position for the new interval and merge intervals as needed.
 
+### **Approach**
+
+This can be done using a linear search. We can iterate over the intervals in the list, and the `newInterval` should be inserted just before the interval having a greater start value. This way, we can produce the list of intervals in ascending order of their start value and solve it using the algorithm discussed.
+
+1. **Initialization**:
+   - Create a new list to hold the result.
+   - Set a flag to indicate whether the `newInterval` has been inserted.
+
+2. **Iterate through each interval**:
+   - If the current interval ends before the `newInterval` starts, add the current interval to the result list.
+   - If the `newInterval` ends before the current interval starts and the flag is not set, add the `newInterval` to the result list, set the flag, and add the current interval.
+   - If the `newInterval` overlaps with the current interval, merge them by updating the start and end values of the `newInterval`.
+
+3. **Add any remaining intervals**:
+   - After the iteration, if the flag is not set, add the `newInterval` to the result list.
+
+4. **Return the result**:
+   - Return the result list containing the merged intervals.
