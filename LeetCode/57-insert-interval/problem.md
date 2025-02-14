@@ -154,3 +154,24 @@ The step-by-step process of inserting and merging the new interval:
    - Return the result list containing the merged intervals: `[[1, 2], [3, 10], [12, 16]]`
 
 This illustrates how the new interval `[4, 8]` is merged with the existing intervals, resulting in the final list `[[1, 2], [3, 10], [12, 16]]`.
+
+## **Algorithm**
+
+1. **Insert New Interval**:
+   - Insert the `newInterval` into the given list of intervals using linear search.
+   - Iterate over the list and find the first interval with a start value greater than the `newInterval`.
+   - Insert `newInterval` just before this interval or at the end of the list if no such interval exists.
+
+2. **Merge Overlapping Intervals**:
+   - Iterate over the intervals in the list `intervals`. For each interval `currInterval`:
+     - Iterate over the intervals ahead of it in the list (including itself). If two intervals overlap, update `currInterval` to the merged interval of these two intervals.
+     - Move on to the next interval.
+
+3. **Decrement Loop Counter**:
+   - Decrement the loop counter variable. Since it will be incremented again in the outer loop, decrementing it here ensures that the next interval is not missed.
+
+4. **Insert into Answer**:
+   - Insert the interval `currInterval` into the list `answer`.
+
+5. **Return Result**:
+   - Return the `answer` list containing the merged intervals.
