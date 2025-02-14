@@ -110,3 +110,9 @@ This can be done using a linear search. We can iterate over the intervals in the
 
 4. **Return the result**:
    - Return the result list containing the merged intervals.
+
+### Example Process
+
+Given the intervals: `[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]`
+And the new interval: `[4, 8]`
+
