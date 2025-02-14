@@ -116,3 +116,26 @@ This can be done using a linear search. We can iterate over the intervals in the
 Given the intervals: `[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]`
 And the new interval: `[4, 8]`
 
+ - Interval `[1, 2]`: 
+   - Ends before `[4, 8]` starts.
+   - Add `[1, 2]` to the result: `[[1, 2]]`
+   
+ - Interval `[3, 5]`: 
+   - Overlaps with `[4, 8]`.
+   - Merge to form `[3, 8]`.
+   - Update `newInterval` to `[3, 8]`.
+
+ - Interval `[6, 7]`: 
+   - Overlaps with `[3, 8]`.
+   - Merge to form `[3, 8]`.
+   - Update `newInterval` to `[3, 8]`.
+
+ - Interval `[8, 10]`: 
+   - Overlaps with `[3, 8]`.
+   - Merge to form `[3, 10]`.
+   - Update `newInterval` to `[3, 10]`.
+
+ - Interval `[12, 16]`: 
+   - Starts after `[3, 10]` ends.
+   - Add `[3, 10]` to the result: `[[1, 2], [3, 10]]`
+   - Add `[12, 16]` to the result: `[[1, 2], [3, 10], [12, 16]]`
