@@ -38,6 +38,12 @@
 
 ---
 
+# Solution
+
+- [Linear Search Approach](#linear-search-approach)
+  - **Time Complexity**: `O()`
+  - **Space Complexity**: `O()`
+
 ### Problem Overview: Insert Interval
 
 You are given an array of non-overlapping intervals `intervals`, where `intervals[i] = [start_i, end_i]` represents the start and end of the `i-th` interval. The intervals are sorted in ascending order by their start value. Additionally, you are given a new interval `newInterval = [start, end]` representing the start and end of another interval.
@@ -66,3 +72,7 @@ Your task is to insert `newInterval` into `intervals` such that the intervals re
 
 ### Goal
 The goal is to insert the new interval into the sorted array of intervals while maintaining the order and merging any overlapping intervals.
+
+# Linear Search Approach
+
+We have `N` non-overlapping intervals in ascending order of their `start` value; given one more interval `newInterval`, we want to insert this interval into the list while keeping the order intact and merging any overlapping intervals.
