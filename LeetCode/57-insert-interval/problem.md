@@ -116,26 +116,41 @@ This can be done using a linear search. We can iterate over the intervals in the
 Given the intervals: `[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]`
 And the new interval: `[4, 8]`
 
- - Interval `[1, 2]`: 
-   - Ends before `[4, 8]` starts.
-   - Add `[1, 2]` to the result: `[[1, 2]]`
-   
- - Interval `[3, 5]`: 
-   - Overlaps with `[4, 8]`.
-   - Merge to form `[3, 8]`.
-   - Update `newInterval` to `[3, 8]`.
+The step-by-step process of inserting and merging the new interval:
 
- - Interval `[6, 7]`: 
-   - Overlaps with `[3, 8]`.
-   - Merge to form `[3, 8]`.
-   - Update `newInterval` to `[3, 8]`.
+1. **Initialization**: 
+   - Result list: `[]`
+   - Flag: `False` (to indicate whether the new interval has been inserted)
 
- - Interval `[8, 10]`: 
-   - Overlaps with `[3, 8]`.
-   - Merge to form `[3, 10]`.
-   - Update `newInterval` to `[3, 10]`.
+2. **Iterate through each interval**:
+   - Interval `[1, 2]`: 
+     - Ends before `[4, 8]` starts.
+     - Add `[1, 2]` to the result: `[[1, 2]]`
+     
+   - Interval `[3, 5]`: 
+     - Overlaps with `[4, 8]`.
+     - Merge to form `[3, 8]`.
+     - Update `newInterval` to `[3, 8]`.
 
- - Interval `[12, 16]`: 
-   - Starts after `[3, 10]` ends.
-   - Add `[3, 10]` to the result: `[[1, 2], [3, 10]]`
-   - Add `[12, 16]` to the result: `[[1, 2], [3, 10], [12, 16]]`
+   - Interval `[6, 7]`: 
+     - Overlaps with `[3, 8]`.
+     - Merge to form `[3, 8]`.
+     - Update `newInterval` to `[3, 8]`.
+
+   - Interval `[8, 10]`: 
+     - Overlaps with `[3, 8]`.
+     - Merge to form `[3, 10]`.
+     - Update `newInterval` to `[3, 10]`.
+
+   - Interval `[12, 16]`: 
+     - Starts after `[3, 10]` ends.
+     - Add `[3, 10]` to the result: `[[1, 2], [3, 10]]`
+     - Add `[12, 16]` to the result: `[[1, 2], [3, 10], [12, 16]]`
+
+3. **Add remaining intervals**:
+   - Since the flag is not needed (we've already added the merged interval), there are no additional actions here.
+
+4. **Final Result**:
+   - Return the result list containing the merged intervals: `[[1, 2], [3, 10], [12, 16]]`
+
+This illustrates how the new interval `[4, 8]` is merged with the existing intervals, resulting in the final list `[[1, 2], [3, 10], [12, 16]]`.
