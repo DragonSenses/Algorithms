@@ -76,3 +76,10 @@ The goal is to insert the new interval into the sorted array of intervals while 
 # Linear Search Approach
 
 We have `N` non-overlapping intervals in ascending order of their `start` value; given one more interval `newInterval`, we want to insert this interval into the list while keeping the order intact and merging any overlapping intervals.
+
+The solution to this problem will be straightforward to understand if we can find the solution to the following three sub-problems:
+
+1. How can we tell if two given intervals overlap?
+2. How to merge two overlapping intervals?
+3. Given a list of N intervals in ascending order of their 'start' values, how can we merge any possible overlapping intervals in the list while keeping the ascending order intact?
+
