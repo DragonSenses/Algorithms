@@ -26,12 +26,12 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>intervals[i].length == 2</code></li>
-	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
-	<li><code>intervals</code> is sorted by <code>start<sub>i</sub></code> in <strong>ascending</strong> order.</li>
-	<li><code>newInterval.length == 2</code></li>
-	<li><code>0 &lt;= start &lt;= end &lt;= 10<sup>5</sup></code></li>
+  <li><code>0 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li>
+  <li><code>intervals[i].length == 2</code></li>
+  <li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
+  <li><code>intervals</code> is sorted by <code>start<sub>i</sub></code> in <strong>ascending</strong> order.</li>
+  <li><code>newInterval.length == 2</code></li>
+  <li><code>0 &lt;= start &lt;= end &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 <br>
@@ -46,20 +46,17 @@ Your task is to insert `newInterval` into `intervals` such that the intervals re
 
 **Note**: You do not need to modify `intervals` in-place. You can create a new array and return it.
 
-**Example 1**:
-```plaintext
-Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
-Output: [[1,5],[6,9]]
-```
+### Examples
+#### Example 1
+- **Input**: `intervals = [[1,3],[6,9]], newInterval = [2,5]`
+- **Output**: `[[1,5],[6,9]]`
 
-**Example 2**:
-```plaintext
-Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
-Output: [[1,2],[3,10],[12,16]]
-Explanation: The new interval [4,8] overlaps with [3,5],[6,7],[8,10].
-```
+#### Example 2
+- **Input**: `intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]`
+- **Output**: `[[1,2],[3,10],[12,16]]`
+- **Explanation**: The new interval [4,8] overlaps with [3,5], [6,7], and [8,10].
 
-**Constraints**:
+### Constraints
 - \(0 \leq \text{intervals.length} \leq 10^4\)
 - Each interval \(\text{intervals[i]}\) has a length of 2.
 - \[0 \leq \text{start}_i \leq \text{end}_i \leq 10^5\]
