@@ -175,3 +175,36 @@ This illustrates how the new interval `[4, 8]` is merged with the existing inter
 
 5. **Return Result**:
    - Return the `answer` list containing the merged intervals.
+
+### **Pseudocode**
+
+```pseudocode
+function insertAndMergeIntervals(intervals, newInterval):
+    result = empty list
+    flag = false
+
+    // Step 1: Insert the new interval in the correct position
+    for i from 0 to length of intervals:
+        if newInterval.start < intervals[i].start:
+            insert newInterval into intervals at position i
+            flag = true
+            break
+
+    // If the new interval hasn't been inserted, append it at the end
+    if not flag:
+        append newInterval to intervals
+
+    // Step 2: Merge overlapping intervals
+    for i from 0 to length of intervals:
+        currInterval = intervals[i]
+        while i + 1 < length of intervals and intervals[i + 1].start <= currInterval.end:
+            // Merge current interval with the next interval
+            currInterval.end = max(currInterval.end, intervals[i + 1].end)
+            i = i + 1
+
+        // Step 3: Add the merged interval to the result list
+        append currInterval to result
+
+    // Step 4: Return the result list containing merged intervals
+    return result
+```
