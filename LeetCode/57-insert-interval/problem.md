@@ -246,3 +246,10 @@ class Solution {
 }
 ```
 
+
+
+#### Implementation Details
+
+1. **Insert intervals before `newInterval`**: Add intervals that end before the `newInterval` starts.
+2. **Merge `newInterval` with overlapping intervals**: Update the `newInterval` start and end to merge with any overlapping intervals.
+3. **Add remaining intervals**: Add the rest of the intervals that start after the `newInterval` ends.
