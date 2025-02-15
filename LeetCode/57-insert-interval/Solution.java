@@ -1,7 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Solution class provides a method to insert a new interval into an array of non-overlapping
+ * intervals, merging overlapping intervals if necessary.
+ */
 class Solution {
+
+  /**
+   * Inserts a new interval into a list of non-overlapping intervals, merging overlapping intervals
+   * if necessary.
+   *
+   * @param intervals The array of non-overlapping intervals, sorted in ascending order by start
+   *        value.
+   * @param newInterval The new interval to be inserted, represented by a start and end value.
+   * @return The array of intervals after inserting the new interval, sorted in ascending order by
+   *         start value, with no overlapping intervals.
+   */
   public int[][] insert(int[][] intervals, int[] newInterval) {
     List<int[]> result = new ArrayList<>();
     int i = 0, n = intervals.length;
