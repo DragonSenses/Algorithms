@@ -351,3 +351,23 @@ Let's say you have a sorted list of numbers: `[1, 3, 5, 7, 9, 11, 13]` and you w
 4. Conclusion: The target value `7` is at index `3`
 
 Binary search is a powerful tool in situations like the one you're tackling, where you need to find an insertion point in a sorted list quickly and efficiently.
+
+## Algorithm
+
+1. **Insert the `newInterval` using binary search**:
+   - Use binary search to find the correct position for `newInterval` in the sorted list `intervals`.
+   - If the found index is equal to the size of the list, add the interval to the end; otherwise, insert it at the respective position.
+
+2. **Merge overlapping intervals**:
+   - Iterate over the intervals in the list `intervals`.
+   - For each interval `currInterval`, check the intervals ahead of it (including itself).
+   - If two intervals overlap, update `currInterval` to be the merged interval of these two intervals and move on to the next interval.
+
+3. **Update the loop counter**:
+   - Decrement the loop counter variable, as it will be incremented again in the outer loop. This ensures no intervals are skipped.
+
+4. **Add the interval to the result list**:
+   - Insert the interval `currInterval` into the list `answer`.
+
+5. **Return the result**:
+   - Return the `answer` list containing the merged intervals.
