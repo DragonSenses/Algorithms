@@ -412,3 +412,22 @@ function binarySearch(intervals, newInterval):
             
     return low
 ```
+
+## **Implementation**
+
+#### Implementation Details
+
+1. **Insert the `newInterval` using binary search**:
+   - Perform binary search to find the correct position (`index`) for `newInterval` in the sorted list `intervals`.
+   - If `index` is equal to the size of the list, add `newInterval` to the end; otherwise, insert it at the respective position.
+
+2. **Merge overlapping intervals**:
+   - Create an empty list `answer` to store the merged intervals.
+   - Iterate over the intervals in the list `intervals`.
+   - For each interval `currInterval`, check the intervals ahead of it (including itself). If two intervals overlap, update `currInterval` to be the merged interval of these two intervals and move on to the next interval.
+
+3. **Add the merged interval to the result list**:
+   - Append the `currInterval` to the list `answer`.
+
+4. **Return the result list**:
+   - Return the list `answer` containing the merged intervals.
