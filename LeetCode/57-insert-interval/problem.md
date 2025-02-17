@@ -43,6 +43,7 @@
 - [Linear Search Approach](#linear-search-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Binary Search Approach](#binary-search-approach)
 
 ### Problem Overview: Insert Interval
 
@@ -307,3 +308,11 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 - **Constant Space Usage:** Besides the result list, the algorithm uses a fixed amount of space for variables such as indices and flags.
 - **No Additional Data Structures:** Other than the result list, there are no additional data structures that grow with the input size.
 - **Overall Space Complexity:** While the result list grows with the input size, the space required for auxiliary variables remains constant. Thus, the overall space complexity is O(n).
+
+# Binary Search Approach
+
+## **Intuition**
+
+The main difference with this approach is that instead of using a linear search to find the suitable position for the `newInterval`, we use binary search because the list of intervals is sorted by their start times. We need to find the first interval in the list `intervals` that has a start value greater than the start value of `newInterval`.
+
+Once we find this position, we can insert the `newInterval` and then merge any overlapping intervals using the same logic as before.
