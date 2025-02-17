@@ -41,6 +41,7 @@
 # Solution
 
 - [Linear Search Approach](#linear-search-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Insert Interval
@@ -285,9 +286,20 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 2. **Merge `newInterval` with overlapping intervals**: Update the `newInterval` start and end to merge with any overlapping intervals.
 3. **Add remaining intervals**: Add the rest of the intervals that start after the `newInterval` ends.
 
+## **Complexity Analysis**
+
 ### Assumptions
 
 - Let `n` be the number of intervals in the list.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass:** The algorithm iterates through the list of intervals once.
+  - **Insertion:** Finding the correct position to insert `newInterval` involves iterating through the list, which takes O(n) time in the worst case.
+  - **Merging:** In the worst case, we might need to merge the `newInterval` with all intervals, resulting in another O(n) operations.
+- **Constant Time Operations:** Each comparison, insertion, and merge operation within the loop is constant time (O(1)).
+- **Worst-Case:** The worst-case scenario occurs when the `newInterval` overlaps with every interval in the list, requiring O(n) operations to insert and merge.
+- **Overall Time Complexity:** Combining these operations, the overall time complexity is O(n).
 
 ### **Space Complexity**: `O(n)`
 
