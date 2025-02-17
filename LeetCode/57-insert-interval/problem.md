@@ -41,6 +41,7 @@
 # Solution
 
 - [Linear Search Approach](#linear-search-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Insert Interval
 
@@ -283,3 +284,14 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 1. **Insert intervals before `newInterval`**: Add intervals that end before the `newInterval` starts.
 2. **Merge `newInterval` with overlapping intervals**: Update the `newInterval` start and end to merge with any overlapping intervals.
 3. **Add remaining intervals**: Add the rest of the intervals that start after the `newInterval` ends.
+
+### Assumptions
+
+- Let `n` be the number of intervals in the list.
+
+### **Space Complexity**: `O(n)`
+
+- **Result List:** The result list stores the merged intervals, which could grow up to the size of the input intervals (n), plus one additional interval (newInterval). Hence, the space complexity is O(n).
+- **Constant Space Usage:** Besides the result list, the algorithm uses a fixed amount of space for variables such as indices and flags.
+- **No Additional Data Structures:** Other than the result list, there are no additional data structures that grow with the input size.
+- **Overall Space Complexity:** While the result list grows with the input size, the space required for auxiliary variables remains constant. Thus, the overall space complexity is O(n).
