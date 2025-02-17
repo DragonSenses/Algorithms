@@ -371,3 +371,44 @@ Binary search is a powerful tool in situations like the one you're tackling, whe
 
 5. **Return the result**:
    - Return the `answer` list containing the merged intervals.
+
+### Pseudocode
+
+```pseudocode
+# Function to insert a new interval into a list of intervals
+function insertInterval(intervals, newInterval):
+    # Step 1: Insert the newInterval using binary search
+    index = binarySearch(intervals, newInterval)
+    if index == size(intervals):
+        append(intervals, newInterval)
+    else:
+        insert(intervals, index, newInterval)
+    
+    # Step 2: Merge overlapping intervals
+    answer = []
+    for i from 0 to size(intervals):
+        currInterval = intervals[i]
+        while i + 1 < size(intervals) and intervals[i + 1][0] <= currInterval[1]:
+            currInterval[1] = max(currInterval[1], intervals[i + 1][1])
+            i += 1
+        
+        # Step 3: Add the merged interval to the result list
+        append(answer, currInterval)
+
+    # Step 4: Return the result list
+    return answer
+
+# Function to perform binary search to find the insertion point
+function binarySearch(intervals, newInterval):
+    low = 0
+    high = size(intervals) - 1
+    
+    while low <= high:
+        mid = low + (high - low) / 2
+        if intervals[mid][0] < newInterval[0]:
+            low = mid + 1
+        else:
+            high = mid - 1
+            
+    return low
+```
