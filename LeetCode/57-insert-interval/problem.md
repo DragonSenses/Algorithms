@@ -316,3 +316,27 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 The main difference with this approach is that instead of using a linear search to find the suitable position for the `newInterval`, we use binary search because the list of intervals is sorted by their start times. We need to find the first interval in the list `intervals` that has a start value greater than the start value of `newInterval`.
 
 Once we find this position, we can insert the `newInterval` and then merge any overlapping intervals using the same logic as before.
+
+### Binary Search Overview
+
+1. **Initial Setup**:
+   - You start with two pointers: one at the beginning of the list (`low`) and one at the end of the list (`high`).
+
+2. **Middle Calculation**:
+   - Calculate the middle index (`mid`) of the current search interval. This is usually done using: 
+     \[
+     \text{mid} = \text{low} + \frac{(\text{high} - \text{low})}{2}
+     \]
+
+3. **Comparison**:
+   - Compare the target value with the value at the middle index.
+   - If the target value is equal to the middle value, you've found the item.
+   - If the target value is less than the middle value, it must be in the left half of the list. Therefore, update `high` to `mid - 1`.
+   - If the target value is greater than the middle value, it must be in the right half of the list. Therefore, update `low` to `mid + 1`.
+
+4. **Repeat**:
+   - Repeat the above steps until `low` is greater than `high`, which means the target is not in the list, or until you find the target value.
+
+#### Time Complexity
+
+Binary search is very efficient with a time complexity of \(O(\log n)\), where \(n\) is the number of items in the list. This is because with each step, the search interval is halved, quickly narrowing down the possible positions of the target value.
