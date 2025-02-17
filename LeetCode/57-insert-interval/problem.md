@@ -340,3 +340,14 @@ Once we find this position, we can insert the `newInterval` and then merge any o
 #### Time Complexity
 
 Binary search is very efficient with a time complexity of \(O(\log n)\), where \(n\) is the number of items in the list. This is because with each step, the search interval is halved, quickly narrowing down the possible positions of the target value.
+
+#### Example
+
+Let's say you have a sorted list of numbers: `[1, 3, 5, 7, 9, 11, 13]` and you want to find the position of the number `7`.
+
+1. Initial interval: `low = 0`, `high = 6`
+2. Calculate middle index: `mid = 3` (value at `mid` is `7`)
+3. Compare: target `7` equals value at `mid` `7`
+4. Conclusion: The target value `7` is at index `3`
+
+Binary search is a powerful tool in situations like the one you're tackling, where you need to find an insertion point in a sorted list quickly and efficiently.
