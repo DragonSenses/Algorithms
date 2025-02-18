@@ -440,41 +440,60 @@ function binarySearch(intervals, newInterval):
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class Solution2 {
+
+  /**
+   * Inserts a new interval into a list of non-overlapping intervals and merges any overlapping
+   * intervals.
+   *
+   * @param intervals a sorted list of non-overlapping intervals
+   * @param newInterval the new interval to be inserted
+   * @return a new list of intervals with the new interval inserted and merged if necessary
+   */
   public int[][] insert(int[][] intervals, int[] newInterval) {
     List<int[]> result = new ArrayList<>();
+
+    // Find the correct insertion index for the new interval using binary search
     int index = findInsertPosition(intervals, newInterval);
-    
-    // Step 1: Insert the newInterval into intervals
-    if (index == intervals.length) {
+
+    // Insert all intervals before the insertion index
+    for (int i = 0; i < index; i++) {
+      result.add(intervals[i]);
+    }
+
+    // Insert the new interval and merge overlapping intervals
+    if (result.isEmpty() || result.get(result.size() - 1)[1] < newInterval[0]) {
       result.add(newInterval);
     } else {
-      result.add(newInterval);
-      for (int i = index; i < intervals.length; i++) {
-        result.add(intervals[i]);
-      }
+      result.get(result.size() - 1)[1] = Math.max(result.get(result.size() - 1)[1], newInterval[1]);
     }
-    
-    // Step 2: Merge overlapping intervals
-    List<int[]> merged = new ArrayList<>();
-    for (int[] interval : result) {
-      int size = merged.size();
-      if (size == 0 || merged.get(size - 1)[1] < interval[0]) {
-        merged.add(interval);
+
+    // Insert the rest of the intervals and merge if necessary
+    for (int i = index; i < intervals.length; i++) {
+      int[] interval = intervals[i];
+      int size = result.size();
+      if (result.get(size - 1)[1] < interval[0]) {
+        result.add(interval);
       } else {
-        merged.get(size - 1)[1] = Math.max(merged.get(size - 1)[1], interval[1]);
+        result.get(size - 1)[1] = Math.max(result.get(size - 1)[1], interval[1]);
       }
     }
-    
-    // Convert list to array
-    return merged.toArray(new int[merged.size()][]);
+
+    return result.toArray(new int[result.size()][]);
   }
 
-  // Auxiliary function to perform binary search to find the insertion point
+  /**
+   * Auxiliary function to perform binary search to find the correct insertion point for the new
+   * interval.
+   *
+   * @param intervals a sorted list of non-overlapping intervals
+   * @param newInterval the new interval to be inserted
+   * @return the index at which the new interval should be inserted
+   */
   private int findInsertPosition(int[][] intervals, int[] newInterval) {
     int low = 0;
     int high = intervals.length - 1;
-    
+
     while (low <= high) {
       int mid = low + (high - low) / 2;
       if (intervals[mid][0] < newInterval[0]) {
@@ -483,24 +502,11 @@ class Solution {
         high = mid - 1;
       }
     }
-    
+
     return low;
   }
 }
 ```
-
-1. **Insert the `newInterval` using binary search**:
-   - The `findInsertPosition` function performs a binary search to find the correct position to insert `newInterval`.
-   - If the found index is equal to the length of the list, add `newInterval` to the end; otherwise, insert it at the respective position.
-
-2. **Merge overlapping intervals**:
-   - Iterate over the intervals in the list `result`.
-   - Use a new list `merged` to store the merged intervals.
-   - For each interval, if it does not overlap with the last interval in `merged`, add it to `merged`.
-   - If it overlaps, update the end of the last interval in `merged`.
-
-3. **Convert list to array**:
-   - Convert the `merged` list to an array and return it.
 
 ### TypeScript
 
