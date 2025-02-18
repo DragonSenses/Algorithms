@@ -17,39 +17,34 @@ class Solution2 {
     // Find the correct insertion index for the new interval using binary search
     int index = findInsertPosition(intervals, newInterval);
 
-    // Step 1: Insert the newInterval into the correct position in the result list
-    if (index == intervals.length) {
-      // If index is equal to the length of intervals, append newInterval to the end
+    // Insert all intervals before the insertion index
+    for (int i = 0; i < index; i++) {
+      result.add(intervals[i]);
+    }
+
+    // Insert the new interval and merge overlapping intervals
+    if (result.isEmpty() || result.get(result.size() - 1)[1] < newInterval[0]) {
       result.add(newInterval);
     } else {
-      // Otherwise, insert newInterval at the found index and append remaining intervals
-      result.add(newInterval);
-      for (int i = index; i < intervals.length; i++) {
-        result.add(intervals[i]);
-      }
+      result.get(result.size() - 1)[1] = Math.max(result.get(result.size() - 1)[1], newInterval[1]);
     }
 
-    // Step 2: Merge overlapping intervals in the result list
-    List<int[]> merged = new ArrayList<>();
-    for (int[] interval : result) {
-      int size = merged.size();
-      if (size == 0 || merged.get(size - 1)[1] < interval[0]) {
-        // If merged list is empty or current interval does not overlap with the last interval, add
-        // it to merged list
-        merged.add(interval);
+    // Insert the rest of the intervals and merge if necessary
+    for (int i = index; i < intervals.length; i++) {
+      int[] interval = intervals[i];
+      int size = result.size();
+      if (result.get(size - 1)[1] < interval[0]) {
+        result.add(interval);
       } else {
-        // If current interval overlaps with the last interval in the merged list, update the end of
-        // the last interval
-        merged.get(size - 1)[1] = Math.max(merged.get(size - 1)[1], interval[1]);
+        result.get(size - 1)[1] = Math.max(result.get(size - 1)[1], interval[1]);
       }
     }
 
-    // Convert the merged list to an array and return it
-    return merged.toArray(new int[merged.size()][]);
+    return result.toArray(new int[result.size()][]);
   }
 
   /**
-   * Helper function to perform binary search to find the correct insertion point for the new
+   * Auxiliary function to perform binary search to find the correct insertion point for the new
    * interval.
    *
    * @param intervals a sorted list of non-overlapping intervals
@@ -63,16 +58,12 @@ class Solution2 {
     while (low <= high) {
       int mid = low + (high - low) / 2;
       if (intervals[mid][0] < newInterval[0]) {
-        // Move to the right half if the middle interval's start is less than newInterval's start
         low = mid + 1;
       } else {
-        // Move to the left half if the middle interval's start is greater than or equal to
-        // newInterval's start
         high = mid - 1;
       }
     }
 
-    // Return the insertion index
     return low;
   }
 }
