@@ -44,6 +44,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Binary Search Approach](#binary-search-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Insert Interval
 
@@ -499,8 +500,8 @@ class Solution {
 
 3. **Convert list to array**:
    - Convert the `merged` list to an array and return it.
-  
-  ### TypeScript
+
+### TypeScript
 
 ```typescript
 function insert(intervals: number[][], newInterval: number[]): number[][] {
@@ -556,3 +557,17 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 
 3. **Return the result**:
    - Return the `merged` array containing the merged intervals.
+
+### Assumptions
+
+- Let `n` be the number of intervals in the list `intervals`.
+
+### **Space Complexity**: `O(n)`
+
+- **Auxiliary Space for the Result List**: The space required to store the result list (`merged`) is \(O(n)\) because, in the worst case, all intervals may be included in the result list without any merging.
+- **Auxiliary Space for Intermediate List**: An intermediate list `result` is used to store the intervals after inserting `newInterval`, which also requires \(O(n)\) space.
+
+Thus, the total space complexity is:
+\[
+O(n) + O(n) = O(n)
+\]
