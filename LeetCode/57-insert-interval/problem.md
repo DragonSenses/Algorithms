@@ -499,3 +499,60 @@ class Solution {
 
 3. **Convert list to array**:
    - Convert the `merged` list to an array and return it.
+  
+  ### TypeScript
+
+```typescript
+function insert(intervals: number[][], newInterval: number[]): number[][] {
+  const result: number[][] = [];
+  
+  // Auxiliary function to perform binary search to find the insertion point
+  function findInsertPosition(intervals: number[][], newInterval: number[]): number {
+    let low = 0;
+    let high = intervals.length - 1;
+    
+    while (low <= high) {
+      const mid = Math.floor(low + (high - low) / 2);
+      if (intervals[mid][0] < newInterval[0]) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    
+    return low;
+  }
+
+  const index = findInsertPosition(intervals, newInterval);
+  
+  // Step 1: Insert the newInterval into intervals
+  result.push(...intervals.slice(0, index), newInterval, ...intervals.slice(index));
+  
+  // Step 2: Merge overlapping intervals
+  const merged: number[][] = [];
+  for (const interval of result) {
+    if (merged.length === 0 || merged[merged.length - 1][1] < interval[0]) {
+      merged.push(interval);
+    } else {
+      merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], interval[1]);
+    }
+  }
+
+  return merged;
+}
+```
+
+### Explanation
+
+1. **Insert the `newInterval` using binary search**:
+   - The `findInsertPosition` helper function performs a binary search to find the correct position to insert `newInterval`.
+   - Insert `newInterval` into the correct position in `result` using array slicing and spreading.
+
+2. **Merge overlapping intervals**:
+   - Create an empty array `merged` to store the merged intervals.
+   - Iterate over the intervals in the list `result`.
+   - If the current interval does not overlap with the last interval in `merged`, add it to `merged`.
+   - If it overlaps, update the end of the last interval in `merged`.
+
+3. **Return the result**:
+   - Return the `merged` array containing the merged intervals.
