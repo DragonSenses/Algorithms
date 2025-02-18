@@ -432,7 +432,60 @@ function binarySearch(intervals, newInterval):
 4. **Return the result list**:
    - Return the list `answer` containing the merged intervals.
 
-#### Java Implementation Details
+### **Java**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+  public int[][] insert(int[][] intervals, int[] newInterval) {
+    List<int[]> result = new ArrayList<>();
+    int index = findInsertPosition(intervals, newInterval);
+    
+    // Step 1: Insert the newInterval into intervals
+    if (index == intervals.length) {
+      result.add(newInterval);
+    } else {
+      result.add(newInterval);
+      for (int i = index; i < intervals.length; i++) {
+        result.add(intervals[i]);
+      }
+    }
+    
+    // Step 2: Merge overlapping intervals
+    List<int[]> merged = new ArrayList<>();
+    for (int[] interval : result) {
+      int size = merged.size();
+      if (size == 0 || merged.get(size - 1)[1] < interval[0]) {
+        merged.add(interval);
+      } else {
+        merged.get(size - 1)[1] = Math.max(merged.get(size - 1)[1], interval[1]);
+      }
+    }
+    
+    // Convert list to array
+    return merged.toArray(new int[merged.size()][]);
+  }
+
+  // Auxiliary function to perform binary search to find the insertion point
+  private int findInsertPosition(int[][] intervals, int[] newInterval) {
+    int low = 0;
+    int high = intervals.length - 1;
+    
+    while (low <= high) {
+      int mid = low + (high - low) / 2;
+      if (intervals[mid][0] < newInterval[0]) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    
+    return low;
+  }
+}
+```
 
 1. **Insert the `newInterval` using binary search**:
    - The `findInsertPosition` function performs a binary search to find the correct position to insert `newInterval`.
