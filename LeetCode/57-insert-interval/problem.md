@@ -431,3 +431,18 @@ function binarySearch(intervals, newInterval):
 
 4. **Return the result list**:
    - Return the list `answer` containing the merged intervals.
+
+#### Java Implementation Details
+
+1. **Insert the `newInterval` using binary search**:
+   - The `findInsertPosition` function performs a binary search to find the correct position to insert `newInterval`.
+   - If the found index is equal to the length of the list, add `newInterval` to the end; otherwise, insert it at the respective position.
+
+2. **Merge overlapping intervals**:
+   - Iterate over the intervals in the list `result`.
+   - Use a new list `merged` to store the merged intervals.
+   - For each interval, if it does not overlap with the last interval in `merged`, add it to `merged`.
+   - If it overlaps, update the end of the last interval in `merged`.
+
+3. **Convert list to array**:
+   - Convert the `merged` list to an array and return it.
