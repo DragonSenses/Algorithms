@@ -44,6 +44,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Binary Search Approach](#binary-search-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Insert Interval
@@ -558,9 +559,22 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 3. **Return the result**:
    - Return the `merged` array containing the merged intervals.
 
+## **Complexity Analysis**
+
 ### Assumptions
 
 - Let `n` be the number of intervals in the list `intervals`.
+
+### **Time Complexity**: `O(n)`
+
+- **Binary Search for Insertion Point**: The binary search operation to find the correct insertion point for `newInterval` takes \(O(\log n)\) time.
+- **Inserting the Interval**: Inserting the `newInterval` into the correct position in the list of intervals takes \(O(n)\) time because, in the worst case, we may need to shift all the elements after the insertion point.
+- **Merging Overlapping Intervals**: After inserting the `newInterval`, the algorithm iterates through the list of intervals once to merge any overlapping intervals, which takes \(O(n)\) time.
+
+Combining these steps, the total time complexity is:
+\[
+O(\log n) + O(n) + O(n) = O(n)
+\]
 
 ### **Space Complexity**: `O(n)`
 
