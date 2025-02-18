@@ -3,28 +3,35 @@
  */
 function insert(intervals: number[][], newInterval: number[]): number[][] {
   const result: number[][] = [];
-  let i = 0;
-  const n = intervals.length;
-
-  // Step 1: Insert all intervals before newInterval
-  while (i < n && intervals[i][1] < newInterval[0]) {
-    result.push(intervals[i]);
-    i++;
+  
+  function findInsertPosition(intervals: number[][], newInterval: number[]): number {
+    let low = 0;
+    let high = intervals.length - 1;
+    
+    while (low <= high) {
+      const mid = Math.floor(low + (high - low) / 2);
+      if (intervals[mid][0] < newInterval[0]) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    
+    return low;
   }
 
-  // Step 2: Merge newInterval with overlapping intervals
-  while (i < n && intervals[i][0] <= newInterval[1]) {
-    newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
-    newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
-    i++;
+  const index = findInsertPosition(intervals, newInterval);
+  
+  result.push(...intervals.slice(0, index), newInterval, ...intervals.slice(index));
+  
+  const merged: number[][] = [];
+  for (const interval of result) {
+    if (merged.length === 0 || merged[merged.length - 1][1] < interval[0]) {
+      merged.push(interval);
+    } else {
+      merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], interval[1]);
+    }
   }
-  result.push(newInterval); // Add the merged interval
 
-  // Step 3: Add remaining intervals after newInterval
-  while (i < n) {
-    result.push(intervals[i]);
-    i++;
-  }
-
-  return result;
+  return merged;
 }
