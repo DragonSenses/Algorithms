@@ -58,3 +58,24 @@ Given an integer `n`, find and return all possible distinct solutions to the N-Q
 
 **Constraints:**
 - \(1 \leq n \leq 9\)
+
+### Inefficient Solutions to the N-Queens Puzzle
+
+**1. Brute Force Approach**
+
+A brute force solution involves generating all possible board states with N queens. The steps are as follows:
+- Each of the \(N^2\) squares can be a potential position for the first queen.
+- For the second queen, there are \(N^2 - 1\) possible positions, and so on.
+- This results in a time complexity of \(O(N^2N)\), which is far too slow.
+
+Given that the actual number of solutions is much smaller than the number of possible board states, it is essential to minimize the consideration of invalid board states.
+
+**2. Example with 8 Queens**
+
+Let's consider the example of placing 8 queens on a normal chessboard:
+- Suppose the first queen is placed on the top left (index (0, 0), or a8 in chess notation).
+- If the second queen is placed to its right (index (0, 1), or b8), there are \(62 \times 61 \times \ldots \times 57 = 44,261,653,680\) possible ways to place the remaining 6 queens.
+
+However, we already know that all these possibilities are invalid because the first two queens can attack each other.
+
+This illustrates why a brute force approach is impractical and emphasizes the need for a more efficient solution.
