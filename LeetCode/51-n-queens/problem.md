@@ -78,4 +78,6 @@ Let's consider the example of placing 8 queens on a normal chessboard:
 
 However, we already know that all these possibilities are invalid because the first two queens can attack each other.
 
+![Chessboard with the first queen placed at the top left (index 0,0 or a8) and the second queen placed to its right (index 0,1 or b8).](img/51-2.jpg)
+
 This illustrates why a brute force approach is impractical and emphasizes the need for a more efficient solution.
