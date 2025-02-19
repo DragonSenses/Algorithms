@@ -100,3 +100,71 @@ Given a board state and a possible placement for a queen, we need a method to de
 
 To implement backtracking, we create a backtrack function that makes changes to the state, calls itself, and then undoes those changes when the call returns (hence the term "backtracking").
 
+### **Pseudocode**
+
+1. **solveNQueens(n):**
+   - Initializes the list `solutions` to store all valid solutions.
+   - Uses sets `cols`, `diagonals`, and `antiDiagonals` to track the placement of queens.
+   - Creates an empty `board`.
+
+2. **backtrack(row):**
+   - If `row` is equal to `n`, a valid solution is found and added to `solutions`.
+   - Iterates through each column in the current row.
+   - Checks if placing a queen at `(row, col)` conflicts with existing queens.
+   - If no conflict, places the queen and updates sets.
+   - Recursively calls `backtrack` for the next row.
+   - After exploring all possibilities, backtracks by removing the queen and updating sets.
+
+3. **Helper Functions:**
+   - `createEmptyBoard(n)`: Creates an empty `n x n` board.
+   - `placeQueen(board, row, col)`: Places a queen on the board.
+   - `removeQueen(board, row, col)`: Removes a queen from the board.
+   - `formatBoard(board)`: Formats the board into a list of strings for the solution.
+
+```pseudocode
+function solveNQueens(n):
+  solutions
+  cols
+  diagonals
+  antiDiagonals
+  board = createEmptyBoard(n)
+
+  function backtrack(row):
+    if row == n:
+      solutions.add(formatBoard(board))
+      return
+
+    for col in range(0, n):
+      diagonal = row - col
+      antiDiagonal = row + col
+
+      if col in cols or diagonal in diagonals or antiDiagonal in antiDiagonals:
+        continue
+
+      placeQueen(board, row, col)
+      cols.add(col)
+      diagonals.add(diagonal)
+      antiDiagonals.add(antiDiagonal)
+
+      backtrack(row + 1)
+
+      removeQueen(board, row, col)
+      cols.remove(col)
+      diagonals.remove(diagonal)
+      antiDiagonals.remove(antiDiagonal)
+
+  backtrack(0)
+  return solutions
+
+function createEmptyBoard(n):
+  return a n x n grid filled with "."
+
+function placeQueen(board, row, col):
+  board[row][col] = "Q"
+
+function removeQueen(board, row, col):
+  board[row][col] = "."
+
+function formatBoard(board):
+  return the board formatted as a list of strings, each string representing a row
+```
