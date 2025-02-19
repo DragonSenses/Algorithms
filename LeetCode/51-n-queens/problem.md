@@ -24,5 +24,37 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 9</code></li>
+  <li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
+
+<br>
+
+---
+
+## Problem Overview: N-Queens
+
+**Problem:**
+The N-Queens puzzle involves placing `n` queens on an `n x n` chessboard in such a way that no two queens can attack each other. 
+
+**Objective:**
+Given an integer `n`, find and return all possible distinct solutions to the N-Queens puzzle. Each solution should be a unique configuration of the chessboard, where `'Q'` represents a queen and `'.'` represents an empty space. The solutions can be returned in any order.
+
+**Example:**
+1. **Input:** n = 4
+   - **Output:** 
+     ```json
+     [
+         [".Q..","...Q","Q...","..Q."],
+         ["..Q.","Q...","...Q",".Q.."]
+     ]
+     ```
+   - **Explanation:** There are two unique solutions for a 4x4 chessboard.
+
+2. **Input:** n = 1
+   - **Output:** 
+     ```json
+     [["Q"]]
+     ```
+
+**Constraints:**
+- \(1 \leq n \leq 9\)
