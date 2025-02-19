@@ -31,6 +31,10 @@
 
 ---
 
+# Solution
+
+- [Backtracking Approach](#backtracking-approach)
+
 ## Problem Overview: N-Queens
 
 **Problem:**
@@ -81,3 +85,7 @@ However, we already know that all these possibilities are invalid because the fi
 ![Chessboard with the first queen placed at the top left (index 0,0 or a8) and the second queen placed to its right (index 0,1 or b8).](img/51-2.jpg)
 
 This illustrates why a brute force approach is impractical and emphasizes the need for a more efficient solution.
+
+# Backtracking Approach
+
+**Backtracking** is a problem-solving technique that involves incrementally building candidates for solutions and abandoning those that fail to satisfy the problem's constraints.
