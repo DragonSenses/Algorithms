@@ -102,6 +102,8 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
 **Handling Diagonals:** For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. For example, on the diagonal that starts from `(0, 0)`, the *i-th* square has coordinates `(i, i)`, so the difference is always 0.
 
+  ![Every square has value (row - col). Diagonals share the same values](img/51-3.jpg)
+
 ### **Pseudocode**
 
 ```pseudocode
