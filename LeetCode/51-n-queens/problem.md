@@ -102,13 +102,80 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
 ### **Pseudocode**
 
-1. **solveNQueens(n):**
+```pseudocode
+function solveNQueens(int n) {
+  List<List<String>> solutions = new ArrayList<>();
+  Set<Integer> cols = new HashSet<>();
+  Set<Integer> diagonals = new HashSet<>();
+  Set<Integer> antiDiagonals = new HashSet<>();
+  char[][] board = createEmptyBoard(n);
+
+  function backtrack(int row) {
+    if (row == n) {
+      solutions.add(formatBoard(board));
+      return;
+    }
+
+    for (int col = 0; col < n; col++) {
+      int diagonal = row - col;
+      int antiDiagonal = row + col;
+
+      if (cols.contains(col) || diagonals.contains(diagonal) || antiDiagonals.contains(antiDiagonal)) {
+        continue;
+      }
+
+      placeQueen(board, row, col);
+      cols.add(col);
+      diagonals.add(diagonal);
+      antiDiagonals.add(antiDiagonal);
+
+      backtrack(row + 1);
+
+      removeQueen(board, row, col);
+      cols.remove(col);
+      diagonals.remove(diagonal);
+      antiDiagonals.remove(antiDiagonal);
+    }
+  }
+
+  backtrack(0);
+  return solutions;
+}
+
+function createEmptyBoard(int n) {
+  char[][] board = new char[n][n];
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      board[i][j] = '.';
+    }
+  }
+  return board;
+}
+
+function placeQueen(char[][] board, int row, int col) {
+  board[row][col] = 'Q';
+}
+
+function removeQueen(char[][] board, int row, int col) {
+  board[row][col] = '.';
+}
+
+function formatBoard(char[][] board) {
+  List<String> formattedBoard = new ArrayList<>();
+  for (int i = 0; i < board.length; i++) {
+    formattedBoard.add(new String(board[i]));
+  }
+  return formattedBoard;
+}
+```
+
+1. **solveNQueens(int n):**
    - Initializes the list `solutions` to store all valid solutions.
-   - Uses sets `cols`, `diagonals`, and `antiDiagonals` to track the placement of queens.
+   - Uses `HashSet` for `cols`, `diagonals`, and `antiDiagonals` to track the placement of queens.
    - Creates an empty `board`.
 
-2. **backtrack(row):**
-   - If `row` is equal to `n`, a valid solution is found and added to `solutions`.
+2. **backtrack(int row):**
+   - If `row` equals `n`, a valid solution is found and added to `solutions`.
    - Iterates through each column in the current row.
    - Checks if placing a queen at `(row, col)` conflicts with existing queens.
    - If no conflict, places the queen and updates sets.
@@ -116,55 +183,8 @@ To implement backtracking, we create a backtrack function that makes changes to 
    - After exploring all possibilities, backtracks by removing the queen and updating sets.
 
 3. **Helper Functions:**
-   - `createEmptyBoard(n)`: Creates an empty `n x n` board.
-   - `placeQueen(board, row, col)`: Places a queen on the board.
-   - `removeQueen(board, row, col)`: Removes a queen from the board.
-   - `formatBoard(board)`: Formats the board into a list of strings for the solution.
-
-```pseudocode
-function solveNQueens(n):
-  solutions
-  cols
-  diagonals
-  antiDiagonals
-  board = createEmptyBoard(n)
-
-  function backtrack(row):
-    if row == n:
-      solutions.add(formatBoard(board))
-      return
-
-    for col in range(0, n):
-      diagonal = row - col
-      antiDiagonal = row + col
-
-      if col in cols or diagonal in diagonals or antiDiagonal in antiDiagonals:
-        continue
-
-      placeQueen(board, row, col)
-      cols.add(col)
-      diagonals.add(diagonal)
-      antiDiagonals.add(antiDiagonal)
-
-      backtrack(row + 1)
-
-      removeQueen(board, row, col)
-      cols.remove(col)
-      diagonals.remove(diagonal)
-      antiDiagonals.remove(antiDiagonal)
-
-  backtrack(0)
-  return solutions
-
-function createEmptyBoard(n):
-  return a n x n grid filled with "."
-
-function placeQueen(board, row, col):
-  board[row][col] = "Q"
-
-function removeQueen(board, row, col):
-  board[row][col] = "."
-
-function formatBoard(board):
-  return the board formatted as a list of strings, each string representing a row
-```
+   - `createEmptyBoard(int n)`: Creates an empty `n x n` board.
+   - `placeQueen(char[][] board, int row, int col)`: Places a queen on the board.
+   - `removeQueen(char[][] board, int row, int col)`: Removes a queen from the board.
+   - `formatBoard(char[][] board)`: Formats the board into a list of strings for the solution.
+   
