@@ -199,6 +199,10 @@ import java.util.List;
 import java.util.Set;
 
 class Solution {
+
+  /**
+   * Solves the N-Queens problem and returns all possible solutions.
+   */
   public List<List<String>> solveNQueens(int n) {
     List<List<String>> solutions = new ArrayList<>();
     Set<Integer> cols = new HashSet<>();
@@ -209,27 +213,38 @@ class Solution {
     return solutions;
   }
 
-  private void backtrack(int row, int n, char[][] board, List<List<String>> solutions, Set<Integer> cols, Set<Integer> diagonals, Set<Integer> antiDiagonals) {
+  /**
+   * Backtracking helper function to find all solutions.
+   */
+  private void backtrack(int row, int n, char[][] board, List<List<String>> solutions,
+      Set<Integer> cols, Set<Integer> diagonals, Set<Integer> antiDiagonals) {
+    // If all rows are processed, add the current board configuration to solutions
     if (row == n) {
       solutions.add(formatBoard(board));
       return;
     }
 
+    // Try placing a queen in each column of the current row
     for (int col = 0; col < n; col++) {
       int diagonal = row - col;
       int antiDiagonal = row + col;
 
-      if (cols.contains(col) || diagonals.contains(diagonal) || antiDiagonals.contains(antiDiagonal)) {
+      // Skip if the column or diagonals are occupied
+      if (cols.contains(col) || diagonals.contains(diagonal)
+          || antiDiagonals.contains(antiDiagonal)) {
         continue;
       }
 
+      // Place the queen and mark the column and diagonals as occupied
       placeQueen(board, row, col);
       cols.add(col);
       diagonals.add(diagonal);
       antiDiagonals.add(antiDiagonal);
 
+      // Recur to the next row
       backtrack(row + 1, n, board, solutions, cols, diagonals, antiDiagonals);
 
+      // Remove the queen and unmark the column and diagonals
       removeQueen(board, row, col);
       cols.remove(col);
       diagonals.remove(diagonal);
@@ -237,6 +252,12 @@ class Solution {
     }
   }
 
+  /**
+   * Creates an empty n x n board.
+   *
+   * @param n the size of the board
+   * @return a 2D array representing the empty board
+   */
   private char[][] createEmptyBoard(int n) {
     char[][] board = new char[n][n];
     for (int i = 0; i < n; i++) {
@@ -247,14 +268,31 @@ class Solution {
     return board;
   }
 
+  /**
+   * Places a queen on the board at the specified position.
+   *
+   * @param board the current state of the board
+   * @param row the row index
+   * @param col the column index
+   */
   private void placeQueen(char[][] board, int row, int col) {
     board[row][col] = 'Q';
   }
 
+  /**
+   * Removes a queen from the board at the specified position.
+   *
+   * @param board the current state of the board
+   * @param row the row index
+   * @param col the column index
+   */
   private void removeQueen(char[][] board, int row, int col) {
     board[row][col] = '.';
   }
 
+  /**
+   * Converts the board into a list of strings for the final solution format.
+   */
   private List<String> formatBoard(char[][] board) {
     List<String> formattedBoard = new ArrayList<>();
     for (int i = 0; i < board.length; i++) {
