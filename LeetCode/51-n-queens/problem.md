@@ -302,3 +302,21 @@ class Solution {
   }
 }
 ```
+
+#### Key Points:
+
+1. **Main Function (`solveNQueens`):**
+   - Initializes the list of solutions and sets to track columns, diagonals, and anti-diagonals with queens.
+   - Creates an empty board and calls the `backtrack` function to explore all possible solutions.
+
+2. **Backtracking Function (`backtrack`):**
+   - If the row equals `n`, a valid solution is found and added to the list.
+   - Iterates through each column in the current row, calculates diagonal and anti-diagonal indices.
+   - Checks for conflicts using the sets and places a queen if no conflict is found.
+   - Recursively calls `backtrack` for the next row and backtracks by removing the queen and updating the sets.
+
+3. **Helper Functions:**
+   - `createEmptyBoard`: Creates an empty `n x n` board.
+   - `placeQueen`: Places a queen on the board.
+   - `removeQueen`: Removes a queen from the board.
+   - `formatBoard`: Formats the board into a list of strings for the solution.
