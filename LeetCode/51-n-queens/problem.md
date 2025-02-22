@@ -34,6 +34,7 @@
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Space Complexity**: `O(n^2)`
 
 ## Problem Overview: N-Queens
 
@@ -424,3 +425,17 @@ function formatBoard(board: string[][]): string[] {
    - `placeQueen`: Places a queen on the board.
    - `removeQueen`: Removes a queen from the board.
    - `formatBoard`: Formats the board into a list of strings for the solution.
+
+### Assumptions
+- **Board Size (n x n)**: The board is an n x n grid.
+- **Queens**: We are placing n queens on the board such that no two queens can attack each other.
+- **Backtracking Approach**: We use backtracking to explore all possible solutions.
+
+### **Space Complexity**: `O(n^2)`
+- **Board**: We maintain an `n x n` board, which requires `O(n^2)` space.
+- **Sets for Tracking**: We use three sets (`cols`, `diagonals`, `antiDiagonals`) to store the board state, each requiring `O(n)` space.
+- **Call Stack**: The recursive backtracking calls can go as deep as `n` levels, with the maximum depth of the call stack being `O(n)`.
+
+Combining these factors, the overall space complexity is dominated by the `n x n` board, leading to `O(n^2)` space complexity.
+
+Extra memory used for storing the sets and managing the recursion call stack scales linearly with the number of queens. However, the space used for the output does not count towards space complexity.
