@@ -100,15 +100,28 @@ Given a board state and a possible placement for a queen, we need a method to de
 
 To implement backtracking, we create a backtrack function that makes changes to the state, calls itself, and then undoes those changes when the call returns (hence the term "backtracking").
 
-**Handling Diagonals:** For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. For example, on the diagonal that starts from `(0, 0)`, the *i-th* square has coordinates `(i, i)`, so the difference is always 0.
+## Key Steps
+
+1. **Placing Queens by Row:**
+   - Ensure only one queen per **row** by passing an integer argument `row` into the backtrack function. Each call places one queen and moves to the next row by calling backtrack again with `row + 1`.
+
+2. **Placing Queens by Column:**
+   - To ensure only one queen per **column**, use a set. Whenever we place a queen, add the column index to this set.
+
+3. **Handling Diagonals:**
+   - For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. For example, on the diagonal that starts from `(0, 0)`, the *i-th* square has coordinates `(i, i)`, so the difference is always 0.
 
   ![Every square has value (row - col). Diagonals share the same values](img/51-3.jpg)
 
-**Handling Anti-Diagonals:** For each square on a given anti-diagonal, the sum of the row and column indices (row + col) is constant. If you start at the highest square in an anti-diagonal and move downwards, the row index increments by 1 (row + 1), and the column index decrements by 1 (col - 1), cancelling each other out.
+4. **Handling Anti-Diagonals:**
+   - For each square on a given anti-diagonal, the sum of the row and column indices (row + col) is constant. If you start at the highest square in an anti-diagonal and move downwards, the row index increments by 1 (row + 1), and the column index decrements by 1 (col - 1), cancelling each other out.
 
   ![Every square has value (row + col). Anti-diagonals share the same values](img/51-4.jpg)
 
-**Using Diagonals and Anti-Diagonals property:** Calculate the diagonal and anti-diagonal value of a queen on placement. Then record which diagonals and anti-diagonals have been used in a set (unique values). Add the values for the corresponding queen within the set.
+5. **Tracking Diagonals and Anti-Diagonals:**
+   - Every time we place a queen, calculate the diagonal and anti-diagonal value it belongs to. Similar to columns, use sets to track which diagonals and anti-diagonals have been used. Add the values for this queen to the corresponding sets.
+
+By leveraging these properties and using sets to track placements, we can efficiently determine valid board states and systematically explore all possibilities through backtracking.
 
 ### **Pseudocode**
 
