@@ -104,6 +104,8 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
   ![Every square has value (row - col). Diagonals share the same values](img/51-3.jpg)
 
+  ![Every square has value (row + col). Anti-diagonals share the same values](img/51-4.jpg)
+
 ### **Pseudocode**
 
 ```pseudocode
