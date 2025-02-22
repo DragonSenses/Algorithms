@@ -108,6 +108,8 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
   ![Every square has value (row + col). Anti-diagonals share the same values](img/51-4.jpg)
 
+**Using Diagonals and Anti-Diagonals property:** Calculate the diagonal and anti-diagonal value of a queen on placement. Then record which diagonals and anti-diagonals have been used in a set (unique values). Add the values for the corresponding queen within the set.
+
 ### **Pseudocode**
 
 ```pseudocode
