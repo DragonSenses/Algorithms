@@ -123,6 +123,28 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
 By leveraging these properties and using sets to track placements, we can efficiently determine valid board states and systematically explore all possibilities through backtracking.
 
+## **Algorithm**
+
+We'll create a recursive function `backtrack` that takes a few arguments to maintain the board state. The first parameter is the row where we'll place the next queen. We'll use three sets to track which columns, diagonals, and anti-diagonals already have queens. We'll also store the board to include valid solutions in our answer.
+
+### Steps:
+
+1. **Check for Solution:**
+   - If the current row equals `n`, we have a solution. Add the current board state to the list of solutions and return. Use a helper function to format the board correctly.
+
+2. **Iterate Through Columns:**
+   - For each column in the current row, attempt to place a queen at `(row, col)`.
+     - Calculate the diagonal and anti-diagonal for the square.
+     - If no queen is in the column, diagonal, or anti-diagonal, place a queen in this column of the current row.
+     - If placement is not possible, skip to the next column.
+
+3. **Place Queen and Update Sets:**
+   - If a queen is placed, update the board and the sets for columns, diagonals, and anti-diagonals.
+   - Call the `backtrack` function with `row + 1`.
+
+4. **Backtrack:**
+   - After exploring valid board states with the queen placed, backtrack by removing the queen. Remove the queen from the board and the values from the sets.
+
 ### **Pseudocode**
 
 ```pseudocode
