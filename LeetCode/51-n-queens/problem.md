@@ -104,6 +104,8 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
   ![Every square has value (row - col). Diagonals share the same values](img/51-3.jpg)
 
+**Handling Anti-Diagonals:** For each square on a given anti-diagonal, the sum of the row and column indices (row + col) is constant. If you start at the highest square in an anti-diagonal and move downwards, the row index increments by 1 (row + 1), and the column index decrements by 1 (col - 1), cancelling each other out.
+
   ![Every square has value (row + col). Anti-diagonals share the same values](img/51-4.jpg)
 
 ### **Pseudocode**
