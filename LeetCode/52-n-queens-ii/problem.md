@@ -24,3 +24,29 @@
 <ul>
 	<li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
+
+---
+
+## Problem Overview: N-Queens II
+
+The **N-Queens** puzzle is a classic problem where you need to place `n` queens on an `n x n` chessboard such that no two queens can attack each other. This means:
+- No two queens share the same row.
+- No two queens share the same column.
+- No two queens share the same diagonal.
+
+The task is to find and return the number of distinct solutions for a given integer `n`.
+
+### Examples
+
+**Example 1:**
+- **Input:** `n = 4`
+- **Output:** `2`
+- **Explanation:** There are two distinct solutions to the 4-queens puzzle.
+
+**Example 2:**
+- **Input:** `n = 1`
+- **Output:** `1`
+- **Explanation:** There is only one way to place one queen on a 1x1 board.
+
+### Constraints
+- `1 <= n <= 9`
