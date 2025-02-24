@@ -27,6 +27,10 @@
 
 ---
 
+# Solution
+
+- [Backtracking Approach](#backtracking-approach)
+
 ## Problem Overview: N-Queens II
 
 The **N-Queens** puzzle is a classic problem where you need to place `n` queens on an `n x n` chessboard such that no two queens can attack each other. This means:
@@ -112,3 +116,9 @@ However, we already know that all these possibilities are invalid because the fi
 ![Chessboard with the first queen placed at the top left (index 0,0 or a8) and the second queen placed to its right (index 0,1 or b8).](img/52-2.jpg)
 
 This illustrates why a brute force approach is impractical and emphasizes the need for a more efficient solution.
+
+# Backtracking Approach
+
+The backtracking approach counts the number of valid solutions rather than storing all board configurations.
+
+We can use the same backtracking logic from N-Queens problem. The main difference between N-Queens and N-Queens II lies in the output, but the backtracking approach to finding the solutions is the same. 
