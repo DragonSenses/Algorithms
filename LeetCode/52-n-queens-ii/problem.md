@@ -89,3 +89,14 @@ The task is to find and return the number of distinct solutions for a given inte
 ### Summary:
 - **N-Queens** requires you to return all distinct board configurations for the given `n`.
 - **N-Queens II** focuses on counting the number of distinct solutions, rather than providing the actual configurations.
+
+### Inefficient Solutions to the N-Queens Puzzle
+
+**1. Brute Force Approach**
+
+A brute force solution involves generating all possible board states with `N` queens. The steps are as follows:
+- Each of the \(N^2\) squares can be a potential position for the first queen.
+- For the second queen, there are \(N^2 - 1\) possible positions, and so on.
+- This results in a time complexity of \(O(N^2^N)\), which is far too slow.
+
+Given that the actual number of solutions is much smaller than the number of possible board states, it is essential to minimize the consideration of invalid board states.
