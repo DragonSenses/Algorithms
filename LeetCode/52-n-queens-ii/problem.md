@@ -108,3 +108,7 @@ Let's consider the example of placing 8 queens on a normal chessboard:
 - If the second queen is placed to its right (index (0, 1), or b8), there are \(62 \times 61 \times \ldots \times 57 = 44,261,653,680\) possible ways to place the remaining 6 queens.
 
 However, we already know that all these possibilities are invalid because the first two queens can attack each other.
+
+![Chessboard with the first queen placed at the top left (index 0,0 or a8) and the second queen placed to its right (index 0,1 or b8).](img/52-2.jpg)
+
+This illustrates why a brute force approach is impractical and emphasizes the need for a more efficient solution.
