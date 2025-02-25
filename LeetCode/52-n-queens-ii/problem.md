@@ -142,3 +142,7 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
 2. **Placing Queens by Column:**
    - To ensure only one queen per **column**, use a set. Whenever we place a queen, add the column index to this set.
+
+3. **Handling Diagonals:**
+   - For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. For example, on the diagonal that starts from `(0, 0)`, the *i-th* square has coordinates `(i, i)`, so the difference is always 0.
+
