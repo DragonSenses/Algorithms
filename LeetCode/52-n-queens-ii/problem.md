@@ -137,13 +137,13 @@ To implement backtracking, we create a backtrack function that makes changes to 
 
 ## Key Steps
 
-1. **Placing Queens by Row:**
+### 1. **Placing Queens by Row:**
    - Ensure only one queen per **row** by passing an integer argument `row` into the backtrack function. Each call places one queen and moves to the next row by calling backtrack again with `row + 1`.
 
-2. **Placing Queens by Column:**
+### 2. **Placing Queens by Column:**
    - To ensure only one queen per **column**, use a set. Whenever we place a queen, add the column index to this set.
 
-3. **Handling Diagonals:**
+### 3. **Handling Diagonals:**
    - For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. For example, on the diagonal that starts from `(0, 0)`, the *i-th* square has coordinates `(i, i)`, so the difference is always 0.
 
   ![Every square has value (row - col). Diagonals share the same values](img/52-3.jpg)
@@ -162,3 +162,6 @@ Here, the value at each square is calculated as `(row - col)`. For example:
 - The square at `(0, 1)` has a value of `-1`.
 
 As you can see, diagonals share the same values.
+
+### 4. **Handling Anti-Diagonals:**
+   - For each square on a given anti-diagonal, the sum of the row and column indices (row + col) is constant. If you start at the highest square in an anti-diagonal and move downwards, the row index increments by 1 (row + 1), and the column index decrements by 1 (col - 1), cancelling each other out.
