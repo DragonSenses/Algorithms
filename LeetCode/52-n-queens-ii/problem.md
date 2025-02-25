@@ -167,3 +167,19 @@ As you can see, diagonals share the same values.
    - For each square on a given anti-diagonal, the sum of the row and column indices (row + col) is constant. If you start at the highest square in an anti-diagonal and move downwards, the row index increments by 1 (row + 1), and the column index decrements by 1 (col - 1), cancelling each other out.
 
   ![Every square has value (row + col). Anti-diagonals share the same values](img/52-4.jpg)
+
+|    | 0  | 1  | 2  | 3  |
+|----|----|----|----|----|
+| **0**  |  0  |  1  |  2  |  3  |
+| **1**  |  1  |  2  |  3  |  4  |
+| **2**  |  2  |  3  |  4  |  5  |
+| **3**  |  3  |  4  |  5  |  6  |
+
+Here, the value at each square is calculated as `(row + col)`. For example:
+- The square at `(0, 0)` has a value of `0`.
+- The square at `(1, 1)` has a value of `2`.
+- The square at `(2, 0)` has a value of `2`.
+- The square at `(0, 1)` has a value of `1`.
+
+As you can see, anti-diagonals share the same values.
+
