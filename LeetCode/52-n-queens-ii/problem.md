@@ -183,3 +183,7 @@ Here, the value at each square is calculated as `(row + col)`. For example:
 
 As you can see, anti-diagonals share the same values.
 
+### 5. **Tracking Diagonals and Anti-Diagonals:**
+   - Every time we place a queen, calculate the diagonal and anti-diagonal value it belongs to. Similar to columns, use sets to track which diagonals and anti-diagonals have been used. Add the values for this queen to the corresponding sets.
+
+By leveraging these properties and using sets to track placements, we can efficiently determine valid board states and systematically explore all possibilities through backtracking.
