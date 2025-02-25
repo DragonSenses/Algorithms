@@ -134,3 +134,11 @@ The strategy involves generating board states, but we avoid placing a queen on a
 Given a board state and a possible placement for a queen, we need a method to determine whether that placement puts the queen under attack. A queen is under attack if another queen is in the same row, column, diagonal, or anti-diagonal.
 
 To implement backtracking, we create a backtrack function that makes changes to the state, calls itself, and then undoes those changes when the call returns (hence the term "backtracking").
+
+## Key Steps
+
+1. **Placing Queens by Row:**
+   - Ensure only one queen per **row** by passing an integer argument `row` into the backtrack function. Each call places one queen and moves to the next row by calling backtrack again with `row + 1`.
+
+2. **Placing Queens by Column:**
+   - To ensure only one queen per **column**, use a set. Whenever we place a queen, add the column index to this set.
