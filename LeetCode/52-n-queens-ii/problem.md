@@ -146,3 +146,19 @@ To implement backtracking, we create a backtrack function that makes changes to 
 3. **Handling Diagonals:**
    - For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. For example, on the diagonal that starts from `(0, 0)`, the *i-th* square has coordinates `(i, i)`, so the difference is always 0.
 
+  ![Every square has value (row - col). Diagonals share the same values](img/52-3.jpg)
+
+|    | 0  | 1  | 2  | 3  |
+|----|----|----|----|----|
+| **0**  |  0  | -1 | -2 | -3 |
+| **1**  |  1  |  0 | -1 | -2 |
+| **2**  |  2  |  1 |  0 | -1 |
+| **3**  |  3  |  2 |  1 |  0 |
+
+Here, the value at each square is calculated as `(row - col)`. For example:
+- The square at `(0, 0)` has a value of `0`.
+- The square at `(1, 1)` has a value of `0`.
+- The square at `(2, 0)` has a value of `-2`.
+- The square at `(0, 1)` has a value of `-1`.
+
+As you can see, diagonals share the same values.
