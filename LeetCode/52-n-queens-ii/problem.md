@@ -210,6 +210,9 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
 5. **Place the Queen:**
    - If we were able to place a queen, then update our three sets (`cols`, `diagonals`, and `antiDiagonals`).
 
+6. **Recursive Call:**
+   - Call the `backtrack` function again, but with `row + 1`. This explores all valid board states with the queen we placed in the current step.
+
 ### Key Steps
 
 1. **Placing Queens by Row:**
