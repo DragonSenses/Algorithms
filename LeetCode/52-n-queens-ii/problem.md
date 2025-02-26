@@ -199,6 +199,9 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
 2. **Initialize Solutions Count:**
    - Initiate a local variable `solutions = 0` that represents all the possible solutions that can be obtained from the current board state.
 
+3. **Iterate Through Columns:**
+   - Iterate through the columns of the current row. At each column, we will attempt to place a queen at the square `(row, col)`.
+
 ### Key Steps
 
 1. **Placing Queens by Row:**

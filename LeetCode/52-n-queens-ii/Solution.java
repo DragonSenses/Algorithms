@@ -21,6 +21,13 @@ public class Solution {
     // 2. Initialize Solutions Count.
     int solutions = 0;
 
+    // 3. Iterate Through Columns.
+    for (int col = 0; col < n; col++) {
+      int diagonal = row - col;
+      int antiDiagonal = row + col;
+
+    }
+
     return solutions;
   }
 }
