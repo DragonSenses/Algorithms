@@ -202,6 +202,11 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
 3. **Iterate Through Columns:**
    - Iterate through the columns of the current row. At each column, we will attempt to place a queen at the square `(row, col)`.
 
+4. **Check Valid Placement:**
+   - Calculate the diagonal and anti-diagonal that the square belongs to.
+   - If there has been no queen placed yet in the column, diagonal, or anti-diagonal, then we can place a queen in this column, in the current row.
+   - If we can't place the queen, skip this column (move on to try with the next column).
+
 ### Key Steps
 
 1. **Placing Queens by Row:**

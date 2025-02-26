@@ -26,6 +26,12 @@ public class Solution {
       int diagonal = row - col;
       int antiDiagonal = row + col;
 
+      // 4. Check Valid Placement.
+      if (cols.contains(col) || diagonals.contains(diagonal)
+          || antiDiagonals.contains(antiDiagonal)) {
+        continue; // Can't place queen here, move to next column.
+      }
+
     }
 
     return solutions;
