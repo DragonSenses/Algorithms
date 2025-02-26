@@ -193,6 +193,9 @@ By leveraging these properties and using sets to track placements, we can effici
 ### Overview
 We'll create a recursive function `backtrack` that takes four arguments to maintain the board state. The first parameter is the row we're going to place a queen on next, and the other three are sets that track which columns, diagonals, and anti-diagonals have already had queens placed on them.
 
+1. **Base Case:**
+   - If the current row we are considering is greater than or equal to `n`, then we have a solution. Return `1`.
+
 ### Key Steps
 
 1. **Placing Queens by Row:**
