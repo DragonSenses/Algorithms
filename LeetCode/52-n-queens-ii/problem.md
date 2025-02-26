@@ -188,6 +188,11 @@ As you can see, anti-diagonals share the same values.
 
 By leveraging these properties and using sets to track placements, we can efficiently determine valid board states and systematically explore all possibilities through backtracking.
 
+## **Algorithm**
+
+### Overview
+We'll create a recursive function `backtrack` that takes four arguments to maintain the board state. The first parameter is the row we're going to place a queen on next, and the other three are sets that track which columns, diagonals, and anti-diagonals have already had queens placed on them.
+
 **Pseudocode**
 
 ```
