@@ -207,6 +207,9 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
    - If there has been no queen placed yet in the column, diagonal, or anti-diagonal, then we can place a queen in this column, in the current row.
    - If we can't place the queen, skip this column (move on to try with the next column).
 
+5. **Place the Queen:**
+   - If we were able to place a queen, then update our three sets (`cols`, `diagonals`, and `antiDiagonals`).
+
 ### Key Steps
 
 1. **Placing Queens by Row:**
