@@ -18,6 +18,9 @@ public class Solution {
       return 1;
     }
 
-    return 0;
+    // 2. Initialize Solutions Count.
+    int solutions = 0;
+
+    return solutions;
   }
 }

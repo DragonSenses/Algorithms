@@ -196,6 +196,9 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
 1. **Base Case:**
    - If the current row we are considering is greater than or equal to `n`, then we have a solution. Return `1`.
 
+2. **Initialize Solutions Count:**
+   - Initiate a local variable `solutions = 0` that represents all the possible solutions that can be obtained from the current board state.
+
 ### Key Steps
 
 1. **Placing Queens by Row:**
