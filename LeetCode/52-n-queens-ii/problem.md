@@ -213,6 +213,9 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
 6. **Recursive Call:**
    - Call the `backtrack` function again, but with `row + 1`. This explores all valid board states with the queen we placed in the current step.
 
+7. **Backtrack:**
+   - After the recursive call returns, backtrack by removing the queen from the square. This means removing the values we added to our sets.
+
 ### Key Steps
 
 1. **Placing Queens by Row:**

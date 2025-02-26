@@ -40,6 +40,10 @@ public class Solution {
       // 6. Recursive Call: Move to the next row with updated state.
       solutions += backtrack(row + 1, n, cols, diagonals, antiDiagonals);
 
+      // 7. Backtrack: Remove the queen and revert changes.
+      cols.remove(col);
+      diagonals.remove(diagonal);
+      antiDiagonals.remove(antiDiagonal);
     }
 
     return solutions;
