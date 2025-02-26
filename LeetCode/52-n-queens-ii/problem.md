@@ -193,6 +193,23 @@ By leveraging these properties and using sets to track placements, we can effici
 ### Overview
 We'll create a recursive function `backtrack` that takes four arguments to maintain the board state. The first parameter is the row we're going to place a queen on next, and the other three are sets that track which columns, diagonals, and anti-diagonals have already had queens placed on them.
 
+### Key Steps
+
+1. **Placing Queens by Row:**
+   - Ensure only one queen per **row** by passing an integer argument `row` into the `backtrack` function. Each call places one queen and moves to the next row by calling `backtrack` again with `row + 1`.
+
+2. **Placing Queens by Column:**
+   - To ensure only one queen per **column**, use a set. Whenever we place a queen, add the column index to this set.
+
+3. **Handling Diagonals:**
+   - For each square on a given **diagonal**, the difference between the row and column indices `(row - col)` is constant. Track which diagonals have queens using a set.
+
+4. **Handling Anti-Diagonals:**
+   - For each square on a given **anti-diagonal**, the sum of the row and column indices `(row + col)` is constant. Track which anti-diagonals have queens using a set.
+
+5. **Tracking Diagonals and Anti-Diagonals:**
+   - Every time we place a queen, calculate the diagonal and anti-diagonal value it belongs to. Use sets to track which diagonals and anti-diagonals have been used. Add the values for this queen to the corresponding sets.
+
 **Pseudocode**
 
 ```
