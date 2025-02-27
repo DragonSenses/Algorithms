@@ -269,3 +269,36 @@ function totalNQueens(n):
     
     return backtrack(0)
 ```
+
+#### Key Steps
+
+1. **Function totalNQueens:**
+   - This is the entry point of the algorithm. It calls the `backtrack` function with initial parameters: row `0` and three empty sets to track columns, diagonals, and anti-diagonals.
+
+2. **Function backtrack:**
+   - This recursive function tries to place queens row by row.
+
+3. **Base Case:**
+   - If the `row` value is greater than or equal to `n`, it means we have successfully placed all queens. Return `1` to indicate a valid solution.
+
+4. **Initialize Solutions Count:**
+   - Initialize `solutions` to `0` to count the number of valid solutions from the current board state.
+
+5. **Iterate Through Columns:**
+   - Loop through all columns in the current row to try placing a queen.
+
+6. **Check Valid Placement:**
+   - Calculate `diag` and `antiDiag` values for the current cell `(row, col)`.
+   - If the column, diagonal, or anti-diagonal is already occupied by another queen, skip this column.
+
+7. **Place the Queen:**
+   - Add the column, diagonal, and anti-diagonal to their respective sets.
+
+8. **Recursive Call:**
+   - Call `backtrack` with the next row (`row + 1`) and updated sets.
+
+9. **Backtrack:**
+   - After exploring the current configuration, remove the queen from the current cell (by removing the values from the sets).
+
+10. **Return Solutions:**
+    - Return the total count of valid solutions found.
