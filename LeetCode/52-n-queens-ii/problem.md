@@ -233,37 +233,39 @@ We'll create a recursive function `backtrack` that takes four arguments to maint
 5. **Tracking Diagonals and Anti-Diagonals:**
    - Every time we place a queen, calculate the diagonal and anti-diagonal value it belongs to. Use sets to track which diagonals and anti-diagonals have been used. Add the values for this queen to the corresponding sets.
 
-**Pseudocode**
+### **Pseudocode**
 
 ```
-function totalNQueens(n)
-    RETURN backtrack(0, {}, {}, {})
-
-function backtrack(row, cols, diagonals, antiDiagonals)
-    IF row >= n THEN
-        RETURN 1
-
+function totalNQueens(n):
     solutions = 0
-
-    FOR col FROM 0 TO n-1 DO
-        diag = row - col
-        antiDiag = row + col
-
-        IF col IN cols OR diag IN diagonals OR antiDiag IN antiDiagonals THEN
-            CONTINUE
-
-        // Place queen
-        ADD col TO cols
-        ADD diag TO diagonals
-        ADD antiDiag TO antiDiagonals
-
-        // Move to next row
-        solutions += backtrack(row + 1, cols, diagonals, antiDiagonals)
-
-        // Remove queen (backtrack)
-        REMOVE col FROM cols
-        REMOVE diag FROM diagonals
-        REMOVE antiDiag FROM antiDiagonals
-
-    RETURN solutions
+    cols = set()
+    diagonals = set()
+    antiDiagonals = set()
+    
+    function backtrack(row):
+        if row >= n:
+            return 1
+        
+        solutions = 0
+        
+        for col in range(0, n):
+            diag = row - col
+            antiDiag = row + col
+            
+            if col in cols or diag in diagonals or antiDiag in antiDiagonals:
+                continue
+            
+            cols.add(col)
+            diagonals.add(diag)
+            antiDiagonals.add(antiDiag)
+            
+            solutions += backtrack(row + 1)
+            
+            cols.remove(col)
+            diagonals.remove(diag)
+            antiDiagonals.remove(antiDiag)
+        
+        return solutions
+    
+    return backtrack(0)
 ```
