@@ -26,6 +26,15 @@ function totalNQueens(n: number): number {
       const diagonal = row - col;
       const antiDiagonal = row + col;
 
+      // 4. Check Valid Placement.
+      if (
+        cols.has(col) ||
+        diagonals.has(diagonal) ||
+        antiDiagonals.has(antiDiagonal)
+      ) {
+        continue; // Can't place queen here, move to next column.
+      }
+
     }
 
     return solutions;
