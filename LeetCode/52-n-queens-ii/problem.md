@@ -387,6 +387,13 @@ function totalNQueens(n: number): number {
     // 2. Initialize Solutions Count.
     let solutions = 0;
 
+    // 3. Iterate Through Columns.
+    for (let col = 0; col < n; col++) {
+      const diagonal = row - col;
+      const antiDiagonal = row + col;
+
+    }
+
     return solutions;
   }
 }
