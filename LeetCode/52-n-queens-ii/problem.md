@@ -384,7 +384,10 @@ function totalNQueens(n: number): number {
       return 1;
     }
 
-    return 0;
+    // 2. Initialize Solutions Count.
+    let solutions = 0;
+
+    return solutions;
   }
 }
 ```
