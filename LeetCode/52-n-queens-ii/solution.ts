@@ -1,3 +1,8 @@
+/**
+ * Solves the N-Queens problem and returns the total number of solutions.
+ * @param n - The size of the chessboard (n x n) and the number of queens.
+ * @returns The total number of distinct solutions for placing n queens.
+ */
 function totalNQueens(n: number): number {
   // Set to keep track of columns, diagonals, and anti-diagonals.
   const cols = new Set<number>();
@@ -6,6 +11,15 @@ function totalNQueens(n: number): number {
 
   return backtrack(0, n, cols, diagonals, antiDiagonals);
 
+  /**
+   * Backtracks to find all valid solutions for placing queens.
+   * @param row - The current row to place a queen on.
+   * @param n - The size of the chessboard (n x n).
+   * @param cols - A set of column indices already occupied by queens.
+   * @param diagonals - A set of diagonal indices already occupied by queens.
+   * @param antiDiagonals - A set of anti-diagonal indices already occupied by queens.
+   * @returns The number of valid solutions for this configuration.
+   */
   function backtrack(
     row: number,
     n: number,
