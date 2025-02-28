@@ -22,7 +22,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 9</code></li>
+  <li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
 
 ---
@@ -358,5 +358,18 @@ public class Solution {
 
     return solutions;
   }
+}
+```
+
+### TypeScript
+
+```typescript
+function totalNQueens(n: number): number {
+  // Set to keep track of columns, diagonals, and anti-diagonals.
+  const cols = new Set<number>();
+  const diagonals = new Set<number>();
+  const antiDiagonals = new Set<number>();
+
+  return 0;
 }
 ```
