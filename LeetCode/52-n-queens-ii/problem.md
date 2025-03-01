@@ -401,6 +401,11 @@ function totalNQueens(n: number): number {
         continue; // Can't place queen here, move to next column.
       }
 
+      // 5. Place the Queen.
+      cols.add(col);
+      diagonals.add(diagonal);
+      antiDiagonals.add(antiDiagonal);
+
     }
 
     return solutions;
