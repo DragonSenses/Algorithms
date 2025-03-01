@@ -75,3 +75,18 @@ The idea revolves around understanding the **cyclic nature of the rotation** and
 2. **Modulo Optimization**: Recognizing that rotations beyond the size of the list (i.e., `k >= n`) return us to a previously seen configuration. Using the modulo operation simplifies the rotation to only what's needed.
 
 3. **New Break Point**: The trick lies in identifying where to "cut" the loop to form the new head and tail, which depends on the size of the list (`n`) and the reduced value of `k`.
+
+## **Intuition**
+
+A linked list is inherently a chain where nodes are already connected. The problem of rotating the list can be visualized as a series of steps:
+
+#### **Step-by-Step Understanding**
+1. **Close the Linked List into a Ring**:  
+   Imagine the entire linked list as a **circular structure** where the last node is connected back to the first node, forming a loop.
+   
+2. **Locate the New Head and Tail**:  
+   The new head of the rotated list will be at position **`n - k`**, where `n` is the total number of nodes in the list.  
+   - **New Tail**: Located just before the new head, at position **`n - k - 1`**.
+
+3. **Break the Ring**:  
+   To complete the rotation, break the loop by severing the connection between the new tail and the new head, restoring a regular singly linked list.
