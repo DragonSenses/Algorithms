@@ -12,8 +12,9 @@ public class Solution {
   public ListNode rotateRight(ListNode head, int k) {
     // Handle edge cases where no rotation is needed:
     // - Empty list (head == null)
+    // - Single-node list (head.next == null)
     // - Zero rotations requested (k == 0)
-    if (head == null || k == 0) {
+    if (head == null || head.next == null || k == 0) {
       return head;
     }
 
