@@ -19,12 +19,16 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[0, 500]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
+  <li>The number of nodes in the list is in the range <code>[0, 500]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
 ---
+
+# Solution
+
+- [Cyclic Shift Approach](#cyclic-shift-approach)
 
 ### Problem Overview: Rotate List
 
@@ -61,3 +65,13 @@ This problem involves manipulating a **singly linked list**. You are provided wi
   - Large values of `k` compared to the size of the list (`k > n`).
 
 - **Optimized Rotation**: To avoid unnecessary computational effort, calculate the effective rotations using the modulo operation: `k = k % n`.
+
+# Cyclic Shift Approach
+
+The idea revolves around understanding the **cyclic nature of the rotation** and reducing unnecessary computation through smart observations:
+
+1. **Circular Transformation**: Think of the linked list as forming a loop or circle. This helps in visualizing the rotation process as simply moving the "start" of the list to a new point on the circle.
+
+2. **Modulo Optimization**: Recognizing that rotations beyond the size of the list (i.e., `k >= n`) return us to a previously seen configuration. Using the modulo operation simplifies the rotation to only what's needed.
+
+3. **New Break Point**: The trick lies in identifying where to "cut" the loop to form the new head and tail, which depends on the size of the list (`n`) and the reduced value of `k`.
