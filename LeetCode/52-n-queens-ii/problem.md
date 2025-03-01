@@ -30,6 +30,7 @@
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Space Complexity**: `O(n^2)`
 
 ## Problem Overview: N-Queens II
 
@@ -419,3 +420,13 @@ function totalNQueens(n: number): number {
   }
 }
 ```
+
+### Assumptions
+- **Board Size (n x n)**: The board is an n x n grid.
+- **Queens**: We are placing n queens on the board such that no two queens can attack each other.
+- **Backtracking Approach**: We use backtracking to explore all possible solutions.
+
+### Space Complexity: `O(n)`
+- **Auxiliary Space for Sets:** We use three sets to track columns, diagonals, and anti-diagonals. Each set can have at most `n` elements.
+- **Recursive Call Stack:** The maximum depth of the recursion is `n` (one for each row).
+- Therefore, the space complexity is `O(n + n + n + n) = O(n)`.
