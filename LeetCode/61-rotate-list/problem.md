@@ -80,6 +80,9 @@ The idea revolves around understanding the **cyclic nature of the rotation** and
 
 A linked list is inherently a chain where nodes are already connected. The problem of rotating the list can be visualized as a series of steps:
 
+#### **Core Insight**
+- **Rotation Concept**: Rotating a linked list to the right by `k` places essentially means moving the last `k` nodes from the end of the list and placing them at the front, while maintaining the order of all elements.
+  
 #### **Step-by-Step Understanding**
 1. **Close the Linked List into a Ring**:  
    Imagine the entire linked list as a **circular structure** where the last node is connected back to the first node, forming a loop.
@@ -90,3 +93,10 @@ A linked list is inherently a chain where nodes are already connected. The probl
 
 3. **Break the Ring**:  
    To complete the rotation, break the loop by severing the connection between the new tail and the new head, restoring a regular singly linked list.
+
+#### **Key Considerations for `k`**
+- **When `k < n`**: Find the new head at position `n - k`.
+- **When `k >= n`**: Rotation cycles back. Large values of `k` can be reduced using modulo operation:  
+  `k = k % n` 
+  - `k` could be rewritten as a sum `k = (k // n) * n + k % n`, where the first term doesn't result in any rotation.
+  This ensures we only consider the "net" rotations required.
