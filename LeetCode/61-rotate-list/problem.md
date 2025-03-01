@@ -109,3 +109,37 @@ Let's see how this applies when `head = [1,2,3,4,5]` and `k = 2`:
   - New head = position `n - k = 5 - 2 = 3` → `4`.  
   - New tail = position `n - k - 1 = 3 - 1 = 2` → `3`.  
 - **Step 3**: Break the ring at new tail → Output: `[4,5,1,2,3]`.
+
+### **Pseudocode**
+
+```pseudo
+FUNCTION rotateList(head, k):
+    IF head IS NULL OR head.next IS NULL OR k == 0:
+        RETURN head  // No rotation needed
+
+    // Step 1: Calculate the length of the list and close it into a circular linked list
+    SET length = 1
+    SET tail = head
+    WHILE tail.next IS NOT NULL:
+        length = length + 1
+        tail = tail.next
+    END WHILE
+    tail.next = head  // Form a circular list
+
+    // Step 2: Find the effective number of rotations
+    k = k MOD length
+
+    // Step 3: Determine the new head and tail
+    SET stepsToNewTail = length - k - 1
+    SET newTail = head
+    FOR i FROM 0 TO stepsToNewTail:
+        newTail = newTail.next
+    END FOR
+    SET newHead = newTail.next
+
+    // Step 4: Break the circular list
+    newTail.next = NULL
+
+    RETURN newHead
+END FUNCTION
+```
