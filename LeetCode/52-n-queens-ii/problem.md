@@ -30,6 +30,7 @@
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Time Complexity**: `O(n!)`
   - **Space Complexity**: `O(n^2)`
 
 ## Problem Overview: N-Queens II
@@ -421,10 +422,23 @@ function totalNQueens(n: number): number {
 }
 ```
 
+## **Complexity Analysis**
+
 ### Assumptions
 - **Board Size (n x n)**: The board is an n x n grid.
 - **Queens**: We are placing n queens on the board such that no two queens can attack each other.
 - **Backtracking Approach**: We use backtracking to explore all possible solutions.
+
+### **Time Complexity**: `O(n!)`
+- **Initial Placement**: Unlike the brute force approach, we only place queens on squares that aren't under attack.
+  - For the first queen, we have `n` options.
+  - For the second queen, we avoid the same column and diagonally attacked squares, leaving at most `n - 2` options.
+  - For the third queen, we avoid two columns and diagonally attacked squares, leaving at most `n - 4` options.
+  - This pattern continues, resulting in an approximate time complexity of `n!`.
+
+- **Backtracking**: For each placement, we recursively attempt to place the next queen in the next row. We only explore valid placements, leading to an overall time complexity of `O(n!)`.
+
+- **Building Solutions**: While building each valid solution costs `O(n^2)`, the number of valid solutions `S(n)` does not grow as fast as `n!`, so the combined complexity is `O(n! + S(n) * n^2) = O(n!)`.
 
 ### Space Complexity: `O(n)`
 - **Auxiliary Space for Sets:** We use three sets to track columns, diagonals, and anti-diagonals. Each set can have at most `n` elements.
