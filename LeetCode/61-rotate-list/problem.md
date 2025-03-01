@@ -100,3 +100,12 @@ A linked list is inherently a chain where nodes are already connected. The probl
   `k = k % n` 
   - `k` could be rewritten as a sum `k = (k // n) * n + k % n`, where the first term doesn't result in any rotation.
   This ensures we only consider the "net" rotations required.
+
+#### **Example (Step Visualization)**
+Let's see how this applies when `head = [1,2,3,4,5]` and `k = 2`:
+- **Initial Input**: `[1,2,3,4,5]`
+- **Step 1**: Close into a ring: `1 → 2 → 3 → 4 → 5 → 1`.
+- **Step 2**: Identify new positions:  
+  - New head = position `n - k = 5 - 2 = 3` → `4`.  
+  - New tail = position `n - k - 1 = 3 - 1 = 2` → `3`.  
+- **Step 3**: Break the ring at new tail → Output: `[4,5,1,2,3]`.
