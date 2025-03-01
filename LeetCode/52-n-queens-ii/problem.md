@@ -406,9 +406,13 @@ function totalNQueens(n: number): number {
       diagonals.add(diagonal);
       antiDiagonals.add(antiDiagonal);
 
-
       // 6. Recursive Call: Move to the next row with updated state.
       solutions += backtrack(row + 1, n, cols, diagonals, antiDiagonals);
+
+      // 7. Backtrack: Remove the queen and revert changes.
+      cols.delete(col);
+      diagonals.delete(diagonal);
+      antiDiagonals.delete(antiDiagonal);
     }
 
     return solutions;
