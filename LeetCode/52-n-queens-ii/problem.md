@@ -424,7 +424,7 @@ function totalNQueens(n: number): number {
 
 ## **Complexity Analysis**
 
-### Assumptions
+### **Assumptions**
 - **Board Size (n x n)**: The board is an n x n grid.
 - **Queens**: We are placing n queens on the board such that no two queens can attack each other.
 - **Backtracking Approach**: We use backtracking to explore all possible solutions.
@@ -434,13 +434,15 @@ function totalNQueens(n: number): number {
   - For the first queen, we have `n` options.
   - For the second queen, we avoid the same column and diagonally attacked squares, leaving at most `n - 2` options.
   - For the third queen, we avoid two columns and diagonally attacked squares, leaving at most `n - 4` options.
-  - This pattern continues, resulting in an approximate time complexity of `n!`.
+  - This pattern continues, resulting in a worst-case time complexity of approximately `n!`.
 
-- **Backtracking**: For each placement, we recursively attempt to place the next queen in the next row. We only explore valid placements, leading to an overall time complexity of `O(n!)`.
+- **Pruning Effect**: Backtracking significantly reduces the number of configurations to explore by pruning invalid placements early. While `O(n!)` is the theoretical upper bound, the practical runtime is usually much better due to this pruning.
 
-- **Building Solutions**: While building each valid solution costs `O(n^2)`, the number of valid solutions `S(n)` does not grow as fast as `n!`, so the combined complexity is `O(n! + S(n) * n^2) = O(n!)`.
+- **Recursive Calls**: For each valid placement, we recursively attempt to place the next queen in the next row. The process stops as soon as invalid placements are detected, minimizing unnecessary recursion. This contributes to the efficiency of the algorithm.
 
-### Space Complexity: `O(n)`
-- **Auxiliary Space for Sets:** We use three sets to track columns, diagonals, and anti-diagonals. Each set can have at most `n` elements.
-- **Recursive Call Stack:** The maximum depth of the recursion is `n` (one for each row).
-- Therefore, the space complexity is `O(n + n + n + n) = O(n)`.
+- **Building Solutions**: In N-Queens II, we only return the *count* of solutions rather than constructing or printing board configurations. This eliminates additional overhead and reinforces the overall time complexity as `O(n!)`.
+
+### **Space Complexity**: `O(n)`
+- **Auxiliary Data Structures**: We use three sets (`cols`, `diagonals`, and `anti-diagonals`) to track occupied columns and diagonals. Each set contains at most `n` elements, leading to `O(n)` space for these structures.
+- **Recursive Call Stack**: The recursion depth is at most `n`, as we place one queen per row. This contributes another `O(n)` to the space complexity.
+- The combined space complexity is `O(n)` since both components scale linearly with the size of the board.
