@@ -29,6 +29,7 @@
 # Solution
 
 - [Circular Linked List Approach](#circular-linked-list-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Rotate List
 
@@ -142,3 +143,15 @@ function rotateList(head, k):
 
  return newHead
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- **Size**: The linked list contains `n` nodes.
+- **Rotations**: The number of rotations is `k`.
+
+### **Space Complexity**: `O(1)`
+- **In-place operations**: The algorithm modifies pointers in the existing nodes without creating new data structures, using only a few variables like `oldTail`, `newTail`, `length`, and `stepsToNewTail`.
+- **Pointer updates**: Changing the `next` pointers does not require extra memory.
+
+*Overall*: Since the algorithm operates entirely in place, the space complexity is **`O(1)`**.
