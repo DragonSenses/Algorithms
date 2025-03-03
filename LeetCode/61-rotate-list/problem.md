@@ -28,7 +28,7 @@
 
 # Solution
 
-- [Cyclic Shift Approach](#cyclic-shift-approach)
+- [Circular Linked List Approach](#circular-linked-list-approach)
 
 ### Problem Overview: Rotate List
 
@@ -66,15 +66,13 @@ This problem involves manipulating a **singly linked list**. You are provided wi
 
 - **Optimized Rotation**: To avoid unnecessary computational effort, calculate the effective rotations using the modulo operation: `k = k % n`.
 
-# Cyclic Shift Approach
+# Circular Linked List Approach
 
-The idea revolves around understanding the **cyclic nature of the rotation** and reducing unnecessary computation through smart observations:
+1. **Transforming into a Circular List**: Visualize the linked list as a closed loop, where the tail connects back to the head. This transformation enables seamless rotations by allowing the starting point of the list to shift along the circle.
 
-1. **Circular Transformation**: Think of the linked list as forming a loop or circle. This helps in visualizing the rotation process as simply moving the "start" of the list to a new point on the circle.
+2. **Optimizing Rotations with Modulo**: Since rotating the list by a number `k` greater than its length (`n`) results in a repetitive configuration, the effective rotations are reduced to `k % n`, eliminating redundant operations.
 
-2. **Modulo Optimization**: Recognizing that rotations beyond the size of the list (i.e., `k >= n`) return us to a previously seen configuration. Using the modulo operation simplifies the rotation to only what's needed.
-
-3. **New Break Point**: The trick lies in identifying where to "cut" the loop to form the new head and tail, which depends on the size of the list (`n`) and the reduced value of `k`.
+3. **Identifying the Breaking Point**: The key lies in determining where to break the circular link. This is calculated based on the list's size (`n`) and the adjusted rotation count (`k % n`), ensuring the new head and tail are properly assigned.
 
 ## **Intuition**
 
