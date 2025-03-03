@@ -36,6 +36,8 @@ public class Solution {
     for (int i = 0; i < stepsToNewTail; i++) {
       newTail = newTail.next;
     }
-    return new ListNode(0);
+    ListNode newHead = newTail.next;
+
+    return newHead;
   }
 }
