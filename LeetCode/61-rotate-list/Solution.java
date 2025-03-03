@@ -27,6 +27,10 @@ public class Solution {
     }
     oldTail.next = head; // Form a circular list
 
+    // Step 2: Compute the effective rotations
+    k = k % length;
+
+
     return new ListNode(0);
   }
 }
