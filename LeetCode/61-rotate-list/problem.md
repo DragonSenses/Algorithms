@@ -113,33 +113,34 @@ Let's see how this applies when `head = [1,2,3,4,5]` and `k = 2`:
 ### **Pseudocode**
 
 ```pseudo
-FUNCTION rotateList(head, k):
-    IF head IS NULL OR head.next IS NULL OR k == 0:
-        RETURN head  // No rotation needed
+function rotateList(head, k):
+ If head is NULL OR head.next is NULL OR k == 0:
+     Return head
 
-    // Step 1: Calculate the length of the list and close it into a circular linked list
-    SET length = 1
-    SET tail = head
-    WHILE tail.next IS NOT NULL:
-        length = length + 1
-        tail = tail.next
-    END WHILE
-    tail.next = head  // Form a circular list
+ // Step 1: Close the List into a Ring
+ Initialize oldTail = head
+ Initialize length = 1
+ 
+ While oldTail.next is not NULL:
+     oldTail = oldTail.next
+     length = length + 1
+ 
+ // Form a circular linked list
+ oldTail.next = head
 
-    // Step 2: Find the effective number of rotations
-    k = k MOD length
+ // Step 2: Find the New Head and Tail
+ k = k MOD length // Reduce k to avoid unnecessary rotations
 
-    // Step 3: Determine the new head and tail
-    SET stepsToNewTail = length - k - 1
-    SET newTail = head
-    FOR i FROM 0 TO stepsToNewTail:
-        newTail = newTail.next
-    END FOR
-    SET newHead = newTail.next
+ // New tail is at position (length - k - 1)
+ // New head is at position (length - k)
+ Initialize newTail = head
+ for i from 1 to (length - k - 1):
+     newTail = newTail.next
+ 
+ Initialize newHead = newTail.next
 
-    // Step 4: Break the circular list
-    newTail.next = NULL
+ // Step 3: Break the Ring
+ newTail.next = NULL // Sever the circular link
 
-    RETURN newHead
-END FUNCTION
+ return newHead
 ```
