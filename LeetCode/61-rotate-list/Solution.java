@@ -18,6 +18,15 @@ public class Solution {
       return head;
     }
 
+    // Step 1: Calculate the length of the list and close it into a circular list
+    ListNode oldTail = head;
+    int length = 1;
+    while (oldTail.next != null) {
+      oldTail = oldTail.next;
+      length++;
+    }
+    oldTail.next = head; // Form a circular list
+
     return new ListNode(0);
   }
 }
