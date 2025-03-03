@@ -29,6 +29,7 @@
 # Solution
 
 - [Circular Linked List Approach](#circular-linked-list-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Rotate List
@@ -149,6 +150,14 @@ function rotateList(head, k):
 ### **Assumptions**
 - **Size**: The linked list contains `n` nodes.
 - **Rotations**: The number of rotations is `k`.
+
+### **Time Complexity**: `O(n)`
+- **Traversing the list**: We traverse the entire list once to calculate its length (`n`) and connect the tail to the head, forming a circular list. This takes `O(n)` time.
+- **Finding the new tail**: We locate the new tail by traversing `(n - k - 1)` nodes from the head, which also takes `O(n)` in the worst case.
+- **Reducing rotations**: Computing `k % n` is a constant-time operation, `O(1)`.
+- **Breaking the link**: Severing the circular link is another constant-time operation, `O(1)`.
+
+*Overall*: The dominant factor is the traversal of the list, making the total time complexity **`O(n)`**.
 
 ### **Space Complexity**: `O(1)`
 - **In-place operations**: The algorithm modifies pointers in the existing nodes without creating new data structures, using only a few variables like `oldTail`, `newTail`, `length`, and `stepsToNewTail`.
