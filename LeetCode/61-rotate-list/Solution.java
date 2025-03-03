@@ -38,6 +38,9 @@ public class Solution {
     }
     ListNode newHead = newTail.next;
 
+    // Step 4: Break the circular list
+    newTail.next = null;
+
     return newHead;
   }
 }
