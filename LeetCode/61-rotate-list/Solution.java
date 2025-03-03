@@ -30,7 +30,12 @@ public class Solution {
     // Step 2: Compute the effective rotations
     k = k % length;
 
-
+    // Step 3: Find the new tail and head
+    int stepsToNewTail = length - k - 1;
+    ListNode newTail = head;
+    for (int i = 0; i < stepsToNewTail; i++) {
+      newTail = newTail.next;
+    }
     return new ListNode(0);
   }
 }
