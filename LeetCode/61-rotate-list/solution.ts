@@ -17,5 +17,11 @@ class ListNode {
 }
 
 function rotateRight(head: ListNode | null, k: number): ListNode | null {
-    
-};
+  // Handle edge cases where no rotation is needed:
+  // - Empty list
+  // - Single-node list
+  // - Zero rotations requested
+  if (!head || !head.next || k === 0) {
+    return head;
+  }
+}
