@@ -119,6 +119,25 @@ Let's see how this applies when `head = [1,2,3,4,5]` and `k = 2`:
   - New tail = position `n - k - 1 = 3 - 1 = 2` → `3`.  
 - **Step 3**: Break the ring at new tail → Output: `[4,5,1,2,3]`.
 
+## **Algorithm**
+
+#### **Step 1: Close the List into a Ring**
+1. Traverse the linked list to:
+   - Identify the **old tail** (the last node in the list).
+   - Count the **length of the list (`n`)**.
+2. Connect the **old tail** back to the head to form a **circular linked list**.
+
+#### **Step 2: Find the New Head and Tail**
+1. Simplify the number of rotations by reducing `k` to an equivalent smaller number of rotations:
+   - Use only the remainder when dividing `k` by the length of the list (`k mod n`). This avoids unnecessary full cycles.
+2. Determine:
+   - **New Tail**: The `(n - k - 1)`-th node from the original head.  
+   - **New Head**: The `(n - k)`-th node from the original head.
+
+#### **Step 3: Break the Ring**
+1. Sever the connection between the **new tail** and the **new head** to break the circular list.
+2. Return the **new head** as the start of the rotated list.
+
 ### **Pseudocode**
 
 ```pseudo
