@@ -82,6 +82,9 @@ The circular linked list approach transforms the original singly linked list int
 
 This approach is particularly effective for problems involving rotations, as it eliminates the need for manually rearranging nodes by leveraging the circular structure to adjust the starting point.
 
+### **Modulo-Based Rotation Optimization**
+The modulo-based rotation approach optimizes the number of rotations needed by recognizing that rotating the list `n` times (where `n` is the length of the list) returns it to its original configuration. As a result, any number of rotations `k` can be reduced to an equivalent smaller number using `k % n`. This mathematical insight minimizes redundant computations and ensures efficiency when `k` is significantly larger than the size of the list.
+
 ## **Intuition**
 
 A linked list is inherently a chain where nodes are already connected. The problem of rotating the list can be visualized as a series of steps:
