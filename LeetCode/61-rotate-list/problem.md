@@ -138,6 +138,15 @@ Let's see how this applies when `head = [1,2,3,4,5]` and `k = 2`:
 1. Sever the connection between the **new tail** and the **new head** to break the circular list.
 2. Return the **new head** as the start of the rotated list.
 
+#### **Example Walkthrough**
+For a linked list `[1,2,3,4,5]` with `k = 2`:
+1. **Step 1**: Form a circular linked list: `1 → 2 → 3 → 4 → 5 → 1`.
+2. **Step 2**:
+   - Reduce `k` if necessary (e.g., for `k = 7` and `n = 5`, only 2 rotations matter).  
+   - Find the new tail at position `n - k - 1 = 5 - 2 - 1 = 2` → node `3`.  
+   - Find the new head at position `n - k = 5 - 2 = 3` → node `4`.
+3. **Step 3**: Break the circle after node `3`. The resulting list: `[4,5,1,2,3]`.
+
 ### **Pseudocode**
 
 ```pseudo
