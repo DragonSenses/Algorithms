@@ -76,6 +76,12 @@ This problem involves manipulating a **singly linked list**. You are provided wi
 
 3. **Identifying the Breaking Point**: The key lies in determining where to break the circular link. This is calculated based on the list's size (`n`) and the adjusted rotation count (`k % n`), ensuring the new head and tail are properly assigned.
 
+## **Overview**
+
+The circular linked list approach transforms the original singly linked list into a closed loop by connecting the tail node back to the head. This visualization and modification simplify the rotation process, as the list now functions like a circular sequence where the starting point can shift seamlessly. After determining the new positions of the head and tail, the loop is broken at the appropriate point to restore the singly linked structure with the desired rotation.
+
+This approach is particularly effective for problems involving rotations, as it eliminates the need for manually rearranging nodes by leveraging the circular structure to adjust the starting point.
+
 ## **Intuition**
 
 A linked list is inherently a chain where nodes are already connected. The problem of rotating the list can be visualized as a series of steps:
