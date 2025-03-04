@@ -34,4 +34,9 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     length++;
   }
   oldTail.next = head; // Form a circular list
+
+  // Step 2: Compute the effective rotations
+  k = k % length; // Avoid unnecessary rotations
+
+  return new ListNode(0);
 }
