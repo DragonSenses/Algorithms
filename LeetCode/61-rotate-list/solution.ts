@@ -38,5 +38,15 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
   // Step 2: Compute the effective rotations
   k = k % length; // Avoid unnecessary rotations
 
+  // Step 3: Find the new tail and head
+  const stepsToNewTail: number = length - k - 1;
+  let newTail: ListNode = head;
+
+  for (let i = 0; i < stepsToNewTail; i++) {
+    newTail = newTail.next as ListNode;
+  }
+
+  const newHead: ListNode | null = newTail.next;
+
   return new ListNode(0);
 }
