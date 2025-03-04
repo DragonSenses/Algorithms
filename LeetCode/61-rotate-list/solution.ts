@@ -24,4 +24,14 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
   if (!head || !head.next || k === 0) {
     return head;
   }
+
+  // Step 1: Calculate the length of the list and close it into a circular list
+  let oldTail: ListNode = head;
+  let length: number = 1;
+
+  while (oldTail.next) {
+    oldTail = oldTail.next;
+    length++;
+  }
+  oldTail.next = head; // Form a circular list
 }
