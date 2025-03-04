@@ -48,5 +48,8 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
 
   const newHead: ListNode | null = newTail.next;
 
-  return new ListNode(0);
+  // Step 4: Break the circular list
+  newTail.next = null;
+
+  return newHead;
 }
