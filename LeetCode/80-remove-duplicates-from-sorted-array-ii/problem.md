@@ -154,3 +154,13 @@ This ensures that we keep the desired elements up to the required length while e
    - Since `nums[3] == nums[2]`, increment `count` to `2`.
    - Since `count <= 2`, copy `nums[3]` to `nums[j]` (which is the same value at this step).
    - Increment `j` to `4`.
+
+5. **Fourth Iteration (i = 4):**
+   - Current element: `nums[4] = 1`
+   - Since `nums[4] == nums[3]`, increment `count` to `3`.
+   - Since `count > 2`, move to the next element without incrementing `j`.
+
+6. **Fifth Iteration (i = 5):**
+   - Current element: `nums[5] = 1`
+   - Since `nums[5] == nums[4]`, `count` remains `3`.
+   - Since `count > 2`, move to the next element without incrementing `j`.
