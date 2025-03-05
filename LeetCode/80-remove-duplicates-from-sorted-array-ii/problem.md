@@ -108,3 +108,20 @@ To efficiently achieve this, we will use a two-pointer technique:
 - The other pointer will track the next available slot for an element, ensuring that no more than two duplicates remain.
 
 This ensures that we keep the desired elements up to the required length while efficiently managing space within the array.
+
+## **Approach:**
+
+1. **Initialize Two Pointers:**
+   - The first pointer iterates over the array to examine each element.
+   - The second pointer points to the next position in the array that can be overwritten or replaced.
+
+2. **Iterate Through the Array:**
+   - Move the first pointer through each element in the array.
+   - Track the count of each element.
+
+3. **Overwrite Unwanted Duplicates:**
+   - If an element has already appeared twice, skip adding it to the result.
+   - If an element appears fewer than or equal to twice, overwrite the position indicated by the second pointer and increment the pointer.
+
+4. **Return the Updated Length:**
+   - The second pointer will give us the final length of the array after in-place modification.
