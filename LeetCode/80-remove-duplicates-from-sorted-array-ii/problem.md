@@ -126,10 +126,19 @@ This ensures that we keep the desired elements up to the required length while e
 4. **Return the Updated Length:**
    - The second pointer will give us the final length of the array after in-place modification.
 
-### Example:
+### **Example**:
 
 **Input:** `nums = [0,0,1,1,1,1,2,3,3]`
+**Expected Output:** `k = 7, nums = [0,0,1,1,2,3,3,_,_]`
 
-**Output:** `k = 7, nums = [0,0,1,1,2,3,3,_,_]`
+#### Steps:
 
-The two-pointer method efficiently overwrites and arranges the elements to ensure that no element appears more than twice within the array while keeping the order intact.
+1. **Initialization:**
+   - Initialize pointers: `i = 1`, `j = 1`
+   - Initialize `count = 1` (since the first element `nums[0]` is always counted once)
+
+2. **First Iteration (i = 1):**
+   - Current element: `nums[1] = 0`
+   - Since `nums[1] == nums[0]`, increment `count` to `2`.
+   - Since `count <= 2`, copy `nums[1]` to `nums[j]` (which is the same value at this step).
+   - Increment `j` to `2`.
