@@ -125,3 +125,11 @@ This ensures that we keep the desired elements up to the required length while e
 
 4. **Return the Updated Length:**
    - The second pointer will give us the final length of the array after in-place modification.
+
+### Example:
+
+**Input:** `nums = [0,0,1,1,1,1,2,3,3]`
+
+**Output:** `k = 7, nums = [0,0,1,1,2,3,3,_,_]`
+
+The two-pointer method efficiently overwrites and arranges the elements to ensure that no element appears more than twice within the array while keeping the order intact.
