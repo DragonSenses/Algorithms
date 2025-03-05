@@ -53,6 +53,10 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ---
 
+# Solution
+
+- [Two Pointers Approach Approach](#two-pointers-approach)
+
 ### Problem Overview
 **Problem Name:** Remove Duplicates from Sorted Array II
 
@@ -91,3 +95,10 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 The solution requires ensuring that no element appears more than twice while maintaining the order of elements in the array.
 
+# Two Pointers Approach
+
+The problem statement asks to return the new length of the array from the function, along with removing duplicates in-place so that unique elements appears at most twice. The relative order remains. That implies that it is not just removing elements, instead we can overwrite duplicates.
+
+We will use a two-pointer technique:
+- One pointer will traverse through each element in the original array.
+- The other pointer will track the next available slot for an element, ensuring that no more than two duplicates remain.
