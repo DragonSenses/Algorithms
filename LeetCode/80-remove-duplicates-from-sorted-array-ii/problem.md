@@ -188,3 +188,10 @@ This ensures that we keep the desired elements up to the required length while e
 
 **Output:** `k = 7`, `nums = [0,0,1,1,2,3,3,_,_]`
 - The underscores (`_`) represent the elements beyond the modified array length `k`, which can be ignored.
+
+## **Algorithm**
+
+1. **Initialize Pointers:**
+   - Define two pointers, `i` and `j`. 
+   - Pointer `i` iterates over the array to process each element one by one.
+   - Pointer `j` keeps track of the next location in the array where an element can be overwritten.
