@@ -195,3 +195,7 @@ This ensures that we keep the desired elements up to the required length while e
    - Define two pointers, `i` and `j`. 
    - Pointer `i` iterates over the array to process each element one by one.
    - Pointer `j` keeps track of the next location in the array where an element can be overwritten.
+
+2. **Track Element Count:**
+   - Use a variable `count` to keep track of the number of occurrences of each element in the array.
+   - Note that the minimum count is always 1.
