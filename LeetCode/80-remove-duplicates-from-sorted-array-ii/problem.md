@@ -182,3 +182,9 @@ This ensures that we keep the desired elements up to the required length while e
    - Since `nums[8] == nums[7]`, increment `count` to `2`.
    - Since `count <= 2`, copy `nums[8]` to `nums[j]`.
    - Increment `j` to `7`.
+
+10. **End of Iteration:**
+    - After processing all elements, `j = 7`, indicating the length of the modified array.
+
+**Output:** `k = 7`, `nums = [0,0,1,1,2,3,3,_,_]`
+- The underscores (`_`) represent the elements beyond the modified array length `k`, which can be ignored.
