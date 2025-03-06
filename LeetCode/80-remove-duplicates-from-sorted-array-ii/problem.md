@@ -207,3 +207,8 @@ This ensures that we keep the desired elements up to the required length while e
    - If the current element is the same as the previous element (`nums[i] == nums[i - 1]`), increment the count.
    - If the count exceeds `2` (i.e., `count > 2`), it indicates an unwanted duplicate.
    - In this case, simply move forward by incrementing `i` without modifying `j`.
+
+5. **Overwrite Unwanted Duplicates:**
+   - If the count is `<= 2`, move the element from index `i` to index `j`.
+   - Increment `j` to indicate the next available slot for overwriting.
+
