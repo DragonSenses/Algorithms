@@ -199,3 +199,7 @@ This ensures that we keep the desired elements up to the required length while e
 2. **Track Element Count:**
    - Use a variable `count` to keep track of the number of occurrences of each element in the array.
    - Note that the minimum count is always 1.
+
+3. **Iterate Through the Array:**
+   - Start with index `1` and process each element in the array.
+
