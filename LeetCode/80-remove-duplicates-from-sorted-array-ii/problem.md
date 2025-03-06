@@ -164,3 +164,9 @@ This ensures that we keep the desired elements up to the required length while e
    - Current element: `nums[5] = 1`
    - Since `nums[5] == nums[4]`, `count` remains `3`.
    - Since `count > 2`, move to the next element without incrementing `j`.
+
+7. **Sixth Iteration (i = 6):**
+   - Current element: `nums[6] = 2`
+   - Since `nums[6] != nums[5]`, reset `count` to `1`.
+   - Copy `nums[6]` to `nums[j]` (overwrite).
+   - Increment `j` to `5`.
