@@ -170,3 +170,9 @@ This ensures that we keep the desired elements up to the required length while e
    - Since `nums[6] != nums[5]`, reset `count` to `1`.
    - Copy `nums[6]` to `nums[j]` (overwrite).
    - Increment `j` to `5`.
+
+8. **Seventh Iteration (i = 7):**
+   - Current element: `nums[7] = 3`
+   - Since `nums[7] != nums[6]`, reset `count` to `1`.
+   - Copy `nums[7]` to `nums[j]` (overwrite).
+   - Increment `j` to `6`.
