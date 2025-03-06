@@ -212,3 +212,23 @@ This ensures that we keep the desired elements up to the required length while e
    - If the count is `<= 2`, move the element from index `i` to index `j`.
    - Increment `j` to indicate the next available slot for overwriting.
 
+### **Pseudocode**
+
+```pseudocode
+initialize pointers i = 1, j = 1
+initialize variable count = 1
+
+while i < length of array
+    if nums[i] == nums[i - 1]
+        Increment count by 1
+    else
+        Set count to 1
+    
+    if count <= 2
+        Set nums[j] to nums[i]
+        Increment j by 1
+    
+    Increment i by 1
+
+return j
+```
