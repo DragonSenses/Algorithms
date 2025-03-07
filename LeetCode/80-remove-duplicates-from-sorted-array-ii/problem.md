@@ -212,6 +212,11 @@ This ensures that we keep the desired elements up to the required length while e
    - If the count is `<= 2`, move the element from index `i` to index `j`.
      - Increment `j` to indicate the next available slot for overwriting.
 
+### 6. **Handle New Elements:**
+   - If the current element is not the same as the previous element (`nums[i] != nums[i - 1]`):
+     - Update `count = 1`.
+     - Move the new element from index `i` to index `j`.
+
 ### **Pseudocode**
 
 ```pseudocode
