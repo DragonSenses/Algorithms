@@ -191,26 +191,26 @@ This ensures that we keep the desired elements up to the required length while e
 
 ## **Algorithm**
 
-1. **Initialize Pointers:**
+### 1. **Initialize Pointers:**
    - Define two pointers, `i` and `j`. 
-   - Pointer `i` iterates over the array to process each element one by one.
-   - Pointer `j` keeps track of the next location in the array where an element can be overwritten.
+     - Pointer `i` iterates over the array to process each element one by one.
+     - Pointer `j` keeps track of the next location in the array where an element can be overwritten.
 
-2. **Track Element Count:**
+### 2. **Track Element Count:**
    - Use a variable `count` to keep track of the number of occurrences of each element in the array.
-   - Note that the minimum count is always 1.
+     - The minimum count is always 1.
 
-3. **Iterate Through the Array:**
-   - Start with index `1` and process each element in the array.
+### 3. **Iterate Through the Array:**
+   - Start with index `1` and process each element in the array one by one.
 
-4. **Check for Duplicates:**
+### 4. **Check for Duplicates:**
    - If the current element is the same as the previous element (`nums[i] == nums[i - 1]`), increment the count.
    - If the count exceeds `2` (i.e., `count > 2`), it indicates an unwanted duplicate.
-   - In this case, simply move forward by incrementing `i` without modifying `j`.
+     - In this case, simply move forward by incrementing `i` without modifying `j`.
 
-5. **Overwrite Unwanted Duplicates:**
+### 5. **Overwrite Unwanted Duplicates:**
    - If the count is `<= 2`, move the element from index `i` to index `j`.
-   - Increment `j` to indicate the next available slot for overwriting.
+     - Increment `j` to indicate the next available slot for overwriting.
 
 ### **Pseudocode**
 
