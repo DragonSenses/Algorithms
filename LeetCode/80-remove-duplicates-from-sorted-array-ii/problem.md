@@ -217,6 +217,10 @@ This ensures that we keep the desired elements up to the required length while e
      - Update `count = 1`.
      - Move the new element from index `i` to index `j`.
 
+### 7. **Update Pointer `j`:**
+   - Whenever a new element is copied to `nums[j]`, update the value of `j`.
+     - `j` always points to the location where the next element can be copied to in the array.
+
 ### **Pseudocode**
 
 ```pseudocode
