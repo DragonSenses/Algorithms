@@ -12,6 +12,14 @@ public class Solution {
 
     // Iterate through the array
     while (i < nums.length) {
+      if (nums[i] == nums[i - 1]) {
+        // Increment count if the current element is the same as the previous element
+        count++;
+      } else {
+        // Reset count to 1 if the current element is different
+        count = 1;
+      }
+
       // Move to the next element
       i++;
     }
