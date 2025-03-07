@@ -229,15 +229,15 @@ initialize variable count = 1
 
 while i < length of array
     if nums[i] == nums[i - 1]
-        Increment count by 1
+        increment count by 1
     else
-        Set count to 1
+        set count to 1
     
     if count <= 2
-        Set nums[j] to nums[i]
-        Increment j by 1
+        set nums[j] to nums[i]
+        increment j by 1
     
-    Increment i by 1
+    increment i by 1
 
 return j
 ```
