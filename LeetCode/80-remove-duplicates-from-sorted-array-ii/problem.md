@@ -273,6 +273,12 @@ public class Solution {
         count = 1;
       }
 
+      // If count is <= 2, overwrite unwanted duplicates
+      if (count <= 2) {
+        nums[j] = nums[i];
+        j++;
+      }
+
       // Move to the next element
       i++;
     }
