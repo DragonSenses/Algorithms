@@ -283,7 +283,8 @@ public class Solution {
       i++;
     }
 
-    return 0;
+    // Return the length of the modified array
+    return j;
   }
 }
 ```
