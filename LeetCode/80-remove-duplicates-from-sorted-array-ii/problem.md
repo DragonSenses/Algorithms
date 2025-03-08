@@ -263,6 +263,12 @@ public class Solution {
     // Initialize variable count to track of the number of occurrences of each element
     int count = 1;
 
+    // Iterate through the array
+    while (i < nums.length) {
+      // Move to the next element
+      i++;
+    }
+
     return 0;
   }
 }
