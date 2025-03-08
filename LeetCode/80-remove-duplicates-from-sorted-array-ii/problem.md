@@ -221,6 +221,10 @@ This ensures that we keep the desired elements up to the required length while e
    - Whenever a new element is copied to `nums[j]`, update the value of `j`.
      - `j` always points to the location where the next element can be copied to in the array.
 
+### 8. **Return the Length:**
+   - After processing all elements, the value of `j` will be the length of the new array with duplicates removed.
+     - Return the value of `j` as the length of the modified array.
+
 ### **Pseudocode**
 
 ```pseudocode
