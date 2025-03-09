@@ -1,3 +1,10 @@
+/**
+ * Removes duplicates from a sorted array, allowing a maximum of two occurrences of each element.
+ * Modifies the array in place and returns the length of the modified array.
+ *
+ * @param nums - The sorted array of numbers.
+ * @returns The length of the modified array after removing unwanted duplicates.
+ */
 function removeDuplicates(nums: number[]): number {
   if (nums.length === 0) {
     return 0;
