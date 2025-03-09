@@ -30,5 +30,6 @@ function removeDuplicates(nums: number[]): number {
     i++;
   }
 
-  return 0;
+  // Return the length of the modified array
+  return j;
 }
