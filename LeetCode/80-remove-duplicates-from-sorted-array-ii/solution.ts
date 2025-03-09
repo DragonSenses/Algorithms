@@ -7,5 +7,8 @@ function removeDuplicates(nums: number[]): number {
   let i = 1,
     j = 1;
 
+  // Initialize variable count to track the number of occurrences of each element
+  let count = 1;
+
   return 0;
 }
