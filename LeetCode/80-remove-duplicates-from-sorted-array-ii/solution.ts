@@ -3,5 +3,9 @@ function removeDuplicates(nums: number[]): number {
     return 0;
   }
 
+  // Initialize pointers i and j
+  let i = 1,
+    j = 1;
+
   return 0;
 }
