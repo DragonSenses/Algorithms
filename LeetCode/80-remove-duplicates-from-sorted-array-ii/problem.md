@@ -56,6 +56,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 # Solution
 
 - [In-Place Overwrite Approach](#in-place-overwrite-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview
 **Problem Name:** Remove Duplicates from Sorted Array II
@@ -288,3 +289,11 @@ public class Solution {
   }
 }
 ```
+
+### Assumptions
+- **Array Size (n)**: The size of the input array `nums`.
+
+### **Space Complexity**: `O(1)`
+- **Constant Space Usage:** The algorithm uses a fixed amount of space for the two pointers (`i` and `j`) and the `count` variable.
+- **No Additional Data Structures:** The space complexity remains constant because there are no additional data structures that grow with the input size.
+- **Overall Space Complexity:** The space complexity is `O(1)` as the space used does not depend on the size of the input array. The algorithm only uses a few integer variables for its operations.
