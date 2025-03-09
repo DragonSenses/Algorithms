@@ -10,5 +10,11 @@ function removeDuplicates(nums: number[]): number {
   // Initialize variable count to track the number of occurrences of each element
   let count = 1;
 
+  // Iterate through the array
+  while (i < nums.length) {
+    // Move to the next element
+    i++;
+  }
+
   return 0;
 }
