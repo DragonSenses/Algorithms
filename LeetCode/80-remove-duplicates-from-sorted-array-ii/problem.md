@@ -56,6 +56,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 # Solution
 
 - [In-Place Overwrite Approach](#in-place-overwrite-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ### Problem Overview
@@ -330,10 +331,21 @@ function removeDuplicates(nums: number[]): number {
 }
 ```
 
+## **Complexity Analysis**
+
 ### Assumptions
 - **Array Size (n)**: The size of the input array `nums`.
+
+### **Time Complexity**: `O(n)`
+- **Single-Pass:** Linear time complexity since each element is processed once.
+- The algorithm iterates through the array once using a while loop, which results in a linear time complexity.
+- Each element in the array is processed once, leading to `O(n)` time complexity, where `n` is the number of elements in the array.
 
 ### **Space Complexity**: `O(1)`
 - **Constant Space Usage:** The algorithm uses a fixed amount of space for the two pointers (`i` and `j`) and the `count` variable.
 - **No Additional Data Structures:** The space complexity remains constant because there are no additional data structures that grow with the input size.
 - **Overall Space Complexity:** The space complexity is `O(1)` as the space used does not depend on the size of the input array. The algorithm only uses a few integer variables for its operations.
+
+### Summary
+- **Time Complexity:** `O(n)` - Single-Pass: Linear time complexity since each element is processed once.
+- **Space Complexity:** `O(1)` - The algorithm uses a constant amount of space regardless of the input array size.
