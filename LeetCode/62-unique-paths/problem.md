@@ -112,3 +112,18 @@ Let's start by building up a recursive solution.
    ```plaintext
    uniquePaths(1, 1) = uniquePaths(0, 1) + uniquePaths(1, 0)
    ```
+
+Using this recursive intuition, we can write the following code:
+
+```java
+class Solution {
+public int uniquePaths(int m, int n) {
+    if (m == 1 || n == 1) {
+        return 1;
+    }
+    return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+}
+```
+
+However, this solution is not efficient enough. Therefore, we will use it as a stepping stone to develop a dynamic programming solution.
+
