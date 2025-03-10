@@ -93,3 +93,11 @@ Let's start by building up a recursive solution.
    ```plaintext
    right → right → ... → right
    ```
+
+2. **First Column**:
+   - There is only one path to reach the cells in the first column: down → down → ... → down.
+
+   **For the cells in the first column**:
+   ```plaintext
+   down → down → ... → down
+   ```
