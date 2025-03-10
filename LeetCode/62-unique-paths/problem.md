@@ -101,3 +101,14 @@ Let's start by building up a recursive solution.
    ```plaintext
    down → down → ... → down
    ```
+
+3. **Inner Cells**:
+   - What about the "inner" cells `(m, n)`? The robot can move either from the cell on the left `(m, n-1)`, or from the cell above `(m-1, n)`. This means that the total number of paths to move into the `(m, n)` cell is:
+   ```plaintext
+   uniquePaths(m-1, n) + uniquePaths(m, n-1)
+   ```
+
+   **Example**:
+   ```plaintext
+   uniquePaths(1, 1) = uniquePaths(0, 1) + uniquePaths(1, 0)
+   ```
