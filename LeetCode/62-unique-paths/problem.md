@@ -32,6 +32,10 @@
 
 ---
 
+# Solution
+
+- [Dynamic Programming Approach](#dynamic-programming-approach)
+
 ### Problem Overview: Unique Paths
 
 **Problem Statement**:
@@ -75,3 +79,17 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 2. **Combinatorial**:
    - The problem can also be solved using combinatorial mathematics. The total number of movements required is \( (m-1) \) down movements and \( (n-1) \) right movements.
    - The number of unique paths is the number of ways to arrange these movements, which can be calculated using binomial coefficients: \( \binom{(m-1) + (n-1)}{m-1} \) or \( \binom{(m-1) + (n-1)}{n-1} \).
+
+# Dynamic Programming Approach
+
+## **Intuition**
+
+Let's start by building up a recursive solution.
+
+1. **First Row**:
+   - Since the robot can move either down or right, there is only one path to reach the cells in the first row: right → right → ... → right.
+
+   **For the cells in the first row**:
+   ```plaintext
+   right → right → ... → right
+   ```
