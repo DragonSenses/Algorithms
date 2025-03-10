@@ -27,7 +27,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+  <li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
 
 ---
@@ -62,3 +62,16 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 ### Constraints
 
 - \( 1 \leq m, n \leq 100 \)
+
+### Approach
+
+1. **Dynamic Programming**:
+   - Use a 2D array `dp` where `dp[i][j]` represents the number of unique paths to reach the cell `(i, j)`.
+   - Initialize `dp[0][0]` to 1 since there's only one way to be at the starting point.
+   - For each cell `(i, j)`, the robot can arrive from the top `(i-1, j)` or from the left `(i, j-1)`. Therefore, `dp[i][j] = dp[i-1][j] + dp[i][j-1]`.
+   - Iterate through the grid, updating `dp` values based on the above formula.
+   - The final answer is stored in `dp[m-1][n-1]`.
+
+2. **Combinatorial**:
+   - The problem can also be solved using combinatorial mathematics. The total number of movements required is \( (m-1) \) down movements and \( (n-1) \) right movements.
+   - The number of unique paths is the number of ways to arrange these movements, which can be calculated using binomial coefficients: \( \binom{(m-1) + (n-1)}{m-1} \) or \( \binom{(m-1) + (n-1)}{n-1} \).
