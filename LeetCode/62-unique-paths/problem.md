@@ -134,3 +134,9 @@ We can use a DP table to store the number of unique paths to each cell, thus avo
 1. **Initialize the 2D Array**:
    - Create a 2D array `dp[m][n]` to store the number of paths.
    - Initially, set the number of paths to `1` for the first row and the first column, as there is only one way to reach those cells.
+
+2. **Iterate Over the Inner Cells**:
+   - For each cell `(i, j)`, calculate the number of paths as the sum of the paths from the cell above and the cell on the left:
+     ```plaintext
+     dp[i][j] = dp[i-1][j] + dp[i][j-1]
+     ```
