@@ -15,6 +15,8 @@ class Solution {
     // Iterate over the inner cells
     for (int i = 1; i < m; i++) {
       for (int j = 1; j < n; j++) {
+        // Calculate the number of paths to the current cell
+        dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
       }
     }
 
