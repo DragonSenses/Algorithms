@@ -20,6 +20,7 @@ class Solution {
       }
     }
 
-    return 0;
+    // Return the number of unique paths to the bottom-right corner
+    return dp[m - 1][n - 1];
   }
 }
