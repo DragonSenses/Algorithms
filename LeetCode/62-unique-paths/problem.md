@@ -125,5 +125,12 @@ public int uniquePaths(int m, int n) {
 }
 ```
 
-However, this solution is not efficient enough. Therefore, we will use it as a stepping stone to develop a dynamic programming solution.
+However, the recusrive solution is not efficient due to overlapping subproblems. Therefore, we will use it as a stepping stone to develop a dynamic programming solution. 
 
+We can use a DP table to store the number of unique paths to each cell, thus avoiding the redundant calculations.
+
+## **Algorithm**
+
+1. **Initialize the 2D Array**:
+   - Create a 2D array `dp[m][n]` to store the number of paths.
+   - Initially, set the number of paths to `1` for the first row and the first column, as there is only one way to reach those cells.
