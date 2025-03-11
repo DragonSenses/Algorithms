@@ -140,3 +140,6 @@ We can use a DP table to store the number of unique paths to each cell, thus avo
      ```plaintext
      dp[i][j] = dp[i-1][j] + dp[i][j-1]
      ```
+
+3. **Return the Result**:
+   - The total number of unique paths to the bottom-right corner will be stored in `dp[m-1][n-1]`.
