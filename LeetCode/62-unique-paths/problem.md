@@ -143,3 +143,27 @@ We can use a DP table to store the number of unique paths to each cell, thus avo
 
 3. **Return the Result**:
    - The total number of unique paths to the bottom-right corner will be stored in `dp[m-1][n-1]`.
+
+### **Pseudocode**
+
+```pseudocode
+function uniquePaths(m, n):
+    # Step 1: Initialize a 2D array dp with dimensions m x n
+    dp = create 2D array with dimensions m x n
+
+    # Step 2: Set the first row values to 1
+    for i from 0 to m-1:
+        dp[i][0] = 1
+
+    # Step 3: Set the first column values to 1
+    for j from 0 to n-1:
+        dp[0][j] = 1
+
+    # Step 4: Iterate over the inner cells
+    for i from 1 to m-1:
+        for j from 1 to n-1:
+            dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+    # Step 5: Return the value in the bottom-right cell
+    return dp[m-1][n-1]
+```
