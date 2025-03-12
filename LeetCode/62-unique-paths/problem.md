@@ -181,6 +181,11 @@ class Solution {
       dp[i][0] = 1;
     }
 
+    // Set the number of paths to 1 for the first row
+    for (int j = 0; j < n; j++) {
+      dp[0][j] = 1;
+    }
+
     return 0;
   }
 }
