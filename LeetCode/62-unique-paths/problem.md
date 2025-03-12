@@ -35,6 +35,7 @@
 # Solution
 
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Time Complexity**: `O(m x n)`
   - **Space Complexity**: `O(m x n)`
 
 ### Problem Overview: Unique Paths
@@ -203,10 +204,20 @@ class Solution {
 }
 ```
 
+## **Complexity Analysis**
+
 ### Assumptions
 - We have a grid of dimensions \( m \times n \).
 - The robot can move either down or right at any point in time.
 - We are storing the number of paths to reach each cell in a 2D array.
+
+### **Time Complexity**: \( O(m \times n) \)
+- **Initialization**:
+  - Initializing the 2D array `dp` to dimensions \( m \times n \) takes \( O(m \times n) \).
+- **Filling the 2D Array**:
+  - We iterate through each cell in the grid exactly once.
+  - For each cell `(i, j)`, we perform a constant time operation to calculate `dp[i][j]`.
+  - Therefore, the time complexity for filling the array is \( O(m \times n) \).
 
 ### **Space Complexity**: \( O(m \times n) \)
 - **2D Array Storage**:
