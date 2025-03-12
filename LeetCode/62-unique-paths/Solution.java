@@ -1,4 +1,16 @@
+/**
+ * A class that provides a solution for finding the number of unique paths from the top-left corner
+ * to the bottom-right corner of a grid.
+ */
 class Solution {
+
+  /**
+   * Calculates the number of unique paths in a m x n grid.
+   *
+   * @param m The number of rows in the grid.
+   * @param n The number of columns in the grid.
+   * @return The number of unique paths to the bottom-right corner of the grid.
+   */
   public int uniquePaths(int m, int n) {
     // Initialize a 2D array dp with dimensions m x n
     int[][] dp = new int[m][n];
@@ -7,6 +19,7 @@ class Solution {
     for (int i = 0; i < m; i++) {
       dp[i][0] = 1;
     }
+
     // Set the number of paths to 1 for the first row
     for (int j = 0; j < n; j++) {
       dp[0][j] = 1;
