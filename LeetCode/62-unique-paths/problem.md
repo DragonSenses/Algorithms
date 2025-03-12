@@ -35,6 +35,7 @@
 # Solution
 
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Space Complexity**: `O(m x n)`
 
 ### Problem Overview: Unique Paths
 
@@ -206,3 +207,8 @@ class Solution {
 - We have a grid of dimensions \( m \times n \).
 - The robot can move either down or right at any point in time.
 - We are storing the number of paths to reach each cell in a 2D array.
+
+### **Space Complexity**: \( O(m \times n) \)
+- **2D Array Storage**:
+  - We use a 2D array `dp` with dimensions \( m \times n \) to store the number of paths to each cell.
+  - The space required for this array is \( O(m \times n) \).
