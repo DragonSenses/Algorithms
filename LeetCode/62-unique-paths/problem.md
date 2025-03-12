@@ -186,6 +186,12 @@ class Solution {
       dp[0][j] = 1;
     }
 
+    // Iterate over the inner cells
+    for (int i = 1; i < m; i++) {
+      for (int j = 1; j < n; j++) {
+      }
+    }
+
     return 0;
   }
 }
