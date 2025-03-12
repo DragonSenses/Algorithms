@@ -170,6 +170,8 @@ function uniquePaths(m, n):
 
 ## **Implementation**
 
+### Java
+
 ```java
 class Solution {
   public int uniquePaths(int m, int n) {
@@ -199,3 +201,8 @@ class Solution {
   }
 }
 ```
+
+### Assumptions
+- We have a grid of dimensions \( m \times n \).
+- The robot can move either down or right at any point in time.
+- We are storing the number of paths to reach each cell in a 2D array.
