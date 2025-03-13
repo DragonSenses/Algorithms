@@ -37,6 +37,10 @@ There are two ways to reach the bottom-right corner:
 
 ---
 
+# Solution
+
+- [Dynamic Programming Approach](#dynamic-programming-approach)
+
 ### Problem Overview: Unique Paths II
 
 In the problem "Unique Paths II," you are given an `m x n` integer array called `grid`. A robot starts at the **top-left corner** of the grid (`grid[0][0]`) and aims to reach the **bottom-right corner** (`grid[m - 1][n - 1]`). The robot can only move either **down** or **right** at any point in time.
@@ -71,3 +75,15 @@ Output: 1
 - `n == obstacleGrid[i].length`
 - `1 <= m, n <= 100`
 - `obstacleGrid[i][j]` is `0` or `1`
+
+# Dynamic Programming Approach
+
+## **Intuition**
+
+- The robot can only move either **down** or **right**.
+  - Any cell in the first row can only be reached from the cell to its left.
+  - Any cell in the first column can only be reached from the cell above it.
+- For any other cell in the grid, it can be reached either from:
+  - The cell to its left, or
+  - The cell above it.
+- If any cell has an obstacle, it won't contribute to any path.
