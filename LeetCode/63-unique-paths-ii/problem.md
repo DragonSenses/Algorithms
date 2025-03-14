@@ -133,3 +133,9 @@ Output: 1
    - If a cell originally contains a `1`, this means the current cell has an obstacle and shouldn't contribute to any path. Hence, set the value of that cell to `0`.
    - Otherwise, set it to the value of the previous cell, i.e., `obstacleGrid[i,j] = obstacleGrid[i-1,j]`.
 
+#### **Step 5: Iterate Through the Grid**
+5. Iterate through the grid starting from cell `obstacleGrid[1,1]`:
+   - If a cell originally doesn't contain any obstacle, the number of ways of reaching that cell would be the sum of the number of ways of reaching the cell above it and the number of ways of reaching the cell to the left of it:
+     \[
+     obstacleGrid[i,j] = obstacleGrid[i-1,j] + obstacleGrid[i,j-1]
+     \]
