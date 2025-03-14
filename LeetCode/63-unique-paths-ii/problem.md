@@ -139,3 +139,6 @@ Output: 1
      \[
      obstacleGrid[i,j] = obstacleGrid[i-1,j] + obstacleGrid[i,j-1]
      \]
+
+#### **Step 6: Handle Obstacles**
+6. If a cell contains an obstacle, set it to `0` to prevent it from contributing to any path.
