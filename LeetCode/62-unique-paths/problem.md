@@ -127,7 +127,7 @@ public int uniquePaths(int m, int n) {
 }
 ```
 
-However, the recusrive solution is not efficient due to overlapping subproblems. Therefore, we will use it as a stepping stone to develop a dynamic programming solution. 
+However, the recursive solution is not efficient due to overlapping subproblems. Therefore, we will use it as a stepping stone to develop a dynamic programming solution. 
 
 We can use a DP table to store the number of unique paths to each cell, thus avoiding the redundant calculations.
 
