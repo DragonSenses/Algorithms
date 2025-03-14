@@ -104,3 +104,14 @@ Output: 1
 - If either `m` or `n` is 1, the robot can only move in a straight line (if there are no obstacles in its path).
 - If all cells are obstacles except for the starting and ending cells, there will be no valid paths.
 
+### **Transition Function**
+- For each cell `(i, j)`, if `grid[i][j] == 1`, then `dp[i][j] = 0`.
+- Otherwise, update `dp[i][j]` as:
+  \[
+  dp[i][j] = dp[i-1][j] + dp[i][j-1]
+  \]
+  This formula effectively sums the number of ways to reach the cell `(i, j)` from the cells directly above and to the left.
+
+### **Final Output**
+- The final number of unique paths to the bottom-right corner will be stored in `dp[m-1][n-1]`.
+
