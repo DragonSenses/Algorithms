@@ -40,6 +40,7 @@ There are two ways to reach the bottom-right corner:
 # Solution
 
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Time Complexity**: `O(m x n)`
   - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Unique Paths II
@@ -144,10 +145,21 @@ Output: 1
 #### **Step 6: Mark Obstacles**
 6. If a cell contains an obstacle, set its value to `0` to ensure it doesn't contribute to any path.
 
+## **Complexity Analysis**
+
 ### **Assumptions:**
 - We have a grid of dimensions `m * n`.
 - The robot can move either down or right at any point in time.
 - We are storing the number of paths to reach each cell in a 2D array.
+
+### **Time Complexity:** `O(m * n)`
+- **Initialization:**
+  - Initializing the 2D array `dp` to dimensions `m * n` takes `O(m * n)`.
+- **Filling the 2D Array:**
+  - We iterate through each cell in the grid exactly once.
+  - For each cell `(i, j)`, we perform a constant time operation to calculate `dp[i][j]`.
+  - Even with obstacles, each cell is only processed once.
+  - Therefore, the time complexity for filling the array is `O(m * n)`.
 
 ### **Space Complexity:** `O(m * n)`
 - **2D Array Storage:**
