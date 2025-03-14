@@ -133,12 +133,12 @@ Output: 1
    - If the cell contains `1`, it represents an obstacle, so set its value to `0`.  
    - Otherwise, set its value to the previous cell's value: `obstacleGrid[i][0] = obstacleGrid[i-1][0]`..
 
-#### **Step 5: Iterate Through the Grid**
-5. Iterate through the grid starting from cell `obstacleGrid[1,1]`:
-   - If a cell originally doesn't contain any obstacle, the number of ways of reaching that cell would be the sum of the number of ways of reaching the cell above it and the number of ways of reaching the cell to the left of it:
+#### **Step 5: Traverse the Grid**
+5. Iterate through the grid starting from `obstacleGrid[1][1]`:
+   - If the cell is not an obstacle, update its value to the sum of the cell above and the cell to the left:
      \[
-     obstacleGrid[i,j] = obstacleGrid[i-1,j] + obstacleGrid[i,j-1]
+     obstacleGrid[i][j] = obstacleGrid[i-1][j] + obstacleGrid[i][j-1]
      \]
 
-#### **Step 6: Handle Obstacles**
-6. If a cell contains an obstacle, set it to `0` to prevent it from contributing to any path.
+#### **Step 6: Mark Obstacles**
+6. If a cell contains an obstacle, set its value to `0` to ensure it doesn't contribute to any path.
