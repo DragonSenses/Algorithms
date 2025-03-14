@@ -117,11 +117,11 @@ Output: 1
 
 ## **Algorithm**
 
-#### **Step 1: Check Initial Cell**
-1. If the first cell (`obstacleGrid[0,0]`) contains `1`, it means there is an obstacle in the first cell. Hence, the robot won't be able to make any move and we would return the number of ways as `0`.
+### **Step 1: Check Initial Cell**
+1. If the first cell (`obstacleGrid[0][0]`) contains `1`, it indicates an obstacle blocking the starting point. Since the robot cannot make any moves, the number of possible paths is `0`. Return `0` in this case.
 
-#### **Step 2: Initialize Starting Cell**
-2. Otherwise, if `obstacleGrid[0,0]` has a `0`, originally set it to `1` and move ahead.
+### **Step 2: Initialize Starting Cell**
+2. Otherwise, assign `1` to `obstacleGrid[0][0]` to mark the starting cell as accessible.
 
 #### **Step 3: Iterate the First Row**
 3. Iterate the first row:
