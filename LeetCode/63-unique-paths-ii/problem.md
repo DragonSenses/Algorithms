@@ -142,3 +142,8 @@ Output: 1
 
 #### **Step 6: Mark Obstacles**
 6. If a cell contains an obstacle, set its value to `0` to ensure it doesn't contribute to any path.
+
+### **Assumptions:**
+- We have a grid of dimensions `m * n`.
+- The robot can move either down or right at any point in time.
+- We are storing the number of paths to reach each cell in a 2D array.
