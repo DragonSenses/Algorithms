@@ -40,6 +40,7 @@ There are two ways to reach the bottom-right corner:
 # Solution
 
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Unique Paths II
 
@@ -147,3 +148,9 @@ Output: 1
 - We have a grid of dimensions `m * n`.
 - The robot can move either down or right at any point in time.
 - We are storing the number of paths to reach each cell in a 2D array.
+
+### **Space Complexity:** `O(m * n)`
+- **2D Array Storage:**
+  - We use a 2D array `dp` with dimensions `m * n` to store the number of paths to each cell.
+  - The space required for this array is `O(m * n)`.
+- Handling obstacles does not require any extra space beyond the original grid dimensions.
