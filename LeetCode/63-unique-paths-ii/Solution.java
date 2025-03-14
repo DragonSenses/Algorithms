@@ -7,6 +7,8 @@ class Solution {
       return 0;
     }
 
+    obstacleGrid[0][0] = 1;
+
     return 0;
   }
 }
