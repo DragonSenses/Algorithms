@@ -29,10 +29,10 @@ There are two ways to reach the bottom-right corner:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>m == obstacleGrid.length</code></li>
-	<li><code>n == obstacleGrid[i].length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 100</code></li>
-	<li><code>obstacleGrid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+  <li><code>m == obstacleGrid.length</code></li>
+  <li><code>n == obstacleGrid[i].length</code></li>
+  <li><code>1 &lt;= m, n &lt;= 100</code></li>
+  <li><code>obstacleGrid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
 ---
@@ -87,3 +87,7 @@ Output: 1
   - The cell to its left, or
   - The cell above it.
 - If any cell has an obstacle, it won't contribute to any path.
+
+### **Initial Conditions**
+- If the starting cell `(grid[0][0])` has an obstacle, there are no valid paths.
+- Similarly, if the bottom-right cell `(grid[m-1][n-1])` has an obstacle, the destination is unreachable.
