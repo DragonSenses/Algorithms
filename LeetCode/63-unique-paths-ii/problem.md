@@ -91,3 +91,11 @@ Output: 1
 ### **Initial Conditions**
 - If the starting cell `(grid[0][0])` has an obstacle, there are no valid paths.
 - Similarly, if the bottom-right cell `(grid[m-1][n-1])` has an obstacle, the destination is unreachable.
+
+### **Iteration**
+- Iterate through the array **left-to-right** and **top-to-bottom**.
+  - Before reaching any cell, the number of ways to reach the preceding cells is known.
+  - This is what makes it a Dynamic Programming problem.
+
+### **Space Optimization**
+- Use the `obstacleGrid` array as the DP array to avoid using additional space.
