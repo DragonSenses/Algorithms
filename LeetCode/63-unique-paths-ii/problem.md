@@ -127,3 +127,9 @@ Output: 1
 3. Iterate the first row:
    - If a cell originally contains a `1`, this means the current cell has an obstacle and shouldn't contribute to any path. Hence, set the value of that cell to `0`.
    - Otherwise, set it to the value of the previous cell, i.e., `obstacleGrid[i,j] = obstacleGrid[i,j-1]`.
+
+#### **Step 4: Iterate the First Column**
+4. Iterate the first column:
+   - If a cell originally contains a `1`, this means the current cell has an obstacle and shouldn't contribute to any path. Hence, set the value of that cell to `0`.
+   - Otherwise, set it to the value of the previous cell, i.e., `obstacleGrid[i,j] = obstacleGrid[i-1,j]`.
+
