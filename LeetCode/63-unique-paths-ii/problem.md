@@ -115,3 +115,7 @@ Output: 1
 ### **Final Output**
 - The final number of unique paths to the bottom-right corner will be stored in `dp[m-1][n-1]`.
 
+## **Algorithm**
+
+#### **Step 1: Check Initial Cell**
+1. If the first cell (`obstacleGrid[0,0]`) contains `1`, it means there is an obstacle in the first cell. Hence, the robot won't be able to make any move and we would return the number of ways as `0`.
