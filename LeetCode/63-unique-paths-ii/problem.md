@@ -99,3 +99,8 @@ Output: 1
 
 ### **Space Optimization**
 - Use the `obstacleGrid` array as the DP array to avoid using additional space.
+
+### **Edge Cases**
+- If either `m` or `n` is 1, the robot can only move in a straight line (if there are no obstacles in its path).
+- If all cells are obstacles except for the starting and ending cells, there will be no valid paths.
+
