@@ -123,15 +123,15 @@ Output: 1
 ### **Step 2: Initialize Starting Cell**
 2. Otherwise, assign `1` to `obstacleGrid[0][0]` to mark the starting cell as accessible.
 
-#### **Step 3: Iterate the First Row**
-3. Iterate the first row:
-   - If a cell originally contains a `1`, this means the current cell has an obstacle and shouldn't contribute to any path. Hence, set the value of that cell to `0`.
-   - Otherwise, set it to the value of the previous cell, i.e., `obstacleGrid[i,j] = obstacleGrid[i,j-1]`.
+#### **Step 3: Iterate Through the First Row**
+3. For each cell in the first row:
+   - If the cell contains `1`, it represents an obstacle, so set its value to `0`.  
+   - Otherwise, set its value to the previous cell's value: `obstacleGrid[0][j] = obstacleGrid[0][j-1]`.
 
-#### **Step 4: Iterate the First Column**
-4. Iterate the first column:
-   - If a cell originally contains a `1`, this means the current cell has an obstacle and shouldn't contribute to any path. Hence, set the value of that cell to `0`.
-   - Otherwise, set it to the value of the previous cell, i.e., `obstacleGrid[i,j] = obstacleGrid[i-1,j]`.
+#### **Step 4: Iterate Through the First Column**
+4. For each cell in the first column:
+   - If the cell contains `1`, it represents an obstacle, so set its value to `0`.  
+   - Otherwise, set its value to the previous cell's value: `obstacleGrid[i][0] = obstacleGrid[i-1][0]`..
 
 #### **Step 5: Iterate Through the Grid**
 5. Iterate through the grid starting from cell `obstacleGrid[1,1]`:
