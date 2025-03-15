@@ -22,7 +22,8 @@ class Solution {
     // Fill the rest of the grid
     for (int i = 1; i < row; i++) {
       for (int j = 1; j < col; j++) {
-        obstacleGrid[i][j] = (obstacleGrid[i][j] == 1) ? 0 : obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+        obstacleGrid[i][j] =
+            (obstacleGrid[i][j] == 1) ? 0 : obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
       }
     }
 
