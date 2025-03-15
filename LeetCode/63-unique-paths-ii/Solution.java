@@ -27,6 +27,6 @@ class Solution {
       }
     }
 
-    return 0;
+    return obstacleGrid[row - 1][col - 1];
   }
 }
