@@ -14,6 +14,11 @@ class Solution {
       obstacleGrid[0][i] = obstacleGrid[0][i] == 1 ? 0 : obstacleGrid[0][i - 1];
     }
 
+    // Initialize first column
+    for (int i = 1; i < row; i++) {
+      obstacleGrid[i][0] = obstacleGrid[i][0] == 1 ? 0 : obstacleGrid[i - 1][0];
+    }
+    
     return 0;
   }
 }
