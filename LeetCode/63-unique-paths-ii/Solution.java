@@ -19,9 +19,14 @@ class Solution {
       obstacleGrid[i][0] = (obstacleGrid[i][0] == 1) ? 0 : obstacleGrid[i - 1][0];
     }
 
+    // Fill the rest of the grid
     for (int i = 1; i < row; i++) {
       for (int j = 1; j < col; j++) {
-
+        if (obstacleGrid[i][j] == 1) {
+          obstacleGrid[i][j] = 0;
+        } else {
+          obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+        }
       }
     }
 
