@@ -7,5 +7,8 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     return 0;
   }
 
+  // Initialize the starting cell
+  obstacleGrid[0][0] = 1;
+
   return 0;
 };
