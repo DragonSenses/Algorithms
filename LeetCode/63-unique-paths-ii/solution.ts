@@ -23,7 +23,11 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
   // Fill in the rest of the grid
   for (let i = 1; i < rows; i++) {
     for (let j = 1; j < cols; j++) {
-      obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+      if (obstacleGrid[i][j] === 1) {
+        obstacleGrid[i][j] = 0; // If there's an obstacle, no paths go through this cell
+      } else {
+        obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
+      }
     }
   }
 
