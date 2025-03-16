@@ -31,5 +31,6 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     }
   }
 
-  return 0;
+  // Return the total number of unique paths to the destination
+  return obstacleGrid[rows - 1][cols - 1];
 };
