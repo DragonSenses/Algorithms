@@ -20,9 +20,10 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
     obstacleGrid[i][0] = (obstacleGrid[i][0] === 1) ? 0 : obstacleGrid[i - 1][0];
   }
 
+  // Fill in the rest of the grid
   for (let i = 1; i < rows; i++) {
     for (let j = 1; j < cols; j++) {
-
+      obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];
     }
   }
 
