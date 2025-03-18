@@ -22,13 +22,17 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>m == grid.length</code></li>
-	<li><code>n == grid[i].length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 200</code></li>
-	<li><code>0 &lt;= grid[i][j] &lt;= 200</code></li>
+  <li><code>m == grid.length</code></li>
+  <li><code>n == grid[i].length</code></li>
+  <li><code>1 &lt;= m, n &lt;= 200</code></li>
+  <li><code>0 &lt;= grid[i][j] &lt;= 200</code></li>
 </ul>
 
 ---
+
+# Solution
+
+- [Recursive (Brute Force) Approach](#recursive-brute-force-approach)
 
 ### Problem Overview: Minimum Path Sum
 The task is to find the **minimum sum of numbers** along a path from the **top-left corner** to the **bottom-right corner** of a grid. The grid contains **non-negative numbers** in each cell. You can only move either **right** or **down** at any point in time.
@@ -77,3 +81,11 @@ The task is to find the **minimum sum of numbers** along a path from the **top-l
 
 2. **Space Optimization**:
    - You can reduce space usage by modifying the input grid directly or using a single-dimensional array instead of a full table.
+
+# Recursive (Brute Force) Approach
+
+The brute force approach, though simple and naive, serves as a starting point rather than a viable solution.
+
+To do recursion, explore all possible paths from the top-left corner to the bottom-right corner of the grid. For each grid cell `(i, j)`, there are two possible moves: 
+1. **Move Right**: Proceed to cell `(i, j+1)`.
+2. **Move Down**: Proceed to cell `(i+1, j)`.
