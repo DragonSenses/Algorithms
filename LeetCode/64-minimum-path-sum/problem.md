@@ -95,3 +95,7 @@ The recursive brute force approach relies on exploring all possible paths from t
 The idea is to calculate the total path sum for every valid path and return the **minimum path sum** among them. The recursive approach inherently breaks the problem into smaller subproblems by choosing one step at a time (right or down). 
 
 However, brute force recursion is **inefficient**, as it repeatedly recalculates the minimum path sums for overlapping subproblems. This leads to exponential time complexity, making it impractical for larger grids.
+
+1. **Base Case**: 
+   - If the current cell is the bottom-right corner `(m-1, n-1)`, return its value as the remaining path sum is simply the cell value.
+   - If the current cell lies **out of bounds** (beyond the grid's rows or columns), return a very large value (treated as infinity) to signify an invalid path.
