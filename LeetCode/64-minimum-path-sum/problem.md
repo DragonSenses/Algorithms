@@ -96,6 +96,8 @@ The idea is to calculate the total path sum for every valid path and return the 
 
 However, brute force recursion is **inefficient**, as it repeatedly recalculates the minimum path sums for overlapping subproblems. This leads to exponential time complexity, making it impractical for larger grids.
 
+## **Algorithm**
+
 1. **Base Case**: 
    - If the current cell is the bottom-right corner `(m-1, n-1)`, return its value as the remaining path sum is simply the cell value.
    - If the current cell lies **out of bounds** (beyond the grid's rows or columns), return a very large value (treated as infinity) to signify an invalid path.
@@ -105,3 +107,6 @@ However, brute force recursion is **inefficient**, as it repeatedly recalculates
      - Moving **right**: Call the function for cell `(i, j+1)`.
      - Moving **down**: Call the function for cell `(i+1, j)`.
    - Add the current cell's value `grid[i][j]` to the minimum of the two computed values to get the minimum path sum for the current cell.
+
+3. **Final Result**:
+   - Start the recursion from the top-left corner `(0, 0)`. The result will represent the minimum path sum for the entire grid.
