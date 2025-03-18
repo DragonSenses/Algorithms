@@ -1,3 +1,10 @@
+/**
+ * Calculates the number of unique paths from the top-left to the bottom-right corner
+ * of a grid, avoiding obstacles along the way.
+ *
+ * @param obstacleGrid - A 2D array where `1` represents an obstacle and `0` represents a free cell.
+ * @returns The total number of unique paths to the bottom-right corner of the grid.
+ */
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
   const rows: number = obstacleGrid.length;
   const cols: number = obstacleGrid[0].length;
@@ -33,4 +40,4 @@ function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
 
   // Return the total number of unique paths to the destination
   return obstacleGrid[rows - 1][cols - 1];
-};
+}
