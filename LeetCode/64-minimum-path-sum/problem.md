@@ -110,3 +110,25 @@ However, brute force recursion is **inefficient**, as it repeatedly recalculates
 
 3. **Final Result**:
    - Start the recursion from the top-left corner `(0, 0)`. The result will represent the minimum path sum for the entire grid.
+
+### **Pseudo-code**
+
+```plaintext
+function minPathSum(grid, i, j):
+    if i == m-1 and j == n-1: 
+        return grid[i][j]  // Base case: Reached bottom-right corner
+    if i >= m or j >= n: 
+        return infinity    // Out of bounds
+    
+    // Calculate minimum sum from right and down moves
+    rightPath = minPathSum(grid, i, j+1)
+    downPath = minPathSum(grid, i+1, j)
+
+    // Return the current cell value + minimum of the two paths
+    return grid[i][j] + min(rightPath, downPath)
+```
+
+### **Key Observations**
+- **Exponential Complexity**: The approach repeatedly computes results for overlapping subproblems, resulting in a time complexity of \(O(2^{m+n})\). This is due to the two recursive calls at each step.
+- **Optimization Opportunity**: To address inefficiency, we can store the results of subproblems (using memoization or dynamic programming) to avoid redundant computations, transforming it into a more efficient solution.
+
