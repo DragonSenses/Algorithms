@@ -86,6 +86,12 @@ The task is to find the **minimum sum of numbers** along a path from the **top-l
 
 The brute force approach, though simple and naive, serves as a starting point rather than a viable solution.
 
-To do recursion, explore all possible paths from the top-left corner to the bottom-right corner of the grid. For each grid cell `(i, j)`, there are two possible moves: 
+## **Intuition**
+
+The recursive brute force approach relies on exploring all possible paths from the top-left corner to the bottom-right corner of the grid. For each grid cell `(i, j)`, there are two possible moves: 
 1. **Move Right**: Proceed to cell `(i, j+1)`.
 2. **Move Down**: Proceed to cell `(i+1, j)`.
+
+The idea is to calculate the total path sum for every valid path and return the **minimum path sum** among them. The recursive approach inherently breaks the problem into smaller subproblems by choosing one step at a time (right or down). 
+
+However, brute force recursion is **inefficient**, as it repeatedly recalculates the minimum path sums for overlapping subproblems. This leads to exponential time complexity, making it impractical for larger grids.
