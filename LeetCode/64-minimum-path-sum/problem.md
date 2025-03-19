@@ -132,3 +132,29 @@ function minPathSum(grid, i, j):
 - **Exponential Complexity**: The approach repeatedly computes results for overlapping subproblems, resulting in a time complexity of \(O(2^{m+n})\). This is due to the two recursive calls at each step.
 - **Optimization Opportunity**: To address inefficiency, we can store the results of subproblems (using memoization or dynamic programming) to avoid redundant computations, transforming it into a more efficient solution.
 
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  // Recursive helper method
+  public int computePathSum(int[][] grid, int i, int j) {
+    // Base case: Out of bounds
+    if (i == grid.length || j == grid[0].length) {
+      return Integer.MAX_VALUE;
+    }
+    // Base case: Reached bottom-right corner
+    if (i == grid.length - 1 && j == grid[0].length - 1) {
+      return grid[i][j];
+    }
+    // Recursive case: Compute the minimum path sum
+    return grid[i][j] + Math.min(computePathSum(grid, i + 1, j), computePathSum(grid, i, j + 1));
+  }
+
+  // Main method to compute the minimum path sum
+  public int minPathSum(int[][] grid) {
+    return computePathSum(grid, 0, 0);
+  }
+}
+```
