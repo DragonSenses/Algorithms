@@ -227,3 +227,6 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
      dp(i, j) = grid(i, j) + \min(dp(i+1, j), dp(i, j+1))
      \]
    - This ensures that the value of each cell in the `dp` matrix represents the minimum sum of all possible paths from that cell to the destination.
+
+4. **Boundary Conditions**:
+   - Special care is taken for boundary conditions (e.g., when `i+1` or `j+1` exceeds the grid dimensions) to avoid out-of-bounds errors.
