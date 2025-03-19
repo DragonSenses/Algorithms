@@ -35,6 +35,7 @@
 - [Recursive (Brute Force) Approach](#recursive-brute-force-approach)
   - **Time Complexity**: `O(2^(m+n))`
   - **Space Complexity**: `O(m+n)`
+- [Dynamic Programming Approach](#dynamic-programming-approach)
 
 ### Problem Overview: Minimum Path Sum
 The task is to find the **minimum sum of numbers** along a path from the **top-left corner** to the **bottom-right corner** of a grid. The grid contains **non-negative numbers** in each cell. You can only move either **right** or **down** at any point in time.
@@ -205,3 +206,15 @@ function minPathSum(grid: number[][]): number {
   - The maximum depth of this stack is \(O(m+n)\), as it takes at most `m-1` steps down and `n-1` steps right to complete the path.
 - **Additional Space**:
   - No additional data structures are used in the brute force approach, so the space usage is limited to the recursion stack.
+
+# Dynamic Programming Approach
+
+## **Approach**
+
+We use an extra matrix `dp` of the same size as the original matrix. In this matrix, `dp(i, j)` represents the minimum sum of the path from the index `(i, j)` to the bottom-rightmost element of the grid. 
+
+We start by initializing bottom rightmost element of `dp` as the last element of a given matrix.
+
+Then for each element starting from bottom right, we traverse backwards and fill in the matrix required minimum sums.
+
+Remember that for every element, we can move either rightwards or downwards. So filling in the minimum sum we use the equation `currCell + min(cellRight, cellDownwards)`
