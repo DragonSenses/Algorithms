@@ -186,3 +186,11 @@ function minPathSum(grid: number[][]): number {
 - **Grid Dimensions (m x n)**: The grid has `m` rows and `n` columns.
 - **Path Restrictions**: Movement is restricted to either right (to cell `(i, j+1)`) or down (to cell `(i+1, j)`).
 - **Recursive Approach**: The recursive function explores all possible paths from the top-left to the bottom-right of the grid.
+
+### **Time Complexity**
+- **Recursive Calls**: 
+  - At each cell `(i, j)`, the function makes two recursive calls: one for moving **right** and another for moving **down**.
+  - The recursive process forms a binary tree of calls. The depth of this tree is approximately `m + n` because it takes `m-1` steps down and `n-1` steps right to reach the destination.
+  - This results in a total of \(O(2^{m+n})\) recursive calls.
+- **Subproblem Overlap**:
+  - Many overlapping subproblems are recalculated in different branches of recursion due to lack of memoization, contributing to the exponential growth.
