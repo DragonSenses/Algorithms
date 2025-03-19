@@ -9,7 +9,8 @@ function minPathSum(grid: number[][]): number {
       if (i === grid.length - 1 && j === grid[0].length - 1) {
           return grid[i][j];
       }
-
+      // Recursive case: Compute the minimum path sum
+      return grid[i][j] + Math.min(computePathSum(i + 1, j), computePathSum(i, j + 1));
   };
 
   return 0;
