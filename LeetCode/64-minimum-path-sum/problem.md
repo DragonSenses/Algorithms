@@ -181,3 +181,8 @@ function minPathSum(grid: number[][]): number {
   return computePathSum(0, 0);
 };
 ```
+
+### **Assumptions**
+- **Grid Dimensions (m x n)**: The grid has `m` rows and `n` columns.
+- **Path Restrictions**: Movement is restricted to either right (to cell `(i, j+1)`) or down (to cell `(i+1, j)`).
+- **Recursive Approach**: The recursive function explores all possible paths from the top-left to the bottom-right of the grid.
