@@ -216,8 +216,9 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
 1. **Initialization**:
    - The bottom-rightmost element of `dp` is initialized as the last element of the given matrix (`grid`), as this is the final destination with no further cells to traverse.
 
-We start by initializing bottom rightmost element of `dp` as the last element of a given matrix.
-
-Then for each element starting from bottom right, we traverse backwards and fill in the matrix required minimum sums.
+2. **Backward Traversal**:
+   - Starting from the bottom-right corner of the grid, we traverse backwards through the grid to compute the minimum sums for each cell. At every cell, we consider the two possible moves:
+     - **Rightwards**: Move to cell `(i, j+1)`.
+     - **Downwards**: Move to cell `(i+1, j)`.
 
 Remember that for every element, we can move either rightwards or downwards. So filling in the minimum sum we use the equation `currCell + min(cellRight, cellDownwards)`
