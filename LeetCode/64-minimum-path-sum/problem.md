@@ -33,6 +33,8 @@
 # Solution
 
 - [Recursive (Brute Force) Approach](#recursive-brute-force-approach)
+  - **Time Complexity**: `O(2^(m+n))`
+  - **Space Complexity**: `O(m+n)`
 
 ### Problem Overview: Minimum Path Sum
 The task is to find the **minimum sum of numbers** along a path from the **top-left corner** to the **bottom-right corner** of a grid. The grid contains **non-negative numbers** in each cell. You can only move either **right** or **down** at any point in time.
@@ -182,15 +184,24 @@ function minPathSum(grid: number[][]): number {
 };
 ```
 
+## **Complexity Analysis**
+
 ### **Assumptions**
 - **Grid Dimensions (m x n)**: The grid has `m` rows and `n` columns.
 - **Path Restrictions**: Movement is restricted to either right (to cell `(i, j+1)`) or down (to cell `(i+1, j)`).
 - **Recursive Approach**: The recursive function explores all possible paths from the top-left to the bottom-right of the grid.
 
-### **Time Complexity**
+### **Time Complexity**: `O(2^(m+n))`
 - **Recursive Calls**: 
   - At each cell `(i, j)`, the function makes two recursive calls: one for moving **right** and another for moving **down**.
   - The recursive process forms a binary tree of calls. The depth of this tree is approximately `m + n` because it takes `m-1` steps down and `n-1` steps right to reach the destination.
   - This results in a total of \(O(2^{m+n})\) recursive calls.
 - **Subproblem Overlap**:
   - Many overlapping subproblems are recalculated in different branches of recursion due to lack of memoization, contributing to the exponential growth.
+
+### **Space Complexity**: `O(m+n)`
+- **Maximum Depth**:
+  - At any point, the recursion stack stores calls for one path from the top-left to the bottom-right corner of the grid.
+  - The maximum depth of this stack is \(O(m+n)\), as it takes at most `m-1` steps down and `n-1` steps right to complete the path.
+- **Additional Space**:
+  - No additional data structures are used in the brute force approach, so the space usage is limited to the recursion stack.
