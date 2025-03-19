@@ -13,5 +13,6 @@ function minPathSum(grid: number[][]): number {
       return grid[i][j] + Math.min(computePathSum(i + 1, j), computePathSum(i, j + 1));
   };
 
-  return 0;
+  // Start the recursion from the top-left corner
+  return computePathSum(0, 0);
 };
