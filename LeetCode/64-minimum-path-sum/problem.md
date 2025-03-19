@@ -209,9 +209,12 @@ function minPathSum(grid: number[][]): number {
 
 # Dynamic Programming Approach
 
-## **Approach**
+### **Approach**
 
 We use an extra matrix `dp` of the same size as the original matrix. In this matrix, `dp(i, j)` represents the minimum sum of the path from the index `(i, j)` to the bottom-rightmost element of the grid. 
+
+1. **Initialization**:
+   - The bottom-rightmost element of `dp` is initialized as the last element of the given matrix (`grid`), as this is the final destination with no further cells to traverse.
 
 We start by initializing bottom rightmost element of `dp` as the last element of a given matrix.
 
