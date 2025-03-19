@@ -4,7 +4,10 @@ public class Solution {
     if (i == grid.length || j == grid[0].length) {
       return Integer.MAX_VALUE;
     }
-
+    // Base case: Reached bottom-right corner
+    if (i == grid.length - 1 && j == grid[0].length - 1) {
+      return grid[i][j];
+    }
     return 0;
   }
 
