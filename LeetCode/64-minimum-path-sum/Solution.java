@@ -8,7 +8,8 @@ public class Solution {
     if (i == grid.length - 1 && j == grid[0].length - 1) {
       return grid[i][j];
     }
-    return 0;
+    // Recursive case: Compute the minimum path sum
+    return grid[i][j] + Math.min(computePathSum(grid, i + 1, j), computePathSum(grid, i, j + 1));
   }
 
   public int minPathSum(int[][] grid) {
