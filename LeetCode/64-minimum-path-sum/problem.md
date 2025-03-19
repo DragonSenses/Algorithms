@@ -221,4 +221,9 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
      - **Rightwards**: Move to cell `(i, j+1)`.
      - **Downwards**: Move to cell `(i+1, j)`.
 
-Remember that for every element, we can move either rightwards or downwards. So filling in the minimum sum we use the equation `currCell + min(cellRight, cellDownwards)`
+3. **Transition Relation**:
+   - The equation for calculating the minimum sum for a cell is:
+     \[
+     dp(i, j) = grid(i, j) + \min(dp(i+1, j), dp(i, j+1))
+     \]
+   - This ensures that the value of each cell in the `dp` matrix represents the minimum sum of all possible paths from that cell to the destination.
