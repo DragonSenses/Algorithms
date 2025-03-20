@@ -7,6 +7,9 @@ public class Solution {
     // Step 1: Initialize a DP table
     int[][] dp = new int[rows][cols];
 
+    // Step 2: Set the bottom-right cell of dp
+    dp[rows - 1][cols - 1] = grid[rows - 1][cols - 1];
+
     return 0;
   }
 }
