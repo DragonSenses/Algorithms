@@ -246,3 +246,10 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
      \[
      dp[i][n-1] = grid[i][n-1] + dp[i+1][n-1]
      \]
+
+3. **Traverse the Grid Backwards**:
+   - For each cell `(i, j)` from the second-last row to the top row, and from the second-last column to the first column:
+     - Compute the minimum sum for that cell using the formula:  
+       \[
+       dp[i][j] = grid[i][j] + \min(dp[i+1][j], dp[i][j+1])
+       \]
