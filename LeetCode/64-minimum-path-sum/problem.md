@@ -256,3 +256,6 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
 
 4. **Final Result**:
    - The value at `dp[0][0]` (top-left corner) will contain the minimum path sum from the top-left to the bottom-right of the grid.
+
+### **Optimization**: In-Place Grid
+ - To save space, use the input grid itself as the `dp` matrix or optimize to a single-dimensional array for better efficiency when only the last computed row or column is needed. See [Dynamic Programming: In-Place Grid Modification Approach](#dynamic-programming-in-place-grid-modification-approach).
