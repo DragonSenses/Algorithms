@@ -253,3 +253,6 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
        \[
        dp[i][j] = grid[i][j] + \min(dp[i+1][j], dp[i][j+1])
        \]
+
+4. **Final Result**:
+   - The value at `dp[0][0]` (top-left corner) will contain the minimum path sum from the top-left to the bottom-right of the grid.
