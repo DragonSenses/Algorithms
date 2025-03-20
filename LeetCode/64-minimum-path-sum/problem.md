@@ -230,3 +230,9 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
 
 4. **Boundary Conditions**:
    - Special care is taken for boundary conditions (e.g., when `i+1` or `j+1` exceeds the grid dimensions) to avoid out-of-bounds errors.
+
+## **Algorithm**
+
+1. **Initialize a DP Table**:
+   - Create a 2D matrix `dp` of the same dimensions as the input grid.
+   - Set `dp[m-1][n-1]` (the bottom-right cell) equal to `grid[m-1][n-1]`, as it represents the starting point of the traversal (the destination itself).
