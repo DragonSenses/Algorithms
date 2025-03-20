@@ -20,6 +20,14 @@ public class Solution {
       dp[i][cols - 1] = grid[i][cols - 1] + dp[i + 1][cols - 1];
     }
 
-    return 0;
+    // Step 5: Traverse the grid backwards to fill the dp table
+    for (int i = rows - 2; i >= 0; i--) {
+      for (int j = cols - 2; j >= 0; j--) {
+        dp[i][j] = grid[i][j] + Math.min(dp[i + 1][j], dp[i][j + 1]);
+      }
+    }
+
+    // Step 6: Return the value at the top-left corner of the dp table
+    return dp[0][0];
   }
 }
