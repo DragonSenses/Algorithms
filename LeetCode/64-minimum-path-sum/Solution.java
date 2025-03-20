@@ -10,6 +10,11 @@ public class Solution {
     // Step 2: Set the bottom-right cell of dp
     dp[rows - 1][cols - 1] = grid[rows - 1][cols - 1];
 
+    // Step 3: Populate the last row
+    for (int j = cols - 2; j >= 0; j--) {
+      dp[rows - 1][j] = grid[rows - 1][j] + dp[rows - 1][j + 1];
+    }
+
     return 0;
   }
 }
