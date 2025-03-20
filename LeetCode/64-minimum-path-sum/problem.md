@@ -236,3 +236,13 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
 1. **Initialize a DP Table**:
    - Create a 2D matrix `dp` of the same dimensions as the input grid.
    - Set `dp[m-1][n-1]` (the bottom-right cell) equal to `grid[m-1][n-1]`, as it represents the starting point of the traversal (the destination itself).
+
+2. **Populate the Last Row and Column**:
+   - Fill in the last row (`dp[m-1][j]`) by summing the current grid cell value and the cell to its right:  
+     \[
+     dp[m-1][j] = grid[m-1][j] + dp[m-1][j+1]
+     \]
+   - Similarly, fill in the last column (`dp[i][n-1]`) by summing the current grid cell value and the cell below:  
+     \[
+     dp[i][n-1] = grid[i][n-1] + dp[i+1][n-1]
+     \]
