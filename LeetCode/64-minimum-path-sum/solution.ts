@@ -13,5 +13,10 @@ function minPathSum(grid: number[][]): number {
     dp[rows - 1][j] = grid[rows - 1][j] + dp[rows - 1][j + 1];
   }
 
+  // Step 4: Populate the last column
+  for (let i = rows - 2; i >= 0; i--) {
+    dp[i][cols - 1] = grid[i][cols - 1] + dp[i + 1][cols - 1];
+  }
+
   return 0;
 }
