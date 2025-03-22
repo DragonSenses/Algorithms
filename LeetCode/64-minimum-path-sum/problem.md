@@ -373,3 +373,9 @@ function minPathSum(grid: number[][]): number {
   - Only a few variables are used (e.g., loop counters and temporary values), which require `O(1)` space.
 
 **Result**: The space complexity in this case is reduced to `O(1)`.
+
+### **Comparison with Recursive Approach**
+- **Time Complexity**: While the recursive approach is \(O(2^{m+n})\), the dynamic programming approach avoids redundant calculations, reducing this to `O(m*n)`.
+- **Space Complexity**:
+  - The recursive approach uses \(O(m + n)\) space for the recursion stack.
+  - The DP approach, with in-place modification, is much more efficient at `O(1)` space.
