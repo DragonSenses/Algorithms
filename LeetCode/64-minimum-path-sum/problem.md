@@ -398,4 +398,9 @@ function minPathSum(grid):
     for j from cols - 2 to 0:
         grid[rows - 1][j] += grid[rows - 1][j + 1]
 
+    # Step 2: Update the last column
+    for i from rows - 2 to 0:
+        grid[i][cols - 1] += grid[i + 1][cols - 1]
+
+
 ```
