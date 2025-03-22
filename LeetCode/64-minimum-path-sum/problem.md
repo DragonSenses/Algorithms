@@ -388,3 +388,10 @@ For each cell `(i, j)`, the updated value is calculated as:
 \[
 grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
 \]
+
+```plaintext
+function minPathSum(grid):
+    rows = number of rows in grid
+    cols = number of columns in grid
+
+```
