@@ -365,3 +365,11 @@ function minPathSum(grid: number[][]): number {
   - Other than the `dp` matrix and a few auxiliary variables (e.g., indices `i` and `j`), no additional data structures are used.
 
 **Result**: The space complexity is `O(m*n)`.
+
+#### Case 2: In-Place Grid Modification
+- **Grid as DP Table**:
+  - Instead of using a separate `dp` matrix, the input grid itself is modified to store the minimum path sums. This eliminates the need for extra space.
+- **Auxiliary Space**:
+  - Only a few variables are used (e.g., loop counters and temporary values), which require `O(1)` space.
+
+**Result**: The space complexity in this case is reduced to `O(1)`.
