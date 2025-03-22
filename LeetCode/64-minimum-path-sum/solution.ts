@@ -25,5 +25,6 @@ function minPathSum(grid: number[][]): number {
     }
   }
 
-  return 0;
-}
+  // Step 6: Return the value at the top-left corner of the dp table
+  return dp[0][0];
+};
