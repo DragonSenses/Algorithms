@@ -402,5 +402,9 @@ function minPathSum(grid):
     for i from rows - 2 to 0:
         grid[i][cols - 1] += grid[i + 1][cols - 1]
 
+    # Step 3: Traverse the grid backwards
+    for i from rows - 2 to 0:
+        for j from cols - 2 to 0:
+            grid[i][j] += min(grid[i + 1][j], grid[i][j + 1])
 
 ```
