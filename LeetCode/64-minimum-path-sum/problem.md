@@ -259,3 +259,43 @@ We use an extra matrix `dp` of the same size as the original matrix. In this mat
 
 ### **Optimization**: In-Place Grid
  - To save space, use the input grid itself as the `dp` matrix or optimize to a single-dimensional array for better efficiency when only the last computed row or column is needed. See [Dynamic Programming: In-Place Grid Modification Approach](#dynamic-programming-in-place-grid-modification-approach).
+
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  public int minPathSum(int[][] grid) {
+    // Get the dimensions of the grid
+    int rows = grid.length;
+    int cols = grid[0].length;
+
+    // Step 1: Initialize a DP table
+    int[][] dp = new int[rows][cols];
+
+    // Step 2: Set the bottom-right cell of dp
+    dp[rows - 1][cols - 1] = grid[rows - 1][cols - 1];
+
+    // Step 3: Populate the last row
+    for (int j = cols - 2; j >= 0; j--) {
+      dp[rows - 1][j] = grid[rows - 1][j] + dp[rows - 1][j + 1];
+    }
+
+    // Step 4: Populate the last column
+    for (int i = rows - 2; i >= 0; i--) {
+      dp[i][cols - 1] = grid[i][cols - 1] + dp[i + 1][cols - 1];
+    }
+
+    // Step 5: Traverse the grid backwards to fill the dp table
+    for (int i = rows - 2; i >= 0; i--) {
+      for (int j = cols - 2; j >= 0; j--) {
+        dp[i][j] = grid[i][j] + Math.min(dp[i + 1][j], dp[i][j + 1]);
+      }
+    }
+
+    // Step 6: Return the value at the top-left corner of the dp table
+    return dp[0][0];
+  }
+}
+```
