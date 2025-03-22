@@ -18,5 +18,12 @@ function minPathSum(grid: number[][]): number {
     dp[i][cols - 1] = grid[i][cols - 1] + dp[i + 1][cols - 1];
   }
 
+  // Step 5: Traverse the grid backwards to fill the dp table
+  for (let i = rows - 2; i >= 0; i--) {
+    for (let j = cols - 2; j >= 0; j--) {
+      dp[i][j] = grid[i][j] + Math.min(dp[i + 1][j], dp[i][j + 1]);
+    }
+  }
+
   return 0;
 }
