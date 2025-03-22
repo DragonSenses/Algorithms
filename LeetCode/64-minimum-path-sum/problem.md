@@ -38,7 +38,7 @@
 - [Dynamic Programming Approach](#dynamic-programming-approach)
   - **Time Complexity**: `O(m*n)`
   - **Space Complexity**: `O(m*n)`
-- [Dynamic Programming: In-Place Grid Modification Approach](#dynamic-programming-grid-modification-in-place-approach)
+- [Dynamic Programming: In-Place Grid Modification Approach](#dynamic-programming-in-place-grid-modification-approach)
 
 ### Problem Overview: Minimum Path Sum
 The task is to find the **minimum sum of numbers** along a path from the **top-left corner** to the **bottom-right corner** of a grid. The grid contains **non-negative numbers** in each cell. You can only move either **right** or **down** at any point in time.
@@ -373,4 +373,18 @@ function minPathSum(grid: number[][]): number {
 
 # Dynamic Programming: In-Place Grid Modification Approach
 
+## **Intuition**
+
 The in-place grid modification approach is a refinement of the standard dynamic programming method. Instead of using an additional `dp` matrix to store the minimum path sums, we update the input grid itself. This eliminates the need for extra space, as the grid can act as the `dp` table.
+
+### Key Idea:
+- Each cell in the grid, `grid(i, j)`, is updated to store the **minimum path sum** required to reach the bottom-right corner starting from that cell.
+- This is achieved by using the values of the adjacent cells below and to the right, which are updated progressively during the traversal.
+- Traversing the grid **backwards** from the bottom-right ensures adjacent cells (down and right) are updated before processing each cell.  
+- The top-left corner (`grid(0, 0)`) ultimately holds the minimum path sum.
+
+### Governing Equation:
+For each cell `(i, j)`, the updated value is calculated as:
+\[
+grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
+\]
