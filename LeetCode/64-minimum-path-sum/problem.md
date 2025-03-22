@@ -357,22 +357,12 @@ function minPathSum(grid: number[][]): number {
   
 **Result**: The time complexity of the dynamic programming approach is `O(m*n)`.
 
-### **Space Complexity**: `O(m*n)`
-#### Case 1: Using a Separate DP Matrix
-- **DP Matrix**:
-  - A 2D `dp` matrix of size \(m \times n\) is used to store the minimum path sums for each cell. This requires `O(m*n)` additional space.
-- **No Additional Structures**:
-  - Other than the `dp` matrix and a few auxiliary variables (e.g., indices `i` and `j`), no additional data structures are used.
+### **Space Complexity**: `O(m*n)`  
+#### **Using a Separate DP Matrix**  
+- **DP Matrix:** A 2D `dp` matrix of size \(m \times n\) is utilized to store the minimum path sums for each cell, requiring **`O(m*n)`** additional space.  
+- **Auxiliary Structures:** Only a few variables, such as indices `i` and `j`, are used, consuming **`O(1)`** space.  
 
-**Result**: The space complexity is `O(m*n)`.
-
-#### Case 2: In-Place Grid Modification
-- **Grid as DP Table**:
-  - Instead of using a separate `dp` matrix, the input grid itself is modified to store the minimum path sums. This eliminates the need for extra space.
-- **Auxiliary Space**:
-  - Only a few variables are used (e.g., loop counters and temporary values), which require `O(1)` space.
-
-**Result**: The space complexity in this case is reduced to `O(1)`.
+**Result:** The total space complexity is **`O(m*n)`**.  
 
 ### **Comparison with Recursive Approach**
 - **Time Complexity**: While the recursive approach is \(O(2^{m+n})\), the dynamic programming approach avoids redundant calculations, reducing this to `O(m*n)`.
