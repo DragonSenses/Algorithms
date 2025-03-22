@@ -36,6 +36,7 @@
   - **Time Complexity**: `O(2^(m+n))`
   - **Space Complexity**: `O(m+n)`
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Time Complexity**: `O(m*n)`
 
 ### Problem Overview: Minimum Path Sum
 The task is to find the **minimum sum of numbers** along a path from the **top-left corner** to the **bottom-right corner** of a grid. The grid contains **non-negative numbers** in each cell. You can only move either **right** or **down** at any point in time.
@@ -334,3 +335,21 @@ function minPathSum(grid: number[][]): number {
   return dp[0][0];
 }
 ```
+
+### **Assumptions**
+- **Grid Dimensions (m x n)**: The grid consists of `m` rows and `n` columns.
+- **Path Restrictions**: At any cell `(i, j)`, movement is restricted to:
+  - **Right**: Proceed to cell `(i, j+1)`.
+  - **Down**: Proceed to cell `(i+1, j)`.
+- **Dynamic Programming Approach**: A `dp` matrix is used (or the grid is modified in-place) to store the minimum path sums for each cell.
+
+### **Time Complexity**: `O(m * n)`
+- **Cell-by-Cell Traversal**:
+  - The algorithm iterates over each cell of the grid exactly once in a row-major order (row by row, left to right).
+  - This traversal involves \(O(m)\) iterations for the rows and \(O(n)\) iterations for the columns, leading to `O(m*n)` total iterations.
+- **Per-Cell Computation**:
+  - For each cell `(i, j)`, the minimum path sum is computed in constant time `O(1)` using the values of the adjacent cells (`dp[i-1][j]` and `dp[i][j-1]` or their equivalents in the grid).
+- **No Redundant Computation**:
+  - Each cell's value is computed only once, ensuring there are no repeated calculations (unlike the recursive approach).
+  
+**Result**: The time complexity of the dynamic programming approach is `O(m*n)`.
