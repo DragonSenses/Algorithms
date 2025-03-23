@@ -438,3 +438,26 @@ function minPathSum(grid):
     # Step 4: Return the result at the top-left corner
     return grid[0][0]
 ```
+
+## **Implementation**
+
+#### Implementation Details
+
+1. Initialize:
+   - Let grid be the input matrix with dimensions m x n.
+
+2. Populate the Last Row:
+   - For each column j from n-2 to 0:
+       grid[m-1][j] = grid[m-1][j] + grid[m-1][j+1]
+
+3. Populate the Last Column:
+   - For each row i from m-2 to 0:
+       grid[i][n-1] = grid[i][n-1] + grid[i+1][n-1]
+
+4. Traverse the Grid Backwards:
+   - For each row i from m-2 to 0:
+       For each column j from n-2 to 0:
+           grid[i][j] = grid[i][j] + min(grid[i+1][j], grid[i][j+1])
+
+5. Final Result:
+   - Return grid[0][0] (the top-left cell now contains the minimum path sum).
