@@ -441,24 +441,30 @@ grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
 
 ```plaintext
 function minPathSum(grid):
-    rows = number of rows in grid
-    cols = number of columns in grid
+  rows = number of rows in grid
+  cols = number of columns in grid
 
-    # Step 1: Update the last row
-    for j from cols - 2 to 0:
-        grid[rows - 1][j] += grid[rows - 1][j + 1]
+  # Step 1: Traverse the grid forward
+  for i from 0 to rows - 1:
+    for j from 0 to cols - 1:
+        # Step 2: Skip the top-left corner
+        if i == 0 and j == 0:
+            continue
+        
+        # Step 3: Update the grid for the first row
+        if i == 0:
+            grid[i][j] += grid[i][j - 1]
+        
+        # Step 4: Update the grid for the first column
+        else if j == 0:
+            grid[i][j] += grid[i - 1][j]
+        
+        # Step 5: Update the grid for other cells
+        else:
+          grid[i][j] += min(grid[i - 1][j], grid[i][j - 1])
 
-    # Step 2: Update the last column
-    for i from rows - 2 to 0:
-        grid[i][cols - 1] += grid[i + 1][cols - 1]
-
-    # Step 3: Traverse the grid backwards
-    for i from rows - 2 to 0:
-        for j from cols - 2 to 0:
-            grid[i][j] += min(grid[i + 1][j], grid[i][j + 1])
-
-    # Step 4: Return the result at the top-left corner
-    return grid[0][0]
+  # Step 6: Return the result at the bottom-right corner
+  return grid[rows - 1][cols - 1]
 ```
 
 ## **Implementation**
