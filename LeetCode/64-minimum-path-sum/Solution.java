@@ -4,6 +4,7 @@ public class Solution {
     int rows = grid.length;
     int cols = grid[0].length;
 
-    return 0;
+    // The bottom-right cell now contains the minimum path sum
+    return grid[rows - 1][cols - 1];
   }
 }
