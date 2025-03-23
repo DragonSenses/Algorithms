@@ -415,28 +415,27 @@ grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
 ## **Algorithm**
 
 1. **Modify the Grid to Act as the DP Table**:
-   - Use the input `grid` itself as the `dp` table to save space.
-   - The value at `grid[m-1][n-1]` (the bottom-right cell) remains unchanged, as it represents the starting point of the traversal (the destination itself).
+   - Use the input `grid` directly as the `dp` table to save space.
+   - The value at each cell will represent the minimum path sum to reach that cell from the top-left.
 
-2. **Populate the Last Row and Column**:
-   - **Last Row**: Update each cell in the last row (`grid[m-1][j]`) by summing its value with the cell to its right:  
-     \[
-     grid[m-1][j] = grid[m-1][j] + grid[m-1][j+1]
-     \]
-   - **Last Column**: Update each cell in the last column (`grid[i][n-1]`) by summing its value with the cell below:  
-     \[
-     grid[i][n-1] = grid[i][n-1] + grid[i+1][n-1]
-     \]
-
-3. **Traverse the Grid Backwards**:
-   - For each cell `(i, j)` from the second-last row to the top row, and from the second-last column to the first column:
-     - Update the cell value by summing its original value with the minimum of the values of the adjacent cells below and to the right:  
+2. **Traverse the Grid Forward**:
+   - For each cell `(i, j)` in the grid:
+     - **Top-Left Corner**: Skip updating `grid[0][0]` since it is the starting point.
+     - **First Row**: Update the cell value based on the sum of its value and the cell to its left:
        \[
-       grid[i][j] = grid[i][j] + \min(grid[i+1][j], grid[i][j+1])
+       grid[0][j] = grid[0][j] + grid[0][j-1]
+       \]
+     - **First Column**: Update the cell value based on the sum of its value and the cell above:
+       \[
+       grid[i][0] = grid[i][0] + grid[i-1][0]
+       \]
+     - **Other Cells**: Update the cell value based on the sum of its value and the minimum of the adjacent cells (above and left):
+       \[
+       grid[i][j] = grid[i][j] + \min(grid[i-1][j], grid[i][j-1])
        \]
 
-4. **Final Result**:
-   - After completing the traversal, the value at `grid[0][0]` (top-left corner) contains the minimum path sum from the top-left to the bottom-right of the grid.
+3. **Final Result**:
+   - After traversing the entire grid, the value at `grid[m-1][n-1]` (bottom-right corner) contains the minimum path sum from the top-left to the bottom-right of the grid.
 
 ### **Pseudocode**
 
@@ -466,21 +465,29 @@ function minPathSum(grid):
 
 #### Implementation Details
 
-1. Initialize:
-   - Let grid be the input matrix with dimensions m x n.
+1. **Initialize**:
+   - Let `grid` be the input matrix with dimensions `m x n`.
 
-2. Populate the Last Row:
-   - For each column j from n-2 to 0:
-       grid[m-1][j] = grid[m-1][j] + grid[m-1][j+1]
+2. **Traverse the Grid Forward**:
+   - **For cell `grid[0][0]`**:  
+     Skip updating since it is the starting point.
+   - **For the top row** (`i == 0`):  
+     - For each column `j` from `1` to `n-1`, update:
+       ```
+       grid[0][j] = grid[0][j] + grid[0][j-1]
+       ```
+   - **For the first column** (`j == 0`):  
+     - For each row `i` from `1` to `m-1`, update:
+       ```
+       grid[i][0] = grid[i][0] + grid[i-1][0]
+       ```
+   - **For all other cells** (`i > 0` and `j > 0`):  
+     - For each row `i` from `1` to `m-1` and each column `j` from `1` to `n-1`, update:
+       ```
+       grid[i][j] = grid[i][j] + min(grid[i-1][j], grid[i][j-1])
+       ```
 
-3. Populate the Last Column:
-   - For each row i from m-2 to 0:
-       grid[i][n-1] = grid[i][n-1] + grid[i+1][n-1]
-
-4. Traverse the Grid Backwards:
-   - For each row i from m-2 to 0:
-       For each column j from n-2 to 0:
-           grid[i][j] = grid[i][j] + min(grid[i+1][j], grid[i][j+1])
-
-5. Final Result:
-   - Return grid[0][0] (the top-left cell now contains the minimum path sum).
+3. **Final Result**:
+   - After the traversal, the bottom-right cell `grid[m-1][n-1]` contains the minimum path sum.  
+     Return `grid[m-1][n-1]`.
+     
