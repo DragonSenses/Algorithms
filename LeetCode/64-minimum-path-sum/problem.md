@@ -395,6 +395,16 @@ grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
    - Use the input `grid` itself as the `dp` table to save space.
    - The value at `grid[m-1][n-1]` (the bottom-right cell) remains unchanged, as it represents the starting point of the traversal (the destination itself).
 
+2. **Populate the Last Row and Column**:
+   - **Last Row**: Update each cell in the last row (`grid[m-1][j]`) by summing its value with the cell to its right:  
+     \[
+     grid[m-1][j] = grid[m-1][j] + grid[m-1][j+1]
+     \]
+   - **Last Column**: Update each cell in the last column (`grid[i][n-1]`) by summing its value with the cell below:  
+     \[
+     grid[i][n-1] = grid[i][n-1] + grid[i+1][n-1]
+     \]
+
 ### **Pseudocode**
 
 ```plaintext
