@@ -212,6 +212,27 @@ function minPathSum(grid: number[][]): number {
 
 # Dynamic Programming Approach
 
+Dynamic programming ensures we calculate the result for each cell exactly once, and reuse those results to build solutions for subsequent cells. This eliminates the exponential time complexity of the recursive approach by reducing it to a manageable `O(m*n)`, where `m` and `n` are the grid's dimensions.
+
+## **Intuition**
+
+The dynamic programming approach efficiently solves the problem by recognizing and leveraging the fact that the **minimum path sum** at any cell in the grid depends solely on the minimum path sums of its adjacent cells from which we can reach it (either from above or from the left).
+
+Instead of recalculating overlapping subproblems multiple times (as in the recursive approach), we store the results of subproblems in a table (or modify the input grid directly) to avoid redundant computations. This is a classic **"overlapping subproblems"** scenario that dynamic programming is designed to optimize.
+
+### **Key Idea**
+1. **Breaking Down the Problem**:
+   - For any cell `(i, j)`, the **minimum path sum** is the value of the current cell (`grid[i][j]`) plus the smaller of the minimum path sums of the two possible previous cells:
+     - The cell directly above `(i-1, j)`.
+     - The cell directly to the left `(i, j-1)`.
+
+2. **Base Case**:
+   - At the top-left corner `(0, 0)`, the minimum path sum is simply the value of that cell, as there is no other path to reach it.
+
+3. **Building the Solution**:
+   - Starting from the top-left corner, iteratively compute the minimum path sum for every cell in the grid using the above relation.
+   - By the time we reach the bottom-right corner, we will have the minimum path sum for the entire grid stored there.
+
 ### **Approach**
 
 We use an extra matrix `dp` of the same size as the original matrix. In this matrix, `dp(i, j)` represents the minimum sum of the path from the index `(i, j)` to the bottom-rightmost element of the grid. 
@@ -382,6 +403,8 @@ The in-place grid modification approach is a refinement of the standard dynamic 
 - This is achieved by using the values of the adjacent cells below and to the right, which are updated progressively during the traversal.
 - Traversing the grid **backwards** from the bottom-right ensures adjacent cells (down and right) are updated before processing each cell.  
 - The top-left corner (`grid(0, 0)`) ultimately holds the minimum path sum.
+- By traversing the grid in reverse (bottom-right to top-left), the values in the grid itself can be safely overwritten without losing any necessary information for future calculations.
+- This eliminates the need for an extra `dp` matrix, reducing space complexity from `O(m*n)` to `O(1)`.
 
 ### Governing Equation:
 For each cell `(i, j)`, the updated value is calculated as:
