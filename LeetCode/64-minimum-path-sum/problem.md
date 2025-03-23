@@ -389,6 +389,12 @@ For each cell `(i, j)`, the updated value is calculated as:
 grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
 \]
 
+## **Algorithm**
+
+1. **Modify the Grid to Act as the DP Table**:
+   - Use the input `grid` itself as the `dp` table to save space.
+   - The value at `grid[m-1][n-1]` (the bottom-right cell) remains unchanged, as it represents the starting point of the traversal (the destination itself).
+
 ### **Pseudocode**
 
 ```plaintext
