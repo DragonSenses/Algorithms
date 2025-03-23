@@ -389,6 +389,8 @@ For each cell `(i, j)`, the updated value is calculated as:
 grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
 \]
 
+### **Pseudocode**
+
 ```plaintext
 function minPathSum(grid):
     rows = number of rows in grid
@@ -407,4 +409,6 @@ function minPathSum(grid):
         for j from cols - 2 to 0:
             grid[i][j] += min(grid[i + 1][j], grid[i][j + 1])
 
+    # Step 4: Return the result at the top-left corner
+    return grid[0][0]
 ```
