@@ -405,6 +405,16 @@ grid(i, j) = grid(i, j) + \min(grid(i+1, j), grid(i, j+1))
      grid[i][n-1] = grid[i][n-1] + grid[i+1][n-1]
      \]
 
+3. **Traverse the Grid Backwards**:
+   - For each cell `(i, j)` from the second-last row to the top row, and from the second-last column to the first column:
+     - Update the cell value by summing its original value with the minimum of the values of the adjacent cells below and to the right:  
+       \[
+       grid[i][j] = grid[i][j] + \min(grid[i+1][j], grid[i][j+1])
+       \]
+
+4. **Final Result**:
+   - After completing the traversal, the value at `grid[0][0]` (top-left corner) contains the minimum path sum from the top-left to the bottom-right of the grid.
+
 ### **Pseudocode**
 
 ```plaintext
