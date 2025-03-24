@@ -12,6 +12,10 @@ public class Solution {
           continue;
         }
 
+        if (i == 0) {
+          // Step 4: If in the first row, update the cell based on the value from the left
+          grid[i][j] += grid[i][j - 1];
+        }
       }
     }
 
