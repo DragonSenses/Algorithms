@@ -15,6 +15,9 @@ public class Solution {
         if (i == 0) {
           // Step 4: If in the first row, update the cell based on the value from the left
           grid[i][j] += grid[i][j - 1];
+        } else if (j == 0) {
+          // Step 5: If in the first column, update the cell based on the value from above
+          grid[i][j] += grid[i - 1][j];
         }
       }
     }
