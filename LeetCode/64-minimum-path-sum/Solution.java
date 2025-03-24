@@ -1,4 +1,16 @@
+/**
+ * The problem involves finding a path from the top-left to the bottom-right of a 2D grid that
+ * minimizes the sum of all numbers along the path. Each step can only move right or down.
+ */
 public class Solution {
+
+  /**
+   * Computes the minimum path sum from the top-left to the bottom-right of a grid filled with
+   * non-negative numbers.
+   *
+   * @param grid A 2D array of non-negative integers representing the grid.
+   * @return The minimum path sum from the top-left to the bottom-right of the grid.
+   */
   public int minPathSum(int[][] grid) {
     // Step 1: Get the dimensions of the grid
     int rows = grid.length;
