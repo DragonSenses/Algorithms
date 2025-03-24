@@ -7,6 +7,10 @@ public class Solution {
     // Step 2: Traverse the grid and update it in-place
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
+        // Step 3: Skip the top-left corner as it doesn't have any prior paths
+        if (i == 0 && j == 0) {
+          continue;
+        }
 
       }
     }
