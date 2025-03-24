@@ -18,11 +18,14 @@ public class Solution {
         } else if (j == 0) {
           // Step 5: If in the first column, update the cell based on the value from above
           grid[i][j] += grid[i - 1][j];
+        } else {
+          // Step 6: Otherwise, update the cell based on the minimum value of the left or above cell
+          grid[i][j] += Math.min(grid[i - 1][j], grid[i][j - 1]);
         }
       }
     }
 
-    // The bottom-right cell now contains the minimum path sum
+    // Step 7: The bottom-right cell now contains the minimum path sum
     return grid[rows - 1][cols - 1];
   }
 }
