@@ -561,3 +561,10 @@ function minPathSum(grid: number[][]): number {
   return grid[0][0];
 }
 ```
+
+### **Assumptions**
+- **Grid Dimensions (m x n)**: The grid consists of `m` rows and `n` columns.
+- **Path Restrictions**: At any cell `(i, j)`, movement is restricted to:
+  - **Right**: Proceed to cell `(i, j+1)`.
+  - **Down**: Proceed to cell `(i+1, j)`.
+- **Dynamic Programming Approach**: The input grid itself is used as the `dp` matrix, storing the minimum path sums for each cell as the algorithm progresses.
