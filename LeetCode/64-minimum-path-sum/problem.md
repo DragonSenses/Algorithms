@@ -39,6 +39,7 @@
   - **Time Complexity**: `O(m*n)`
   - **Space Complexity**: `O(m*n)`
 - [Dynamic Programming: In-Place Grid Modification Approach](#dynamic-programming-in-place-grid-modification-approach)
+  - **Time Complexity**: `O(m*n)`
   - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Minimum Path Sum
@@ -563,12 +564,25 @@ function minPathSum(grid: number[][]): number {
 }
 ```
 
+## **Complexity Analysis**
+
 ### **Assumptions**
 - **Grid Dimensions (m x n)**: The grid consists of `m` rows and `n` columns.
 - **Path Restrictions**: At any cell `(i, j)`, movement is restricted to:
   - **Right**: Proceed to cell `(i, j+1)`.
   - **Down**: Proceed to cell `(i+1, j)`.
 - **Dynamic Programming Approach**: The input grid itself is used as the `dp` matrix, storing the minimum path sums for each cell as the algorithm progresses.
+
+### **Time Complexity**: `O(m*n)`
+- **Grid Traversal**:
+  - The algorithm traverses each cell in the grid exactly once.
+  - There are `m` rows and `n` columns, so the total number of cells processed is `m * n`.
+- **Per-Cell Computation**:
+  - For each cell `(i, j)`, the minimum path sum is computed in constant time `O(1)`, using the values of its adjacent cells (down or right).
+- **No Redundant Computations**:
+  - Each cell is visited and computed only once, eliminating redundancy.
+
+**Result**: The time complexity is `O(m*n)`.
 
 ### **Space Complexity**: `O(1)`
 - **In-Place Grid Modification**:
