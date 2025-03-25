@@ -532,3 +532,32 @@ public class Solution {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+function minPathSum(grid: number[][]): number {
+  const rows = grid.length;
+  const cols = grid[0].length;
+
+  // Step 1: Update the last row in-place
+  for (let j = cols - 2; j >= 0; j--) {
+    grid[rows - 1][j] += grid[rows - 1][j + 1];
+  }
+
+  // Step 2: Update the last column in-place
+  for (let i = rows - 2; i >= 0; i--) {
+    grid[i][cols - 1] += grid[i + 1][cols - 1];
+  }
+
+  // Step 3: Traverse the grid backwards and update cells in-place
+  for (let i = rows - 2; i >= 0; i--) {
+    for (let j = cols - 2; j >= 0; j--) {
+      grid[i][j] += Math.min(grid[i + 1][j], grid[i][j + 1]);
+    }
+  }
+
+  // Step 4: Return the value at the top-left corner
+  return grid[0][0];
+}
+```
