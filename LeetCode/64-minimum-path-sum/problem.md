@@ -591,3 +591,9 @@ function minPathSum(grid: number[][]): number {
   - The algorithm uses a constant amount of auxiliary variables (e.g., loop counters), which do not scale with the grid size.
 
 **Result**: The space complexity is `O(1)`.
+
+### **Comparison with the Non-Optimized DP Approach**
+- **Space Efficiency**:
+  - The non-optimized approach requires `O(m*n)` additional space for the `dp` matrix, whereas the in-place approach reduces this to `O(1)`.
+- **Time Efficiency**:
+  - Both approaches share the same time complexity of `O(m*n)`, as the grid is traversed entirely in both cases.
