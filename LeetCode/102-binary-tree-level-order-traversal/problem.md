@@ -83,6 +83,11 @@ In BFS, nodes are explored level by level, starting from the topmost level (root
 The problem at hand requires implementing a BFS traversal with split-level outputs, where each level is represented as a separate list:
 Example: `[[1], [2, 3], [4, 5]]`
 
+#### **Comparison of Traversal Strategies**
+The following diagram illustrates the four traversal strategies—DFS Preorder, DFS Inorder, DFS Postorder, and BFS. In this example, the nodes are numbered in the order they are visited.
+
+![Illustration of a tree with 5 nodes, showcasing four traversal strategies: DFS Postorder, DFS Preorder, DFS Inorder, and BFS, with nodes numbered in the order of visitation for each method.](img/102-2.jpg)
+
 #### **Tree Structure**:
 ```
         5
