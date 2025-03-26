@@ -140,3 +140,27 @@ At each recursive step:
 6. Start the process by calling the helper function with the root node, level `0`, and an empty result list.
 7. Return the result list, which will contain nodes grouped by level.
 
+### **Pseudocode**
+
+```pseudocode
+function level_order_traversal(root):
+    if root == null:
+        return empty_list
+
+    define result as empty_list
+
+    function traverse(node, level):
+        if node == null:
+            return
+
+        if result does not have sublist at index level:
+            add empty_list to result
+
+        add node.value to result[level]
+
+        traverse(node.left, level + 1)
+        traverse(node.right, level + 1)
+
+    call traverse(root, 0)
+    return result
+```
