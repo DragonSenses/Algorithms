@@ -34,6 +34,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Binary Tree Level Order Traversal
@@ -180,9 +181,16 @@ function level_order_traversal(root):
     return result
 ```
 
+
+## **Complexity Analysis**
+
 ### **Assumptions**
 - The binary tree has `n` nodes in total.
 - The tree is well-formed, and each node has a `left` and `right` child reference, which may be `null`.
+
+### **Time Complexity**: `O(n)`
+- **Traversal of Nodes**: Each node in the binary tree is visited exactly once during the recursion. This includes adding the node's value to the corresponding level's list and making recursive calls for its children.
+- **Number of Operations**: Since we perform a constant amount of work (adding to a list and checking conditions) for each of the `n` nodes, the time complexity is linear: **`O(n)`**.
 
 ### **Space Complexity**: `O(n)`
 - **Auxiliary Data Structure**: 
