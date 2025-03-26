@@ -34,6 +34,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Binary Tree Level Order Traversal
 
@@ -178,3 +179,16 @@ function level_order_traversal(root):
     call traverse(root, 0)
     return result
 ```
+
+### **Assumptions**
+- The binary tree has `n` nodes in total.
+- The tree is well-formed, and each node has a `left` and `right` child reference, which may be `null`.
+
+### **Space Complexity**: `O(n)`
+- **Auxiliary Data Structure**: 
+  - The `levels` list, which holds the values grouped by levels, grows linearly with the number of nodes in the binary tree. In the worst case, it may store up to `n` values.
+- **Recursive Call Stack**:
+  - In the worst-case scenario, when the binary tree is skewed (like a linked list), the recursion stack can grow up to `n` calls deep. Thus, the stack consumes `O(n)` space.
+  - In a balanced binary tree, the maximum depth of the tree is approximately `log(n)` for `n` nodes. However, the worst-case scenario dominates in asymptotic analysis.
+
+Overall, the **space complexity** is linear: **`O(n)`**.
