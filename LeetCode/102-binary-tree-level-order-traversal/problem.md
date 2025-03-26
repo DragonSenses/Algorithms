@@ -63,6 +63,10 @@ Given the root of a binary tree, the task is to perform a **level-order traversa
 - A binary tree is structured such that each node may have up to two children (left and right).
 - **Level Order Traversal** is also called **Breadth-First Search (BFS)**.
 
+### General Strategies to Traverse a Tree
+
+When solving problems involving tree traversal, it's essential to understand the two main strategies: **Depth First Search (DFS)** and **Breadth First Search (BFS)**. These techniques differ in the order of node exploration and can be chosen based on the specific requirements of a problem.
+
 #### **1. Depth First Search (DFS)**
 In DFS, the traversal prioritizes depth, meaning we explore as far as possible along a branch before backtracking. Starting from the root node, we go down to a leaf node, then backtrack to explore other branches.
 
@@ -78,3 +82,29 @@ In BFS, nodes are explored level by level, starting from the topmost level (root
 ##### **Split-Level BFS Traversal**
 The problem at hand requires implementing a BFS traversal with split-level outputs, where each level is represented as a separate list:
 Example: `[[1], [2, 3], [4, 5]]`
+
+#### **Tree Structure**:
+```
+        5
+       / \
+      3   7
+     / \
+    2   4
+```
+
+#### **Traversal Strategies**:
+1. **DFS Postorder**:  
+   Traverse the left subtree, then the right subtree, and finally the root.  
+   **Order:** 2 → 4 → 3 → 7 → 5
+
+2. **DFS Preorder**:  
+   Visit the root first, then traverse the left subtree and the right subtree.  
+   **Order:** 5 → 3 → 2 → 4 → 7
+
+3. **DFS Inorder**:  
+   Traverse the left subtree first, then visit the root, followed by the right subtree.  
+   **Order:** 2 → 3 → 4 → 5 → 7
+
+4. **BFS (Level Order)**:  
+   Visit nodes level by level, from top to bottom.  
+   **Order:** 5 → 3 → 7 → 2 → 4
