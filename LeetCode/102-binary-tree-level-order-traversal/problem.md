@@ -128,3 +128,15 @@ At each recursive step:
 1. We determine the "current level" of the node being processed.
 2. We add the node's value to a corresponding list for its level.
 3. We recursively process the left and right children of the node, passing along their respective levels (incrementing by 1 for each recursive call).
+
+## **Algorithm**
+
+1. Define a helper function that takes the current node, the current level, and a result list as parameters.
+2. If the current node is `null`, return immediately (base case for recursion).
+3. Check if the result list has a sublist for the current level:
+   - If not, create a new sublist for this level.
+4. Add the node's value to the sublist corresponding to its level.
+5. Recursively call the helper function for the left child and right child, passing `level + 1` to indicate the next level.
+6. Start the process by calling the helper function with the root node, level `0`, and an empty result list.
+7. Return the result list, which will contain nodes grouped by level.
+
