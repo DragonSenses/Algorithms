@@ -10,8 +10,11 @@ class Solution {
     if (root == null) {
       return levels;
     }
-    
-    return 0;
+
+    return levels;
   }
 
+  private void traverseLevels(TreeNode node, int level) {
+
+  }
 }
