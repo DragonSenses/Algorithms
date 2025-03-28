@@ -15,6 +15,9 @@ class Solution {
   }
 
   private void traverseLevels(TreeNode node, int level) {
-
+    // Base case: if the node is null, return
+    if (node == null) {
+      return;
+    }
   }
 }
