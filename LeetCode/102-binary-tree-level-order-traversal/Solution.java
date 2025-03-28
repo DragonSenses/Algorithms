@@ -19,5 +19,11 @@ class Solution {
     if (node == null) {
       return;
     }
+
+    // Ensure the levels list has a sublist for the current level
+    if (levels.size() == level) {
+      levels.add(new ArrayList<>());
+    }
+
   }
 }
