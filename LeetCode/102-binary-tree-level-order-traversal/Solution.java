@@ -28,5 +28,8 @@ class Solution {
     // Add the current node's value to its corresponding level's list
     levels.get(level).add(node.val);
 
+    // Recursively traverse the left and right subtrees
+    traverseLevels(node.left, level + 1);
+    traverseLevels(node.right, level + 1);
   }
 }
