@@ -25,5 +25,8 @@ class Solution {
       levels.add(new ArrayList<>());
     }
 
+    // Add the current node's value to its corresponding level's list
+    levels.get(level).add(node.val);
+
   }
 }
