@@ -11,6 +11,9 @@ class Solution {
       return levels;
     }
 
+    // Start the recursive traversal from the root node at level 0
+    traverseLevels(root, 0);
+
     return levels;
   }
 
