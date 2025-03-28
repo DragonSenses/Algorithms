@@ -6,6 +6,11 @@ class Solution {
   List<List<Integer>> levels = new ArrayList<>();
 
   public List<List<Integer>> levelOrder(TreeNode root) {
+    // Edge case: Return empty list if the tree is empty
+    if (root == null) {
+      return levels;
+    }
+    
     return 0;
   }
 
