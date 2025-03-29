@@ -226,6 +226,43 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function levelOrder(root: TreeNode | null): number[][] {
+  // Initialize levels list
+  const levels: number[][] = [];
+
+  // Edge case: If the root is null, return an empty list
+  if (root === null) {
+    return levels;
+  }
+
+  const traverseLevels = (node: TreeNode | null, level: number): void => {
+    if (node === null) {
+      return; // Base case: if the node is null, stop recursion
+    }
+
+    // Ensure there's a sublist for the current level
+    if (levels.length === level) {
+      levels.push([]);
+    }
+
+    // Add the current node's value to the appropriate level
+    levels[level].push(node.val);
+
+    // Recursively traverse the left and right subtrees
+    traverseLevels(node.left, level + 1);
+    traverseLevels(node.right, level + 1);
+  };
+
+  // Start traversal from the root at level 0
+  traverseLevels(root, 0);
+
+  return levels;
+};
+```
+
 ## **Complexity Analysis**
 
 ### **Assumptions**
