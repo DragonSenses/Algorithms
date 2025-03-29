@@ -40,5 +40,8 @@ function levelOrder(root: TreeNode | null): number[][] {
     traverseLevels(node.right, level + 1);
   };
 
+  // Start traversal from the root at level 0
+  traverseLevels(root, 0);
+
   return levels;
 };
