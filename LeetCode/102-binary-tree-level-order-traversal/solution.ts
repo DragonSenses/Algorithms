@@ -22,5 +22,11 @@ function levelOrder(root: TreeNode | null): number[][] {
     return levels;
   }
 
+  const traverseLevels = (node: TreeNode | null, level: number): void => {
+    if (node === null) {
+      return; // Base case: if the node is null, stop recursion
+    }
+  };
+
   return levels;
 };
