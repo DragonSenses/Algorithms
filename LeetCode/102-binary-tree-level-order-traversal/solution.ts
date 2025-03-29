@@ -32,6 +32,9 @@ function levelOrder(root: TreeNode | null): number[][] {
       levels.push([]);
     }
 
+    // Add the current node's value to the appropriate level
+    levels[level].push(node.val);
+
   };
 
   return levels;
