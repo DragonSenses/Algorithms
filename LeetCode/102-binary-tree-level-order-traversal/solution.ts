@@ -17,5 +17,10 @@ function levelOrder(root: TreeNode | null): number[][] {
   // Initialize levels list
   const levels: number[][] = [];
 
+  // Edge case: If the root is null, return an empty list
+  if (root === null) {
+    return levels;
+  }
+
   return levels;
 };
