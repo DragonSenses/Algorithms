@@ -26,6 +26,12 @@ function levelOrder(root: TreeNode | null): number[][] {
     if (node === null) {
       return; // Base case: if the node is null, stop recursion
     }
+
+    // Ensure there's a sublist for the current level
+    if (levels.length === level) {
+      levels.push([]);
+    }
+
   };
 
   return levels;
