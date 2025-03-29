@@ -14,5 +14,8 @@ class TreeNode {
 }
 
 function levelOrder(root: TreeNode | null): number[][] {
-    
+  // Initialize levels list
+  const levels: number[][] = [];
+
+  return levels;
 };
