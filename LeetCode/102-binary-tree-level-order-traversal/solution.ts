@@ -35,6 +35,9 @@ function levelOrder(root: TreeNode | null): number[][] {
     // Add the current node's value to the appropriate level
     levels[level].push(node.val);
 
+    // Recursively traverse the left and right subtrees
+    traverseLevels(node.left, level + 1);
+    traverseLevels(node.right, level + 1);
   };
 
   return levels;
