@@ -307,3 +307,9 @@ Overall, the **space complexity** is linear: **`O(n)`**.
    - Handle empty trees (`root == null`) by returning an empty result.
    - Account for single-node trees and deeply unbalanced trees for completeness.
 
+## **Algorithm**
+
+1. **Initialization**:
+   - Create an empty list `levels` to store nodes grouped by levels.
+   - Initialize a queue and add the `root` node to it. Start from level `0`.
+   - Handle the edge case where the tree is empty by returning an empty list immediately.
