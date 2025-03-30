@@ -313,3 +313,8 @@ Overall, the **space complexity** is linear: **`O(n)`**.
    - Create an empty list `levels` to store nodes grouped by levels.
    - Initialize a queue and add the `root` node to it. Start from level `0`.
    - Handle the edge case where the tree is empty by returning an empty list immediately.
+
+2. **Level Traversal**:
+   - While the queue is not empty:
+     - Start the current level by adding an empty sublist to `levels`.
+     - Compute the number of nodes on the current level using the queue's size.
