@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class Solution2 {
   public List<List<Integer>> levelOrder(TreeNode root) {
@@ -9,6 +11,9 @@ class Solution2 {
     if (root == null) {
       return levels;
     }
+
+    Queue<TreeNode> queue = new LinkedList<>(); // Initialize the queue
+    queue.add(root); // Add the root node to the queue
 
     return null;
   }
