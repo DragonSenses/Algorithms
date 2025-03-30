@@ -327,3 +327,6 @@ Overall, the **space complexity** is linear: **`O(n)`**.
 
 4. **Prepare for the Next Level**:
    - After processing all nodes on the current level, increment the level counter and move to the next level.
+
+5. **Return the Result**:
+   - Once the queue is empty (all levels are processed), return `levels`.
