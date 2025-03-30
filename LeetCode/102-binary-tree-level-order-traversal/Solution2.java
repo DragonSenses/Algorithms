@@ -15,6 +15,11 @@ class Solution2 {
     Queue<TreeNode> queue = new LinkedList<>(); // Initialize the queue
     queue.add(root); // Add the root node to the queue
 
+    while (!queue.isEmpty()) {
+      int levelSize = queue.size(); // Number of nodes in the current level
+      List<Integer> currentLevel = new ArrayList<>(); // Sublist for current level
+    }
+
     return null;
   }
 }
