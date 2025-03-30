@@ -22,6 +22,14 @@ class Solution2 {
       for (int i = 0; i < levelSize; i++) {
         TreeNode node = queue.poll(); // Remove the front node from the queue
         currentLevel.add(node.val); // Add the node's value to the current level
+
+        // Add the left and right children to the queue (if they exist)
+        if (node.left != null) {
+          queue.add(node.left);
+        }
+        if (node.right != null) {
+          queue.add(node.right);
+        }
       }
 
     }
