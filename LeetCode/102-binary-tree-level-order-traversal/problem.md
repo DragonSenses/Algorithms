@@ -285,8 +285,6 @@ Overall, the **space complexity** is linear: **`O(n)`**.
 
 # Iterative Approach
 
-At the root, level 0, contains only one node `root`. We initialize queue with a root and start from the level number `0`. While queue is not empty, start the current level by adding an empty list into the output result named `levels`. Then we compute how many nodes should be on the current level, which is the queue length. Remove elements from queue and add them to current level. Push child nodes into queue for next level. Iterate towards next level.
-
 ## **Intuition**
 
 1. **Core Concept**:
@@ -295,3 +293,12 @@ At the root, level 0, contains only one node `root`. We initialize queue with a 
 2. **Queue Mechanism**:
    - Use a queue to store nodes from each level, processing parents before their children.
    - In Java, a `LinkedList` can be used for the queue implementation.
+
+3. **Step-by-Step Traversal**:
+   - Initialize the queue with the root node at level 0.
+   - For each level:
+     - Add an empty sublist to the result structure.
+     - Determine the number of nodes in the current level using the queue's size.
+     - Process all nodes at this level by dequeuing them and adding their values to the current sublist.
+     - Enqueue their children for the next level.
+   - Repeat until the queue is empty.
