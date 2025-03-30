@@ -330,3 +330,31 @@ Overall, the **space complexity** is linear: **`O(n)`**.
 
 5. **Return the Result**:
    - Once the queue is empty (all levels are processed), return `levels`.
+
+### **Pseudocode**
+
+```pseudocode
+function levelOrderTraversal(root):
+  if root == null:
+      return empty_list  # Edge case: Return empty list for empty tree
+
+  levels = []  # Initialize the levels list
+  queue = initialize_queue_with(root)  # Add the root node to the queue
+
+  while queue is not empty:
+      current_level = []  # Add a sublist for the current level
+      level_size = size_of(queue)  # Number of nodes in the current level
+
+      for i from 0 to level_size - 1:
+          node = remove_front(queue)  # Remove the front node from the queue
+          append(node.value, current_level)  # Add node value to the current level
+          
+          if node.left is not null:
+              add_to_queue(node.left)  # Add left child to the queue
+          if node.right is not null:
+              add_to_queue(node.right)  # Add right child to the queue
+
+      append(current_level, levels)  # Add the current level to the result
+
+  return levels  # Return the levels list
+```
