@@ -36,6 +36,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ### Problem Overview: Binary Tree Level Order Traversal
 
@@ -281,3 +282,14 @@ function levelOrder(root: TreeNode | null): number[][] {
   - In a balanced binary tree, the maximum depth of the tree is approximately `log(n)` for `n` nodes. However, the worst-case scenario dominates in asymptotic analysis.
 
 Overall, the **space complexity** is linear: **`O(n)`**.
+
+# Iterative Approach
+
+The level order traversal recursion approach could be rewritten in iteration form.
+
+Store nodes of each tree level in a queue data structure, which orders elements in a FIFO (first-in-first-out) manner.
+
+In Java use LinkedList implementation of the Queue interface.
+
+At the root, level 0, contains only one node `root`. We initialize queue with a root and start from the level number `0`. While queue is not empty, start the current level by adding an empty list into the output result named `levels`. Then we compute how many nodes should be on the current level, which is the queue length. Remove elements from queue and add them to current level. Push child nodes into queue for next level. Iterate towards next level.
+
