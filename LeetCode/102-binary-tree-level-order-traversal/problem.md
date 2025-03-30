@@ -302,3 +302,8 @@ Overall, the **space complexity** is linear: **`O(n)`**.
      - Process all nodes at this level by dequeuing them and adding their values to the current sublist.
      - Enqueue their children for the next level.
    - Repeat until the queue is empty.
+
+4. **Edge Cases**:
+   - Handle empty trees (`root == null`) by returning an empty result.
+   - Account for single-node trees and deeply unbalanced trees for completeness.
+
