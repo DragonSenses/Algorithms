@@ -18,6 +18,12 @@ class Solution2 {
     while (!queue.isEmpty()) {
       int levelSize = queue.size(); // Number of nodes in the current level
       List<Integer> currentLevel = new ArrayList<>(); // Sublist for current level
+
+      for (int i = 0; i < levelSize; i++) {
+        TreeNode node = queue.poll(); // Remove the front node from the queue
+        currentLevel.add(node.val); // Add the node's value to the current level
+      }
+
     }
 
     return null;
