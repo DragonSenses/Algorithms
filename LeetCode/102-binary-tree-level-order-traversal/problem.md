@@ -324,3 +324,6 @@ Overall, the **space complexity** is linear: **`O(n)`**.
      - Remove the node from the front of the queue.
      - Add the node’s value to the current level’s sublist in `levels`.
      - If the node has left or right children, add them to the queue for processing in the next level.
+
+4. **Prepare for the Next Level**:
+   - After processing all nodes on the current level, increment the level counter and move to the next level.
