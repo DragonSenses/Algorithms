@@ -318,3 +318,9 @@ Overall, the **space complexity** is linear: **`O(n)`**.
    - While the queue is not empty:
      - Start the current level by adding an empty sublist to `levels`.
      - Compute the number of nodes on the current level using the queue's size.
+
+3. **Processing Nodes**:
+   - Process each node in the current level:
+     - Remove the node from the front of the queue.
+     - Add the node’s value to the current level’s sublist in `levels`.
+     - If the node has left or right children, add them to the queue for processing in the next level.
