@@ -32,8 +32,9 @@ class Solution2 {
         }
       }
 
+      levels.add(currentLevel); // Add the current level to the result
     }
 
-    return null;
+    return levels; // Return the result list
   }
 }
