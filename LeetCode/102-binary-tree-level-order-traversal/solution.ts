@@ -13,35 +13,48 @@ class TreeNode {
   }
 }
 
+/**
+ * Perform level-order traversal of a binary tree.
+ * @param root - The root node of the binary tree.
+ * @returns A two-dimensional array where each sub-array contains the values of nodes at a specific tree level.
+ */
 function levelOrder(root: TreeNode | null): number[][] {
-  // Initialize levels list
+  // Initialize an array to store node values grouped by their tree level.
   const levels: number[][] = [];
 
-  // Edge case: If the root is null, return an empty list
+  // Handle the edge case where the tree is empty (root is null).
   if (root === null) {
-    return levels;
+    return levels; // Return an empty array for an empty tree.
   }
 
+  /**
+   * Recursive helper function to populate the levels array.
+   * @param node - The current node being processed.
+   * @param level - The level of the tree where the node resides.
+   */
   const traverseLevels = (node: TreeNode | null, level: number): void => {
+    // Base case: Stop recursion if the current node is null.
     if (node === null) {
-      return; // Base case: if the node is null, stop recursion
+      return;
     }
 
-    // Ensure there's a sublist for the current level
+    // Ensure the levels array has a sublist for the current level.
     if (levels.length === level) {
-      levels.push([]);
+      levels.push([]); // Create a new sublist for the current level.
     }
 
-    // Add the current node's value to the appropriate level
+    // Add the current node's value to its corresponding level's sublist.
     levels[level].push(node.val);
 
-    // Recursively traverse the left and right subtrees
+    // Recursively process the left subtree, incrementing the level.
     traverseLevels(node.left, level + 1);
+
+    // Recursively process the right subtree, incrementing the level.
     traverseLevels(node.right, level + 1);
   };
 
-  // Start traversal from the root at level 0
+  // Begin traversal from the root node at level 0.
   traverseLevels(root, 0);
 
-  return levels;
+  return levels; // Return the populated levels array.
 };
