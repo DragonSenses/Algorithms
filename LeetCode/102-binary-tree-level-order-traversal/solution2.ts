@@ -29,9 +29,13 @@ function levelOrder(root: TreeNode | null): number[][] {
 
     for (let i = 0; i < levelSize; i++) {
       const node = queue.shift(); // Remove the front node from the queue
+      // Explicitly check if node is defined
+      if (node !== undefined && node !== null) {
+        currentLevel.push(node.val); // Add the node's value to the current level
 
-      currentLevel.push(node.val); // Add the node's value to the current level
+      }
     }
+
   }
 
   return levels; // Return the result list
