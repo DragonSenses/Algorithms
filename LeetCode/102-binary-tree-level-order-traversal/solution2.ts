@@ -33,6 +33,13 @@ function levelOrder(root: TreeNode | null): number[][] {
       if (node !== undefined && node !== null) {
         currentLevel.push(node.val); // Add the node's value to the current level
 
+        // Enqueue the left and right children if they exist
+        if (node.left !== null) {
+          queue.push(node.left);
+        }
+        if (node.right !== null) {
+          queue.push(node.right);
+        }
       }
     }
 
