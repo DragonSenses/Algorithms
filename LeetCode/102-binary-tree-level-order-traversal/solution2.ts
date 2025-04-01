@@ -26,6 +26,12 @@ function levelOrder(root: TreeNode | null): number[][] {
   while (queue.length > 0) {
     const levelSize = queue.length; // Number of nodes in the current level
     const currentLevel: number[] = []; // Sublist for the current level
+
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift(); // Remove the front node from the queue
+
+      currentLevel.push(node.val); // Add the node's value to the current level
+    }
   }
 
   return levels; // Return the result list
