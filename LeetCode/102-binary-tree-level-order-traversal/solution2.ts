@@ -43,6 +43,7 @@ function levelOrder(root: TreeNode | null): number[][] {
       }
     }
 
+    levels.push(currentLevel); // Add the current level to the result
   }
 
   return levels; // Return the result list
