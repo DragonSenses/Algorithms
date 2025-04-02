@@ -445,3 +445,7 @@ function levelOrder(root: TreeNode | null): number[][] {
   return levels; // Return the result list
 }
 ```
+
+### **Assumptions**
+- The binary tree has `n` nodes in total.
+- The tree is well-formed, and each node has a `left` and `right` child reference, which may be `null`.
