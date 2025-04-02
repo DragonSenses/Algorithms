@@ -23,3 +23,29 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 	<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
+
+---
+
+### Problem Overview: Remove Duplicates from Sorted List
+
+This problem requires modifying a **sorted linked list** by removing duplicate nodes to ensure each value appears only once, while maintaining the list's sorting order.
+
+#### **Input & Output**
+- **Input:** The `head` of a sorted linked list.
+- **Output:** A modified linked list with all duplicates removed.
+
+#### **Examples**
+- **Example 1:**
+  Input: `[1, 1, 2]`  
+  Output: `[1, 2]`
+- **Example 2:**  
+  Input: `[1, 1, 2, 3, 3]`  
+  Output: `[1, 2, 3]`
+
+#### **Constraints**
+- The number of nodes ranges from `0` to `300`.
+- Node values range from `-100` to `100`.
+- The list is sorted in ascending order.
+
+#### **Approach**
+Traverse the linked list once, comparing each node with its `next` node. If duplicate values are detected (`current.val === current.next.val`), adjust the `next` pointer to skip the duplicate node. This approach ensures a single pass and retains sorting.
