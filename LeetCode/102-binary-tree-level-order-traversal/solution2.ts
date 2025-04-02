@@ -13,38 +13,59 @@ class TreeNode {
   }
 }
 
+/**
+ * Performs level-order traversal of a binary tree.
+ *
+ * @param root - The root node of the binary tree.
+ * @returns A two-dimensional array where each subarray represents
+ *          the values of nodes at a specific tree level.
+ */
 function levelOrder(root: TreeNode | null): number[][] {
-  const levels: number[][] = []; // Initialize levels list
+  // Initialize levels list
+  const levels: number[][] = [];
 
-  // Edge case: Return empty list if the tree is null
+  /**
+   * Edge case: Return empty list if the tree is null
+   */
   if (root === null) {
     return levels;
   }
 
-  const queue: (TreeNode | null)[] = [root]; // Initialize the queue with the root node
+  // Initialize the queue with the root node
+  const queue: (TreeNode | null)[] = [root];
 
   while (queue.length > 0) {
-    const levelSize = queue.length; // Number of nodes in the current level
-    const currentLevel: number[] = []; // Sublist for the current level
+    // Number of nodes in the current level
+    const levelSize = queue.length;
+    // Sublist for the current level
+    const currentLevel: number[] = [];
 
     for (let i = 0; i < levelSize; i++) {
-      const node = queue.shift(); // Remove the front node from the queue
-      // Explicitly check if node is defined
-      if (node !== undefined && node !== null) {
-        currentLevel.push(node.val); // Add the node's value to the current level
+      // Remove the front node from the queue
+      const node = queue.shift();
 
-        // Enqueue the left and right children if they exist
+      /**
+       * Explicitly check if the node is defined
+       */
+      if (node !== undefined && node !== null) {
+        // Add the node's value to the current level
+        currentLevel.push(node.val);
+
+        // Enqueue the left child if it exists
         if (node.left !== null) {
           queue.push(node.left);
         }
+        // Enqueue the right child if it exists
         if (node.right !== null) {
           queue.push(node.right);
         }
       }
     }
 
-    levels.push(currentLevel); // Add the current level to the result
+    // Add the current level to the levels list
+    levels.push(currentLevel);
   }
 
-  return levels; // Return the result list
+  // Return the result list
+  return levels;
 };
