@@ -37,6 +37,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Binary Tree Level Order Traversal
 
@@ -449,3 +450,12 @@ function levelOrder(root: TreeNode | null): number[][] {
 ### **Assumptions**
 - The binary tree has `n` nodes in total.
 - The tree is well-formed, and each node has a `left` and `right` child reference, which may be `null`.
+
+### **Space Complexity**: **O(n)**
+- **Queue Space**:
+  - In the worst case, the queue may store nodes from an entire level of the binary tree at once. 
+  - For a perfectly balanced binary tree, the maximum number of nodes at the last level is approximately `n/2`, which is proportional to `O(n)`.
+- **Output Space**:
+  - The result list `levels` also requires space to store all the nodes in the tree, which is of size `n`.
+- **Total Space**:
+  - Since both the queue and result list are proportional to `O(n)`, the overall space complexity is **O(n)**.
