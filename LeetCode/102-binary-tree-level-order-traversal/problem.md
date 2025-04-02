@@ -37,6 +37,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Binary Tree Level Order Traversal
@@ -447,9 +448,18 @@ function levelOrder(root: TreeNode | null): number[][] {
 }
 ```
 
+## **Complexity Analysis**
+
 ### **Assumptions**
 - The binary tree has `n` nodes in total.
 - The tree is well-formed, and each node has a `left` and `right` child reference, which may be `null`.
+
+### **Time Complexity**: **O(n)**
+- **Traversal of Nodes**: 
+  - Each node in the binary tree is processed exactly once during the traversal. Specifically, each node is added to and removed from the queue exactly once.
+  - For every node, we perform constant-time operations such as enqueuing its child nodes and adding its value to the level's sublist.
+- **Number of Operations**:
+  - Since the operations for each node are bounded (checking conditions, adding to a list, enqueuing children), and there are `n` nodes in total, the time complexity is **O(n)**.
 
 ### **Space Complexity**: **O(n)**
 - **Queue Space**:
