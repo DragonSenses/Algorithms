@@ -6,6 +6,12 @@ class Solution {
       return null;
     }
 
+    ListNode current = head;
+
+    while(current != null && current.next != null) {
+
+    }
+
     return head;
   }
 }
