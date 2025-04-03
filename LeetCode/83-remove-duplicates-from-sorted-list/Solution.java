@@ -1,18 +1,16 @@
 class Solution {
   public ListNode deleteDuplicates(ListNode head) {
-    
+
     // Edge case: Empty list
     if (head == null) {
       return null;
     }
 
-    ListNode current = head;
-
-    while(current != null && current.next != null) {
+    for (ListNode current = head; (current != null && current.next != null); current =
+        current.next) {
+      // Duplicate values, modify pointers
       if (current.val == current.next.val) {
         current.next = current.next.next;
-      } else {
-        current = current.next;
       }
     }
 
