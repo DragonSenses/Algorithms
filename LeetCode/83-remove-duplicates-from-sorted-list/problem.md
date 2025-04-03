@@ -59,3 +59,13 @@ Traverse the linked list once, comparing each node with its `next` node. If dupl
 ## **Intuition**
 
 Since the input linked list is sorted, duplicates are always adjacent, enabling easy identification and removal during a single traversal of the list. By checking each node's value against the next node's value, we can skip over duplicates while maintaining the structure and order of the list.
+
+## **Algorithm**
+
+1. Start with the head of the linked list as the current node.
+2. Traverse the list while the current node and its next node are not null.
+   - Compare the value of the current node with the value of the next node.
+   - If the values are equal (indicating a duplicate), update the current node's `next` pointer to skip the duplicate node.
+   - If the values are not equal, move to the next node.
+3. Stop when all nodes have been processed.
+4. Return the head of the modified linked list.
