@@ -26,6 +26,10 @@
 
 ---
 
+# Solution
+
+- [In-Place Duplicate Removal Approach](#in-place-duplicate-removal-approach)
+
 ### Problem Overview: Remove Duplicates from Sorted List
 
 This problem requires modifying a **sorted linked list** by removing duplicate nodes to ensure each value appears only once, while maintaining the list's sorting order.
@@ -49,3 +53,9 @@ This problem requires modifying a **sorted linked list** by removing duplicate n
 
 #### **Approach**
 Traverse the linked list once, comparing each node with its `next` node. If duplicate values are detected (`current.val === current.next.val`), adjust the `next` pointer to skip the duplicate node. This approach ensures a single pass and retains sorting.
+
+# In-Place Duplicate Removal Approach
+
+## **Intuition**
+
+Since the input linked list is sorted, duplicates are always adjacent, enabling easy identification and removal during a single traversal of the list. By checking each node's value against the next node's value, we can skip over duplicates while maintaining the structure and order of the list.
