@@ -69,3 +69,20 @@ Since the input linked list is sorted, duplicates are always adjacent, enabling 
    - If the values are not equal, move to the next node.
 3. Stop when all nodes have been processed.
 4. Return the head of the modified linked list.
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION remove_duplicates(head):
+    IF head IS null:
+        RETURN null
+
+    current_node = head
+    WHILE current_node AND current_node.next IS NOT null:
+        IF current_node.value == current_node.next.value:
+            current_node.next = current_node.next.next  // Skip duplicate
+        ELSE:
+            current_node = current_node.next           // Move to next node
+    
+    RETURN head
+```
