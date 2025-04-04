@@ -19,10 +19,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-	<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
+  <li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
+
 
 ---
 
@@ -85,4 +86,54 @@ FUNCTION remove_duplicates(head):
             current_node = current_node.next           // Move to next node
     
     RETURN head
+```
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public ListNode deleteDuplicates(ListNode head) {
+
+    // Handle the edge case of an empty list (head is null)
+    if (head == null) {
+      return null; // No duplicates to remove in an empty list
+    }
+
+    // Traverse the list starting from the head
+    for (ListNode current = head; (current != null && current.next != null); current = current.next) {
+      
+      // Skip duplicate nodes by updating the pointers
+      if (current.val == current.next.val) {
+        current.next = current.next.next;
+      }
+    }
+
+    // Return the modified list with duplicates removed
+    return head;
+  }
+}
+```
+
+### TypeScript
+
+```typescript
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+  if (head === null) {
+    return null;  // No duplicates to remove in an empty list
+  }
+
+  let current = head;
+
+  while (current !== null && current.next !== null) {
+    if (current.val === current.next.val) {
+      current.next = current.next.next;
+    } else {
+      current = current.next;
+    }
+  }
+
+  return head;
+};
 ```
