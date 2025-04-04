@@ -8,5 +8,10 @@ class ListNode {
 }
 
 function deleteDuplicates(head: ListNode | null): ListNode | null {
-    
+  // Handle edge case: Empty list
+  if (head === null) {
+    return null; // No duplicates to remove in an empty list
+  }
+
+  return null;
 };
