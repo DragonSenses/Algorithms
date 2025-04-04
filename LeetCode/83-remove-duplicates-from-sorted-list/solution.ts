@@ -13,5 +13,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
     return null; // No duplicates to remove in an empty list
   }
 
+  let current = head;
+
   return null;
 };
