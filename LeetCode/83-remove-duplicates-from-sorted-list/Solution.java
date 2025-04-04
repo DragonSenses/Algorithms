@@ -13,12 +13,14 @@ class Solution {
       return null; // No duplicates to remove in an empty list
     }
 
+    ListNode current = head;
+
     // Traverse the list starting from the head
-    for (ListNode current = head; (current != null && current.next != null); current = current.next) {
-      // Check if the current node's value matches the next node's value
+    while (current != null && current.next != null) {
       if (current.val == current.next.val) {
-        // Skip the next node by updating the pointer to the node after the next
-        current.next = current.next.next;
+        current.next = current.next.next; // Skip duplicate
+      } else {
+        current = current.next; // Move to the next node
       }
     }
 
