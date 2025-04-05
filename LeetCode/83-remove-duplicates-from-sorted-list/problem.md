@@ -94,6 +94,13 @@ FUNCTION remove_duplicates(head):
 
 ```java
 class Solution {
+
+  /**
+   * Removes duplicate nodes from a sorted linked list.
+   * 
+   * @param head The head node of the sorted linked list.
+   * @return The head of the modified linked list with duplicates removed.
+   */
   public ListNode deleteDuplicates(ListNode head) {
 
     // Handle the edge case of an empty list (head is null)
@@ -101,12 +108,14 @@ class Solution {
       return null; // No duplicates to remove in an empty list
     }
 
+    ListNode current = head;
+
     // Traverse the list starting from the head
-    for (ListNode current = head; (current != null && current.next != null); current = current.next) {
-      
-      // Skip duplicate nodes by updating the pointers
+    while (current != null && current.next != null) {
       if (current.val == current.next.val) {
-        current.next = current.next.next;
+        current.next = current.next.next; // Skip duplicate
+      } else {
+        current = current.next; // Move to the next node
       }
     }
 
