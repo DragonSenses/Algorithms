@@ -170,7 +170,9 @@ This additional layer of directionality can be seamlessly incorporated by levera
    - The auxiliary function takes three parameters: the `current node`, the `current level`, and the shared `result` list.
    - If the `current node` is `null`, terminate the function call (no further recursion).
    - Check if the `result` list has a sublist for the current `level`. If not, create and append a new sublist.
-   - Add the `current node`'s value to the appropriate sublist in the `result` list.
+   - Determine traversal direction for the current level:
+     - If the level is even, append the node's value to the sublist.
+     - If the level is odd, prepend the node's value to the sublist.
    - Invoke the auxiliary function for the left and right children of the `current node`, incrementing the `level` by 1 for each recursive call.
    - Invoke the auxiliary function with the `root` node, starting `level 0`, and the shared `result` list.
    - Once all recursive calls are complete, return the populated `result` list.
