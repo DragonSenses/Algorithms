@@ -162,3 +162,15 @@ At each recursive step:
 - The placement of node values alternates between appending to the list for left-to-right levels and prepending for right-to-left levels.
 
 This additional layer of directionality can be seamlessly incorporated by leveraging the level index or maintaining a separate flag for direction during recursion. The underlying logic for grouping nodes by levels remains unchanged, ensuring familiarity while tackling this variation.
+
+## **Algorithm**
+
+   - Create an empty `result` list to store nodes grouped by levels.
+   - If the `root` is `null`, return an empty list immediately.
+   - The auxiliary function takes three parameters: the `current node`, the `current level`, and the shared `result` list.
+   - If the `current node` is `null`, terminate the function call (no further recursion).
+   - Check if the `result` list has a sublist for the current `level`. If not, create and append a new sublist.
+   - Add the `current node`'s value to the appropriate sublist in the `result` list.
+   - Invoke the auxiliary function for the left and right children of the `current node`, incrementing the `level` by 1 for each recursive call.
+   - Invoke the auxiliary function with the `root` node, starting `level 0`, and the shared `result` list.
+   - Once all recursive calls are complete, return the populated `result` list.
