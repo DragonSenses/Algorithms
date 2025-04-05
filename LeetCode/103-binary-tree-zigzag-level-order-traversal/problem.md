@@ -189,3 +189,31 @@ This additional layer of directionality can be seamlessly incorporated by levera
    - Invoke the auxiliary function with the `root` node, starting `level 0`, and the shared `result` list.
 2. **Final Output**:
    - Once all recursive calls are complete, return the populated `result` list.
+
+### **Pseudocode**
+
+```pseudocode
+function zigzag_level_order_traversal(root):
+    if root == null:
+        return empty_list
+
+    define result as empty_list
+
+    function traverse(node, level):
+        if node == null:
+            return
+
+        if result does not have sublist at index level:
+            add empty_list to result
+
+        if level is even:
+            append node.value to result[level]
+        else:
+            prepend node.value to result[level]
+
+        traverse(node.left, level + 1)
+        traverse(node.right, level + 1)
+
+    call traverse(root, 0)
+    return result
+```
