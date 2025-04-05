@@ -126,3 +126,12 @@ The following diagram illustrates the four traversal strategies—DFS Preorder, 
 4. **BFS (Level Order)**:  
    Visit nodes level by level, from top to bottom.  
    **Order:** 5 → 3 → 7 → 2 → 4
+
+### Level Order Traversal (Breadth-First Search)
+
+The level order traversal processes the nodes level by level, from the root to the deepest level of the tree. Intuitively, in a recursive approach, we can break this problem down by associating each node with its respective depth (or level) and using that information to group nodes into levels.
+
+At each recursive step:
+1. We determine the "current level" of the node being processed.
+2. We add the node's value to a corresponding list for its level.
+3. We recursively process the left and right children of the node, passing along their respective levels (incrementing by 1 for each recursive call).
