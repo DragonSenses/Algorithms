@@ -36,6 +36,18 @@
 #### **Objective**
 Given the `root` of a binary tree, the goal is to return its values in a zigzag level order traversal. This traversal alternates between left-to-right and right-to-left directions for each subsequent level in the binary tree.
 
+#### **Key Details**
+1. **Traversal Pattern**: 
+   - Begin with left-to-right at the first level.
+   - Alternate directions for each level, forming a zigzag pattern.
+2. **Input Format**: 
+   - `root`, representing the binary tree's root node.
+3. **Output Format**: 
+   - A list of lists, where each sublist contains node values at a specific level in the zigzag order.
+4. **Constraints**:
+   - The total number of nodes ranges between 0 and 2000.
+   - Node values fall within the range `[-100, 100]`.
+
 #### **Examples**
 - **Example 1**:
   - **Input**: `root = [3,9,20,null,null,15,7]`
@@ -56,3 +68,12 @@ Given the `root` of a binary tree, the goal is to return its values in a zigzag 
 
 - The number of nodes in the tree is in the range `[0, 2000]`.
 - `-100 <= Node.val <= 100`
+  
+#### **Challenges**
+1. Handling direction alternation efficiently during traversal.
+2. Managing edge cases such as:
+   - An empty tree (`root = []`).
+   - A single-node tree.
+3. Ensuring correct grouping of nodes at each level in zigzag order.
+
+When solving problems involving tree traversal, it's essential to understand the two main strategies: **Depth First Search (DFS)** and **Breadth First Search (BFS)**.
