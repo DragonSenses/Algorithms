@@ -146,3 +146,8 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
   return head;
 };
 ```
+
+
+### **Assumptions**
+- The linked list contains `n` nodes.
+- The input list is sorted in ascending order, ensuring duplicates are adjacent.
