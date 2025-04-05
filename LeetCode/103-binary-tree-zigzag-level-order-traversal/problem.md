@@ -76,4 +76,13 @@ Given the `root` of a binary tree, the goal is to return its values in a zigzag 
    - A single-node tree.
 3. Ensuring correct grouping of nodes at each level in zigzag order.
 
-When solving problems involving tree traversal, it's essential to understand the two main strategies: **Depth First Search (DFS)** and **Breadth First Search (BFS)**.
+When solving problems involving tree traversal, it's essential to understand the two main strategies: **Depth First Search (DFS)** and **Breadth First Search (BFS)**. These techniques differ in the order of node exploration and can be chosen based on the specific requirements of a problem.
+
+#### **1. Depth First Search (DFS)**
+In DFS, the traversal prioritizes depth, meaning we explore as far as possible along a branch before backtracking. Starting from the root node, we go down to a leaf node, then backtrack to explore other branches.
+
+##### **Variants of DFS**
+The DFS approach can be categorized into three distinct strategies based on the order of visiting nodes:
+- **Preorder Traversal:** Visit the root node first, followed by the left subtree, and finally the right subtree.
+- **Inorder Traversal:** Visit the left subtree first, then the root node, and finally the right subtree.
+- **Postorder Traversal:** Visit the left subtree, then the right subtree, and finally the root node.
