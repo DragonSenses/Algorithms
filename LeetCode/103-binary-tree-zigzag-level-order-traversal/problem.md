@@ -86,3 +86,10 @@ The DFS approach can be categorized into three distinct strategies based on the 
 - **Preorder Traversal:** Visit the root node first, followed by the left subtree, and finally the right subtree.
 - **Inorder Traversal:** Visit the left subtree first, then the root node, and finally the right subtree.
 - **Postorder Traversal:** Visit the left subtree, then the right subtree, and finally the root node.
+
+#### **2. Breadth First Search (BFS)**
+In BFS, nodes are explored level by level, starting from the topmost level (root) and proceeding downward. Nodes at a given level are visited from left to right before moving to the next level.
+
+##### **Split-Level BFS Traversal**
+The problem at hand requires implementing a BFS traversal with split-level outputs, where each level is represented as a separate list:
+Example: `[[1], [2, 3], [4, 5]]`
