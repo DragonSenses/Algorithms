@@ -29,7 +29,12 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+
 ---
+
+# Solution
+
+- [Recursive Approach](#recursive-approach)
 
 ### Problem Overview: Binary Tree Zigzag Level Order Traversal
 
@@ -127,6 +132,10 @@ The following diagram illustrates the four traversal strategies—DFS Preorder, 
    Visit nodes level by level, from top to bottom.  
    **Order:** 5 → 3 → 7 → 2 → 4
 
+# Recursive Approach
+
+## **Intuition**
+
 ### Level Order Traversal (Breadth-First Search)
 
 The level order traversal processes the nodes level by level, from the root to the deepest level of the tree. Intuitively, in a recursive approach, we can break this problem down by associating each node with its respective depth (or level) and using that information to group nodes into levels.
@@ -135,3 +144,7 @@ At each recursive step:
 1. We determine the "current level" of the node being processed.
 2. We add the node's value to a corresponding list for its level.
 3. We recursively process the left and right children of the node, passing along their respective levels (incrementing by 1 for each recursive call).
+
+### Zigzag Level Order Traversal (Breadth-First Search)
+
+The zigzag level order traversal extends the level-by-level approach by alternating the direction in which node values are added to their respective levels. While the recursive technique still involves associating each node with its depth (or level), the key difference lies in maintaining the direction for each level (left-to-right or right-to-left).
