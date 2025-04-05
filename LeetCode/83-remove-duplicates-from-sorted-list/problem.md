@@ -30,6 +30,7 @@
 # Solution
 
 - [In-Place Duplicate Removal Approach](#in-place-duplicate-removal-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Remove Duplicates from Sorted List
 
@@ -151,3 +152,6 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
 ### **Assumptions**
 - The linked list contains `n` nodes.
 - The input list is sorted in ascending order, ensuring duplicates are adjacent.
+
+### **Space Complexity**: `O(1)`
+- **Constant Space:** The algorithm operates in place, modifying the list directly without using additional data structures. Only a fixed amount of space is used for the `current` pointer and other auxiliary variables.
