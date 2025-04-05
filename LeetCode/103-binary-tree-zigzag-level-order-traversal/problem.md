@@ -165,14 +165,27 @@ This additional layer of directionality can be seamlessly incorporated by levera
 
 ## **Algorithm**
 
+### **Preparation**
+1. **Initialize the Result List**:
    - Create an empty `result` list to store nodes grouped by levels.
+2. **Handle Edge Case**:
    - If the `root` is `null`, return an empty list immediately.
+
+### **Auxiliary Function**
+1. **Define the Function**:
    - The auxiliary function takes three parameters: the `current node`, the `current level`, and the shared `result` list.
+2. **Base Case**:
    - If the `current node` is `null`, terminate the function call (no further recursion).
+3. **Group Nodes by Level**:
    - Check if the `result` list has a sublist for the current `level`. If not, create and append a new sublist.
    - Determine traversal direction for the current level:
      - If the level is even, append the node's value to the sublist.
      - If the level is odd, prepend the node's value to the sublist.
+4. **Recursive Calls**:
    - Invoke the auxiliary function for the left and right children of the `current node`, incrementing the `level` by 1 for each recursive call.
+
+### **Execution**
+1. **Initial Call**:
    - Invoke the auxiliary function with the `root` node, starting `level 0`, and the shared `result` list.
+2. **Final Output**:
    - Once all recursive calls are complete, return the populated `result` list.
