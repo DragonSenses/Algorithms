@@ -148,3 +148,17 @@ At each recursive step:
 ### Zigzag Level Order Traversal (Breadth-First Search)
 
 The zigzag level order traversal extends the level-by-level approach by alternating the direction in which node values are added to their respective levels. While the recursive technique still involves associating each node with its depth (or level), the key difference lies in maintaining the direction for each level (left-to-right or right-to-left).
+
+At each recursive step:
+1. Determine the "current level" of the node being processed, just like in normal traversal.
+2. Add the node's value to the corresponding list for its level. The placement, however, depends on the traversal direction:
+   - If the level is processed left-to-right, append the value to the end of the list.
+   - If the level is processed right-to-left, prepend the value to the list (or manipulate the list accordingly).
+3. Alternate the direction for the next level. You can track this alternation dynamically based on the depth of the node (e.g., using `depth % 2` to decide direction).
+4. Recursively process the left and right children of the current node, passing their respective levels along (incrementing by 1 for each recursive call).
+
+### Key Differences from Normal Level Order Traversal:
+- The recursion must account for and modify the traversal direction at each level.
+- The placement of node values alternates between appending to the list for left-to-right levels and prepending for right-to-left levels.
+
+This additional layer of directionality can be seamlessly incorporated by leveraging the level index or maintaining a separate flag for direction during recursion. The underlying logic for grouping nodes by levels remains unchanged, ensuring familiarity while tackling this variation.
