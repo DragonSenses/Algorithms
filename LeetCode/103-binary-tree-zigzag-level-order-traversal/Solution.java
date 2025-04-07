@@ -11,6 +11,9 @@ class Solution {
   }
 
   private void traverse(TreeNode node, int level, List<List<Integer>> result) {
+    if (node == null) {
+      return; // Base case: No node to process
+    }
 
   }
 }
