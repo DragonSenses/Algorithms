@@ -229,3 +229,46 @@ function zigzag_level_order_traversal(root):
    - At even levels, values are appended to the end of the list (`left-to-right`).
    - At odd levels, values are added at the beginning of the list (`right-to-left`).
 5. **Recursive Calls**: The function recursively processes the left and right children of the node, increasing the level for each recursive call.
+
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+class Solution {
+  public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    // Result list to store the zigzag level order traversal
+    List<List<Integer>> result = new ArrayList<>();
+    // Start the recursive traversal
+    traverse(root, 0, result);
+    return result;
+  }
+
+  private void traverse(TreeNode node, int level, List<List<Integer>> result) {
+    if (node == null) {
+      return; // Base case: No node to process
+    }
+
+    // If the result list doesn't have a list for the current level, create it
+    if (result.size() <= level) {
+      result.add(new LinkedList<>());
+    }
+
+    // Add the node's value to the correct list based on the zigzag direction
+    if (level % 2 == 0) {
+      // Even level (left-to-right), add to the end of the list
+      result.get(level).add(node.val);
+    } else {
+      // Odd level (right-to-left), add to the start of the list
+      result.get(level).add(0, node.val);
+    }
+
+    // Recursive calls for left and right children
+    traverse(node.left, level + 1, result);
+    traverse(node.right, level + 1, result);
+  }
+}
+```
