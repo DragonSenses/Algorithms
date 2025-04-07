@@ -217,3 +217,15 @@ function zigzag_level_order_traversal(root):
     call traverse(root, 0)
     return result
 ```
+
+## **Implementation**
+
+#### Implementation Details
+
+1. **Base Case**: If the current node is `null`, the function returns immediately.
+2. **Tracking Levels**: The `level` parameter keeps track of the current depth of traversal.
+3. **Result Initialization**: If the `result` list does not have a sublist for the current level, one is created.
+4. **Direction Handling**:
+   - At even levels, values are appended to the end of the list (`left-to-right`).
+   - At odd levels, values are added at the beginning of the list (`right-to-left`).
+5. **Recursive Calls**: The function recursively processes the left and right children of the node, increasing the level for each recursive call.
