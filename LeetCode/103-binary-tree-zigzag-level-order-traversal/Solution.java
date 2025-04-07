@@ -30,5 +30,8 @@ class Solution {
       result.get(level).add(0, node.val);
     }
 
+    // Recursive calls for left and right children
+    traverse(node.left, level + 1, result);
+    traverse(node.right, level + 1, result);
   }
 }
