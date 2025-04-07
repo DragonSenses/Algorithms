@@ -21,5 +21,10 @@ class Solution {
       result.add(new LinkedList<>());
     }
 
+    // Add the node's value to the correct list based on the zigzag direction
+    if (level % 2 == 0) {
+      // Even level (left-to-right), add to the end of the list
+      result.get(level).add(node.val);
+    }
   }
 }
