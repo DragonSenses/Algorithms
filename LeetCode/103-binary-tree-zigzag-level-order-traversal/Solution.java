@@ -25,6 +25,10 @@ class Solution {
     if (level % 2 == 0) {
       // Even level (left-to-right), add to the end of the list
       result.get(level).add(node.val);
+    } else {
+      // Odd level (right-to-left), add to the start of the list
+      result.get(level).add(0, node.val);
     }
+
   }
 }
