@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 class Solution {
@@ -13,6 +14,11 @@ class Solution {
   private void traverse(TreeNode node, int level, List<List<Integer>> result) {
     if (node == null) {
       return; // Base case: No node to process
+    }
+
+    // If the result list doesn't have a list for the current level, create it
+    if (result.size() <= level) {
+      result.add(new LinkedList<>());
     }
 
   }
