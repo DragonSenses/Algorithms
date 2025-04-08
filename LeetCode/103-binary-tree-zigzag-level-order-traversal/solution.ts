@@ -31,6 +31,9 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
     if (level % 2 === 0) {
       // Even level: append value to the subarray
       result[level].push(node.val);
+    } else {
+      // Odd level: prepend value to the subarray
+      result[level].unshift(node.val);
     }
 
   }
