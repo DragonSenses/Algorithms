@@ -36,6 +36,9 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
       result[level].unshift(node.val);
     }
 
+    // Recursively process the left and right children
+    traverse(node.left, level + 1);
+    traverse(node.right, level + 1);
   }
 
   return result;
