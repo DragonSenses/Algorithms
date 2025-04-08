@@ -27,6 +27,12 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
       result.push([]);
     }
 
+    // Add the node's value to the appropriate subarray based on zigzag direction
+    if (level % 2 === 0) {
+      // Even level: append value to the subarray
+      result[level].push(node.val);
+    }
+
   }
 
   return result;
