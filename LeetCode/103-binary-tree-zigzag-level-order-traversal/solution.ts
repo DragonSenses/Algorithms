@@ -14,5 +14,7 @@ class TreeNode {
 }
 
 function zigzagLevelOrder(root: TreeNode | null): number[][] {
-    
+  const result: number[][] = [];
+
+  return result;
 };
