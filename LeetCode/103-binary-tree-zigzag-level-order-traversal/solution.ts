@@ -16,5 +16,13 @@ class TreeNode {
 function zigzagLevelOrder(root: TreeNode | null): number[][] {
   const result: number[][] = [];
 
+  // Auxiliary function for recursive traversal
+  function traverse(node: TreeNode | null, level: number): void {
+    if (node === null) {
+      return; // Base case: no node to process
+    }
+
+  }
+
   return result;
 };
