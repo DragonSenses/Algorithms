@@ -41,5 +41,8 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
     traverse(node.right, level + 1);
   }
 
+  // Start the traversal from the root at level 0
+  traverse(root, 0);
+  
   return result;
 };
