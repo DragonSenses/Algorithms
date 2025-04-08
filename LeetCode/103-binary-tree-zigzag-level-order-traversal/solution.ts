@@ -22,6 +22,11 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
       return; // Base case: no node to process
     }
 
+    // Ensure the result array has a subarray for the current level
+    if (result.length === level) {
+      result.push([]);
+    }
+
   }
 
   return result;
