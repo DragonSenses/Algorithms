@@ -25,16 +25,17 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
-
 
 ---
 
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Binary Tree Zigzag Level Order Traversal
 
@@ -230,7 +231,6 @@ function zigzag_level_order_traversal(root):
    - At odd levels, values are added at the beginning of the list (`right-to-left`).
 5. **Recursive Calls**: The function recursively processes the left and right children of the node, increasing the level for each recursive call.
 
-
 ### Java
 
 ```java
@@ -310,3 +310,23 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
   return result;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The binary tree has `n` nodes, where `n` includes all non-null nodes.
+- The input is well-formed, meaning the tree structure respects the constraints and values provided in the problem statement.
+- A standard depth-first traversal (recursion) is used to process all nodes.
+
+### **Time Complexity**: `O(n)`
+- **Single Node Visit**: Each node in the tree is processed exactly once during the recursive traversal. 
+- **Constant Work Per Node**: At each visit, operations such as checking the current level, determining the traversal direction, and modifying the list require constant time.
+- **Linear Total Work**: With `n` nodes in the tree and each node being visited once, the cumulative work is directly proportional to the number of nodes.
+- **Result**: The overall time complexity is **O(n)**.
+
+### **Space Complexity**: `O(h)`  
+- **Recursion Stack Usage**: The recursion stack depth depends on the height of the tree (`h`), which is determined by the tree's structure.
+- **Balanced Tree Height**: For a completely balanced binary tree, the height is `log(n)` due to its optimal node distribution.
+- **Unbalanced Tree Height**: For an unbalanced binary tree (akin to a linked list), the height reaches `n`, equating to the total number of nodes.
+- **Output Space**: The `result` list contains all node values and scales linearly with the number of nodes, `O(n)`. However, this is considered output space rather than auxiliary space.  
+- **Result**: The auxiliary space complexity tied to recursion is **O(h)**.
