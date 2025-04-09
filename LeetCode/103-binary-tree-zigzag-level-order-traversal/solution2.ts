@@ -36,6 +36,13 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
         levelValues.unshift(currentNode.val);
       }
 
+      // Enqueue children
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
     }
 
   }
