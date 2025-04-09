@@ -352,3 +352,28 @@ The zigzag level order traversal requires processing the tree level by level, al
      - Enqueue the node’s left and right children (if they exist).
    - Append the temporary array (processed values of the level) to the result array.
    - Toggle the direction flag for the next level.
+
+### **Pseudocode**
+
+```plaintext
+function zigzagLevelOrder(root):
+  if root is null:
+      return []
+
+  Initialize queue with root and direction flag (leftToRight = true)
+  Initialize result array as empty
+
+  while queue is not empty:
+      Initialize level array
+      Get size of queue (number of nodes in current level)
+      
+      for i from 0 to size of queue:
+          Dequeue node
+          Add node value to level array (append or prepend based on direction flag)
+          Enqueue left and right children of node (if they exist)
+
+      Append level array to result array
+      Toggle direction flag
+
+  return result array
+```
