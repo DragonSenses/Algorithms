@@ -12,6 +12,17 @@ class Solution2 {
 
     Queue<TreeNode> queue = new LinkedList<>();
     queue.offer(root);
+    boolean leftToRight = true;
+
+    while (!queue.isEmpty()) {
+      int levelSize = queue.size();
+      LinkedList<Integer> levelValues = new LinkedList<>();
+
+      for (int i = 0; i < levelSize; i++) {
+        TreeNode currentNode = queue.poll();
+      }
+
+    }
 
     return result;
   }
