@@ -26,6 +26,18 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
     const levelSize = queue.length;
     const levelValues: number[] = [];
 
+    for (let i = 0; i < levelSize; i++) {
+      const currentNode = queue.shift()!;
+      
+      // Add value to level based on direction
+      if (leftToRight) {
+        levelValues.push(currentNode.val);
+      } else {
+        levelValues.unshift(currentNode.val);
+      }
+
+    }
+
   }
 
   return result;
