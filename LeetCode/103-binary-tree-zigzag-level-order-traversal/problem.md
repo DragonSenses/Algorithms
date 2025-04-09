@@ -36,6 +36,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ### Problem Overview: Binary Tree Zigzag Level Order Traversal
 
@@ -330,3 +331,13 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
 - **Unbalanced Tree Height**: For an unbalanced binary tree (akin to a linked list), the height reaches `n`, equating to the total number of nodes.
 - **Output Space**: The `result` list contains all node values and scales linearly with the number of nodes, `O(n)`. However, this is considered output space rather than auxiliary space.  
 - **Result**: The auxiliary space complexity tied to recursion is **O(h)**.
+
+# Iterative Approach
+
+## **Intuition**
+
+The zigzag level order traversal requires processing the tree level by level, alternating the order of traversal between left-to-right and right-to-left at each level. Instead of recursion, we use a queue to manage the nodes. At each level:
+- We extract all nodes of the current level from the queue.
+- We add their children back into the queue for the next level.
+- Depending on the level's direction (even or odd), we adjust the order of values collected for that level.
+
