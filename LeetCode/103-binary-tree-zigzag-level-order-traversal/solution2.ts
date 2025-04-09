@@ -45,6 +45,9 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
       }
     }
 
+    // Append current level to result and toggle direction
+    result.push(levelValues);
+    leftToRight = !leftToRight;
   }
 
   return result;
