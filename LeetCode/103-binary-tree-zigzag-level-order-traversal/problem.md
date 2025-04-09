@@ -341,3 +341,14 @@ The zigzag level order traversal requires processing the tree level by level, al
 - We add their children back into the queue for the next level.
 - Depending on the level's direction (even or odd), we adjust the order of values collected for that level.
 
+## **Algorithm**
+
+1. Initialize a queue with the root node and a direction flag (`leftToRight`).
+2. Loop until the queue is empty:
+   - Determine the size of the current level (number of nodes in the queue).
+   - Create a temporary array to hold the values of the current level.
+   - Process each node in the current level:
+     - Add the node’s value to the temporary array based on the direction flag.
+     - Enqueue the node’s left and right children (if they exist).
+   - Append the temporary array (processed values of the level) to the result array.
+   - Toggle the direction flag for the next level.
