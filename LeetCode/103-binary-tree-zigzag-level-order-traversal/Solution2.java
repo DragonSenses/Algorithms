@@ -28,6 +28,13 @@ class Solution2 {
           levelValues.addFirst(currentNode.val);
         }
 
+        // Enqueue child nodes
+        if (currentNode.left != null) {
+          queue.offer(currentNode.left);
+        }
+        if (currentNode.right != null) {
+          queue.offer(currentNode.right);
+        }
       }
 
     }
