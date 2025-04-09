@@ -37,6 +37,9 @@ class Solution2 {
         }
       }
 
+      // Append the level to the result and toggle the direction
+      result.add(levelValues);
+      leftToRight = !leftToRight;
     }
 
     return result;
