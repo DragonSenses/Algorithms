@@ -19,6 +19,8 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
   }
 
   const result: number[][] = [];
+  const queue: TreeNode[] = [root];
+  let leftToRight = true;
 
   return result;
 }
