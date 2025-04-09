@@ -22,5 +22,11 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
   const queue: TreeNode[] = [root];
   let leftToRight = true;
 
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    const levelValues: number[] = [];
+
+  }
+
   return result;
 }
