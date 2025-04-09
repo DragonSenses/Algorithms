@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 class Solution2 {
   public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -7,6 +9,9 @@ class Solution2 {
     if (root == null) {
       return result; // Edge case: empty tree
     }
+
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
 
     return result;
   }
