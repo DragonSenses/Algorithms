@@ -20,6 +20,14 @@ class Solution2 {
 
       for (int i = 0; i < levelSize; i++) {
         TreeNode currentNode = queue.poll();
+
+        // Add values to the list based on direction
+        if (leftToRight) {
+          levelValues.addLast(currentNode.val);
+        } else {
+          levelValues.addFirst(currentNode.val);
+        }
+
       }
 
     }
