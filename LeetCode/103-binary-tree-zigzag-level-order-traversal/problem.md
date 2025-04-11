@@ -343,6 +343,11 @@ The zigzag level order traversal requires processing the tree level by level, al
 - We add their children back into the queue for the next level.
 - Depending on the level's direction (even or odd), we adjust the order of values collected for that level.
 
+### Deque Optimization
+
+- The use of a `Deque` avoids reversing arrays, saving time for odd levels.
+- `Deque` operations (like `addFirst` and `addLast`) are efficient and operate in constant time, improving performance.
+
 ## **Algorithm**
 
 1. Initialize a queue with the root node and a direction flag (`leftToRight`).
