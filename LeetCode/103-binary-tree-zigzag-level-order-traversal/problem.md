@@ -386,6 +386,7 @@ function zigzagLevelOrder(root):
 
 ```java
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -403,12 +404,12 @@ class Solution {
 
     while (!queue.isEmpty()) {
       int levelSize = queue.size();
-      LinkedList<Integer> levelValues = new LinkedList<>();
+      Deque<Integer> levelValues = new LinkedList<>();
 
       for (int i = 0; i < levelSize; i++) {
         TreeNode currentNode = queue.poll();
-        
-        // Add values to the list based on direction
+
+        // Add values to the deque based on direction
         if (leftToRight) {
           levelValues.addLast(currentNode.val);
         } else {
@@ -424,8 +425,8 @@ class Solution {
         }
       }
 
-      // Append the level to the result and toggle the direction
-      result.add(levelValues);
+      // Convert deque to list and append to result
+      result.add(new ArrayList<>(levelValues));
       leftToRight = !leftToRight;
     }
 
