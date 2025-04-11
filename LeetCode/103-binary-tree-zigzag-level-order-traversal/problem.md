@@ -37,6 +37,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Binary Tree Zigzag Level Order Traversal
 
@@ -483,3 +484,7 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
 - The height of the tree is `h`, where:
   - `h = log(n)` for a balanced binary tree.
   - `h = n` for a skewed binary tree.
+
+### **Space Complexity**: `O(h)`
+- **Queue Usage**: The queue holds nodes from one level of the tree at a time. In the worst case, this is proportional to the maximum width of the tree, which corresponds to the height `h` for a skewed tree or `2^h` (approximately `n`) for a very wide tree.
+- **Worst-Case Space**: For a balanced tree, the height is logarithmic (`h = log(n)`), resulting in **`O(log(n))`** space usage. In the worst case of a completely skewed tree, the height is equal to the number of nodes (`h = n`), leading to **`O(n)`** space usage.
