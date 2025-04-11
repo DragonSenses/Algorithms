@@ -493,10 +493,13 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
   - `h = n` for a skewed binary tree.
 
 ### **Time Complexity**: `O(n)`
-- **Single Node Visit**: Each node in the tree is processed exactly once during the traversal, as it is added to and removed from the queue.
-- **Constant Work Per Node**: Operations like dequeuing a node, adding its children to the queue, and inserting its value into the list (either at the front or back based on the direction) take constant time.
-- **Linear Total Work**: With `n` nodes in the tree and each node being processed exactly once, the total work scales linearly with the number of nodes.
+- **Single Node Visit**: Each node in the tree is processed exactly once during the traversal (added to the queue, dequeued, and its children are enqueued if present).
+- **Efficient Deque Operations**: The use of a `Deque` to store level values ensures that inserting at the front or back is performed in constant time (`O(1)`), regardless of the direction.
+- **Linear Total Work**: Since each node is processed only once, the overall time complexity remains linear with respect to the number of nodes: **`O(n)`**.
 
 ### **Space Complexity**: `O(h)`
-- **Queue Usage**: The queue holds nodes from one level of the tree at a time. In the worst case, this is proportional to the maximum width of the tree, which corresponds to the height `h` for a skewed tree or `2^h` (approximately `n`) for a very wide tree.
-- **Worst-Case Space**: For a balanced tree, the height is logarithmic (`h = log(n)`), resulting in **`O(log(n))`** space usage. In the worst case of a completely skewed tree, the height is equal to the number of nodes (`h = n`), leading to **`O(n)`** space usage.
+- **Queue Usage**: The queue holds nodes level by level. The maximum number of nodes it holds is proportional to the maximum width of the tree, which is bounded by the height `h` of the tree.
+- **Deque Usage**: The `Deque` stores values for the nodes at the current level. Its size is also bounded by the number of nodes in a single level, which corresponds to the width of the tree.
+- **Worst-Case Space**:
+  - For a balanced binary tree, the height is logarithmic (`h = log(n)`), so space usage is **`O(log(n))`**.
+  - For a completely skewed tree, the height is linear (`h = n`), leading to **`O(n)`** space usage.
