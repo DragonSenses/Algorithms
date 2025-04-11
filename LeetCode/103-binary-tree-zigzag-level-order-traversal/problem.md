@@ -475,3 +475,11 @@ function zigzagLevelOrder(root: TreeNode | null): number[][] {
   return result;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The binary tree contains `n` non-null nodes.
+- The height of the tree is `h`, where:
+  - `h = log(n)` for a balanced binary tree.
+  - `h = n` for a skewed binary tree.
