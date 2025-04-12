@@ -111,3 +111,26 @@ Two binary trees are considered mirror reflections of each other if they satisfy
 3. **Final Decision**:
    - If both recursive calls return `true`, the subtrees are symmetric.
    - Otherwise, return `false`.
+
+### **Pseudocode**
+
+```text
+function isSymmetric(root):
+    if root is null:
+        return true  # An empty tree is symmetric
+
+    return isMirror(root.left, root.right)
+
+function isMirror(left, right):
+    if left is null and right is null:
+        return true  # Both subtrees are empty
+
+    if left is null or right is null:
+        return false  # Only one subtree is empty
+
+    if left.value != right.value:
+        return false  # Values of corresponding nodes do not match
+
+    # Recursive checks for mirror symmetry
+    return isMirror(left.left, right.right) and isMirror(left.right, right.left)
+```
