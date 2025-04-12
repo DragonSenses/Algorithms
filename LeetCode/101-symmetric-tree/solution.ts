@@ -27,6 +27,9 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
   if (left === null || right === null) {
       return false;
   }
+  if (left.val !== right.val) {
+      return false;
+  }
 
   return null;
 }
