@@ -4,5 +4,10 @@ class Solution {
     if (root == null) {
       return true;
     }
-    return null;
+    return isMirror(root.left, root.right);
   }
+
+  private boolean isMirror(TreeNode left, TreeNode right) {
+
+  }
+}
