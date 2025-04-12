@@ -14,5 +14,7 @@ class TreeNode {
 }
 
 function isSymmetric(root: TreeNode | null): boolean {
-    
-};
+  if (root === null) {
+      return true;
+  }
+}
