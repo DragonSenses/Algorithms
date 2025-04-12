@@ -95,3 +95,19 @@ Two binary trees are considered mirror reflections of each other if they satisfy
 
 2. **Symmetric Subtrees:**  
    - The **right subtree** of one tree must be a mirror reflection of the **left subtree** of the other tree, and vice versa.
+
+## **Algorithm**
+
+1. **Base Cases**:
+   - If both the left and right subtrees are `null`, they are symmetric (return `true`).
+   - If only one of the subtrees is `null` while the other is not, they are not symmetric (return `false`).
+
+2. **Recursive Check**:
+   - Compare the values of the current nodes in the left and right subtrees.
+   - Recursively check:
+     - Whether the **left child of the left subtree** matches the **right child of the right subtree**.
+     - Whether the **right child of the left subtree** matches the **left child of the right subtree**.
+
+3. **Final Decision**:
+   - If both recursive calls return `true`, the subtrees are symmetric.
+   - Otherwise, return `false`.
