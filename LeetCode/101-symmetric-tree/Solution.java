@@ -20,5 +20,9 @@ class Solution {
       return false;
     }
 
+    // Recursively check if:
+    // 1. The left child of the left subtree is a mirror of the right child of the right subtree
+    // 2. The right child of the left subtree is a mirror of the left child of the right subtree
+    return isMirror(left.left, right.right) && isMirror(left.right, right.left);
   }
 }
