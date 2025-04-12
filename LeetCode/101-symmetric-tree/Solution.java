@@ -8,6 +8,14 @@ class Solution {
   }
 
   private boolean isMirror(TreeNode left, TreeNode right) {
+    // Base cases
+    if (left == null && right == null) {
+      return true;
+    }
+    if (left == null || right == null) {
+      return false;
+    }
+
 
   }
 }
