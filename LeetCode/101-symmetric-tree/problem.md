@@ -75,3 +75,13 @@ Solve this problem using **both recursive** and **iterative** methods.
 # Recursive Approach
 
 The recursive approach leverages this intuition by **simultaneously traversing the left and right subtrees** while checking if they align like a mirror. Recursion is well-suited here because the problem can be broken down into smaller subproblems (i.e., comparing smaller subtrees).
+
+### Conditions for Mirror Reflection of Two Trees
+
+Two binary trees are considered mirror reflections of each other if they satisfy the following conditions:
+
+1. **Root Node Equality:**  
+   - The roots of both trees must have the same value.
+
+2. **Symmetric Subtrees:**  
+   - The **right subtree** of one tree must be a mirror reflection of the **left subtree** of the other tree, and vice versa.
