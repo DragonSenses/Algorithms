@@ -25,3 +25,43 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
+
+### Problem Overview: Symmetric Tree
+
+**Objective:**  
+You are tasked with determining whether a binary tree is symmetric, meaning it is a mirror of itself around its center.
+
+#### Key Details:
+1. **Input:**  
+   The root of a binary tree. For example:
+   - `root = [1,2,2,3,4,4,3]` (Example 1)
+   - `root = [1,2,2,null,3,null,3]` (Example 2)
+
+2. **Output:**  
+   A boolean value indicating whether the tree is symmetric:
+   - Example 1 Output: `true`  
+   - Example 2 Output: `false`  
+
+3. **Constraints:**  
+   - The number of nodes in the binary tree ranges from 1 to 1000.
+   - The value of each node lies between -100 and 100.
+
+#### Examples:
+- **Example 1:**
+  ```
+  Input: [1,2,2,3,4,4,3]
+  Output: true
+  ```
+  The left and right subtrees are mirror images of each other.
+
+- **Example 2:**
+  ```
+  Input: [1,2,2,null,3,null,3]
+  Output: false
+  ```
+  The left and right subtrees are not symmetric.
+
+#### Follow-Up Challenge:  
+Solve this problem using **both recursive** and **iterative** methods.  
+- **Recursive Approach:** Use a helper function to check symmetry by comparing corresponding nodes in left and right subtrees.
+- **Iterative Approach:** Use a queue or stack to simulate breadth-first or depth-first traversal, ensuring symmetry at each level.
