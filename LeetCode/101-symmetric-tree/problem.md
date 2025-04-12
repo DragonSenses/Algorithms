@@ -26,6 +26,12 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
 
+---
+
+# Solution
+
+- [Recursive Approach](#recursive-approach)
+
 ### Problem Overview: Symmetric Tree
 
 **Objective:**  
@@ -65,3 +71,7 @@ You are tasked with determining whether a binary tree is symmetric, meaning it i
 Solve this problem using **both recursive** and **iterative** methods.  
 - **Recursive Approach:** Use a helper function to check symmetry by comparing corresponding nodes in left and right subtrees.
 - **Iterative Approach:** Use a queue or stack to simulate breadth-first or depth-first traversal, ensuring symmetry at each level.
+
+# Recursive Approach
+
+The recursive approach leverages this intuition by **simultaneously traversing the left and right subtrees** while checking if they align like a mirror. Recursion is well-suited here because the problem can be broken down into smaller subproblems (i.e., comparing smaller subtrees).
