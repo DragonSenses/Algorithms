@@ -21,5 +21,9 @@ function isSymmetric(root: TreeNode | null): boolean {
 }
 
 function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
+  if (left === null && right === null) {
+      return true;
+  }
+
   return null;
 }
