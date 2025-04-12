@@ -76,6 +76,16 @@ Solve this problem using **both recursive** and **iterative** methods.
 
 The recursive approach leverages this intuition by **simultaneously traversing the left and right subtrees** while checking if they align like a mirror. Recursion is well-suited here because the problem can be broken down into smaller subproblems (i.e., comparing smaller subtrees).
 
+## **Intuition**
+
+Symmetry in a binary tree means that the left and right subtrees are mirror images of each other. Specifically:
+- The left subtree of one node should match the right subtree of its counterpart.
+- The corresponding nodes must have identical values, and their subtrees must exhibit symmetric structure.
+
+For example:
+- A tree is **symmetric** if the left and right children of the root node are reflections of each other.
+- If any discrepancy is found while comparing the left and right subtrees (in terms of values or structure), the tree is **not symmetric**.
+
 ### Conditions for Mirror Reflection of Two Trees
 
 Two binary trees are considered mirror reflections of each other if they satisfy the following conditions:
