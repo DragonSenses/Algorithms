@@ -16,6 +16,9 @@ class Solution {
       return false;
     }
 
+    if (left.val != right.val) {
+      return false;
+    }
 
   }
 }
