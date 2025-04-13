@@ -230,10 +230,20 @@ Instead of using recursive calls to traverse the tree, this approach explicitly 
 
 ## **Algorithm**
 
-We can convert the recursion to iteration by using a queue. Each two consecutive nodes in the queue should be equal, and their subtrees a mirror of each other.
+1. **Initialization**:
+   - Use a queue (or stack) to store pairs of nodes to be compared.
+   - Start with the root's left and right children as the first pair in the queue.
 
-Initially, the queue should start with `root` and `root`. Then when processing it should work like BFS with some differences:
+2. **Processing Pairs**:
+   - While the queue is not empty, extract a pair of nodes and perform symmetry checks:
+     - If both nodes are `null`, continue to the next pair.
+     - If one node is `null` and the other is not, return `false`.
+     - If the values of the two nodes do not match, return `false`.
 
-- Each time a pair of nodes are taken and values compared, then take the right and left children of the two nodes are inserted in the queue in opposite order.
+3. **Adding Mirror Pairs**:
+   - If the pair passes the checks:
+     - Add the left child of the first node and the right child of the second node to the queue.
+     - Add the right child of the first node and the left child of the second node to the queue.
 
-- Continue processing until queue is empty or tree is non-symmetric (i.e., two consecutive nodes with unequal node values are found)
+4. **Final Decision**:
+   - If the queue is emptied without finding any asymmetry, return `true`.
