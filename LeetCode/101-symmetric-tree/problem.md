@@ -34,7 +34,6 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
-- [Iterative Approach](#iterative-approach)
 
 ### Problem Overview: Symmetric Tree
 
@@ -200,3 +199,9 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
 ### **Assumptions**
 1. The binary tree has `n` nodes, and we traverse the entire tree to determine if it is symmetric.
 2. Recursive calls are used to process the nodes, which may affect both time and space complexity.
+
+### **Space Complexity**: `O(n)`
+- **Recursive Call Stack**: The recursion stack depth depends on the structure of the tree:
+  - **Worst-Case (Unbalanced Tree)**: The tree resembles a linked list, leading to a stack depth of `O(n)`.
+  - **Best-Case (Balanced Tree)**: The stack depth corresponds to the height of the tree, which is `O(log n)`.
+- **Overall Space**: Considering the worst-case scenario, the space complexity is `O(n)`.
