@@ -34,6 +34,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ### Problem Overview: Symmetric Tree
 
@@ -212,3 +213,7 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
   - **Worst-Case (Unbalanced Tree)**: The tree resembles a linked list, leading to a stack depth of `O(n)`.
   - **Best-Case (Balanced Tree)**: The stack depth corresponds to the height of the tree, which is `O(log n)`.
 - **Overall Space**: Considering the worst-case scenario, the space complexity is `O(n)`.
+
+# Iterative Approach
+
+Symmetry in a binary tree means that the left and right subtrees are mirror images of each other. To verify symmetry iteratively, we can simulate the comparison of nodes using a queue (or stack). 
