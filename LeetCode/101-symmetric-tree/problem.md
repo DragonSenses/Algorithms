@@ -196,9 +196,16 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
 }
 ```
 
+## **Complexity Analysis**
+
 ### **Assumptions**
 1. The binary tree has `n` nodes, and we traverse the entire tree to determine if it is symmetric.
 2. Recursive calls are used to process the nodes, which may affect both time and space complexity.
+
+### **Time Complexity**: `O(n)`
+- **Single Node Visit**: Each node in the tree is processed exactly once during the recursive traversal.
+- **Constant-Time Operations**: Comparing node values and checking for `null` are constant-time operations, performed during each recursive call.
+- **Overall Traversal**: Since every node is visited exactly once, the total time complexity is proportional to the number of nodes, resulting in `O(n)`.
 
 ### **Space Complexity**: `O(n)`
 - **Recursive Call Stack**: The recursion stack depth depends on the structure of the tree:
