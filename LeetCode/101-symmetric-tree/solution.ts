@@ -31,5 +31,6 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
       return false;
   }
 
-  return null;
+  // Recursively check for mirror symmetry
+  return isMirror(left.left, right.right) && isMirror(left.right, right.left);
 }
