@@ -19,18 +19,22 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
+
 
 ---
 
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ### Problem Overview: Symmetric Tree
 
@@ -192,3 +196,7 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
   return isMirror(left.left, right.right) && isMirror(left.right, right.left);
 }
 ```
+
+### **Assumptions**
+1. The binary tree has `n` nodes, and we traverse the entire tree to determine if it is symmetric.
+2. Recursive calls are used to process the nodes, which may affect both time and space complexity.
