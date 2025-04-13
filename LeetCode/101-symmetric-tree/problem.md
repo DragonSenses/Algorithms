@@ -165,3 +165,30 @@ class Solution {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+function isSymmetric(root: TreeNode | null): boolean {
+  if (root === null) {
+    return true; // An empty tree is symmetric
+  }
+  return isMirror(root.left, root.right);
+}
+
+function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
+  // Base cases
+  if (left === null && right === null) {
+    return true; // Both subtrees are empty
+  }
+  if (left === null || right === null) {
+    return false; // Only one subtree is empty
+  }
+  if (left.val !== right.val) {
+    return false; // Values of the nodes do not match
+  }
+
+  // Recursively check for mirror symmetry
+  return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+}
+```
