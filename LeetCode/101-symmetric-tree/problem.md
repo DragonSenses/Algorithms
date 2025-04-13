@@ -216,4 +216,14 @@ function isMirror(left: TreeNode | null, right: TreeNode | null): boolean {
 
 # Iterative Approach
 
+## **Intuition**
+
 Symmetry in a binary tree means that the left and right subtrees are mirror images of each other. To verify symmetry iteratively, we can simulate the comparison of nodes using a queue (or stack). 
+
+Instead of using recursive calls to traverse the tree, this approach explicitly manages the symmetry checks level by level:
+
+  1. Pair up nodes to compare their values and structures.
+  2. Each pair should satisfy two conditions:
+     - Matching values.
+     - Mirrored positions (i.e., left-to-right correspondence).
+  3. If all levels of the tree satisfy these conditions, the tree is symmetric. If any discrepancy is found, the tree is not symmetric.
