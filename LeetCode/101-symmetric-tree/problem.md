@@ -227,3 +227,13 @@ Instead of using recursive calls to traverse the tree, this approach explicitly 
      - Matching values.
      - Mirrored positions (i.e., left-to-right correspondence).
   3. If all levels of the tree satisfy these conditions, the tree is symmetric. If any discrepancy is found, the tree is not symmetric.
+
+## **Algorithm**
+
+We can convert the recursion to iteration by using a queue. Each two consecutive nodes in the queue should be equal, and their subtrees a mirror of each other.
+
+Initially, the queue should start with `root` and `root`. Then when processing it should work like BFS with some differences:
+
+- Each time a pair of nodes are taken and values compared, then take the right and left children of the two nodes are inserted in the queue in opposite order.
+
+- Continue processing until queue is empty or tree is non-symmetric (i.e., two consecutive nodes with unequal node values are found)
