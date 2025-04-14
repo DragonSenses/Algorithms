@@ -37,6 +37,6 @@ public class Solution2 {
       deque.add(new TreeNode[] {left.right, right.left});
     }
 
-    return false;
+    return true; // ALl pairs passed the symmetry checks
   }
 }
