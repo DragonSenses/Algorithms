@@ -247,3 +247,34 @@ Instead of using recursive calls to traverse the tree, this approach explicitly 
 
 4. **Final Decision**:
    - If the queue is emptied without finding any asymmetry, return `true`.
+
+### **Pseudocode**
+
+```text
+function isSymmetric(root):
+    if root is null:
+        return true  # An empty tree is symmetric
+
+    # Use a queue to store pairs of nodes
+    queue = [ [root.left, root.right] ]
+
+    while queue is not empty:
+        # Pop the first pair of nodes
+        pair = queue.pop(0)
+        left = pair[0]
+        right = pair[1]
+
+        # Base cases for symmetry checks
+        if left is null and right is null:
+            continue  # Both nodes are empty, move to next pair
+        if left is null or right is null:
+            return false  # One node is empty
+        if left.value != right.value:
+            return false  # Node values do not match
+
+        # Add mirror pairs to the queue
+        queue.append([left.left, right.right])
+        queue.append([left.right, right.left])
+
+    return true  # All pairs passed the symmetry checks
+```
