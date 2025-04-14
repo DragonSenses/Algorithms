@@ -22,6 +22,11 @@ public class Solution2 {
         continue;
       }
 
+      // One node is null but other is not
+      if (left == null || right == null) {
+        return false;
+      }
+
     }
 
     return false;
