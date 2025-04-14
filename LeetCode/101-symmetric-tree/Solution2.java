@@ -27,6 +27,11 @@ public class Solution2 {
         return false;
       }
 
+      // Nodes have non-matching values
+      if (left.val != right.val) {
+        return false;
+      }
+
     }
 
     return false;
