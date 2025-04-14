@@ -32,6 +32,9 @@ public class Solution2 {
         return false;
       }
 
+      // Add mirror pairs to the deque for processing
+      deque.add(new TreeNode[] {left.left, right.right});
+      deque.add(new TreeNode[] {left.right, right.left});
     }
 
     return false;
