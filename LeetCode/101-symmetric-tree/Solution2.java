@@ -17,6 +17,11 @@ public class Solution2 {
       TreeNode left = pair[0];
       TreeNode right = pair[1];
 
+      // Both nodes are empty
+      if (left == null && right == null) {
+        continue;
+      }
+
     }
 
     return false;
