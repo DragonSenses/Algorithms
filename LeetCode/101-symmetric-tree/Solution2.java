@@ -12,6 +12,13 @@ public class Solution2 {
     Deque<TreeNode[]> deque = new ArrayDeque<>();
     deque.add(new TreeNode[] {root.left, root.right});
 
+    while (!deque.isEmpty()) {
+      TreeNode[] pair = deque.poll();
+      TreeNode left = pair[0];
+      TreeNode right = pair[1];
+
+    }
+
     return false;
   }
 }
