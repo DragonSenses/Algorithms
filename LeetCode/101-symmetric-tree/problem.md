@@ -34,6 +34,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Symmetric Tree
@@ -343,11 +344,17 @@ class Solution {
 4. **Final Return**:
    - If all comparisons are symmetric, the function returns `true`.
 
+## **Complexity Analysis**
 
 ### **Assumptions**
 1. The binary tree has `n` nodes, and we traverse the entire tree to determine if it is symmetric.
 2. A **queue or deque** is used to store pairs of nodes for iterative symmetry checks.
 3. Each pair of nodes is processed individually, and their children are enqueued for further checks.
+
+### **Time Complexity**: `O(n)`
+- **Single Node Visit**: Each node in the tree is processed exactly once during the iterative traversal, since we enqueue and dequeue every node exactly once.
+- **Constant-Time Operations**: Comparing node values, checking for `null`, and enqueuing pairs of child nodes are constant-time operations, performed for each node.
+- **Overall Traversal**: Since all nodes are visited and processed once, the total time complexity is proportional to the number of nodes, resulting in **`O(n)`**.
 
 ### **Space Complexity**: `O(n)`
 - **Queue Usage**: The space complexity is dominated by the queue used for storing pairs of nodes:
