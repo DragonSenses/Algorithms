@@ -278,3 +278,49 @@ function isSymmetric(root):
 
     return true  # All pairs passed the symmetry checks
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+class Solution {
+  public boolean isSymmetric(TreeNode root) {
+    // An empty tree is symmetric
+    if (root == null) {
+      return true;
+    }
+
+    // Use a Deque to store pairs of nodes to compare
+    Deque<TreeNode[]> deque = new ArrayDeque<>();
+    deque.add(new TreeNode[] {root.left, root.right});
+
+    while (!deque.isEmpty()) {
+      // Retrieve and remove the first pair of nodes
+      TreeNode[] pair = deque.poll();
+      TreeNode left = pair[0];
+      TreeNode right = pair[1];
+
+      // Base cases for symmetry checks
+      if (left == null && right == null) {
+        continue; // Both nodes are empty, move to the next pair
+      }
+      if (left == null || right == null) {
+        return false; // One node is null but the other is not
+      }
+      if (left.val != right.val) {
+        return false; // Values of the nodes do not match
+      }
+
+      // Add the mirror pairs to the deque
+      deque.add(new TreeNode[] {left.left, right.right});
+      deque.add(new TreeNode[] {left.right, right.left});
+    }
+
+    return true; // All pairs passed the symmetry checks
+  }
+}
+```
