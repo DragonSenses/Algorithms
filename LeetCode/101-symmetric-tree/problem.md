@@ -26,7 +26,6 @@
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it both recursively and iteratively?
 
-
 ---
 
 # Solution
@@ -324,3 +323,21 @@ class Solution {
   }
 }
 ```
+
+#### Implementation Details
+
+1. **Deque Initialization**:
+   - A `Deque` is used to efficiently handle node pairs (left and right) for comparison. Each pair of nodes is stored as an array.
+
+2. **Main Loop**:
+   - The `while` loop runs until the `Deque` is empty, processing each pair of nodes:
+     - If both nodes are `null`, the tree is symmetric at this level, and the loop continues.
+     - If one node is `null` while the other is not, or if their values differ, the tree is asymmetric, and the function returns `false`.
+
+3. **Adding Mirror Pairs**:
+   - If the nodes pass the checks, their corresponding children are added to the `Deque` for future comparison:
+     - `left.left` with `right.right`
+     - `left.right` with `right.left`
+
+4. **Final Return**:
+   - If all comparisons are symmetric, the function returns `true`.
