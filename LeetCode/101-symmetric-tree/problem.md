@@ -341,3 +341,9 @@ class Solution {
 
 4. **Final Return**:
    - If all comparisons are symmetric, the function returns `true`.
+
+
+### **Assumptions**
+1. The binary tree has `n` nodes, and we traverse the entire tree to determine if it is symmetric.
+2. A **queue or deque** is used to store pairs of nodes for iterative symmetry checks.
+3. Each pair of nodes is processed individually, and their children are enqueued for further checks.
