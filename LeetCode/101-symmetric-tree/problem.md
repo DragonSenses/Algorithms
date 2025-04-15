@@ -34,6 +34,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Symmetric Tree
 
@@ -347,3 +348,11 @@ class Solution {
 1. The binary tree has `n` nodes, and we traverse the entire tree to determine if it is symmetric.
 2. A **queue or deque** is used to store pairs of nodes for iterative symmetry checks.
 3. Each pair of nodes is processed individually, and their children are enqueued for further checks.
+
+### **Space Complexity**: `O(n)`
+- **Queue Usage**: The space complexity is dominated by the queue used for storing pairs of nodes:
+  - In the **worst-case scenario**, all `n` nodes of the tree might be stored in the queue at the same time, leading to **`O(n)`** space usage. This happens if the tree is perfectly balanced and we enqueue pairs of nodes level by level.
+  - In the **best-case scenario**, the queue size corresponds to the number of pairs at the current level, which is at most half the number of nodes in the tree.
+- **No Recursion**: Unlike the recursive approach, the iterative method avoids recursion and does not require stack space for recursive calls.
+
+Thus, the space complexity is **`O(n)`**, with the queue size proportional to the number of nodes in the worst case.
