@@ -344,6 +344,42 @@ class Solution {
 4. **Final Return**:
    - If all comparisons are symmetric, the function returns `true`.
 
+### TypeScript
+
+```typescript
+function isSymmetric(root: TreeNode | null): boolean {
+  if (root === null) {
+    return true; // An empty tree is symmetric
+  }
+
+  // Use a queue to store pairs of nodes to compare
+  const queue: Array<[TreeNode | null, TreeNode | null]> = [];
+  queue.push([root.left, root.right]);
+
+  while (queue.length > 0) {
+    // Dequeue a pair of nodes
+    const [left, right] = queue.shift()!;
+
+    // Base cases for symmetry checks
+    if (left === null && right === null) {
+      continue; // Both nodes are null, move to the next pair
+    }
+    if (left === null || right === null) {
+      return false; // One node is null but the other is not
+    }
+    if (left.val !== right.val) {
+      return false; // Values of the nodes do not match
+    }
+
+    // Add the mirror pairs of child nodes to the queue
+    queue.push([left.left, right.right]);
+    queue.push([left.right, right.left]);
+  }
+
+  return true; // All pairs passed the symmetry checks
+}
+```
+
 ## **Complexity Analysis**
 
 ### **Assumptions**
