@@ -26,6 +26,12 @@ function isSymmetric(root: TreeNode | null): boolean {
     // Dequeue a pair of nodes
     const [left, right] = queue.shift()!;
 
+    // Base cases for symmetry checks
+    if (left === null && right === null) {
+      continue; // Both nodes are null, move to the next pair
+    }
+
+
   }
 
 }
