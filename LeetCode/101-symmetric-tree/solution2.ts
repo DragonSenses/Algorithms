@@ -30,6 +30,9 @@ function isSymmetric(root: TreeNode | null): boolean {
     if (left === null && right === null) {
       continue; // Both nodes are null, move to the next pair
     }
+    if (left === null || right === null) {
+      return false; // One node is null but the other is not
+    }
 
 
   }
