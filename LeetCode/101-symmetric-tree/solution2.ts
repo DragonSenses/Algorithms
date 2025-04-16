@@ -22,4 +22,10 @@ function isSymmetric(root: TreeNode | null): boolean {
   const queue: Array<[TreeNode | null, TreeNode | null]> = [];
   queue.push([root.left, root.right]);
 
+  while (queue.length > 0) {
+    // Dequeue a pair of nodes
+    const [left, right] = queue.shift()!;
+
+  }
+
 }
