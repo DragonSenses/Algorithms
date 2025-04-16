@@ -33,6 +33,9 @@ function isSymmetric(root: TreeNode | null): boolean {
     if (left === null || right === null) {
       return false; // One node is null but the other is not
     }
+    if (left.val !== right.val) {
+      return false; // Values of the nodes do not match
+    }
 
 
   }
