@@ -18,4 +18,8 @@ function isSymmetric(root: TreeNode | null): boolean {
     return true; // An empty tree is symmetric
   }
 
+  // Use a queue to store pairs of nodes to compare
+  const queue: Array<[TreeNode | null, TreeNode | null]> = [];
+  queue.push([root.left, root.right]);
+
 }
