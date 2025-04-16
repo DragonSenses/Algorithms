@@ -42,4 +42,5 @@ function isSymmetric(root: TreeNode | null): boolean {
     queue.push([left.right, right.left]);
   }
 
+  return true; // All pairs passed the symmetry checks
 }
