@@ -37,7 +37,9 @@ function isSymmetric(root: TreeNode | null): boolean {
       return false; // Values of the nodes do not match
     }
 
-
+    // Add the mirror pairs of child nodes to the queue
+    queue.push([left.left, right.right]);
+    queue.push([left.right, right.left]);
   }
 
 }
