@@ -83,3 +83,17 @@ Example 3:
 
 Input: n = 3, k = 1
 Output: "123"
+
+Usually standard decimal or binary positional system could meet our needs.
+For example, each subset could be described a number in binary representation.
+
+Formula: 
+k = N-1 E m=0 km2^m, 0 <= km <= 1
+Example: 
+
+The problem with permutations is that there is much more permutations than subsets N! grows up much faster than 2^N. Therefore, the solution space provided by the positional system with constant base cannot match with the number of permutations.
+
+[1 2 3]   [0 0 0]   [     ]     [1 2 3]   [0 0 1]   [    3]  
+[1 2 3]   [0 1 0]   [  2  ]     [1 2 3]   [0 1 1]   [  2 3]  
+[1 2 3]   [1 0 0]   [1    ]     [1 2 3]   [1 0 1]   [1  3 ]  
+[1 2 3]   [1 1 0]   [1 2  ]     [1 2 3]   [1 1 1]   [1 2 3]  
