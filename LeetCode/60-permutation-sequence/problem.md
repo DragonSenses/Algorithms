@@ -195,7 +195,20 @@ Below is an example of how permutations translate into factorial number system v
 
 Each permutation corresponds to a **unique factorial-based representation**, allowing us to efficiently determine the `k`th permutation without generating all permutations explicitly.
 
-### Constructing the Permutation from its Factorial Representation
+#### **Formula for Encoding Permutations:**
+- **Permutation number `0`** (first permutation in lexicographic order):
+  \[
+  k = \sum_{m=0}^{N-1} (0 \times m!)
+  \]
+- **Permutation number `N! - 1`** (last permutation in lexicographic order):
+  \[
+  k = \sum_{m=0}^{N-1} (m \times m!)
+  \]
+
+This ensures that every **unique permutation** has a corresponding factorial representation.
+
+### Constructing the Permutation from its Fac
+torial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
 
