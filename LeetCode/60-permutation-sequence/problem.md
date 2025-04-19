@@ -127,40 +127,18 @@ This problem is particularly interesting because previous approaches do not dire
   - The previous permutation is unknown, making direct application of the Knuth algorithm impossible.
 
 
----
+### **Standard Decimal/Binary Positional System**
 
-By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
+Typically, a standard decimal or binary positional system serves various computational needs.  
 
-    "123"
-    "132"
-    "213"
-    "231"
-    "312"
-    "321"
+For instance, subsets can be efficiently represented using **binary encoding**, where each subset corresponds to a number in its **binary form**.
 
-Given n and k, return the kth permutation sequence.
+#### **Binary Representation Formula**:
+![](img/60-1.jpg)
 
-Example 1:
-
-Input: n = 3, k = 3
-Output: "213"
-
-Example 2:
-
-Input: n = 4, k = 9
-Output: "2314"
-
-Example 3:
-
-Input: n = 3, k = 1
-Output: "123"
-
-Usually standard decimal or binary positional system could meet our needs.
-For example, each subset could be described a number in binary representation.
-
-Formula: 
-k = N-1 E m=0 km2^m, 0 <= km <= 1
-Example: 
+\[
+k = \sum_{m=0}^{N-1} k_m \cdot 2^m, \quad 0 \leq k_m \leq 1
+\]
 
 The problem with permutations is that there is much more permutations than subsets N! grows up much faster than 2^N. Therefore, the solution space provided by the positional system with constant base cannot match with the number of permutations.
 
