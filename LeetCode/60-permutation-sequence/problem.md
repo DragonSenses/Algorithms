@@ -225,6 +225,10 @@ k = 2 = (1 \times 2!) + (0 \times 1!) + (0 \times 0!)
 
 Thus, the factorial representation of `k = 2` is `[1, 0, 0]`.
 
+#### **Step 2: Understanding Factorial Representation**
+Each coefficient in the factorial number system represents the **index of elements in the input array after removing previously used elements**.  
+Since each element **can only be used once**, we progressively select elements based on these indices.
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
