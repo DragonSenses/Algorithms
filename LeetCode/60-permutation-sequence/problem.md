@@ -176,14 +176,24 @@ k = \sum_{m=0}^{N-1} k_m \cdot m!, \quad 0 \leq k_m \leq m
   - \( 0 \leq k_1 \leq 1 \)
   - \( 0 \leq k_2 \leq 2 \), etc.
 
-Permutation | Permutation number | Factorial Number System Representation
-123 | 0 = 0 x 2! + 0 x !! + 0 x 0! | 0 0 0
-132 | 1 =
-213 | 
-231 |
-312
-321
+### **Mapping Permutations to Factorial Number Representation**
 
+Now that we understand the **Factorial Number System**, we can systematically **map all permutations** from **permutation number `0`** to **permutation number `N! - 1`**.
+
+Below is an example of how permutations translate into factorial number system values:
+
+![](img/60-4.jpg)
+
+| Permutation | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| 123        | 0 = (0 × 2!) + (0 × 1!) + (0 × 0!) | [0 0 0] |
+| 132        | 1 = (0 × 2!) + (1 × 1!) + (0 × 0!) | [0 1 0] |
+| 213        | 2 = (1 × 2!) + (0 × 1!) + (0 × 0!) | [1 0 0] |
+| 231        | 3 = (1 × 2!) + (1 × 1!) + (0 × 0!) | [1 1 0] |
+| 312        | 4 = (2 × 2!) + (0 × 1!) + (0 × 0!) | [2 0 0] |
+| 321        | 5 = (2 × 2!) + (1 × 1!) + (0 × 0!) | [2 1 0] |
+
+Each permutation corresponds to a **unique factorial-based representation**, allowing us to efficiently determine the `k`th permutation without generating all permutations explicitly.
 
 ### Constructing the Permutation from its Factorial Representation
 
