@@ -96,6 +96,11 @@ You are tasked with determining the `k`th lexicographically ordered permutation 
 5. Left with `{1, 4}`, and `k = 3 - (1 * 2) = 1` → The third digit is **"1"**.
 6. The last remaining number is **"4"**, completing `"2314"`.
 
+#### **Complexity Analysis:**
+- The approach uses factorial division and iteration, avoiding brute-force generation of all permutations.
+- Time Complexity: **O(n)** (choosing each position step by step).
+- Space Complexity: **O(n)** (tracking available digits).
+
 ---
 
 By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
