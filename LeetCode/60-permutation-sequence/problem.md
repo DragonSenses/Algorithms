@@ -161,14 +161,20 @@ As a result, a **constant-base positional system** (like binary or decimal) fail
 
 The **factorial number system** is a positional system where the base is **not constant** but rather **factorial-based (`m!`)**. This allows us to uniquely encode permutations in an efficient way.
 
-The factorial number system's positional system with non-constant base `m!`.
+### **Factorial Number System Formula**
+![](img/60-3.jpg)
 
-k = N-1 E m=0 kmm!, 0 <= km <= m
+\[
+k = \sum_{m=0}^{N-1} k_m \cdot m!, \quad 0 \leq k_m \leq m
+\]
 
-Note that the magnitude of weights is not constant as well and depends on base: 
-
-0 ≤ km ≤ m for the base m!, i.e. ko = 0, 0 ≤ k1 ≤ 1,
-0 < k2 ≤2, etc.
+#### **Key Observations:**
+- The weights **increase dynamically** based on the factorial base.
+- Unlike standard positional systems (e.g., binary or decimal), the factorial system **adapts to the structure of permutations**.
+- Magnitudes of coefficients (`k_m`) depend on their position:
+  - \( k_0 = 0 \)
+  - \( 0 \leq k_1 \leq 1 \)
+  - \( 0 \leq k_2 \leq 2 \), etc.
 
 Permutation | Permutation number | Factorial Number System Representation
 123 | 0 = 0 x 2! + 0 x !! + 0 x 0! | 0 0 0
