@@ -88,6 +88,14 @@ You are tasked with determining the `k`th lexicographically ordered permutation 
 - Once the first digit is chosen, the problem reduces to finding the `(k mod (n-1)!)`th permutation for the remaining numbers.
 - This process continues iteratively until all digits are placed.
 
+#### **Example Walkthrough (`n = 4, k = 9`):**
+1. The total permutations = `4! = 24`, and each digit in the first position appears `(3!) = 6` times.
+2. `k = 9` → The first digit index is `⌊9 / 6⌋ = 1`, so the first digit is **"2"** (after "1").
+3. Remaining numbers: `{1, 3, 4}`, and we now need the `k = 9 - (1 * 6) = 3`rd permutation in this reduced set.
+4. Since each number appears `(2!) = 2` times, `⌊3 / 2⌋ = 1`, meaning the second digit is **"3"**.
+5. Left with `{1, 4}`, and `k = 3 - (1 * 2) = 1` → The third digit is **"1"**.
+6. The last remaining number is **"4"**, completing `"2314"`.
+
 ---
 
 By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
