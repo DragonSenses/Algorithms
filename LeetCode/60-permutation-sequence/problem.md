@@ -156,3 +156,43 @@ from nums , since each element should be used only once.
 |------------|--------------------|----------------------------------------|
 | 1**2**3        | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
 
+1. Pick Up element at index 1: nums[1] = 2, use it in permutation and delete it from the list
+
+[`2` _ _]
+
+| nums | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| 1 3        | 2 = (1 × 2!) + (**0** × 1!) + (0 × 0!) | [1 **0** 0] |
+
+Next coefficient in factorial representation is `0`.
+
+Let's use `nums[0] = 1` in the permutation and then delete it from `nums`.
+
+| nums | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| 1 3        | 2 = (1 × 2!) + (**0** × 1!) + (0 × 0!) | [1 **0** 0] |
+
+1. Pick Up element at index 0: nums[0] = 1, use it in permutation and delete it from the list
+
+[2 `1` _]
+
+| nums | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| 3        | 2 = (1 × 2!) + (0 × 1!) + (**0** × 0!) | [1 0 **0**] |
+
+Next coefficient in factorial representation is `0`.
+
+Let's use `nums[0] = 3` in the permutation and then delete it from `nums`.
+
+| nums | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| `3`        | 2 = (1 × 2!) + (0 × 1!) + (**0** × 0!) | [1 0 **0**] |
+
+1. Pick Up element at index 0: nums[0] = 3, use it in permutation and delete it from the list
+
+[2 1 `3`]
+
+
+| nums | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| 123        | 0 = (0 × 2!) + (0 × 1!) + (0 × 0!) | [0 0 0] |
