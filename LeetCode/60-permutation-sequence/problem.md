@@ -229,6 +229,21 @@ Thus, the factorial representation of `k = 2` is `[1, 0, 0]`.
 Each coefficient in the factorial number system represents the **index of elements in the input array after removing previously used elements**.  
 Since each element **can only be used once**, we progressively select elements based on these indices.
 
+### **Permutation Mapping Example**
+Below is the mapping of permutations, their corresponding permutation number,  
+and the **factorial number system representation** with **bolded coefficients** indicating the index selections:
+
+| Permutation | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| **1**23        | 0 = (**0** × 2!) + (0 × 1!) + (0 × 0!) | [**0** 0 0] |
+| **1**32        | 1 = (**0** × 2!) + (1 × 1!) + (0 × 0!) | [**0** 1 0] |
+| **2**13        | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
+| **2**31        | 3 = (**1** × 2!) + (1 × 1!) + (0 × 0!) | [**1** 1 0] |
+| **3**12        | 4 = (**2** × 2!) + (0 × 1!) + (0 × 0!) | [**2** 0 0] |
+| **3**21        | 5 = (**2** × 2!) + (1 × 1!) + (0 × 0!) | [**2** 1 0] |
+
+![](img/60-5.jpg)
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
