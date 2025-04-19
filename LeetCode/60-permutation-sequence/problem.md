@@ -216,6 +216,15 @@ Consider `N = 3`, which corresponds to the input array `nums = [1, 2, 3]`.
 Since permutations are **indexed from `0` to `N! - 1`** (instead of from `1` to `N!`, as described in the problem statement),  
 the given `k = 3` corresponds to **permutation index `2`** in **zero-based indexing**.
 
+#### **Step 1: Compute Factorial Representation**
+Using the factorial number system:
+
+\[
+k = 2 = (1 \times 2!) + (0 \times 1!) + (0 \times 0!)
+\]
+
+Thus, the factorial representation of `k = 2` is `[1, 0, 0]`.
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
