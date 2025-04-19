@@ -142,10 +142,19 @@ k = \sum_{m=0}^{N-1} k_m \cdot 2^m, \quad 0 \leq k_m \leq 1
 
 The problem with permutations is that there is much more permutations than subsets N! grows up much faster than 2^N. Therefore, the solution space provided by the positional system with constant base cannot match with the number of permutations.
 
-[1 2 3]   [0 0 0]   [     ]     [1 2 3]   [0 0 1]   [    3]  
-[1 2 3]   [0 1 0]   [  2  ]     [1 2 3]   [0 1 1]   [  2 3]  
-[1 2 3]   [1 0 0]   [1    ]     [1 2 3]   [1 0 1]   [1  3 ]  
-[1 2 3]   [1 1 0]   [1 2  ]     [1 2 3]   [1 1 1]   [1 2 3]  
+#### **Example Encoding:**
+![](img/60-2.jpg)
+
+| Set       | Binary Mask | Elements Present |
+|-----------|------------|------------------|
+| [1 2 3]   | [0 0 0]    | [ _ _ _ ]        |
+| [1 2 3]   | [0 0 1]    | [ _ _ 3 ]        |
+| [1 2 3]   | [0 1 0]    | [ _ 2 _ ]        |
+| [1 2 3]   | [0 1 1]    | [ _ 2 3 ]        |
+| [1 2 3]   | [1 0 0]    | [ 1 _ _ ]        |
+| [1 2 3]   | [1 0 1]    | [ 1 _ 3 ]        |
+| [1 2 3]   | [1 1 0]    | [ 1 2 _ ]        |
+| [1 2 3]   | [1 1 1]    | [ 1 2 3 ]        |
 
 
 Here is where the factorial number system enters the scene.
