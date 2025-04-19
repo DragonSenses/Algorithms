@@ -34,7 +34,6 @@
 	<li><code>1 &lt;= k &lt;= n!</code></li>
 </ul>
 
-
 ---
 
 ### Problem Overview: Permutation Sequence
@@ -42,21 +41,37 @@
 **Objective:**  
 You are tasked with determining the `k`th lexicographically ordered permutation of the sequence `{1, 2, ..., n}` without generating all permutations explicitly.
 
-**Input:**  
+#### **Key Details:**
+1. **Input:**  
    Two integers, `n` and `k`.  
    - `n = 3, k = 3` (Example 1)  
    - `n = 4, k = 9` (Example 2)  
 
-**Output:**  
+2. **Output:**  
    A string representing the `k`th permutation of `{1, 2, ..., n}` in lexicographical order.  
    - Example 1 Output: `"213"`  
    - Example 2 Output: `"2314"`  
 
-**Constraints:**  
+3. **Constraints:**  
    - `1 ≤ n ≤ 9`  
    - `1 ≤ k ≤ n!`  
 
-The set [1, 2, 3, ..., n] contains a total of n! unique permutations.
+#### **Examples:**
+- **Example 1:**
+  ```  
+  Input: n = 3, k = 3  
+  Output: "213"  
+  ```  
+  The third permutation of `{1, 2, 3}` in lexicographical order is `"213"`.
+
+- **Example 2:**
+  ```  
+  Input: n = 4, k = 9  
+  Output: "2314"  
+  ```  
+  The ninth permutation of `{1, 2, 3, 4}` in lexicographical order is `"2314"`.
+
+---
 
 By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
 
