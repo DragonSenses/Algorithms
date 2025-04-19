@@ -71,6 +71,23 @@ You are tasked with determining the `k`th lexicographically ordered permutation 
   ```  
   The ninth permutation of `{1, 2, 3, 4}` in lexicographical order is `"2314"`.
 
+#### **Approach Overview:**
+- Each number appears `(n-1)!` times in a given position.
+- Determine the leading digit by computing `k // (n-1)!` and adjust `k` accordingly.
+- Recursively apply the same method to remaining digits.
+- **Time Complexity:** `O(n)`, as we determine each position iteratively instead of generating all permutations.
+
+#### **Problem Breakdown:**
+1. **Permutations:** The sequence consists of all `n!` possible arrangements of the numbers `{1, 2, ..., n}` in sorted order.
+2. **Lexicographical Ordering:** The permutations are arranged in increasing order like a dictionary, meaning "123" comes before "132" and so on.
+3. **Efficient Selection:** The challenge is to determine the `k`th permutation directly without generating all permutations (which would be computationally expensive for larger `n`).
+
+#### **Key Observations:**
+- Each digit in the permutation fixes the remaining numbers, dividing the total permutations into `n` groups.
+- The first digit can be determined by dividing `k` by `(n-1)!`, since each number appears `(n-1)!` times in one segment.
+- Once the first digit is chosen, the problem reduces to finding the `(k mod (n-1)!)`th permutation for the remaining numbers.
+- This process continues iteratively until all digits are placed.
+
 ---
 
 By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
