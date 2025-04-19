@@ -97,3 +97,23 @@ The problem with permutations is that there is much more permutations than subse
 [1 2 3]   [0 1 0]   [  2  ]     [1 2 3]   [0 1 1]   [  2 3]  
 [1 2 3]   [1 0 0]   [1    ]     [1 2 3]   [1 0 1]   [1  3 ]  
 [1 2 3]   [1 1 0]   [1 2  ]     [1 2 3]   [1 1 1]   [1 2 3]  
+
+
+Here is where the factorial number system enters the scene.
+
+The factorial number system's positional system with non-constant base `m!`.
+
+k = N-1 E m=0 kmm!, 0 <= km <= m
+
+Note that the magnitude of weights is not constant as well and depends on base: 
+
+0 ≤ km ≤ m for the base m!, i.e. ko = 0, 0 ≤ k1 ≤ 1,
+0 < k2 ≤2, etc.
+
+Permutation | Permutation number | Factorial Number System Representation
+123 | 0 = 0 x 2! + 0 x !! + 0 x 0! | 0 0 0
+132 | 1 =
+213 | 
+231 |
+312
+321
