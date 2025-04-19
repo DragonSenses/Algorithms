@@ -101,6 +101,32 @@ You are tasked with determining the `k`th lexicographically ordered permutation 
 - Time Complexity: **O(n)** (choosing each position step by step).
 - Space Complexity: **O(n)** (tracking available digits).
 
+## **Types of Permutation Problems in Interviews**
+
+Permutation-based problems often fall into three primary categories:
+
+1. **Generate All Permutations**  
+2. **Generate the Next Permutation**  
+3. **Find the `k`th Permutation (Current Problem)**  
+
+Each category has distinct approaches optimized for efficiency.
+
+### **1. Generating All Permutations**
+- If the order of generated permutations is irrelevant, a **swap-based backtracking** approach efficiently produces all `N!` permutations in **O(N × N!)** time.
+- However, for lexicographically sorted permutations, a better method is **D.E. Knuth’s algorithm**, which efficiently transitions from one permutation to the next in **O(N)** time.
+
+### **2. Generating the Next Permutation**
+- The **Knuth algorithm** is useful for incrementally obtaining the next permutation from the current one.
+- This method efficiently determines the immediate successor permutation while maintaining lexicographical order.
+
+### **3. Finding the `k`th Permutation (Polynomial-Time Solution)**
+This problem is particularly interesting because previous approaches do not directly apply:
+
+- **Constraints to Consider**:
+  - Backtracking is impractical due to polynomial time complexity requirements.
+  - The previous permutation is unknown, making direct application of the Knuth algorithm impossible.
+
+
 ---
 
 By listing and labeling all of the permutations in order, we get the following sequence for n = 3:
