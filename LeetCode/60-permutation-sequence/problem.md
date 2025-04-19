@@ -117,3 +117,42 @@ Permutation | Permutation number | Factorial Number System Representation
 231 |
 312
 321
+
+
+### Constructing the Permutation from its Factorial Representation
+
+Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
+
+Let us pick up N = 3, which corresponds to the input array nums = [1, 2, 3] , and
+construct its permutation number k = 3.
+Since we number the permutations from 0 to N! - 1
+(and not from 1 to N! as in the problem description), for us that
+will be the permutation number k = 2.
+
+Let us first construct the factorial representation of k = 2:
+
+k=2= 1 × 2! + 0 x 1! + 0 x 0! = (1,0,0)
+
+The coefficients in factorial representation
+are indexes of elements in the input array.
+These are not direct indexes, but the indexes after the removal of already used elements.
+That's a consequence of the fact that each element
+should be used in permutation only once.
+
+| Permutation | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| **1**23        | 0 = (**0** × 2!) + (0 × 1!) + (0 × 0!) | [**0** 0 0] |
+| **1**32        | 1 = (**0** × 2!) + (1 × 1!) + (0 × 0!) | [**0** 1 0] |
+| **2**13        | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
+| **2**31        | 3 = (**1** × 2!) + (1 × 1!) + (0 × 0!) | [**1** 1 0] |
+| **3**12        | 4 = (**2** × 2!) + (0 × 1!) + (0 × 0!) | [**2** 0 0] |
+| **3**21        | 5 = (**2** × 2!) + (1 × 1!) + (0 × 0!) | [**2** 1 0] |
+
+Here the first number is 1 , i.e. the first element in the permutation
+İS nums [1] = 2 . Let us use nums [1] = 2 in the permutation and then delete it
+from nums , since each element should be used only once.
+
+| nums | Permutation Number | Factorial Number System Representation |
+|------------|--------------------|----------------------------------------|
+| 1**2**3        | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
+
