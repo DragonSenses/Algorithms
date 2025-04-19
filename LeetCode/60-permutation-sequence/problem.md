@@ -207,8 +207,16 @@ Each permutation corresponds to a **unique factorial-based representation**, all
 
 This ensures that every **unique permutation** has a corresponding factorial representation.
 
-### Constructing the Permutation from its Fac
-torial Representation
+### **Next Step: Constructing the Permutation from its Factorial Representation**
+
+Now that we can **encode permutations** using factorial representation, the next step is to efficiently **construct the actual permutation** from its encoded form.
+
+### **Example: Generating the `k`th Permutation (`N = 3, k = 3`)**
+Consider `N = 3`, which corresponds to the input array `nums = [1, 2, 3]`.  
+Since permutations are **indexed from `0` to `N! - 1`** (instead of from `1` to `N!`, as described in the problem statement),  
+the given `k = 3` corresponds to **permutation index `2`** in **zero-based indexing**.
+
+### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
 
