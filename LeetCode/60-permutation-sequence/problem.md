@@ -140,8 +140,6 @@ For instance, subsets can be efficiently represented using **binary encoding**, 
 k = \sum_{m=0}^{N-1} k_m \cdot 2^m, \quad 0 \leq k_m \leq 1
 \]
 
-The problem with permutations is that there is much more permutations than subsets N! grows up much faster than 2^N. Therefore, the solution space provided by the positional system with constant base cannot match with the number of permutations.
-
 #### **Example Encoding:**
 ![](img/60-2.jpg)
 
@@ -156,8 +154,12 @@ The problem with permutations is that there is much more permutations than subse
 | [1 2 3]   | [1 1 0]    | [ 1 2 _ ]        |
 | [1 2 3]   | [1 1 1]    | [ 1 2 3 ]        |
 
+However, this approach becomes **problematic for permutations** because the number of permutations grows exponentially—**`N!` increases much faster than `2^N`**.  
+As a result, a **constant-base positional system** (like binary or decimal) fails to provide a sufficiently large solution space to accommodate all permutations.
 
-Here is where the factorial number system enters the scene.
+### **Why We Need the Factorial Number System**
+
+The **factorial number system** is a positional system where the base is **not constant** but rather **factorial-based (`m!`)**. This allows us to uniquely encode permutations in an efficient way.
 
 The factorial number system's positional system with non-constant base `m!`.
 
