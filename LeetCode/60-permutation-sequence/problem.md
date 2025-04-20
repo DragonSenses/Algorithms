@@ -276,6 +276,15 @@ but these indices **update dynamically** as elements are removed.
 - **Chosen number: `2`**
 - Remove `2` from `nums`
 
+| Remaining `nums` | Permutation Number | Factorial Number System Representation |
+|------------------|--------------------|----------------------------------------|
+| 1 **2** 3       | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
+
+Updated permutation:  
+**`[2 _ _]`**
+
+![](img/60-6.jpg)
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
