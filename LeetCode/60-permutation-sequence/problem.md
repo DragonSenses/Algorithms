@@ -38,7 +38,7 @@
 
 # Solution
 
-- [Factorial Number System Approach](#factorial-number-system-approach)
+- [Factorial Permutation Indexing Approach](#factorial-permutation-indexing-approach)
 
 ### Problem Overview: Permutation Sequence
 
@@ -130,7 +130,7 @@ This problem is particularly interesting because previous approaches do not dire
   - Backtracking is impractical due to polynomial time complexity requirements.
   - The previous permutation is unknown, making direct application of the Knuth algorithm impossible.
 
-# Factorial Number System Approach
+# Factorial Permutation Indexing Approach
 
 ## **Intuition**
 
@@ -326,3 +326,15 @@ Final permutation:
 - **Factorial coefficients index elements dynamically**, accounting for previous selections.
 - **Chosen digits sequentially fill the permutation**, ensuring an efficient `O(n)` computation.
 - **This avoids brute-force generation**, directly determining the `k`th permutation.
+
+Goal:
+To generate the `k`th permutation using **factorial-based indexing** instead of brute-force generation. It uses a direct computation approach with factorial representation.
+
+```plaintext
+function getPermutation(n, k):
+    # Initialize the input array
+    # Compute factorials for indexing
+    # Convert k to zero-based index
+    # Construct the permutation using factorial representation
+    # Return the final permutation as a concatenated string
+```
