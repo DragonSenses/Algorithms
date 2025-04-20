@@ -36,6 +36,10 @@
 
 ---
 
+# Solution
+
+- [Factorial Number System Approach](#factorial-number-system-approach)
+
 ### Problem Overview: Permutation Sequence
 
 **Objective:**  
@@ -126,6 +130,9 @@ This problem is particularly interesting because previous approaches do not dire
   - Backtracking is impractical due to polynomial time complexity requirements.
   - The previous permutation is unknown, making direct application of the Knuth algorithm impossible.
 
+# Factorial Number System Approach
+
+## **Intuition**
 
 ### **Standard Decimal/Binary Positional System**
 
@@ -315,80 +322,7 @@ Final permutation:
 
 ![](img/60-8.jpg)
 
-### Constructing the Permutation from its Factorial Representation
-
-Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
-
-Let us pick up N = 3, which corresponds to the input array nums = [1, 2, 3] , and
-construct its permutation number k = 3.
-Since we number the permutations from 0 to N! - 1
-(and not from 1 to N! as in the problem description), for us that
-will be the permutation number k = 2.
-
-Let us first construct the factorial representation of k = 2:
-
-k=2= 1 × 2! + 0 x 1! + 0 x 0! = (1,0,0)
-
-The coefficients in factorial representation
-are indexes of elements in the input array.
-These are not direct indexes, but the indexes after the removal of already used elements.
-That's a consequence of the fact that each element
-should be used in permutation only once.
-
-| Permutation | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| **1**23        | 0 = (**0** × 2!) + (0 × 1!) + (0 × 0!) | [**0** 0 0] |
-| **1**32        | 1 = (**0** × 2!) + (1 × 1!) + (0 × 0!) | [**0** 1 0] |
-| **2**13        | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
-| **2**31        | 3 = (**1** × 2!) + (1 × 1!) + (0 × 0!) | [**1** 1 0] |
-| **3**12        | 4 = (**2** × 2!) + (0 × 1!) + (0 × 0!) | [**2** 0 0] |
-| **3**21        | 5 = (**2** × 2!) + (1 × 1!) + (0 × 0!) | [**2** 1 0] |
-
-Here the first number is 1 , i.e. the first element in the permutation
-İS nums [1] = 2 . Let us use nums [1] = 2 in the permutation and then delete it
-from nums , since each element should be used only once.
-
-| nums | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| 1**2**3        | 2 = (**1** × 2!) + (0 × 1!) + (0 × 0!) | [**1** 0 0] |
-
-1. Pick Up element at index 1: nums[1] = 2, use it in permutation and delete it from the list
-
-[`2` _ _]
-
-| nums | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| 1 3        | 2 = (1 × 2!) + (**0** × 1!) + (0 × 0!) | [1 **0** 0] |
-
-Next coefficient in factorial representation is `0`.
-
-Let's use `nums[0] = 1` in the permutation and then delete it from `nums`.
-
-| nums | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| 1 3        | 2 = (1 × 2!) + (**0** × 1!) + (0 × 0!) | [1 **0** 0] |
-
-1. Pick Up element at index 0: nums[0] = 1, use it in permutation and delete it from the list
-
-[2 `1` _]
-
-| nums | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| 3        | 2 = (1 × 2!) + (0 × 1!) + (**0** × 0!) | [1 0 **0**] |
-
-Next coefficient in factorial representation is `0`.
-
-Let's use `nums[0] = 3` in the permutation and then delete it from `nums`.
-
-| nums | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| `3`        | 2 = (1 × 2!) + (0 × 1!) + (**0** × 0!) | [1 0 **0**] |
-
-1. Pick Up element at index 0: nums[0] = 3, use it in permutation and delete it from the list
-
-[2 1 `3`]
-
-
-| nums | Permutation Number | Factorial Number System Representation |
-|------------|--------------------|----------------------------------------|
-| 123        | 0 = (0 × 2!) + (0 × 1!) + (0 × 0!) | [0 0 0] |
+#### **Key Takeaways**
+- **Factorial coefficients index elements dynamically**, accounting for previous selections.
+- **Chosen digits sequentially fill the permutation**, ensuring an efficient `O(n)` computation.
+- **This avoids brute-force generation**, directly determining the `k`th permutation.
