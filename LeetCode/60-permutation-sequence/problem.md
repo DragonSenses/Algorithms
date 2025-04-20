@@ -266,6 +266,16 @@ k = 2 = (1 \times 2!) + (0 \times 1!) + (0 \times 0!)
 
 Thus, the factorial representation of `k = 2` is **`[1, 0, 0]`**.
 
+#### **Step 2: Construct the Permutation Using Factorial Representation**
+Each coefficient in the factorial representation **indexes the element to be selected**,  
+but these indices **update dynamically** as elements are removed.
+
+##### **First Selection (`1st Digit`)**
+- **Coefficient: `1`**
+- Select the **element at index `1`** from `nums = [1, 2, 3]`
+- **Chosen number: `2`**
+- Remove `2` from `nums`
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
