@@ -244,6 +244,19 @@ and the **factorial number system representation** with **bolded coefficients** 
 
 ![](img/60-5.jpg)
 
+#### **Key Takeaways**
+- The **factorial representation indices dynamically update** as elements are removed from the pool.
+- **Selecting digits in order** using the factorial-based indices ensures **efficient construction** of the `k`th permutation **without brute-force enumeration**.
+
+### **Step-by-Step Construction of Permutation from Factorial Representation**
+
+Now that we have the **factorial representation** of the permutation number,  
+we use it to construct the actual permutation **efficiently**.
+
+For this example, we take:
+- **N = 3**, meaning `nums = [1, 2, 3]`
+- **Permutation Number `k = 3`**, which translates to **index `2`** in zero-based numbering.
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
