@@ -285,6 +285,12 @@ Updated permutation:
 
 ![](img/60-6.jpg)
 
+##### **Second Selection (`2nd Digit`)**
+- **Coefficient: `0`**
+- Select the **element at index `0`** from the **updated** `nums = [1, 3]`
+- **Chosen number: `1`**
+- Remove `1` from `nums`
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
