@@ -306,6 +306,15 @@ Updated permutation:
 - **Chosen number: `3`**
 - Remove `3` from `nums`
 
+| Remaining `nums` | Permutation Number | Factorial Number System Representation |
+|------------------|--------------------|----------------------------------------|
+| **3**           | 2 = (1 × 2!) + (0 × 1!) + (**0** × 0!) | [1 0 **0**] |
+
+Final permutation:  
+**`[2 1 3]`**
+
+![](img/60-8.jpg)
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
