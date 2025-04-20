@@ -257,6 +257,15 @@ For this example, we take:
 - **N = 3**, meaning `nums = [1, 2, 3]`
 - **Permutation Number `k = 3`**, which translates to **index `2`** in zero-based numbering.
 
+#### **Step 1: Compute Factorial Representation**
+Using the factorial number system:
+
+\[
+k = 2 = (1 \times 2!) + (0 \times 1!) + (0 \times 0!)
+\]
+
+Thus, the factorial representation of `k = 2` is **`[1, 0, 0]`**.
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
