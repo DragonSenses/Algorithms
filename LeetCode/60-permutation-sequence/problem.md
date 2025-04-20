@@ -300,6 +300,12 @@ Updated permutation:
 
 ![](img/60-7.jpg)
 
+##### **Final Selection (`3rd Digit`)**
+- **Coefficient: `0`**
+- Select the **element at index `0`** from the **updated** `nums = [3]`
+- **Chosen number: `3`**
+- Remove `3` from `nums`
+
 ### Constructing the Permutation from its Factorial Representation
 
 Now that we can **encode permutations** using factorial representation, the next step is to **use this encoded representation to construct the actual permutation** efficiently.
