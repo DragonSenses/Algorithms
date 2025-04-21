@@ -27,7 +27,8 @@ class Solution {
     StringBuilder permutation = new StringBuilder();
 
     for (int i = n; i > 0; i--) {
-      int index = k / factorials[i - 1];
+      int index = k / factorials[i - 1]; // Compute index for factorial selection
+      permutation.append(nums.get(index)); // Add selected number
 
     }
 
