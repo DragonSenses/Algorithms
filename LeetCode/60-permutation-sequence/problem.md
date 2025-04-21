@@ -351,11 +351,29 @@ To generate the `k`th permutation using **factorial-based indexing** instead of 
 6. **Return the Permutation String**  
    - Convert the final ordered list into a string format.
 
+### **Pseudocode**
+
 ```plaintext
 function getPermutation(n, k):
-    # Initialize the input array
-    # Compute factorials for indexing
-    # Convert k to zero-based index
-    # Construct the permutation using factorial representation
-    # Return the final permutation as a concatenated string
+    # Step 1: Initialize the input array
+    nums = [1, 2, ..., n]
+
+    # Step 2: Compute factorials for indexing
+    factorials = [1]
+    For i from 1 to n:
+        factorials[i] = factorials[i - 1] * i
+
+    # Step 3: Convert k to zero-based index
+    k = k - 1
+
+    # Step 4: Construct the permutation using factorial representation
+    permutation = []
+    For i from n down to 1:
+        index = k / factorials[i - 1]  # Determine selection index
+        Append nums[index] to permutation
+        Remove nums[index] from nums  # Ensure unique elements
+        k = k % factorials[i - 1]  # Update k for next selection
+
+    # Step 5: Return the final permutation as a string
+    Return permutation as a concatenated string
 ```
