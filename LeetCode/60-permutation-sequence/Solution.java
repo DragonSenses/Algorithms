@@ -27,7 +27,7 @@ class Solution {
     StringBuilder permutation = new StringBuilder();
 
     for (int i = n; i > 0; i--) {
-      int index = k;
+      int index = k / factorials[i - 1];
 
     }
 
