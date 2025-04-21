@@ -8,7 +8,7 @@ class Solution {
   public String getPermutation(int n, int k) {
     // Generate input list 1 to n
     List<Integer> nums = new ArrayList<>();
-    
+
     for (int i = 1; i <= n; i++) {
       nums.add(i);
     }
@@ -20,5 +20,7 @@ class Solution {
       factorials[i] = factorials[i - 1] * i;
     }
 
+    // Convert k to zero-based index
+    k--;
   }
 }
