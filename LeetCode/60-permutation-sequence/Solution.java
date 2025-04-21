@@ -22,5 +22,14 @@ class Solution {
 
     // Convert k to zero-based index
     k--;
+
+    // Build the permutation using factorial representation
+    StringBuilder permutation = new StringBuilder();
+
+    for (int i = n; i > 0; i--) {
+      int index = k;
+
+    }
+
   }
 }
