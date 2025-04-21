@@ -327,8 +327,29 @@ Final permutation:
 - **Chosen digits sequentially fill the permutation**, ensuring an efficient `O(n)` computation.
 - **This avoids brute-force generation**, directly determining the `k`th permutation.
 
-Goal:
+## **Algorithm**
+
 To generate the `k`th permutation using **factorial-based indexing** instead of brute-force generation. It uses a direct computation approach with factorial representation.
+
+1. **Generate Input Array**  
+   Create an array `nums` containing numbers `[1, 2, ..., N]`.
+
+2. **Compute Factorial Bases**  
+   Precompute all factorial values from `0!` to `(N-1)!` to help determine element selection efficiently.
+
+3. **Adjust `k` to Zero-Based Indexing**  
+   Since permutations are **indexed from `0`** (not `1` as in the problem statement), decrement `k` by **1**.
+
+4. **Compute Factorial Representation of `k`**  
+   - Determine the index of each digit using factorial decomposition.
+   - Remove selected elements from `nums` to ensure uniqueness.
+
+5. **Construct the Permutation Using Factorial Representation**  
+   - Sequentially pick elements indexed by factorial coefficients.
+   - Remove each picked element from `nums` to avoid duplication.
+
+6. **Return the Permutation String**  
+   - Convert the final ordered list into a string format.
 
 ```plaintext
 function getPermutation(n, k):
