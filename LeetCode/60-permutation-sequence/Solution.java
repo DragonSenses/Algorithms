@@ -13,5 +13,8 @@ class Solution {
       nums.add(i);
     }
 
+    int[] factorials = new int[n + 1];
+    factorials[0] = 1;
+
   }
 }
