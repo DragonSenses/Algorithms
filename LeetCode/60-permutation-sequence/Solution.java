@@ -33,5 +33,6 @@ class Solution {
       k %= factorials[i - 1];  // Update k for next selection
     }
 
+  return permutation.toString();
   }
 }
