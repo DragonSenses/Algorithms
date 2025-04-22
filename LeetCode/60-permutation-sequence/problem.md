@@ -377,3 +377,45 @@ function getPermutation(n, k):
     # Step 5: Return the final permutation as a string
     Return permutation as a concatenated string
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+  public String getPermutation(int n, int k) {
+    // Generate input list with numbers [1, 2, ..., n]
+    List<Integer> nums = new ArrayList<>();
+    for (int i = 1; i <= n; i++) {
+      nums.add(i);
+    }
+
+    // Compute factorials from 0! to (N-1)!
+    int[] factorials = new int[n + 1];
+    factorials[0] = 1;
+    for (int i = 1; i <= n; i++) {
+      factorials[i] = factorials[i - 1] * i;
+    }
+
+    // Convert k to zero-based index
+    k--;
+
+    // Build the permutation using factorial representation
+    StringBuilder permutation = new StringBuilder();
+
+    for (int i = n; i > 0; i--) {
+      int index = k / factorials[i - 1]; // Determine which element to pick
+      permutation.append(nums.get(index)); // Add selected number
+      nums.remove(index); // Remove used element to maintain uniqueness
+      k %= factorials[i - 1]; // Update k for next selection
+    }
+
+    return permutation.toString();
+  }
+}
+```
+
