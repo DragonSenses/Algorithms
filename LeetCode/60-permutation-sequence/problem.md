@@ -422,3 +422,12 @@ class Solution {
 ### **Comparison to Brute Force (`O(n!)`)**
 - A brute-force approach that **generates all permutations** and picks the `k`th one requires **O(n!)** time.
 - Our optimized factorial number system method **avoids unnecessary computation**, reducing complexity to **O(n)**.
+
+### **Edge Case Considerations**
+#### **Minimum `n` Value (`n = 1`)**
+- With `n = 1`, there's only **one permutation (`"1"`)** regardless of `k`.
+- The function still runs but effectively returns `"1"` immediately.
+
+#### **Maximum `n` Value (`n = 9`)**
+- Since `9! = 362880`, larger values of `k` can be computationally expensive.
+- However, since the algorithm runs in **O(n)**, it remains efficient even for the largest permissible value.
