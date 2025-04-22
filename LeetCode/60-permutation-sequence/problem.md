@@ -419,3 +419,6 @@ class Solution {
 }
 ```
 
+### **Comparison to Brute Force (`O(n!)`)**
+- A brute-force approach that **generates all permutations** and picks the `k`th one requires **O(n!)** time.
+- Our optimized factorial number system method **avoids unnecessary computation**, reducing complexity to **O(n)**.
