@@ -1,21 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Solution class to find the k-th permutation sequence.
+ */
 class Solution {
-  // @input n = [1, 2, 3, ..., n]
-  // @input k = kth sequence
-  // label permutations in order
-  public String getPermutation(int n, int k) {
-    // Generate input list 1 to n
-    List<Integer> nums = new ArrayList<>();
 
+  /**
+   * Generates the k-th permutation sequence of numbers 1 through n.
+   * 
+   * @param n The range of numbers (1 to n).
+   * @param k The k-th sequence to find.
+   * @return The permutation sequence as a string.
+   */
+  public String getPermutation(int n, int k) {
+    // Generate input list with numbers [1, 2, ..., n]
+    List<Integer> nums = new ArrayList<>();
     for (int i = 1; i <= n; i++) {
       nums.add(i);
     }
 
+    // Compute factorials from 0! to (N-1)!
     int[] factorials = new int[n + 1];
     factorials[0] = 1;
-
     for (int i = 1; i <= n; i++) {
       factorials[i] = factorials[i - 1] * i;
     }
@@ -25,14 +32,18 @@ class Solution {
 
     // Build the permutation using factorial representation
     StringBuilder permutation = new StringBuilder();
-
     for (int i = n; i > 0; i--) {
-      int index = k / factorials[i - 1]; // Compute index for factorial selection
-      permutation.append(nums.get(index)); // Add selected number
-      nums.remove(index);  // Remove used element to maintain uniqueness
-      k %= factorials[i - 1];  // Update k for next selection
+      // Determine which element to pick
+      int index = k / factorials[i - 1];
+      // Add selected number to the permutation
+      permutation.append(nums.get(index));
+      // Remove used element to maintain uniqueness
+      nums.remove(index);
+      // Update k for next selection
+      k %= factorials[i - 1];
     }
 
-  return permutation.toString();
+    // Return the final permutation sequence
+    return permutation.toString();
   }
 }
