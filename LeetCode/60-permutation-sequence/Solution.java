@@ -29,7 +29,7 @@ class Solution {
     for (int i = n; i > 0; i--) {
       int index = k / factorials[i - 1]; // Compute index for factorial selection
       permutation.append(nums.get(index)); // Add selected number
-
+      nums.remove(index);  // Remove used element to maintain uniqueness
     }
 
   }
