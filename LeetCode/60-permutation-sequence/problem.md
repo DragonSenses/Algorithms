@@ -431,3 +431,12 @@ class Solution {
 #### **Maximum `n` Value (`n = 9`)**
 - Since `9! = 362880`, larger values of `k` can be computationally expensive.
 - However, since the algorithm runs in **O(n)**, it remains efficient even for the largest permissible value.
+
+#### **First and Last Permutations (`k = 1`, `k = n!`)**
+- `k = 1`: Returns the **smallest lexicographical permutation** (i.e., `"123...n"`).
+- `k = n!`: Returns the **largest lexicographical permutation** (i.e., `"n...321"`).
+
+#### **Invalid `k` Values (`k < 1` or `k > n!`)**
+- The algorithm assumes `1 ≤ k ≤ n!`, but handling invalid `k` gracefully is necessary.
+- **Solution:** Early validation to prevent out-of-bounds errors.
+
