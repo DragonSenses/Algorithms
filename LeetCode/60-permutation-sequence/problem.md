@@ -5,12 +5,12 @@
 <p>By listing and labeling all of the permutations in order, we get the following sequence for <code>n = 3</code>:</p>
 
 <ol>
-	<li><code>"123"</code></li>
-	<li><code>"132"</code></li>
-	<li><code>"213"</code></li>
-	<li><code>"231"</code></li>
-	<li><code>"312"</code></li>
-	<li><code>"321"</code></li>
+  <li><code>"123"</code></li>
+  <li><code>"132"</code></li>
+  <li><code>"213"</code></li>
+  <li><code>"231"</code></li>
+  <li><code>"312"</code></li>
+  <li><code>"321"</code></li>
 </ol>
 
 <p>Given <code>n</code> and <code>k</code>, return the <code>k<sup>th</sup></code> permutation sequence.</p>
@@ -30,15 +30,16 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 9</code></li>
-	<li><code>1 &lt;= k &lt;= n!</code></li>
+  <li><code>1 &lt;= n &lt;= 9</code></li>
+  <li><code>1 &lt;= k &lt;= n!</code></li>
 </ul>
 
 ---
 
 # Solution
 
-- [Factorial Permutation Indexing Approach](#factorial-permutation-indexing-approach)
+- [Factorial Number System Approach](#factorial-number-system-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Permutation Sequence
 
@@ -117,7 +118,7 @@ Each category has distinct approaches optimized for efficiency.
 
 ### **1. Generating All Permutations**
 - If the order of generated permutations is irrelevant, a **swap-based backtracking** approach efficiently produces all `N!` permutations in **O(N × N!)** time.
-- However, for lexicographically sorted permutations, a better method is **D.E. Knuth’s algorithm**, which efficiently transitions from one permutation to the next in **O(N)** time.
+- However, for lexicographically sorted permutations, a better method is **D.E. Knuth's algorithm**, which efficiently transitions from one permutation to the next in **O(N)** time.
 
 ### **2. Generating the Next Permutation**
 - The **Knuth algorithm** is useful for incrementally obtaining the next permutation from the current one.
@@ -418,6 +419,20 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- **Permutation Size (`n`)**: The permutation consists of `n` distinct elements.
+- **Factorial Representation**: We use the factorial number system to efficiently index and generate permutations.
+
+### **Space Complexity**: `O(n)`
+
+- **Input Array (`nums`)**: We store `n` elements initially, then progressively remove elements as we construct the permutation (**O(n)**).
+- **Factorial Array (`factorials`)**: We store factorial values up to `n!`, requiring **O(n)** space.
+- **Final Output (`permutation`)**: The constructed permutation string has a length of `n`, contributing **O(n)** space.
+
+Since all storage requirements scale linearly with `n`, the **overall space complexity** is **`O(n)`**.
 
 ### **Comparison to Brute Force (`O(n!)`)**
 - A brute-force approach that **generates all permutations** and picks the `k`th one requires **O(n!)** time.
