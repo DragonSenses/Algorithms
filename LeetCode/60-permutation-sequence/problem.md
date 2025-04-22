@@ -39,6 +39,7 @@
 # Solution
 
 - [Factorial Number System Approach](#factorial-number-system-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Permutation Sequence
@@ -425,6 +426,14 @@ class Solution {
 ### **Assumptions**
 - **Permutation Size (`n`)**: The permutation consists of `n` distinct elements.
 - **Factorial Representation**: We use the factorial number system to efficiently index and generate permutations.
+
+### **Time Complexity**: `O(n)`
+
+- **Factorial Precomputation**: We calculate factorial values for `0!` to `(n-1)!` in **O(n)** time.
+- **Element Selection Using Factorial Indexing**: We iterate through `n` positions, selecting elements dynamically in **O(n)** time.
+- **No Brute Force Generation**: Unlike a brute-force approach that generates all `n!` permutations, this method **directly computes** the `k`th permutation in **linear time**.
+
+Thus, the **overall time complexity** is **`O(n)`**, making this approach **significantly faster** than naive solutions.
 
 ### **Space Complexity**: `O(n)`
 
