@@ -13,5 +13,7 @@ function getPermutation(n: number, k: number): string {
 
   // Build the permutation using factorial representation
   let result = "";
-
+  for (let i = n; i > 0; i--) {
+    const index = (k / factorials[i - 1]);
+  }
 };
