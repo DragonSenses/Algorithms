@@ -473,3 +473,29 @@ Since all storage requirements scale linearly with `n`, the **overall space comp
 - The algorithm assumes `1 ≤ k ≤ n!`, but handling invalid `k` gracefully is necessary.
 - **Solution:** Early validation to prevent out-of-bounds errors.
 
+### **Runtime Performance Comparison**
+Let's compare **our optimized approach** to a **naive brute-force method**:
+
+| **Approach**                 | **Time Complexity** | **Space Complexity** | **Performance** |
+|------------------------------|---------------------|----------------------|----------------|
+| **Brute Force (`O(n!)`)**    | `O(n!)`            | `O(n!)`              | **Slow for `n > 9`** |
+| **Optimized Factorial Indexing (`O(n)`)** | `O(n)` | `O(n)` | **Efficient up to `n = 9`** |
+
+#### **Key Observations**
+**Brute Force (`O(n!)`) Approach:**  
+- Generates **all permutations**, then selects the `k`th one.
+- **Extremely inefficient** for larger `n`, impractical beyond `n = 9`.
+
+**Optimized Factorial Indexing (`O(n)`) Approach:**  
+- **Directly computes the `k`th permutation** without generating all permutations.
+- **Scalable and efficient** for all valid `n` values.
+- Uses **factorial division** for selection, eliminating unnecessary computations.
+
+#### **Why Factorial Indexing Wins**
+- Instead of iterating through **n! possibilities**, we **precisely compute each element** in **O(n)** time.
+- This allows **efficient permutation retrieval**, suitable even for large values of `n`.
+
+#### **Summary**
+- **Brute-force enumeration** is impractical for **large `n`** due to exponential time growth.
+- **Factorial-based indexing** provides a direct, efficient solution using **mathematical properties**.
+- Our **O(n) approach** ensures **quick retrieval** of any `k`th permutation **without excessive memory or computation**.
