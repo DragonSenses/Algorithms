@@ -8,4 +8,6 @@ function getPermutation(n: number, k: number): string {
     factorials[i] = factorials[i - 1] * i;
   }
 
+  // Convert k to zero-based index
+  k--;
 };
