@@ -10,4 +10,8 @@ function getPermutation(n: number, k: number): string {
 
   // Convert k to zero-based index
   k--;
+
+  // Build the permutation using factorial representation
+  let result = "";
+
 };
