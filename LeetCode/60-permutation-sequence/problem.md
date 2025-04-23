@@ -132,6 +132,15 @@ This problem is particularly interesting because previous approaches do not dire
   - Backtracking is impractical due to polynomial time complexity requirements.
   - The previous permutation is unknown, making direct application of the Knuth algorithm impossible.
 
+#### **Optimized Approach: Factorial Number System Mapping**
+Instead of generating permutations directly, we **map numbers to permutations** using **Factorial Number System representation**—an encoding technique widely used in cryptography and password-cracking algorithms.
+
+**Example Mapping Strategy**:
+- A **subset** can be represented using a **binary bitmask** (`0` means absence, `1` means presence).
+- A **permutation** can be encoded similarly, using factorial-based indexing.
+
+This allows for direct computation of the desired permutation **without generating all permutations**, leading to an **O(n) solution**.
+
 # Factorial Permutation Indexing Approach
 
 ## **Intuition**
