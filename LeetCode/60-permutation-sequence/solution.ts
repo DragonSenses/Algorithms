@@ -17,5 +17,6 @@ function getPermutation(n: number, k: number): string {
     const index = Math.floor(k / factorials[i - 1]);
     result += nums[index];
     nums.splice(index, 1);
+    k %= factorials[i - 1];
   }
 };
