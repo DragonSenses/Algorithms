@@ -64,6 +64,28 @@ For example, all the following are valid numbers: <code>"2", "0089", "-0.1", "+3
 
 The task is to determine if a given string represents a valid number. A valid number can be an integer or a decimal number, with or without an optional exponent.
 
+### Key Definitions
+
+1. **Integer Number**:
+   - May have an **optional sign** (`'+'` or `'-'`).
+   - Must consist of one or more **digits**.
+   - Can be followed by an **optional exponent**.
+
+2. **Decimal Number**:
+   - May have an **optional sign** (`'+'` or `'-'`).
+   - Must satisfy one of the following formats:
+     - **Digits**, followed by a **dot** (`'.'`).
+     - **Digits**, followed by a **dot** (`'.'`), and then more **digits**.
+     - A **dot** (`'.'`), followed by **digits**.
+   - Can also be followed by an **optional exponent**.
+
+3. **Exponent**:
+   - Denoted by **'e'** or **'E'**.
+   - Must be followed by a valid **integer number**, which itself may have an **optional sign**.
+
+4. **Valid Digits**:
+   - A sequence of one or more characters from `0` to `9`.
+
 ### Input Examples
 
 - **Valid Strings**: `"2"`, `"0089"`, `"-0.1"`, `"+3.14"`, `"4."`, `"-123.456e789"`.
