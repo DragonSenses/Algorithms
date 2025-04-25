@@ -60,6 +60,10 @@ For example, all the following are valid numbers: <code>"2", "0089", "-0.1", "+3
 
 ---
 
+# Solution
+
+- [Rule-Based Validation Approach](#rule-based-validation-approach)
+
 ### Problem Overview: Valid Number
 
 The task is to determine if a given string represents a valid number. A valid number can be an integer or a decimal number, with or without an optional exponent.
@@ -100,3 +104,7 @@ The task is to determine if a given string represents a valid number. A valid nu
   - Decimal point (`'.'`).
   - Exponent notation (`'e'` or `'E'`).
   - English letters (both uppercase and lowercase).
+
+# Rule-Based Validation Approach
+
+This rule-based approach provides a systematic way to validate the input string, ensuring compliance with the specified rules. Each rule acts as a logical filter, progressively confirming or rejecting the validity of the input.
