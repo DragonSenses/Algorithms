@@ -57,3 +57,24 @@ For example, all the following are valid numbers: <code>"2", "0089", "-0.1", "+3
 	<li><code>1 &lt;= s.length &lt;= 20</code></li>
 	<li><code>s</code> consists of only English letters (both uppercase and lowercase), digits (<code>0-9</code>), plus <code>'+'</code>, minus <code>'-'</code>, or dot <code>'.'</code>.</li>
 </ul>
+
+---
+
+### Problem Overview: Valid Number
+
+The task is to determine if a given string represents a valid number. A valid number can be an integer or a decimal number, with or without an optional exponent.
+
+### Input Examples
+
+- **Valid Strings**: `"2"`, `"0089"`, `"-0.1"`, `"+3.14"`, `"4."`, `"-123.456e789"`.
+- **Invalid Strings**: `"abc"`, `"1a"`, `"e3"`, `"--6"`, `"99e2.5"`, `"-+3"`.
+
+### Constraints
+
+- Length of `s` is between **1** and **20**.
+- `s` can include:
+  - **Digits** (`0-9`).
+  - Signs (`'+'` or `'-'`).
+  - Decimal point (`'.'`).
+  - Exponent notation (`'e'` or `'E'`).
+  - English letters (both uppercase and lowercase).
