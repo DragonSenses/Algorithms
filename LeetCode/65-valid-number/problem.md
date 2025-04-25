@@ -105,6 +105,31 @@ The task is to determine if a given string represents a valid number. A valid nu
   - Exponent notation (`'e'` or `'E'`).
   - English letters (both uppercase and lowercase).
 
+### Validation Strategy
+
+1. **Parse Components**:
+   - Separate the string into its parts: sign, digits, decimal point, and exponent.
+   - Ensure each part conforms to its respective definition.
+
+2. **Format Checks**:
+   - Handle edge cases with misplaced or duplicate characters, like multiple signs or misplaced dots.
+
+3. **Edge Cases**:
+   - Strings containing letters outside of valid exponents.
+   - Numbers with incomplete or improper exponents, e.g., `"1e"` or `"e3"`.
+
+### Algorithm Outline
+
+To validate the input:
+1. Check for formatting issues:
+   - Misplaced signs, dots, or exponent notations.
+   - Presence of invalid characters.
+2. Implement a parsing mechanism to verify integer/decimal structure and optional exponent.
+3. Consider edge cases to prevent false positives (e.g., `"1e."` or `"++1"`).
+
 # Rule-Based Validation Approach
 
 This rule-based approach provides a systematic way to validate the input string, ensuring compliance with the specified rules. Each rule acts as a logical filter, progressively confirming or rejecting the validity of the input.
+
+## **Intuition**
+The problem is defined by a clear set of rules. The strategy here is to break the characters into logical groups, define rules for each group, and validate the input string against these rules as we iterate through it. This ensures that each component aligns with the format of a valid number.
