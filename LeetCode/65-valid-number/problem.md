@@ -209,3 +209,9 @@ This algorithm iteratively validates the input string by examining each characte
      - Check if an exponent has already been encountered (`seenExponent == true`). If so, return `false`.
      - Check if no digit has been seen yet (`seenDigit == false`). If so, return `false`.
      - Otherwise, set `seenExponent = true` to mark the presence of an exponent, and reset `seenDigit = false` since a valid integer must follow the exponent.
+
+6. **Dot Check**:
+   - If the current character is a dot (`.`):
+     - Ensure that no other dot has been encountered (`seenDot == false`) and no exponent has been encountered (`seenExponent == false`).
+     - If either condition fails, return `false`.
+     - Otherwise, set `seenDot = true`.
