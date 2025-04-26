@@ -203,3 +203,9 @@ This algorithm iteratively validates the input string by examining each characte
      - The **first character** in the input.
      - Immediately following an exponent (`e` or `E`).
    - If neither condition is true, return `false` as the input is invalid.
+
+5. **Exponent Check**:
+   - If the current character is an exponent (`e` or `E`):
+     - Check if an exponent has already been encountered (`seenExponent == true`). If so, return `false`.
+     - Check if no digit has been seen yet (`seenDigit == false`). If so, return `false`.
+     - Otherwise, set `seenExponent = true` to mark the presence of an exponent, and reset `seenDigit = false` since a valid integer must follow the exponent.
