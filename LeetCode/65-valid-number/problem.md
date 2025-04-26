@@ -133,3 +133,13 @@ This rule-based approach provides a systematic way to validate the input string,
 
 ## **Intuition**
 The problem is defined by a clear set of rules. The strategy here is to break the characters into logical groups, define rules for each group, and validate the input string against these rules as we iterate through it. This ensures that each component aligns with the format of a valid number.
+
+#### **Character Groups and Observations**
+1. **Digits** (`0-9`):
+   - Both **decimal numbers** and **integers** must contain at least one digit.
+
+2. **Sign** (`+` or `-`):
+   - A sign is optional for both decimal numbers and integers.
+   - If present, it must either be:
+     - The **first character** of the number, or
+     - Immediately after an exponent (`e` or `E`).
