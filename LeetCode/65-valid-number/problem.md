@@ -143,3 +143,9 @@ The problem is defined by a clear set of rules. The strategy here is to break th
    - If present, it must either be:
      - The **first character** of the number, or
      - Immediately after an exponent (`e` or `E`).
+
+3. **Exponent** (`e` or `E`):
+   - Optional in a valid number.
+   - If included, it must:
+     - Appear **after** a decimal number or an integer.
+     - Be followed by a valid **integer**.
