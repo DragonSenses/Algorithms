@@ -221,3 +221,9 @@ This algorithm iteratively validates the input string by examining each characte
 
 8. **Final Validation**:
    - After completing the iteration, return the value of `seenDigit`. This ensures that the input contains at least one digit and adheres to the rules.
+
+#### **Key Design Insights**
+- **State Tracking**:
+  - Boolean flags (`seenDigit`, `seenExponent`, `seenDot`) enable dynamic validation during traversal, ensuring compliance with rules in real-time.
+- **Resetting State**:
+  - Resetting `seenDigit` after encountering an exponent ensures that the algorithm correctly validates the new integer following the exponent.
