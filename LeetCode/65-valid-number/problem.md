@@ -149,3 +149,11 @@ The problem is defined by a clear set of rules. The strategy here is to break th
    - If included, it must:
      - Appear **after** a decimal number or an integer.
      - Be followed by a valid **integer**.
+
+4. **Dot** (`.`):
+   - A decimal number can only contain **one** dot.
+   - Integers **cannot** contain dots.
+   - Dots cannot appear **after an exponent**, since exponents only allow integers.
+
+5. **Invalid Characters** (anything else):
+   - Any other character immediately invalidates the number.
