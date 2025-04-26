@@ -254,8 +254,11 @@ FUNCTION isValidNumber(inputString)
             IF seenDot IS true OR seenExponent IS true
                 RETURN false
             SET seenDot = true
-
+        
+        ELSE
+            RETURN false
     END FOR
 
+    RETURN seenDigit
 END FUNCTION
 ```
