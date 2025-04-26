@@ -167,3 +167,8 @@ The problem is defined by a clear set of rules. The strategy here is to break th
      - As the **first character**.
      - Immediately following an exponent.
    - Any other position for a sign makes the number invalid.
+
+3. **Exponents** (`e` or `E`):
+   - There can be **at most one** exponent. Use a variable (`seenExponent`) to track this.
+   - Exponents must follow a valid decimal number or integer. If no digit is seen before an exponent, the input is invalid.
+   - The exponent must be followed by a valid integer.
