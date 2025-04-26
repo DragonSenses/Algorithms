@@ -157,3 +157,13 @@ The problem is defined by a clear set of rules. The strategy here is to break th
 
 5. **Invalid Characters** (anything else):
    - Any other character immediately invalidates the number.
+
+#### **Rules for Validation**
+1. **Digits**:
+   - At least one digit must be present in the input. Use a variable (`seenDigit`) to track whether a digit has been encountered.
+
+2. **Signs**:
+   - Signs can appear only:
+     - As the **first character**.
+     - Immediately following an exponent.
+   - Any other position for a sign makes the number invalid.
