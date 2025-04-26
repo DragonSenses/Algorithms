@@ -197,3 +197,9 @@ This algorithm iteratively validates the input string by examining each characte
 
 3. **Digit Check**:
    - If the current character is a digit, set `seenDigit = true` to indicate that a valid digit exists in the input.
+
+4. **Sign Check**:
+   - If the current character is a sign (`+` or `-`), ensure it is either:
+     - The **first character** in the input.
+     - Immediately following an exponent (`e` or `E`).
+   - If neither condition is true, return `false` as the input is invalid.
