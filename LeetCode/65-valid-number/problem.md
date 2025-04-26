@@ -172,3 +172,10 @@ The problem is defined by a clear set of rules. The strategy here is to break th
    - There can be **at most one** exponent. Use a variable (`seenExponent`) to track this.
    - Exponents must follow a valid decimal number or integer. If no digit is seen before an exponent, the input is invalid.
    - The exponent must be followed by a valid integer.
+
+4. **Dots** (`.`):
+   - At most **one dot** is allowed. Use a variable (`seenDot`) to track this.
+   - Dots cannot appear after an exponent. If a dot is found after an exponent, the input is invalid.
+
+5. **Other Characters**:
+   - Encountering anything outside of these groups (digits, signs, exponents, dots) instantly invalidates the input.
