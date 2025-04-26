@@ -236,5 +236,11 @@ FUNCTION isValidNumber(inputString)
     INITIALIZE seenExponent AS false
     INITIALIZE seenDot AS false
 
+    FOR each character IN inputString
+        IF character IS a digit
+            SET seenDigit = true
+
+    END FOR
+
 END FUNCTION
 ```
