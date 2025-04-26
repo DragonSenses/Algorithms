@@ -250,6 +250,11 @@ FUNCTION isValidNumber(inputString)
             SET seenExponent = true
             SET seenDigit = false
         
+        ELSE IF character IS '.'
+            IF seenDot IS true OR seenExponent IS true
+                RETURN false
+            SET seenDot = true
+
     END FOR
 
 END FUNCTION
