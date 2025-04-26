@@ -179,3 +179,14 @@ The problem is defined by a clear set of rules. The strategy here is to break th
 
 5. **Other Characters**:
    - Encountering anything outside of these groups (digits, signs, exponents, dots) instantly invalidates the input.
+
+## **Algorithm**
+
+This algorithm iteratively validates the input string by examining each character, determining its type (digit, sign, exponent, dot, or invalid), and ensuring it adheres to the rules outlined previously. It uses flags to track key states during the iteration, providing a logical framework for evaluating validity.
+
+#### **Step-by-Step Procedure**
+1. **Initialization**:
+   - Declare three boolean variables:
+     - `seenDigit`: Tracks if at least one valid digit has been encountered.
+     - `seenExponent`: Tracks if an exponent (`e` or `E`) has been encountered.
+     - `seenDot`: Tracks if a dot (`.`) has been encountered.
