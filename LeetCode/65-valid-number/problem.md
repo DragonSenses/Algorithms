@@ -215,3 +215,6 @@ This algorithm iteratively validates the input string by examining each characte
      - Ensure that no other dot has been encountered (`seenDot == false`) and no exponent has been encountered (`seenExponent == false`).
      - If either condition fails, return `false`.
      - Otherwise, set `seenDot = true`.
+
+7. **Invalid Characters**:
+   - If any other character is encountered (not a digit, sign, exponent, or dot), return `false` as the input is invalid.
