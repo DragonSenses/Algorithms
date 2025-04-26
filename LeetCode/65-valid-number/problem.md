@@ -239,6 +239,11 @@ FUNCTION isValidNumber(inputString)
     FOR each character IN inputString
         IF character IS a digit
             SET seenDigit = true
+        
+        ELSE IF character IS '+' OR '-'
+            IF NOT (character IS first OR previous character IS 'e' OR 'E')
+                RETURN false
+        
 
     END FOR
 
