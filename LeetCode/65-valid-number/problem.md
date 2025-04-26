@@ -227,3 +227,14 @@ This algorithm iteratively validates the input string by examining each characte
   - Boolean flags (`seenDigit`, `seenExponent`, `seenDot`) enable dynamic validation during traversal, ensuring compliance with rules in real-time.
 - **Resetting State**:
   - Resetting `seenDigit` after encountering an exponent ensures that the algorithm correctly validates the new integer following the exponent.
+
+  ### **Pseudocode**
+
+```plaintext
+FUNCTION isValidNumber(inputString)
+    INITIALIZE seenDigit AS false
+    INITIALIZE seenExponent AS false
+    INITIALIZE seenDot AS false
+
+END FUNCTION
+```
