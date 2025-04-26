@@ -218,3 +218,6 @@ This algorithm iteratively validates the input string by examining each characte
 
 7. **Invalid Characters**:
    - If any other character is encountered (not a digit, sign, exponent, or dot), return `false` as the input is invalid.
+
+8. **Final Validation**:
+   - After completing the iteration, return the value of `seenDigit`. This ensures that the input contains at least one digit and adheres to the rules.
