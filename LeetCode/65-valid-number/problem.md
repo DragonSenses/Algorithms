@@ -244,7 +244,12 @@ FUNCTION isValidNumber(inputString)
             IF NOT (character IS first OR previous character IS 'e' OR 'E')
                 RETURN false
         
-
+        ELSE IF character IS 'e' OR 'E'
+            IF seenExponent IS true OR seenDigit IS false
+                RETURN false
+            SET seenExponent = true
+            SET seenDigit = false
+        
     END FOR
 
 END FUNCTION
