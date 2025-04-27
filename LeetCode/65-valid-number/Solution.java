@@ -16,6 +16,12 @@ class Solution {
           return false;
         }
       }
+
+      if (curr == 'e' || curr == 'E') {
+        if (seenExponent || !seenDigit) {
+          return false;
+        }
+      }
     }
   }
 }
