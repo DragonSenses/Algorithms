@@ -25,6 +25,13 @@ class Solution {
         seenExponent = true;
         seenDigit = false;
       }
+
+      if (curr == '.') {
+        if (seenDot || seenExponent) {
+          return false;
+        }
+        seenDot = true;
+      }
     }
   }
 }
