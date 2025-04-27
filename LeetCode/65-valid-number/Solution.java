@@ -21,6 +21,9 @@ class Solution {
         if (seenExponent || !seenDigit) {
           return false;
         }
+        // Set exponent and reset digit
+        seenExponent = true;
+        seenDigit = false;
       }
     }
   }
