@@ -12,7 +12,7 @@ class Solution {
       }
 
       if (curr == '+' || curr == '-') {
-        if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i-1) != 'E') {
+        if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
           return false;
         }
       }
@@ -31,6 +31,12 @@ class Solution {
           return false;
         }
         seenDot = true;
+      }
+
+      // Handle invalid characters
+      if (!Character.isDigit(curr) && curr != '+' && curr != '-' && curr != 'e' && curr != 'E'
+          && curr != '.') {
+        return false;
       }
     }
   }
