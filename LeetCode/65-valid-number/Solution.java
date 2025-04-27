@@ -10,6 +10,12 @@ class Solution {
       if (Character.isDigit(curr)) {
         seenDigit = true;
       }
+
+      if (curr == '+' || curr == '-') {
+        if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i-1) != 'E') {
+          return false;
+        }
+      }
     }
   }
 }
