@@ -9,33 +9,24 @@ class Solution {
 
       if (Character.isDigit(curr)) {
         seenDigit = true;
-      }
-
-      if (curr == '+' || curr == '-') {
+      } else if (curr == '+' || curr == '-') {
         if (i > 0 && s.charAt(i - 1) != 'e' && s.charAt(i - 1) != 'E') {
           return false;
         }
-      }
-
-      if (curr == 'e' || curr == 'E') {
+      } else if (curr == 'e' || curr == 'E') {
         if (seenExponent || !seenDigit) {
           return false;
         }
         // Set exponent and reset digit
         seenExponent = true;
         seenDigit = false;
-      }
-
-      if (curr == '.') {
+      } else if (curr == '.') {
         if (seenDot || seenExponent) {
           return false;
         }
         seenDot = true;
-      }
-
-      // Handle invalid characters
-      if (!Character.isDigit(curr) && curr != '+' && curr != '-' && curr != 'e' && curr != 'E'
-          && curr != '.') {
+      } else {
+        // Invalid character
         return false;
       }
     }
