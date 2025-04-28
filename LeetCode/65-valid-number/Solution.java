@@ -30,5 +30,7 @@ class Solution {
         return false;
       }
     }
+    
+    return seenDigit;
   }
 }
