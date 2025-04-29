@@ -12,6 +12,10 @@ function isNumber(s: string): boolean {
       if (i > 0 && s[i-1] !== 'e' && s[i-1] !== 'E') {
         return false;
       }
+    } else if (curr === 'e' || curr === 'E') {
+      if (seenExponent || !seenDigit) {
+        return false;
+      }
     }
   }
 };
