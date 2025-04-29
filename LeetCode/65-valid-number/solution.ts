@@ -1,4 +1,8 @@
 function isNumber(s: string): boolean {
+  if (s.length === 0) { 
+    return false;
+  }
+
   let seenDigit = false;
   let seenExponent = false;
   let seenDot = false;
