@@ -8,6 +8,10 @@ function isNumber(s: string): boolean {
 
     if (curr >= '0' && curr <= '9') {
       seenDigit = true;
+    } else if (curr === '+' || curr === '-') {
+      if (i > 0 && s[i-1] !== 'e' && s[i-1] !== 'E') {
+        return false;
+      }
     }
   }
 };
