@@ -18,6 +18,11 @@ function isNumber(s: string): boolean {
       }
       seenExponent = true;
       seenDigit = false;
+    } else if (curr === '.') {
+      if (seenDot || seenExponent) {
+        return false;
+      }
+      seenDot = true;
     }
   }
 };
