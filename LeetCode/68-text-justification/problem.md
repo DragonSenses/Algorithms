@@ -65,6 +65,28 @@ Note that the second line is also left-justified because it contains only one wo
 
 ---
 
+## **Problem Overview: Text Justification**
+
+The task requires formatting a given array of strings (`words`) into lines that fit a specified width (`maxWidth`). Each line must follow strict justification rules to ensure aesthetic and readable text alignment.
+
+### Problem Details
+1. **Line Formatting**:
+   - Each line must have **exactly `maxWidth` characters**.
+   - Extra spaces (`' '`) should be added between words to ensure full justification (both left and right edges aligned).
+
+2. **Space Distribution**:
+   - Spaces should be distributed **as evenly as possible** between words.
+   - If the number of spaces does not divide evenly, **more spaces are assigned to slots on the left**.
+
+3. **Last Line**:
+   - The last line must be **left-justified** without inserting extra spaces between words.
+
+### Constraints
+- `1 <= words.length <= 300`
+- `1 <= words[i].length <= 20`
+- `1 <= maxWidth <= 100`
+- Words consist of English letters and symbols.
+
 ### Example Inputs and Outputs
 #### Example 1:
 **Input**:
