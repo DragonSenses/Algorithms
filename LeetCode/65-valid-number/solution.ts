@@ -5,5 +5,9 @@ function isNumber(s: string): boolean {
 
   for (let i = 0; i < s.length; i++) {
     const curr = s[i];
+
+    if (curr >= '0' && curr <= '9') {
+      seenDigit = true;
+    }
   }
 };
