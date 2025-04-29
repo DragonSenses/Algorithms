@@ -63,6 +63,7 @@ For example, all the following are valid numbers: <code>"2", "0089", "-0.1", "+3
 # Solution
 
 - [Rule-Based Validation Approach](#rule-based-validation-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Valid Number
 
@@ -316,3 +317,7 @@ class Solution {
 - Let `n` represent the length of the input string `s`.
 - Each character in the string is accessed and processed individually in a single pass.
 - The algorithm uses a small, constant number of boolean variables (`seenDigit`, `seenExponent`, `seenDot`) to track state.
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: The algorithm only uses a fixed number of boolean variables (`seenDigit`, `seenExponent`, and `seenDot`) to track validation states, regardless of the input size.
+- **No Additional Structures**: The input string is processed directly without requiring extra data structures, ensuring constant memory usage.
