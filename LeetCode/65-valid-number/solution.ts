@@ -28,4 +28,6 @@ function isNumber(s: string): boolean {
       return false;
     }
   }
+
+  return seenDigit;
 };
