@@ -23,6 +23,9 @@ function isNumber(s: string): boolean {
         return false;
       }
       seenDot = true;
+    } else {
+      // Any character outside valid ones makes the string invalid
+      return false;
     }
   }
 };
