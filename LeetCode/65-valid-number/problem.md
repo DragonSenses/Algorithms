@@ -312,6 +312,53 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+```ts
+function isNumber(s: string): boolean {
+  if (s.length === 0) {
+    return false;
+  }
+
+  let seenDigit = false; // Tracks if at least one digit has been encountered
+  let seenExponent = false; // Tracks if an exponent has been encountered
+  let seenDot = false; // Tracks if a dot has been encountered
+
+  for (let i = 0; i < s.length; i++) {
+    const curr = s[i];
+
+    if (curr >= "0" && curr <= "9") {
+      // A digit is valid, mark it as seen
+      seenDigit = true;
+    } else if (curr === "+" || curr === "-") {
+      // A sign is valid only at the start or immediately after an exponent
+      if (i > 0 && s[i - 1] !== "e" && s[i - 1] !== "E") {
+        return false;
+      }
+    } else if (curr === "e" || curr === "E") {
+      // An exponent is valid only if one hasn't been seen already and digits exist before it
+      if (seenExponent || !seenDigit) {
+        return false;
+      }
+      seenExponent = true;
+      seenDigit = false; // Reset digit tracking for the integer part after the exponent
+    } else if (curr === ".") {
+      // A dot is valid only if one hasn't been seen already and it appears before an exponent
+      if (seenDot || seenExponent) {
+        return false;
+      }
+      seenDot = true;
+    } else {
+      // Any character outside valid ones makes the string invalid
+      return false;
+    }
+  }
+
+  // At the end, ensure that at least one digit was seen
+  return seenDigit;
+}
+```
+
 ## **Complexity Analysis**
 
 ### **Assumptions**
