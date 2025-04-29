@@ -16,6 +16,8 @@ function isNumber(s: string): boolean {
       if (seenExponent || !seenDigit) {
         return false;
       }
+      seenExponent = true;
+      seenDigit = false;
     }
   }
 };
