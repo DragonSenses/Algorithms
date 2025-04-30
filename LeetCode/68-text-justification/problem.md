@@ -154,3 +154,22 @@ Text Justification is a problem on LeetCode that doesn't require complex algorit
 2. **Focus on Clean Implementation**:
    - The challenge lies in breaking the task into manageable subtasks and solving them methodically.
    - Writing clean, modular code is essential to handle the intricacies and moving parts.
+
+### Challenges and Insights
+1. **Annoyance vs. Difficulty**:
+   - The problem can be frustrating due to its multiple moving parts that are sometimes unrelated.
+   - Managing these dependencies without introducing errors can be tricky but rewarding.
+
+2. **Modularity**:
+   - Splitting the task into subtasks improves code readability and reduces complexity.
+   - Helper functions can isolate and address each part of the problem independently.
+
+### Suggested Approach
+To solve the problem efficiently:
+1. **Split the Task into Two Subtasks**:
+   - **Subtask 1**: Determine which words should fit on each line.
+   - **Subtask 2**: Use the words from Subtask 1 to generate the justified line of text.
+
+2. **Iterative Refinement**:
+   - Handle lines one at a time, adhering to the constraints of `maxWidth`.
+   - Ensure proper spacing distribution and manage edge cases like the last line separately.
