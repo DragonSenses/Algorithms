@@ -203,3 +203,10 @@ To decide which words fit on a line while adhering to the `maxWidth` constraint:
 
 4. **Process**:
    - Use a while loop to repeatedly add words until no further words can fit without exceeding `maxWidth`.
+
+### Part 2: Constructing the Justified Line
+Once the words for a line are determined, transform them into a justified string:
+1. **Key Requirements**:
+   - The resulting line must be exactly `maxWidth` characters long.
+   - Add extra spaces to evenly distribute them between words.
+   - Left-justify the final line, avoiding extra spaces between words.
