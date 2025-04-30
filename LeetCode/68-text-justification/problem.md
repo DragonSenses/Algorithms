@@ -65,6 +65,10 @@ Note that the second line is also left-justified because it contains only one wo
 
 ---
 
+# Solution
+
+- [Greedy Modular Line Building Approach](#greedy-modular-line-building-approach)
+
 ## **Problem Overview: Text Justification**
 
 The task requires formatting a given array of strings (`words`) into lines that fit a specified width (`maxWidth`). Each line must follow strict justification rules to ensure aesthetic and readable text alignment.
@@ -173,3 +177,9 @@ To solve the problem efficiently:
 2. **Iterative Refinement**:
    - Handle lines one at a time, adhering to the constraints of `maxWidth`.
    - Ensure proper spacing distribution and manage edge cases like the last line separately.
+
+# Greedy Modular Line Building Approach
+
+Greedy Modular Line Building has two core aspects:
+1. **Greedy**: Words are packed into each line by maximizing the fit without exceeding `maxWidth`.
+2. **Modular**: The task is divided into subtasks (determining words for a line and constructing the justified line), enhancing readability and maintainability. 
