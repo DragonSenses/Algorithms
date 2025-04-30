@@ -137,3 +137,20 @@ The problem suggests using a **greedy algorithm**:
  "everything else we",
  "do                 "]
 ```
+
+## Problem-Solving Approach: Text Justification
+
+This problem combines **string manipulation** with **space management** and challenges us to design efficient text alignment logic for clear, readable output.
+
+### Overview
+Text Justification is a problem on LeetCode that doesn't require complex algorithms or data structures. Instead, it focuses on adhering closely to the problem statement and delivering clean, well-organized code while tackling edge cases effectively.
+
+### Characteristics of the Problem
+1. **Practical Nature**:
+   - This problem is more representative of a real-life task than a typical algorithmic challenge.
+   - It emphasizes structured thinking and edge case management over advanced computational techniques.
+   - Similar problems include *Valid Number*, which also tests implementation accuracy for practical tasks.
+
+2. **Focus on Clean Implementation**:
+   - The challenge lies in breaking the task into manageable subtasks and solving them methodically.
+   - Writing clean, modular code is essential to handle the intricacies and moving parts.
