@@ -214,3 +214,8 @@ Once the words for a line are determined, transform them into a justified string
 2. **Calculations**:
    - Compute the minimum line length (`baseLength`) by summing `word.length + 1` for all words, except for the last word, which adds only `word.length`. Initialize `baseLength = -1` to exclude the unnecessary trailing space.
    - Calculate the required extra spaces as: `extraSpaces = maxWidth - baseLength`.
+
+3. **Space Distribution**:
+   - Set `wordCount` as the number of spaces needed between words (`line.length - 1`).
+   - Calculate how many spaces each word should receive as `spacesPerWord = extraSpaces / wordCount` (floor division).
+   - Determine the number of words on the left needing an additional space using `needsExtraSpaces = extraSpaces % wordCount`.
