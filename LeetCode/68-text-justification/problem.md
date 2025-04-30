@@ -194,4 +194,12 @@ To decide which words fit on a line while adhering to the `maxWidth` constraint:
 2. **Core Idea**:
    - Add as many words as possible to maximize the line length without exceeding `maxWidth`.
    - Each word, except the last on the line, requires a space after it. For this reason, the line length calculation considers `word.length + 1` for all words except the final one.
+   
+3. **Implementation**:
+   - Use a variable `currLength` to track the current length of the line.
+   - Evaluate whether the current word `words[i]` can fit by verifying the condition: `currLength + words[i].length <= maxWidth`.
+   - If the word fits, update `currLength` by adding `words[i].length + 1` to account for its length and the space after it.
+   - The `+1` for spacing is valid because it ensures readiness for evaluating the next word. If there are no further words, the spacing is irrelevant since the line will end.
+
+4. **Process**:
    - Use a while loop to repeatedly add words until no further words can fit without exceeding `maxWidth`.
