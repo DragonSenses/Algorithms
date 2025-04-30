@@ -81,11 +81,22 @@ The task requires formatting a given array of strings (`words`) into lines that 
 3. **Last Line**:
    - The last line must be **left-justified** without inserting extra spaces between words.
 
+### Notes
+- A **word** is defined as a sequence of non-space characters.
+- Each word length is guaranteed to be greater than `0` and not exceed `maxWidth`.
+- The array `words` contains at least one word.
+
 ### Constraints
 - `1 <= words.length <= 300`
 - `1 <= words[i].length <= 20`
 - `1 <= maxWidth <= 100`
 - Words consist of English letters and symbols.
+
+### Approach
+The problem suggests using a **greedy algorithm**:
+1. **Pack words into lines**: Add as many words as possible into a single line without exceeding `maxWidth`.
+2. **Distribute spaces**: Adjust spaces to achieve full justification.
+3. **Handle the last line**: Ensure proper left justification.
 
 ### Example Inputs and Outputs
 #### Example 1:
