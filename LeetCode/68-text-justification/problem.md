@@ -210,3 +210,7 @@ Once the words for a line are determined, transform them into a justified string
    - The resulting line must be exactly `maxWidth` characters long.
    - Add extra spaces to evenly distribute them between words.
    - Left-justify the final line, avoiding extra spaces between words.
+
+2. **Calculations**:
+   - Compute the minimum line length (`baseLength`) by summing `word.length + 1` for all words, except for the last word, which adds only `word.length`. Initialize `baseLength = -1` to exclude the unnecessary trailing space.
+   - Calculate the required extra spaces as: `extraSpaces = maxWidth - baseLength`.
