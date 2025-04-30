@@ -183,3 +183,7 @@ To solve the problem efficiently:
 Greedy Modular Line Building has two core aspects:
 1. **Greedy**: Words are packed into each line by maximizing the fit without exceeding `maxWidth`.
 2. **Modular**: The task is divided into subtasks (determining words for a line and constructing the justified line), enhancing readability and maintainability. 
+
+## **Intuition**
+
+To decide which words fit on a line while adhering to the `maxWidth` constraint: Add as many words as possible to maximize the line length without exceeding `maxWidth`. Each word, except the last on the line, requires a space after it. For this reason, the line length calculation considers `word.length + 1` for all words except the final one. Use a while loop to repeatedly add words until no further words can fit without exceeding `maxWidth`.
