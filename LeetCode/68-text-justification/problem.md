@@ -186,4 +186,12 @@ Greedy Modular Line Building has two core aspects:
 
 ## **Intuition**
 
-To decide which words fit on a line while adhering to the `maxWidth` constraint: Add as many words as possible to maximize the line length without exceeding `maxWidth`. Each word, except the last on the line, requires a space after it. For this reason, the line length calculation considers `word.length + 1` for all words except the final one. Use a while loop to repeatedly add words until no further words can fit without exceeding `maxWidth`.
+### Part 1: Determining Which Words Fit on a Line
+To decide which words fit on a line while adhering to the `maxWidth` constraint:
+1. **Helper Function**:
+   - Define a method `getWords(int i)` that starts at index `i` in the `words` array and identifies which words can fit on the current line. The result is a subarray of `words` starting from `words[i]`.
+   
+2. **Core Idea**:
+   - Add as many words as possible to maximize the line length without exceeding `maxWidth`.
+   - Each word, except the last on the line, requires a space after it. For this reason, the line length calculation considers `word.length + 1` for all words except the final one.
+   - Use a while loop to repeatedly add words until no further words can fit without exceeding `maxWidth`.
