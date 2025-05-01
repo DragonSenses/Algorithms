@@ -219,3 +219,8 @@ Once the words for a line are determined, transform them into a justified string
    - Set `wordCount` as the number of spaces needed between words (`line.length - 1`).
    - Calculate how many spaces each word should receive as `spacesPerWord = extraSpaces / wordCount` (floor division).
    - Determine the number of words on the left needing an additional space using `needsExtraSpaces = extraSpaces % wordCount`.
+
+4. **Formatting the Line**:
+   - Iterate through the leftmost `needsExtraSpaces` words, adding one additional space to their gap.
+   - Add the calculated `spacesPerWord` to all necessary gaps.
+   - Join the words in the `line` list with spaces as the delimiter and pad the string to `maxWidth` as needed.
