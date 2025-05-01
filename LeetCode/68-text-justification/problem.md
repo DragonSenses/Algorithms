@@ -285,4 +285,16 @@ FUNCTION fullJustify(words, maxWidth):
  SET i = 0
  RETURN ans
 
+
+FUNCTION getWords(startIndex, words, maxWidth):
+ INITIALIZE currentLine as empty list
+ SET currLength = 0
+
+ WHILE startIndex < length(words) AND currLength + length(words[startIndex]) <= maxWidth:
+   APPEND words[startIndex] to currentLine
+   UPDATE currLength = currLength + length(words[startIndex]) + 1
+   INCREMENT startIndex
+
+ RETURN currentLine
+
 ```
