@@ -251,3 +251,28 @@ Once the words for a line are determined, transform them into a justified string
 2. **`createLine(line, i)`**:
    - Constructs the justified line from the given `line` of words.
    - Formats it according to the rules: full justification for normal lines and left justification for the final line.
+
+### Step 2: Initialize Variables
+1. Create an empty list `ans` to store the resulting justified lines.
+2. Set an integer `i = 0` to track the current position in the `words` array.
+
+### Step 3: Process Words Using a Loop
+Use a `while` loop to iterate over the `words` array and handle each line independently:
+1. **Condition**: Continue the loop while `i < words.length`.
+2. **Steps in Each Iteration**:
+   - Call `getWords(i)` to determine the words for the current line:
+     ```plaintext
+     currentLine = getWords(i)
+     ```
+   - Increment `i` by the number of words included in `currentLine`:
+     ```plaintext
+     i += currentLine.length
+     ```
+   - Use `createLine(currentLine, i)` to format the justified line:
+     ```plaintext
+     justifiedLine = createLine(currentLine, i)
+     ```
+   - Add the resulting `justifiedLine` to the answer list `ans`:
+     ```plaintext
+     ans.append(justifiedLine)
+     ```
