@@ -297,4 +297,14 @@ FUNCTION getWords(startIndex, words, maxWidth):
 
  RETURN currentLine
 
+
+FUNCTION createLine(line, currentIndex, words, maxWidth):
+  IF currentIndex == length(words) OR size(line) == 1:
+    # Left-justified (final line or single-word line)
+    SET justifiedString = JOIN(line, " ")
+    WHILE length(justifiedString) < maxWidth:
+        APPEND " " to justifiedString
+    RETURN justifiedString
+
+  RETURN justifiedString
 ```
