@@ -242,3 +242,12 @@ Once the words for a line are determined, transform them into a justified string
 2. **Initialization**: Prepare the storage and tracking variables.
 3. **Loop Through Words**: Process one line at a time, adding the justified result to the answer.
 4. **Output**: Return the final list of justified lines for display.
+
+### Step 1: Define Helper Methods
+1. **`getWords(i)`**:
+   - Determines which words should be included on the current line starting from index `i`.
+   - Returns a subarray of `words` that fits within the `maxWidth`.
+
+2. **`createLine(line, i)`**:
+   - Constructs the justified line from the given `line` of words.
+   - Formats it according to the rules: full justification for normal lines and left justification for the final line.
