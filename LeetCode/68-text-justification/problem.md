@@ -235,3 +235,10 @@ Once the words for a line are determined, transform them into a justified string
 
 3. **Division by Zero**:
    - To avoid errors, ensure `wordCount` is greater than `0`. For lines with only one word, skip the extra space calculations.
+
+## **Algorithm**
+
+1. **Helper Methods**: Modularize the logic for determining words (`getWords`) and constructing lines (`createLine`).
+2. **Initialization**: Prepare the storage and tracking variables.
+3. **Loop Through Words**: Process one line at a time, adding the justified result to the answer.
+4. **Output**: Return the final list of justified lines for display.
