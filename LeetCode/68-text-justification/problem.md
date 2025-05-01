@@ -276,3 +276,9 @@ Use a `while` loop to iterate over the `words` array and handle each line indepe
      ```plaintext
      ans.append(justifiedLine)
      ```
+
+### Step 4: Return the Results
+Return the completed `ans` list, which contains all the justified lines:
+```plaintext
+return ans
+```
