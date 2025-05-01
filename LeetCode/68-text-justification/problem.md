@@ -238,47 +238,41 @@ Once the words for a line are determined, transform them into a justified string
 
 ## **Algorithm**
 
-1. **Helper Methods**: Modularize the logic for determining words (`getWords`) and constructing lines (`createLine`).
-2. **Initialization**: Prepare the storage and tracking variables.
-3. **Loop Through Words**: Process one line at a time, adding the justified result to the answer.
-4. **Output**: Return the final list of justified lines for display.
+### **Overview**
+To efficiently construct justified text, we divide the solution into distinct steps using helper methods. These modular functions enhance readability and maintainability.
 
-### Step 1: Define Helper Methods
-1. **`getWords(i)`**:
-   - Determines which words should be included on the current line starting from index `i`.
-   - Returns a subarray of `words` that fits within the `maxWidth`.
+### **Step 1: Define Helper Methods**
+1. **`getWords(i)`** – Determines which words fit in the current line, starting from index `i`. It returns a subarray of `words` that does not exceed `maxWidth`.  
+2. **`createLine(line, i)`** – Formats a justified line from the selected words:
+   - Normal lines are fully justified.
+   - The final line is left-justified.
 
-2. **`createLine(line, i)`**:
-   - Constructs the justified line from the given `line` of words.
-   - Formats it according to the rules: full justification for normal lines and left justification for the final line.
+### **Step 2: Initialize Variables**
+1. **Result Storage** – Create an empty list `ans` to store the final justified lines.
+2. **Tracking Index** – Set an integer `i = 0` to track the current position in `words`.
 
-### Step 2: Initialize Variables
-1. Create an empty list `ans` to store the resulting justified lines.
-2. Set an integer `i = 0` to track the current position in the `words` array.
+### **Step 3: Process Words Using a Loop**
+Use a `while` loop to iterate through `words`, handling each line one at a time.
 
-### Step 3: Process Words Using a Loop
-Use a `while` loop to iterate over the `words` array and handle each line independently:
-1. **Condition**: Continue the loop while `i < words.length`.
-2. **Steps in Each Iteration**:
-   - Call `getWords(i)` to determine the words for the current line:
-     ```plaintext
-     currentLine = getWords(i)
+1. **Loop Condition** – Continue processing while `i < words.length`.  
+2. **Iteration Steps**:
+   - **Extract words for the current line**:
+     ```java
+     currentLine = getWords(i);
      ```
-   - Increment `i` by the number of words included in `currentLine`:
-     ```plaintext
-     i += currentLine.length
+   - **Advance tracking index** (`i += currentLine.length`) to move past processed words.
+   - **Format the extracted words into a justified line**:
+     ```java
+     justifiedLine = createLine(currentLine, i);
      ```
-   - Use `createLine(currentLine, i)` to format the justified line:
-     ```plaintext
-     justifiedLine = createLine(currentLine, i)
-     ```
-   - Add the resulting `justifiedLine` to the answer list `ans`:
-     ```plaintext
-     ans.append(justifiedLine)
+   - **Store the formatted result**:
+     ```java
+     ans.append(justifiedLine);
      ```
 
-### Step 4: Return the Results
-Return the completed `ans` list, which contains all the justified lines:
-```plaintext
-return ans
+### **Step 4: Return the Final Output**
+Return the fully justified text as a list of strings:
+
+```java
+return ans;
 ```
