@@ -276,3 +276,13 @@ Return the fully justified text as a list of strings:
 ```java
 return ans;
 ```
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION fullJustify(words, maxWidth):
+ INITIALIZE ans as empty list
+ SET i = 0
+ RETURN ans
+
+```
