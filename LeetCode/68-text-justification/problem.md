@@ -224,3 +224,14 @@ Once the words for a line are determined, transform them into a justified string
    - Iterate through the leftmost `needsExtraSpaces` words, adding one additional space to their gap.
    - Add the calculated `spacesPerWord` to all necessary gaps.
    - Join the words in the `line` list with spaces as the delimiter and pad the string to `maxWidth` as needed.
+
+### Special Cases
+1. **Final Line**:
+   - Final lines should always be left-justified.
+   - Words are joined with a single space as a delimiter, and remaining spaces are appended to the end of the string.
+
+2. **Single-Word Lines**:
+   - Single-word lines are treated like final lines, as no spaces are needed between words.
+
+3. **Division by Zero**:
+   - To avoid errors, ensure `wordCount` is greater than `0`. For lines with only one word, skip the extra space calculations.
