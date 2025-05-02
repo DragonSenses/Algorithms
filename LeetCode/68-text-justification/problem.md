@@ -317,5 +317,15 @@ FUNCTION createLine(line, currentIndex, words, maxWidth):
   SET spacesPerWord = extraSpaces / wordCount  # Floor division
   SET needsExtraSpaces = extraSpaces % wordCount  # Leftover spaces for leftmost gaps
 
+  # Build fully justified line
+  INITIALIZE justifiedString as empty
+  FOR each index in range(0, size(line)):
+    APPEND line[index] to justifiedString
+    IF index < wordCount:
+        FOR k in range(0, spacesPerWord):
+            APPEND " " to justifiedString
+        IF index < needsExtraSpaces:
+            APPEND " " to justifiedString
+
   RETURN justifiedString
 ```
