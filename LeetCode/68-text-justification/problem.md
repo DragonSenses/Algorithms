@@ -283,6 +283,18 @@ return ans;
 FUNCTION fullJustify(words, maxWidth):
  INITIALIZE ans as empty list
  SET i = 0
+
+ WHILE i < length(words):
+   # Step 1: Determine words for the current line
+   SET currentLine = getWords(i, words, maxWidth)
+   INCREMENT i by size(currentLine)
+
+   # Step 2: Format the line
+   SET justifiedLine = createLine(currentLine, i, words, maxWidth)
+
+   # Step 3: Store the formatted line
+   APPEND justifiedLine to ans
+
  RETURN ans
 
 
