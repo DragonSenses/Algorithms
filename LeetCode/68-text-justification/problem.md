@@ -306,5 +306,10 @@ FUNCTION createLine(line, currentIndex, words, maxWidth):
         APPEND " " to justifiedString
     RETURN justifiedString
 
+  # Calculate base length
+  SET baseLength = -1
+  FOR each word in line:
+      UPDATE baseLength = baseLength + length(word) + 1
+
   RETURN justifiedString
 ```
