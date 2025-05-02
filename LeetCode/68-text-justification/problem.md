@@ -311,5 +311,11 @@ FUNCTION createLine(line, currentIndex, words, maxWidth):
   FOR each word in line:
       UPDATE baseLength = baseLength + length(word) + 1
 
+  # Compute extra spaces
+  SET extraSpaces = maxWidth - baseLength
+  SET wordCount = size(line) - 1
+  SET spacesPerWord = extraSpaces / wordCount  # Floor division
+  SET needsExtraSpaces = extraSpaces % wordCount  # Leftover spaces for leftmost gaps
+
   RETURN justifiedString
 ```
