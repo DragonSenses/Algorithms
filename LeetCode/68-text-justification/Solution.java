@@ -66,6 +66,6 @@ class Solution {
       }
     }
 
-    return "";
+    return sb.toString();
   }
 }
