@@ -36,6 +36,11 @@ class Solution {
       return sb.toString();
     }
 
+    int baseLength = -1;
+    for (String word : line) {
+      baseLength += word.length() + 1;
+    }
+
     return "";
   }
 }
