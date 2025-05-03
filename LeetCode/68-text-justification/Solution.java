@@ -50,6 +50,12 @@ class Solution {
     // Distribute remaining spaces among leftmost words
     int needsExtraSpaces = extraSpaces % wordCount;
 
+    StringBuilder sb = new StringBuilder();
+
+    for (int j = 0; j < line.size(); j++) {
+      sb.append(line.get(j));
+    }
+
     return "";
   }
 }
