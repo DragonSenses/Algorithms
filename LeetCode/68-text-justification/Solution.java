@@ -54,6 +54,12 @@ class Solution {
 
     for (int j = 0; j < line.size(); j++) {
       sb.append(line.get(j));
+      // Add spaces after every word but the last
+      if (j < wordCount) {
+        for (int k = 0; k < spacesPerWord; k++) {
+          sb.append(" ");
+        }
+      }
     }
 
     return "";
