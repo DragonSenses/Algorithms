@@ -12,7 +12,13 @@ class Solution {
     List<String> currentLine = new ArrayList<>();
     int currLength = 0;
 
-    return null;
+    while (i < words.length && currLength + words[i].length() <= maxWidth) {
+      currentLine.add(words[i]);
+      currLength += words[i].length() + 1;
+      i++;
+    }
+    
+    return currentLine;
   }
 
 }
