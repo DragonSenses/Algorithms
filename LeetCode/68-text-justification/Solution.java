@@ -45,7 +45,9 @@ class Solution {
     int extraSpaces = maxWidth - baseLength;
     // Compute number of spaces between words
     int wordCount = line.size() - 1;
-
+    // Evenly distribute the spaces
+    int spacesPerWord = extraSpaces / wordCount;
+    
     return "";
   }
 }
