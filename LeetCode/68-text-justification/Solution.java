@@ -43,7 +43,8 @@ class Solution {
 
     // Compute extra spaces
     int extraSpaces = maxWidth - baseLength;
-    
+    // Compute number of spaces between words
+    int wordCount = line.size() - 1;
 
     return "";
   }
