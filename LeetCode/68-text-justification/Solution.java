@@ -17,8 +17,11 @@ class Solution {
       currLength += words[i].length() + 1;
       i++;
     }
-    
+
     return currentLine;
   }
 
+  private String createLine(List<String> line, int i, String[] words, int maxWidth) {
+    return "";
+  }
 }
