@@ -47,7 +47,9 @@ class Solution {
     int wordCount = line.size() - 1;
     // Evenly distribute the spaces
     int spacesPerWord = extraSpaces / wordCount;
-    
+    // Distribute remaining spaces among leftmost words
+    int needsExtraSpaces = extraSpaces % wordCount;
+
     return "";
   }
 }
