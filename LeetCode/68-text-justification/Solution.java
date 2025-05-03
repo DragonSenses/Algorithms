@@ -41,6 +41,10 @@ class Solution {
       baseLength += word.length() + 1;
     }
 
+    // Compute extra spaces
+    int extraSpaces = maxWidth - baseLength;
+    
+
     return "";
   }
 }
