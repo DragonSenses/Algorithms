@@ -5,6 +5,13 @@ class Solution {
   public List<String> fullJustify(String[] words, int maxWidth) {
     List<String> ans = new ArrayList<>();
     int i = 0;
+
+    while (i < words.length) {
+      // 1. Select words for current line
+      List<String> currentLine = getWords(i, words, maxWidth);
+      i += currentLine.size();
+    }
+
     return ans;
   }
 
