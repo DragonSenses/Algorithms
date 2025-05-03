@@ -7,4 +7,12 @@ class Solution {
     int i = 0;
     return ans;
   }
+
+  private List<String> getWords(int i, String[] words, int maxWidth) {
+    List<String> currentLine = new ArrayList<>();
+    int currLength = 0;
+
+    return null;
+  }
+
 }
