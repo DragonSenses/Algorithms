@@ -59,6 +59,10 @@ class Solution {
         for (int k = 0; k < spacesPerWord; k++) {
           sb.append(" ");
         }
+        // Assign extra spaces to leftmost words for balance
+        if (j < needsExtraSpaces) {
+          sb.append(" ");
+        }
       }
     }
 
