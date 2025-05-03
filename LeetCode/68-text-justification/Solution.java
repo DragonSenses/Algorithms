@@ -22,6 +22,20 @@ class Solution {
   }
 
   private String createLine(List<String> line, int i, String[] words, int maxWidth) {
+
+    boolean isLastLine = (i == words.length);
+    boolean isSingleWord = (line.size() == 1);
+
+    if (isLastLine || isSingleWord) {
+      StringBuilder sb = new StringBuilder(String.join(" ", line));
+
+      while (sb.length() < maxWidth) {
+        sb.append(" ");
+      }
+
+      return sb.toString();
+    }
+
     return "";
   }
 }
