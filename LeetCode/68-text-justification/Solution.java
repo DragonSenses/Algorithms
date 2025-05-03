@@ -10,6 +10,9 @@ class Solution {
       // 1. Select words for current line
       List<String> currentLine = getWords(i, words, maxWidth);
       i += currentLine.size();
+
+      // 2. Format selected words into justified line
+      ans.add(createLine(currentLine, i, words, maxWidth));
     }
 
     return ans;
