@@ -68,6 +68,7 @@ Note that the second line is also left-justified because it contains only one wo
 # Solution
 
 - [Greedy Modular Line Building Approach](#greedy-modular-line-building-approach)
+  - **Space Complexity**: `O(m)`
 
 ## **Problem Overview: Text Justification**
 
@@ -445,3 +446,16 @@ class Solution {
 - `m` is the maximum width of a line (`maxWidth`).
 - Words are guaranteed to fit within `maxWidth`, as per the problem constraints.
 - All operations within helper methods (`getWords` and `createLine`) and string manipulations, such as appending and joining, are treated as proportional to the length of the processed words.
+
+### **Space Complexity**: **`O(m)`**
+1. **Temporary Line Storage**:
+   - The `getWords` method stores the words for the current line in a temporary list. The number of words in this list is limited by the `maxWidth`, but the size of the list depends on the word lengths. This requires **`O(m)`** space in the worst case.
+
+2. **Result Storage**:
+   - The `ans` list stores all formatted lines. While the memory used for this depends on the total number of lines, no individual line exceeds `m` in size. This storage is independent of the intermediate working memory.
+
+3. **No Additional Data Structures**:
+   - Aside from the temporary list in `getWords` and the `StringBuilder` used in `createLine`, the algorithm does not require extra dynamic storage proportional to `n` or `k`.
+   
+4. **Overall Space Complexity**:
+   - The temporary and result storage is bounded by the `maxWidth`, making the overall space complexity **`O(m)`**.
