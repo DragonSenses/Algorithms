@@ -68,6 +68,7 @@ Note that the second line is also left-justified because it contains only one wo
 # Solution
 
 - [Greedy Modular Line Building Approach](#greedy-modular-line-building-approach)
+  - **Time Complexity**: `O(n * k)`
   - **Space Complexity**: `O(m)`
 
 ## **Problem Overview: Text Justification**
@@ -446,6 +447,19 @@ class Solution {
 - `m` is the maximum width of a line (`maxWidth`).
 - Words are guaranteed to fit within `maxWidth`, as per the problem constraints.
 - All operations within helper methods (`getWords` and `createLine`) and string manipulations, such as appending and joining, are treated as proportional to the length of the processed words.
+
+### **Time Complexity**: **`O(n * k)`**
+1. **Processing Words into Lines**:
+   - The algorithm iterates through all `n` words using the `getWords` method.
+   - For each word, the algorithm performs operations like calculating cumulative line length, which involves checking the word's size (`O(k)` per word).
+   - Thus, the grouping step takes **`O(n * k)`**.
+
+2. **Formatting Lines**:
+   - The `createLine` method formats each line. In the worst case, a line could contain all `n` words, and each word has an average length of `k`.
+   - For every line, appending words and spaces involves proportional work based on the combined length of the words in the line, leading to **`O(n * k)`** for formatting all lines.
+   
+3. **Overall Complexity**:
+   - Both grouping (`getWords`) and formatting (`createLine`) contribute **`O(n * k)`**. Hence, the overall time complexity is **`O(n * k)`**.
 
 ### **Space Complexity**: **`O(m)`**
 1. **Temporary Line Storage**:
