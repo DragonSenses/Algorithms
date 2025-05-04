@@ -436,3 +436,12 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- `n` is the number of words in the `words` array (`words.length`).
+- `k` is the average length of a word in the `words` array.
+- `m` is the maximum width of a line (`maxWidth`).
+- Words are guaranteed to fit within `maxWidth`, as per the problem constraints.
+- All operations within helper methods (`getWords` and `createLine`) and string manipulations, such as appending and joining, are treated as proportional to the length of the processed words.
