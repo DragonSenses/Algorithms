@@ -16,3 +16,16 @@ function getWords(i: number, words: string[], maxWidth: number): string[] {
 
   return currentLine;
 }
+
+function createLine(
+  line: string[],
+  i: number,
+  words: string[],
+  maxWidth: number
+): string {
+  if (i === words.length) {
+    return "";
+  }
+
+  return "";
+}
