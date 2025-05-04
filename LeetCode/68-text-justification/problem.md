@@ -341,3 +341,98 @@ FUNCTION createLine(line, currentIndex, words, maxWidth):
 
   RETURN justifiedString
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+  public List<String> fullJustify(String[] words, int maxWidth) {
+    List<String> ans = new ArrayList<>();
+    int i = 0;
+
+    while (i < words.length) {
+      // 1. Select words for current line
+      List<String> currentLine = getWords(i, words, maxWidth);
+      i += currentLine.size();
+
+      // 2. Format selected words into justified line
+      ans.add(createLine(currentLine, i, words, maxWidth));
+    }
+
+    return ans;
+  }
+
+  private List<String> getWords(int i, String[] words, int maxWidth) {
+    List<String> currentLine = new ArrayList<>();
+    int currLength = 0;
+
+    while (i < words.length && currLength + words[i].length() <= maxWidth) {
+      currentLine.add(words[i]);
+      // Account for a space after each word
+      currLength += words[i].length() + 1;
+      i++;
+    }
+
+    return currentLine;
+  }
+
+  private String createLine(List<String> line, int i, String[] words, int maxWidth) {
+
+    // Check if it is the last line or a single-word line
+    boolean isLastLine = (i == words.length);
+    boolean isSingleWord = (line.size() == 1);
+
+    if (isLastLine || isSingleWord) {
+      StringBuilder sb = new StringBuilder(String.join(" ", line));
+
+      while (sb.length() < maxWidth) {
+        sb.append(" ");
+      }
+
+      return sb.toString();
+    }
+
+    // Calculate base length of the line
+    // Start with -1 to ignore trailing space of last word
+    int baseLength = -1;
+    for (String word : line) {
+      // Add word length + 1 for spaces
+      baseLength += word.length() + 1;
+    }
+
+    // Compute extra spaces
+    int extraSpaces = maxWidth - baseLength;
+    // Compute number of spaces between words, excluding the last one
+    int wordCount = line.size() - 1;
+    // Evenly distribute the spaces
+    int spacesPerWord = extraSpaces / wordCount;
+    // Distribute remaining spaces among leftmost words
+    int needsExtraSpaces = extraSpaces % wordCount;
+
+    // Construct the fully justified line
+    StringBuilder sb = new StringBuilder();
+
+    for (int j = 0; j < line.size(); j++) {
+      // Add the word
+      sb.append(line.get(j));
+      // Add spaces after every word but the last
+      if (j < wordCount) {
+        for (int k = 0; k < spacesPerWord; k++) {
+          sb.append(" ");
+        }
+        // Assign extra spaces to leftmost words for balance
+        if (j < needsExtraSpaces) {
+          sb.append(" ");
+        }
+      }
+    }
+
+    return sb.toString();
+  }
+}
+```
