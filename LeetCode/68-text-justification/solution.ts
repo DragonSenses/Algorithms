@@ -46,6 +46,8 @@ function createLine(
 
   // Compute extra spaces
   const extraSpaces = maxWidth - baseLength;
+  // Compute number of gaps between words
+  const wordCount = line.length - 1;
 
   return "";
 }
