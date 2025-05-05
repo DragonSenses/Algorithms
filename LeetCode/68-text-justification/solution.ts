@@ -58,7 +58,7 @@ function createLine(
   let justifiedString = "";
 
   for (let j = 0; j < line.length; j++) {
-    
+    justifiedString += line[j];
   }
   
   return justifiedString;
