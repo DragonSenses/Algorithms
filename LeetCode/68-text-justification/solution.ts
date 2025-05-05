@@ -50,5 +50,9 @@ function createLine(
   const wordCount = line.length - 1;
   // Distribute extra spaces evenly between words
   const spacesPerWord = Math.floor(extraSpaces / wordCount);
+  // Determine remaining spaces after even distribution
+  // These will be applied to the leftmost words
+  const needsExtraSpaces = extraSpaces % wordCount;
+  
   return "";
 }
