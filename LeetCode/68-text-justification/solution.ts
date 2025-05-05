@@ -48,6 +48,7 @@ function createLine(
   const extraSpaces = maxWidth - baseLength;
   // Compute number of gaps between words
   const wordCount = line.length - 1;
-
+  // Distribute extra spaces evenly between words
+  const spacesPerWord = Math.floor(extraSpaces / wordCount);
   return "";
 }
