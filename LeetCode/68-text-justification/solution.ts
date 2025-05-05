@@ -38,5 +38,11 @@ function createLine(
     return justifiedString;
   }
 
+  // Calculate base length excluding trailing space
+  let baseLength = -1;
+  for (const word of line) {
+    baseLength += word.length + 1;
+  }
+
   return "";
 }
