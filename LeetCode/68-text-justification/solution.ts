@@ -63,8 +63,14 @@ function createLine(
     // Distribute calculated spaces after each word, except the last one
     if (j < wordCount) {
       justifiedString += " ".repeat(spacesPerWord);
+
+      // Apply remaining spaces to the leftmost words
+      if (j < needsExtraSpaces) {
+        justifiedString += " ";
+      }
     }
   }
+
   
   return justifiedString;
 }
