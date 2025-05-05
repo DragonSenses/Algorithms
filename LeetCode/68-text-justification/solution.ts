@@ -44,5 +44,8 @@ function createLine(
     baseLength += word.length + 1;
   }
 
+  // Compute extra spaces
+  const extraSpaces = maxWidth - baseLength;
+
   return "";
 }
