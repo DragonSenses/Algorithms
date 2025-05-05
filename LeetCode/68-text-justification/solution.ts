@@ -59,6 +59,11 @@ function createLine(
 
   for (let j = 0; j < line.length; j++) {
     justifiedString += line[j];
+
+    // Distribute calculated spaces after each word, except the last one
+    if (j < wordCount) {
+      justifiedString += " ".repeat(spacesPerWord);
+    }
   }
   
   return justifiedString;
