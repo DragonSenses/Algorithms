@@ -53,6 +53,13 @@ function createLine(
   // Determine remaining spaces after even distribution
   // These will be applied to the leftmost words
   const needsExtraSpaces = extraSpaces % wordCount;
+
+  // Construct fully justified line
+  let justifiedString = "";
+
+  for (let j = 0; j < line.length; j++) {
+    
+  }
   
-  return "";
+  return justifiedString;
 }
