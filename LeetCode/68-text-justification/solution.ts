@@ -23,8 +23,19 @@ function createLine(
   words: string[],
   maxWidth: number
 ): string {
-  if (i === words.length) {
-    return "";
+  // Check if it is the last line or a single-word line
+  const isLastLine = i === words.length;
+  const isSingleWord = line.length === 1;
+
+  if (isLastLine || isSingleWord) {
+    let justifiedString = line.join(" ");
+
+    // Append spaces to reach maxWidth for left justification
+    while (justifiedString.length < maxWidth) {
+      justifiedString += " ";
+    }
+
+    return justifiedString;
   }
 
   return "";
