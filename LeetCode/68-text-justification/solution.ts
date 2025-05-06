@@ -7,6 +7,8 @@ function fullJustify(words: string[], maxWidth: number): string[] {
     const currentLine = getWords(i, words, maxWidth);
     i += currentLine.length;
 
+    // Format the selected words into a fully justified line
+    result.push(createLine(currentLine, i, words, maxWidth));
   }
 
   return result;
