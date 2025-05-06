@@ -4,7 +4,7 @@ import java.util.List;
 class Solution {
 
   /**
-   * Fully justifies a given list of words to match the specified maxWidth.
+   * Fully justifies a given list of words within a specified maxWidth.
    *
    * @param words Array of words to justify
    * @param maxWidth Maximum width of each justified line
@@ -15,7 +15,7 @@ class Solution {
     int i = 0;
 
     while (i < words.length) {
-      // Select words that fit within the maxWidth for the current line
+      // Gather words that fit within maxWidth for the current line
       List<String> currentLine = getWords(i, words, maxWidth);
       i += currentLine.size();
 
@@ -27,7 +27,7 @@ class Solution {
   }
 
   /**
-   * Selects words that fit within the maxWidth for a single line.
+   * Selects words that fit within maxWidth for a single line.
    *
    * @param i Current word index
    * @param words Array of words to process
@@ -40,7 +40,7 @@ class Solution {
 
     while (i < words.length && currLength + words[i].length() <= maxWidth) {
       currentLine.add(words[i]);
-      // Include space after each word except the last one
+      // Account for space after each word except the last one
       currLength += words[i].length() + 1;
       i++;
     }
@@ -74,20 +74,20 @@ class Solution {
       return sb.toString();
     }
 
-    // Calculate the base length of the line excluding trailing space
+    // Calculate base length excluding trailing space
+    // Start at -1 to offset the initial space handling
     int baseLength = -1;
     for (String word : line) {
-      // Include word length plus one space
-      baseLength += word.length() + 1;
+      baseLength += word.length() + 1; // Word length plus one space
     }
 
-    // Compute remaining spaces to be distributed
+    // Compute the number of extra spaces to distribute
     int extraSpaces = maxWidth - baseLength;
-    // Determine the number of spaces between words
+    // Determine number of gaps between words
     int wordCount = line.size() - 1;
-    // Distribute spaces evenly across words
+    // Compute evenly distributed spaces between words
     int spacesPerWord = extraSpaces / wordCount;
-    // Assign extra spaces to the leftmost words for balance
+    // Assign remaining spaces to the leftmost words for balance
     int needsExtraSpaces = extraSpaces % wordCount;
 
     // Construct the fully justified line
@@ -97,7 +97,7 @@ class Solution {
       // Append the current word
       sb.append(line.get(j));
 
-      // Add spaces between words except after the last one
+      // Add spaces between words, except after the last one
       if (j < wordCount) {
         for (int k = 0; k < spacesPerWord; k++) {
           sb.append(" ");
