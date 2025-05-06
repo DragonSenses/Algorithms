@@ -99,11 +99,11 @@ class Solution {
 
       // Add spaces between words, except after the last one
       if (j < wordCount) {
-        for (int k = 0; k < spacesPerWord; k++) {
-          sb.append(" ");
-        }
-        // Assign extra spaces to the leftmost words for even distribution
-        if (j < needsExtraSpaces) {
+        int totalSpaces = spacesPerWord + (j < needsExtraSpaces ? 1 : 0);
+        sb.append(" ".repeat(totalSpaces));
+
+        // Explicitly separate words to avoid merging issues
+        if (j + 1 < line.size()) {
           sb.append(" ");
         }
       }
