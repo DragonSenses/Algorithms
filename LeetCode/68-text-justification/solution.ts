@@ -94,10 +94,12 @@ function createLine(
 
     // Add spaces between words, except after the last one
     if (j < wordCount) {
-      justifiedString += " ".repeat(spacesPerWord);
+      let totalSpaces = spacesPerWord + (j < needsExtraSpaces ? 1 : 0);
+      
+      justifiedString += (" ".repeat(totalSpaces));
 
-      // Apply remaining spaces to the leftmost words
-      if (j < needsExtraSpaces) {
+      // Explicitly separate words to avoid merging issues
+      if (j + 1 < line.length) {
         justifiedString += " ";
       }
     }
