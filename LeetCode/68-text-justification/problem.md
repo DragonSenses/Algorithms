@@ -356,7 +356,7 @@ import java.util.List;
 class Solution {
 
   /**
-   * Fully justifies a given list of words to match the specified maxWidth.
+   * Fully justifies a given list of words within a specified maxWidth.
    *
    * @param words Array of words to justify
    * @param maxWidth Maximum width of each justified line
@@ -367,7 +367,7 @@ class Solution {
     int i = 0;
 
     while (i < words.length) {
-      // Select words that fit within the maxWidth for the current line
+      // Gather words that fit within maxWidth for the current line
       List<String> currentLine = getWords(i, words, maxWidth);
       i += currentLine.size();
 
@@ -379,7 +379,7 @@ class Solution {
   }
 
   /**
-   * Selects words that fit within the maxWidth for a single line.
+   * Selects words that fit within maxWidth for a single line.
    *
    * @param i Current word index
    * @param words Array of words to process
@@ -392,7 +392,7 @@ class Solution {
 
     while (i < words.length && currLength + words[i].length() <= maxWidth) {
       currentLine.add(words[i]);
-      // Include space after each word except the last one
+      // Account for space after each word except the last one
       currLength += words[i].length() + 1;
       i++;
     }
@@ -426,20 +426,20 @@ class Solution {
       return sb.toString();
     }
 
-    // Calculate the base length of the line excluding trailing space
+    // Calculate base length excluding trailing space
+    // Start at -1 to offset the initial space handling
     int baseLength = -1;
     for (String word : line) {
-      // Include word length plus one space
-      baseLength += word.length() + 1;
+      baseLength += word.length() + 1; // Word length plus one space
     }
 
-    // Compute remaining spaces to be distributed
+    // Compute the number of extra spaces to distribute
     int extraSpaces = maxWidth - baseLength;
-    // Determine the number of spaces between words
+    // Determine number of gaps between words
     int wordCount = line.size() - 1;
-    // Distribute spaces evenly across words
+    // Compute evenly distributed spaces between words
     int spacesPerWord = extraSpaces / wordCount;
-    // Assign extra spaces to the leftmost words for balance
+    // Assign remaining spaces to the leftmost words for balance
     int needsExtraSpaces = extraSpaces % wordCount;
 
     // Construct the fully justified line
@@ -449,13 +449,13 @@ class Solution {
       // Append the current word
       sb.append(line.get(j));
 
-      // Add spaces between words except after the last one
+      // Add spaces between words, except after the last one
       if (j < wordCount) {
-        for (int k = 0; k < spacesPerWord; k++) {
-          sb.append(" ");
-        }
-        // Assign extra spaces to the leftmost words for even distribution
-        if (j < needsExtraSpaces) {
+        int totalSpaces = spacesPerWord + (j < needsExtraSpaces ? 1 : 0);
+        sb.append(" ".repeat(totalSpaces));
+
+        // Explicitly separate words to avoid merging issues
+        if (j + 1 < line.size()) {
           sb.append(" ");
         }
       }
@@ -469,29 +469,42 @@ class Solution {
 ### TypeScript
 
 ```typescript
+/**
+ * Fully justifies a given set of words within a specified maxWidth.
+ * @param words - Array of words to justify.
+ * @param maxWidth - Maximum width of each justified line.
+ * @returns Array of fully justified lines.
+ */
 function fullJustify(words: string[], maxWidth: number): string[] {
   const result: string[] = [];
   let i = 0;
 
   while (i < words.length) {
-    // Select words that fit within maxWidth for the current line
+    // Collect words that fit within maxWidth for the current line
     const currentLine = getWords(i, words, maxWidth);
     i += currentLine.length;
 
-    // Format the selected words into a fully justified line
+    // Format and justify the selected words
     result.push(createLine(currentLine, i, words, maxWidth));
   }
 
   return result;
 }
 
+/**
+ * Selects words that fit within maxWidth for the current line.
+ * @param i - Starting index in the words array.
+ * @param words - Array of words to justify.
+ * @param maxWidth - Maximum width of the line.
+ * @returns Array of words forming a single justified line.
+ */
 function getWords(i: number, words: string[], maxWidth: number): string[] {
   const currentLine: string[] = [];
   let currLength = 0;
 
   while (i < words.length && currLength + words[i].length <= maxWidth) {
     currentLine.push(words[i]);
-    // Account for a space after each word
+    // Include a space after each word
     currLength += words[i].length + 1;
     i++;
   }
@@ -499,20 +512,28 @@ function getWords(i: number, words: string[], maxWidth: number): string[] {
   return currentLine;
 }
 
+/**
+ * Formats a line of words into a justified string.
+ * @param line - Array of words forming the current line.
+ * @param i - Current index in the words array.
+ * @param words - Array of words to justify.
+ * @param maxWidth - Maximum width of the line.
+ * @returns Fully justified line as a string.
+ */
 function createLine(
   line: string[],
   i: number,
   words: string[],
   maxWidth: number
 ): string {
-  // Check if it is the last line or a single-word line
+  // Determine if this is the last line or a single-word line
   const isLastLine = i === words.length;
   const isSingleWord = line.length === 1;
 
   if (isLastLine || isSingleWord) {
     let justifiedString = line.join(" ");
 
-    // Append spaces to reach maxWidth for left justification
+    // Pad spaces to reach maxWidth for left justification
     while (justifiedString.length < maxWidth) {
       justifiedString += " ";
     }
@@ -520,16 +541,20 @@ function createLine(
     return justifiedString;
   }
 
-  // Calculate base length excluding trailing space
+  // Compute base length excluding trailing space
+  // Start at -1 to offset initial space handling
   let baseLength = -1;
   for (const word of line) {
     baseLength += word.length + 1;
   }
 
-  // Compute extra spaces
+  // Calculate the number of extra spaces to distribute
   const extraSpaces = maxWidth - baseLength;
+  // Determine gaps between words
   const wordCount = line.length - 1;
+  // Compute evenly distributed spaces between words
   const spacesPerWord = Math.floor(extraSpaces / wordCount);
+  // Find remaining spaces for leftmost words
   const needsExtraSpaces = extraSpaces % wordCount;
 
   // Construct fully justified line
@@ -538,9 +563,14 @@ function createLine(
   for (let j = 0; j < line.length; j++) {
     justifiedString += line[j];
 
+    // Add spaces between words, except after the last one
     if (j < wordCount) {
-      justifiedString += " ".repeat(spacesPerWord);
-      if (j < needsExtraSpaces) {
+      let totalSpaces = spacesPerWord + (j < needsExtraSpaces ? 1 : 0);
+      
+      justifiedString += (" ".repeat(totalSpaces));
+
+      // Explicitly separate words to avoid merging issues
+      if (j + 1 < line.length) {
         justifiedString += " ";
       }
     }
