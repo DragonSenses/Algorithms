@@ -1,5 +1,11 @@
 function fullJustify(words: string[], maxWidth: number): string[] {
   const result: string[] = [];
+  let i = 0;
+
+  while (i < words.length) {
+
+  }
+
   return result;
 }
 
@@ -38,7 +44,8 @@ function createLine(
     return justifiedString;
   }
 
-  // Calculate base length excluding trailing space
+  // Compute base length, excluding trailing space
+  // Offset to avoid leading space for first word
   let baseLength = -1;
   for (const word of line) {
     baseLength += word.length + 1;
@@ -71,6 +78,5 @@ function createLine(
     }
   }
 
-  
   return justifiedString;
 }
