@@ -3,6 +3,9 @@ function fullJustify(words: string[], maxWidth: number): string[] {
   let i = 0;
 
   while (i < words.length) {
+    // Select words that fit within maxWidth for the current line
+    const currentLine = getWords(i, words, maxWidth);
+    i += currentLine.length;
 
   }
 
