@@ -207,26 +207,49 @@ To decide which words fit on a line while adhering to the `maxWidth` constraint:
 4. **Process**:
    - Use a while loop to repeatedly add words until no further words can fit without exceeding `maxWidth`.
 
-### Part 2: Constructing the Justified Line
-Once the words for a line are determined, transform them into a justified string:
-1. **Key Requirements**:
-   - The resulting line must be exactly `maxWidth` characters long.
-   - Add extra spaces to evenly distribute them between words.
-   - Left-justify the final line, avoiding extra spaces between words.
+### **Part 2: Constructing the Justified Line**  
+Once the words for a line are selected, they must be transformed into a fully justified string.
 
-2. **Calculations**:
-   - Compute the minimum line length (`baseLength`) by summing `word.length + 1` for all words, except for the last word, which adds only `word.length`. Initialize `baseLength = -1` to exclude the unnecessary trailing space.
-   - Calculate the required extra spaces as: `extraSpaces = maxWidth - baseLength`.
+#### **1. Key Requirements**  
+- The justified line must be exactly `maxWidth` characters long.  
+- Spaces should be evenly distributed between words to maintain alignment.  
+- The **final line** must be left-aligned, avoiding extra spaces between words.
 
-3. **Space Distribution**:
-   - Set `wordCount` as the number of spaces needed between words (`line.length - 1`).
-   - Calculate how many spaces each word should receive as `spacesPerWord = extraSpaces / wordCount` (floor division).
-   - Determine the number of words on the left needing an additional space using `needsExtraSpaces = extraSpaces % wordCount`.
+#### **2. Calculations**  
+- Compute the **base length** of the line by summing `word.length + 1` for each word, **excluding trailing spaces**:
+  ```text
+  baseLength = SUM(word.length + 1) - 1
+  ```
+- Determine the number of **extra spaces** needed:
+  ```text
+  extraSpaces = maxWidth - baseLength
+  ```
 
-4. **Formatting the Line**:
-   - Iterate through the leftmost `needsExtraSpaces` words, adding one additional space to their gap.
-   - Add the calculated `spacesPerWord` to all necessary gaps.
-   - Join the words in the `line` list with spaces as the delimiter and pad the string to `maxWidth` as needed.
+#### **3. Space Distribution**  
+- Set `wordCount` as the number of spaces between words:
+  ```text
+  wordCount = size(line) - 1
+  ```
+- Compute the evenly distributed spaces per word:
+  ```text
+  spacesPerWord = extraSpaces / wordCount  # Floor division
+  ```
+- Assign extra spaces to the **leftmost words** for balance:
+  ```text
+  needsExtraSpaces = extraSpaces % wordCount
+  ```
+
+#### **4. Formatting the Line**  
+- **Iterate through words**, ensuring:
+  - **Standard spacing** is applied between words.
+  - **Extra spaces** are added first to avoid uneven distribution.
+
+```text
+FOR each index in range(0, size(line)):
+  APPEND line[index] to justifiedString
+  IF index < wordCount:
+    APPEND " " * (spacesPerWord + (index < needsExtraSpaces ? 1 : 0)) to justifiedString
+```
 
 ### Special Cases
 1. **Final Line**:
@@ -242,40 +265,72 @@ Once the words for a line are determined, transform them into a justified string
 ## **Algorithm**
 
 ### **Overview**
-To efficiently construct justified text, we divide the solution into distinct steps using helper methods. These modular functions enhance readability and maintainability.
+To construct fully justified text efficiently, the solution divides the process into modular helper functions, improving readability and maintainability.
 
 ### **Step 1: Define Helper Methods**
-1. **`getWords(i)`** – Determines which words fit in the current line, starting from index `i`. It returns a subarray of `words` that does not exceed `maxWidth`.  
-2. **`createLine(line, i)`** – Formats a justified line from the selected words:
-   - Normal lines are fully justified.
-   - The final line is left-justified.
+1. **`getWords(i, words, maxWidth)`** – Determines which words fit within `maxWidth`, starting from index `i`. Returns a subarray that does not exceed the line width.
+2. **`createLine(line, i, words, maxWidth)`** – Formats a justified line from the selected words:
+   - **Normal lines** are fully justified.
+   - **The final line** is left-aligned.
+   - **Space distribution** accounts for extra spaces applied to the leftmost words.
 
 ### **Step 2: Initialize Variables**
-1. **Result Storage** – Create an empty list `ans` to store the final justified lines.
-2. **Tracking Index** – Set an integer `i = 0` to track the current position in `words`.
+1. **Result Storage** – Create an empty list `ans` to store the justified lines.
+2. **Tracking Index** – Set integer `i = 0` to track position in `words`.
 
 ### **Step 3: Process Words Using a Loop**
-Use a `while` loop to iterate through `words`, handling each line one at a time.
+Use a `while` loop to construct each justified line.
 
-1. **Loop Condition** – Continue processing while `i < words.length`.  
+1. **Loop Condition** – Continue processing while `i < words.length`.
 2. **Iteration Steps**:
    - **Extract words for the current line**:
      ```java
-     currentLine = getWords(i);
+     currentLine = getWords(i, words, maxWidth);
      ```
-   - **Advance tracking index** (`i += currentLine.length`) to move past processed words.
+   - **Advance tracking index**:
+     ```java
+     i += currentLine.size();
+     ```
    - **Format the extracted words into a justified line**:
      ```java
-     justifiedLine = createLine(currentLine, i);
+     justifiedLine = createLine(currentLine, i, words, maxWidth);
      ```
    - **Store the formatted result**:
      ```java
      ans.append(justifiedLine);
      ```
 
-### **Step 4: Return the Final Output**
-Return the fully justified text as a list of strings:
+### **Step 4: Space Distribution in `createLine(line, i, words, maxWidth)`**
+1. **Handle left-aligned lines** (final or single-word lines).
+2. **Compute base length** excluding trailing spaces:
+   ```java
+   baseLength = SUM(word.length + 1) - 1;
+   ```
+3. **Calculate extra spaces** to distribute:
+   ```java
+   extraSpaces = maxWidth - baseLength;
+   ```
+4. **Determine space distribution**:
+   - **Even spaces per word**:
+     ```java
+     spacesPerWord = extraSpaces / (size(line) - 1); // Floor division
+     ```
+   - **Remaining spaces for leftmost words**:
+     ```java
+     needsExtraSpaces = extraSpaces % (size(line) - 1);
+     ```
+5. **Build fully justified line** by iterating through `line`, ensuring:
+   - Proper **spacing between words** (avoiding concatenation issues).
+   - **Extra spaces applied first** for balance.
+   ```java
+   FOR each index in range(0, size(line)):
+     APPEND line[index] to justifiedString
+     IF index < wordCount:
+       APPEND " " * (spacesPerWord + (index < needsExtraSpaces ? 1 : 0)) to justifiedString
+   ```
 
+### **Step 5: Return Final Output**
+Return the fully justified list of strings:
 ```java
 return ans;
 ```
@@ -321,7 +376,7 @@ FUNCTION createLine(line, currentIndex, words, maxWidth):
         APPEND " " to justifiedString
     RETURN justifiedString
 
-  # Calculate base length
+  # Calculate base length excluding trailing space
   SET baseLength = -1
   FOR each word in line:
       UPDATE baseLength = baseLength + length(word) + 1
@@ -330,17 +385,14 @@ FUNCTION createLine(line, currentIndex, words, maxWidth):
   SET extraSpaces = maxWidth - baseLength
   SET wordCount = size(line) - 1
   SET spacesPerWord = extraSpaces / wordCount  # Floor division
-  SET needsExtraSpaces = extraSpaces % wordCount  # Leftover spaces for leftmost gaps
+  SET needsExtraSpaces = extraSpaces % wordCount  # Remaining spaces for leftmost words
 
   # Build fully justified line
   INITIALIZE justifiedString as empty
   FOR each index in range(0, size(line)):
     APPEND line[index] to justifiedString
     IF index < wordCount:
-        FOR k in range(0, spacesPerWord):
-            APPEND " " to justifiedString
-        IF index < needsExtraSpaces:
-            APPEND " " to justifiedString
+        APPEND " " * (spacesPerWord + (index < needsExtraSpaces ? 1 : 0)) to justifiedString
 
   RETURN justifiedString
 ```
