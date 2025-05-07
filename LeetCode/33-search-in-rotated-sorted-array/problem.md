@@ -140,4 +140,15 @@ function search(nums, target):
     else:
         right = pivotIndex - 1  # Search in left sorted half
 
+    # Step 3: Perform standard binary search
+    while left <= right:
+        mid = (left + right) / 2
+        if nums[mid] == target:
+            return mid  # Found target
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1  # Target not found
 ```
