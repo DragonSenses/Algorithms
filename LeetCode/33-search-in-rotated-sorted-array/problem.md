@@ -97,6 +97,21 @@ The naive two-pass binary search approach will set up the **intuition and framew
 - **O(log N) runtime complexity** achieved.
 
 ## **Intuition**  
-A search in `O(log N)` time usually implies binary search. Since the array is rotated at some **pivot index**, standard binary search cannot be directly applied. 
+A search in `O(log N)` time usually implies binary search. Since the array is rotated at some **pivot index**, standard binary search cannot be directly applied.
 
-Instead, we first locate the pivot and then determine which **subarray** contains the target before performing binary search.  
+Instead, we first locate the pivot and then determine which **subarray** contains the target before performing binary search.
+
+## **Algorithm**  
+
+1. **Find the Pivot Index** (smallest element in the array)  
+   - This index marks the transition point between two **sorted** subarrays.  
+   - It separates the **left** sorted portion from the **right** sorted portion.  
+   - Can be found using **binary search** (instead of scanning `O(N)`).  
+
+2. **Determine Which Side to Search**  
+   - Compare `nums[0]` with `target`:  
+     - If `target ≥ nums[0]`, search in the **left sorted portion** (before pivot).  
+     - Otherwise, search in the **right sorted portion** (after pivot).  
+
+3. **Perform Binary Search in the Chosen Subarray**  
+   - Now apply standard binary search to find the target efficiently in `O(log N)`.  
