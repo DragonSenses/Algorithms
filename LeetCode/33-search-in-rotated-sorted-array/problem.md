@@ -92,6 +92,11 @@ target = 0
 
 The naive two-pass binary search approach will set up the **intuition and framework** for later **one-pass optimizations** where pivot detection and search happen simultaneously.
 
-- **Two-pass binary search approach** (pivot first, then target).  
-- **Pivot detection ensures proper subarray selection** before binary search.  
-- **O(log N) runtime complexity** achieved.  
+- **Two-pass binary search approach** (pivot first, then target).
+- **Pivot detection ensures proper subarray selection** before binary search.
+- **O(log N) runtime complexity** achieved.
+
+## **Intuition**  
+A search in `O(log N)` time usually implies binary search. Since the array is rotated at some **pivot index**, standard binary search cannot be directly applied. 
+
+Instead, we first locate the pivot and then determine which **subarray** contains the target before performing binary search.  
