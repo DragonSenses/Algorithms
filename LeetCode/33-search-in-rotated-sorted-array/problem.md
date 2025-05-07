@@ -132,4 +132,12 @@ function search(nums, target):
 
     pivotIndex = left  # Found smallest element
 
+    # Step 2: Determine search bounds
+    left = 0
+    right = nums.length - 1
+    if target >= nums[pivotIndex] and target <= nums[right]:
+        left = pivotIndex  # Search in right sorted half
+    else:
+        right = pivotIndex - 1  # Search in left sorted half
+
 ```
