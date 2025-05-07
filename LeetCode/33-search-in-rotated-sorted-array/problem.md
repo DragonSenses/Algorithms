@@ -32,6 +32,10 @@
 
 ---
 
+# Solution
+
+- [**Binary Search (Naive Two-Pass) Approach**](#binary-search-naive-two-pass-approach)
+
 # **Problem Overview: Search in Rotated Sorted Array**  
 
 ## **Description**  
@@ -82,4 +86,12 @@ target = 0
 - `-10⁴ <= nums[i] <= 10⁴`  
 - All values in `nums` are unique.  
 - `nums` is an ascending array that is possibly rotated.  
-- `-10⁴ <= target <= 10⁴`  
+- `-10⁴ <= target <= 10⁴`
+
+# **Binary Search (Naive Two-Pass) Approach**
+
+The naive two-pass binary search approach will set up the **intuition and framework** for later **one-pass optimizations** where pivot detection and search happen simultaneously.
+
+- **Two-pass binary search approach** (pivot first, then target).  
+- **Pivot detection ensures proper subarray selection** before binary search.  
+- **O(log N) runtime complexity** achieved.  
