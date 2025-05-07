@@ -29,3 +29,57 @@
 	<li><code>nums</code> is an ascending array that is possibly rotated.</li>
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+---
+
+# **Problem Overview: Search in Rotated Sorted Array**  
+
+## **Description**  
+You are given an integer array `nums` that is sorted in ascending order with distinct values. However, `nums` may have been rotated at an unknown pivot index `k` `(1 <= k < nums.length)`, resulting in a modified order:  
+
+**Original:** `[0,1,2,4,5,6,7]`  
+**Rotated at index 3:** `[4,5,6,7,0,1,2]`  
+
+Given the array `nums` (after possible rotation) and an integer `target`, return the **index** of `target` if it is present. If `target` is not found, return `-1`.  
+
+Your solution must run in **O(log n)** time complexity.  
+
+## **Understanding Rotation**  
+A **rotated sorted array** is still sorted, but the starting point has shifted to the right due to rotation. Essentially, a portion of the array has been moved to the front while maintaining the original relative ordering within each section. In the example above:  
+
+- `[4,5,6,7]` was initially at the end but moved to the front.  
+- `[0,1,2]` originally started the array but shifted to the back.  
+- Despite this rotation, both sections remain sorted individually, but the transition point disrupts the continuity of the global sorted order.  
+
+## **Examples**  
+
+### **Example 1**  
+**Input:**  
+```plaintext
+nums = [4,5,6,7,0,1,2]
+target = 0
+```
+**Output:** `4`  
+
+### **Example 2**  
+**Input:**  
+```plaintext
+nums = [4,5,6,7,0,1,2]
+target = 3
+```
+**Output:** `-1`  
+
+### **Example 3**  
+**Input:**  
+```plaintext
+nums = [1]
+target = 0
+```
+**Output:** `-1`  
+
+## **Constraints**  
+- `1 <= nums.length <= 5000`  
+- `-10⁴ <= nums[i] <= 10⁴`  
+- All values in `nums` are unique.  
+- `nums` is an ascending array that is possibly rotated.  
+- `-10⁴ <= target <= 10⁴`  
