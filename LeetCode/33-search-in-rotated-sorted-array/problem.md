@@ -115,3 +115,21 @@ Instead, we first locate the pivot and then determine which **subarray** contain
 
 3. **Perform Binary Search in the Chosen Subarray**  
    - Now apply standard binary search to find the target efficiently in `O(log N)`.  
+
+### **Pseudocode**  
+```plaintext
+function search(nums, target):
+    # Step 1: Find pivot index (smallest element)
+    left = 0
+    right = nums.length - 1
+
+    while left < right:
+        mid = (left + right) / 2
+        if nums[mid] > nums[right]:
+            left = mid + 1  # Pivot is in right half
+        else:
+            right = mid  # Pivot is in left half
+
+    pivotIndex = left  # Found smallest element
+
+```
