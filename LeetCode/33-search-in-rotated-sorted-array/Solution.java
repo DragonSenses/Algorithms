@@ -19,5 +19,14 @@ class Solution {
     // Found smallest element
     pivotIndex = left;
 
+    // 2. Determine search bounds
+    left = 0;
+    right = nums.length - 1;
+    if (target >= nums[pivotIndex] && target <= nums[right]) {
+      left = pivotIndex;
+    } else {
+      right = pivotIndex - 1;
+    }
+
   }
 }
