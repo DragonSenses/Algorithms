@@ -22,4 +22,17 @@ function search(nums: number[], target: number): number {
     right = pivotIndex - 1;
   }
 
+  // 3. Perform Binary Search in Chosen Half
+  while (left <= right) {
+    let mid = Math.floor(left + (right - left)/2);
+    if (nums[mid] === target) {
+      return mid; // Target found
+    } else if (nums[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1; // Target not found
 };
