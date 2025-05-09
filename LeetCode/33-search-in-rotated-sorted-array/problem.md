@@ -35,6 +35,7 @@
 # Solution
 
 - [**Binary Search (Naive Two-Pass) Approach**](#binary-search-naive-two-pass-approach)
+  - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(1)`
 
 # **Problem Overview: Search in Rotated Sorted Array**  
@@ -253,6 +254,14 @@ function search(nums: number[], target: number): number {
 - `nums` is a rotated sorted array of distinct integers.  
 - The rotation is at an unknown pivot index.  
 - The binary search algorithm is applied twice—once to find the pivot and once to locate `target`.  
+
+### **Time Complexity**: `O(log n)`  
+- **Finding the Pivot (`O(log n)`)**  
+  - The first binary search identifies the smallest element (pivot), reducing the search space by half in each step.  
+- **Searching for Target (`O(log n)`)**  
+  - A second binary search is applied within the identified sorted half.  
+- **Overall Complexity (`O(log n) + O(log n) = O(log n)`)**  
+  - Since logarithmic operations are additive and dominated by the leading term, time complexity remains `O(log n)`.  
 
 ### **Space Complexity**: `O(1)`  
 - **Constant-Space Usage**  
