@@ -321,6 +321,19 @@ function searchRotatedArray(nums, target):
         # Found target
         if nums[mid] == target:
             return mid
+        
+        # Check if left half is sorted
+        if nums[left] <= nums[mid]:
+            if nums[left] <= target and target < nums[mid]:
+                right = mid - 1  # Search in left sorted half
+            else:
+                left = mid + 1   # Search in right half
+        else:
+            # Right half is sorted
+            if nums[mid] < target and target <= nums[right]:
+                left = mid + 1  # Search in right sorted half
+            else:
+                right = mid - 1 # Search in left half
 
     return -1  # Target not found
 ```
