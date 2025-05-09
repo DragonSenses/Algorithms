@@ -35,6 +35,7 @@
 # Solution
 
 - [**Binary Search (Naive Two-Pass) Approach**](#binary-search-naive-two-pass-approach)
+  - **Space Complexity**: `O(1)`
 
 # **Problem Overview: Search in Rotated Sorted Array**  
 
@@ -252,3 +253,10 @@ function search(nums: number[], target: number): number {
 - `nums` is a rotated sorted array of distinct integers.  
 - The rotation is at an unknown pivot index.  
 - The binary search algorithm is applied twice—once to find the pivot and once to locate `target`.  
+
+### **Space Complexity**: `O(1)`  
+- **Constant-Space Usage**  
+  - The algorithm only uses a fixed number of variables (`left`, `right`, `mid`, `pivotIndex`), irrespective of input size.  
+- **No Additional Structures**  
+  - No auxiliary data structures (arrays, lists, hashmaps) are used for storage.  
+  - The input array is processed in place without requiring extra memory allocation.  
