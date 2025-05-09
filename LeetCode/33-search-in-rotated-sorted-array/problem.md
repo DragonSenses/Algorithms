@@ -245,3 +245,10 @@ function search(nums: number[], target: number): number {
   return -1; // Target not found
 }
 ```
+
+## **Complexity Analysis**  
+
+### **Assumptions**  
+- `nums` is a rotated sorted array of distinct integers.  
+- The rotation is at an unknown pivot index.  
+- The binary search algorithm is applied twice—once to find the pivot and once to locate `target`.  
