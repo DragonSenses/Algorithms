@@ -280,3 +280,10 @@ This implementation efficiently finds the target while **simultaneously detectin
 - **Single-pass approach** eliminates separate pivot search.  
 - **Sorting check (`nums[left] ≤ nums[mid]`) ensures correct range selection**.  
 - **O(log N) runtime complexity** achieved using binary search principles.  
+
+## **Intuition**  
+Instead of performing two separate binary searches (one for finding the pivot and another for searching the target), we can **merge these into one efficient pass**.  
+
+- The array consists of two **sorted subarrays**—one before the pivot and one after it.  
+- By integrating additional **condition checks**, we can simultaneously determine whether we need to shift left or right based on the relationship between `target`, `mid`, and the first element of the array.  
+- This allows us to search directly within the relevant section without explicitly determining the pivot first.  
