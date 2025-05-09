@@ -308,3 +308,11 @@ We maintain two pointers (`left` and `right`) to track the search scope. At each
        - Else, **reduce right** → `right = mid - 1`  
 
 3. **Return -1 if `target` is not found.**  
+
+### **Pseudocode**  
+```plaintext
+function searchRotatedArray(nums, target):
+    left = 0
+    right = nums.length - 1
+
+```
