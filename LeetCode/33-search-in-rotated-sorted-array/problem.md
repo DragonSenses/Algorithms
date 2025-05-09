@@ -287,3 +287,24 @@ Instead of performing two separate binary searches (one for finding the pivot an
 - The array consists of two **sorted subarrays**—one before the pivot and one after it.  
 - By integrating additional **condition checks**, we can simultaneously determine whether we need to shift left or right based on the relationship between `target`, `mid`, and the first element of the array.  
 - This allows us to search directly within the relevant section without explicitly determining the pivot first.  
+
+## **Algorithm**  
+We maintain two pointers (`left` and `right`) to track the search scope. At each iteration, we **reduce the scope by half**, deciding which side of the array to explore based on **both pivot detection and target comparison**.
+
+1. **Initialize pointers:**  
+   - `left = 0`, `right = n - 1`  
+
+2. **Perform binary search with integrated pivot logic:**  
+   - Compute `mid = left + (right - left) / 2`  
+   - Compare `nums[mid]` with `target`  
+     - If `nums[mid] == target`, **return index mid**  
+   - If the **left half** is sorted (`nums[left] ≤ nums[mid]`):  
+     - Check if `target` falls within this sorted range (`nums[left] ≤ target < nums[mid]`)  
+       - If yes, **reduce right** → `right = mid - 1`  
+       - Else, **move left** → `left = mid + 1`  
+   - Else, the **right half** is sorted (`nums[mid] ≤ nums[right]`):  
+     - Check if `target` falls within this sorted range (`nums[mid] < target ≤ nums[right]`)  
+       - If yes, **move left** → `left = mid + 1`  
+       - Else, **reduce right** → `right = mid - 1`  
+
+3. **Return -1 if `target` is not found.**  
