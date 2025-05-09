@@ -315,4 +315,12 @@ function searchRotatedArray(nums, target):
     left = 0
     right = nums.length - 1
 
+    while left <= right:
+        mid = left + (right - left) / 2
+
+        # Found target
+        if nums[mid] == target:
+            return mid
+
+    return -1  # Target not found
 ```
