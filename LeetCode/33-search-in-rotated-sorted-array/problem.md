@@ -37,6 +37,7 @@
 - [**Binary Search (Naive Two-Pass) Approach**](#binary-search-naive-two-pass-approach)
   - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(1)`
+- [**Binary Search (Optimized One-Pass) Approach**](#binary-search-optimized-one-pass-approach)
 
 # **Problem Overview: Search in Rotated Sorted Array**  
 
@@ -269,3 +270,13 @@ function search(nums: number[], target: number): number {
 - **No Additional Structures**  
   - No auxiliary data structures (arrays, lists, hashmaps) are used for storage.  
   - The input array is processed in place without requiring extra memory allocation.  
+
+# **Binary Search (Optimized One-Pass) Approach**
+
+The binary search one-pass optimized approach eliminates the need for a separate pivot detection step.
+
+This implementation efficiently finds the target while **simultaneously detecting the rotation boundaries**, allowing for an elegant and optimized approach.
+
+- **Single-pass approach** eliminates separate pivot search.  
+- **Sorting check (`nums[left] ≤ nums[mid]`) ensures correct range selection**.  
+- **O(log N) runtime complexity** achieved using binary search principles.  
