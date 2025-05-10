@@ -330,6 +330,27 @@ However, combining pivot identification and target search into a single efficien
    - Executes binary search within the chosen subarray.  
    - Uses standard binary search comparisons to locate the target efficiently.
 
+### **Step 1: Pivot Detection (Finding the Rotation Point)**  
+This step identifies the **smallest element**, which represents the **pivot index**—the transition between two sorted subarrays in the rotated array.
+
+#### **Logic**
+- If `nums[mid] > nums[right]`, the smallest element is **in the right half**, so move `left = mid + 1`.
+- Otherwise, the smallest element **must be in the left half**, so move `right = mid`.
+
+```java
+while (left < right) {  // Use < instead of <= since right adjusts directly
+    int mid = left + (right - left) / 2;  // Prevent integer overflow
+
+    if (nums[mid] > nums[right]) {  
+        left = mid + 1;  // Pivot is in right half  
+    } else {  
+        right = mid;  // Pivot is in left half  
+    }
+}
+
+int pivotIndex = left;  // Smallest element found
+```
+
 
 ### **Pseudocode**  
 ```plaintext
