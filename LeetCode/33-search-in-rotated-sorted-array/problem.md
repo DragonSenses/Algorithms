@@ -309,6 +309,28 @@ We maintain two pointers (`left` and `right`) to track the search scope. At each
 
 3. **Return -1 if `target` is not found.**  
 
+### Integrate Pivot Detection and Target Search
+
+Setting up the two pointers and iterating through the search process is straightforward.
+
+However, combining pivot identification and target search into a single efficient pass requires a refined approach
+
+**Key Idea:**  
+- First, determine **which half** to search based on `pivotIndex` and `target`.  
+- Then, perform **standard binary search** in the chosen half.  
+
+#### **1. Pivot Detection: Finding the Rotation Point**  
+   - Identifies the smallest element in the rotated sorted array.  
+   - Determines where the rotation occurs to separate two sorted subarrays.
+
+#### **2. Search Range Determination: Identifying Which Half to Search**  
+   - Based on the pivot position, decides whether to search in the left or right sorted half.
+
+#### **3. Target Search: Performing Binary Search Within the Correct Half**  
+   - Executes binary search within the chosen subarray.  
+   - Uses standard binary search comparisons to locate the target efficiently.
+
+
 ### **Pseudocode**  
 ```plaintext
 function searchRotatedArray(nums, target):
