@@ -351,6 +351,27 @@ while (left < right) {  // Use < instead of <= since right adjusts directly
 int pivotIndex = left;  // Smallest element found
 ```
 
+### **Step 2: Determine Search Range**
+Before performing binary search, we must **identify the correct half** of the rotated array where the target might exist.  
+
+- Since the array is rotated, **either the left half or the right half is sorted**.
+- We use `pivotIndex` to check whether the target lies in the sorted right portion or the left portion.
+
+#### **Logic**
+- If `target` lies between `nums[pivotIndex]` and `nums[right]`, set `left = pivotIndex` to search in the **right half**.
+- Otherwise, set `right = pivotIndex - 1` to search in the **left half**.
+
+```java
+left = 0;
+right = nums.length - 1;
+
+if (target >= nums[pivotIndex] && target <= nums[right]) {
+    left = pivotIndex;  // Search in right sorted half
+} else {
+    right = pivotIndex - 1;  // Search in left sorted half
+}
+```
+
 
 ### **Pseudocode**  
 ```plaintext
