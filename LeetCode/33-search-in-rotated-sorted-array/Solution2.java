@@ -10,6 +10,15 @@ class Solution2 {
         return mid; // Target found
       }
 
+      // Check if left half is sorted
+      if (nums[left] <= nums[mid]) {
+        if (nums[left] <= target && target < nums[mid]) {
+          right = mid - 1; // Search in left sorted half
+        } else {
+          left = mid + 1; // Search in right half
+        }
+      }
+
     }
 
     return -1; // Target not found
