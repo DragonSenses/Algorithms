@@ -372,6 +372,26 @@ if (target >= nums[pivotIndex] && target <= nums[right]) {
 }
 ```
 
+### **Step 3: Perform Target Search Using Binary Search**
+Once the correct search bounds are defined, we execute **standard binary search** within the chosen half.
+
+#### **Logic**
+- Compare `nums[mid]` with `target` to determine whether to move **left** or **right**.
+- Adjust boundaries accordingly to **narrow down** the search range.
+
+```java
+while (left <= right) {
+    int mid = left + (right - left) / 2;
+
+    if (nums[mid] == target) {
+        return mid;  // Target found
+    } else if (nums[mid] < target) {
+        left = mid + 1;  // Move right
+    } else {
+        right = mid - 1;  // Move left
+    }
+}
+```
 
 ### **Pseudocode**  
 ```plaintext
