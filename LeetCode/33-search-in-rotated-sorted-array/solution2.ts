@@ -12,6 +12,18 @@ function search(nums: number[], target: number): number {
       return mid;
     }
 
+    // Determine which half is sorted
+    if (nums[left] <= nums[mid]) {
+      // Left half is sorted
+      if (nums[left] <= target && target < nums[mid]) {
+        // Search in left sorted half
+        right = mid - 1;
+      } else {
+        // Search in right half
+        left = mid + 1; 
+      }
+    }
+    
   }
 
   return -1; // Target not found
