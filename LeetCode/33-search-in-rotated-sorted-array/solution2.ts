@@ -22,8 +22,16 @@ function search(nums: number[], target: number): number {
         // Search in right half
         left = mid + 1; 
       }
+    } else {
+      // Right half is sorted
+      if (nums[mid] < target && target <= nums[right]) {
+        // Search in right sorted half
+        left = mid + 1;
+      } else {
+        // Search in left half
+        right = mid - 1;
+      }
     }
-    
   }
 
   return -1; // Target not found
