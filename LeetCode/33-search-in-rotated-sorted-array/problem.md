@@ -472,3 +472,41 @@ class Solution2 {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+function search(nums: number[], target: number): number {
+  let left = 0;
+  let right = nums.length - 1;
+
+  // Perform binary search while handling rotation dynamically
+  while (left <= right) {
+    let mid = Math.floor(left + (right - left) / 2); // Prevents potential overflow
+
+    // Found target
+    if (nums[mid] === target) {
+      return mid;
+    }
+
+    // Determine which half is sorted
+    if (nums[left] <= nums[mid]) {
+      // Left half is sorted
+      if (nums[left] <= target && target < nums[mid]) {
+        right = mid - 1; // Search in left sorted half
+      } else {
+        left = mid + 1; // Search in right half
+      }
+    } else {
+      // Right half is sorted
+      if (nums[mid] < target && target <= nums[right]) {
+        left = mid + 1; // Search in right sorted half
+      } else {
+        right = mid - 1; // Search in left half
+      }
+    }
+  }
+
+  return -1; // Target not found
+}
+```
