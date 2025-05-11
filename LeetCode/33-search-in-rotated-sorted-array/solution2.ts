@@ -4,8 +4,9 @@ function search(nums: number[], target: number): number {
   let right = nums.length - 1;
 
   // 1. Find Pivot Index (Smallest Element)
-  while (left < right) {
+  while (left <= right) {
     const mid = Math.floor(left + (right - left) / 2);
+
     if (nums[mid] > nums[right]) {
       left = mid + 1;
     } else {
@@ -13,18 +14,6 @@ function search(nums: number[], target: number): number {
     }
   }
 
-  const pivotIndex = left;
-
-  // 2. Determine search bounds
-  left = 0;
-  right = nums.length - 1;
-  if (target >= nums[pivotIndex] && target <= nums[right]) {
-    left = pivotIndex;
-  } else {
-    right = pivotIndex - 1;
-  }
-
-  // 3. Perform Binary Search in Chosen Half
   while (left <= right) {
     const mid = Math.floor(left + (right - left) / 2);
     if (nums[mid] === target) {
