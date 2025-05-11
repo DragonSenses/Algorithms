@@ -1,3 +1,15 @@
+/**
+ * Searches for a target value in a rotated sorted array using a two-pass binary search.
+ *
+ * @param {number[]} nums - The rotated sorted array of distinct integers.
+ * @param {number} target - The target number to search for.
+ * @returns {number} - Index of the target if found, otherwise -1.
+ *
+ * @example
+ * search([4,5,6,7,0,1,2], 0) -> 4
+ * search([4,5,6,7,0,1,2], 3) -> -1
+ * search([1], 0) -> -1
+ */
 function search(nums: number[], target: number): number {
   let left = 0;
   let right = nums.length - 1;
