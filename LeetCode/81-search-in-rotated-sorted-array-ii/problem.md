@@ -84,6 +84,18 @@ This problem is similar to **Search in Rotated Sorted Array**, but here, `nums` 
 Would the presence of duplicates **affect the runtime complexity**?  
 **How and why?**
 
+#### **Effect of Duplicates on Complexity**
+In **Search in Rotated Sorted Array I**, a **single-pass binary search** could be achieved by consistently comparing `mid` with `left` or `right` to determine which half is sorted. However, when duplicates exist in **Search in Rotated Sorted Array II**, this process becomes trickier:
+- If `nums[mid] == nums[left] == nums[right]`, you **lose the ability to definitively determine which half is sorted**, forcing a fallback to a **linear scan** in the worst case.
+- This means that binary search **degrades from O(log n) to O(n)** in scenarios where many duplicates obscure the sorted structure.
+
+#### **Key Observations**
+1. **Best Case (O(log n))**: If there are minimal duplicates, standard binary search logic holds. You can discard one half of the array efficiently.
+2. **Worst Case (O(n))**: If `nums[mid] == nums[left] == nums[right]`, binary search **fails to eliminate** half of the array in one step. Instead, you must increment `left` or decrement `right` (which resembles linear search).
+
+#### **Final Complexity Analysis**
+Due to the presence of duplicates, the worst-case scenario is **O(n)**, although in many practical cases you might still achieve **O(log n)**.
+
 # Binary Search Approach
 
 This problem is an extension to **33. Search in Rotate Sorted Array**, with the only difference is that this problem allows duplicate elements.
