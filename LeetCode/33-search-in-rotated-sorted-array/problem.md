@@ -510,3 +510,8 @@ function search(nums: number[], target: number): number {
   return -1; // Target not found
 }
 ```
+
+### **Key Improvement Over Naive Two-Pass Approach**  
+- **Single-pass approach removes explicit pivot search**, making the process more efficient.  
+- **Reduces redundant steps without increasing computational overhead.**  
+- **Still maintains logarithmic performance and constant space usage.**  
