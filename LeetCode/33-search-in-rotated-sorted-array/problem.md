@@ -511,6 +511,13 @@ function search(nums: number[], target: number): number {
 }
 ```
 
+## **Complexity Analysis**  
+
+### **Assumptions**  
+- `nums` is a rotated sorted array of distinct integers.  
+- The rotation is at an unknown pivot index.  
+- The **binary search algorithm runs in a single pass**, integrating pivot detection within the search for `target`.  
+
 ### **Key Improvement Over Naive Two-Pass Approach**  
 - **Single-pass approach removes explicit pivot search**, making the process more efficient.  
 - **Reduces redundant steps without increasing computational overhead.**  
