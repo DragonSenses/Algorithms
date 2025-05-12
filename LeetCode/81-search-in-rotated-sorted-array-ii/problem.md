@@ -31,6 +31,10 @@
 
 ---
 
+# Solution
+
+- [Binary Search Approach](#binary-search-approach)
+
 ## **Problem Overview: Search in Rotated Sorted Array II**
 
 ### **Description**  
@@ -79,3 +83,21 @@ false
 This problem is similar to **Search in Rotated Sorted Array**, but here, `nums` may contain **duplicate values**.  
 Would the presence of duplicates **affect the runtime complexity**?  
 **How and why?**
+
+# Binary Search Approach
+
+This problem is an extension to **33. Search in Rotate Sorted Array**, with the only difference is that this problem allows duplicate elements.
+
+Recall that afer rotating a sorted array, we get is two sorted arrays appended to each other.
+
+Let's refer to the first sorted array as `A` and second as `B`.
+
+Also, we can observe that all the elemnts of the second array `B` will be smaller or equal to the first element `start` of `A`, we can refer to as `A_start`.
+
+With this observation we can easily tell which of the 2 arrays `A` or `B` does a `target` element lie in by just comparing it with the first element of the array.
+
+Let's say we are looking for element `target` in array `arr`
+
+Case 1: If `target > arr[start]`: `target` existsi n the first array `A`
+Case 2: If `target < arr[start]` : `target` exists in the second array `B`
+Case 3: If `target == arr[start]` : `target` exists in the first array `A`, but it might also be present in the second array `B`.
