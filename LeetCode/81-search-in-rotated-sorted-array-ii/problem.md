@@ -28,3 +28,54 @@
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> This problem is similar to&nbsp;<a href="/problems/search-in-rotated-sorted-array/description/" target="_blank">Search in Rotated Sorted Array</a>, but&nbsp;<code>nums</code> may contain <strong>duplicates</strong>. Would this affect the runtime complexity? How and why?</p>
+
+---
+
+## **Problem Overview: Search in Rotated Sorted Array II**
+
+### **Description**  
+You are given an integer array `nums` that is sorted in non-decreasing order but **rotated** at an unknown pivot index `k` (`0 ≤ k < nums.length`). The rotation results in the following structure:
+
+> `[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]` (0-indexed)
+
+For example, the sorted array `[0,1,2,4,4,4,5,6,6,7]` rotated at pivot index `5` becomes:  
+> `[4,5,6,6,7,0,1,2,4,4]`
+
+Your task is to determine whether a given integer `target` exists in the rotated array `nums`.  
+**Return `true` if `target` is found, otherwise return `false`.**  
+You must aim to **minimize the overall number of operations**.
+
+### **Examples**
+
+#### **Example 1**
+**Input:**  
+```plaintext
+nums = [2,5,6,0,0,1,2]
+target = 0
+```
+**Output:**  
+```plaintext
+true
+```
+
+#### **Example 2**
+**Input:**  
+```plaintext
+nums = [2,5,6,0,0,1,2]
+target = 3
+```
+**Output:**  
+```plaintext
+false
+```
+
+### **Constraints**
+- `1 ≤ nums.length ≤ 5000`
+- `-10⁴ ≤ nums[i] ≤ 10⁴`
+- `nums` is guaranteed to be rotated at some pivot.
+- `-10⁴ ≤ target ≤ 10⁴`
+
+### **Follow-up Question**
+This problem is similar to **Search in Rotated Sorted Array**, but here, `nums` may contain **duplicate values**.  
+Would the presence of duplicates **affect the runtime complexity**?  
+**How and why?**
