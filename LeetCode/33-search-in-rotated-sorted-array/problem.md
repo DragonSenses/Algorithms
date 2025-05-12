@@ -38,6 +38,7 @@
   - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(1)`
 - [**Binary Search (Optimized One-Pass) Approach**](#binary-search-optimized-one-pass-approach)
+  - **Space Complexity**: `O(1)`
 
 # **Problem Overview: Search in Rotated Sorted Array**  
 
@@ -517,6 +518,12 @@ function search(nums: number[], target: number): number {
 - `nums` is a rotated sorted array of distinct integers.  
 - The rotation is at an unknown pivot index.  
 - The **binary search algorithm runs in a single pass**, integrating pivot detection within the search for `target`.  
+
+### **Space Complexity: `O(1)`**  
+- **Constant-Space Usage**  
+  - The algorithm only uses a fixed number of variables (`left`, `right`, `mid`) to track the search scope.  
+- **No Additional Structures**  
+  - The input array is processed in-place without auxiliary storage.  
 
 ### **Key Improvement Over Naive Two-Pass Approach**  
 - **Single-pass approach removes explicit pivot search**, making the process more efficient.  
