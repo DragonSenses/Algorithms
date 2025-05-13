@@ -181,6 +181,17 @@ FUNCTION searchRotatedArray(nums, target):
     end = length(nums) - 1
 
     WHILE start ≤ end:
+        mid = (start + end) / 2
+
+        IF nums[mid] == target:
+            RETURN true
+
+        // Identify sorted segment
+        IF nums[start] ≤ nums[mid]:  // Left segment is sorted
+            IF nums[start] ≤ target < nums[mid]:
+                end = mid - 1
+            ELSE:
+                start = mid + 1
 
     RETURN false
 ```
