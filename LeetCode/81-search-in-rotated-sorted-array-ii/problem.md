@@ -120,3 +120,10 @@ Given an array `arr` and target `target`, we categorize its location:
 However, when duplicates are present, determining which half is sorted becomes ambiguous.  
 - If `arr[mid] == arr[start] == arr[end]`, we **cannot confidently discard** half the array.  
 - Instead, we must **increment `start` or decrement `end`**, potentially degrading binary search to **O(n)** in the worst case.
+
+## **Refined Strategy**  
+To mitigate worst-case scenarios caused by duplicates:
+1. **Use binary search logic when possible**—compare `mid` with `start` and `target` to determine search direction.
+2. **Handle duplicate ambiguity**—if `arr[mid] == arr[start]`, increment `start` to skip duplicates instead of blindly discarding halves.
+
+This ensures we optimize the approach while accounting for worst-case degradation.
