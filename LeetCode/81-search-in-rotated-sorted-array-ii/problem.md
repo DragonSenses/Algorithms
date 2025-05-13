@@ -132,9 +132,6 @@ This ensures we optimize the approach while accounting for worst-case degradatio
 
 This algorithm builds upon **standard binary search**, but is adapted to handle a **rotated sorted array with duplicates**.  
 
-2. The search space is divided into three parts left half, midpoint, and right half.
-3. Based on the mid and target values we discard the coressponding half
-4. Check the cases
 5. Handle duplicates
 
 ## **Step 1: Binary Search Fundamentals**
@@ -151,3 +148,18 @@ The search space is divided into three parts:
 3. **(mid, end]** → Right half  
 
 Based on `arr[mid]` and `target`, we decide which region to discard.
+
+## **Step 2: Determining Search Space Based on Rotation**  
+By identifying the positions of `arr[mid]` and `target` in the rotated structure, we reduce the search space efficiently.
+
+### **Case 1: `arr[mid]` lies in `F`, `target` lies in `S`**
+Since `S` starts after `F` ends, the target must be in `(mid, end]`.  
+
+### **Case 2: `arr[mid]` lies in `S`, `target` lies in `F`**
+Since `F` starts before `S`, the target must be in `[start, mid)`.  
+
+### **Case 3: Both `arr[mid]` and `target` lie in `F`**
+Since both are in the same sorted segment, we compare `arr[mid]` with `target` to determine the search space reduction.
+
+### **Case 4: Both `arr[mid]` and `target` lie in `S`**
+Again, since both belong to the same sorted segment, we compare `arr[mid]` and `target` to eliminate half of the search space.
