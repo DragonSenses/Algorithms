@@ -110,10 +110,13 @@ An important observation:
 - **All elements in `B` are smaller or equal to the first element of `A`.**  
 - Thus, the first element of the array (`A_start`) can help determine whether the target lies in `A` or `B`.
 
-With this observation we can easily tell which of the 2 arrays `A` or `B` does a `target` element lie in by just comparing it with the first element of the array.
+### **Target Positioning Based on `A_start`**  
+Given an array `arr` and target `target`, we categorize its location:
 
-Let's say we are looking for element `target` in array `arr`
+1. **If `target > arr[start]`** → `target` exists in `A`.  
+2. **If `target < arr[start]`** → `target` exists in `B`.  
+3. **If `target == arr[start]`** → `target` exists in `A`, but it might also be in `B`.  
 
-Case 1: If `target > arr[start]`: `target` existsi n the first array `A`
-Case 2: If `target < arr[start]` : `target` exists in the second array `B`
-Case 3: If `target == arr[start]` : `target` exists in the first array `A`, but it might also be present in the second array `B`.
+However, when duplicates are present, determining which half is sorted becomes ambiguous.  
+- If `arr[mid] == arr[start] == arr[end]`, we **cannot confidently discard** half the array.  
+- Instead, we must **increment `start` or decrement `end`**, potentially degrading binary search to **O(n)** in the worst case.
