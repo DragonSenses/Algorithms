@@ -132,8 +132,6 @@ This ensures we optimize the approach while accounting for worst-case degradatio
 
 This algorithm builds upon **standard binary search**, but is adapted to handle a **rotated sorted array with duplicates**.  
 
-5. Handle duplicates
-
 ## **Step 1: Binary Search Fundamentals**
 We maintain two pointers:  
 - `start`: Tracks the beginning of the search space.  
@@ -163,3 +161,14 @@ Since both are in the same sorted segment, we compare `arr[mid]` with `target` t
 
 ### **Case 4: Both `arr[mid]` and `target` lie in `S`**
 Again, since both belong to the same sorted segment, we compare `arr[mid]` and `target` to eliminate half of the search space.
+
+## **Step 3: Handling Duplicates**  
+There's a key **edge case** when `arr[mid] == arr[start]`:  
+- `arr[mid]` might belong **to both `F` and `S`**, so we **cannot determine the target's relative position** confidently.  
+- In this scenario, we **increment `start`** or **decrement `end`**, effectively switching to a **linear search** in the worst case.  
+
+Some regions **allow binary search**, while others force **sequential iteration due to ambiguity**.
+
+### **Final Considerations**
+- **Best-case complexity:** `O(log n)` when duplicates don't obscure order.  
+- **Worst-case complexity:** `O(n)` when duplicates prevent confident space reduction.  
