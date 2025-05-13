@@ -132,9 +132,22 @@ This ensures we optimize the approach while accounting for worst-case degradatio
 
 This algorithm builds upon **standard binary search**, but is adapted to handle a **rotated sorted array with duplicates**.  
 
-1. We maintain two pointers start and end, and at each step we compute the midpoint as (start + end)/2. 
 2. The search space is divided into three parts left half, midpoint, and right half.
 3. Based on the mid and target values we discard the coressponding half
 4. Check the cases
 5. Handle duplicates
 
+## **Step 1: Binary Search Fundamentals**
+We maintain two pointers:  
+- `start`: Tracks the beginning of the search space.  
+- `end`: Tracks the end of the search space.  
+
+At each step, we calculate the midpoint:  
+> `mid = (start + end) / 2`
+
+The search space is divided into three parts:
+1. **[start, mid)** → Left half  
+2. **[mid, mid]** → Midpoint itself  
+3. **(mid, end]** → Right half  
+
+Based on `arr[mid]` and `target`, we decide which region to discard.
