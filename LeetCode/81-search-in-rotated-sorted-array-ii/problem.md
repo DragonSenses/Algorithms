@@ -192,6 +192,11 @@ FUNCTION searchRotatedArray(nums, target):
                 end = mid - 1
             ELSE:
                 start = mid + 1
+        ELSE:  // Right segment is sorted
+            IF nums[mid] < target ≤ nums[end]:
+                start = mid + 1
+            ELSE:
+                end = mid - 1
 
     RETURN false
 ```
