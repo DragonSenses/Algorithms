@@ -127,3 +127,14 @@ To mitigate worst-case scenarios caused by duplicates:
 2. **Handle duplicate ambiguity**—if `arr[mid] == arr[start]`, increment `start` to skip duplicates instead of blindly discarding halves.
 
 This ensures we optimize the approach while accounting for worst-case degradation.
+
+## **Algorithm**
+
+This algorithm builds upon **standard binary search**, but is adapted to handle a **rotated sorted array with duplicates**.  
+
+1. We maintain two pointers start and end, and at each step we compute the midpoint as (start + end)/2. 
+2. The search space is divided into three parts left half, midpoint, and right half.
+3. Based on the mid and target values we discard the coressponding half
+4. Check the cases
+5. Handle duplicates
+
