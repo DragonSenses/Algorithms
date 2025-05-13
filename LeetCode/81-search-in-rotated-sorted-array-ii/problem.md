@@ -98,13 +98,17 @@ Due to the presence of duplicates, the worst-case scenario is **O(n)**, although
 
 # Binary Search Approach
 
-This problem is an extension to **33. Search in Rotate Sorted Array**, with the only difference is that this problem allows duplicate elements.
+This problem is an extension of **33. Search in Rotated Sorted Array**, with the primary difference being that **duplicates are allowed**, which can affect binary search behavior.
 
-Recall that afer rotating a sorted array, we get is two sorted arrays appended to each other.
+## **Intuition**  
 
-Let's refer to the first sorted array as `A` and second as `B`.
+After rotating a sorted array, we effectively get **two sorted subarrays concatenated** into one. Let's define:  
+- `A`: The first sorted segment before rotation.  
+- `B`: The second sorted segment after rotation.  
 
-Also, we can observe that all the elemnts of the second array `B` will be smaller or equal to the first element `start` of `A`, we can refer to as `A_start`.
+An important observation:  
+- **All elements in `B` are smaller or equal to the first element of `A`.**  
+- Thus, the first element of the array (`A_start`) can help determine whether the target lies in `A` or `B`.
 
 With this observation we can easily tell which of the 2 arrays `A` or `B` does a `target` element lie in by just comparing it with the first element of the array.
 
