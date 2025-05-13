@@ -172,3 +172,15 @@ Some regions **allow binary search**, while others force **sequential iteration 
 ### **Final Considerations**
 - **Best-case complexity:** `O(log n)` when duplicates don't obscure order.  
 - **Worst-case complexity:** `O(n)` when duplicates prevent confident space reduction.  
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION searchRotatedArray(nums, target):
+    start = 0
+    end = length(nums) - 1
+
+    WHILE start ≤ end:
+
+    RETURN false
+```
