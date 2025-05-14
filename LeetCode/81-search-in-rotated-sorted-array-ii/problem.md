@@ -186,6 +186,12 @@ FUNCTION searchRotatedArray(nums, target):
         IF nums[mid] == target:
             RETURN true
 
+        // Handle duplicate ambiguity
+        IF nums[mid] == nums[start] AND nums[mid] == nums[end]:
+            start = start + 1
+            end = end - 1
+            CONTINUE
+
         // Identify sorted segment
         IF nums[start] ≤ nums[mid]:  // Left segment is sorted
             IF nums[start] ≤ target < nums[mid]:
