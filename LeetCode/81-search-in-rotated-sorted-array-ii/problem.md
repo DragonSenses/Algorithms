@@ -141,30 +141,30 @@ At each step, we calculate the midpoint:
 > `mid = (start + end) / 2`
 
 The search space is divided into three parts:
-1. **[start, mid)** → Left half  
-2. **[mid, mid]** → Midpoint itself  
-3. **(mid, end]** → Right half  
+1. **[start, mid)** = Left half
+2. **[mid, mid]** = Midpoint itself
+3. **(mid, end]** = Right half
 
 Based on `arr[mid]` and `target`, we decide which region to discard.
 
 ## **Step 2: Determining Search Space Based on Rotation**  
 By identifying the positions of `arr[mid]` and `target` in the rotated structure, we reduce the search space efficiently.
 
-### **Case 1: `arr[mid]` lies in `F`, `target` lies in `S`**
-Since `S` starts after `F` ends, the target must be in `(mid, end]`.  
+### **Case 1: `arr[mid]` lies in `A`, `target` lies in `B`**  
+Since `B` starts after `A` ends, the target must be in `(mid, end]`.  
 
-### **Case 2: `arr[mid]` lies in `S`, `target` lies in `F`**
-Since `F` starts before `S`, the target must be in `[start, mid)`.  
+### **Case 2: `arr[mid]` lies in `B`, `target` lies in `A`**  
+Since `A` starts before `B`, the target must be in `[start, mid)`.  
 
-### **Case 3: Both `arr[mid]` and `target` lie in `F`**
+### **Case 3: Both `arr[mid]` and `target` lie in `A`**  
 Since both are in the same sorted segment, we compare `arr[mid]` with `target` to determine the search space reduction.
 
-### **Case 4: Both `arr[mid]` and `target` lie in `S`**
+### **Case 4: Both `arr[mid]` and `target` lie in `B`**  
 Again, since both belong to the same sorted segment, we compare `arr[mid]` and `target` to eliminate half of the search space.
 
 ## **Step 3: Handling Duplicates**  
 There's a key **edge case** when `arr[mid] == arr[start]`:  
-- `arr[mid]` might belong **to both `F` and `S`**, so we **cannot determine the target's relative position** confidently.  
+- `arr[mid]` might belong **to both `A` and `B`**, so we **cannot determine the target's relative position** confidently.  
 - In this scenario, we **increment `start`** or **decrement `end`**, effectively switching to a **linear search** in the worst case.  
 
 Some regions **allow binary search**, while others force **sequential iteration due to ambiguity**.
