@@ -177,32 +177,35 @@ Some regions **allow binary search**, while others force **sequential iteration 
 
 ```plaintext
 FUNCTION searchRotatedArray(nums, target):
-    start = 0
-    end = length(nums) - 1
+  start = 0
+  end = length(nums) - 1
 
-    WHILE start ≤ end:
-        mid = (start + end) / 2
+  WHILE start ≤ end:
+    mid = (start + end) / 2  // Calculate the middle index
 
-        IF nums[mid] == target:
-            RETURN true
+    // Check if target is found
+    IF nums[mid] == target:
+      RETURN true
 
-        // Handle duplicate ambiguity
-        IF nums[mid] == nums[start] AND nums[mid] == nums[end]:
-            start = start + 1
-            end = end - 1
-            CONTINUE
+    // Handle duplicate ambiguity
+    IF nums[start] == nums[mid] AND nums[mid] == nums[end]:
+      start = start + 1  // Increment start to skip duplicate
+      end = end - 1  // Decrement end to narrow search space
+      CONTINUE
 
-        // Identify sorted segment
-        IF nums[start] ≤ nums[mid]:  // Left segment is sorted
-            IF nums[start] ≤ target < nums[mid]:
-                end = mid - 1
-            ELSE:
-                start = mid + 1
-        ELSE:  // Right segment is sorted
-            IF nums[mid] < target ≤ nums[end]:
-                start = mid + 1
-            ELSE:
-                end = mid - 1
+    // Identifying the sorted half
+    IF nums[start] ≤ nums[mid]:  // Left segment is sorted
+      // Case 3: Both arr[mid] and target lie in F
+      IF nums[start] ≤ target < nums[mid]:
+        end = mid - 1  // Search in the left half
+      ELSE:
+        start = mid + 1  // Search in the right half
+    ELSE:  // Right segment is sorted
+      // Case 4: Both arr[mid] and target lie in S
+      IF nums[mid] < target ≤ nums[end]:
+        start = mid + 1  // Search in the right half
+      ELSE:
+        end = mid - 1  // Search in the left half
 
-    RETURN false
+  RETURN false  // Target not found
 ```
