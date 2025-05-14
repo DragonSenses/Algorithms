@@ -10,6 +10,17 @@ class Solution {
         return true;
       }
 
+      // Identifying the sorted half
+      if (nums[start] <= nums[mid]) { // Left segment is sorted
+        if (nums[start] <= target && target < nums[mid]) {
+          // Search in left half
+          end = mid - 1;
+        } else {
+          // Search in right half
+          start = mid + 1;
+        }
+      }
+
     }
 
     // Target not found
