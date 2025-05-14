@@ -10,6 +10,13 @@ class Solution {
         return true;
       }
 
+      // Handle duplicate ambiguity
+      if (nums[start] == nums[mid] && nums[mid] == nums[end]) {
+        start++;
+        end--;
+        continue;
+      }
+
       // Identifying the sorted half
       if (nums[start] <= nums[mid]) { // Left segment is sorted
         if (nums[start] <= target && target < nums[mid]) {
