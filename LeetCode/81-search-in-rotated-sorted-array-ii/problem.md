@@ -260,3 +260,10 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- `nums` is a **rotated sorted array**, but it **may contain duplicate values**, which differentiates it from its distinct-element counterpart.
+- The rotation occurs at an **unknown pivot index** (`0 ≤ k < nums.length`).
+- We aim to **minimize operations** while searching for `target`.
