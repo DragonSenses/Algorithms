@@ -17,7 +17,17 @@ function search(nums: number[], target: number): boolean {
         // Search in left half
         end = mid - 1;
       } else {
+        // Search in right half
         start = mid + 1;
+      }
+    } else {
+      // Right segment is sorted
+      if (nums[mid] < target && target <= nums[end]) {
+        // Search in right half
+        start = mid + 1;
+      } else {
+        // Search in left half
+        end = mid - 1;
       }
     }
   }
