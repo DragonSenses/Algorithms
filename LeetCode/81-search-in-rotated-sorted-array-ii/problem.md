@@ -34,6 +34,7 @@
 # Solution
 
 - [Binary Search Approach](#binary-search-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Search in Rotated Sorted Array II**
 
@@ -267,3 +268,9 @@ class Solution {
 - `nums` is a **rotated sorted array**, but it **may contain duplicate values**, which differentiates it from its distinct-element counterpart.
 - The rotation occurs at an **unknown pivot index** (`0 ≤ k < nums.length`).
 - We aim to **minimize operations** while searching for `target`.
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`start`, `end`, `mid`) to track pivots, regardless of the input size.
+- Memory usage **remains constant**, independent of `nums.length`.
+- **No Additional Structures**: The input string is processed directly without requiring extra data structures, ensuring constant memory usage. No additional structures (arrays, hash maps) are allocated.
+You're on the right track! Let's refine and verify your complexity analysis, especially considering the presence of **duplicate elements** in the array.
