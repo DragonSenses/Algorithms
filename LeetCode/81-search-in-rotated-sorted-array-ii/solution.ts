@@ -10,6 +10,13 @@ function search(nums: number[], target: number): boolean {
       return true;
     }
 
+    // Handle duplicate ambiguity
+    if (nums[start] === nums[mid] && nums[mid] === nums[end]) {
+      start++;
+      end--;
+      continue;
+    }
+
     // Identifying sorted half
     if (nums[start] <= nums[mid]) {
       // Left segment is sorted
