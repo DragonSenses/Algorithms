@@ -34,6 +34,7 @@
 # Solution
 
 - [Binary Search Approach](#binary-search-approach)
+  - **Time Complexity**: Worst Case: `O(n)`, Best Case: `O(log n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Search in Rotated Sorted Array II**
@@ -268,6 +269,20 @@ class Solution {
 - `nums` is a **rotated sorted array**, but it **may contain duplicate values**, which differentiates it from its distinct-element counterpart.
 - The rotation occurs at an **unknown pivot index** (`0 ≤ k < nums.length`).
 - We aim to **minimize operations** while searching for `target`.
+
+### **Time Complexity**: Worst Case: `O(n)`, Best Case: `O(log n)`
+
+The **binary search** approach generally has `O(log n)` complexity, but the presence of **duplicates** can cause ambiguity, leading to a **worst-case linear scan**.
+
+#### **Best Case: O(log n)**
+- If there are few or no duplicates, **standard binary search logic** applies.
+- The algorithm consistently eliminates half the search space, maintaining logarithmic complexity.
+
+#### **Worst Case: O(n)**
+- If **nums[start] == nums[mid] == nums[end]**, the sorted half cannot be determined.
+- In such cases, the algorithm **shrinks the search space linearly** (`start++` and `end--`), mimicking a **sequential scan**.
+
+Thus, the overall **time complexity is O(log n) in the best case, but O(n) in the worst case due to duplicates affecting partitioning.**
 
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`start`, `end`, `mid`) to track pivots, regardless of the input size.
