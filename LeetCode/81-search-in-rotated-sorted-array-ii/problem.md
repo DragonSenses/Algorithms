@@ -263,6 +263,55 @@ class Solution {
 }
 ```
 
+### TypeScript
+
+```typescript
+function search(nums: number[], target: number): boolean {
+  let start = 0;
+  let end = nums.length - 1;
+
+  while (start <= end) {
+    let mid = Math.floor(start + (end - start) /2);
+
+    // Found target
+    if (nums[mid] === target) {
+      return true;
+    }
+
+    // Handle duplicate ambiguity
+    if (nums[start] === nums[mid] && nums[mid] === nums[end]) {
+      start++;
+      end--;
+      continue;
+    }
+
+    // Identifying sorted half
+    if (nums[start] <= nums[mid]) {
+      // Left segment is sorted
+      if (nums[start] <= target && target < nums[mid]) {
+        // Search in left half
+        end = mid - 1;
+      } else {
+        // Search in right half
+        start = mid + 1;
+      }
+    } else {
+      // Right segment is sorted
+      if (nums[mid] < target && target <= nums[end]) {
+        // Search in right half
+        start = mid + 1;
+      } else {
+        // Search in left half
+        end = mid - 1;
+      }
+    }
+  }
+
+  // Target not found
+  return false;
+};
+```
+
 ## **Complexity Analysis**
 
 ### **Assumptions**
