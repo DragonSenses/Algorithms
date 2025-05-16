@@ -191,6 +191,43 @@ mid = a[5] = 5
 target = a[3] = 15
 end = a[10] = 9
 
+#### **Case 3: Both `arr[mid]` and `target` lie in `A`**  
+Since both are in the same sorted segment, we compare `arr[mid]` with `target` to determine the search space reduction.
+
+##### `arr[mid] < target so next search space is (mid, end]`
+Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+start = a[0] = 10
+mid = a[3] = 15
+target = a[4] = 19
+end = a[10] = 9
+
+##### `arr[mid] > target so next search space is [start, mid)`
+Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+start = a[0] = 10
+mid = a[4] = 19
+target = a[3] = 15
+end = a[10] = 9
+
+#### **Case 4: Both `arr[mid]` and `target` lie in `B`**  
+Again, since both belong to the same sorted segment, we compare `arr[mid]` and `target` to eliminate half of the search space.
+
+##### `arr[mid] > target so next search space is [start, mid)`
+
+Given array a = [10, 12, 12, 15, 19, 5, 8, 9, 9, 10]
+start = a[0] = 10
+mid = a[8] = 9
+target = a[7] = 8
+end = a[10] = 10
+
+Note: Array is different to consider this case
+
+##### `arr[mid] < target so next search space is (mid, end]`
+Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+start = a[0] = 10
+mid = a[5] = 5
+target = a[7] = 8
+end = a[10] = 9
+
 
 
 ### **Final Considerations**
