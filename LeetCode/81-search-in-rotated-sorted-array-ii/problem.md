@@ -20,10 +20,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
-	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-	<li><code>nums</code> is guaranteed to be rotated at some pivot.</li>
-	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
+  <li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+  <li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+  <li><code>nums</code> is guaranteed to be rotated at some pivot.</li>
+  <li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -171,72 +171,117 @@ There's a key **edge case** when `arr[mid] == arr[start]`:
 
 Some regions **allow binary search**, while others force **sequential iteration due to ambiguity**.
 
-### **Example Walkthrough**
+### **Example Walkthrough with Arrays**
 
 #### **Case 1: `arr[mid]` lies in `A`, `target` lies in `B`**  
 Since `B` starts after `A` ends, the target must be in `(mid, end]`.  
 
-Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
-start = a[0] = 10
-mid = a[4] = 19
-target = a[7] = 8
-end = a[10] = 9
+**Given array:**  
+```ts
+a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[4] = 19` |
+| **Target** | `a[7] = 8` |
+| **End** | `a[10] = 9` |
+
+---
 
 #### **Case 2: `arr[mid]` lies in `B`, `target` lies in `A`**  
 Since `A` starts before `B`, the target must be in `[start, mid)`.  
 
-Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
-start = a[0] = 10
-mid = a[5] = 5
-target = a[3] = 15
-end = a[10] = 9
+**Given array:**  
+```ts
+a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[5] = 5` |
+| **Target** | `a[3] = 15` |
+| **End** | `a[10] = 9` |
+
+---
 
 #### **Case 3: Both `arr[mid]` and `target` lie in `A`**  
 Since both are in the same sorted segment, we compare `arr[mid]` with `target` to determine the search space reduction.
 
-##### `arr[mid] < target so next search space is (mid, end]`
-Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
-start = a[0] = 10
-mid = a[3] = 15
-target = a[4] = 19
-end = a[10] = 9
+##### **If `arr[mid] < target`, next search space is (mid, end]**  
 
-##### `arr[mid] > target so next search space is [start, mid)`
-Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
-start = a[0] = 10
-mid = a[4] = 19
-target = a[3] = 15
-end = a[10] = 9
+**Given array:**  
+```ts
+a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[3] = 15` |
+| **Target** | `a[4] = 19` |
+| **End** | `a[10] = 9` |
+
+##### **If `arr[mid] > target`, next search space is [start, mid)**  
+
+**Given array:**  
+```ts
+a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[4] = 19` |
+| **Target** | `a[3] = 15` |
+| **End** | `a[10] = 9` |
+
+---
 
 #### **Case 4: Both `arr[mid]` and `target` lie in `B`**  
 Again, since both belong to the same sorted segment, we compare `arr[mid]` and `target` to eliminate half of the search space.
 
-##### `arr[mid] > target so next search space is [start, mid)`
+##### **If `arr[mid] > target`, next search space is [start, mid)**  
 
-Given array a = [10, 12, 12, 15, 19, 5, 8, 9, 9, 10]
-start = a[0] = 10
-mid = a[8] = 9
-target = a[7] = 8
-end = a[10] = 10
+**Given array:**  
+```ts
+a = [10, 12, 12, 15, 19, 5, 8, 9, 9, 10] 
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[8] = 9` |
+| **Target** | `a[7] = 8` |
+| **End** | `a[10] = 10` |
 
-Note: Array is different to consider this case
+##### **If `arr[mid] < target`, next search space is (mid, end]**  
 
-##### `arr[mid] < target so next search space is (mid, end]`
-Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
-start = a[0] = 10
-mid = a[5] = 5
-target = a[7] = 8
-end = a[10] = 9
+**Given array:**  
+```ts
+a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[5] = 5` |
+| **Target** | `a[7] = 8` |
+| **End** | `a[10] = 9` |
 
-###### Edge Case: `arr[mid]` equals `arr[start]`
+---
 
-If `arr[mid]` equals `arr[start]` then we know that `arr[mid]` might belong to both `A` and `B` and hence we cannot find the relative position of `target` from it.
+### **Edge Case: `arr[mid]` equals `arr[start]`**  
+If `arr[mid]` equals `arr[start]`, `arr[mid]` might belong to both `A` and `B`, making it impossible to determine the relative position of `target`.
 
-Given array a = [10, 10, 10, 10, 10, 5, 8, 8, 9, 10]
-start = a[0] = 10
-mid = a[4] = 10
-target = a[6] = 8
-end = a[10] = 10
+**Given array:**  
+```ts
+a = [10, 10, 10, 10, 10, 5, 8, 8, 9, 10]
+```
+| Position | Value |
+|----------|------|
+| **Start** | `a[0] = 10` |
+| **Mid** | `a[4] = 10` |
+| **Target** | `a[6] = 8` |
+| **End** | `a[10] = 10` |
+
+---
 
 ### **Final Considerations**
 - **Best-case complexity:** `O(log n)` when duplicates don't obscure order.  
