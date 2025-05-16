@@ -26,6 +26,10 @@
 
 ---
 
+# Solution
+
+- [Strict Deduplication Approach](#strict-deduplication-approach)
+
 ## **Problem Overview: Remove Duplicates from Sorted List II**
 
 #### **Problem Statement**
@@ -57,3 +61,19 @@ Given the `head` of a sorted linked list, the goal is to remove all nodes that a
 - **Skip over duplicate elements** entirely rather than just linking past them.
 - **Time Complexity:** `O(n)`, where `n` is the number of nodes (since each node is visited once).
 - **Space Complexity:** `O(1)`, as we modify the list in place without using extra data structures.
+
+# Strict Deduplication Approach
+
+Since the input linked list is sorted, duplicates are always adjacent, enabling easy identification.
+
+However there is a key distinction between **Problem 82** and **Problem 83** is how duplicates are handled:
+
+- **Problem 83 (Remove Duplicates from Sorted List)**: If a node has duplicates, we preserve **one copy** of the value and remove only the additional occurrences.
+  - Example: `[1,1,2,3,3] → [1,2,3]`
+  - Here, duplicate values remain in the list, but only one of each.
+
+- **Problem 82 (Remove Duplicates from Sorted List II)**: If a node has duplicates, we **remove all occurrences** of that value, leaving only distinct numbers.
+  - Example: `[1,1,2,3,3] → [2]`
+  - The number `1` and `3` were duplicated, so they are removed entirely.
+
+This means Problem 83 **retains unique elements**, while Problem 82 **eliminates all instances of duplicates**, leaving only numbers that appeared exactly once.
