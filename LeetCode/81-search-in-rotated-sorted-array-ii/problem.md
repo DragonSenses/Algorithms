@@ -228,7 +228,15 @@ mid = a[5] = 5
 target = a[7] = 8
 end = a[10] = 9
 
+###### Edge Case: `arr[mid]` equals `arr[start]`
 
+If `arr[mid]` equals `arr[start]` then we know that `arr[mid]` might belong to both `A` and `B` and hence we cannot find the relative position of `target` from it.
+
+Given array a = [10, 10, 10, 10, 10, 5, 8, 8, 9, 10]
+start = a[0] = 10
+mid = a[4] = 10
+target = a[6] = 8
+end = a[10] = 10
 
 ### **Final Considerations**
 - **Best-case complexity:** `O(log n)` when duplicates don't obscure order.  
