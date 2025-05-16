@@ -134,7 +134,7 @@ This ensures we optimize the approach while accounting for worst-case degradatio
 
 This algorithm builds upon **standard binary search**, but is adapted to handle a **rotated sorted array with duplicates**.  
 
-## **Step 1: Binary Search Fundamentals**
+### **Step 1: Binary Search Fundamentals**
 We maintain two pointers:  
 - `start`: Tracks the beginning of the search space.  
 - `end`: Tracks the end of the search space.  
@@ -149,27 +149,49 @@ The search space is divided into three parts:
 
 Based on `arr[mid]` and `target`, we decide which region to discard.
 
-## **Step 2: Determining Search Space Based on Rotation**  
+### **Step 2: Determining Search Space Based on Rotation**  
 By identifying the positions of `arr[mid]` and `target` in the rotated structure, we reduce the search space efficiently.
 
-### **Case 1: `arr[mid]` lies in `A`, `target` lies in `B`**  
+#### **Case 1: `arr[mid]` lies in `A`, `target` lies in `B`**  
 Since `B` starts after `A` ends, the target must be in `(mid, end]`.  
 
-### **Case 2: `arr[mid]` lies in `B`, `target` lies in `A`**  
+#### **Case 2: `arr[mid]` lies in `B`, `target` lies in `A`**  
 Since `A` starts before `B`, the target must be in `[start, mid)`.  
 
-### **Case 3: Both `arr[mid]` and `target` lie in `A`**  
+#### **Case 3: Both `arr[mid]` and `target` lie in `A`**  
 Since both are in the same sorted segment, we compare `arr[mid]` with `target` to determine the search space reduction.
 
-### **Case 4: Both `arr[mid]` and `target` lie in `B`**  
+#### **Case 4: Both `arr[mid]` and `target` lie in `B`**  
 Again, since both belong to the same sorted segment, we compare `arr[mid]` and `target` to eliminate half of the search space.
 
-## **Step 3: Handling Duplicates**  
+### **Step 3: Handling Duplicates**  
 There's a key **edge case** when `arr[mid] == arr[start]`:  
 - `arr[mid]` might belong **to both `A` and `B`**, so we **cannot determine the target's relative position** confidently.  
 - In this scenario, we **increment `start`** or **decrement `end`**, effectively switching to a **linear search** in the worst case.  
 
 Some regions **allow binary search**, while others force **sequential iteration due to ambiguity**.
+
+### **Example Walkthrough**
+
+#### **Case 1: `arr[mid]` lies in `A`, `target` lies in `B`**  
+Since `B` starts after `A` ends, the target must be in `(mid, end]`.  
+
+Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+start = a[0] = 10
+mid = a[4] = 19
+target = a[7] = 8
+end = a[10] = 9
+
+#### **Case 2: `arr[mid]` lies in `B`, `target` lies in `A`**  
+Since `A` starts before `B`, the target must be in `[start, mid)`.  
+
+Given array a = [10, 12, 12, 15, 19, 5, 8, 8, 9, 9]
+start = a[0] = 10
+mid = a[5] = 5
+target = a[3] = 15
+end = a[10] = 9
+
+
 
 ### **Final Considerations**
 - **Best-case complexity:** `O(log n)` when duplicates don't obscure order.  
