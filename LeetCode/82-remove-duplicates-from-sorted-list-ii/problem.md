@@ -158,4 +158,9 @@ FUNCTION deleteDuplicates(head):
   IF head IS null:
     RETURN null  // Edge case: Empty list
 
+  sentinel = NEW NODE(0)  // Create sentinel node
+  sentinel.next = head
+  prev = sentinel  // Tracks last distinct node before duplicate block
+
+  
 ```
