@@ -129,3 +129,24 @@ For input: `[1,2,3,3,4,4,5]`
 3. Resulting list: `[1,2,5]`.
 
 This approach ensures **efficient deletion** with **O(n) time complexity**, as each node is visited only once.
+
+## **Algorithm**
+
+Now that we've defined the **strategy** and handled the **edge cases**, let's outline the step-by-step algorithm.
+
+#### **1. Initialize a Sentinel Node**
+- Create a **sentinel node** (`dummy`) with a neutral value (e.g., `0`).
+- Point `dummy.next` to the `head` of the original list.
+- Use a `prev` pointer initialized to `dummy` to track the **last safe node** before duplicates.
+
+#### **2. Traverse the List**
+- Use a `current` pointer to iterate through the linked list.
+- Check if the current node has **a duplicate** by comparing `current.val` to `current.next.val`.
+
+#### **3. Skip Over Duplicate Nodes**
+- If duplicates are detected, advance `current` until **all occurrences** of that value are skipped.
+- Link `prev.next` directly to **the first unique node after the duplicates**.
+
+#### **4. Continue Until the End**
+- Move `prev` forward **only when no duplicate was detected** (ensuring distinct nodes remain linked).
+- Return `dummy.next`, which points to the modified list.
