@@ -163,6 +163,11 @@ FUNCTION deleteDuplicates(head):
   prev = sentinel  // Tracks last distinct node before duplicate block
 
   WHILE head IS NOT null:
-      head = head.next  // Advance iteration
-  
+    IF head.next EXISTS AND head.value == head.next.value:
+        // Identify duplicate sublist
+        WHILE head.next EXISTS AND head.value == head.next.value:
+            head = head.next  // Move to end of duplicate block
+        
+        prev.next = head.next  // Skip entire duplicate block
+
 ```
