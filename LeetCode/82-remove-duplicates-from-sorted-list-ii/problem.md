@@ -103,3 +103,29 @@ The standard way to handle this case is using a **sentinel node**—a widely use
 By initializing a sentinel node with a **neutral value (e.g., `0`)**, we ensure that any deletions occur **within the list** rather than at its boundary. 
 
 This prevents the need for separate logic when removing the first element, as every node to delete remains *inside* the list structure.
+
+### **Deleting Internal Nodes**
+
+When dealing with a **sorted linked list**, duplicates appear **consecutively**, making identification straightforward. The process of deletion involves tracking and bypassing these duplicate groups while preserving unique elements.
+
+#### **Identifying Duplicate Sublists**
+- Since the list is sorted, we detect duplicates by **comparing a node's value to the next node**.
+- When consecutive nodes share the same value, they form a **sublist of duplicates**.
+
+#### **Pointer Manipulation for Deletion**
+- **First Node in Duplicate Sublist:** Since every occurrence of a duplicate must be removed, the **first node** in a duplicate group is also deleted.
+- **Tracking the Predecessor:**  
+  - To skip over duplicates efficiently, maintain a pointer to the **node before the duplicate sublist** (the **predecessor**).
+  - This allows us to unlink the entire duplicate group in **one operation**.
+
+#### **Skipping the Duplicate Sublist**
+- Once a duplicate sequence is detected, update the predecessor's pointer to **bypass the duplicate sublist entirely**.
+- This ensures that only distinct numbers remain, maintaining the **sorted structure**.
+
+#### **Illustrative Example**
+For input: `[1,2,3,3,4,4,5]`
+1. `3` and `4` form duplicate sublists.
+2. Their **predecessor nodes** (`2` and `5`, respectively) are linked **directly to the node after** the duplicates.
+3. Resulting list: `[1,2,5]`.
+
+This approach ensures **efficient deletion** with **O(n) time complexity**, as each node is visited only once.
