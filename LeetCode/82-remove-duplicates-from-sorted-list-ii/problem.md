@@ -162,5 +162,7 @@ FUNCTION deleteDuplicates(head):
   sentinel.next = head
   prev = sentinel  // Tracks last distinct node before duplicate block
 
+  WHILE head IS NOT null:
+      head = head.next  // Advance iteration
   
 ```
