@@ -169,5 +169,10 @@ FUNCTION deleteDuplicates(head):
             head = head.next  // Move to end of duplicate block
         
         prev.next = head.next  // Skip entire duplicate block
-
+      ELSE:
+        prev = prev.next  // Move forward if no duplicates
+          
+      head = head.next  // Advance iteration
+  
+  RETURN sentinel.next  // Head of modified list
 ```
