@@ -64,9 +64,11 @@ Given the `head` of a sorted linked list, the goal is to remove all nodes that a
 
 # Strict Deduplication Approach
 
+## **Intuition**
+
 Since the input linked list is sorted, duplicates are always adjacent, enabling easy identification.
 
-However there is a key distinction between **Problem 82** and **Problem 83** is how duplicates are handled:
+However the key distinction between **Problem 82** and **Problem 83** is how duplicates are handled:
 
 - **Problem 83 (Remove Duplicates from Sorted List)**: If a node has duplicates, we preserve **one copy** of the value and remove only the additional occurrences.
   - Example: `[1,1,2,3,3] → [1,2,3]`
@@ -77,3 +79,17 @@ However there is a key distinction between **Problem 82** and **Problem 83** is 
   - The number `1` and `3` were duplicated, so they are removed entirely.
 
 This means Problem 83 **retains unique elements**, while Problem 82 **eliminates all instances of duplicates**, leaving only numbers that appeared exactly once.
+
+### **Strategy**
+
+1. **Explicit Edge Case Handling**  
+   - **Empty List (`head = null`)** -> Should return `null`.
+   - **List with No Duplicates (`[1,2,3]`)** -> Should remain unchanged.
+   - **List with Only Duplicates (`[1,1,1,1]`)** -> Should return an empty list `[]`.
+
+2. **In-Place Modification: Using a Sentinel Node**
+   - Since the list must be modified **in place**, a **sentinel node** is a useful technique for removing nodes at the beginning without special-case handling.
+
+3. **Traversal: Two-Pointer Approach**  
+   - Using a **two-pointer approach** (current node and a `prev` pointer) ensures efficient deletion.  
+   - You should only unlink nodes **after confirming** they're duplicates, instead of prematurely skipping nodes.
