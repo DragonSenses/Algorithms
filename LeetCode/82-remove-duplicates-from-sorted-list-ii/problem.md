@@ -93,3 +93,13 @@ This means Problem 83 **retains unique elements**, while Problem 82 **eliminates
 3. **Traversal: Two-Pointer Approach**  
    - Using a **two-pointer approach** (current node and a `prev` pointer) ensures efficient deletion.  
    - You should only unlink nodes **after confirming** they're duplicates, instead of prematurely skipping nodes.
+
+### **Sentinel Node**
+
+Let's consider the challenging situation where the linked list head has to be removed.
+
+The standard way to handle this case is using a **sentinel node**—a widely used technique in linked lists and trees—helps streamline such scenarios by acting as a **pseudo-head** without holding actual data. Its primary role is to **standardize list operations**, eliminating the need for special-case handling when modifying the head.
+
+By initializing a sentinel node with a **neutral value (e.g., `0`)**, we ensure that any deletions occur **within the list** rather than at its boundary. 
+
+This prevents the need for separate logic when removing the first element, as every node to delete remains *inside* the list structure.
