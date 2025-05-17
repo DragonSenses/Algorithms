@@ -150,3 +150,12 @@ Now that we've defined the **strategy** and handled the **edge cases**, let's ou
 #### **4. Continue Until the End**
 - Move `prev` forward **only when no duplicate was detected** (ensuring distinct nodes remain linked).
 - Return `dummy.next`, which points to the modified list.
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION deleteDuplicates(head):
+  IF head IS null:
+    RETURN null  // Edge case: Empty list
+
+```
