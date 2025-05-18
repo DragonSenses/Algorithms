@@ -9,9 +9,12 @@ class Solution {
 
     while (head != null) {
       if (head.next != null && head.val == head.next.val) {
+        // Move to end of duplicate sublist
         while (head.next != null && head.val == head.next.val) {
           head = head.next;
         }
+        // Skip all duplicates
+        prevNode.next = head.next;
       }
       
       head = head.next;
