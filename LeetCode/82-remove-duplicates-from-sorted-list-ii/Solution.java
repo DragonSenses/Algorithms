@@ -15,6 +15,8 @@ class Solution {
         }
         // Skip all duplicates
         prevNode.next = head.next;
+      } else {
+        prevNode = prevNode.next;
       }
       
       head = head.next;
