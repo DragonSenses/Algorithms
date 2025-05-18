@@ -8,9 +8,12 @@ class Solution {
     ListNode prevNode = sentinel;  // Tracks last distinct node before duplicates
 
     while (head != null) {
+      if (head.next != null && head.val == head.next.val) {
+      }
+      
       head = head.next;
     }
-
+    
     return sentinel.next;
   }
 }
