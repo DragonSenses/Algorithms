@@ -176,3 +176,47 @@ FUNCTION deleteDuplicates(head):
   
   RETURN sentinel.next  // Head of modified list
 ```
+
+## **Implementation**
+
+### **Java**
+
+```java
+class Solution {
+  public ListNode deleteDuplicates(ListNode head) {
+    // Edge Case: If the input list is empty, return null immediately.
+    if (head == null) {
+      return null;
+    }
+
+    // Sentinel node simplifies head removal and edge cases.
+    ListNode sentinel = new ListNode(0, head);
+
+    // Pointer tracking the last distinct node before a duplicate sequence.
+    ListNode prevUnique = sentinel;
+
+    // Traverse the linked list.
+    while (head != null) {
+      // If the current node is the start of a duplicate sequence:
+      if (head.next != null && head.val == head.next.val) {
+        // Advance hea` until the end of the duplicate sequence.
+        while (head.next != null && head.val == head.next.val) {
+          head = head.next;
+        }
+
+        // Remove all occurrences of the duplicate value by linking past it.
+        prevUnique.next = head.next;
+      } else {
+        // Move prevUnique forward only when head is a unique value.
+        prevUnique = prevUnique.next;
+      }
+
+      // Move head forward to continue processing the list.
+      head = head.next;
+    }
+
+    // Return the modified list, skipping the sentinel node.
+    return sentinel.next;
+  }
+}
+```
