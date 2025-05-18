@@ -220,3 +220,10 @@ class Solution {
   }
 }
 ```
+
+### **Complexity Analysis**  
+
+#### **Assumptions**
+- The linked list consists of `n` nodes.
+- The input list is **sorted in ascending order**, which ensures duplicates are grouped together.
+- The algorithm removes **all occurrences of duplicate values**, leaving only distinct elements.
