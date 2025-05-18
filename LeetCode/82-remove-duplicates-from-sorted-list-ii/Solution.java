@@ -5,7 +5,7 @@ class Solution {
     }
 
     ListNode sentinel = new ListNode(0, head);
-    ListNode prevNode = sentinel;  // Tracks last distinct node before duplicates
+    ListNode prevUnique = sentinel;  // Tracks last distinct node before duplicates
 
     while (head != null) {
       if (head.next != null && head.val == head.next.val) {
@@ -14,14 +14,15 @@ class Solution {
           head = head.next;
         }
         // Skip all duplicates
-        prevNode.next = head.next;
+        prevUnique.next = head.next;
       } else {
-        prevNode = prevNode.next;
+        // Move `prevUnique` forward only when a unique value is found.
+        prevUnique = prevUnique.next;
       }
       
       head = head.next;
     }
-    
+
     return sentinel.next;
   }
 }
