@@ -29,6 +29,7 @@
 # Solution
 
 - [Strict Deduplication Approach](#strict-deduplication-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Remove Duplicates from Sorted List II**
 
@@ -227,3 +228,15 @@ class Solution {
 - The linked list consists of `n` nodes.
 - The input list is **sorted in ascending order**, which ensures duplicates are grouped together.
 - The algorithm removes **all occurrences of duplicate values**, leaving only distinct elements.
+
+### **Space Complexity: `O(1)`**  
+Since the algorithm modifies the linked list **in place** without using auxiliary data structures, it achieves **constant space usage** (`O(1)`).  
+
+1. **No Extra Storage for Node Values**  
+   - The algorithm does not store elements in a hash set, array, or other structures—it merely **relinks existing nodes**.  
+
+2. **Fixed Number of Pointers Used**  
+   - The only extra pointers required (`sentinel`, `prev`, `head`) remain **constant regardless of `n`**.
+   - No recursion is used, avoiding the potential `O(n)` space cost of recursive stack frames.  
+
+Thus, the **space complexity remains at `O(1)`**, making this an efficient in-place approach.
