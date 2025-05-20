@@ -66,6 +66,16 @@ Given the `head` of a sorted linked list, the goal is to remove all nodes that a
 
 # Strict Deduplication Approach
 
+The problem demands us to eliminate **all instances of duplicates**. As such this approach will be named **strict deduplication** approach.
+
+Here's how these two terms apply in this context:
+
+- **Strict:** This refers to a **rigorous, uncompromising** approach where any number appearing more than once is completely removed. Unlike Problem 83, where duplicates are condensed into a single occurrence, here we eliminate them **entirely**.
+
+- **Deduplication:** The process of **removing repeated occurrences of elements**. In this case, however, it's not just about reducing redundancy—it's about ensuring that only **numbers appearing exactly once** remain in the linked list.
+
+Together, **"Strict Deduplication"** captures the idea that we **fully eliminate** any value that appears more than once, rather than merely reducing duplicates to a single instance. 
+
 ## **Intuition**
 
 Since the input linked list is sorted, duplicates are always adjacent, enabling easy identification.
