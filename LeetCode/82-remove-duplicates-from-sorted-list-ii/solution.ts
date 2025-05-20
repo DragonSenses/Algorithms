@@ -12,4 +12,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
     return null;
   }
 
+  // Sentinel node simplifies edge cases
+  let sentinel: ListNode = new ListNode(0, head);
+  let prevNode: ListNode = sentinel; // Tracks last unique node before duplicates
 };
