@@ -13,7 +13,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
   }
 
   // Sentinel node simplifies edge cases
-  let sentinel: ListNode = new ListNode(0, head);
+  let sentinel: ListNode = new ListNode(-1, head); // Using -1 to signal a unusuable data
   let prevNode: ListNode = sentinel; // Tracks last unique node before duplicates
 
   while (head) {
@@ -29,4 +29,6 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
 
     head = head.next;
   }
+
+  return sentinel.next;
 };
