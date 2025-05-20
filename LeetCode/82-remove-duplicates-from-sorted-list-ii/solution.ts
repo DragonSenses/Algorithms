@@ -22,6 +22,9 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
         head = head?.next;
       }
       prevNode.next = head.next;
+    } else {
+      // Advance prevNode only when a unique element is found
+      prevNode = prevNode.next!;
     }
 
     head = head.next;
