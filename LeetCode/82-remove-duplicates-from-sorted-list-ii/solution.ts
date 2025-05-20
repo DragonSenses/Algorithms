@@ -17,6 +17,10 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
   let prevNode: ListNode = sentinel; // Tracks last unique node before duplicates
 
   while (head) {
+    if (head.next && head.val === head.next.val) {
+
+    }
+
     head = head.next;
   }
 };
