@@ -24,3 +24,25 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 	<li><code>1 &lt;= heights.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
+---
+
+### **Problem Overview: Largest Rectangle in Histogram**  
+
+#### **Description**  
+Given an array of integers `heights` representing the **heights of histogram bars**, where each bar has a **fixed width of 1**, determine the **largest rectangular area** that can be formed within the histogram.  
+
+#### **Examples**  
+**Example 1:**  
+- **Input:** `heights = [2,1,5,6,2,3]`  
+- **Output:** `10`  
+- **Explanation:** The largest rectangle is formed by bars at indices `[2,3]` (heights `5,6`), covering `width = 2` and `height = 5`, giving an **area = 10 units**.  
+
+**Example 2:**  
+- **Input:** `heights = [2,4]`  
+- **Output:** `4`  
+- **Explanation:** The rectangle spans **one bar** with a height of `4`, yielding an **area = 4 units**.  
+
+#### **Constraints**  
+- `1 <= heights.length <= 100,000`  
+- `0 <= heights[i] <= 10,000`  
