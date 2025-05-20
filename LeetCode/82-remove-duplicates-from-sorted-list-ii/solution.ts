@@ -8,5 +8,8 @@ class ListNode {
 }
 
 function deleteDuplicates(head: ListNode | null): ListNode | null {
-    
+  if (!head) {
+    return null;
+  }
+
 };
