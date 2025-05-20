@@ -27,6 +27,10 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 ---
 
+# Solution
+
+- [Brute Force (Naive) Approach](#brute-force-naive-approach)
+
 ### **Problem Overview: Largest Rectangle in Histogram**  
 
 #### **Description**  
@@ -63,3 +67,19 @@ Given an array of integers `heights` representing the **heights of histogram bar
 2. **When a decreasing bar is encountered**, pop from the stack to determine the largest rectangle that can be formed with the removed bar.  
 3. **Calculate areas dynamically** based on the popped height and its left-right boundaries.  
 4. **Continue until all bars have been processed**, ensuring the largest possible area is captured.
+
+# Brute Force (Naive) Approach
+
+Starting with the **brute force approach** helps in understanding the problem thoroughly and serves as a foundation for optimized solutions. While simple, becomes inefficient for larger histograms due to its **quadratic time complexity**.
+
+## **Intuition**
+
+A key observation is that the **height of a rectangle**—formed between any two bars—will always be **limited by the shortest bar** lying between them.
+
+Thus, to determine the **maximum rectangular area**, we:
+1. **Consider every possible pair of bars** in the histogram.
+2. **Identify the shortest bar** between them (as it constrains the height).
+3. **Compute the area of the rectangle** formed by using:
+   - **Height** = Minimum bar height within the range.
+   - **Width** = Distance between the two bars.
+4. Track the **maximum area** encountered during the iterations.
