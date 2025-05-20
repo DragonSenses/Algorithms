@@ -19,9 +19,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
-	<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
+  <li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
 
 ---
@@ -29,6 +29,7 @@
 # Solution
 
 - [Strict Deduplication Approach](#strict-deduplication-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Remove Duplicates from Sorted List II**
@@ -228,6 +229,22 @@ class Solution {
 - The linked list consists of `n` nodes.
 - The input list is **sorted in ascending order**, which ensures duplicates are grouped together.
 - The algorithm removes **all occurrences of duplicate values**, leaving only distinct elements.
+
+### **Time Complexity: `O(n)`**  
+The algorithm performs **linear traversal**, meaning each node is visited **at most once**. Let's break this down further:  
+
+1. **Iterating Through the List (`O(n)`)**  
+   - The algorithm scans each node and checks for duplicates using `head.next`, ensuring a **single pass** through the list.
+   - Nodes are skipped only when duplicates are detected, but this still counts as visiting them in sequence.  
+
+2. **Skipping Duplicate Sublists (`O(n)`)**  
+   - Whenever a duplicate sequence is found, the algorithm advances the `head` pointer **until all occurrences of that value are skipped**.
+   - Since each duplicate group is bypassed in one continuous motion, the number of steps still **remains proportional to `n`**.  
+
+3. **Pointer Adjustments (`O(1) per operation`)**  
+   - The reassignment of `prev.next` to skip duplicates is an **O(1)** operation, as it directly changes a single reference without extra traversal.  
+
+Overall, the algorithm completes in **O(n) time**, as each node is processed at most once.
 
 ### **Space Complexity: `O(1)`**  
 Since the algorithm modifies the linked list **in place** without using auxiliary data structures, it achieves **constant space usage** (`O(1)`).  
