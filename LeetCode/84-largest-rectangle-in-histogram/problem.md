@@ -46,3 +46,20 @@ Given an array of integers `heights` representing the **heights of histogram bar
 #### **Constraints**  
 - `1 <= heights.length <= 100,000`  
 - `0 <= heights[i] <= 10,000`  
+
+### **Key Insights:**  
+1. **Brute Force Approach:**  
+   - Consider every possible rectangle.
+   - Compute the area for each.
+   - Results in **O(N²) time complexity** (inefficient for large inputs).  
+
+2. **Stack-Based Optimization:**  
+   - **Monotonic Stack** can help efficiently track left and right boundaries.
+   - Allows **constant-time height retrieval** while maintaining **sorted order**.
+   - Achieves **O(N) time complexity**, improving performance significantly.
+
+### **Algorithm Strategy:**  
+1. **Iterate over the bars** while maintaining a **monotonic stack**.  
+2. **When a decreasing bar is encountered**, pop from the stack to determine the largest rectangle that can be formed with the removed bar.  
+3. **Calculate areas dynamically** based on the popped height and its left-right boundaries.  
+4. **Continue until all bars have been processed**, ensuring the largest possible area is captured.
