@@ -13,6 +13,9 @@ class Solution {
           minHeight = Math.min(minHeight, heights[k]);
         }
 
+        // Compute the rectangle's area and update maxArea
+        int width = j - i + 1;
+        maxArea = Math.max(maxArea, minHeight * width);
       }
     }
 
