@@ -116,3 +116,17 @@ class Solution {
 ```
 
 However this leads to the a quadratic time complexity of `O(n^3)` as it uses **three nested for loops** to find the minimum height bar `O(n)` lying between every pair `O(n^2)`.
+
+### **Optimizing the Brute Force Solution**  
+
+We can improve the brute force approach by reducing redundant computations. Instead of evaluating every possible pair and recalculating the **minimum height** for each range from scratch, we can **track the minimum height dynamically** as we expand the rectangle.  
+
+Rather than recomputing the smallest bar within each new range, we **reuse the previous minimum height** and update it using the current bar’s height: `minheight = min(minheight, heights(j))`
+
+\[
+\text{minHeight} = \min(\text{minHeight}, \text{heights}[j])
+\]
+
+where `heights[j]` represents the height of the `jth` bar in the expansion.  
+
+This eliminates redundant calculations and makes the brute force approach more efficient while maintaining its `O(n²)` complexity.  
