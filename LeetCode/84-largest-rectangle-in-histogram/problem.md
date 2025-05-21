@@ -76,6 +76,8 @@ Starting with the **brute force approach** helps in understanding the problem th
 
 A key observation is that the **height of a rectangle**—formed between any two bars—will always be **limited by the shortest bar** lying between them.
 
+![In a histogram, the minimum height of the rectangle is the same as the height of the shortest bar](img/84-3.jpg)
+
 Thus, to determine the **maximum rectangular area**, we:
 1. **Consider every possible pair of bars** in the histogram.
 2. **Identify the shortest bar** between them (as it constrains the height).
