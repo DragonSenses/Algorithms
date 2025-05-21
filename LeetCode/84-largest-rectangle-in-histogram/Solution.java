@@ -6,6 +6,12 @@ class Solution {
     // Iterate over all possible starting bars
     for (int i = 0; i < n; i++) {
       for (int j = i; j < n; j++) {
+        int minHeight = Integer.MAX_VALUE; // Start with maximum possible value
+
+        // Find the minimum height within the range [i, j]
+        for (int k = i; k <= j; k++) {
+          minHeight = Math.min(minHeight, heights[k]);
+        }
 
       }
     }
