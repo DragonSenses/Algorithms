@@ -5,13 +5,11 @@ class Solution {
 
     // Iterate over all possible starting bars
     for (int i = 0; i < n; i++) {
-      for (int j = i; j < n; j++) {
-        int minHeight = Integer.MAX_VALUE; // Start with maximum possible value
+      int minHeight = heights[i];
 
-        // Find the minimum height within the range [i, j]
-        for (int k = i; k <= j; k++) {
-          minHeight = Math.min(minHeight, heights[k]);
-        }
+      // Expand the rectangle by iterating over possible ending bars
+      for (int j = i; j < n; j++) {
+        minHeight = Math.min(minHeight, heights[j]); // Maintain minimum height in range
 
         // Compute the rectangle's area and update maxArea
         int width = j - i + 1;
