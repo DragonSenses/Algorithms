@@ -130,3 +130,17 @@ Rather than recomputing the smallest bar within each new range, we **reuse the p
 where `heights[j]` represents the height of the `jth` bar in the expansion.  
 
 This eliminates redundant calculations and makes the brute force approach more efficient while maintaining its `O(n²)` complexity.  
+
+## **Algorithm**
+
+1. **Initialize `maxArea = 0`** to store the largest rectangle found.  
+2. **Loop through each bar index `i`** as the potential **starting point**:  
+   - Set `minHeight = heights[i]` (initial height for the range).  
+   - Expand the rectangle to **each ending index `j ≥ i`**:  
+     - **Update `minHeight = Math.min(minHeight, heights[j])`**.  
+     - **Calculate area using:**  
+       \[
+       \text{Area} = \text{minHeight} \times (\text{j} - \text{i} + 1)
+       \]
+     - **Update `maxArea`** if this area is larger.  
+3. **Return `maxArea`** after all iterations. 
