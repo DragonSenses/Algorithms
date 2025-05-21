@@ -85,3 +85,34 @@ Thus, to determine the **maximum rectangular area**, we:
    - **Height** = Minimum bar height within the range.
    - **Width** = Distance between the two bars.
 4. Track the **maximum area** encountered during the iterations.
+
+### Initial Implementation: Brute Force
+
+```java
+class Solution {
+  public int largestRectangleArea(int[] heights) {
+    int maxArea = 0;
+    int n = heights.length;
+
+    // Iterate over all possible starting bars
+    for (int i = 0; i < n; i++) {
+      for (int j = i; j < n; j++) {
+        int minHeight = Integer.MAX_VALUE; // Start with maximum possible value
+
+        // Find the minimum height within the range [i, j]
+        for (int k = i; k <= j; k++) {
+          minHeight = Math.min(minHeight, heights[k]);
+        }
+
+        // Compute the rectangle's area and update maxArea
+        int width = j - i + 1;
+        maxArea = Math.max(maxArea, minHeight * width);
+      }
+    }
+
+    return maxArea;
+  }
+}
+```
+
+However this leads to the a quadratic time complexity of `O(n^3)` as it uses **three nested for loops** to find the minimum height bar `O(n)` lying between every pair `O(n^2)`.
