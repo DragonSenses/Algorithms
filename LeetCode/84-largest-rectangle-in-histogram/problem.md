@@ -144,3 +144,31 @@ This eliminates redundant calculations and makes the brute force approach more e
        \]
      - **Update `maxArea`** if this area is larger.  
 3. **Return `maxArea`** after all iterations. 
+
+## **Implementation**
+
+### Java
+
+```java
+public class Solution {
+  public int largestRectangleArea(int[] heights) {
+    int maxArea = 0;
+    int n = heights.length;
+
+    // Iterate over all possible starting bars
+    for (int i = 0; i < n; i++) {
+      int minHeight = heights[i];
+
+      // Expand the rectangle by iterating over possible ending bars
+      for (int j = i; j < n; j++) {
+        minHeight = Math.min(minHeight, heights[j]); // Maintain minimum height in range
+        int width = j - i + 1; // Calculate width
+        maxArea = Math.max(maxArea, minHeight * width); // Compute and track maximum area
+      }
+    }
+
+    return maxArea;
+  }
+}
+```
+
