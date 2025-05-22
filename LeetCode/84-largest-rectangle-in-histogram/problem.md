@@ -21,8 +21,8 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= heights.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li>
+  <li><code>1 &lt;= heights.length &lt;= 10<sup>5</sup></code></li>
+  <li><code>0 &lt;= heights[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ---
@@ -54,11 +54,16 @@ Given an array of integers `heights` representing the **heights of histogram bar
 - `1 <= heights.length <= 100,000`  
 - `0 <= heights[i] <= 10,000`  
 
+### **Goal**  
+The problem requires finding the **largest rectangular area** that can be formed in a histogram where:
+- Each **bar's width** is **1 unit**.
+- The heights are given as an **array of integers**.
+
 ### **Key Insights:**  
 1. **Brute Force Approach:**  
    - Consider every possible rectangle.
    - Compute the area for each.
-   - Results in **O(N²) time complexity** (inefficient for large inputs).  
+   - Results in **O(n^2) time complexity** (inefficient for large inputs).  
 
 2. **Stack-Based Optimization:**  
    - **Monotonic Stack** can help efficiently track left and right boundaries.
@@ -132,7 +137,7 @@ Rather than recomputing the smallest bar within each new range, we **reuse the p
 
 where `heights[j]` represents the height of the `jth` bar in the expansion.  
 
-This eliminates redundant calculations and makes the brute force approach more efficient while maintaining its `O(n²)` complexity.  
+This eliminates redundant calculations and makes the brute force approach more efficient while maintaining its `O(n^2)` complexity.  
 
 ## **Algorithm**
 
@@ -146,7 +151,7 @@ This eliminates redundant calculations and makes the brute force approach more e
        \text{Area} = \text{minHeight} \times (\text{j} - \text{i} + 1)
        \]
      - **Update `maxArea`** if this area is larger.  
-3. **Return `maxArea`** after all iterations. 
+3. **Return `maxArea`** after all iterations.  
 
 ## **Implementation**
 
@@ -214,7 +219,7 @@ The complexity **is quadratic (`O(n^2)`)**, because:
 2. **Inner loop (`j` runs from `i` to `n-1`)** → `O(n)`
 3. **Finding the minimum height** within `i → j` occurs in `O(1)`, since it updates dynamically.
 
-Thus, the total operations roughly follow **nested loops**, leading to **O(n²) time complexity**.
+Thus, the total operations roughly follow **nested loops**, leading to **O(n^2) time complexity**.
 
 ### **Space Complexity: `O(1)`**  
 - **Constant-space usage**:  
@@ -226,3 +231,11 @@ Thus, the total operations roughly follow **nested loops**, leading to **O(n²) 
 
 #### **Overview**  
 This approach leverages a **monotonic increasing stack** to efficiently determine the boundaries where each histogram bar **begins and ends** in forming the largest rectangle. By **tracking indices** instead of recalculating heights redundantly, we significantly improve performance.
+
+## **Intuition**
+
+The brute force is inefficient because of redundant computations for minimum heights on overlapping rectangles. Instead if we maintain a stack we can track the boundaries of where each bar can extend, therefore we can push a -1 or neutral value to signal the end.
+
+Each bar removed from the stack represents the height of a rectangle, whereas the difference comes from the next smaller bar on the left and current index.
+
+If we reach the end of the array we can pop all elements of the stack and at every pop we can find the area, computing the area of the largest rectangle dynamically.
