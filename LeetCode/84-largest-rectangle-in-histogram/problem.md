@@ -30,6 +30,7 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 # Solution
 
 - [Brute Force (Naive) Approach](#brute-force-naive-approach)
+  - **Space Complexity**: `O(1)`
 
 ### **Problem Overview: Largest Rectangle in Histogram**  
 
@@ -204,3 +205,9 @@ function largestRectangleArea(heights: number[]): number {
 ### **Assumptions**
 - The brute force approach considers **every possible rectangle** in the histogram.
 - The algorithm maintains a **tracking variable** for the minimum height across a given range.
+
+### **Space Complexity: `O(1)`**  
+- **Constant-space usage**:  
+  - The algorithm **only uses a few scalar variables** (`maxArea`, `minHeight`, `width`).
+  - No additional data structures (arrays, lists, or stacks) are allocated.
+- **No extra memory is needed** beyond the input array.
