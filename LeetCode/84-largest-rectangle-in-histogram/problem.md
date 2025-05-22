@@ -32,6 +32,7 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 - [Brute Force (Naive) Approach](#brute-force-naive-approach)
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
+- [Stack (Optimized) Approach](#stack-optimized-approach)
 
 ### **Problem Overview: Largest Rectangle in Histogram**  
 
@@ -220,3 +221,8 @@ Thus, the total operations roughly follow **nested loops**, leading to **O(n²) 
   - The algorithm **only uses a few scalar variables** (`maxArea`, `minHeight`, `width`).
   - No additional data structures (arrays, lists, or stacks) are allocated.
 - **No extra memory is needed** beyond the input array.
+
+# **Stack (Optimized) Approach**  
+
+#### **Overview**  
+This approach leverages a **monotonic increasing stack** to efficiently determine the boundaries where each histogram bar **begins and ends** in forming the largest rectangle. By **tracking indices** instead of recalculating heights redundantly, we significantly improve performance.
