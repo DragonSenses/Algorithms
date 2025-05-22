@@ -198,3 +198,9 @@ function largestRectangleArea(heights: number[]): number {
   return maxArea;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The brute force approach considers **every possible rectangle** in the histogram.
+- The algorithm maintains a **tracking variable** for the minimum height across a given range.
