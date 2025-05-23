@@ -17,6 +17,7 @@ class Solution {
         maxArea = Math.max(maxArea, h * width);
       }
 
+      stack.push(i); // Push current index onto the stack
     }
 
     return maxArea;
