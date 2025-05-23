@@ -247,8 +247,19 @@ For the **monotonic stack approach**:
 
 ## **Intuition**
 
-The brute force is inefficient because of redundant computations for minimum heights on overlapping rectangles. Instead if we maintain a stack we can track the boundaries of where each bar can extend, therefore we can push a -1 or neutral value to signal the end.
+The brute force approach is inefficient because it repeatedly recalculates **minimum heights** for overlapping subarrays. The **monotonic stack** approach optimizes this by efficiently tracking the **boundaries where each bar can extend**.  
 
-Each bar removed from the stack represents the height of a rectangle, whereas the difference comes from the next smaller bar on the left and current index.
+### **Key Observations**
+1. **Each bar contributes to the largest rectangle where it is the shortest bar.**  
+   - Instead of evaluating all pairs, we determine where a given bar **starts** and **ends** in forming the largest possible rectangle.  
 
-If we reach the end of the array we can pop all elements of the stack and at every pop we can find the area, computing the area of the largest rectangle dynamically.
+2. **Using a stack helps track previous heights efficiently.**  
+   - We maintain a **monotonic increasing stack** of indices representing **bars in sorted height order**.
+   - When a bar **violates the order** (i.e., a shorter bar appears), we calculate the largest rectangle that the popped bar could contribute to.  
+
+3. **Area Calculation Using Stack Logic**
+   - Each popped bar represents the **height** of a rectangle.  
+   - The width is determined by the **difference between the next smaller bar on the left and the current index**.  
+   - This ensures **constant-time height retrieval** while reducing unnecessary recomputation.  
+
+Thus, by **using a stack**, we efficiently determine where each bar **begins and ends**, allowing us to compute the largest rectangular area in **O(n) time complexity** instead of `O(n^2)`.  
