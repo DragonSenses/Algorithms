@@ -232,6 +232,19 @@ Thus, the total operations roughly follow **nested loops**, leading to **O(n^2) 
 #### **Overview**  
 This approach leverages a **monotonic increasing stack** to efficiently determine the boundaries where each histogram bar **begins and ends** in forming the largest rectangle. By **tracking indices** instead of recalculating heights redundantly, we significantly improve performance.
 
+#### **Monotonic**
+
+In this context, **monotonic** refers to a property where a sequence maintains a consistent order—either **increasing** or **decreasing**—without reversing direction.  
+
+For the **monotonic stack approach**:  
+- We maintain a **monotonic increasing stack**, meaning that the values (bar heights) are stored in **ascending order**.  
+- When a **smaller bar** appears, we **pop from the stack**, ensuring that we process previous taller bars efficiently before handling the new one.  
+
+### **Why Use a Monotonic Stack?**  
+- It helps efficiently track **left and right boundaries** of rectangles.  
+- It ensures **each element is pushed and popped only once**, leading to **O(n) time complexity**.  
+- Avoids unnecessary rechecking of heights, reducing redundant calculations.  
+
 ## **Intuition**
 
 The brute force is inefficient because of redundant computations for minimum heights on overlapping rectangles. Instead if we maintain a stack we can track the boundaries of where each bar can extend, therefore we can push a -1 or neutral value to signal the end.
