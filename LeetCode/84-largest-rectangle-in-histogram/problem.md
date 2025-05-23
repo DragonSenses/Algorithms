@@ -263,3 +263,28 @@ The brute force approach is inefficient because it repeatedly recalculates **min
    - This ensures **constant-time height retrieval** while reducing unnecessary recomputation.  
 
 Thus, by **using a stack**, we efficiently determine where each bar **begins and ends**, allowing us to compute the largest rectangular area in **O(n) time complexity** instead of `O(n^2)`.  
+
+## **Algorithm**  
+
+#### **1. Initialize the stack**
+- Create an empty **stack** to store **indices of histogram bars**.
+- Push `-1` onto the stack to mark the **left boundary** for width calculation.
+
+#### **2. Process each bar in the histogram**
+- Iterate through the **array from left to right**.
+- Push indices **as long as the stack remains increasing** (i.e., bars are taller than previous).
+- If a bar is **shorter than the top of the stack**, start **popping** to compute areas.
+
+#### **3. Compute rectangular areas while popping**
+- Whenever a bar is **shorter** than the stack top, pop the top index.
+- Use the popped height for calculating a rectangle width:
+  - **Width** = `(i - stack[top - 1] - 1)`
+  - **Height** = `heights[stack[top]]`
+- Compare and **update the maximum area**.
+
+#### **4. Final cleanup after full iteration**
+- After processing all bars, **pop remaining elements** from the stack.
+- Compute and update the area using:
+  \[
+  (\text{heights.length} - \text{stack[top -1]} - 1) \times \text{heights[stack[top]]}
+  \]
