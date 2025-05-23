@@ -14,6 +14,7 @@ class Solution {
       while (!stack.isEmpty() && currentHeight < heights[stack.peek()]) {
         int h = heights[stack.pop()]; // Pop the top height
         int width = stack.isEmpty() ? i : (i - stack.peek() - 1); // Compute width
+        maxArea = Math.max(maxArea, h * width);
       }
 
     }
