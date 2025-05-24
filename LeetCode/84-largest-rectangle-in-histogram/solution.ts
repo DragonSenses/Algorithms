@@ -11,7 +11,9 @@ function largestRectangleArea(heights: number[]): number {
     while (
       stack.length > 0 &&
       currentHeight < heights[stack[stack.length - 1]]
-    ) {}
+    ) {
+      const h = heights[stack.pop()!]; // Pop the top index and get the corresponding height
+    }
   }
 
   return maxArea;
