@@ -14,6 +14,7 @@ function largestRectangleArea(heights: number[]): number {
     ) {
       const h = heights[stack.pop()!]; // Pop the top index and get the corresponding height
       const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1; // Compute width
+      maxArea = Math.max(maxArea, h * width);
     }
   }
 
