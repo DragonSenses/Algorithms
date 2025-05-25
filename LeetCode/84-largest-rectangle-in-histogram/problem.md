@@ -360,8 +360,14 @@ function largestRectangleArea(heights: number[]): number {
 - The stack stores **indices** rather than heights, ensuring efficient processing.  
 
 ### **Time Complexity: `O(n)`**  
-- **Each element tis processed twice at most**: Each bar is **pushed once** and **popped once**, meaning every operation is performed **at most twice**.  
-- **Single-Pass**: The entire histogram is **processed in a single pass**, making the solution **linear (`O(n)`)**.  
+- **Each element is processed at most twice:**  
+  - Each bar is **pushed onto the stack once** when traversed.  
+  - Each bar is **popped from the stack once** when a shorter bar is encountered.  
+  - Since each index undergoes at most **one push and one pop**, total operations remain within **`2n`**, leading to **O(n) complexity**.  
+- **Single-Pass Processing:**  
+  - The algorithm scans the histogram **only once** from left to right.  
+  - The popping logic ensures that **each bar is evaluated immediately** upon encountering a smaller height.  
+  - This prevents unnecessary re-traversals, maintaining **linear time complexity**.  
 
 ### **Space Complexity: `O(n)`**  
 - **Monotonic Increasing Stack:**  
