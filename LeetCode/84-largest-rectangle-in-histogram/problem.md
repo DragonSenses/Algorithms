@@ -33,6 +33,8 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
 - [Stack (Optimized) Approach](#stack-optimized-approach)
+  - **Time Complexity**: `O(n)`
+  - **Space Complexity**: `O(n)`
 
 ### **Problem Overview: Largest Rectangle in Histogram**  
 
@@ -349,3 +351,17 @@ function largestRectangleArea(heights: number[]): number {
   return maxArea;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `n` be the **number of bars** in the histogram
+
+### **Time Complexity: `O(n)`**  
+- **Each element tis processed twice at most**: Each bar is **pushed once** and **popped once**, meaning every operation is performed **at most twice**.  
+- **Single-Pass**: The entire histogram is **processed in a single pass**, making the solution **linear (`O(n)`)**.  
+
+### **Space Complexity: `O(n)`**  
+- **Monotonic Increasing Stack:** stores indices of histogram bars.  
+- In the **worst case** (e.g., a strictly increasing histogram), the stack can hold **all n indices**, leading to **O(n) space usage**.  
