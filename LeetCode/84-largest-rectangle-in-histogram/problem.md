@@ -364,5 +364,10 @@ function largestRectangleArea(heights: number[]): number {
 - **Single-Pass**: The entire histogram is **processed in a single pass**, making the solution **linear (`O(n)`)**.  
 
 ### **Space Complexity: `O(n)`**  
-- **Monotonic Increasing Stack:** stores indices of histogram bars.  
-- In the **worst case** (e.g., a strictly increasing histogram), the stack can hold **all n indices**, leading to **O(n) space usage**.  
+- **Monotonic Increasing Stack:**  
+  - The stack holds indices of bars to maintain an increasing height sequence.  
+  - In the **worst case**, if the histogram is strictly increasing (`[1, 2, 3, 4, 5]`), **all `n` indices** are pushed before any are popped.  
+  - This results in **O(n) space usage** as the stack grows to store all elements before processing begins.  
+- **Not Constant (`O(1)`) Space:**  
+  - Since the algorithm relies on the stack for tracking indices, the auxiliary memory usage depends on `n`.  
+  - Thus, the worst-case space complexity remains **O(n)**, not **O(1)**.  
