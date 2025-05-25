@@ -354,9 +354,10 @@ function largestRectangleArea(heights: number[]): number {
 
 ## **Complexity Analysis**
 
-### **Assumptions**
-
-- Let `n` be the **number of bars** in the histogram
+### **Assumptions**  
+- Let `n` be the **number of bars** in the histogram.  
+- The histogram heights are represented as an array of length `n`.  
+- The stack stores **indices** rather than heights, ensuring efficient processing.  
 
 ### **Time Complexity: `O(n)`**  
 - **Each element tis processed twice at most**: Each bar is **pushed once** and **popped once**, meaning every operation is performed **at most twice**.  
