@@ -320,3 +320,32 @@ class Solution {
   }
 }
 ```
+
+### TypeScript
+
+```ts
+function largestRectangleArea(heights: number[]): number {
+  const stack: number[] = []; // Monotonic increasing stack to store indices
+  let maxArea = 0;
+  const n = heights.length;
+
+  for (let i = 0; i <= n; i++) {
+    // Assign 0 height beyond the histogram for final cleanup
+    const currentHeight = i === n ? 0 : heights[i];
+
+    // Process stack while current bar is shorter than stack top
+    while (
+      stack.length > 0 &&
+      currentHeight < heights[stack[stack.length - 1]]
+    ) {
+      const h = heights[stack.pop()!]; // Pop the top index and get the corresponding height
+      const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1; // Compute width
+      maxArea = Math.max(maxArea, h * width); // Update max area
+    }
+
+    stack.push(i); // Push current index onto the stack
+  }
+
+  return maxArea;
+}
+```
