@@ -31,3 +31,52 @@
 	<li><code>1 &lt;= row, cols &lt;= 200</code></li>
 	<li><code>matrix[i][j]</code> is <code>'0'</code> or <code>'1'</code>.</li>
 </ul>
+
+---
+
+### Problem Overview: Maximal Rectangle
+
+The **Maximal Rectangle** problem requires finding the largest rectangular submatrix containing only `1`s in a given binary matrix (`rows x cols`) and returning its area.
+
+#### Problem Breakdown:
+- You are given a `rows x cols` binary matrix filled with `'0'`s and `'1'`s.
+- The goal is to determine the largest contiguous rectangular area that consists only of `1`s.
+- The output is the area of this maximal rectangle.
+
+#### Examples:
+##### Example 1:
+**Input:**  
+```
+matrix = [
+    ["1","0","1","0","0"],
+    ["1","0","1","1","1"],
+    ["1","1","1","1","1"],
+    ["1","0","0","1","0"]
+]
+```
+**Output:** `6`  
+**Explanation:** The largest rectangle containing only `1`s has an area of `6`.
+
+##### Example 2:
+**Input:**  
+```
+matrix = [["0"]]
+```
+**Output:** `0`
+
+##### Example 3:
+**Input:**  
+```
+matrix = [["1"]]
+```
+**Output:** `1`
+
+#### Constraints:
+- `rows == matrix.length`
+- `cols == matrix[i].length`
+- `1 <= rows, cols <= 200`
+- `matrix[i][j]` is `'0'` or `'1'`
+
+#### Approach:
+- One efficient way to solve this is by leveraging **dynamic programming** and **monotonic stack techniques** to transform the problem into a **largest rectangle in a histogram** challenge.
+- You can maintain a **height array** that tracks the consecutive `1`s at each row, and apply the **largest rectangle in histogram** algorithm.
