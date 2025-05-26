@@ -37,6 +37,7 @@
 # Solution
 
 - [Brute Force (Naive) Approach](#brute-force-naive-approach)
+  - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Maximal Rectangle
 
@@ -139,3 +140,18 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the number of rows.
+- Let `m` be the number of columns.
+
+### **Space Complexity: `O(1)`**
+- **No extra memory used:** The approach relies only on a few integer variables for tracking indices and area.
+- **Constant additional space:** The matrix itself is given as input, and no extra data structures are created.
+
+### **Why This Is Too Slow**
+- Evaluates **all possible rectangles**, leading to an explosion of computations.
+- **Redundant checks** for overlapping rectangles.
+- **Exponential growth**, making it infeasible for `n, m` approaching `200`.
