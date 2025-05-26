@@ -37,6 +37,7 @@
 # Solution
 
 - [Brute Force (Naive) Approach](#brute-force-naive-approach)
+  - **Time Complexity: `O(n^3 * m^3)`**
   - **Space Complexity**: `O(1)`
 
 ### Problem Overview: Maximal Rectangle
@@ -146,6 +147,11 @@ class Solution {
 ### **Assumptions**
 - Let `n` be the number of rows.
 - Let `m` be the number of columns.
+
+### **Time Complexity: `O(n^3 * m^3)`**
+- Choosing two opposite corners: `O(n^2 * m^2)`.
+- Checking whether the submatrix contains only `1`s: `O(n * m)` in the worst case.
+- Thus, the overall worst-case complexity is **`O(n^3 * m^3)`**, making this approach impractical for large matrices.
 
 ### **Space Complexity: `O(1)`**
 - **No extra memory used:** The approach relies only on a few integer variables for tracking indices and area.
