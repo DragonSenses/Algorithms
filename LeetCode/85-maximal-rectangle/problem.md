@@ -97,3 +97,9 @@ A straightforward way to solve the problem is to consider every possible rectang
 - **Step 3:** Track the maximal rectangle area found.
 
 This approach is **highly inefficient** because it redundantly evaluates overlapping areas multiple times.
+
+## **Algorithm**
+1. Iterate over all possible `(x1, y1)` positions as the top-left corner.
+2. Iterate over all possible `(x2, y2)` positions as the bottom-right corner.
+3. Verify that the entire rectangle from `(x1, y1)` to `(x2, y2)` consists of `1`s.
+4. Compute and maintain the largest valid area found.
