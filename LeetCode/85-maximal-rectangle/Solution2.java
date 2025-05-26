@@ -7,7 +7,10 @@ class Solution2 {
       for (int y1 = 0; y1 < m; y1++) {
         for (int x2 = x1; x2 < n; x2++) {
           for (int y2 = y1; y2 < m; y2++) {
-            
+            if (isValidRectangle(matrix, x1, y1, x2, y2)) {
+              int area = (x2 - x1 + 1) * (y2 - y1 + 1);
+              maxArea = Math.max(maxArea, area);
+            }
           }
         }
       }
