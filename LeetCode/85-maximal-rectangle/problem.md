@@ -34,6 +34,10 @@
 
 ---
 
+# Solution
+
+- [Brute Force (Naive) Approach](#brute-force-naive-approach)
+
 ### Problem Overview: Maximal Rectangle
 
 The **Maximal Rectangle** problem requires finding the largest rectangular submatrix containing only `1`s in a given binary matrix (`rows x cols`) and returning its area.
@@ -80,3 +84,16 @@ matrix = [["1"]]
 #### Approach:
 - One efficient way to solve this is by leveraging **dynamic programming** and **monotonic stack techniques** to transform the problem into a **largest rectangle in a histogram** challenge.
 - You can maintain a **height array** that tracks the consecutive `1`s at each row, and apply the **largest rectangle in histogram** algorithm.
+
+# Brute Force (Naive) Approach
+
+We explore the brute force approach to develop foundational intuition before optimizing.
+
+## **Intuition**
+A straightforward way to solve the problem is to consider every possible rectangle within the matrix. This requires iterating over all pairs of possible top-left and bottom-right corners, verifying whether the entire enclosed area consists of `1`s, and tracking the largest valid area found.
+
+- **Step 1:** Choose any two opposite corners `(x1, y1)` and `(x2, y2)` that define a submatrix.
+- **Step 2:** Check whether all elements within this submatrix are `1`s.
+- **Step 3:** Track the maximal rectangle area found.
+
+This approach is **highly inefficient** because it redundantly evaluates overlapping areas multiple times.
