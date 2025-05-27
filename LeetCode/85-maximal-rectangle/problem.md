@@ -202,3 +202,20 @@ This approach is a direct extension of **84 - Largest Rectangle in Histogram**.
    - Track the **minimum width** from previous rows.
    - Compute the **area** dynamically.
 3. Maintain a global **maxArea** across iterations.
+
+### **Pseudocode**
+
+```java
+FUNCTION maximalRectangle(matrix):
+  IF matrix is empty:
+    RETURN 0
+
+  rows = number of rows in matrix
+  cols = number of columns in matrix
+  maxArea = 0
+
+  // Initialize DP table to track widths
+  CREATE dp[rows][cols] initialized to 0
+
+  RETURN maxArea
+```
