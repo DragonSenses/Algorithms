@@ -194,3 +194,11 @@ Instead of considering all possible rectangles explicitly, we can treat each row
 2. **Applying Largest Rectangle in Histogram:** Once we construct the height array, we treat it as a histogram and use a **monotonic stack** (or other approaches) to find the largest rectangular area efficiently.
 
 This approach is a direct extension of **84 - Largest Rectangle in Histogram**.
+
+## **Algorithm**
+1. Initialize a **DP table** (`dp[][]`) to store widths at each `(i, j)`.
+2. **Iterate** through each matrix cell:
+   - If `matrix[i][j] == '1'`, update `dp[i][j]` based on leftward values.
+   - Track the **minimum width** from previous rows.
+   - Compute the **area** dynamically.
+3. Maintain a global **maxArea** across iterations.
