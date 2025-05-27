@@ -39,6 +39,7 @@
 - [Brute Force (Naive) Approach](#brute-force-naive-approach)
   - **Time Complexity: `O(n^3 * m^3)`**
   - **Space Complexity**: `O(1)`
+- [Dynamic Programming Approach](#dynamic-programming-approach)
 
 ### Problem Overview: Maximal Rectangle
 
@@ -161,3 +162,12 @@ class Solution {
 - Evaluates **all possible rectangles**, leading to an explosion of computations.
 - **Redundant checks** for overlapping rectangles.
 - **Exponential growth**, making it infeasible for `n, m` approaching `200`.
+
+# Dynamic Programming Approach
+
+We optimize the brute force method by leveraging histograms to reduce redundant computations.
+
+Instead of considering all possible rectangles explicitly, we can treat each row of the matrix as a **base** and compute maximal **histograms** from it. The key idea:
+- We maintain an array **heights[]**, where `heights[j]` tracks the number of consecutive `1`s ending at the current row.
+- We use the **largest rectangle in a histogram** method to find the **maximum rectangular area** at each row.
+- This effectively transforms the matrix into **row-wise histograms**, solving them efficiently.
