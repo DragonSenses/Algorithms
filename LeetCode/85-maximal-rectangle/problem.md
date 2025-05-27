@@ -219,7 +219,17 @@ FUNCTION maximalRectangle(matrix):
 
   FOR each row i from 0 to rows - 1:
     FOR each column j from 0 to cols - 1:
+      IF matrix[i][j] is '1':
+        // Compute max width ending at (i, j)
+        dp[i][j] = (j == 0) ? 1 : dp[i][j - 1] + 1
 
+        width = dp[i][j]
+
+        // Iterate upwards to compute max rectangle
+        FOR k from i down to 0:
+          width = MIN(width, dp[k][j]) // Maintain smallest width encountered
+          area = width * (i - k + 1)   // Compute rectangle area
+          maxArea = MAX(maxArea, area)
 
   RETURN maxArea
 ```
