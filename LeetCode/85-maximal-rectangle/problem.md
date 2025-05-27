@@ -167,6 +167,19 @@ class Solution {
 
 We optimize the brute force method by leveraging histograms to reduce redundant computations.
 
+## **Intuition**
+Instead of considering all possible rectangles, we build a **DP table** (`dp[i][j]`) that stores **the maximum width** of a rectangle ending at `(i, j)`. This allows us to compute **valid rectangle areas efficiently**. 
+
+The idea is:
+- **Track maximum width** at each position:  
+  `dp[i][j] = dp[i][j-1] + 1` if `matrix[i][j] == '1'`
+- **Use previous rows to determine the height**:  
+  Iterate **upwards**, finding the **smallest width** encountered.
+- **Compute area** using:  
+  `width * height`, ensuring **the maximum** area is tracked.
+
+This approach allows us to compute **each rectangle efficiently** rather than redundantly scanning full regions.
+
 ### Key Idea: Histogram
 
 Instead of considering all possible rectangles explicitly, we can treat each row of the matrix as a **base** and compute maximal **histograms** from it. The key idea:
