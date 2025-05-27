@@ -167,7 +167,17 @@ class Solution {
 
 We optimize the brute force method by leveraging histograms to reduce redundant computations.
 
+### Key Idea: Histogram
+
 Instead of considering all possible rectangles explicitly, we can treat each row of the matrix as a **base** and compute maximal **histograms** from it. The key idea:
 - We maintain an array **heights[]**, where `heights[j]` tracks the number of consecutive `1`s ending at the current row.
 - We use the **largest rectangle in a histogram** method to find the **maximum rectangular area** at each row.
 - This effectively transforms the matrix into **row-wise histograms**, solving them efficiently.
+
+### Key Observations:
+1. **Tracking Heights:** At each row, update `heights[j]` as:
+   - `heights[j] = heights[j] + 1` if `matrix[i][j] == '1'`
+   - `heights[j] = 0` if `matrix[i][j] == '0'`
+2. **Applying Largest Rectangle in Histogram:** Once we construct the height array, we treat it as a histogram and use a **monotonic stack** (or other approaches) to find the largest rectangular area efficiently.
+
+This approach is a direct extension of **84 - Largest Rectangle in Histogram**.
