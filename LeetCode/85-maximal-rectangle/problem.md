@@ -217,5 +217,9 @@ FUNCTION maximalRectangle(matrix):
   // Initialize DP table to track widths
   CREATE dp[rows][cols] initialized to 0
 
+  FOR each row i from 0 to rows - 1:
+    FOR each column j from 0 to cols - 1:
+
+
   RETURN maxArea
 ```
