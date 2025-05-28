@@ -40,6 +40,7 @@
   - **Time Complexity: `O(n^3 * m^3)`**
   - **Space Complexity**: `O(1)`
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Space Complexity: `O(n * m)`**
 
 ### Problem Overview: Maximal Rectangle
 
@@ -310,3 +311,12 @@ function maximalRectangle(matrix: string[][]): number {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the number of rows.
+- Let `m` be the number of columns.
+
+### **Space Complexity: `O(n * m)`**
+- **DP Table Storage:** `O(n * m)`.
+- **No auxiliary structures** beyond `dp[][]`.
