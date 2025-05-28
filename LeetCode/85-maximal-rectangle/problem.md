@@ -40,6 +40,7 @@
   - **Time Complexity: `O(n^3 * m^3)`**
   - **Space Complexity**: `O(1)`
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Time Complexity: `O(n^2 * m)`**
   - **Space Complexity: `O(n * m)`**
 
 ### Problem Overview: Maximal Rectangle
@@ -317,6 +318,15 @@ function maximalRectangle(matrix: string[][]): number {
 - Let `n` be the number of rows.
 - Let `m` be the number of columns.
 
+### **Time Complexity: `O(n^2 * m)`**
+- **Width Calculation:** `O(m)` per row.
+- **Iterate Upwards:** `O(n)` for each row-cell combination.
+- **Total Complexity:** `O(n^2 * m)`, significantly better than brute force but **slower than monotonic stack**.
+
 ### **Space Complexity: `O(n * m)`**
 - **DP Table Storage:** `O(n * m)`.
 - **No auxiliary structures** beyond `dp[][]`.
+
+### **Room for Improvement:** 
+
+This pure DP approach is still quadratic `O(n^2 * m)`, meaning further optimizations (histogram stack) improve efficiency.
