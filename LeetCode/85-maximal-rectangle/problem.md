@@ -392,5 +392,20 @@ FUNCTION maximalRectangle(matrix):
 
   RETURN maxArea
 
+FUNCTION largestRectangleArea(heights):
+  CREATE empty stack
+  maxArea = 0
 
+  FOR i from 0 to length of heights:
+    height = (i is beyond heights length) ? 0 : heights[i]
+
+    WHILE stack is NOT empty AND height < heights[top of stack]:
+      poppedIndex = POP from stack
+      heightAtPopped = heights[poppedIndex]
+      width = (stack is empty) ? i : i - (top of stack) - 1
+      maxArea = MAX(maxArea, heightAtPopped * width)
+
+    PUSH i onto stack
+
+  RETURN maxArea
 ```
