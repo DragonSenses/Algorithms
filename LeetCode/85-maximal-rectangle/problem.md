@@ -363,3 +363,14 @@ We leverage the **monotonic stack approach** from **Largest Rectangle in Histogr
 3. **Apply the histogram solution per row:**
    - Compute the **largest rectangle in histogram** using the stack-based approach.
    - Track the **global maximum** rectangle across all rows.
+
+#### **Steps:**
+1. Initialize `heights[m] = 0` (representing column heights).
+2. For each row:
+   - Update `heights[j]` (`heights[j]++` if `matrix[i][j] == '1'`, otherwise reset `heights[j] = 0`).
+   - Compute **maximal rectangle in histogram** using a **monotonic increasing stack**:
+     - Maintain a stack storing **indices** in increasing order.
+     - When a **smaller height** is encountered, pop from the stack and compute the **max area**.
+     - Continue until all columns are processed.
+
+This efficiently finds the **largest rectangular area per row**, reducing complexity from `O(n^2 * m)` to `O(n * m)`.  
