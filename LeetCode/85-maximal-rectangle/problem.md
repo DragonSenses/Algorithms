@@ -346,3 +346,20 @@ Instead of checking all possible rectangles explicitly, we leverage **monotonic 
 3. Repeat this for each row to track the **global maximum**.
 
 This approach **avoids redundant scans** over the matrix, reducing the complexity significantly.  
+
+## **Algorithm**
+
+We leverage the **monotonic stack approach** from **Largest Rectangle in Histogram** (`Leetcode 84`) to efficiently compute the maximal rectangle in a binary matrix.
+
+#### **Breakdown:**
+1. **Initialize a `heights[]` array:**  
+   - `heights[j]` stores the count of consecutive `1`s ending at the current row.
+   - Update `heights[j]` row by row.
+
+2. **Process each row as a histogram:**
+   - Treat `heights` as a **bar chart**, where each column represents a bar height.
+   - Use a **monotonic increasing stack** to efficiently compute the largest rectangle area.
+
+3. **Apply the histogram solution per row:**
+   - Compute the **largest rectangle in histogram** using the stack-based approach.
+   - Track the **global maximum** rectangle across all rows.
