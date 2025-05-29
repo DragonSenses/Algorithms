@@ -389,6 +389,13 @@ FUNCTION maximalRectangle(matrix):
   // Initialize heights array to track column heights
   CREATE heights[cols] initialized to 0
 
+  FOR each row i from 0 to rows - 1:
+    // Update column heights based on the current row
+    FOR each column j from 0 to cols - 1:
+      heights[j] = (matrix[i][j] is '1') ? heights[j] + 1 : 0
+    
+    // Compute max rectangle area in histogram
+    maxArea = MAX(maxArea, largestRectangleArea(heights))
 
   RETURN maxArea
 
