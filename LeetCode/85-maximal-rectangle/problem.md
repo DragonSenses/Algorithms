@@ -42,6 +42,7 @@
 - [Dynamic Programming Approach](#dynamic-programming-approach)
   - **Time Complexity: `O(n^2 * m)`**
   - **Space Complexity: `O(n * m)`**
+- [Stack (Optimized) Approach](#stack-optimized-approach)
 
 ### Problem Overview: Maximal Rectangle
 
@@ -330,3 +331,18 @@ function maximalRectangle(matrix: string[][]): number {
 ### **Room for Improvement:** 
 
 This pure DP approach is still quadratic `O(n^2 * m)`, meaning further optimizations (histogram stack) improve efficiency.
+
+# Stack (Optimized) Approach
+
+## **Intuition**
+
+Building on the **dynamic programming approach**, we recognize that **each row forms a histogram** where:
+- **Columns represent height** (number of consecutive `1`s from the top).
+- The problem **reduces** to computing the **largest rectangle** in each histogram efficiently.
+
+Instead of checking all possible rectangles explicitly, we leverage **monotonic stacks**, a technique used in **Largest Rectangle in Histogram** problem:
+1. Construct a **heights array** for the current row.
+2. Use a **monotonic increasing stack** to efficiently compute the **largest rectangle** in **O(m)** time.
+3. Repeat this for each row to track the **global maximum**.
+
+This approach **avoids redundant scans** over the matrix, reducing the complexity significantly.  
