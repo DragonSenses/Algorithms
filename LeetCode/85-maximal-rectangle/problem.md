@@ -379,6 +379,9 @@ This efficiently finds the **largest rectangular area per row**, reducing comple
 
 ```plaintext
 FUNCTION maximalRectangle(matrix):
+  IF matrix is empty:
+    RETURN 0
+
   rows = number of rows in matrix
   cols = number of columns in matrix
   maxArea = 0
@@ -388,4 +391,6 @@ FUNCTION maximalRectangle(matrix):
 
 
   RETURN maxArea
+
+
 ```
