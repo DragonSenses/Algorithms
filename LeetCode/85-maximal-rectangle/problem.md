@@ -374,3 +374,18 @@ We leverage the **monotonic stack approach** from **Largest Rectangle in Histogr
      - Continue until all columns are processed.
 
 This efficiently finds the **largest rectangular area per row**, reducing complexity from `O(n^2 * m)` to `O(n * m)`.  
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION maximalRectangle(matrix):
+  rows = number of rows in matrix
+  cols = number of columns in matrix
+  maxArea = 0
+
+  // Initialize heights array to track column heights
+  CREATE heights[cols] initialized to 0
+
+
+  RETURN maxArea
+```
