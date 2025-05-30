@@ -336,6 +336,28 @@ class Solution {
 }
 ```
 
+### **Implementation Details: Why Deque Is Preferred Over Stack in Java**
+
+In Java, use `Deque<>` (`ArrayDeque<>`) over `Stack<>` for better performance and consistency. Java's `Stack` is legacy whereas `Deque` offers better **constant-time** push/pop operations. 
+
+#### **1. Stack's Legacy Design and Inheritance Issues**
+- In Java, `Stack` is a **legacy class** that extends `Vector`, which is an **odd inheritance choice** for a stack structure.  
+- Early Java **overused inheritance**, leading to unnecessary coupling—`Properties` is another example of this pattern.  
+- Since `Stack` inherits from `Vector`, it exposes **random access methods**, which contradict the **LIFO (Last-In-First-Out) principle** of stacks.
+
+#### **2. Deque's More Sensible API and Functionality**
+- `Deque` (implemented via `LinkedList` or `ArrayDeque`) provides a **cleaner API** for stack operations.  
+- Unlike `Stack`, `Deque` provides **dedicated methods** for inserting, removing, and fetching items **strictly at the ends**—aligning better with **stack behavior**.  
+- It **deliberately avoids positional access**, reinforcing the **true stack abstraction** without exposing unintended operations.
+
+#### **3. Lack of Interface in Stack and Why It Matters**
+- `Stack` does **not implement a dedicated interface**, meaning developers must commit to a **specific concrete class**, reducing flexibility.  
+- `Deque`, on the other hand, allows choosing an implementation (`LinkedList`, `ArrayDeque`) while adhering to **interface-driven design** principles.  
+- Using `Deque` promotes **loose coupling**, ensuring better adaptability and maintainability in software design.
+
+#### **Conclusion**
+Using `Deque` instead of `Stack` results in a **better-structured**, **more efficient**, and **interface-oriented design**, making it the **preferred choice for stack operations in modern Java development**.
+
 ### TypeScript
 
 ```ts
