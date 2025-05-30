@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Computes the largest rectangle area in a histogram using a monotonic stack.
@@ -12,7 +13,7 @@ import java.util.Stack;
  */
 class Solution {
   public int largestRectangleArea(int[] heights) {
-    Stack<Integer> stack = new Stack<>(); // Monotonic increasing stack to store indices
+    Deque<Integer> stack = new ArrayDeque<>(); // Monotonic increasing stack to store indices
     int maxArea = 0;
     int n = heights.length;
 
