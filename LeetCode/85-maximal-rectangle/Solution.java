@@ -1,4 +1,5 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class Solution {
   public int maximalRectangle(char[][] matrix) {
@@ -21,19 +22,26 @@ class Solution {
   }
 
   private int largestRectangleArea(int[] heights) {
-    Stack<Integer> stack = new Stack<>();
+    Deque<Integer> stack = new ArrayDeque<>(); // Monotonic increasing stack to store indices
     int maxArea = 0;
     int n = heights.length;
 
     for (int i = 0; i <= n; i++) {
-      int h = (i == n) ? 0 : heights[i];
-      while (!stack.isEmpty() && h < heights[stack.peek()]) {
-        int height = heights[stack.pop()];
-        int width = stack.isEmpty() ? i : i - stack.peek() - 1;
-        maxArea = Math.max(maxArea, height * width);
+      // Assign 0 height for the imaginary right boundary during final cleanup
+      int currentHeight = (i == n) ? 0 : heights[i];
+
+      // Pop elements while the current bar is shorter than stack top
+      while (!stack.isEmpty() && currentHeight < heights[stack.peek()]) {
+        int h = heights[stack.pop()]; // Pop the top height
+
+        // Compute width using the index difference
+        int width = stack.isEmpty() ? i : (i - stack.peek() - 1);
+        maxArea = Math.max(maxArea, h * width);
       }
-      stack.push(i);
+
+      stack.push(i); // Push current index onto the stack for future area calculations
     }
+
     return maxArea;
   }
 }
