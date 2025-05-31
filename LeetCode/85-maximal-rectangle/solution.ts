@@ -6,4 +6,9 @@ function maximalRectangle(matrix: string[][]): number {
   const m = matrix[0].length;
   let maxArea = 0;
   const heights: number[] = new Array(m).fill(0); // Column heights
+
+  // Iterate over each row, treating it as a histogram
+  for (const row of matrix) {
+
+  }
 }
