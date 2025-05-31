@@ -9,6 +9,9 @@ function maximalRectangle(matrix: string[][]): number {
 
   // Iterate over each row, treating it as a histogram
   for (const row of matrix) {
-
+    // Update histogram heights
+    for (let j = 0; j < m; j++) {
+      heights[j] = row[j] === "1" ? heights[j] + 1 : 0;
+    }
   }
 }
