@@ -19,7 +19,7 @@ function maximalRectangle(matrix: string[][]): number {
   return maxArea;
 }
 
-function largestRectangleArea(heights: number[]) : number {
+function largestRectangleArea(heights: number[]): number {
   const stack: number[] = []; // Monotonic increasing stack
   let maxArea = 0;
   const n = heights.length;
@@ -31,6 +31,9 @@ function largestRectangleArea(heights: number[]) : number {
     // Pop elements while the current height is smaller, ensuring all rectangles in the histogram are processed
     while (stack.length > 0 && h < heights[stack[stack.length - 1]]) {
       const height = heights[stack.pop()!];
+
+      // Compute width based on remaining stack indices
+      const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
     }
   }
 }
