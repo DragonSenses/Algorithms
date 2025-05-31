@@ -38,7 +38,11 @@ function largestRectangleArea(heights: number[]): number {
       // Update maxArea with the largest found so far
       maxArea = Math.max(maxArea, height * width);
     }
+    
+    // Store current index for future width calculations
+    stack.push(i);
   }
+
   // Return the maximum rectangular area found
   return maxArea;
 }
