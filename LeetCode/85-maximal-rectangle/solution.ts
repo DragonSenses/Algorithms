@@ -27,5 +27,10 @@ function largestRectangleArea(heights: number[]) : number {
   for (let i = 0; i <= n; i++) {
     // Assign 0 height to ensure final stack cleanup
     const h = i === n ? 0 : heights[i];
+
+    // Pop elements while the current height is smaller, ensuring all rectangles in the histogram are processed
+    while (stack.length > 0 && h < heights[stack[stack.length - 1]]) {
+      const height = heights[stack.pop()!];
+    }
   }
 }
