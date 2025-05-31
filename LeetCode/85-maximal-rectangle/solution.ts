@@ -13,5 +13,8 @@ function maximalRectangle(matrix: string[][]): number {
     for (let j = 0; j < m; j++) {
       heights[j] = row[j] === "1" ? heights[j] + 1 : 0;
     }
+    // Compute largest rectangle in histogram using monotonic stack
+    maxArea = Math.max(maxArea, largestRectangleArea(heights));
   }
+  return maxArea;
 }
