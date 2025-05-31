@@ -18,3 +18,9 @@ function maximalRectangle(matrix: string[][]): number {
   }
   return maxArea;
 }
+
+function largestRectangleArea(heights: number[]) : number {
+  const stack: number[] = []; // Monotonic increasing stack
+  let maxArea = 0;
+  const n = heights.length;
+}
