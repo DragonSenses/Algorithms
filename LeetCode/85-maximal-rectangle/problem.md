@@ -43,7 +43,8 @@
   - **Time Complexity: `O(n^2 * m)`**
   - **Space Complexity: `O(n * m)`**
 - [Stack (Optimized) Approach](#stack-optimized-approach)
-  - **Space Complexity**: `O(n)`
+  - **Time Complexity**: `O(n * m)`
+  - **Space Complexity**: `O(m)`
 
 ### Problem Overview: Maximal Rectangle
 
@@ -581,6 +582,19 @@ function largestRectangleArea(heights: number[]): number {
 - Let `n` be the number of rows.
 - Let `m` be the number of columns.
 
+### **Time Complexity: `O(n * m)`**
+1. **Height Array Update (`O(m)` per row)**  
+   - As we traverse each row, we update the `heights[]` array in `O(m)` time.
+
+2. **Computing the Largest Rectangle in Histogram (`O(m)`)**  
+   - The `largestRectangleArea()` function processes `heights[]` using a **monotonic increasing stack**.  
+   - Each element is pushed and popped **once**, making the stack-based approach **O(m)** per row.
+
+3. **Iterating Over `n` Rows (`O(n)`)**  
+   - Since the **histogram is constructed for each row**, we perform the histogram calculation `n` times.
+
+**Total Complexity:**  
+- `O(n * m)`, since for every row (`O(n)`), we process `m` columns (`O(m)`) using an efficient histogram approach (`O(m)`).
 
 ### **Space Complexity: `O(m)`**
 - **Histogram Heights:** `O(m)` for storing column-wise heights, we maintain a `heights[]` array of size `m`.
