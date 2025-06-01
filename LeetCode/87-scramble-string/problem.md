@@ -54,6 +54,10 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 
 ---
 
+# Solution
+
+- [Dynamic Programming Approach](#dynamic-programming-approach)
+
 ### Problem Overview: Scramble String
 
 #### Definition
@@ -96,3 +100,11 @@ Given two strings `s1` and `s2` of the same length, determine whether `s2` is a 
 - `s1.length == s2.length`
 - `1 <= s1.length <= 30`
 - `s1` and `s2` consist of lowercase English letters.
+
+# Dynamic Programming Approach
+
+### Memoization
+
+**Memoization** is an optimization technique used in dynamic programming to store previously computed results and avoid redundant calculations. Instead of solving the same subproblem multiple times, we save its solution in a **lookup table** (like a 3D array `dp[length][i][j]`).  
+
+Whenever we need the result of a subproblem, we **first check the table** — if it's already computed, we retrieve it instantly rather than recomputing. This significantly **reduces the time complexity** and improves efficiency, especially for recursive solutions with overlapping subproblems.  
