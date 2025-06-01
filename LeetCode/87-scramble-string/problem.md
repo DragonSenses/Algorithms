@@ -108,3 +108,16 @@ Given two strings `s1` and `s2` of the same length, determine whether `s2` is a 
 **Memoization** is an optimization technique used in dynamic programming to store previously computed results and avoid redundant calculations. Instead of solving the same subproblem multiple times, we save its solution in a **lookup table** (like a 3D array `dp[length][i][j]`).  
 
 Whenever we need the result of a subproblem, we **first check the table** — if it's already computed, we retrieve it instantly rather than recomputing. This significantly **reduces the time complexity** and improves efficiency, especially for recursive solutions with overlapping subproblems.  
+
+## **Intuition**
+
+We define scrambling recursively. Given a string `s`, we:
+1. Split `s` into two non-empty substrings `x` and `y` (`s = x + y`).
+2. Either keep `x` and `y` in order (`x + y`) or swap them (`y + x`).
+3. Recursively scramble `x` and `y`, producing `x'` and `y'`.
+4. The final scrambled string becomes `x' + y'` or `y' + x'`.
+
+To determine if `t` is a scrambled version of `s`, we:
+- Choose a split index, dividing `s` into `x` and `y`.
+- Check if `t` can be divided into `x'` and `y'` (with or without swapping).
+- Solve the smaller subproblems recursively using dynamic programming.
