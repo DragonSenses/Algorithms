@@ -1,3 +1,9 @@
+/**
+ * Implements the monotonic stack optimized approach for the Maximal Rectangle problem.
+ *
+ * Uses an increasing stack to compute the largest rectangle area efficiently.
+ * Processes the matrix row-wise, treating each row as a histogram.
+ */
 function maximalRectangle(matrix: string[][]): number {
   if (matrix.length === 0) {
     return 0;
@@ -19,6 +25,12 @@ function maximalRectangle(matrix: string[][]): number {
   return maxArea;
 }
 
+/**
+ * Computes the largest rectangle in histogram using a monotonic stack.
+ *
+ * @param heights Array representing histogram bar heights.
+ * @return Maximum rectangular area found within the histogram.
+ */
 function largestRectangleArea(heights: number[]): number {
   const stack: number[] = []; // Monotonic increasing stack
   let maxArea = 0;
@@ -28,9 +40,9 @@ function largestRectangleArea(heights: number[]): number {
     // Assign 0 height to ensure final stack cleanup
     const h = i === n ? 0 : heights[i];
 
-    // Pop elements while the current height is smaller, ensuring all rectangles in the histogram are processed
+    // Process stored heights while the current bar is shorter
     while (stack.length > 0 && h < heights[stack[stack.length - 1]]) {
-      const height = heights[stack.pop()!];
+      const height = heights[stack.pop()!]; // Height of the popped bar
 
       // Compute width based on remaining stack indices
       const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
@@ -38,7 +50,7 @@ function largestRectangleArea(heights: number[]): number {
       // Update maxArea with the largest found so far
       maxArea = Math.max(maxArea, height * width);
     }
-    
+
     // Store current index for future width calculations
     stack.push(i);
   }
