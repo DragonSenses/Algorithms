@@ -121,3 +121,29 @@ To determine if `t` is a scrambled version of `s`, we:
 - Choose a split index, dividing `s` into `x` and `y`.
 - Check if `t` can be divided into `x'` and `y'` (with or without swapping).
 - Solve the smaller subproblems recursively using dynamic programming.
+
+#### **Defining DP State**
+We have two strings `s1` and `s2`.
+
+Each DP state is defined by three variables:
+- **length**: The size of the substring being considered.
+- **i**: The starting index in `s1`.
+- **j**: The starting index in `s2`.
+
+Let `dp[length][i][j]` be a boolean indicating whether the substring of `s2` (starting at index `j` with length `length`) is a scrambled version of the substring of `s1` (starting at index `i` with length `length`).
+
+#### **Base Case**
+If `length == 1`, we simply compare the characters:
+- `dp[1][i][j] = (s1[i] == s2[j])`
+
+#### **Recursive Cases**
+Now for the transitions of `dp` or the reucrsive cases, i.e., any `length > 1` at each state we perform a split on `s1` and consider all possible splits.
+
+If considering a substring with a `length` of `length`, then we could perform a split at any index `newLength` where `0 < newLength < length`, where `newLength` is the left string after the split.
+
+The splits are `newLength` and `length - newLength` respectively.
+
+For each of these spits we have two cases:
+
+1. DO not swap, as the corresponding substrings of `s2` must be scrambled versions of the substrings we just creating by splitting `s1`
+2. Swap, but consider the misalignment. The parts still need to match where `s1`'s partition is the scrambled version of `s2's` partition. We decide the new starting indices for `s1` starting at `i` and `s2` starting at `j` plus `length - newLength`. Likewise the other partition starts for `s1` is `i + newLength` and `s2` starts at `j`.
