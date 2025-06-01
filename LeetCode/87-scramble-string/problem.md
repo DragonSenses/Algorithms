@@ -51,3 +51,48 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 	<li><code>1 &lt;= s1.length &lt;= 30</code></li>
 	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
+
+---
+
+### Problem Overview: Scramble String
+
+#### Definition
+A string `s` can be scrambled into another string `t` using a recursive algorithm:
+
+1. If the length of `s` is `1`, stop.
+2. If the length of `s` is greater than `1`, perform the following steps:
+   - Split `s` into two non-empty substrings at a random index, `s = x + y`.
+   - Randomly decide whether to swap the two substrings or keep them in order (`s = x + y` or `s = y + x`).
+   - Recursively apply the process to both `x` and `y`.
+
+Given two strings `s1` and `s2` of the same length, determine whether `s2` is a scrambled version of `s1`.
+
+#### Examples
+
+##### Example 1:
+- **Input:** `s1 = "great"`, `s2 = "rgeat"`
+- **Output:** `true`
+- **Explanation:**  
+  One possible transformation of `"great"`:
+  ```
+  "great" → "gr/eat" (split at random index)  
+  "gr/eat" → "gr/eat" (no swap)  
+  "gr/eat" → "g/r / e/at" (recursive split)  
+  "g/r / e/at" → "r/g / e/at" (swap `g` and `r`)  
+  "r/g / e/at" → "r/g / e/ a/t" (split `at`)  
+  "r/g / e/ a/t" → "r/g / e/ a/t" (no swaps)  
+  ```
+  Since `s1` can be transformed into `s2`, return `true`.
+
+##### Example 2:
+- **Input:** `s1 = "abcde"`, `s2 = "caebd"`
+- **Output:** `false`
+
+##### Example 3:
+- **Input:** `s1 = "a"`, `s2 = "a"`
+- **Output:** `true`
+
+#### Constraints
+- `s1.length == s2.length`
+- `1 <= s1.length <= 30`
+- `s1` and `s2` consist of lowercase English letters.
