@@ -43,6 +43,7 @@
   - **Time Complexity: `O(n^2 * m)`**
   - **Space Complexity: `O(n * m)`**
 - [Stack (Optimized) Approach](#stack-optimized-approach)
+  - **Space Complexity**: `O(n)`
 
 ### Problem Overview: Maximal Rectangle
 
@@ -573,3 +574,15 @@ function largestRectangleArea(heights: number[]): number {
   return maxArea;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the number of rows.
+- Let `m` be the number of columns.
+
+
+### **Space Complexity: `O(m)`**
+- **Histogram Heights:** `O(m)` for storing column-wise heights, we maintain a `heights[]` array of size `m`.
+- **Monotonic Stack:** `O(m)` for computing histogram max area, **at worst**, the stack contains all `m` elements from a row.
+- **Total Complexity:** `O(m)` additional space beyond input.
