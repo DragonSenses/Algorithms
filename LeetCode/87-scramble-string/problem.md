@@ -166,3 +166,10 @@ dp[n][0][0]
 ```
 where `n` is the length of the input strings.
 
+## **Algorithm**
+
+#### **Step 1: Base Case Initialization**
+- Iterate `i` from `0` to `n-1`.
+  - Iterate `j` from `0` to `n-1`.
+    - Set `dp[1][i][j]` to `true` if `s1[i] == s2[j]`, otherwise `false`.  
+      _(This establishes the base case for substrings of length 1.)_
