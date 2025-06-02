@@ -217,4 +217,10 @@ FUNCTION isScramble(s1, s2):
     count[s1[i] - 'a'] += 1
     count[s2[i] - 'a'] -= 1
 
+  // If frequency mismatch exists, s2 is not a scrambled version of s1
+  FOR each value in count:
+    IF value ≠ 0:
+      memo[key] = False
+      RETURN False
+
 ```
