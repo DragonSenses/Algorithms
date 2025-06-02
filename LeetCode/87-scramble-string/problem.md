@@ -209,4 +209,12 @@ FUNCTION isScramble(s1, s2):
   key = s1 + "_" + s2
   IF key exists in memo: RETURN memo[key]  // Retrieve stored result if available
 
+  n = LENGTH(s1)
+  count = ARRAY of size 26 initialized to 0  // Frequency count of characters
+
+  // Check character frequency in both strings
+  FOR i FROM 0 TO n - 1:
+    count[s1[i] - 'a'] += 1
+    count[s2[i] - 'a'] -= 1
+
 ```
