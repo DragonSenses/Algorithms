@@ -198,3 +198,12 @@ where `n` is the length of the input strings.
   dp[n][0][0]
   ```
   _(Determining if `s2` is a scrambled version of `s1`.)_
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION isScramble(s1, s2):
+  IF s1 == s2: RETURN True  // Base case: identical strings are trivially scrambled
+  IF length of s1 ≠ length of s2: RETURN False  // Different length strings cannot be scrambled versions
+
+```
