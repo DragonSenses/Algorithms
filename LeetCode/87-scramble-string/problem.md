@@ -179,3 +179,22 @@ where `n` is the length of the input strings.
   - Iterate `i` from `0` to `n + 1 - length`. _(Starting index in `s1`)_
   - Iterate `j` from `0` to `n + 1 - length`. _(Starting index in `s2`)_
   - Iterate `newLength` from `1` to `length - 1`. _(Possible split points)_
+
+#### **Step 3: Checking Scramble Possibilities**
+- If either condition holds:
+  1. **Without Swap:**  
+     ```
+     dp[newLength][i][j] && dp[length - newLength][i + newLength][j + newLength]
+     ```
+  2. **With Swap:**  
+     ```
+     dp[newLength][i][j + length - newLength] && dp[length - newLength][i + newLength][j]
+     ```
+  - Set `dp[length][i][j] = true`.
+
+#### **Step 4: Return Final Result**
+- The solution is stored in:
+  ```
+  dp[n][0][0]
+  ```
+  _(Determining if `s2` is a scrambled version of `s1`.)_
