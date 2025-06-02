@@ -223,4 +223,17 @@ FUNCTION isScramble(s1, s2):
       memo[key] = False
       RETURN False
 
+  // Iterate over possible split points
+  FOR len FROM 1 TO n - 1:
+    // Check two conditions: with and without swapping
+    IF (isScramble(SUBSTRING(s1, 0, len), SUBSTRING(s2, 0, len)) AND
+        isScramble(SUBSTRING(s1, len, n), SUBSTRING(s2, len, n))) OR
+       (isScramble(SUBSTRING(s1, 0, len), SUBSTRING(s2, n - len, n)) AND
+        isScramble(SUBSTRING(s1, len, n), SUBSTRING(s2, 0, n - len))):
+
+      memo[key] = True  // Store computed result
+      RETURN True
+
+  memo[key] = False  // If no valid scrambling found, store false
+  RETURN False
 ```
