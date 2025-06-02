@@ -173,3 +173,9 @@ where `n` is the length of the input strings.
   - Iterate `j` from `0` to `n-1`.
     - Set `dp[1][i][j]` to `true` if `s1[i] == s2[j]`, otherwise `false`.  
       _(This establishes the base case for substrings of length 1.)_
+
+#### **Step 2: Transition Logic**
+- Iterate `length` from `2` to `n`. _(Expanding substring sizes)_
+  - Iterate `i` from `0` to `n + 1 - length`. _(Starting index in `s1`)_
+  - Iterate `j` from `0` to `n + 1 - length`. _(Starting index in `s2`)_
+  - Iterate `newLength` from `1` to `length - 1`. _(Possible split points)_
