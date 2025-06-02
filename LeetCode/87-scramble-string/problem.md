@@ -206,4 +206,7 @@ FUNCTION isScramble(s1, s2):
   IF s1 == s2: RETURN True  // Base case: identical strings are trivially scrambled
   IF length of s1 ≠ length of s2: RETURN False  // Different length strings cannot be scrambled versions
 
+  key = s1 + "_" + s2
+  IF key exists in memo: RETURN memo[key]  // Retrieve stored result if available
+
 ```
