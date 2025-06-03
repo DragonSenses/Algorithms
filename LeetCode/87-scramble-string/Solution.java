@@ -16,6 +16,14 @@ class Solution {
       return false;
     }
 
+    // Generate a unique key for memoization using both strings
+    String key = s1 + "_" + s2;
+    
+    // If result for this pair of strings is already computed, return the stored value
+    if (cache.containsKey(key)) {
+      return cache.get(key);
+    }
+
     return false;
   }
 }
