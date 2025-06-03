@@ -24,6 +24,15 @@ class Solution {
       return cache.get(key);
     }
 
+    int n = s1.length();
+    int[] count = new int[26]; // Frequency array to compare character counts in s1 and s2
+    
+    // Count frequency of characters in both strings
+    for (int i = 0; i < n; i++) {
+      count[s1.charAt(i) - 'a']++; // Increment count for s1's characters
+      count[s2.charAt(i) - 'a']--; // Decrement count for s2's characters
+    }
+
     return false;
   }
 }
