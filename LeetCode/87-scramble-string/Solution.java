@@ -50,10 +50,15 @@ class Solution {
           && isScramble(s1.substring(len), s2.substring(len)))
           || (isScramble(s1.substring(0, len), s2.substring(n - len))
               && isScramble(s1.substring(len), s2.substring(0, n - len)))) {
+
+        // Store result in memoization and return true
+        cache.put(key, true);
         return true;
       }
     }
 
+    // If no valid scrambling was found, store and return false
+    cache.put(key, false);
     return false;
   }
 }
