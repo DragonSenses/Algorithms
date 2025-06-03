@@ -46,11 +46,7 @@ class Solution {
       // Check two possible scramble conditions:
       // 1. No swap: First half of s1 matches first half of s2, second half matches second half
       // 2. Swap: First half of s1 matches second half of s2, and vice versa
-      if ((isScramble(s1.substring(0, len), s2.substring(0, len))
-          && isScramble(s1.substring(len), s2.substring(len)))
-          || (isScramble(s1.substring(0, len), s2.substring(n - len))
-              && isScramble(s1.substring(len), s2.substring(0, n - len)))) {
-
+      if (isScrambleNoSwap(s1, s2, len) || isScrambleWithSwap(s1, s2, len)) {
         // Store result in memoization and return true
         cache.put(key, true);
         return true;
@@ -60,5 +56,16 @@ class Solution {
     // If no valid scrambling was found, store and return false
     cache.put(key, false);
     return false;
+  }
+
+  private boolean isScrambleNoSwap(String s1, String s2, int len) {
+    return isScramble(s1.substring(0, len), s2.substring(0, len))
+        && isScramble(s1.substring(len), s2.substring(len));
+  }
+
+  private boolean isScrambleWithSwap(String s1, String s2, int len) {
+    int n = s1.length();
+    return isScramble(s1.substring(0, len), s2.substring(n - len))
+        && isScramble(s1.substring(len), s2.substring(0, n - len));
   }
 }
