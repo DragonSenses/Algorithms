@@ -33,6 +33,14 @@ class Solution {
       count[s2.charAt(i) - 'a']--; // Decrement count for s2's characters
     }
 
+    // If character counts mismatch, s2 cannot be a scrambled version of s1
+    for (int c: count) {
+      if (c != 0) {
+        cache.put(key, false);
+        return false;
+      }
+    }
+
     return false;
   }
 }
