@@ -1,10 +1,20 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class implements the scramble string algorithm using dynamic programming with memoization.
+ */
 class Solution {
   // Memoization map to store previously computed scramble results
   private Map<String, Boolean> cache = new HashMap<>();
 
+  /**
+   * Checks if s2 is a scrambled version of s1.
+   *
+   * @param s1 The original string.
+   * @param s2 The scrambled string to validate.
+   * @return True if s2 is a scrambled version of s1, otherwise false.
+   */
   public boolean isScramble(String s1, String s2) {
     // If both strings are identical, return true (trivially scrambled)
     if (s1.equals(s2)) {
@@ -58,11 +68,27 @@ class Solution {
     return false;
   }
 
+  /**
+   * Checks if s2 is a scrambled version of s1 without swapping substrings.
+   *
+   * @param s1 The original string.
+   * @param s2 The scrambled string.
+   * @param len The split length.
+   * @return True if the scramble is valid without swapping, otherwise false.
+   */
   private boolean isScrambleNoSwap(String s1, String s2, int len) {
     return isScramble(s1.substring(0, len), s2.substring(0, len))
         && isScramble(s1.substring(len), s2.substring(len));
   }
 
+  /**
+   * Checks if s2 is a scrambled version of s1 with swapped substrings.
+   *
+   * @param s1 The original string.
+   * @param s2 The scrambled string.
+   * @param len The split length.
+   * @return True if the scramble is valid with swapping, otherwise false.
+   */
   private boolean isScrambleWithSwap(String s1, String s2, int len) {
     int n = s1.length();
     return isScramble(s1.substring(0, len), s2.substring(n - len))
