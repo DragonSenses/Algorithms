@@ -11,6 +11,11 @@ class Solution {
       return true;
     }
 
+    // If the lengths differ, it's impossible to be a scramble
+    if (s1.length() != s2.length()) {
+      return false;
+    }
+
     return false;
   }
 }
