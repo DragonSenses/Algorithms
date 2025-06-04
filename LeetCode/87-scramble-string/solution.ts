@@ -19,4 +19,10 @@ function isScramble(s1: string, s2: string): boolean {
     count[s1.charCodeAt(i) - 97]++; // Increment frequency for s1
     count[s2.charCodeAt(i) - 97]--; // Decrement frequency for s2
   }
+
+  // If character frequencies mismatch, s2 cannot be a scrambled version of s1
+  if (count.some((c) => c !== 0)) {
+    memo.set(key, false);
+    return false;
+  }
 };
