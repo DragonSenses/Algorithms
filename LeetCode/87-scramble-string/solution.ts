@@ -33,4 +33,8 @@ function isScramble(s1: string, s2: string): boolean {
       return true;
     }
   }
+
+  // Store result in memoization and return false if no valid scramble is found
+  memo.set(key, false);
+  return false;
 };
