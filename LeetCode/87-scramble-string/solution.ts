@@ -7,4 +7,7 @@ function isScramble(s1: string, s2: string): boolean {
 
   // Generate a unique memoization key based on both strings
   const key = `${s1}_${s2}`;
+
+  // Return precomputed result if available
+  if (memo.has(key)) return memo.get(key)!;
 };
