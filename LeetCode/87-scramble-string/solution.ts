@@ -1,3 +1,5 @@
+const memo = new Map<string, boolean>();
+
 function isScramble(s1: string, s2: string): boolean {
   // Base case: identical strings are trivially scrambled
   if (s1 === s2) return true;
@@ -28,7 +30,7 @@ function isScramble(s1: string, s2: string): boolean {
 
   // Iterate over possible split points
   for (let len = 1; len < n; len++) {
-    if(true) {
+    if (isScrambleNoSwap(s1, s2, len) || isScrambleWithSwap(s1, s2, len)) {
       memo.set(key, true);
       return true;
     }
@@ -37,4 +39,19 @@ function isScramble(s1: string, s2: string): boolean {
   // Store result in memoization and return false if no valid scramble is found
   memo.set(key, false);
   return false;
-};
+}
+
+function isScrambleNoSwap(s1: string, s2: string, len: number): boolean {
+  return (
+    isScramble(s1.substring(0, len), s2.substring(0, len)) &&
+    isScramble(s1.substring(len), s2.substring(len))
+  );
+}
+
+function isScrambleWithSwap(s1: string, s2: string, len: number): boolean {
+  const n = s1.length;
+  return (
+    isScramble(s1.substring(0, len), s2.substring(n - len)) &&
+    isScramble(s1.substring(len), s2.substring(0, n - len))
+  );
+}
