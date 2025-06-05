@@ -42,3 +42,66 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 <ul>
 	<li><code>1 &lt;= n &lt;= 16</code></li>
 </ul>
+
+---
+
+### **Problem Overview: Gray Code**  
+
+#### **Definition**  
+An **n-bit Gray Code sequence** is a sequence of \(2^n\) integers that satisfies the following conditions:  
+- Every integer falls within the inclusive range \([0, 2^n - 1]\).  
+- The first integer is **0**.  
+- No integer appears more than **once** in the sequence.  
+- The **binary representation** of every pair of adjacent integers differs by **exactly one bit**.  
+- The **binary representation** of the first and last integers differs by **exactly one bit** (forming a cyclic sequence).  
+
+#### **Task**  
+Given an integer **n**, return any valid **n-bit Gray Code sequence**.
+
+---
+
+### **Examples**  
+
+#### **Example 1**  
+**Input:**  
+```plaintext
+n = 2
+```  
+**Valid Outputs:**  
+```plaintext
+[0,1,3,2]
+```
+or  
+```plaintext
+[0,2,3,1]
+```  
+
+**Binary Representation of [0,1,3,2]:**  
+- **00** → **01** (1 bit change)  
+- **01** → **11** (1 bit change)  
+- **11** → **10** (1 bit change)  
+- **10** → **00** (1 bit change)  
+
+**Binary Representation of [0,2,3,1]:**  
+- **00** → **10** (1 bit change)  
+- **10** → **11** (1 bit change)  
+- **11** → **01** (1 bit change)  
+- **01** → **00** (1 bit change)  
+
+#### **Example 2**  
+**Input:**  
+```plaintext
+n = 1
+```  
+**Output:**  
+```plaintext
+[0,1]
+```  
+**Binary Representation:**  
+- **0** → **1** (1 bit change)  
+- **1** → **0** (1 bit change)  
+
+---
+
+### **Constraints**  
+- \(1 \leq n \leq 16\)  
