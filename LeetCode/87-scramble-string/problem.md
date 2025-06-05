@@ -3,14 +3,14 @@
 <p>We can scramble a string s to get a string t using the following algorithm:</p>
 
 <ol>
-	<li>If the length of the string is 1, stop.</li>
-	<li>If the length of the string is &gt; 1, do the following:
-	<ul>
-		<li>Split the string into two non-empty substrings at a random index, i.e., if the string is <code>s</code>, divide it to <code>x</code> and <code>y</code> where <code>s = x + y</code>.</li>
-		<li><strong>Randomly</strong>&nbsp;decide to swap the two substrings or to keep them in the same order. i.e., after this step, <code>s</code> may become <code>s = x + y</code> or <code>s = y + x</code>.</li>
-		<li>Apply step 1 recursively on each of the two substrings <code>x</code> and <code>y</code>.</li>
-	</ul>
-	</li>
+  <li>If the length of the string is 1, stop.</li>
+  <li>If the length of the string is &gt; 1, do the following:
+  <ul>
+    <li>Split the string into two non-empty substrings at a random index, i.e., if the string is <code>s</code>, divide it to <code>x</code> and <code>y</code> where <code>s = x + y</code>.</li>
+    <li><strong>Randomly</strong>&nbsp;decide to swap the two substrings or to keep them in the same order. i.e., after this step, <code>s</code> may become <code>s = x + y</code> or <code>s = y + x</code>.</li>
+    <li>Apply step 1 recursively on each of the two substrings <code>x</code> and <code>y</code>.</li>
+  </ul>
+  </li>
 </ol>
 
 <p>Given two strings <code>s1</code> and <code>s2</code> of <strong>the same length</strong>, return <code>true</code> if <code>s2</code> is a scrambled string of <code>s1</code>, otherwise, return <code>false</code>.</p>
@@ -47,9 +47,9 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>s1.length == s2.length</code></li>
-	<li><code>1 &lt;= s1.length &lt;= 30</code></li>
-	<li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
+  <li><code>s1.length == s2.length</code></li>
+  <li><code>1 &lt;= s1.length &lt;= 30</code></li>
+  <li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
 ---
@@ -168,36 +168,41 @@ where `n` is the length of the input strings.
 
 ## **Algorithm**
 
-#### **Step 1: Base Case Initialization**
-- Iterate `i` from `0` to `n-1`.
-  - Iterate `j` from `0` to `n-1`.
-    - Set `dp[1][i][j]` to `true` if `s1[i] == s2[j]`, otherwise `false`.  
-      _(This establishes the base case for substrings of length 1.)_
+### **1. Problem Statement**
+Given two strings `s1` and `s2`, determine whether `s2` is a **scrambled version** of `s1`. A string `s1` can be scrambled into `s2` by recursively dividing it into two non-empty **substrings** and swapping or keeping them in place.
 
-#### **Step 2: Transition Logic**
-- Iterate `length` from `2` to `n`. _(Expanding substring sizes)_
-  - Iterate `i` from `0` to `n + 1 - length`. _(Starting index in `s1`)_
-  - Iterate `j` from `0` to `n + 1 - length`. _(Starting index in `s2`)_
-  - Iterate `newLength` from `1` to `length - 1`. _(Possible split points)_
+### **2. Approach Overview**
+We use **recursion** with **memoization** to avoid recomputation. The algorithm:
+- **Breaks `s1` into substrings** at all possible split points.
+- **Recursively checks** whether `s2` can be obtained via either a direct match **(no swap)** or a swapped match **(swap)**.
+- **Caches results** using a hashmap or dictionary to optimize repeated calculations.
 
-#### **Step 3: Checking Scramble Possibilities**
-- If either condition holds:
-  1. **Without Swap:**  
-     ```
-     dp[newLength][i][j] && dp[length - newLength][i + newLength][j + newLength]
-     ```
-  2. **With Swap:**  
-     ```
-     dp[newLength][i][j + length - newLength] && dp[length - newLength][i + newLength][j]
-     ```
-  - Set `dp[length][i][j] = true`.
+### **3. Algorithm Steps**
+1. **Base Case Handling**  
+   - If `s1 == s2`, return `True` (trivially scrambled).
+   - If `s1.length ≠ s2.length`, return `False` (not a valid scramble).
 
-#### **Step 4: Return Final Result**
-- The solution is stored in:
-  ```
-  dp[n][0][0]
-  ```
-  _(Determining if `s2` is a scrambled version of `s1`.)_
+2. **Memoization Lookup**  
+   - Generate a unique key using `s1` and `s2`.
+   - If this result is already **computed**, retrieve it from the cache.
+
+3. **Character Frequency Matching**  
+   - Compute frequency counts of letters in both strings.
+   - If **frequency mismatch exists**, return `False` (strings cannot be a scramble of each other).
+
+4. **Recursive Substring Validation**  
+   - Try **every possible split** (`len = 1` to `n-1`).
+   - Check two scenarios at each split:
+     - **No Swap Condition**  
+       - `s1[0:len]` matches `s2[0:len]`  
+       - `s1[len:n]` matches `s2[len:n]`
+     - **Swap Condition**  
+       - `s1[0:len]` matches `s2[n-len:n]`  
+       - `s1[len:n]` matches `s2[0:n-len]`
+
+5. **Store Computed Result**  
+   - If either condition evaluates to `True`, **cache and return `True`**.
+   - Otherwise, **cache and return `False`**.
 
 ### **Pseudocode**
 
