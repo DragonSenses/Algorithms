@@ -57,6 +57,7 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 # Solution
 
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Time Complexity: `O(n^3)`**
   - **Space Complexity: `O(n^3)`**
 
 ### Problem Overview: Scramble String
@@ -459,6 +460,11 @@ function isScrambleWithSwap(s1: string, s2: string, len: number): boolean {
 ### **Assumptions**
 - `n` represents the length of the input strings `s1` and `s2`.
 - Dynamic programming is used to store computed results and avoid redundant recursive calls.
+
+### **Time Complexity**: `O(n^3)`  
+- **Cubic Iterations:** We have **three nested loops** iterating over `length`, `i`, and `j`, each running **O(n)** times.  
+- **Split Operations:** For each substring size, we try all possible split points (`newLength`), which contributes another **O(n)** factor.  
+- **Overall Complexity:** Since each operation depends on previous computations, the worst-case scenario scales as **O(n^3)**.
 
 ### **Space Complexity**: `O(n^3)`  
 - **DP Matrix Storage:** We store results in a **3D table** `dp[length][i][j]` of size **O(n^3)**.  
