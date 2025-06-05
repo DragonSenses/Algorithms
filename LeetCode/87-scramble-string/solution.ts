@@ -13,22 +13,14 @@ function isScramble(s1: string, s2: string): boolean {
   // Return precomputed result if available
   if (memo.has(key)) return memo.get(key)!;
 
-  const n = s1.length;
-  const count = new Array(26).fill(0); // Frequency array to compare character counts
-
-  // Count frequency of characters in both strings
-  for (let i = 0; i < n; i++) {
-    count[s1.charCodeAt(i) - 97]++; // Increment frequency for s1
-    count[s2.charCodeAt(i) - 97]--; // Decrement frequency for s2
-  }
-
   // If character frequencies mismatch, s2 cannot be a scrambled version of s1
-  if (count.some((c) => c !== 0)) {
+  if (!hasMatchingCharacterCounts(s1, s2)) {
     memo.set(key, false);
     return false;
   }
 
-  // Iterate over possible split points
+  const n = s1.length;
+
   for (let len = 1; len < n; len++) {
     if (isScrambleNoSwap(s1, s2, len) || isScrambleWithSwap(s1, s2, len)) {
       memo.set(key, true);
@@ -39,6 +31,19 @@ function isScramble(s1: string, s2: string): boolean {
   // Store result in memoization and return false if no valid scramble is found
   memo.set(key, false);
   return false;
+}
+
+function hasMatchingCharacterCounts(s1: string, s2: string): boolean {
+  const count = new Array(26).fill(0); // Frequency array to compare character counts
+
+  // Count frequency of characters in both strings
+  for (let i = 0; i < s1.length; i++) {
+    count[s1.charCodeAt(i) - 97]++; // Increment frequency for s1
+    count[s2.charCodeAt(i) - 97]--; // Decrement frequency for s2
+  }
+
+  // If character frequencies mismatch, s2 cannot be a scrambled version of s1
+  return !count.some((c) => c !== 0);
 }
 
 function isScrambleNoSwap(s1: string, s2: string, len: number): boolean {
