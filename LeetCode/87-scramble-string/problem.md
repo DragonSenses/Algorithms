@@ -208,39 +208,36 @@ We use **recursion** with **memoization** to avoid recomputation. The algorithm:
 
 ```plaintext
 FUNCTION isScramble(s1, s2):
-  IF s1 == s2: RETURN True  // Base case: identical strings are trivially scrambled
-  IF length of s1 ≠ length of s2: RETURN False  // Different length strings cannot be scrambled versions
+    IF s1 == s2:
+        RETURN True
+    
+    IF length(s1) ≠ length(s2):
+        RETURN False
 
-  key = s1 + "_" + s2
-  IF key exists in memo: RETURN memo[key]  // Retrieve stored result if available
+    key = s1 + "_" + s2
+    IF key in memo:
+        RETURN memo[key]
 
-  n = LENGTH(s1)
-  count = ARRAY of size 26 initialized to 0  // Frequency count of characters
+    # Step 1: Compare character frequencies
+    frequency = ARRAY[26] filled with 0
+    FOR i FROM 0 TO length(s1) - 1:
+        frequency[s1[i] - 'a']++
+        frequency[s2[i] - 'a']--
+    
+    IF frequency contains nonzero values:
+        memo[key] = False
+        RETURN False
 
-  // Check character frequency in both strings
-  FOR i FROM 0 TO n - 1:
-    count[s1[i] - 'a'] += 1
-    count[s2[i] - 'a'] -= 1
+    # Step 2: Try all split points
+    n = length(s1)
+    FOR len FROM 1 TO n - 1:
+        IF (isScramble(s1[0:len], s2[0:len]) AND isScramble(s1[len:n], s2[len:n])) OR
+           (isScramble(s1[0:len], s2[n-len:n]) AND isScramble(s1[len:n], s2[0:n-len])) :
+            memo[key] = True
+            RETURN True
 
-  // If frequency mismatch exists, s2 is not a scrambled version of s1
-  FOR each value in count:
-    IF value ≠ 0:
-      memo[key] = False
-      RETURN False
-
-  // Iterate over possible split points
-  FOR len FROM 1 TO n - 1:
-    // Check two conditions: with and without swapping
-    IF (isScramble(SUBSTRING(s1, 0, len), SUBSTRING(s2, 0, len)) AND
-        isScramble(SUBSTRING(s1, len, n), SUBSTRING(s2, len, n))) OR
-       (isScramble(SUBSTRING(s1, 0, len), SUBSTRING(s2, n - len, n)) AND
-        isScramble(SUBSTRING(s1, len, n), SUBSTRING(s2, 0, n - len))):
-
-      memo[key] = True  // Store computed result
-      RETURN True
-
-  memo[key] = False  // If no valid scrambling found, store false
-  RETURN False
+    memo[key] = False
+    RETURN False
 ```
 
 ## **Implementation**
