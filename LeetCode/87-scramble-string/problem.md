@@ -57,6 +57,7 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 # Solution
 
 - [Dynamic Programming Approach](#dynamic-programming-approach)
+  - **Space Complexity: `O(n^3)`**
 
 ### Problem Overview: Scramble String
 
@@ -452,3 +453,13 @@ function isScrambleWithSwap(s1: string, s2: string, len: number): boolean {
   );
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- `n` represents the length of the input strings `s1` and `s2`.
+- Dynamic programming is used to store computed results and avoid redundant recursive calls.
+
+### **Space Complexity**: `O(n^3)`  
+- **DP Matrix Storage:** We store results in a **3D table** `dp[length][i][j]` of size **O(n^3)**.  
+- **Memoization Cache (If Used):** `HashMap<String, Boolean>` stores intermediate results, but this remains **O(n^3)** in worst case.
