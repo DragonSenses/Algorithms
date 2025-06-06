@@ -105,3 +105,24 @@ n = 1
 
 ### **Constraints**  
 - \(1 \leq n \leq 16\)  
+
+---
+
+### **Observations: Gray Code**  
+
+#### **Definition & Origin**  
+The **Reflected Binary Code (RBC)** or **Gray Code**, named after **Frank Gray**, is an ordering of the **binary numeral system** where successive values differ by exactly **one bit** (binary digit)  
+(Source: [Wikipedia](https://en.wikipedia.org/wiki/Gray_code)).  
+
+#### **Example: Gray Code Sequence for \( n = 3 \) Bit Numbers**  
+A valid Gray Code sequence for **\( n = 3 \)**:
+```plaintext
+[000, 001, 011, 010, 110, 111, 101, 100]
+```  
+
+This sequence demonstrates how each successive number differs by only **one bit** in its binary representation.  
+For a clearer understanding, refer to the following table:  
+
+#### **Figure 1: Decimal, Binary, Gray Code, and Gray Decimal Sequence (for \( n = 3 \))**  
+![Figure 1. The decimal, binary, Gray code, Gray decimal sequence generated for n = 3 bits](img/89-1.jpg)  
+
