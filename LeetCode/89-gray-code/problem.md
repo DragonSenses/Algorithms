@@ -126,3 +126,45 @@ For a clearer understanding, refer to the following table:
 #### **Figure 1: Decimal, Binary, Gray Code, and Gray Decimal Sequence (for \( n = 3 \))**  
 ![Figure 1. The decimal, binary, Gray code, Gray decimal sequence generated for n = 3 bits](img/89-1.jpg)  
 
+### **Patterns in the Gray Code Sequence**  
+
+Observing the **Gray Code sequence** reveals several key patterns:  
+1. **Least Significant Bit (LSB) Pattern**  
+   - The **0th bit** (from the right) in consecutive **Gray Decimal** numbers follows this pattern:  
+     ```plaintext
+     0 1 1 0
+     ```
+2. **First Bit Pattern**  
+   - The **1st bit** in consecutive **Gray Decimal** numbers follows this pattern:  
+     ```plaintext
+     0 0 1 1 1 1 0
+     ```
+3. **Mirror Image Property**  
+   - When these sequences are partitioned at their **center**, they form two **mirror image halves**.  
+4. **Recursive Partitioning**  
+   - Consider the first \(2^1 = 2\) numbers, then the first \(2^2 = 4\) numbers, and so on.  
+   - Upon partitioning each sequence into two halves, a **mirror image pattern** emerges.  
+   - The first **\( n - 1 \) bits** (from the right) appear **mirrored** between the two partitions.  
+   - The **Most Significant Bit (MSB)** is set to **0** in the **first half** and **1** in the **second half**.
+
+---
+
+### **Key Observations for Implementation**  
+- The Gray Code sequence should be returned in **decimal form**, not in binary.  
+  - **For \( n = 3 \)**, a valid sequence is:  
+    ```plaintext
+    [0,1,3,2,6,7,5,4]
+    ```
+  - **Instead of:**  
+    ```plaintext
+    [000, 001, 011, 010, 110, 111, 101, 100]
+    ```
+- Multiple valid Gray Code sequences exist for a given **\( n \)**.  
+  - **For \( n = 2 \)**, both of these sequences are valid:  
+    ```plaintext
+    [00, 01, 11, 10]
+    ```
+    ```plaintext
+    [00, 10, 11, 01]
+    ```
+- The Gray Code sequence for **\( n \)** consists of exactly **\( 2^n \)** unique numbers, ranging from **0 to \( 2^n - 1 \)**.
