@@ -208,7 +208,8 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 ### **Algorithm Steps**  
 
 1. **Initialize** a result list to store the sequence. Start with **0**, as all Gray Code sequences begin with **0**.  
-
+2. **Initialize a set** (`visited`) to track used numbers, preventing repetition.  
+3. Begin with **0** as the starting number.  
 
 ### **Pseudocode**
 
@@ -216,5 +217,6 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 FUNCTION generateGrayCode(n):
     total_length = 2^n
     sequence = [0]  // Initialize with 0
+    visited = {0}    // Track visited numbers
 
 ```
