@@ -194,3 +194,14 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 ### **Termination Condition**  
 - The sequence must contain exactly **\(2^n\) unique numbers**, ensuring a **complete Gray Code cycle**.  
 - If the sequence is successfully built, return it; otherwise, backtrack and explore alternative paths.  
+
+## **Algorithm**
+
+### **Outline**
+
+1. **Initialize** the sequence with **0**.
+2. Use **Depth-First Search (DFS)** to explore numbers that differ by **one bit** from the current number.
+3. Maintain a **set** to track visited numbers and ensure uniqueness.
+4. Recursively add valid numbers to the sequence, backtracking when necessary.
+5. Stop when the sequence reaches a length of **\(2^n\)**.
+
