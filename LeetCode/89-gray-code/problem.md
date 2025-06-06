@@ -205,3 +205,16 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 4. Recursively add valid numbers to the sequence, backtracking when necessary.
 5. Stop when the sequence reaches a length of **\(2^n\)**.
 
+### **Algorithm Steps**  
+
+1. **Initialize** a result list to store the sequence. Start with **0**, as all Gray Code sequences begin with **0**.  
+
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION generateGrayCode(n):
+    total_length = 2^n
+    sequence = [0]  // Initialize with 0
+
+```
