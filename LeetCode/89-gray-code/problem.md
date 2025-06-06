@@ -45,6 +45,10 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 
 ---
 
+# Solution
+
+- [Backtracking Approach](#backtracking-approach)
+
 ### **Problem Overview: Gray Code**  
 
 #### **Definition**  
@@ -168,3 +172,13 @@ Observing the **Gray Code sequence** reveals several key patterns:
     [00, 10, 11, 01]
     ```
 - The Gray Code sequence for **\( n \)** consists of exactly **\( 2^n \)** unique numbers, ranging from **0 to \( 2^n - 1 \)**.
+
+# Backtracking Approach
+
+## **Intuition**
+
+The Gray Code sequence follows a key property: **adjacent numbers differ by exactly one bit** in their binary representation. Additionally, the sequence **always starts with 0**.
+
+To construct a valid sequence, we can use **Depth-First Search (DFS)** with backtracking, ensuring that at each step, we **only add numbers** that meet the following conditions:  
+1. **Uniqueness:** The number has **not** already been used in the sequence.  
+2. **One-bit difference:** The binary representation of the new number differs from the previous number by **exactly one bit**. 
