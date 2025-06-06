@@ -210,6 +210,9 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 1. **Initialize** a result list to store the sequence. Start with **0**, as all Gray Code sequences begin with **0**.  
 2. **Initialize a set** (`visited`) to track used numbers, preventing repetition.  
 3. Begin with **0** as the starting number.  
+4. Implement an **auxiliary function** (`grayCodeAuxiliary`) that:  
+   - Iterates over **n** bits, toggling each bit individually to generate a possible next number.  
+   - Ensures the new number differs by **exactly one bit** from the previous number.  
 
 ### **Pseudocode**
 
@@ -219,4 +222,8 @@ FUNCTION generateGrayCode(n):
     sequence = [0]  // Initialize with 0
     visited = {0}    // Track visited numbers
 
+    FUNCTION grayCodeAuxiliary(current):
+        FOR bit FROM 0 TO n-1:  // Try flipping each bit
+            next_number = current WITH (bit toggled)  // Flip bit manually
+            
 ```
