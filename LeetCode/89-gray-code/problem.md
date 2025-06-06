@@ -182,3 +182,15 @@ The Gray Code sequence follows a key property: **adjacent numbers differ by exac
 To construct a valid sequence, we can use **Depth-First Search (DFS)** with backtracking, ensuring that at each step, we **only add numbers** that meet the following conditions:  
 1. **Uniqueness:** The number has **not** already been used in the sequence.  
 2. **One-bit difference:** The binary representation of the new number differs from the previous number by **exactly one bit**. 
+
+### **Approach**  
+1. Start DFS from **0**, initializing an empty sequence.  
+2. At each step, try flipping **exactly one bit** of the current number to generate potential next numbers.  
+3. If a generated number satisfies the **two conditions** above, add it to the sequence and recurse.  
+4. Stop the search when:
+   - No valid numbers remain.
+   - The sequence reaches the required length of **\(2^n\) numbers**, where \( n \) is the total number of bits.  
+
+### **Termination Condition**  
+- The sequence must contain exactly **\(2^n\) unique numbers**, ensuring a **complete Gray Code cycle**.  
+- If the sequence is successfully built, return it; otherwise, backtrack and explore alternative paths.  
