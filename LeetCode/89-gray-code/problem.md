@@ -213,6 +213,7 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 4. Implement an **auxiliary function** (`grayCodeAuxiliary`) that:  
    - Iterates over **n** bits, toggling each bit individually to generate a possible next number.  
    - Ensures the new number differs by **exactly one bit** from the previous number.  
+   - Adds the new number to the sequence if it's **not in the visited set** (`visited`).  
 
 ### **Pseudocode**
 
@@ -226,4 +227,8 @@ FUNCTION generateGrayCode(n):
         FOR bit FROM 0 TO n-1:  // Try flipping each bit
             next_number = current WITH (bit toggled)  // Flip bit manually
             
+            IF next_number NOT IN visited:
+                sequence.append(next_number)
+                visited.add(next_number)
+
 ```
