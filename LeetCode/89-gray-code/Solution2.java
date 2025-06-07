@@ -8,6 +8,10 @@ class Solution2 {
     List<Integer> sequence = new ArrayList<>();
     Set<Integer> visited = new HashSet<>();
 
+    // Initialize the sequence with 0
+    sequence.add(0);
+    visited.add(0);
+
     return sequence;
   }
 
