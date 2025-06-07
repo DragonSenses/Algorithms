@@ -21,6 +21,10 @@ class Solution2 {
     for (int i = 0; i < n; i++) {
       int next = current ^ (1 << i); // Flip ith bit
 
+      if (!visited.contains(next)) {
+        sequence.add(next);
+        visited.add(next);
+      }
     }
   }
 }
