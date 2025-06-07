@@ -248,4 +248,6 @@ FUNCTION generateGrayCode(n):
         
         RETURN False  // No valid extension found
 
+    grayCodeAuxiliary(0)  // Start DFS from 0
+    RETURN sequence  // Return valid Gray Code sequence
 ```
