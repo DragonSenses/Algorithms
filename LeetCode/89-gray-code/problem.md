@@ -214,6 +214,10 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
    - Iterates over **n** bits, toggling each bit individually to generate a possible next number.  
    - Ensures the new number differs by **exactly one bit** from the previous number.  
    - Adds the new number to the sequence if it's **not in the visited set** (`visited`).  
+5. **Recursive search:**  
+   - Call `grayCodeAuxiliary(next)`. If it returns `true`, the valid sequence is found, enabling **early stopping** for efficiency.  
+   - If no valid sequence is found, **backtrack** by removing the last added number from both the result list and the visited set.  
+
 
 ### **Pseudocode**
 
@@ -230,5 +234,12 @@ FUNCTION generateGrayCode(n):
             IF next_number NOT IN visited:
                 sequence.append(next_number)
                 visited.add(next_number)
-
+                
+                IF grayCodeAuxiliary(next_number):  // Recursive call
+                    RETURN True  // Early stop if sequence is completed
+                
+                // Backtrack
+                sequence.pop()
+                visited.remove(next_number)
+        
 ```
