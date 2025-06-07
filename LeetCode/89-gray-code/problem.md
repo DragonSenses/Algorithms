@@ -218,6 +218,7 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
    - Call `grayCodeAuxiliary(next)`. If it returns `true`, the valid sequence is found, enabling **early stopping** for efficiency.  
    - If no valid sequence is found, **backtrack** by removing the last added number from both the result list and the visited set.  
 6. **Base condition:** Once the sequence length reaches **\(2^n\)**, return `true`.  
+7. If no valid sequence is found within the loop, return `false`.
 
 ### **Pseudocode**
 
@@ -245,5 +246,6 @@ FUNCTION generateGrayCode(n):
                 sequence.pop()
                 visited.remove(next_number)
         
+        RETURN False  // No valid extension found
 
 ```
