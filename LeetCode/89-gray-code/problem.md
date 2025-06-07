@@ -195,6 +195,28 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 - The sequence must contain exactly **\(2^n\) unique numbers**, ensuring a **complete Gray Code cycle**.  
 - If the sequence is successfully built, return it; otherwise, backtrack and explore alternative paths.  
 
+### Bitmask and Bit Flipping with XOR (`^`)
+
+The **bitmask (`1 << i`)** and **XOR (`^`) operation** are both essential components of the **recursive backtracking approach**.
+
+To derive the next number in the Gray Code sequence we apply **bitwise XOR (`^`)** with a **shifted bitmask (`1 << i`)**. 
+
+- The **bitmask** isolates the `i`th bit
+- **XOR** toggles that bit while keeping all other bits unchanged, ensuring each transition differs by exactly **one bit** from the previous number.
+
+1. **Bitmask (`1 << i`)**  
+   - This generates a mask with only the `i`th bit set, allowing **precise bit toggling**.  
+   - This ensures that only **one bit changes** in each transition, which is a fundamental property of Gray Code sequences.  
+
+2. **XOR (`^`) for Bit Flipping**  
+   - The `current ^ (1 << i)` flips the `i`th bit while keeping all other bits unchanged.  
+   - This allows the recursive function to **explore the next possible number** while ensuring it differs by exactly **one bit** from the previous number.  
+
+3. **Backtracking Integration**  
+   - When a number is **not in `visited`**, it is added to the sequence and the recursive call (`grayCodeAuxiliary(next)`) explores further.  
+   - If no valid sequence is found, **backtracking removes the last number**, reverting to an earlier state before continuing the search.  
+   - The combination of bitwise toggling, **recursive depth-first search (DFS)**, and **backtracking ensures all valid sequences are explored efficiently**.  
+
 ## **Algorithm**
 
 ### **Outline**
