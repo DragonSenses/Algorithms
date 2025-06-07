@@ -19,6 +19,7 @@ class Solution2 {
 
     int current = sequence.get(sequence.size() - 1);
     for (int i = 0; i < n; i++) {
+      int next = current ^ (1 << i); // Flip ith bit
 
     }
   }
