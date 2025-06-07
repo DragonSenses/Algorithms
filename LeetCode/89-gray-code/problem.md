@@ -217,7 +217,7 @@ To construct a valid sequence, we can use **Depth-First Search (DFS)** with back
 5. **Recursive search:**  
    - Call `grayCodeAuxiliary(next)`. If it returns `true`, the valid sequence is found, enabling **early stopping** for efficiency.  
    - If no valid sequence is found, **backtrack** by removing the last added number from both the result list and the visited set.  
-
+6. **Base condition:** Once the sequence length reaches **\(2^n\)**, return `true`.  
 
 ### **Pseudocode**
 
@@ -228,6 +228,9 @@ FUNCTION generateGrayCode(n):
     visited = {0}    // Track visited numbers
 
     FUNCTION grayCodeAuxiliary(current):
+        IF length(sequence) == total_length:
+            RETURN True  // Successfully found a valid sequence
+        
         FOR bit FROM 0 TO n-1:  // Try flipping each bit
             next_number = current WITH (bit toggled)  // Flip bit manually
             
@@ -242,4 +245,5 @@ FUNCTION generateGrayCode(n):
                 sequence.pop()
                 visited.remove(next_number)
         
+
 ```
