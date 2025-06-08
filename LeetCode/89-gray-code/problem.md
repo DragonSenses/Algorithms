@@ -48,6 +48,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 # Solution
 
 - [Backtracking Approach](#backtracking-approach)
+  - **Space Complexity: `O(2^n)`**
 
 ### **Problem Overview: Gray Code**  
 
@@ -334,3 +335,9 @@ class Solution2 {
 2. **Bitwise Operations:** Each number differs by **exactly one bit** from the previous number, ensuring valid transitions.  
 3. **Set Operations:** We use a **HashSet** (`visited`), which supports **\(O(1)\) amortized time** for insertions and lookups.  
 4. **Backtracking Efficiency:** Though the algorithm theoretically explores multiple paths, it **never backtracks in practice**, always finding a valid path forward.  
+
+
+### **Space Complexity: \( O(2^n) \)**  
+- **Set Usage:** The `visited` set stores at most **\(2^n\)** elements, leading to **\(O(2^n)\) space usage**.  
+- **Recursion Stack:** The depth of recursion reaches **\(2^n\)** calls, contributing to space complexity.  
+- **Output Storage:** The result list also holds **\(2^n\)** numbers, but this is typically excluded from space complexity analysis.  
