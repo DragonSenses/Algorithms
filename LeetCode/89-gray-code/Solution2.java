@@ -12,6 +12,9 @@ class Solution2 {
     sequence.add(0);
     visited.add(0);
 
+    // Start recursive search
+    backtrack(n, sequence, visited);
+
     return sequence;
   }
 
