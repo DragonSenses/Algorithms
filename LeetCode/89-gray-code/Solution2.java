@@ -24,6 +24,14 @@ class Solution2 {
       if (!visited.contains(next)) {
         sequence.add(next);
         visited.add(next);
+
+        if (backtrack(n, sequence, visited)) {
+          return true; // Early stop if sequence is completed
+        }
+
+        // Backtrack
+        sequence.remove(sequence.size() - 1);
+        visited.remove(next);
       }
     }
   }
