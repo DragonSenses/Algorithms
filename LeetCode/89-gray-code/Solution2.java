@@ -37,5 +37,6 @@ class Solution2 {
         visited.remove(next);
       }
     }
+    return false; // No valid extension found
   }
 }
