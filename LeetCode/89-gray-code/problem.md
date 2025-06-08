@@ -326,3 +326,11 @@ class Solution2 {
   }
 }
 ```
+
+## **Complexity Analysis**  
+
+### **Assumptions**  
+1. **Sequence Length:** The Gray Code sequence consists of exactly **\(2^n\)** numbers, ranging from **0 to \(2^n - 1\)**.  
+2. **Bitwise Operations:** Each number differs by **exactly one bit** from the previous number, ensuring valid transitions.  
+3. **Set Operations:** We use a **HashSet** (`visited`), which supports **\(O(1)\) amortized time** for insertions and lookups.  
+4. **Backtracking Efficiency:** Though the algorithm theoretically explores multiple paths, it **never backtracks in practice**, always finding a valid path forward.  
