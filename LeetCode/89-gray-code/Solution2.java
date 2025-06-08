@@ -16,6 +16,9 @@ class Solution2 {
   }
 
   private boolean backtrack(int n, List<Integer> sequence, Set<Integer> visited) {
+    if (sequence.size() == (1 << n)) {
+      return true; // Valid sequence found
+    }
 
     int current = sequence.get(sequence.size() - 1);
     for (int i = 0; i < n; i++) {
