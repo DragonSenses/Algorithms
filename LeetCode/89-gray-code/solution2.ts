@@ -27,6 +27,7 @@ function grayCode(n: number): number[] {
         visited.delete(next);
       }
     }
+    return false; // No valid sequence found
   }
 
   backtrack();
