@@ -19,7 +19,10 @@ function grayCode(n: number): number[] {
         if (backtrack()) {
           return true; // Early stop if sequence is completed
         }
-
+        
+        // Backtrack: Remove last added number and continue search
+        sequence.pop();
+        visited.delete(next);
       }
     }
   }
