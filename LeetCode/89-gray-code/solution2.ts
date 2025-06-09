@@ -12,6 +12,10 @@ function grayCode(n: number): number[] {
     for (let i = 0; i < n; i++) {
       const next = current ^ (1 << i); // Flip ith bit
 
+      if (!visited.has(next)) {
+        sequence.push(next);
+        visited.add(next);
+      }
     }
   }
 
