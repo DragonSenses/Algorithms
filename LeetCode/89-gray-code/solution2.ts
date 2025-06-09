@@ -6,7 +6,9 @@ function grayCode(n: number): number[] {
   visited.add(0);
 
   function backtrack(): boolean {
-
+    if (sequence.length === totalLength) {
+      return true; // Successfully found a valid sequence
+    }
 
     const current = sequence[sequence.length - 1];
     for (let i = 0; i < n; i++) {
@@ -19,7 +21,7 @@ function grayCode(n: number): number[] {
         if (backtrack()) {
           return true; // Early stop if sequence is completed
         }
-        
+
         // Backtrack: Remove last added number and continue search
         sequence.pop();
         visited.delete(next);
