@@ -15,6 +15,11 @@ function grayCode(n: number): number[] {
       if (!visited.has(next)) {
         sequence.push(next);
         visited.add(next);
+
+        if (backtrack()) {
+          return true; // Early stop if sequence is completed
+        }
+
       }
     }
   }
