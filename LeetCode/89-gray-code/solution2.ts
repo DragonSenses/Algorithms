@@ -6,8 +6,13 @@ function grayCode(n: number): number[] {
   visited.add(0);
 
   function backtrack(): boolean {
-    const current = sequence[sequence.length - 1];
 
+
+    const current = sequence[sequence.length - 1];
+    for (let i = 0; i < n; i++) {
+      const next = current ^ (1 << i); // Flip ith bit
+
+    }
   }
 
   backtrack();
