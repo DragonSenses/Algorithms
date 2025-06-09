@@ -5,5 +5,11 @@ function grayCode(n: number): number[] {
   const visited = new Set<number>();
   visited.add(0);
 
+  function backtrack(): boolean {
+    const current = sequence[sequence.length - 1];
+
+  }
+
+  backtrack();
   return sequence;
 }
