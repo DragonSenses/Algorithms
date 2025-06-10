@@ -485,6 +485,10 @@ FUNCTION generateGrayCode(n):
   FOR i FROM 1 TO n:
     mask = 1 << (i - 1)  // Set the (i-1)th bit using bit shift
 
+    // Reverse iterate over current sequence and apply mask
+    FOR j FROM length(result) - 1 DOWN TO 0:
+      result.append(result[j] OR mask)  // Add prefix 1 to mirrored numbers
+
   RETURN result  // Final Gray Code sequence in decimal form
 ```
 
