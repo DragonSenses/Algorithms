@@ -471,7 +471,17 @@ This iterative method **efficiently constructs Gray Code sequences** by **modify
 
 4. **Return `result`**, containing the full **\( 2^n \)** Gray code sequence in decimal form.  
 
-### **Key Details**
+#### **Key Details**
 - **Mask Definition:** `mask = 1 << (i - 1)` (Shifts `1` left by `(i-1)`, setting the appropriate bit).  
 - **Reverse Traversal:** Ensures proper mirroring before concatenation.  
 - **Bitwise Operations (`|`):** Efficiently sets the required bit.  
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION generateGrayCode(n):
+  result = [0]  // Initialize sequence with 0
+
+  RETURN result  // Final Gray Code sequence in decimal form
+```
+
