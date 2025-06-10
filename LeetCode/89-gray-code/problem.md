@@ -50,6 +50,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 - [Backtracking Approach](#backtracking-approach)
   - **Time Complexity: `O(n*2^n)`**
   - **Space Complexity: `O(2^n)`**
+- [Iterative Approach](#iterative-approach)
 
 ### **Problem Overview: Gray Code**  
 
@@ -409,3 +410,16 @@ function grayCode(n: number): number[] {
 - **Set Usage:** The `visited` set stores at most **\(2^n\)** elements, leading to **\(O(2^n)\) space usage**.  
 - **Recursion Stack:** The depth of recursion reaches **\(2^n\)** calls, contributing to space complexity.  
 - **Output Storage:** The result list also holds **\(2^n\)** numbers, but this is typically excluded from space complexity analysis.  
+
+# Iterative Approach
+
+## **Intuition**
+
+Gray Code sequences can be constructed **iteratively** by leveraging the sequence of **\(G(n-1)\)** to generate **\(G(n)\)**. Observing the sequences for **\(n = 0\) to \(n = 3\)** reveals a clear pattern:  
+
+- **\(G(0)\):** `[0]`  
+- **\(G(1)\):** `[0, 1]`  
+- **\(G(2)\):** `[00, 01, 11, 10]`  
+- **\(G(3)\):** `[000, 001, 011, 010, 110, 111, 101, 100]`  
+
+The key observation is that **\(G(n)\)** can be derived from **\(G(n-1)\)** by applying specific transformations.
