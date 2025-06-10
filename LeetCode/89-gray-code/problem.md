@@ -426,6 +426,32 @@ The key observation is that **\(G(n)\)** can be derived from **\(G(n-1)\)** by a
 
 ### **Pattern for Constructing \(G(n)\) from \(G(n-1)\)**  
 
+#### Example: **Constructing G(2) from G(1)**  
+
+1. **Prepending `0` to all numbers in \( G(n-1) \):**  
+   - If \( G(1) = [0, 1] \),  
+   - Prepending `0` to each number produces **\( G(2a) \):**  
+     ```plaintext
+     [00, 01]
+     ```
+
+2. **Reversing \( G(n-1) \) and prepending `1`:**  
+   - Reverse \( G(1) \):  
+     ```plaintext
+     [1, 0]
+     ```
+   - Prepend `1` to each number, forming **\( G(2b) \):**  
+     ```plaintext
+     [11, 10]
+     ```
+
+3. **Concatenating \( G(2a) \) and \( G(2b) \) to form \( G(n) \):**  
+   ```plaintext
+   [00, 01, 11, 10]
+  ```
+
+#### Example: **Constructing G(3) from G(2)**  
+
 1. **Prepending `0` to all numbers in \(G(n-1)\)**:  
    - If \(G(2) = [00, 01, 11, 10]\),  
    - Prepending `0` to each number produces **\(G(3a)\)**:  
