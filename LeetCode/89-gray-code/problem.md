@@ -423,3 +423,36 @@ Gray Code sequences can be constructed **iteratively** by leveraging the sequenc
 - **\(G(3)\):** `[000, 001, 011, 010, 110, 111, 101, 100]`  
 
 The key observation is that **\(G(n)\)** can be derived from **\(G(n-1)\)** by applying specific transformations.
+
+### **Pattern for Constructing \(G(n)\) from \(G(n-1)\)**  
+
+1. **Appending a `0` prefix** to all numbers in \(G(n-1)\):  
+   - If \(G(2) = [00, 01, 11, 10]\),  
+   - Appending `0` to each number produces **\(G(3a)\)**:  
+     ```plaintext
+     [000, 001, 011, 010]
+     ```
+
+2. **Reversing \(G(n-1)\) and appending a `1` prefix**:  
+   - Reverse \(G(2)\):  
+     ```plaintext
+     [10, 11, 01, 00]
+     ```
+   - Append `1` to each number, forming **\(G(3b)\)**:  
+     ```plaintext
+     [110, 111, 101, 100]
+     ```
+
+3. **Concatenating \(G(3a)\) and \(G(3b)\) to form \(G(n)\)**:  
+   ```plaintext
+   [000, 001, 011, 010, 110, 111, 101, 100]
+   ```
+
+### **Iterative Construction Method**  
+Instead of using recursion, the iterative approach **builds the sequence** using two loops:  
+1. **Compute \(G(n-1)\)** first.  
+2. **Append `0` to all numbers of \(G(n-1)\)**.  
+3. **Reverse \(G(n-1)\) and append `1` to all numbers of the reversed sequence**.  
+4. **Combine both sequences to obtain \(G(n)\)**.
+
+This iterative method **efficiently constructs Gray Code sequences** by **modifying and merging previous sequences**.
