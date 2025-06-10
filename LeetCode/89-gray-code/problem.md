@@ -456,3 +456,22 @@ Instead of using recursion, the iterative approach **builds the sequence** using
 4. **Combine both sequences to obtain \(G(n)\)**.
 
 This iterative method **efficiently constructs Gray Code sequences** by **modifying and merging previous sequences**.
+
+## **Algorithm**
+
+1. **Initialize** an empty list `result` and add `0` to it, as all Gray code sequences start with `0`.  
+
+2. **Iterate from `i = 1` to `n`** to construct the sequence **\( G(i) \)** using **\( G(i-1) \)**.  
+   - Define a **mask** by setting the `(i-1)`th bit.  
+   - This mask ensures new numbers have the correct **bit shift** applied.  
+
+3. **Reverse iterate** over `result`, applying the mask:  
+   - Append each reversed number **OR-ed** (`|`) with the mask to `result`.  
+   - This step ensures the required mirrored pattern for Gray code is maintained.  
+
+4. **Return `result`**, containing the full **\( 2^n \)** Gray code sequence in decimal form.  
+
+### **Key Details**
+- **Mask Definition:** `mask = 1 << (i - 1)` (Shifts `1` left by `(i-1)`, setting the appropriate bit).  
+- **Reverse Traversal:** Ensures proper mirroring before concatenation.  
+- **Bitwise Operations (`|`):** Efficiently sets the required bit.  
