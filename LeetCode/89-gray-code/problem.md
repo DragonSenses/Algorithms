@@ -482,6 +482,9 @@ This iterative method **efficiently constructs Gray Code sequences** by **modify
 FUNCTION generateGrayCode(n):
   result = [0]  // Initialize sequence with 0
 
+  FOR i FROM 1 TO n:
+    mask = 1 << (i - 1)  // Set the (i-1)th bit using bit shift
+
   RETURN result  // Final Gray Code sequence in decimal form
 ```
 
