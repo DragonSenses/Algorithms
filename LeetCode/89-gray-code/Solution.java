@@ -15,5 +15,6 @@ class Solution {
       }
     }
 
+    return result; // Final Gray Code sequence in decimal form
   }
 }
