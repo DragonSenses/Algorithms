@@ -754,3 +754,17 @@ By proving:
 - **All numbers in the sequence are unique**
 
 We confirm the **correctness** of `G(i) = i ^ (i >> 1)`, allowing us to compute Gray Code values in **constant time `O(1)`**.
+
+## **Algorithm**
+
+1. **Initialize an empty result list** `result` and set `sequenceLength = 2^n`, where `n` is the number of bits.  
+   - This ensures the correct number of Gray Code values are generated.  
+
+2. **Iterate from `i = 0` to `sequenceLength - 1`**:  
+   - Compute the Gray Code value using:  
+     ```plaintext
+     G(i) = i ^ (i >> 1)
+     ```  
+   - Append the computed value to `result`.  
+
+3. **Return `result`**, containing the full Gray Code sequence.
