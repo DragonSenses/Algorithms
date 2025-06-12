@@ -618,3 +618,23 @@ In the intuition we will arive arrive to these conclusions:
 #### Figure 2 - A table displaying indices 0 to 10, their corresponding Gray Code values `G(i)`, and the XOR result of the index with its Gray Code (`i ^ G(i)`)
 
 ![Figure 2 - A table displaying indices 0 to 10, their corresponding Gray Code values `G(i)`, and the XOR result of the index with its Gray Code (`i ^ G(i)`)](img/89-2.jpg)
+
+## **Intuition**
+
+Many problems can be solved more efficiently by recognizing **patterns** that relate input values to expected output values. In this case, solving the Gray Code problem using an **intuitive** approach first helps us derive the expected sequence. Once we observe a **consistent pattern**, we can formulate a more optimized solution.
+
+By analyzing the table in the overview, we can **identify the relationship** between index `i` and its Gray Code value `G(i)`. This pattern is difficult to recognize at first, but taking the **XOR of `i` and `G(i)`** reveals a useful relationship.
+
+## **Key Observation**
+Consider **Figure 2**, which displays indices `0-10`, their corresponding Gray Code values `G(i)`, and the XOR product of the index with its Gray Code (`i ^ G(i)`).
+
+### **Figure 2 - Index to Gray Code Relationship**
+![Figure 2 - Index to Gray Code Relationship](img/89-2.jpg)
+
+Examining the table, we notice that:
+
+```plaintext
+i ^ G(i) = i / 2
+```
+
+where `^` signifies XOR and `/` represents **integer (floor) division**.
