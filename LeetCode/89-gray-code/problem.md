@@ -638,3 +638,16 @@ i ^ G(i) = i / 2
 ```
 
 where `^` signifies XOR and `/` represents **integer (floor) division**.
+
+### **Formula Derivation**
+Rearranging the equation, we derive a **direct formula** to compute Gray Code values:
+
+```plaintext
+G(i) = i ^ (i / 2)
+```
+or equivalently,
+```plaintext
+G(i) = i ^ (i >> 1)
+```
+
+If this pattern **always holds**, we can compute each Gray Code value in **constant time `O(1)`** without iterating over previous sequences.
