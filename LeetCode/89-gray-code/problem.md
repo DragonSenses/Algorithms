@@ -51,6 +51,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
   - **Time Complexity: `O(n*2^n)`**
   - **Space Complexity: `O(2^n)`**
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity: `O(2^n)`**
   - **Space Complexity: `O(1)`**
 
 ### **Problem Overview: Gray Code**  
@@ -587,6 +588,16 @@ function grayCode(n: number): number[] {
 - The algorithm constructs a **Gray Code sequence iteratively**, expanding from \( G(n-1) \) to \( G(n) \).  
 - The sequence follows a **mirroring pattern**, where the number of elements doubles at each step.  
 - Bitwise operations (`<<`, `|`) and array operations (`push`, `reverse iteration`) are **constant time** \( O(1) \).  
+
+### **Time Complexity**: **\( O(2^n) \)**  
+- The sequence starts with `1` element (`G(0) = [0]`).  
+- At each step, the number of elements **doubles**, forming a sequence of **\( 2^n \) elements** in total.  
+- The iteration **processes each previous sequence element**, requiring **\( O(2^n) \)** operations cumulatively.  
+- **Bitwise operations (`|`) and array access (`push`)** run in **\( O(1) \)** per step.  
+- **Total complexity:** Since every level doubles the previous iteration, the time complexity is **exponential**:  
+  \[
+  O(2^n)
+  \]
 
 ### **Space Complexity**: **\( O(2^n) \)**  
 - **Constant-Space Usage**: Set and auxiliary variables (`mask`, loop counters) use **constant space** \( O(1) \).  
