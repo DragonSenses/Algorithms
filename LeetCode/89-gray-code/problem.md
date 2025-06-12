@@ -53,6 +53,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 - [Iterative Approach](#iterative-approach)
   - **Time Complexity: `O(2^n)`**
   - **Space Complexity: `O(1)`**
+- [Optimized Iterative Approach](#optimized-iterative-approach)
 
 ### **Problem Overview: Gray Code**  
 
@@ -603,3 +604,13 @@ function grayCode(n: number): number[] {
 - **Constant-Space Usage**: Set and auxiliary variables (`mask`, loop counters) use **constant space** \( O(1) \).  
 - **No Additional Structures**: are used beyond storing the sequence itself.  
 
+# Optimized Iterative Approach
+
+### Overview
+
+In the intuition we will arive arrive to these conclusions:
+
+- **Every consecutive number differs by one bit**
+- **All numbers in the sequence are unique**
+- **Each Gray Code value is unique** and **never repeats**.
+- `G(i) = i ^ (i >> 1)`, allows us to compute Gray Code values in **constant time `O(1)`**.
