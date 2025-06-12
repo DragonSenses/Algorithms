@@ -3,11 +3,11 @@
 <p>An <strong>n-bit gray code sequence</strong> is a sequence of <code>2<sup>n</sup></code> integers where:</p>
 
 <ul>
-	<li>Every integer is in the <strong>inclusive</strong> range <code>[0, 2<sup>n</sup> - 1]</code>,</li>
-	<li>The first integer is <code>0</code>,</li>
-	<li>An integer appears <strong>no more than once</strong> in the sequence,</li>
-	<li>The binary representation of every pair of <strong>adjacent</strong> integers differs by <strong>exactly one bit</strong>, and</li>
-	<li>The binary representation of the <strong>first</strong> and <strong>last</strong> integers differs by <strong>exactly one bit</strong>.</li>
+  <li>Every integer is in the <strong>inclusive</strong> range <code>[0, 2<sup>n</sup> - 1]</code>,</li>
+  <li>The first integer is <code>0</code>,</li>
+  <li>An integer appears <strong>no more than once</strong> in the sequence,</li>
+  <li>The binary representation of every pair of <strong>adjacent</strong> integers differs by <strong>exactly one bit</strong>, and</li>
+  <li>The binary representation of the <strong>first</strong> and <strong>last</strong> integers differs by <strong>exactly one bit</strong>.</li>
 </ul>
 
 <p>Given an integer <code>n</code>, return <em>any valid <strong>n-bit gray code sequence</strong></em>.</p>
@@ -40,7 +40,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 16</code></li>
+  <li><code>1 &lt;= n &lt;= 16</code></li>
 </ul>
 
 ---
@@ -51,6 +51,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
   - **Time Complexity: `O(n*2^n)`**
   - **Space Complexity: `O(2^n)`**
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity: `O(1)`**
 
 ### **Problem Overview: Gray Code**  
 
@@ -579,3 +580,15 @@ function grayCode(n: number): number[] {
   return result; // Final Gray Code sequence in decimal form
 }
 ```
+
+## **Complexity Analysis**  
+
+### **Assumptions**  
+- The algorithm constructs a **Gray Code sequence iteratively**, expanding from \( G(n-1) \) to \( G(n) \).  
+- The sequence follows a **mirroring pattern**, where the number of elements doubles at each step.  
+- Bitwise operations (`<<`, `|`) and array operations (`push`, `reverse iteration`) are **constant time** \( O(1) \).  
+
+### **Space Complexity**: **\( O(2^n) \)**  
+- **Constant-Space Usage**: Set and auxiliary variables (`mask`, loop counters) use **constant space** \( O(1) \).  
+- **No Additional Structures**: are used beyond storing the sequence itself.  
+
