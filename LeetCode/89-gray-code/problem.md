@@ -614,3 +614,7 @@ In the intuition we will arive arrive to these conclusions:
 - **All numbers in the sequence are unique**
 - **Each Gray Code value is unique** and **never repeats**.
 - `G(i) = i ^ (i >> 1)`, allows us to compute Gray Code values in **constant time `O(1)`**.
+
+#### Figure 2 - A table displaying indices 0 to 10, their corresponding Gray Code values `G(i)`, and the XOR result of the index with its Gray Code (`i ^ G(i)`)
+
+![Figure 2 - A table displaying indices 0 to 10, their corresponding Gray Code values `G(i)`, and the XOR result of the index with its Gray Code (`i ^ G(i)`)](img/89-2.jpg)
