@@ -651,3 +651,106 @@ G(i) = i ^ (i >> 1)
 ```
 
 If this pattern **always holds**, we can compute each Gray Code value in **constant time `O(1)`** without iterating over previous sequences.
+
+### **Proof of Correctness**
+To validate this formula, we must prove two properties:
+
+#### **1. Consecutive Numbers Differ by Exactly One Bit**
+Gray Code sequences require each consecutive number to differ by only **one bit**. We verify this by proving:
+
+```plaintext
+G(i) ^ G(i + 1) = (i ^ (i >> 1)) ^ ((i + 1) ^ ((i + 1) >> 1))
+```
+
+Rewriting using the **commutative property of XOR**:
+
+```plaintext
+= (i ^ (i >> 1)) ^ (i + 1) ^ ((i + 1) >> 1)
+= (i ^ (i + 1)) ^ ((i ^ (i + 1)) >> 1)
+```
+
+Denoting:
+
+```plaintext
+X = (i ^ (i + 1))
+Y = ((i ^ (i + 1)) >> 1)
+```
+
+Observing binary changes:
+
+- Adding `1` to a number **toggles every bit** from the rightmost `0` bit onward.
+- Example: `87 + 1 = 88 → 1010111 + 0000001 = 1011000`
+  - Bits `0-3` flip, while higher bits remain unchanged.
+- Thus, in **general**:
+  - If `i = ...#01...1`, then `i + 1 = ...#10...0` (where `#` marks the **first bit to the left** of the rightmost `0`).
+  - The trailing bits **flip**, ensuring `G(i) ^ G(i + 1)` **always differs in exactly one bit**.
+
+Using XOR:
+
+```plaintext
+X = i ^ (i + 1) = 0000000111111
+Y = (i ^ (i + 1)) >> 1 = 0000000011111
+X ^ Y = 0000000100000
+```
+
+Thus, **consecutive Gray Code values differ by exactly one bit**, ensuring correctness.
+
+#### **2. Uniqueness - No Number is Repeated**
+We must ensure `G(i)` is **bijective**, meaning `G(i) = G(j)` if and only if `i = j`.
+
+Using:
+
+```plaintext
+G(i) = i ^ (i >> 1)
+G(j) = j ^ (j >> 1)
+```
+
+If `G(i) = G(j)`, then:
+
+```plaintext
+G(i) ^ G(j) = (i ^ j) ^ ((i ^ j) >> 1)
+```
+
+Denoting:
+
+```plaintext
+X = i ^ j
+```
+
+Binary analysis:
+
+- If `X` consists only of `0`s:
+  ```plaintext
+  X = bn-1bn-2...b0 = 0
+  ```
+- Then:
+  ```plaintext
+  X >> 1 = 0bn-1bn-2...b1
+  ```
+- Since XORing `X` with `X >> 1` must be `0`:
+  ```plaintext
+  X ^ (X >> 1) = 0
+  ```
+
+Bitwise comparison confirms:
+
+```plaintext
+bn-1 ^ 0 = 0 → bn-1 = 0
+bn-3 ^ bn-2 = 0 → bn-3 = 0
+b0 ^ b1 = 0 → b0 = 0
+```
+
+Thus,
+
+```plaintext
+i ^ j = 0 → i = j
+```
+
+Meaning **each Gray Code value is unique** and **never repeats**.
+
+### **Conclusion**
+By proving:
+- **Every consecutive number differs by one bit**
+- **All numbers in the sequence are unique**
+
+We confirm the **correctness** of `G(i) = i ^ (i >> 1)`, allowing us to compute Gray Code values in **constant time `O(1)`**.
