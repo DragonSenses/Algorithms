@@ -812,3 +812,17 @@ class Solution {
   }
 }
 ```
+
+### TypeScript
+```ts
+function grayCode(n: number): number[] {
+  const sequenceLength = 1 << n; // Compute 2^n for the total length
+  const result: number[] = []; // Initialize result array
+
+  for (let i = 0; i < sequenceLength; i++) {
+    result.push(i ^ (i >> 1)); // Generate Gray Code and store it
+  }
+
+  return result; // Return final sequence
+}
+```
