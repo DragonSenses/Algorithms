@@ -768,3 +768,17 @@ We confirm the **correctness** of `G(i) = i ^ (i >> 1)`, allowing us to compute 
    - Append the computed value to `result`.  
 
 3. **Return `result`**, containing the full Gray Code sequence.
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION generateGrayCode(n):
+  sequenceLength ← 2^n  // Compute total number of elements
+  result ← EMPTY LIST   // Initialize result list
+
+  FOR i FROM 0 TO sequenceLength - 1:
+    grayCode ← i XOR (i RIGHT_SHIFT 1)  // Compute Gray Code
+    APPEND grayCode TO result           // Store in result list
+
+  RETURN result  // Return final Gray Code sequence
+```
