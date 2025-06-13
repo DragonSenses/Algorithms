@@ -24,4 +24,40 @@
 
 ---
 
+### **Problem Overview: Generating Unique Subsets (Power Set)**
+
+Given an integer array `nums`, which may contain duplicate values, the goal is to generate **all possible subsets** (the power set) without any duplicate subsets. The solution should be returned in **any order**.
+
+#### Key Requirements:
+- Each subset should be unique, meaning duplicate subsets must be eliminated.
+- Subsets can be of any length, including the empty set `[]`.
+- The order of subsets in the output does not matter.
+
+#### Understanding Subsets:
+A subset of an array is a selection of elements that maintains their relative order but does not necessarily include all elements.
+
+#### Example Walkthrough:
+
+##### Example 1:
+**Input:** `nums = [1,2,2]`  
+**Output:** `[[], [1], [1,2], [1,2,2], [2], [2,2]]`  
+
+Here, the duplicate value `2` is handled carefully to ensure that subsets are unique.
+
+##### Example 2:
+**Input:** `nums = [0]`  
+**Output:** `[[], [0]]`  
+
+With a single element, the subsets are straightforward: the empty set and the set containing `0`.
+
+#### Constraints:
+- `1 <= nums.length <= 10`
+- `-10 <= nums[i] <= 10`
+
+#### Approach:
+Since duplicates need to be managed carefully, common techniques for solving this problem include:
+1. **Backtracking** – Generate subsets iteratively while ensuring unique results.
+2. **Sorting + Recursion** – Sorting `nums` helps in identifying and skipping duplicate elements during recursive subset generation.
+3. **Bitmasking** (for small values of `nums.length`) – Using binary representation to enumerate subsets.
+
 ![Visualizing Subsets Using Bitmasking: Breakdown of `nums = [1,2,2]`](img/90-1.jpg)
