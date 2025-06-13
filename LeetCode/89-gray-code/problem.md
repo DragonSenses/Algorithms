@@ -54,6 +54,7 @@ The binary representation of [0,1,3,2] is [00,01,11,10].
   - **Time Complexity: `O(2^n)`**
   - **Space Complexity: `O(1)`**
 - [Optimized Iterative Approach](#optimized-iterative-approach)
+  - **Space Complexity: `O(1)`**
 
 ### **Problem Overview: Gray Code**  
 
@@ -826,3 +827,16 @@ function grayCode(n: number): number[] {
   return result; // Return final sequence
 }
 ```
+
+## **Complexity Analysis**  
+
+### **Assumptions**  
+- `n` represents the number of bits in the Gray Code sequence.  
+- The algorithm **directly computes** each Gray Code value using `G(i) = i ^ (i >> 1)`.  
+- No recursive calls or extra iterations over previously computed sequences are required.  
+
+### **Space Complexity**: **`O(1)`**  
+- **Constant auxiliary space usage**: The algorithm **only uses a few fixed variables** (`sequenceLength`, `result`, and loop counters).  
+- **Gray Code sequence storage is excluded** from space complexity calculations (as per the problem constraints).  
+- **No extra data structures** beyond standard loop iteration are allocated, ensuring **constant space usage**.  
+- Since space **does not grow with `n`**, the space complexity remains **`O(1)`**.  
