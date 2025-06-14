@@ -66,6 +66,16 @@ Since duplicates need to be managed carefully, common techniques for solving thi
 
 # Bitmasking Approach
 
+## **Intuition**
+
 Each element in `nums` can either be included in a subset or omitted, resulting in a total of **2ⁿ** distinct subsets for an array of length `n` (assuming no duplicates). Given that `n` has a maximum value of **10**, the number of possible subsets remains manageable (at most **1024**). This allows us to efficiently represent subsets using **bitmasking**.
+
+### **Core Idea**
+- Each subset corresponds to a **bitmask** of length `n`.
+- A bitmask is a binary number where each bit's state (`1` or `0`) determines whether the corresponding element in `nums` is included in the subset.
+- **Example representation:**
+  - `000...0` => Empty subset `[]`
+  - `111...1` => Full subset containing all elements in `nums`
+  - Iterating over values from `0` to `2ⁿ - 1` generates all subsets.
 
 ![Visualizing Subsets Using Bitmasking: Breakdown of `nums = [1,2,2]`](img/90-1.jpg)
