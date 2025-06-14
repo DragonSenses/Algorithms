@@ -78,4 +78,11 @@ Each element in `nums` can either be included in a subset or omitted, resulting 
   - `111...1` => Full subset containing all elements in `nums`
   - Iterating over values from `0` to `2ⁿ - 1` generates all subsets.
 
+### **Subset Construction via Bitmasking**
+For each integer `mask` in the range `[0, 2ⁿ - 1]`, the binary representation reveals which indices should be included:
+- **Set bit (`1`)** => Include corresponding element in `nums`
+- **Unset bit (`0`)** => Exclude the element
+
+Given the constraint that `n ≤ 10`, an **unsigned integer** (or `long` for extended precision) is sufficient to represent all bitmask combinations.
+
 ![Visualizing Subsets Using Bitmasking: Breakdown of `nums = [1,2,2]`](img/90-1.jpg)
