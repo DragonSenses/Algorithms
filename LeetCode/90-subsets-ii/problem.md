@@ -134,7 +134,10 @@ Sorting `nums` ensures that subsets are generated in a consistent order, helping
 - Set `maxNumberOfSubsets = 2ⁿ`, where `n` is the length of `nums`.
 - Create an empty **set** (`seen`) to store unique subsets, ensuring duplicate subsets are filtered.
   
-3. Initialize set to store all generated subsets
+### **Step 3: Iterate Through Bitmask Values**
+Loop through numbers from `0` to `maxNumberOfSubsets - 1`. Each number represents a bitmask:
+- The set bits (`1`s) in the bitmask indicate which elements from `nums` should be included in the current subset.
+
 4. Iterate from 0 to max subsets, the set bits idnicaitte the position of the elements in the nums array
 5. Initialize a string hashcode to ensure subset uniqueness
 6. Run the inner loop to identify set bits. If for the current index the position bit is set add it to the current subset.
