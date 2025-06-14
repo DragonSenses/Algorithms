@@ -130,7 +130,10 @@ After sorting `nums = [1,2,2]` and removing duplicates:
 ### **Step 1: Sort the Input Array**
 Sorting `nums` ensures that subsets are generated in a consistent order, helping to identify and eliminate duplicates.
 
-2. Initialize max number of subsets for upper limit
+### **Step 2: Initialize Necessary Variables**
+- Set `maxNumberOfSubsets = 2ⁿ`, where `n` is the length of `nums`.
+- Create an empty **set** (`seen`) to store unique subsets, ensuring duplicate subsets are filtered.
+  
 3. Initialize set to store all generated subsets
 4. Iterate from 0 to max subsets, the set bits idnicaitte the position of the elements in the nums array
 5. Initialize a string hashcode to ensure subset uniqueness
