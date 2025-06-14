@@ -138,7 +138,10 @@ Sorting `nums` ensures that subsets are generated in a consistent order, helping
 Loop through numbers from `0` to `maxNumberOfSubsets - 1`. Each number represents a bitmask:
 - The set bits (`1`s) in the bitmask indicate which elements from `nums` should be included in the current subset.
 
-4. Iterate from 0 to max subsets, the set bits idnicaitte the position of the elements in the nums array
+### **Step 4: Construct Subsets Based on Bitmask**
+- Initialize an empty list `currentSubset` to store elements corresponding to set bits.
+- Maintain a **hashcode** string—storing elements as a comma-separated string—to uniquely identify subsets.
+
 5. Initialize a string hashcode to ensure subset uniqueness
 6. Run the inner loop to identify set bits. If for the current index the position bit is set add it to the current subset.
 7. Filter out and store unique subsetts
