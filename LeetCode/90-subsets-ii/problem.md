@@ -86,3 +86,15 @@ For each integer `mask` in the range `[0, 2ⁿ - 1]`, the binary representation 
 Given the constraint that `n ≤ 10`, an **unsigned integer** (or `long` for extended precision) is sufficient to represent all bitmask combinations.
 
 ![Visualizing Subsets Using Bitmasking: Breakdown of `nums = [1,2,2]`](img/90-1.jpg)
+
+## **Handling Duplicates**
+Since `nums` may contain **duplicates**, some subsets may repeat. To ensure unique subsets:
+1. **Sort `nums` beforehand** => Ensures identical subsets appear consistently (e.g., `[1,2]` instead of `[2,1]`).
+2. **Use a set (`seen`)** => Tracks previously generated subsets to filter duplicates.
+
+### **Example Issue Without Sorting**
+Consider `nums = [2,1,2]`:
+- Generated subsets: `[], [2], [1], [2], [2,1], [2,2], [1,2], [2,1,2]`
+- `[1,2]` and `[2,1]` should be recognized as **duplicates**.
+
+Sorting resolves this by ensuring subsets are generated in a consistent order, allowing efficient duplicate detection.
