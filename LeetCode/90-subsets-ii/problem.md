@@ -127,7 +127,9 @@ After sorting `nums = [1,2,2]` and removing duplicates:
 
 ## **Algorithm**
 
-1. Sort nums array to ensure all generated subsets will also be sorted to identify duplicates.
+### **Step 1: Sort the Input Array**
+Sorting `nums` ensures that subsets are generated in a consistent order, helping to identify and eliminate duplicates.
+
 2. Initialize max number of subsets for upper limit
 3. Initialize set to store all generated subsets
 4. Iterate from 0 to max subsets, the set bits idnicaitte the position of the elements in the nums array
