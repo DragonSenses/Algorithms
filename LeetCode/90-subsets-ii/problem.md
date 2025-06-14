@@ -24,6 +24,10 @@
 
 ---
 
+# Solution
+
+- [Bitmasking Approach](#bitmasking-approach)
+
 ### **Problem Overview: Generating Unique Subsets (Power Set)**
 
 Given an integer array `nums`, which may contain duplicate values, the goal is to generate **all possible subsets** (the power set) without any duplicate subsets. The solution should be returned in **any order**.
@@ -59,5 +63,9 @@ Since duplicates need to be managed carefully, common techniques for solving thi
 1. **Backtracking** – Generate subsets iteratively while ensuring unique results.
 2. **Sorting + Recursion** – Sorting `nums` helps in identifying and skipping duplicate elements during recursive subset generation.
 3. **Bitmasking** (for small values of `nums.length`) – Using binary representation to enumerate subsets.
+
+# Bitmasking Approach
+
+Each element in `nums` can either be included in a subset or omitted, resulting in a total of **2ⁿ** distinct subsets for an array of length `n` (assuming no duplicates). Given that `n` has a maximum value of **10**, the number of possible subsets remains manageable (at most **1024**). This allows us to efficiently represent subsets using **bitmasking**.
 
 ![Visualizing Subsets Using Bitmasking: Breakdown of `nums = [1,2,2]`](img/90-1.jpg)
