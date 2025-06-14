@@ -124,3 +124,14 @@ Looking at the generated subsets, we see `[2]` appears twice (from bitmasks `010
 #### **Final Unique Subsets After Filtering**
 After sorting `nums = [1,2,2]` and removing duplicates:
 - `[[], [1], [1,2], [1,2,2], [2], [2,2]]`
+
+## **Algorithm**
+
+1. Sort nums array to ensure all generated subsets will also be sorted to identify duplicates.
+2. Initialize max number of subsets for upper limit
+3. Initialize set to store all generated subsets
+4. Iterate from 0 to max subsets, the set bits idnicaitte the position of the elements in the nums array
+5. Initialize a string hashcode to ensure subset uniqueness
+6. Run the inner loop to identify set bits. If for the current index the position bit is set add it to the current subset.
+7. Filter out and store unique subsetts
+8. Return result subsets
