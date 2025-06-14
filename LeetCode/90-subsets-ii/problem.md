@@ -98,3 +98,29 @@ Consider `nums = [2,1,2]`:
 - `[1,2]` and `[2,1]` should be recognized as **duplicates**.
 
 Sorting resolves this by ensuring subsets are generated in a consistent order, allowing efficient duplicate detection.
+
+### **Example Walkthrough: Handling Duplicates with Bitmasking**
+Consider `nums = [1,2,2]`. Since `nums` contains a duplicate (`2` appears twice), we must carefully track subsets to avoid repetition.
+
+#### **Step 1: Generating Subsets Using Bitmasking**
+We iterate over all possible bitmask values from `0` to `2³ - 1 = 7`, representing subsets:
+
+| Bitmask  | Binary Representation | Subset Formed |
+|----------|----------------------|---------------|
+| `0`      | `000`                | `[]`          |
+| `1`      | `001`                | `[1]`         |
+| `2`      | `010`                | `[2]`         |
+| `3`      | `011`                | `[1,2]`       |
+| `4`      | `100`                | `[2]`         |
+| `5`      | `101`                | `[1,2]`       |
+| `6`      | `110`                | `[2,2]`       |
+| `7`      | `111`                | `[1,2,2]`     |
+
+#### **Step 2: Identifying Duplicate Subsets**
+Looking at the generated subsets, we see `[2]` appears twice (from bitmasks `010` and `100`), and `[1,2]` appears twice (from `011` and `101`). To remove duplicates:
+1. **Sort `nums` before processing** → This ensures subsets are formed in a consistent order.
+2. **Use a `set` to track unique subsets** → We only add new subsets if they haven't been seen before.
+
+#### **Final Unique Subsets After Filtering**
+After sorting `nums = [1,2,2]` and removing duplicates:
+- `[[], [1], [1,2], [1,2,2], [2], [2,2]]`
