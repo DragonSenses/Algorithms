@@ -176,4 +176,5 @@ FUNCTION GenerateUniqueSubsets(nums):
       ADD hashcode TO seen
       ADD currentSubset TO subsets
 
+  RETURN subsets
 ```
