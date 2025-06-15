@@ -152,3 +152,15 @@ Run an inner loop over each index `j` (from `0` to `n - 1`):
 
 ### **Step 7: Return the List of Unique Subsets**
 After iterating over all possible bitmask values, return `subsets`.
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION GenerateUniqueSubsets(nums):
+  SORT nums  // Ensure duplicate subsets are consistently ordered
+
+  SET maxSubsets = 2 ^ LENGTH(nums)  // Total possible subsets
+  SET seen = EMPTY_SET               // Tracks unique subsets
+  SET subsets = EMPTY_LIST           // Stores final subset results
+
+```
