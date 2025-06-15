@@ -147,5 +147,7 @@ Run an inner loop over each index `j` (from `0` to `n - 1`):
 - If the `j`th bit in the bitmask is set (`1`), add `nums[j]` to `currentSubset`.
 - Append `nums[j]` to the `hashcode` string for duplicate detection.
 
-7. Filter out and store unique subsetts
+### **Step 6: Filter and Store Unique Subsets**
+- If `hashcode` is **not** in `seen`, add `currentSubset` to both `seen` and `subsets`.
+
 8. Return result subsets
