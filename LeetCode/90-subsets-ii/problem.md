@@ -142,7 +142,10 @@ Loop through numbers from `0` to `maxNumberOfSubsets - 1`. Each number represent
 - Initialize an empty list `currentSubset` to store elements corresponding to set bits.
 - Maintain a **hashcode** string—storing elements as a comma-separated string—to uniquely identify subsets.
 
-5. Initialize a string hashcode to ensure subset uniqueness
-6. Run the inner loop to identify set bits. If for the current index the position bit is set add it to the current subset.
+### **Step 5: Identify Set Bits**
+Run an inner loop over each index `j` (from `0` to `n - 1`):
+- If the `j`th bit in the bitmask is set (`1`), add `nums[j]` to `currentSubset`.
+- Append `nums[j]` to the `hashcode` string for duplicate detection.
+
 7. Filter out and store unique subsetts
 8. Return result subsets
