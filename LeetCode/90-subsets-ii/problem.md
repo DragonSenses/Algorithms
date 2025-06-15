@@ -150,4 +150,5 @@ Run an inner loop over each index `j` (from `0` to `n - 1`):
 ### **Step 6: Filter and Store Unique Subsets**
 - If `hashcode` is **not** in `seen`, add `currentSubset` to both `seen` and `subsets`.
 
-8. Return result subsets
+### **Step 7: Return the List of Unique Subsets**
+After iterating over all possible bitmask values, return `subsets`.
