@@ -167,4 +167,9 @@ FUNCTION GenerateUniqueSubsets(nums):
     SET currentSubset = EMPTY_LIST
     SET hashcode = EMPTY_STRING  // Unique identifier for duplicates
 
+    FOR j FROM 0 TO LENGTH(nums) - 1:
+      IF subsetIndex HAS BIT SET AT j:  // Check if jth bit is 1
+        APPEND nums[j] TO currentSubset
+        APPEND nums[j] TO hashcode WITH COMMA
+
 ```
