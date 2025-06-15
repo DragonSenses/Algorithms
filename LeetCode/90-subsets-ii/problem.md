@@ -163,4 +163,8 @@ FUNCTION GenerateUniqueSubsets(nums):
   SET seen = EMPTY_SET               // Tracks unique subsets
   SET subsets = EMPTY_LIST           // Stores final subset results
 
+  FOR subsetIndex FROM 0 TO maxSubsets - 1:  // Iterate through all bitmasks
+    SET currentSubset = EMPTY_LIST
+    SET hashcode = EMPTY_STRING  // Unique identifier for duplicates
+
 ```
