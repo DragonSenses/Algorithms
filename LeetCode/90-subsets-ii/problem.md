@@ -172,4 +172,8 @@ FUNCTION GenerateUniqueSubsets(nums):
         APPEND nums[j] TO currentSubset
         APPEND nums[j] TO hashcode WITH COMMA
 
+    IF hashcode NOT IN seen:  // Ensure uniqueness
+      ADD hashcode TO seen
+      ADD currentSubset TO subsets
+
 ```
