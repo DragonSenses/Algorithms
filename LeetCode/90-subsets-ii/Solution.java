@@ -23,7 +23,8 @@ class Solution {
       for (int j = 0; j < n; j++) {
         // Check if j-th bit is set
         if ((mask & (1 << j)) != 0) {
-
+          // Include nums[j] in the current subset
+          currentSubset.add(nums[j]);
         }
       }
     }
