@@ -41,5 +41,8 @@ class Solution {
         subsets.add(currentSubset);
       }
     }
+
+    // Return finalized list of unique subsets
+    return subsets;
   }
 }
