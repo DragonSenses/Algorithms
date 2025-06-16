@@ -25,6 +25,9 @@ class Solution {
         if ((mask & (1 << j)) != 0) {
           // Include nums[j] in the current subset
           currentSubset.add(nums[j]);
+
+          // Append the current number to hashcode string (identify duplicate)
+          hashcode.append(nums[j]);
         }
       }
     }
