@@ -18,6 +18,14 @@ class Solution {
     for (int mask = 0; mask < maxSubsets; mask++) {
       List<Integer> currentSubset = new ArrayList<>();
       StringBuilder hashcode = new StringBuilder(); // Unique identifier
+
+      // Step 3: Determine elements present in the subset
+      for (int j = 0; j < n; j++) {
+        // Check if j-th bit is set
+        if ((mask & (1 << j)) != 0) {
+
+        }
+      }
     }
   }
 }
