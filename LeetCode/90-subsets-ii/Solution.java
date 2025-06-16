@@ -35,6 +35,11 @@ class Solution {
           hashcode.append(nums[j]);
         }
       }
+
+      // Step 4: Add to results if unique
+      if (seen.add(hashcode.toString())) {
+        subsets.add(currentSubset);
+      }
     }
   }
 }
