@@ -26,6 +26,11 @@ class Solution {
           // Include nums[j] in the current subset
           currentSubset.add(nums[j]);
 
+          // Append a comma to separate elements in the hashcode (except first element)
+          if (hashcode.length() > 0) {
+            hashcode.append(",");
+          }
+
           // Append the current number to hashcode string (identify duplicate)
           hashcode.append(nums[j]);
         }
