@@ -13,5 +13,10 @@ class Solution {
     int maxSubsets = 1 << n; // Equivalent to 2^n
     Set<String> seen = new HashSet<>();
     List<List<Integer>> subsets = new ArrayList<>();
+
+    // Step 2: Iterate over all possible bitmask values
+    for (int mask = 0; mask < maxSubsets; mask++) {
+
+    }
   }
 }
