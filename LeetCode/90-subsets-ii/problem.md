@@ -178,3 +178,58 @@ FUNCTION GenerateUniqueSubsets(nums):
 
   RETURN subsets
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+class Solution {
+  public List<List<Integer>> subsetsWithDup(int[] nums) {
+    // Step 1: Sort nums to ensure consistent subset ordering
+    Arrays.sort(nums);
+    
+    int n = nums.length;
+    int maxSubsets = 1 << n; // Equivalent to 2^n
+    Set<String> seen = new HashSet<>();
+    List<List<Integer>> subsets = new ArrayList<>();
+
+    // Step 2: Iterate over all possible bitmask values
+    for (int mask = 0; mask < maxSubsets; mask++) {
+      List<Integer> currentSubset = new ArrayList<>();
+      StringBuilder hashcode = new StringBuilder(); // Unique identifier
+
+      // Step 3: Determine elements present in the subset
+      for (int j = 0; j < n; j++) {
+        // Check if the j-th bit in 'mask' is set (1)
+        if ((mask & (1 << j)) != 0) {
+          // Include nums[j] in the current subset
+          currentSubset.add(nums[j]);
+
+          // Append a comma to separate elements in the hashcode (if not the first element)
+          if (hashcode.length() > 0) {
+            hashcode.append(",");
+          }
+
+          // Append the current number to the hashcode string (used for duplicate tracking)
+          hashcode.append(nums[j]);
+        }
+      }
+
+      // Step 4: Add to results if unique
+      if (seen.add(hashcode.toString())) {
+        subsets.add(currentSubset);
+      }
+    }
+
+    // Return finalized list of unique subsets
+    return subsets;
+  }
+}
+```
