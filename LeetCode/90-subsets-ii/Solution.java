@@ -16,7 +16,8 @@ class Solution {
 
     // Step 2: Iterate over all possible bitmask values
     for (int mask = 0; mask < maxSubsets; mask++) {
-
+      List<Integer> currentSubset = new ArrayList<>();
+      StringBuilder hashcode = new StringBuilder(); // Unique identifier
     }
   }
 }
