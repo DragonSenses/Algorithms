@@ -6,4 +6,10 @@ function subsetsWithDup(nums: number[]): number[][] {
   const maxSubsets = 1 << n; // Equivalent to 2^n
   const seen = new Set<string>();
   const subsets: number[][] = [];
+
+  // 2: Iterate over all possible bitmask values
+  for (let mask = 0; mask < maxSubsets; mask++) {
+    const currentSubset: number[] = [];
+    let hashcode = "";
+  }
 }
