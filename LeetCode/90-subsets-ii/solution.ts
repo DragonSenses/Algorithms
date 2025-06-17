@@ -18,6 +18,9 @@ function subsetsWithDup(nums: number[]): number[][] {
       if ((mask & (1 << j)) != 0) {
         // Include nums[j] in the current subset
         currentSubset.push(nums[j]);
+
+        // Append the current number to the hashcode string (used for duplicate tracking)
+        hashcode += (nums[j]);
       }
     }
   }
