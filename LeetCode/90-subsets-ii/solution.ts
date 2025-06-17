@@ -28,5 +28,14 @@ function subsetsWithDup(nums: number[]): number[][] {
         hashcode += (nums[j]);
       }
     }
+
+    // 4: Add results if unique
+    if (!seen.has(hashcode)) {
+      seen.add(hashcode);
+      subsets.push(currentSubset);
+    }
   }
+
+  // Return unique subsets
+  return subsets;
 }
