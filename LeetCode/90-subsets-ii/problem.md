@@ -27,6 +27,7 @@
 # Solution
 
 - [Bitmasking Approach](#bitmasking-approach)
+  - **Time Complexity**: `O(n * 2^n)`
   - **Space Complexity**: `O(n * 2^n)`
 
 ### **Problem Overview: Generating Unique Subsets (Power Set)**
@@ -249,6 +250,18 @@ class Solution {
 
 ### **Assumptions**
 - Let `n` be the size of the input array `nums`.
+
+### **Time Complexity**: `O(n * 2^n)`
+- **Generating Subsets**: The time complexity is `O(n × 2^n)`, as each subset requires up to `n` operations for construction.
+- **Sorting the Array**: Sorting `nums` takes `O(n log n)`.
+- **Iterating Over Subset Masks**:
+  - The outer loop runs `2^n` times (as each bitmask represents a subset).
+  - The inner loop runs `O(n)` times to construct each subset.
+  - Generating a hash value for each subset adds `O(n)`, but this occurs within the inner loop.
+
+- **Overall Complexity**: `O(n log n + (2n) = O(n * 2^n)`
+
+Since `O(n log n)` is negligible compared to the exponential term, the final complexity remains `O(n * 2^n)`.
 
 ### **Space Complexity**: `O(n * 2^n)`
 - **Exponential Growth**: Storing all subsets requires `O(n × 2^n)`, since each subset has up to `n` elements and there are `2^n` subsets.
