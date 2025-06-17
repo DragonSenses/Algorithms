@@ -18,8 +18,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10</code></li>
-	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
+  <li><code>1 &lt;= nums.length &lt;= 10</code></li>
+  <li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
 ---
@@ -27,6 +27,7 @@
 # Solution
 
 - [Bitmasking Approach](#bitmasking-approach)
+  - **Space Complexity**: `O(n * 2^n)`
 
 ### **Problem Overview: Generating Unique Subsets (Power Set)**
 
@@ -133,7 +134,7 @@ Sorting `nums` ensures that subsets are generated in a consistent order, helping
 ### **Step 2: Initialize Necessary Variables**
 - Set `maxNumberOfSubsets = 2ⁿ`, where `n` is the length of `nums`.
 - Create an empty **set** (`seen`) to store unique subsets, ensuring duplicate subsets are filtered.
-  
+
 ### **Step 3: Iterate Through Bitmask Values**
 Loop through numbers from `0` to `maxNumberOfSubsets - 1`. Each number represents a bitmask:
 - The set bits (`1`s) in the bitmask indicate which elements from `nums` should be included in the current subset.
@@ -243,3 +244,22 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the size of the input array `nums`.
+
+### **Space Complexity**: `O(n * 2^n)`
+- **Exponential Growth**: Storing all subsets requires `O(n × 2^n)`, since each subset has up to `n` elements and there are `2^n` subsets.
+- **Tracking Unique Subsets**:
+- The hash set (`seen`) holds at most `2^n` subsets, contributing `O(n × 2^n)`.
+- The space required for sorting depends on the sorting algorithm:
+  - **Java's `Arrays.sort()`** (for primitives) uses **quicksort** (`O(log n)` space).
+  - **C++ STL `sort()`** uses a hybrid sorting method (worst-case `O(log n)` space).
+- Since sorting's space complexity is `O(log n)`, it is insignificant compared to `O(n × 2^n)`.
+- **Ignoring Output List**: The space required for the final list of subsets is typically excluded in complexity analysis.
+
+- **Final Space Complexity**: `O(log n + n × 2n)`
+
+Since `O(n log n)` is negligible compared to the exponential term, the final complexity remains `O(n * 2^n)`.
