@@ -11,5 +11,14 @@ function subsetsWithDup(nums: number[]): number[][] {
   for (let mask = 0; mask < maxSubsets; mask++) {
     const currentSubset: number[] = [];
     let hashcode = "";
+
+    // 3: Determine elements present in subset
+    for (let j = 0; j < n; j++) {
+      // Check if j-th bit is set
+      if ((mask & (1 << j)) != 0) {
+        // Include nums[j] in the current subset
+        currentSubset.push(nums[j]);
+      }
+    }
   }
 }
