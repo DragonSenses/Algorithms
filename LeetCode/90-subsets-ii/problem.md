@@ -374,10 +374,13 @@ This ensures that **every subset remains unique** while maintaining a systematic
 
 ## **Algorithm**
 
-1. First, sort the array in ascending order.
+### **Step 1: Sort the Input Array**
+- Sort `nums` in **ascending order** to group duplicate elements together.
+- This helps maintain **consistent subset ordering** and simplifies duplicate handling.
 
-2. Initialize a variable `subsetSize` to `0`. 
-   - `subsetSize` holds the index of the subset in the `subsets` list from where we should start adding the current element if the current element is a duplicate. In other words, it holds the index of the first subset generated in the previous step.
+### **Step 2: Initialize Tracking Variables**
+- Define `subsetSize = 0` → Tracks the **starting index** of subsets for handling duplicates.
+- This ensures that **duplicates are only added to subsets from the previous iteration**, avoiding redundant entries.
 
 3. Iterate over the `nums` array considering one element at a time.
 
