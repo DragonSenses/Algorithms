@@ -371,3 +371,25 @@ For example, given the array `[3, 3, 3]`, the ways to form subsets are:
 4. **Include all three occurrences of `3` in all existing subsets**.
 
 This ensures that **every subset remains unique** while maintaining a systematic construction.
+
+## **Algorithm**
+
+1. First, sort the array in ascending order.
+
+2. Initialize a variable `subsetSize` to `0`. 
+   - `subsetSize` holds the index of the subset in the `subsets` list from where we should start adding the current element if the current element is a duplicate. In other words, it holds the index of the first subset generated in the previous step.
+
+3. Iterate over the `nums` array considering one element at a time.
+
+4. If we haven't seen the value of the current element before, we need to add this element to all the previously generated subsets. 
+  - Set `startingIndex` to 0.
+
+5. If the current element is a duplicate element, add it only to subsets that were created in the previous iteration. 
+  - This means we will skip every subset that was created earlier than the previous iteration. 
+  - So instead of setting `startingIndex` to `0`, set it equal to `subsetSize` .
+
+6. Set `subsetSize` to the current `subsets` size. This will be the starting index of the subsets generated in this iteration.
+
+7. Add the current element to all the `subsets` in the subsets list created before the current iteration starting from `startingIndex` .
+
+8. Return `subsets` list.
