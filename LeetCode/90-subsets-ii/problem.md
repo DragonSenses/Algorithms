@@ -389,7 +389,13 @@ This ensures that **every subset remains unique** while maintaining a systematic
 - **New element (not seen before):** Add it to **all existing subsets**, so set `startingIndex = 0`.
 - **Duplicate element:** Only add it to **subsets created in the previous iteration**, so set `startingIndex = subsetSize`.
 
-6. Set `subsetSize` to the current `subsets` size. This will be the starting index of the subsets generated in this iteration.
+### **Step 5: Update Subset Tracking**
+- **Update `subsetSize`** to reflect the current size of the `subsets` list.
+- This ensures the **starting index for duplicates** is correctly set for the next iteration.
+
+### **Step 6: Expand Subsets Using the Current Element**
+- **Iterate through subsets** created **before** this iteration.
+- Add the **current element** to each subset starting from `startingIndex`.
 
 7. Add the current element to all the `subsets` in the subsets list created before the current iteration starting from `startingIndex` .
 
