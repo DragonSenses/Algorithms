@@ -409,4 +409,10 @@ FUNCTION subsetsWithDup(nums):
   INITIALIZE subsets as a list containing an empty subset []
   SET subsetSize = 0  // Tracks index to start adding duplicates
 
+  FOR each element in nums:
+    IF this element is the first occurrence:
+      SET startingIndex = 0  // Add to all subsets
+    ELSE:
+      SET startingIndex = subsetSize  // Add to only newly created subsets
+
 ```
