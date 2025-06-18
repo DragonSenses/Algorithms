@@ -382,14 +382,12 @@ This ensures that **every subset remains unique** while maintaining a systematic
 - Define `subsetSize = 0` → Tracks the **starting index** of subsets for handling duplicates.
 - This ensures that **duplicates are only added to subsets from the previous iteration**, avoiding redundant entries.
 
-3. Iterate over the `nums` array considering one element at a time.
+### **Step 3: Iterate Over the Input Array**
+- Loop through `nums`, **processing each element** one by one.
 
-4. If we haven't seen the value of the current element before, we need to add this element to all the previously generated subsets. 
-  - Set `startingIndex` to 0.
-
-5. If the current element is a duplicate element, add it only to subsets that were created in the previous iteration. 
-  - This means we will skip every subset that was created earlier than the previous iteration. 
-  - So instead of setting `startingIndex` to `0`, set it equal to `subsetSize` .
+### **Step 4: Determine Where to Start Adding the Element**
+- **New element (not seen before):** Add it to **all existing subsets**, so set `startingIndex = 0`.
+- **Duplicate element:** Only add it to **subsets created in the previous iteration**, so set `startingIndex = subsetSize`.
 
 6. Set `subsetSize` to the current `subsets` size. This will be the starting index of the subsets generated in this iteration.
 
