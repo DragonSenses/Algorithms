@@ -29,6 +29,7 @@
 - [Bitmasking Approach](#bitmasking-approach)
   - **Time Complexity**: `O(n * 2^n)`
   - **Space Complexity**: `O(n * 2^n)`
+- [Cascading (Iterative) Approach](#cascading-iterative-approach)
 
 ### **Problem Overview: Generating Unique Subsets (Power Set)**
 
@@ -331,3 +332,13 @@ Since `O(n log n)` is negligible compared to the exponential term, the final com
 - **Final Space Complexity**: `O(log n + n × 2n)`
 
 Since `O(n log n)` is negligible compared to the exponential term, the final complexity remains `O(n * 2^n)`.
+
+# Cascading (Iterative) Approach
+
+## **Overview**
+Cascading is an approach used to iteratively build solutions by progressively expanding previous results.  
+In the context of subset generation, **cascading** involves constructing new subsets by **adding elements** to existing ones **step by step**.  
+
+Unlike backtracking, which explores all possibilities recursively, the cascading approach maintains a **flat iteration structure** where each step builds upon the last without excessive branching.  
+
+In this algorithm, cascading enables **controlled subset expansion** while effectively managing duplicate elements. By systematically adding elements based on previously generated subsets, we ensure that every subset is **generated iteratively** rather than through recursion.
