@@ -399,3 +399,14 @@ This ensures that **every subset remains unique** while maintaining a systematic
 
 ### **Step 7: Return the Final List of Unique Subsets**
 - After processing all elements, return the `subsets` list containing **unique subsets**.
+
+### **Pseudocode**
+
+```plaintext
+FUNCTION subsetsWithDup(nums):
+  SORT nums in ascending order
+  
+  INITIALIZE subsets as a list containing an empty subset []
+  SET subsetSize = 0  // Tracks index to start adding duplicates
+
+```
