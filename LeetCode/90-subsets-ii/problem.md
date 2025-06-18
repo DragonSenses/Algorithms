@@ -342,3 +342,32 @@ In the context of subset generation, **cascading** involves constructing new sub
 Unlike backtracking, which explores all possibilities recursively, the cascading approach maintains a **flat iteration structure** where each step builds upon the last without excessive branching.  
 
 In this algorithm, cascading enables **controlled subset expansion** while effectively managing duplicate elements. By systematically adding elements based on previously generated subsets, we ensure that every subset is **generated iteratively** rather than through recursion.
+
+## **Intuition**
+
+### **Handling Unique Elements**
+If the given array **contains only unique elements**, there will be **2ⁿ distinct subsets**, where `n` is the length of the array.  
+To generate all subsets:
+1. Start with an **empty subset**.
+2. Iteratively **add each element** to all existing subsets to create new ones.
+
+This ensures that every possible subset is formed in a **structured manner**.
+
+### **Handling Duplicate Elements**
+When the array contains **duplicate elements**, using the previous approach **would lead to duplicate subsets**.  
+To **prevent duplicates**, we must:
+1. **Sort the input array** to group identical elements together.
+2. Follow a **controlled duplication rule** for subset creation:
+   - The **first occurrence** of a value is added to **all existing subsets**.
+   - Subsequent **duplicate occurrences** are added **only to subsets created in the previous step**.
+
+### **Applying the Rule**
+Instead of treating each element individually, **groups of duplicates** are handled systematically.  
+
+For example, given the array `[3, 3, 3]`, the ways to form subsets are:
+1. **Exclude all occurrences of `3`**.
+2. **Include one occurrence of `3` in all existing subsets**.
+3. **Include two occurrences of `3` in all existing subsets**.
+4. **Include all three occurrences of `3` in all existing subsets**.
+
+This ensures that **every subset remains unique** while maintaining a systematic construction.
