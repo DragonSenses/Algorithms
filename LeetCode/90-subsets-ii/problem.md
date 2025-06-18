@@ -397,6 +397,5 @@ This ensures that **every subset remains unique** while maintaining a systematic
 - **Iterate through subsets** created **before** this iteration.
 - Add the **current element** to each subset starting from `startingIndex`.
 
-7. Add the current element to all the `subsets` in the subsets list created before the current iteration starting from `startingIndex` .
-
-8. Return `subsets` list.
+### **Step 7: Return the Final List of Unique Subsets**
+- After processing all elements, return the `subsets` list containing **unique subsets**.
