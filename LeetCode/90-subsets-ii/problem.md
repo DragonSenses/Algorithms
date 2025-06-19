@@ -416,5 +416,11 @@ FUNCTION subsetsWithDup(nums):
       SET startingIndex = subsetSize  // Add to only newly created subsets
     
     UPDATE subsetSize to current size of subsets
+    
+    // Expand subsets using the current element
+    FOR each subset from startingIndex to subsetSize:
+      CREATE newSubset as a copy of current subset
+      ADD current element to newSubset
+      APPEND newSubset to subsets
   
 ```
