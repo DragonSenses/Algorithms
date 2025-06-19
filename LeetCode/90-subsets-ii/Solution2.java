@@ -35,5 +35,8 @@ class Solution2 {
         subsets.add(newSubset);
       }
     }
+
+    // Step 4: Return the list of unique subsets
+    return subsets;
   }
 }
