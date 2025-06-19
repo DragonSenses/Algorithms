@@ -24,6 +24,9 @@ class Solution2 {
         // If element is first occurrence, add to all subsets
         startIndex = 0;
       }
+
+      // Update size to reflect current number of subsets
+      subsetSize = subsets.size();
     }
   }
 }
