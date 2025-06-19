@@ -423,4 +423,5 @@ FUNCTION subsetsWithDup(nums):
       ADD current element to newSubset
       APPEND newSubset to subsets
   
+  RETURN subsets
 ```
