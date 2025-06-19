@@ -13,5 +13,17 @@ class Solution2 {
     
     int subsetSize = 0; // Tracks the index where duplicates should start being added
 
+    // Step 2: Iterate through the elements in nums
+    for (int i = 0; i < nums.length; i++) {
+      int startIndex;
+      // If the element is not the first occurence
+      if (i > 0 && nums[i] == nums[i-1]) {
+        // Add to only newly created subsets
+        startIndex = subsetSize;
+      } else {
+        // If element is first occurrence, add to all subsets
+        startIndex = 0;
+      }
+    }
   }
 }
