@@ -27,6 +27,13 @@ class Solution2 {
 
       // Update size to reflect current number of subsets
       subsetSize = subsets.size();
+
+      // Step 3: Add nums[i] to appropriate subsets
+      for (int j = startIndex; j < subsetSize; j++) {
+        List<Integer> newSubset = new ArrayList<>(subsets.get(j));
+        newSubset.add(nums[i]);
+        subsets.add(newSubset);
+      }
     }
   }
 }
