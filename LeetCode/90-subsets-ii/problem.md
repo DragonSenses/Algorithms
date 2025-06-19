@@ -414,5 +414,7 @@ FUNCTION subsetsWithDup(nums):
       SET startingIndex = 0  // Add to all subsets
     ELSE:
       SET startingIndex = subsetSize  // Add to only newly created subsets
-
+    
+    UPDATE subsetSize to current size of subsets
+  
 ```
