@@ -121,8 +121,8 @@ We iterate over all possible bitmask values from `0` to `2³ - 1 = 7`, represent
 
 #### **Step 2: Identifying Duplicate Subsets**
 Looking at the generated subsets, we see `[2]` appears twice (from bitmasks `010` and `100`), and `[1,2]` appears twice (from `011` and `101`). To remove duplicates:
-1. **Sort `nums` before processing** → This ensures subsets are formed in a consistent order.
-2. **Use a `set` to track unique subsets** → We only add new subsets if they haven't been seen before.
+1. **Sort `nums` before processing** => This ensures subsets are formed in a consistent order.
+2. **Use a `set` to track unique subsets** => We only add new subsets if they haven't been seen before.
 
 #### **Final Unique Subsets After Filtering**
 After sorting `nums = [1,2,2]` and removing duplicates:
@@ -379,7 +379,7 @@ This ensures that **every subset remains unique** while maintaining a systematic
 - This helps maintain **consistent subset ordering** and simplifies duplicate handling.
 
 ### **Step 2: Initialize Tracking Variables**
-- Define `subsetSize = 0` → Tracks the **starting index** of subsets for handling duplicates.
+- Define `subsetSize = 0` => Tracks the **starting index** of subsets for handling duplicates.
 - This ensures that **duplicates are only added to subsets from the previous iteration**, avoiding redundant entries.
 
 ### **Step 3: Iterate Over the Input Array**
@@ -424,4 +424,62 @@ FUNCTION subsetsWithDup(nums):
       APPEND newSubset to subsets
   
   RETURN subsets
+```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Generates all unique subsets using the Cascading (Iterative) approach.
+ */
+class Solution2 {
+
+  /**
+   * Returns a list of unique subsets from the given array.
+   *
+   * @param nums Array of integers that may contain duplicates.
+   * @return List of unique subsets.
+   */
+  public List<List<Integer>> subsetsWithDup(int[] nums) {
+    // Step 1: Sort the input array to group duplicates together
+    Arrays.sort(nums);
+
+    List<List<Integer>> subsets = new ArrayList<>();
+    subsets.add(new ArrayList<>()); // Initialize with the empty subset
+
+    int subsetSize = 0; // Tracks the starting point for appending duplicates
+
+    // Step 2: Iterate through elements in nums
+    for (int i = 0; i < nums.length; i++) {
+      int startIndex;
+
+      // Duplicate: extend only subsets from previous round
+      if (i > 0 && nums[i] == nums[i - 1]) {
+        startIndex = subsetSize;
+      } else {
+        // First occurrence: add to all subsets
+        startIndex = 0;
+      }
+
+      // Update subsetSize for the next round's starting index
+      subsetSize = subsets.size();
+
+      // Step 3: Clone and extend subsets from startIndex to subsetSize
+      for (int j = startIndex; j < subsetSize; j++) {
+        List<Integer> newSubset = new ArrayList<>(subsets.get(j));
+        newSubset.add(nums[i]);
+        subsets.add(newSubset);
+      }
+    }
+
+    // Step 4: Return completed list of unique subsets
+    return subsets;
+  }
+}
 ```

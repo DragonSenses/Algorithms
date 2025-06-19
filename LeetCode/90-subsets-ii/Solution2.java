@@ -2,33 +2,42 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Generates all unique subsets using the Cascading (Iterative) approach.
+ */
 class Solution2 {
 
+  /**
+   * Returns a list of unique subsets from the given array.
+   *
+   * @param nums Array of integers that may contain duplicates.
+   * @return List of unique subsets.
+   */
   public List<List<Integer>> subsetsWithDup(int[] nums) {
-    // Step 1: Sort the input array to ensure duplicates are grouped together
+    // Step 1: Sort the input array to group duplicates together
     Arrays.sort(nums);
-    
-    List<List<Integer>> subsets = new ArrayList<>();
-    subsets.add(new ArrayList<>()); // Start with an empty subset
-    
-    int subsetSize = 0; // Tracks the index where duplicates should start being added
 
-    // Step 2: Iterate through the elements in nums
+    List<List<Integer>> subsets = new ArrayList<>();
+    subsets.add(new ArrayList<>()); // Initialize with the empty subset
+
+    int subsetSize = 0; // Tracks the starting point for appending duplicates
+
+    // Step 2: Iterate through elements in nums
     for (int i = 0; i < nums.length; i++) {
       int startIndex;
-      // If the element is not the first occurence
-      if (i > 0 && nums[i] == nums[i-1]) {
-        // Add to only newly created subsets
+
+      // Duplicate: extend only subsets from previous round
+      if (i > 0 && nums[i] == nums[i - 1]) {
         startIndex = subsetSize;
       } else {
-        // If element is first occurrence, add to all subsets
+        // First occurrence: add to all subsets
         startIndex = 0;
       }
 
-      // Update size to reflect current number of subsets
+      // Update subsetSize for the next round's starting index
       subsetSize = subsets.size();
 
-      // Step 3: Add nums[i] to appropriate subsets
+      // Step 3: Clone and extend subsets from startIndex to subsetSize
       for (int j = startIndex; j < subsetSize; j++) {
         List<Integer> newSubset = new ArrayList<>(subsets.get(j));
         newSubset.add(nums[i]);
@@ -36,7 +45,7 @@ class Solution2 {
       }
     }
 
-    // Step 4: Return the list of unique subsets
+    // Step 4: Return completed list of unique subsets
     return subsets;
   }
 }
