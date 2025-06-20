@@ -16,4 +16,6 @@ function subsetsWithDup(nums: number[]): number[][] {
     }
   }
 
+  // Step 4: Return the list of unique subsets
+  return subsets;
 }
