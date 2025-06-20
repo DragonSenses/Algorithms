@@ -8,6 +8,7 @@ function subsetsWithDup(nums: number[]): number[][] {
   // Step 2: Iterate through the elements in nums
   for (let i = 0; i < nums.length; i++) {
     let startIndex = i > 0 && nums[i] === nums[i - 1] ? subsetSize : 0;
+    subsetSize = subsets.length; // Update subsetSize to current subset count
 
   }
 
