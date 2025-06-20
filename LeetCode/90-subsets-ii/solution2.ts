@@ -10,6 +10,10 @@ function subsetsWithDup(nums: number[]): number[][] {
     let startIndex = i > 0 && nums[i] === nums[i - 1] ? subsetSize : 0;
     subsetSize = subsets.length; // Update subsetSize to current subset count
 
+    // Step 3: Add nums[i] to appropriate subsets
+    for (let j = startIndex; j < subsetSize; j++) {
+      subsets.push([...subsets[j], nums[i]]);
+    }
   }
 
 }
