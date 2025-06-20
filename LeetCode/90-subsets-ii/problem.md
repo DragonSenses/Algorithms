@@ -490,32 +490,32 @@ class Solution2 {
 
 ```typescript
 /**
- * Generates all unique subsets using the Cascading (Iterative) approach.
+ * Generates all unique subsets of a given array using a cascading, iterative approach.
  *
- * @param nums - Array of integers that may contain duplicates
- * @returns List of unique subsets
+ * @param nums - Input array that may contain duplicates.
+ * @returns A list of all unique subsets.
  */
 function subsetsWithDup(nums: number[]): number[][] {
-  // Step 1: Sort nums to group duplicates together
+  // Step 1: Sort nums to ensure duplicates are grouped together
   nums.sort((a, b) => a - b);
 
-  const subsets: number[][] = [[]]; // Initialize with the empty subset
-  let subsetSize = 0; // Tracks the starting point for appending duplicates
+  const subsets: number[][] = [[]]; // Start with an empty subset
+  let subsetSize = 0; // Tracks the subset count before current expansion
 
-  // Step 2: Iterate through elements in nums
+  // Step 2: Iterate through each number in nums
   for (let i = 0; i < nums.length; i++) {
     let startIndex;
 
-    // Duplicate: extend only subsets from previous round
+    // If current number is a duplicate, only extend subsets
+    // that were created in the previous iteration
     if (i > 0 && nums[i] === nums[i - 1]) {
       startIndex = subsetSize;
     } else {
-      // First occurrence: add to all subsets
+      // If it's a new number, extend all existing subsets
       startIndex = 0;
     }
 
-    // Update subsetSize for the next round's starting index
-    subsetSize = subsets.length;
+    subsetSize = subsets.length; // Snapshot current size before appending new subsets
 
     // Step 3: Clone and extend subsets from startIndex to subsetSize
     for (let j = startIndex; j < subsetSize; j++) {
@@ -523,7 +523,7 @@ function subsetsWithDup(nums: number[]): number[][] {
     }
   }
 
-  // Step 4: Return completed list of unique subsets
+  // Step 4: Return the list of all unique subsets
   return subsets;
 }
 ```
