@@ -483,3 +483,45 @@ class Solution2 {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+/**
+ * Generates all unique subsets using the Cascading (Iterative) approach.
+ *
+ * @param nums - Array of integers that may contain duplicates
+ * @returns List of unique subsets
+ */
+function subsetsWithDup(nums: number[]): number[][] {
+  // Step 1: Sort nums to group duplicates together
+  nums.sort((a, b) => a - b);
+
+  const subsets: number[][] = [[]]; // Initialize with the empty subset
+  let subsetSize = 0; // Tracks the starting point for appending duplicates
+
+  // Step 2: Iterate through elements in nums
+  for (let i = 0; i < nums.length; i++) {
+    let startIndex;
+
+    // Duplicate: extend only subsets from previous round
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      startIndex = subsetSize;
+    } else {
+      // First occurrence: add to all subsets
+      startIndex = 0;
+    }
+
+    // Update subsetSize for the next round's starting index
+    subsetSize = subsets.length;
+
+    // Step 3: Clone and extend subsets from startIndex to subsetSize
+    for (let j = startIndex; j < subsetSize; j++) {
+      subsets.push([...subsets[j], nums[i]]);
+    }
+  }
+
+  // Step 4: Return completed list of unique subsets
+  return subsets;
+}
+```
