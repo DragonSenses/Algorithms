@@ -30,6 +30,7 @@
   - **Time Complexity**: `O(n * 2^n)`
   - **Space Complexity**: `O(n * 2^n)`
 - [Cascading (Iterative) Approach](#cascading-iterative-approach)
+  - **Space Complexity**: `O(log n)`
 
 ### **Problem Overview: Generating Unique Subsets (Power Set)**
 
@@ -525,3 +526,22 @@ function subsetsWithDup(nums: number[]): number[][] {
   return subsets;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the size of the input array `nums`.
+
+### **Space Complexity**: `O(log n)`
+- **Logarithmic-Space Usage:**  
+   - The algorithm primarily uses a few fixed variables for tracking, making space consumption minimal.
+
+- **Sorting Overhead:**  
+   - The space complexity depends on the sorting method used:
+     - **Java's `Arrays.sort()`** (for primitives) implements a **variant of quicksort**, consuming **O(log n)** space.
+     - **C++ STL's `sort()`** is a hybrid of Quick Sort, Heap Sort, and Insertion Sort, with a worst-case **O(log n)** space complexity.
+
+- **Output Storage Consideration:**  
+   - The required space for storing subsets is **not** considered in complexity analysis since it's part of the output.
+
+Thus, the overall **auxiliary space complexity** is **O(log n)**.
