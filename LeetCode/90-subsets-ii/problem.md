@@ -30,6 +30,7 @@
   - **Time Complexity**: `O(n * 2^n)`
   - **Space Complexity**: `O(n * 2^n)`
 - [Cascading (Iterative) Approach](#cascading-iterative-approach)
+  - **Time Complexity**: `O(n * 2^n)`
   - **Space Complexity**: `O(log n)`
 
 ### **Problem Overview: Generating Unique Subsets (Power Set)**
@@ -531,6 +532,16 @@ function subsetsWithDup(nums: number[]): number[][] {
 
 ### **Assumptions**
 - Let `n` be the size of the input array `nums`.
+
+### **Time Complexity**: `O(n * 2^n)`
+- **Sorting Step:** The array is sorted initially, which requires **O(n log n)** time.
+   
+- **Subset Generation:**We use two nested loops to generate subsets:
+   - The **outer loop** iterates through `nums`, leading to **O(2^n)** operations in the worst case.
+   - The **inner loop** deep copies previously generated subsets, requiring **O(n)** time per subset.
+   
+- **Final Time Complexity Calculation:** Combining sorting and subset generation:  
+     `O(n log n) + O(n * 2^n) = O(n (log n + 2^n)) ≈ O(n * 2^n)`.
 
 ### **Space Complexity**: `O(log n)`
 - **Logarithmic-Space Usage:**  
