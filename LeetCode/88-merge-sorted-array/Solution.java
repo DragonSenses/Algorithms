@@ -3,5 +3,8 @@ class Solution {
     // Step 1: Make a copy of the first m elements of nums1
     int[] nums1Copy = new int[m];
     System.arraycopy(nums1, 0, nums1Copy, 0, m);
+
+    // Step 2: Initialize pointers for nums1Copy (p1), nums2 (p2), and nums1 (p)
+    int p1 = 0, p2 = 0, p = 0;
   }
 }
