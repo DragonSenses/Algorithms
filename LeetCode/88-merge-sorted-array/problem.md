@@ -48,6 +48,10 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 ---
 
+# Solution
+
+- [Merge with Three Pointers (Forward Approach)](#merge-with-three-pointers-forward-approach)
+
 ## **Problem Overview: Merge Sorted Array**
 
 You are given two non-decreasing integer arrays:
@@ -86,3 +90,7 @@ nums2 = [2,5,6],       n = 3
 ### Follow-Up
 
 Can you implement an algorithm that runs in **O(m + n)** time?
+
+# Merge with Three Pointers (Forward Approach)
+
+This method is called the **forward approach** because all pointers—two for reading (`nums1Copy` and `nums2`) and one for writing into `nums1`—start at index 0 and move from **left to right**. It processes elements in increasing index order, as opposed to the reverse approach, which merges from the end to avoid overwriting.
