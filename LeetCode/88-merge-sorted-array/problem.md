@@ -45,3 +45,44 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 <p>&nbsp;</p>
 <p><strong>Follow up: </strong>Can you come up with an algorithm that runs in <code>O(m + n)</code> time?</p>
+
+---
+
+## **Problem Overview: Merge Sorted Array**
+
+You are given two non-decreasing integer arrays:
+
+- `nums1` of size `m + n`, where the first `m` elements are meaningful and the remaining `n` elements are placeholders (initialized to 0).
+- `nums2` of size `n`, fully populated.
+
+The goal is to **merge `nums2` into `nums1`** in-place so that `nums1` becomes a single sorted array in non-decreasing order.
+
+### Requirements
+
+- Modify `nums1` directly to contain the merged sorted result.
+- `nums1` has sufficient space to accommodate all elements.
+
+### Example
+
+**Input:**
+```plaintext
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
+```
+
+**Output:**
+```plaintext
+[1,2,2,3,5,6]
+```
+
+### Constraints
+
+- `nums1.length == m + n`
+- `nums2.length == n`
+- `0 ≤ m, n ≤ 200`
+- `1 ≤ m + n ≤ 200`
+- Each element of `nums1` and `nums2` is in the range [−10⁹, 10⁹]
+
+### Follow-Up
+
+Can you implement an algorithm that runs in **O(m + n)** time?
