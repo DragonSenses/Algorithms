@@ -94,3 +94,7 @@ Can you implement an algorithm that runs in **O(m + n)** time?
 # Merge with Three Pointers (Forward Approach)
 
 This method is called the **forward approach** because all pointers—two for reading (`nums1Copy` and `nums2`) and one for writing into `nums1`—start at index 0 and move from **left to right**. It processes elements in increasing index order, as opposed to the reverse approach, which merges from the end to avoid overwriting.
+
+## **Intuition**
+
+Since both `nums1` and `nums2` are already sorted in non-decreasing order, we can perform a classic merge using the two-pointer technique—similar to the merge step in merge sort. To do this without corrupting existing data in `nums1`, we first create a shallow copy of its first `m` elements. Then we use **two read pointers**—one for the copied portion of `nums1`, and one for `nums2`—along with a **write pointer** for the actual `nums1` array.
