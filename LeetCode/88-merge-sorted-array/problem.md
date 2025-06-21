@@ -98,3 +98,25 @@ This method is called the **forward approach** because all pointers—two for re
 ## **Intuition**
 
 Since both `nums1` and `nums2` are already sorted in non-decreasing order, we can perform a classic merge using the two-pointer technique—similar to the merge step in merge sort. To do this without corrupting existing data in `nums1`, we first create a shallow copy of its first `m` elements. Then we use **two read pointers**—one for the copied portion of `nums1`, and one for `nums2`—along with a **write pointer** for the actual `nums1` array.
+
+## **Algorithm**
+
+1. Create a copy of the first `m` elements of `nums1` and store it in `nums1Copy`.
+
+2. Initialize three pointers:
+   - `p1 = 0` — to iterate over `nums1Copy`
+   - `p2 = 0` — to iterate over `nums2`
+   - `p = 0` — to write into `nums1`
+
+3. While both `p1 < m` and `p2 < n`:
+   - If `nums1Copy[p1] <= nums2[p2]`, assign `nums1[p] = nums1Copy[p1]` and increment `p1`
+   - Else, assign `nums1[p] = nums2[p2]` and increment `p2`
+   - Increment `p` after each assignment
+
+4. Copy any remaining elements from `nums1Copy` (if any):
+   - While `p1 < m`, set `nums1[p] = nums1Copy[p1]`, then increment both `p1` and `p`
+
+5. Copy any remaining elements from `nums2`:
+   - While `p2 < n`, set `nums1[p] = nums2[p2]`, then increment both `p2` and `p`
+
+This results in a fully merged and sorted array stored in-place in `nums1`, with a clear flow from left to right.
