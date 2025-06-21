@@ -6,5 +6,18 @@ class Solution {
 
     // Step 2: Initialize pointers for nums1Copy (p1), nums2 (p2), and nums1 (p)
     int p1 = 0, p2 = 0, p = 0;
+
+    // Step 3: Merge nums1Copy and nums2 into nums1
+    while (p1 < m && p2 < n) {
+      if (nums1Copy[p1] <= nums2[p2]) {
+        nums1[p] = nums1Copy[p1];
+        p++;
+        p1++;
+      } else {
+        nums1[p] = nums2[p2];
+        p++;
+        p2++;
+      }
+    }
   }
 }
