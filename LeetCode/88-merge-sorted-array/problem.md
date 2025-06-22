@@ -51,6 +51,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 # Solution
 
 - [Merge with Three Pointers (Forward Approach)](#merge-with-three-pointers-forward-approach)
+  - **Space Complexity**: `O(m)`
 
 ## **Problem Overview: Merge Sorted Array**
 
@@ -189,3 +190,16 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `m` be the number of elements in `nums1`
+- Let `n` be the number of elements in `nums2`
+
+### **Space Complexity**: `O(m)`
+
+- **Temporary Buffer**: We allocate an auxiliary array `nums1Copy` of size `m` to store a snapshot of the meaningful elements of `nums1`.
+- **Fixed Pointers**: Aside from the array copy, we use only a constant number of variables (`p1`, `p2`, `p`) to manage traversal and writing.
+- **No Heap Allocation for nums2**: The algorithm reads from `nums2` but does not duplicate or modify it, preserving space efficiency.
