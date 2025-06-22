@@ -1,3 +1,19 @@
+/**
+ * Merges two sorted integer arrays into one sorted array in-place.
+ *
+ * This implementation uses the forward three-pointer technique:
+ * - A copy of the first 'm' elements of nums1 is created.
+ * - Two read pointers (p1 for the copy and p2 for nums2) are used to iterate.
+ * - A single write pointer (p) writes the merged result into nums1 from left to right.
+ *
+ * Time Complexity: O(m + n)
+ * Space Complexity: O(m) for the temporary copy
+ *
+ * @param nums1 Array with size m + n, where the first m elements are valid and the rest are placeholders (0s)
+ * @param m     Number of valid elements in nums1
+ * @param nums2 Sorted array of size n
+ * @param n     Number of elements in nums2
+ */
 class Solution {
   public void merge(int[] nums1, int m, int[] nums2, int n) {
     // Step 1: Make a copy of the first m elements of nums1
