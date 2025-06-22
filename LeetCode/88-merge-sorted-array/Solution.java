@@ -19,5 +19,15 @@ class Solution {
         p2++;
       }
     }
+
+    // Step 4: Copy any remaining elements from nums1Copy
+    while (p1 < m) {
+      nums1[p++] = nums1Copy[p1++];
+    }
+
+    // Step 5: Copy any remaining elements from nums2
+    while (p2 < n) {
+      nums1[p++] = nums1Copy[p2++];
+    }
   }
 }
