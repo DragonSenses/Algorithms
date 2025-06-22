@@ -51,6 +51,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 # Solution
 
 - [Merge with Three Pointers (Forward Approach)](#merge-with-three-pointers-forward-approach)
+  - **Time Complexity**: `O(m + n)`
   - **Space Complexity**: `O(m)`
 
 ## **Problem Overview: Merge Sorted Array**
@@ -197,6 +198,11 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 
 - Let `m` be the number of elements in `nums1`
 - Let `n` be the number of elements in `nums2`
+
+### **Time Complexity**: `O(m + n)`
+
+- **Single Traversal**: We traverse each element of `nums1Copy` and `nums2` exactly once while merging.
+- **Constant-Time Operations**:Each comparison and assignment takes constant time, and we perform at most `m + n` such operations.
 
 ### **Space Complexity**: `O(m)`
 
