@@ -15,4 +15,14 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
       nums1[p++] = nums2[p2++];
     }
   }
-};
+
+  // Step 4: Copy remaining elements from nums1Copy (if any)
+  while (p1 < m) {
+    nums1[p++] = nums1Copy[p1++];
+  }
+
+  // Step 5: Copy remaining elements from nums2 (if any)
+  while (p2 < n) {
+    nums1[p++] = nums2[p2++];
+  }
+}
