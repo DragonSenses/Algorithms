@@ -215,6 +215,11 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 
 ### **Insights**
 
+#### **Interview Tips:**  
+- This is a medium-level solution to an easy-level problem. Many of "easy" problems actually harbor deeper layers of optimization, and strong candidates are expected to uncover those layers. Don't stop at the brute-force approach—look for hidden efficiency.
+
+- Whenever you're asked to modify arrays **in-place**, consider iterating **backwards**. This change in direction often makes overwriting challenges disappear and reveals a more elegant solution.
+
 #### **Observation Insight: Space Complexity Considerations**
 
 The forward approach (copying `nums1` and merging) achieves optimal time complexity `O(m + n)` but requires `O(m)` extra space. The challenge stems from needing to preserve `nums1`'s original data during merging.
