@@ -240,3 +240,20 @@ This guarantees that each value lands in its final position before any overwriti
 Given that both arrays are sorted in non-decreasing order, we can efficiently merge them using a reverse two-pointer strategy. Instead of copying values and allocating extra space, we take advantage of the extra buffer space in `nums1` by filling it from the end. This allows us to compare the largest unplaced elements from `nums1` and `nums2`, placing the greater of the two at the back of `nums1`.
 
 This in-place approach avoids unnecessary memory usage and maintains an optimal time complexity of `O(m + n)`. Working backwards eliminates the risk of overwriting meaningful elements in `nums1`.
+
+## **Algorithm**
+
+1. Initialize three pointers:
+   - `p1` at index `m - 1` (last meaningful element in `nums1`)
+   - `p2` at index `n - 1` (last element in `nums2`)
+   - `p` at index `m + n - 1` (last index of `nums1`)
+
+2. While `p1 >= 0` and `p2 >= 0`:
+   - If `nums1[p1] > nums2[p2]`, set `nums1[p] = nums1[p1]`, then decrement `p1`
+   - Else, set `nums1[p] = nums2[p2]`, then decrement `p2`
+   - Decrement `p` after each placement
+
+3. Copy any remaining elements from `nums2` into `nums1`:
+   - While `p2 >= 0`, set `nums1[p] = nums2[p2]` and decrement both `p2` and `p`
+
+At this point, `nums1` contains all elements in sorted order.
