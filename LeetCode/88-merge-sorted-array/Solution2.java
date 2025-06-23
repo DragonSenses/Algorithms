@@ -14,5 +14,9 @@ class Solution {
       }
     }
 
+    // If nums2 still has elements, copy them
+    while (p2 >= 0) {
+      nums1[p--] = nums2[p2--];
+    }
   }
 }
