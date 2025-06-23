@@ -53,6 +53,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 - [Merge with Three Pointers (Forward Approach)](#merge-with-three-pointers-forward-approach)
   - **Time Complexity**: `O(m + n)`
   - **Space Complexity**: `O(m)`
+- [Merge with Three Pointers (Reverse Approach)](#merge-with-three-pointers-reverse-approach)
 
 ## **Problem Overview: Merge Sorted Array**
 
@@ -209,3 +210,22 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 - **Temporary Buffer**: We allocate an auxiliary array `nums1Copy` of size `m` to store a snapshot of the meaningful elements of `nums1`.
 - **Fixed Pointers**: Aside from the array copy, we use only a constant number of variables (`p1`, `p2`, `p`) to manage traversal and writing.
 - **No Heap Allocation for nums2**: The algorithm reads from `nums2` but does not duplicate or modify it, preserving space efficiency.
+
+# Merge with Three Pointers (Reverse Approach)
+
+### **Insights**
+
+#### **Observation Insight: Space Complexity Considerations**
+
+The forward approach (copying `nums1` and merging) achieves optimal time complexity `O(m + n)` but requires `O(m)` extra space. The challenge stems from needing to preserve `nums1`'s original data during merging.
+
+#### **Optimization Insight: Rethinking Overwrite Strategy**
+
+Instead of writing into `nums1` from the beginning and worrying about overwriting, we can reverse the direction. By writing from the **end**—where there's empty buffer space—we safely avoid overwriting any meaningful data.
+
+Set pointers:
+- `p1 = m - 1` (end of valid `nums1` data)
+- `p2 = n - 1` (end of `nums2`)
+- `p  = m + n - 1` (end of `nums1` total capacity)
+
+This guarantees that each value lands in its final position before any overwriting can occur.
