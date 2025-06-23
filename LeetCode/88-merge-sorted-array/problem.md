@@ -234,3 +234,9 @@ Set pointers:
 - `p  = m + n - 1` (end of `nums1` total capacity)
 
 This guarantees that each value lands in its final position before any overwriting can occur.
+
+## **Intuition**
+
+Given that both arrays are sorted in non-decreasing order, we can efficiently merge them using a reverse two-pointer strategy. Instead of copying values and allocating extra space, we take advantage of the extra buffer space in `nums1` by filling it from the end. This allows us to compare the largest unplaced elements from `nums1` and `nums2`, placing the greater of the two at the back of `nums1`.
+
+This in-place approach avoids unnecessary memory usage and maintains an optimal time complexity of `O(m + n)`. Working backwards eliminates the risk of overwriting meaningful elements in `nums1`.
