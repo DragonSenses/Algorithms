@@ -54,6 +54,7 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
   - **Time Complexity**: `O(m + n)`
   - **Space Complexity**: `O(m)`
 - [Merge with Three Pointers (Reverse Approach)](#merge-with-three-pointers-reverse-approach)
+  - **Time Complexity**: `O(m + n)`
   - **Space Complexity**: `O(1)`
 
 ---
@@ -346,6 +347,11 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
 
 - Let `m` be the number of meaningful elements in `nums1`
 - Let `n` be the number of elements in `nums2`
+
+### **Time Complexity**: `O(m + n)`
+
+- **Single Traversal**: Each element from `nums1` and `nums2` is considered once during merging.
+- **Constant-Time Operations**: Comparisons and assignments are done in constant time, resulting in at most `m + n` operations.
 
 ### **Space Complexity**: `O(1)`
 
