@@ -36,11 +36,11 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>nums1.length == m + n</code></li>
-	<li><code>nums2.length == n</code></li>
-	<li><code>0 &lt;= m, n &lt;= 200</code></li>
-	<li><code>1 &lt;= m + n &lt;= 200</code></li>
-	<li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[j] &lt;= 10<sup>9</sup></code></li>
+  <li><code>nums1.length == m + n</code></li>
+  <li><code>nums2.length == n</code></li>
+  <li><code>0 &lt;= m, n &lt;= 200</code></li>
+  <li><code>1 &lt;= m + n &lt;= 200</code></li>
+  <li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <p>&nbsp;</p>
@@ -54,6 +54,9 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
   - **Time Complexity**: `O(m + n)`
   - **Space Complexity**: `O(m)`
 - [Merge with Three Pointers (Reverse Approach)](#merge-with-three-pointers-reverse-approach)
+  - **Space Complexity**: `O(1)`
+
+---
 
 ## **Problem Overview: Merge Sorted Array**
 
@@ -336,3 +339,15 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `m` be the number of meaningful elements in `nums1`
+- Let `n` be the number of elements in `nums2`
+
+### **Space Complexity**: `O(1)`
+
+- **In-Place Merge**: All merging is performed directly within the `nums1` array using its built-in buffer.
+- **No Additional Structures**: The algorithm uses only a few scalar variables (`p1`, `p2`, `p`) for traversal—independent of input size.
