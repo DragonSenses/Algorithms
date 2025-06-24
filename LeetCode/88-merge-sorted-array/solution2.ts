@@ -12,5 +12,8 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
     }
   }
 
-
+  // If nums2 still has remaining elements
+  while (p2 >= 0) {
+    nums1[p--] = nums2[p2--];
+  }
 }
