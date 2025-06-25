@@ -70,7 +70,15 @@ Can you perform the reversal in a **single traversal** of the list?
 
 # Recursive Approach
 
+## **Intuition**
+
 Reversing a section of a linked list using recursion builds on a concept similar to reversing an array: **two pointers move inward from opposite ends, swapping elements until they meet.** In an array, this is straightforward due to the ability to use indices. We start with pointers at the `left` and `right` indices and move them toward the center, swapping values as we go.
+
+### Translating to Linked Lists
+
+In a linked list, we **lack index access and backward traversal**, which makes this approach trickier. However, recursion provides a clever workaround. The **call stack can simulate backward traversal**, allowing us to reverse values between two nodes as the recursion unwinds.
+
+### **Recursive Strategy**
 
 1. **Advance to the Left**: We use a helper function that recurses down to the `right`-th node.
 2. **Track Left Pointer**: A reference pointer (`leftPtr`) is passed through recursive calls, initially pointing to the `left`-th node.
@@ -78,3 +86,15 @@ Reversing a section of a linked list using recursion builds on a concept similar
    - Once the base case is reached (when `right` reaches the end of the target range), recursion begins to backtrack.
    - During backtracking, we **swap values** between the `leftPtr` and current node.
    - `leftPtr` is moved forward each time to meet the current node from the other side.
+
+### **Why This Works**
+
+- The forward movement of the `leftPtr` and the backward progression of the recursion meet in the middle—exactly like array pointers.
+- By halting swaps when the two pointers meet or cross, we preserve the boundaries of the reversed section.
+- **No auxiliary data structure is needed**, and the recursion stack elegantly handles tracking the second pointer.
+
+### **Edge Cases Considered**
+
+- If `left == right`: No changes are needed.
+- If the list has only one node: The base case protects against unnecessary recursion.
+- If the list is reversed entirely: The method works the same as with any subrange.
