@@ -30,6 +30,10 @@
 
 ---
 
+# Solution
+
+- [Recursive Approach](#recursive-approach)
+
 ## **Problem Overview: Reverse Linked List II**
 
 ### Description
@@ -61,3 +65,16 @@ There is only one node; the list remains unchanged.
 
 ### Follow-up
 Can you perform the reversal in a **single traversal** of the list?
+
+---
+
+# Recursive Approach
+
+Reversing a section of a linked list using recursion builds on a concept similar to reversing an array: **two pointers move inward from opposite ends, swapping elements until they meet.** In an array, this is straightforward due to the ability to use indices. We start with pointers at the `left` and `right` indices and move them toward the center, swapping values as we go.
+
+1. **Advance to the Left**: We use a helper function that recurses down to the `right`-th node.
+2. **Track Left Pointer**: A reference pointer (`leftPtr`) is passed through recursive calls, initially pointing to the `left`-th node.
+3. **Swap During Backtracking**:
+   - Once the base case is reached (when `right` reaches the end of the target range), recursion begins to backtrack.
+   - During backtracking, we **swap values** between the `leftPtr` and current node.
+   - `leftPtr` is moved forward each time to meet the current node from the other side.
