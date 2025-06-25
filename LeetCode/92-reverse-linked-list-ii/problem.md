@@ -106,28 +106,44 @@ In a linked list, we **lack index access and backward traversal**, which makes t
 
 ## **Algorithm**
 
-1. **Initialize Left Pointer**:
- - Define a global or external `leftPtr` variable pointing to the head of the list.
- - This pointer will advance forward as recursion backtracks.
+This recursive algorithm reverses a sublist of a singly linked list from position `left` to `right`. The recursion simulates a two-pointer reversal strategy without the use of backward pointers or indices.
 
-2. **Define Recursive Function**:  
- - Create a recursive function `recurseAndReverse(rightNode, stopFlag)`:
-   - If `right == 1`, return the current node (`rightNode`).
-   - Recurse on `rightNode.next`, decrementing `right` by 1.
+### **Step-by-Step**
 
-3. **Swap Values During Backtracking**:
- - When the recursive call stack unwinds:
-   - If `leftPtr == rightNode` or `leftPtr.next == rightNode`, set the `stopFlag` to true.
-   - Otherwise, swap `leftPtr.val` and `rightNode.val`.
-   - Move `leftPtr` one step forward.
+1. **Initialize State**:
+- Define two global/external variables:
+  - `leftPtr`: Points to the `left`-th node (moves forward during backtracking).
+  - `stopFlag`: A boolean to halt swaps once pointers meet or cross.
 
-4. **Driver Function**:
- - Accept `head`, `left`, and `right` as arguments.
- - Advance `leftPtr` from `head` to the `left`-th node.
- - Call the recursive function with `head` and an initially `false` stop flag.
- - Return the updated head.
+2. **Advance to the Left Node**:
+- In the driver function (e.g., `reverseBetween`), traverse the list to position `left` and assign it to `leftPtr`.
 
-### Note:
-- The recursion moves forward to locate the `right`-th node.
-- Backtracking swaps values with the `leftPtr`, which is moved forward after each swap.
-- Reversal halts when the pointers meet or cross.
+3. **Define the Recursive Function**:
+- Create a helper function (e.g., `recurse(m, n, rightNode)`) that takes:
+  - `m`: current left index,
+  - `n`: current right index,
+  - `rightNode`: pointer starting from head and moving rightward.
+- This function:
+  - Recursively descends until `n == 1`, progressing `rightNode` forward and decrementing `n`.
+  - Meanwhile, `leftPtr` is advanced until `m == 1`.
+
+4. **Swapping During Backtracking**:
+- After reaching the base case (`n == 1`), begin backtracking:
+  - Swap values between `leftPtr` and `rightNode`.
+  - Advance `leftPtr` using `leftPtr = leftPtr.next`.
+- On each recursive unwind:
+  - Continue swapping unless:
+    - `rightNode == leftPtr` (odd-sized sublist, pointers meet).
+    - `rightNode.next == leftPtr` (even-sized sublist, pointers cross).
+  - When either condition is met, set `stopFlag = true` to halt further swaps.
+
+5. **Driver Function**:
+  - Accepts `head`, `left`, and `right`.
+  - Advances a traversal pointer to the `left`-th node and assigns it to `leftPtr`.
+  - Calls the recursive helper with `(right - left + 1)` as the depth.
+  - Returns the modified `head`.
+
+### **Key Mechanics**
+- **Pointer Simulation**: Forward traversal is done by `leftPtr`, while backward movement is simulated by recursion backtracking.
+- **Value Swapping**: Only node values are swapped—no structural changes.
+- **Stop Conditions**: Ensure termination to prevent over-swapping and maintain list integrity.
