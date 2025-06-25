@@ -147,3 +147,46 @@ This recursive algorithm reverses a sublist of a singly linked list from positio
 - **Pointer Simulation**: Forward traversal is done by `leftPtr`, while backward movement is simulated by recursion backtracking.
 - **Value Swapping**: Only node values are swapped—no structural changes.
 - **Stop Conditions**: Ensure termination to prevent over-swapping and maintain list integrity.
+
+### **Pseudocode**
+
+```plaintext
+# Global state
+leftPointer = null
+stopSwapping = false
+
+function reverseBetween(head, left, right):
+  global leftPointer, stopSwapping
+  leftPointer = head
+
+  # Move leftPointer to the left-th node
+  for i from 1 to left - 1:
+    leftPointer = leftPointer.next
+
+  # Start recursion from the head node, traversing to the right-th node
+  recurse(head, right - left + 1)
+
+  return head
+
+function recurse(currentRightNode, depth):
+  global leftPointer, stopSwapping
+
+  if depth == 1:
+    return
+
+  # Recursive descent
+  recurse(currentRightNode.next, depth - 1)
+
+  # Stop condition: pointers have met or crossed
+  if stopSwapping or currentRightNode == leftPointer or currentRightNode.next == leftPointer:
+      stopSwapping = true
+    return
+
+  # Swap values between currentRightNode and leftPointer
+  temp = leftPointer.value
+  leftPointer.value = currentRightNode.value
+  currentRightNode.value = temp
+
+  # Move leftPointer forward
+  leftPointer = leftPointer.next
+```
