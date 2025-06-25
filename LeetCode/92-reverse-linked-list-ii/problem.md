@@ -74,6 +74,11 @@ Can you perform the reversal in a **single traversal** of the list?
 
 Reversing a section of a linked list using recursion builds on a concept similar to reversing an array: **two pointers move inward from opposite ends, swapping elements until they meet.** In an array, this is straightforward due to the ability to use indices. We start with pointers at the `left` and `right` indices and move them toward the center, swapping values as we go.
 
+### Visual Analogy:
+![Array reversal using two pointers from both ends](img/92-2.jpg)
+
+An array of 7 elements is reversed using two pointers: one starting at the front (yellow) and the other at the end (blue). The elements at these pointers are swapped as the pointers move toward each other until they meet in the middle.
+
 ### Translating to Linked Lists
 
 In a linked list, we **lack index access and backward traversal**, which makes this approach trickier. However, recursion provides a clever workaround. The **call stack can simulate backward traversal**, allowing us to reverse values between two nodes as the recursion unwinds.
