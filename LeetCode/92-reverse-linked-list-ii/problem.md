@@ -103,3 +103,31 @@ In a linked list, we **lack index access and backward traversal**, which makes t
 - If `left == right`: No changes are needed.
 - If the list has only one node: The base case protects against unnecessary recursion.
 - If the list is reversed entirely: The method works the same as with any subrange.
+
+## **Algorithm**
+
+1. **Initialize Left Pointer**:
+ - Define a global or external `leftPtr` variable pointing to the head of the list.
+ - This pointer will advance forward as recursion backtracks.
+
+2. **Define Recursive Function**:  
+ - Create a recursive function `recurseAndReverse(rightNode, stopFlag)`:
+   - If `right == 1`, return the current node (`rightNode`).
+   - Recurse on `rightNode.next`, decrementing `right` by 1.
+
+3. **Swap Values During Backtracking**:
+ - When the recursive call stack unwinds:
+   - If `leftPtr == rightNode` or `leftPtr.next == rightNode`, set the `stopFlag` to true.
+   - Otherwise, swap `leftPtr.val` and `rightNode.val`.
+   - Move `leftPtr` one step forward.
+
+4. **Driver Function**:
+ - Accept `head`, `left`, and `right` as arguments.
+ - Advance `leftPtr` from `head` to the `left`-th node.
+ - Call the recursive function with `head` and an initially `false` stop flag.
+ - Return the updated head.
+
+### Note:
+- The recursion moves forward to locate the `right`-th node.
+- Backtracking swaps values with the `leftPtr`, which is moved forward after each swap.
+- Reversal halts when the pointers meet or cross.
