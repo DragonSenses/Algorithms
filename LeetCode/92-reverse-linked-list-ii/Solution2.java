@@ -14,4 +14,12 @@ class Solution2 {
 
     return head;
   }
+
+  private void recurse(ListNode rightPointer, int depth) {
+    // Base case: stop at right-th node or end of list
+    if (depth == 1 || rightPointer == null) {
+      return;
+    }
+
+  }
 }
