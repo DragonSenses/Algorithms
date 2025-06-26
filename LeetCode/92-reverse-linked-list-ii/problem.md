@@ -104,6 +104,45 @@ In a linked list, we **lack index access and backward traversal**, which makes t
 - If the list has only one node: The base case protects against unnecessary recursion.
 - If the list is reversed entirely: The method works the same as with any subrange.
 
+## **Visual Intuition Example**
+
+### Step 0. The input list, output list, and arguments
+
+Given the following list:
+
+```text
+7 -> 9 -> 2 -> 10 -> 1 -> 8 -> 6
+```
+
+and the following arguments:
+
+- `head` = 7
+- `left` = 3
+- `right` = 6.
+
+The final list is: 
+
+```text
+7 -> 9 -> 8 -> 1 -> 10 -> 2 -> 6
+```
+
+---
+
+The sublist starts at position **3** and ends at position **6**:
+
+```text
+7 -> 9 -> 2 -> 10 -> 1 -> 8 -> 6
+           ↑         ↑
+         left      right
+```
+
+We're reversing the sublist `[2, 10, 1, 8]` into `[8, 1, 10, 2]`. Therefore, the transformed list is:
+
+```text
+7 -> 9 -> 8 -> 1 -> 10 -> 2 -> 6
+```
+
+
 ## **Algorithm**
 
 This recursive algorithm reverses a sublist of a singly linked list from position `left` to `right`. The recursion simulates a two-pointer reversal strategy without the use of backward pointers or indices.
