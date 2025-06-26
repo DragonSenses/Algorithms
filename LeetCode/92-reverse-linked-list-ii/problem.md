@@ -142,6 +142,18 @@ We're reversing the sublist `[2, 10, 1, 8]` into `[8, 1, 10, 2]`. Therefore, the
 7 -> 9 -> 8 -> 1 -> 10 -> 2 -> 6
 ```
 
+### Step 1: Initiate Recursion and Advance Pointers
+
+![Left and Right pointers start from the head and move up together by one position](img/92-3.jpg)
+
+At the beginning of the recursion, both the `left` and `right` pointers are positioned at the head of the linked list. Since we aim to reverse a sublist from position `left` to `right`, the first recursive call sets this process in motion.
+
+In this step:
+- The recursion is invoked with updated indices: both `m` and `n` are decremented by 1.
+- As part of this descent, each pointer advances one node forward in the list using `node = node.next`.
+
+This movement continues until the base case is reached, where the `right` pointer lands on the final node of the segment to reverse.
+
 
 ## **Algorithm**
 
