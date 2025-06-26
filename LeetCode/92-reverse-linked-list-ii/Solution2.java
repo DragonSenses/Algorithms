@@ -12,6 +12,9 @@ class Solution2 {
       leftPointer = leftPointer.next;
     }
 
+    // Start recursive backtracking from head
+    recurse(head, right - left + 1);
+
     return head;
   }
 
@@ -24,12 +27,19 @@ class Solution2 {
     // Walk rightPointer forward until depth reaches 1 (right boundary)
     recurse(rightPointer.next, depth - 1);
 
-    // Swap values during backtracking phase
-    int temp = leftPointer.val;
-    leftPointer.val = rightPointer.val;
-    rightPointer.val = temp;
+    // If pointers have met or crossed, stop swapping
+    if (leftPointer == rightPointer || rightPointer.next == leftPointer) {
+      stop = true;
+    }
 
-    // Move leftPointer forward
-    leftPointer = leftPointer.next;
+    if (!stop) {
+      // Swap values during backtracking phase
+      int temp = leftPointer.val;
+      leftPointer.val = rightPointer.val;
+      rightPointer.val = temp;
+
+      // Move leftPointer forward
+      leftPointer = leftPointer.next;
+    }
   }
 }
