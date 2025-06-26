@@ -181,6 +181,18 @@ During backtracking:
 
 From this moment on, each step of backtracking performs a single swap, reversing the sublist pair by pair from the outside in.
 
+### Step 6: Terminate Backtracking and Stop Swapping
+
+![](img/92-6.jpg)
+
+At this stage of the backtracking process, the `right` pointer crosses over the `left` pointer. This marks the **logical midpoint** of the sublist we aimed to reverse. At this point:
+- All necessary swaps have already been completed.
+- The current state of the list matches the intended output:  
+  `7 → 9 → 8 → 1 → 10 → 2 → 6`
+
+Since we can't explicitly break out of recursion in most languages, we rely on a **global boolean flag** (`stop`) to prevent any further swaps once the pointers meet or cross.
+
+This safeguard ensures the algorithm halts reversal precisely at the sublist's midpoint—maintaining correctness while allowing recursion to unwind naturally.
 
 ## **Algorithm**
 
