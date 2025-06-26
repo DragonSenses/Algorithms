@@ -21,5 +21,7 @@ class Solution2 {
       return;
     }
 
+    // Walk rightPointer forward until depth reaches 1 (right boundary)
+    recurse(rightPointer.next, depth - 1);
   }
 }
