@@ -154,6 +154,16 @@ In this step:
 
 This movement continues until the base case is reached, where the `right` pointer lands on the final node of the segment to reverse.
 
+### Step 2 & 3: Left Pointer Anchors, Right Pointer Continues
+
+![](img/92-4.jpg)
+
+As recursion progresses, both pointers keep advancing one node per step. By the end of this step:
+- The `left` pointer reaches its target node (position `left`) and is **anchored there** for the remainder of the recursive descent.
+- The `right` pointer continues advancing with each recursive call until it lands on the final node in the reversal range (position `right`).
+
+From this point forward, only the `right` pointer moves, setting up the eventual backtracking phase where the reversal will occur.
+
 
 ## **Algorithm**
 
