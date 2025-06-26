@@ -164,6 +164,23 @@ As recursion progresses, both pointers keep advancing one node per step. By the 
 
 From this point forward, only the `right` pointer moves, setting up the eventual backtracking phase where the reversal will occur.
 
+### Step 4 & 5: Base Case Reached and Backtracking Begins
+
+![](img/92-5.jpg)
+
+At this point, both pointers have arrived at the boundaries of the sublist we want to reverse:
+- The `left` pointer is anchored at the `left`-th node.
+- The `right` pointer has reached the `right`-th node via recursive descent.
+
+With the base case reached, we **stop further recursion** and initiate the backtracking phase.
+
+During backtracking:
+- **Swap the values** of the `left` and `right` nodes.
+- Advance the `left` pointer by one node (`left = left.next`).
+- The `right` pointer naturally moves backward as the recursion unwinds.
+
+From this moment on, each step of backtracking performs a single swap, reversing the sublist pair by pair from the outside in.
+
 
 ## **Algorithm**
 
