@@ -7,9 +7,22 @@ class ListNode {
   }
 }
 
-function reverseBetween(head: ListNode | null, left: number, right: number): ListNode | null {
+function reverseBetween(
+  head: ListNode | null,
+  left: number,
+  right: number
+): ListNode | null {
   let leftPointer = head;
   let stop = false;
 
-  
-};
+  function recurseAndReverse(
+    rightNode: ListNode | null,
+    m: number,
+    n: number
+  ): void {
+    // Base case: stop at right-th node or end of list
+    if (n === 1 || rightNode === null) return;
+
+  }
+
+}
