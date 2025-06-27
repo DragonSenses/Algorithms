@@ -31,6 +31,17 @@ function reverseBetween(
       leftPointer = leftPointer!.next;
     }
 
+    // Recursive call with m and n reduced
+    recurseAndReverse(rightNode, m - 1, n - 1);
+
+    // Stop condition: pointers have met or crossed
+    if (
+      leftPointer === rightNode ||
+      (rightNode !== null && leftPointer?.next === rightNode)
+    ) {
+      stop = true;
+    }
+
   }
 
 }
