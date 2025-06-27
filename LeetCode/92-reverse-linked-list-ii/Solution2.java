@@ -1,9 +1,26 @@
+/**
+ * Class containing a recursive solution to reverse a sublist within a singly linked list
+ * between the given left and right positions (1-indexed).
+ */
 class Solution2 {
-  // Global pointers for recursion are object level variables
-  // Need changes to persist across recursive calls since Java is Pass By Value
+  /**
+   * Global pointer used to track the left-side node during recursion.
+   * Needs to persist across recursive calls since Java is pass-by-value for objects.
+   */
   private ListNode leftPointer;
+
+  /** Flag to prevent over-swapping once left and right pointers cross. */
   private boolean stop;
 
+  /**
+   * Reverses a sublist of a singly linked list from position left to right.
+   * Uses recursive backtracking and in-place value swapping.
+   *
+   * @param head The head of the input linked list
+   * @param left The starting position (1-indexed) of the sublist to reverse
+   * @param right The ending position (1-indexed) of the sublist to reverse
+   * @return The head of the modified list with the sublist reversed
+   */
   public ListNode reverseBetween(ListNode head, int left, int right) {
     leftPointer = head;
     stop = false;
@@ -14,6 +31,15 @@ class Solution2 {
     return head;
   }
 
+  /**
+   * Recursively traverses the list and swaps values between mirrored nodes within the sublist.
+   * The recursion unwinds once it reaches the node at position right, and swaps
+   * values between {@code leftPointer} and right on backtrack.
+   *
+   * @param right The current right-side node in the recursion
+   * @param m The remaining steps until reaching the left boundary
+   * @param n The remaining steps until reaching the right boundary
+   */
   private void recurseAndReverse(ListNode right, int m, int n) {
     // Base case: stop at right-th node or end of list
     if (n == 1 || right == null) {
