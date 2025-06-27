@@ -248,37 +248,37 @@ stopSwapping = false
 function reverseBetween(head, left, right):
   global leftPointer, stopSwapping
   leftPointer = head
+  stopSwapping = false
 
-  # Move leftPointer to the left-th node
-  for i from 1 to left - 1:
-    leftPointer = leftPointer.next
-
-  # Start recursion from the head node, traversing to the right-th node
-  recurse(head, right - left + 1)
-
+  recurseAndReverse(head, left, right)
   return head
 
-function recurse(currentRightNode, depth):
-  global leftPointer, stopSwapping
-
-  if depth == 1:
+function recurseAndReverse(rightNode, m, n):
+  if n == 1 or rightNode is null:
     return
 
-  # Recursive descent
-  recurse(currentRightNode.next, depth - 1)
+  # Walk right pointer one step forward
+  rightNode = rightNode.next
+
+  # Move left pointer to correct starting node
+  if m > 1:
+    leftPointer = leftPointer.next
+
+  # Recurse with decreased bounds
+  recurseAndReverse(rightNode, m - 1, n - 1)
 
   # Stop condition: pointers have met or crossed
-  if stopSwapping or currentRightNode == leftPointer or currentRightNode.next == leftPointer:
-      stopSwapping = true
-    return
+  if leftPointer == rightNode or leftPointer.next == rightNode:
+    stopSwapping = true
 
-  # Swap values between currentRightNode and leftPointer
-  temp = leftPointer.value
-  leftPointer.value = currentRightNode.value
-  currentRightNode.value = temp
+  # Swap node values if not stopped
+  if not stopSwapping and rightNode is not null:
+    temp = leftPointer.val
+    leftPointer.val = rightNode.val
+    rightNode.val = temp
 
-  # Move leftPointer forward
-  leftPointer = leftPointer.next
+    # Move leftPointer forward
+    leftPointer = leftPointer.next
 ```
 
 ## **Implementation**
