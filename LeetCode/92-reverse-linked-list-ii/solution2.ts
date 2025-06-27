@@ -26,6 +26,11 @@ function reverseBetween(
     // Walk right pointer one step forward until it reaches (n == 1) (right boundary)
     rightNode = rightNode.next;
 
+    // Keep moving left pointer to the right until we reach the proper node to start reversal
+    if (m > 1) {
+      leftPointer = leftPointer!.next;
+    }
+
   }
 
 }
