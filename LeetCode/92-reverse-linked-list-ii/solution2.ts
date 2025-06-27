@@ -42,6 +42,15 @@ function reverseBetween(
       stop = true;
     }
 
+    // Swap values unless pointers have crossed
+    if (!stop && rightNode !== null) {
+      const temp = leftPointer!.val;
+      leftPointer!.val = rightNode.val;
+      rightNode.val = temp;
+
+      // Advance leftPointer forward
+      leftPointer = leftPointer!.next;
+    }
   }
 
 }
