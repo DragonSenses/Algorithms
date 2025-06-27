@@ -283,6 +283,13 @@ function recurseAndReverse(rightNode, m, n):
 
 ## **Implementation**
 
+### Implementation Details
+
+#### Advance right pointer before recursion
+
+- Each recursive call shrinks the reversal window by decrementing `m` and `n`
+- At the deepest level, `right` will land at the right boundary precisely at the **right-th node**, the stopping condition for backtracking
+
 ### Java
 
 ```java

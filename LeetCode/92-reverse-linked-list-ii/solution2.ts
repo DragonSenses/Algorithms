@@ -23,6 +23,9 @@ function reverseBetween(
     // Base case: stop at right-th node or end of list
     if (n === 1 || rightNode === null) return;
 
+    // Walk right pointer one step forward until it reaches (n == 1) (right boundary)
+    rightNode = rightNode.next;
+
   }
 
 }
