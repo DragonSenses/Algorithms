@@ -1,5 +1,6 @@
 class Solution2 {
-  // Global pointers for recursion
+  // Global pointers for recursion are object level variables
+  // Need changes to persist across recursive calls since Java is Pass By Value
   private ListNode leftPointer;
   private boolean stop;
 
@@ -7,39 +8,43 @@ class Solution2 {
     leftPointer = head;
     stop = false;
 
-    // Move leftPointer to the left-th node
-    for (int i = 1; i < left; i++) {
-      leftPointer = leftPointer.next;
-    }
-
     // Start recursive backtracking from head
-    recurse(head, right - left + 1);
+    recurseAndReverse(head, left, right);
 
     return head;
   }
 
-  private void recurse(ListNode rightPointer, int depth) {
+  private void recurseAndReverse(ListNode right, int m, int n) {
     // Base case: stop at right-th node or end of list
-    if (depth == 1 || rightPointer == null) {
+    if (n == 1 || right == null) {
       return;
     }
 
-    // Walk rightPointer forward until depth reaches 1 (right boundary)
-    recurse(rightPointer.next, depth - 1);
+    // Walk right pointer one step forward until it reaches (n == 1) (right boundary)
+    right = right.next;
 
-    // If pointers have met or crossed, stop swapping
-    if (leftPointer == rightPointer || rightPointer.next == leftPointer) {
+    // Keep moving left pointer to the right until we reach the proper node to start reversal
+    if (m > 1) {
+      this.leftPointer = this.leftPointer.next;
+    }
+
+    // Recursive call with m and n reduced
+    this.recurseAndReverse(right, m - 1, n - 1);
+
+    // Stop condition: pointers have met or crossed
+    if (leftPointer == right || (right != null && leftPointer.next == right)) {
       stop = true;
     }
 
-    if (!stop) {
-      // Swap values during backtracking phase
+    // Swap values unless pointers have crossed
+    if (!stop && right != null) {
       int temp = leftPointer.val;
-      leftPointer.val = rightPointer.val;
-      rightPointer.val = temp;
+      leftPointer.val = right.val;
+      right.val = temp;
 
-      // Move leftPointer forward
+      // Advance leftPointer forward
       leftPointer = leftPointer.next;
     }
+
   }
 }
