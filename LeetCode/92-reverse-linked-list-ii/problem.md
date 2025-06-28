@@ -33,6 +33,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Reverse Linked List II**
@@ -419,6 +420,11 @@ function reverseBetween(
 - Only the sublist from position `left` to `right` is affected.
 - Node values are swapped in-place—no new nodes or structural changes are made.
 
+### **Time Complexity**: `O(n)`
+- **Full Traversal for Setup**: In the worst case, we traverse up to the `left`-th node to position the `leftPtr`, which takes `O(left)` time.
+- **Recursive Descent and Backtracking**: The recursion travels `right - left + 1` steps deep, which is at most `O(n)` in a full reverse.
+- **Swap Operations**: At most `(right - left + 1) / 2` swaps occur, which is still `O(n)`.
+- **Combined**: all operations are bounded by a single linear pass through the list, so the total complexity is **`O(n)`**.
 
 ### **Space Complexity**: `O(n)`
 - **Call Stack Overhead**: The recursion depth is proportional to the sublist length, up to `O(n)` in the worst case.
