@@ -35,6 +35,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ## **Problem Overview: Reverse Linked List II**
 
@@ -431,3 +432,13 @@ function reverseBetween(
 - **Fixed Variable Usage**: A few pointers (`leftPtr`, `rightPtr`, flag) are used outside the recursion and consume constant space.
 - **No Extra Data Structures**: The list is modified in-place; no array or auxiliary container is used.
 - **Linear-Space Usage**: While variable usage is constant, the **recursive call stack grows linearly** with the size of the sublist being reversed.
+
+# Iterative Approach
+
+### Why Iterative?
+
+- **Link manipulation is explicit**, so it's easier to reason about pointer changes.
+- **Constant space**: Unlike recursion, there's no stack growth, making it more efficient for long lists.
+- **Easier to generalize**: Iterative techniques are often preferred when handling complex linked list operations like merging, cycle detection, or K-group reversals.
+
+Once the anchors are correctly set, the reversal inside the sublist is just a classic in-place reverse operation on a chain.
