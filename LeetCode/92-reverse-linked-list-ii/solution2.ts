@@ -56,4 +56,6 @@ function reverseBetween(
   // Start recursive backtracking from head
   recurseAndReverse(head, left, right);
 
+  // Return the modified list in-place
+  return head;
 }
