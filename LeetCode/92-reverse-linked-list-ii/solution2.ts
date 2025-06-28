@@ -1,3 +1,6 @@
+/**
+ * Represents a node in a singly linked list.
+ */
 class ListNode {
   val: number;
   next: ListNode | null;
@@ -7,6 +10,15 @@ class ListNode {
   }
 }
 
+/**
+ * Reverses a sublist of a singly linked list from position `left` to `right` (1-indexed).
+ * The reversal is performed in-place using recursion.
+ *
+ * @param head - The head of the input linked list.
+ * @param left - The starting position of the sublist to reverse.
+ * @param right - The ending position of the sublist to reverse.
+ * @returns The head of the modified linked list.
+ */
 function reverseBetween(
   head: ListNode | null,
   left: number,
@@ -15,6 +27,13 @@ function reverseBetween(
   let leftPointer = head;
   let stop = false;
 
+  /**
+   * Recursively reverses a portion of the list between two boundaries.
+   *
+   * @param rightNode - The current node on the right side of the reversal.
+   * @param m - Steps remaining to reach the left boundary.
+   * @param n - Steps remaining to reach the right boundary.
+   */
   function recurseAndReverse(
     rightNode: ListNode | null,
     m: number,
