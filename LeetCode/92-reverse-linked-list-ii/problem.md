@@ -33,6 +33,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Reverse Linked List II**
 
@@ -417,3 +418,10 @@ function reverseBetween(
 - `n` denotes the total number of nodes in the linked list.
 - Only the sublist from position `left` to `right` is affected.
 - Node values are swapped in-place—no new nodes or structural changes are made.
+
+
+### **Space Complexity**: `O(n)`
+- **Call Stack Overhead**: The recursion depth is proportional to the sublist length, up to `O(n)` in the worst case.
+- **Fixed Variable Usage**: A few pointers (`leftPtr`, `rightPtr`, flag) are used outside the recursion and consume constant space.
+- **No Extra Data Structures**: The list is modified in-place; no array or auxiliary container is used.
+- **Linear-Space Usage**: While variable usage is constant, the **recursive call stack grows linearly** with the size of the sublist being reversed.
