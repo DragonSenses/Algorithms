@@ -470,3 +470,64 @@ This requires:
 
 3. Reconnecting the reversed sublist to its surroundings.
 
+### Understanding How Link Reversal Works
+
+Before diving into the full algorithm, it's helpful to first understand how **reversing links in a singly linked list** works at a low level—and why we need multiple pointers to do it safely and effectively.
+
+Let's say we have a segment of a linked list made up of three nodes:
+
+```sh
+A → B → C
+```
+
+We want to reverse the links so it becomes:
+
+```sh
+C → B → A
+```
+
+Now, consider that you're currently on node `B`, and you'd like to reverse the direction of its link so that it points to node `A`. If you have two pointers:
+
+- `prev` → node A  
+- `cur` → node B  
+
+You can reverse the link between `B` and `A` with a simple operation:
+
+```ts
+cur.next = prev
+```
+
+This effectively changes the link so that:
+
+```sh
+A ← B   C
+```
+
+However, there's a **crucial problem**—once you update `cur.next`, you've lost your access to the rest of the list (`C`), because `cur.next` no longer points to it. To avoid breaking the chain, you need a **third pointer** to preserve that connection.
+
+Here's the correct sequence of operations:
+
+```ts
+third = cur.next     // Save the next node (C)
+
+cur.next = prev      // Reverse the link: B → A
+
+prev = cur           // Move prev forward to B
+
+cur = third          // Move cur forward to C
+```
+
+After executing this once, the list looks like:
+
+```sh
+prev = B
+cur  = C
+```
+
+And you're ready to repeat the process for the next pair. By iterating this sequence over the desired sublist, you can reverse all the links one-by-one, maintaining control at each step without losing track of what's ahead.
+
+In short:
+- **Three pointers are essential**—one to track the previous node, one for the current, and one to preserve the connection forward.
+- The reversal is done in-place, node by node, without creating new nodes or modifying their values.
+
+This pattern forms the core of the iterative reversal algorithm you'll build next.
