@@ -53,4 +53,7 @@ function reverseBetween(
     }
   }
 
+  // Start recursive backtracking from head
+  recurseAndReverse(head, left, right);
+
 }
