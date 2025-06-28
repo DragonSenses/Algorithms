@@ -410,3 +410,10 @@ function reverseBetween(
   return head;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- `n` denotes the total number of nodes in the linked list.
+- Only the sublist from position `left` to `right` is affected.
+- Node values are swapped in-place—no new nodes or structural changes are made.
