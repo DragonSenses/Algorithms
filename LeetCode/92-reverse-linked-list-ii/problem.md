@@ -442,3 +442,31 @@ function reverseBetween(
 - **Easier to generalize**: Iterative techniques are often preferred when handling complex linked list operations like merging, cycle detection, or K-group reversals.
 
 Once the anchors are correctly set, the reversal inside the sublist is just a classic in-place reverse operation on a chain.
+
+## **Intuition**
+
+In contrast to the recursive technique—where we reversed a sublist by swapping **values**—this approach tackles the problem by rearranging **actual node links**, leaving the node values untouched.
+
+There are many situations where mutating values isn't permitted:
+- The nodes hold immutable or encapsulated data.
+- The structure is shared in a context where value-level changes break consistency.
+
+In such cases, **reversing the links between nodes** becomes the only viable strategy.
+
+### Detailed Approach
+
+We want to reverse the portion from position `left` to `right`. The goal is to:
+- Keep the portion before `left` and after `right` untouched.
+- Reverse all the `next` pointers within the sublist.
+- Stitch the reversed segment back into the main list.
+
+This requires:
+1. Identifying and saving three anchor points:
+   - The node before the reversal segment (`prev`)
+   - The first node within the segment (`start`)
+   - The node after the reversal segment (`tail`)
+
+2. Iteratively reversing the links between the `left` and `right` nodes.
+
+3. Reconnecting the reversed sublist to its surroundings.
+
