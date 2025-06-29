@@ -569,3 +569,15 @@ In the initial phase, we position our pointers to set up the reversal:
 By advancing these pointers step by step, we prepare to isolate the sublist that needs to be reversed. Once `cur` reaches the `left`-th node, we're ready to start the reversal process. At this point, we also set up two anchor pointers:
 - `beforeLeft` points to the node immediately before the reversal
 - `tail` points to the first node of the reversal range (i.e. the `left`-th node)
+
+### **Step 2: Link Reversal Loop**
+
+![](img/92-9.jpg)
+
+With `prev`, `cur`, and a temporary pointer (`next`) in place, we begin reversing the links inside the sublist:
+- Reverse `cur.next` to point to `prev`
+- Move `prev` and `cur` forward
+- Repeat for each node from `left` to `right`
+
+This operation is repeated until we've processed all nodes in the reversal range.
+
