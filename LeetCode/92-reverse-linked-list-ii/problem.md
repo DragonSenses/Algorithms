@@ -600,3 +600,13 @@ To finalize the transformation, we reattach the reversed sublist:
 - `tail.next = cur` reconnects the new tail to the remainder of the list
 
 This restores the structural integrity of the entire linked list with the desired segment fully reversed.
+
+## **Algorithm**
+
+### Step-by-Step Setup and Link Reversal Process
+
+1. **Initialize Two Traversal Pointers**  
+   To begin, we use two pointers:
+   - `prev` initialized to `null`
+   - `cur` initialized to the `head` of the list
+
