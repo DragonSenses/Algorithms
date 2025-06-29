@@ -591,3 +591,12 @@ After several iterations:
 
 At this stage, the reversal is complete, but the segment is still disconnected from the rest of the list.
 
+### **Step 4: Reconnecting the Segments**
+
+![](img/92-11.jpg)
+
+To finalize the transformation, we reattach the reversed sublist:
+- `beforeLeft.next = prev` connects the node before the reversal to the new head
+- `tail.next = cur` reconnects the new tail to the remainder of the list
+
+This restores the structural integrity of the entire linked list with the desired segment fully reversed.
