@@ -614,4 +614,11 @@ This restores the structural integrity of the entire linked list with the desire
    Move `cur` forward one node at a time. Simultaneously, update `prev` to follow `cur`.  
    We repeat this until `cur` reaches the `left`-th node (i.e., the start of the reversal segment).
 
+3. **Anchor Two Key References**  
+   Once we arrive at the `left`-th node, we set two anchor pointers:
+   - `beforeLeft` points to `prev`, which is the node *before* the reversal segment
+   - `tail` points to `cur`, the *first* node in the segment that will become the new "tail" post-reversal
+
+   These references are essential to reconnect the reversed sublist back into the main list later.
+
    ![](img/92-7.jpg)
