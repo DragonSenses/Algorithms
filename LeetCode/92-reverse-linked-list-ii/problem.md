@@ -610,3 +610,6 @@ This restores the structural integrity of the entire linked list with the desire
    - `prev` initialized to `null`
    - `cur` initialized to the `head` of the list
 
+2. **Advance to the Reversal Start Point (`left`)**  
+   Move `cur` forward one node at a time. Simultaneously, update `prev` to follow `cur`.  
+   We repeat this until `cur` reaches the `left`-th node (i.e., the start of the reversal segment).
