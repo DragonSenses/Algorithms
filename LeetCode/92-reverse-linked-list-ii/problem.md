@@ -544,7 +544,7 @@ This pointer process ensures that:
 
 *Note*: The variable name `con` in the diagrams is equivalent to variable `beforeLeft`.
 
-### Step 0. The input list, output list, and arguments
+### **Step 0. The input list, output list, and arguments**
 
 Given the following list:
 
@@ -557,3 +557,15 @@ And the following arguments:
 - `head` = 7
 - `left` = 3
 - `right` = 6.
+
+### **Step 1: Initialization and Preprocessing**
+
+![](img/92-8.jpg)
+
+In the initial phase, we position our pointers to set up the reversal:
+- `prev` is initialized to `null`
+- `cur` starts at the head of the list
+
+By advancing these pointers step by step, we prepare to isolate the sublist that needs to be reversed. Once `cur` reaches the `left`-th node, we're ready to start the reversal process. At this point, we also set up two anchor pointers:
+- `beforeLeft` points to the node immediately before the reversal
+- `tail` points to the first node of the reversal range (i.e. the `left`-th node)
