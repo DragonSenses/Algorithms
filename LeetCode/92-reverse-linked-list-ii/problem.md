@@ -531,3 +531,29 @@ In short:
 - The reversal is done in-place, node by node, without creating new nodes or modifying their values.
 
 This pattern forms the core of the iterative reversal algorithm you'll build next.
+
+## **Visual Intuition Example**
+
+### Visual Intuition: Iterative Reversal in Action
+
+Before we implement the algorithm, it's important to visualize the pointer choreography involved in reversing a linked list segment iteratively.
+
+This pointer process ensures that:
+- Only the segment between `left` and `right` is reversed
+- All other parts of the list remain connected and intact
+
+*Note*: The variable name `con` in the diagrams is equivalent to variable `beforeLeft`.
+
+### Step 0. The input list, output list, and arguments
+
+Given the following list:
+
+```text
+7 -> 9 -> 2 -> 10 -> 1 -> 8 -> 6
+```
+
+And the following arguments:
+
+- `head` = 7
+- `left` = 3
+- `right` = 6.
