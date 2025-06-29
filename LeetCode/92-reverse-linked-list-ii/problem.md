@@ -581,3 +581,13 @@ With `prev`, `cur`, and a temporary pointer (`next`) in place, we begin reversin
 
 This operation is repeated until we've processed all nodes in the reversal range.
 
+### **Step 3: Completion of Reversal Segment**
+
+![](img/92-10.jpg)
+
+After several iterations:
+- `prev` now points to the `right`-th node (the new head of the reversed sublist)
+- `cur` points to the node just after the sublist (`right + 1`)
+
+At this stage, the reversal is complete, but the segment is still disconnected from the rest of the list.
+
