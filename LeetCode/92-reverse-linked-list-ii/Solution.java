@@ -5,4 +5,9 @@ class Solution {
       return null;
     }
 
+    // Create a sentinel node to simplify edge cases (e.g. reversal from head)
+    ListNode sentinel = new ListNode(0);
+    sentinel.next = head;
+
+  }
 }
