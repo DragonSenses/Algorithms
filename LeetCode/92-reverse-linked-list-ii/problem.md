@@ -654,6 +654,9 @@ function reverseBetween(head, left, right):
     prev = cur
     cur = cur.next
 
+  # Save the two boundary connections
+  beforeLeft = prev         # Node before reversal starts
+  tail = cur                # Will become tail of reversed sublist
 
   return head
 ```
