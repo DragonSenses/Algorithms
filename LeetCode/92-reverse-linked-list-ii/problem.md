@@ -658,5 +658,13 @@ function reverseBetween(head, left, right):
   beforeLeft = prev         # Node before reversal starts
   tail = cur                # Will become tail of reversed sublist
 
+  # Step 2: Reverse the sublist
+  for i from 0 to right - left:
+    third = cur.next
+    cur.next = prev
+    prev = cur
+    cur = third
+
+
   return head
 ```
