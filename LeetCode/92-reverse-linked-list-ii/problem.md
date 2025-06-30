@@ -630,3 +630,10 @@ This restores the structural integrity of the entire linked list with the desire
    - Advance both: `prev = cur`, `cur = third`
 
    This continues until we've reversed the `n - m + 1` nodes.
+
+5. **Reconnect the Reversed Sublist**  
+   After the reversal:
+   - If `beforeLeft` is not `null`, link it to `prev` (the new head of the reversed segment):  
+     `beforeLeft.next = prev`
+   - Otherwise, update `head = prev` (in case reversal started at the very beginning)
+   - Link the `tail.next` (which is now the last node of the reversed segment) to `cur` (the node following the segment)
