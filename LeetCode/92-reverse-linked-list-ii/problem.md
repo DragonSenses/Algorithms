@@ -649,5 +649,11 @@ function reverseBetween(head, left, right):
   prev = null
   cur = head
 
+  # Step 1: Move cur to the left-th node, prev to node before it
+  for i from 1 to left - 1:
+    prev = cur
+    cur = cur.next
+
+
   return head
 ```
