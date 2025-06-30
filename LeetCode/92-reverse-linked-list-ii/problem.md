@@ -622,3 +622,11 @@ This restores the structural integrity of the entire linked list with the desire
    These references are essential to reconnect the reversed sublist back into the main list later.
 
    ![](img/92-7.jpg)
+
+4. **Iteratively Reverse Sublist Pointers**  
+   From the `left`-th to the `right`-th node:
+   - Save the next node: `third = cur.next`
+   - Reverse the link: `cur.next = prev`
+   - Advance both: `prev = cur`, `cur = third`
+
+   This continues until we've reversed the `n - m + 1` nodes.
