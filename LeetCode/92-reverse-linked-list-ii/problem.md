@@ -637,3 +637,17 @@ This restores the structural integrity of the entire linked list with the desire
      `beforeLeft.next = prev`
    - Otherwise, update `head = prev` (in case reversal started at the very beginning)
    - Link the `tail.next` (which is now the last node of the reversed segment) to `cur` (the node following the segment)
+
+### **Pseudocode**
+
+```plaintext
+function reverseBetween(head, left, right):
+  if head is null:
+    return null
+
+  # Initialize pointers
+  prev = null
+  cur = head
+
+  return head
+```
