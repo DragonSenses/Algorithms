@@ -665,6 +665,13 @@ function reverseBetween(head, left, right):
     prev = cur
     cur = third
 
+  # Step 3: Reconnect reversed sublist
+  if beforeLeft is not null:
+    beforeLeft.next = prev
+  else:
+    head = prev             # Reversal started at head
+
+  tail.next = cur           # Connect tail to remaining list
 
   return head
 ```
