@@ -28,5 +28,9 @@ class Solution {
       curr = next; // Advance curr
     }
 
+    // Reconnect the reversed sublist with the rest of the list
+    beforeLeft.next = prev; // Link node before reversal to new head
+    tail.next = curr; // Link new tail to remainder of list
+
   }
 }
