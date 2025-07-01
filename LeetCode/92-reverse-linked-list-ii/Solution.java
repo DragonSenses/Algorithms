@@ -20,6 +20,13 @@ class Solution {
     ListNode prev = null; // Previous node in reversed portion
     ListNode curr = tail; // Current node being processed
 
+    // Reverse sublist using iterative pointer manipulation
+    for (int i = 0; i <= right - left; i++) {
+      ListNode next = curr.next; // Preserve next node
+      curr.next = prev; // Reverse link
+      prev = curr; // Advance prev
+      curr = next; // Advance curr
+    }
 
   }
 }
