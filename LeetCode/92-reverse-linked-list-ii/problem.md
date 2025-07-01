@@ -348,6 +348,47 @@ class Solution2 {
 }
 ```
 
+### Recursive Approach 2
+
+### **Intuition**
+
+We aim to reverse a section of a singly linked list from position `left` to `right`. To do this recursively, we reduce the problem to reversing the first `n` nodes of the list. If `left` is 1, that's exactly what we do. Otherwise, we recursively move the head closer to the `left`-th node and apply the same logic to the sublist.
+
+This preserves the simplicity of the reversal logic while allowing us to selectively reverse only the required segment of the list.
+
+### **Algorithm**
+
+1. If `left == 1`, call a helper to reverse the first `right` nodes and return the new head.
+2. Otherwise, recursively call `reverseBetween` on `head.next`, shifting both `left` and `right` one step closer to the target range.
+3. In the helper (`reverseN`):
+   - Recursively reverse the first `n` nodes.
+   - Track the node after the reversal (`successor`) to reconnect the reversed segment.
+   - On the way back from recursion, reverse the `.next` pointers.
+4. Return the appropriate new head.
+
+#### Pseudocode
+
+```plaintext
+function reverseBetween(head, left, right):
+  if left == 1:
+    return reverseN(head, right)
+
+  head.next = reverseBetween(head.next, left - 1, right - 1)
+  return head
+
+function reverseN(head, n):
+  if n == 1:
+    successor = head.next
+    return head
+
+  newHead = reverseN(head.next, n - 1)
+
+  head.next.next = head
+  head.next = successor
+
+  return newHead
+```
+
 ### TypeScript
 
 ```typescript
