@@ -15,6 +15,11 @@ class Solution {
       beforeLeft = beforeLeft.next;
     }
 
+    // Initialize pointers for reversal logic
+    ListNode tail = beforeLeft.next; // First node of sublist to reverse
+    ListNode prev = null; // Previous node in reversed portion
+    ListNode curr = tail; // Current node being processed
+
 
   }
 }
