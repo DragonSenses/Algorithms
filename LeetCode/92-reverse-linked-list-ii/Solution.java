@@ -32,5 +32,7 @@ class Solution {
     beforeLeft.next = prev; // Link node before reversal to new head
     tail.next = curr; // Link new tail to remainder of list
 
+    // Return new list starting from sentinel.next
+    return sentinel.next;
   }
 }
