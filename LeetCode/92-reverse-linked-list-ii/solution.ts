@@ -22,4 +22,12 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
   let prev: ListNode | null = null;
   let curr: ListNode | null = tail;
 
+  // Reverse the sublist from left to right
+  for (let i = 0; i <= right - left; i++) {
+    const next: ListNode | null = curr!.next;
+    curr!.next = prev;
+    prev = curr;
+    curr = next;
+  }
+
 }
