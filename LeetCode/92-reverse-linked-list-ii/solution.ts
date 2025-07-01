@@ -30,4 +30,10 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
     curr = next;
   }
 
+  // Reconnect reversed sublist back into the list
+  beforeLeft.next = prev;
+  tail.next = curr;
+
+  // Return the modified list
+  return sentinel.next;
 }
