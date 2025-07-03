@@ -48,6 +48,7 @@
 # Solution
 
 - [Hash Table Approach](#hash-table-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ---
@@ -169,7 +170,6 @@ function containsDuplicate(nums: number[]): boolean {
 
   return false;
 };
-
 ```
 
 ## **Complexity Analysis**
@@ -179,6 +179,14 @@ function containsDuplicate(nums: number[]): boolean {
 - Let `n` be the number of elements in the input array `nums`.
 - We're using a hash table (e.g. `Set` in TypeScript) that provides average-case O(1) time complexity for both `.has()` and `.add()` operations.
 - Input values are within the allowed range: `-10⁹ <= nums[i] <= 10⁹`, but this does not affect the asymptotic complexity due to constant-time hashing.
+
+### **Time Complexity**: `O(n)`
+
+- We iterate through the entire array once → **O(n)** iterations.
+- Each lookup (`seen.has(num)`) and insertion (`seen.add(num)`) is O(1) on average.
+- Therefore, the total time complexity is **O(n)** in the average case.
+
+> Worst-case time complexity could be higher (e.g. O(n²)) if there are significant hash collisions, but this is rare with good hash function implementations. For typical inputs, the performance remains linear.
 
 ### **Space Complexity**: `O(n)`
 
