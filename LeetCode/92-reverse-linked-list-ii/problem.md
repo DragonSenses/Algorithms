@@ -36,6 +36,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Reverse Linked List II**
 
@@ -793,3 +794,11 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
 
 - Let `n` represent the total number of nodes in the linked list.
 - The reversal is performed on a sublist spanning from position `left` to `right`, where `1 ≤ left ≤ right ≤ n`.
+
+### **Space Complexity**: `O(1)`
+
+- **Constant-Space Usage**: The algorithm maintains only a fixed number of pointers (`beforeLeft`, `tail`, `prev`, `curr`, `next`) regardless of the input size.
+- **In-Place Modification**: All changes are applied directly to the linked list nodes without additional data structures.
+- **No Recursive Calls**: Unlike the recursive approach, there is no stack growth.
+
+As a result, the algorithm runs in **constant auxiliary space**, independent of list length.
