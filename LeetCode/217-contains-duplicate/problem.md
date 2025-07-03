@@ -170,3 +170,12 @@ function containsDuplicate(nums: number[]): boolean {
 };
 
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `n` be the number of elements in the input array `nums`.
+- We're using a hash table (e.g. `Set` in TypeScript) that provides average-case O(1) time complexity for both `.has()` and `.add()` operations.
+- Input values are within the allowed range: `-10⁹ <= nums[i] <= 10⁹`, but this does not affect the asymptotic complexity due to constant-time hashing.
+
