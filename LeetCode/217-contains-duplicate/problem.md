@@ -107,3 +107,11 @@ As we iterate over the array:
 
 This technique ensures we only traverse the list once while performing constant-time operations, achieving **linear time complexity O(n)** with **space complexity O(n)** in the worst case.
 
+## Algorithm
+
+1. Initialize an empty set to store seen elements.
+2. Traverse the input array.
+3. For each number:
+   - If it's already in the set, return `true`.
+   - Otherwise, add it to the set.
+4. If the loop completes without finding duplicates, return `false`.
