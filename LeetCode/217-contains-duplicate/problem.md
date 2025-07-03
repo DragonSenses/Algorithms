@@ -45,6 +45,12 @@
 
 ---
 
+# Solution
+
+- [Hash Table Approach](#hash-table-approach)
+
+---
+
 ## **Problem Overview: Contains Duplicate**
 
 ## Description
@@ -81,3 +87,8 @@ Several elements (like `1`, `3`, `4`, and `2`) appear more than once.
 
 - `1 <= nums.length <= 10⁵`
 - `-10⁹ <= nums[i] <= 10⁹`
+
+# Hash Table Approach
+
+Given an array of integers, we need to determine if any element appears more than once. If any value repeats, we return `true`; otherwise, we return `false`.
+
