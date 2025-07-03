@@ -39,8 +39,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+  <li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+  <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ---
@@ -115,3 +115,17 @@ This technique ensures we only traverse the list once while performing constant-
    - If it's already in the set, return `true`.
    - Otherwise, add it to the set.
 4. If the loop completes without finding duplicates, return `false`.
+
+### **Pseudocode**
+
+```plaintext
+function containsDuplicate(nums):
+    seen = empty set
+
+    for num in nums:
+        if num in seen:
+            return true
+        seen.add(num)
+
+    return false
+```
