@@ -36,6 +36,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Reverse Linked List II**
@@ -794,6 +795,14 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
 
 - Let `n` represent the total number of nodes in the linked list.
 - The reversal is performed on a sublist spanning from position `left` to `right`, where `1 ≤ left ≤ right ≤ n`.
+
+### **Time Complexity**: `O(n)`
+
+- **Single Pass to Position Pointers**: The algorithm advances from the head to the `left`-th node, which takes up to `O(left)` steps.
+- **Sublist Reversal Loop**: It reverses `right - left + 1` nodes, which is bounded by `O(n)` in the worst case.
+- **Post-Reconnection**: Reconnecting nodes occurs in constant time.
+
+**Overall**, all steps combined result in a single traversal through the list, yielding a total time complexity of `O(n)`.
 
 ### **Space Complexity**: `O(1)`
 
