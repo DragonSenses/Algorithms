@@ -787,3 +787,9 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
 }
 ```
 
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `n` represent the total number of nodes in the linked list.
+- The reversal is performed on a sublist spanning from position `left` to `right`, where `1 ≤ left ≤ right ≤ n`.
