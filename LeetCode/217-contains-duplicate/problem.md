@@ -48,6 +48,7 @@
 # Solution
 
 - [Hash Table Approach](#hash-table-approach)
+  - **Space Complexity**: `O(n)`
 
 ---
 
@@ -179,3 +180,9 @@ function containsDuplicate(nums: number[]): boolean {
 - We're using a hash table (e.g. `Set` in TypeScript) that provides average-case O(1) time complexity for both `.has()` and `.add()` operations.
 - Input values are within the allowed range: `-10⁹ <= nums[i] <= 10⁹`, but this does not affect the asymptotic complexity due to constant-time hashing.
 
+### **Space Complexity**: `O(n)`
+
+- In the worst case (no duplicates), we store all `n` elements in the hash table.
+- Thus, auxiliary space grows linearly with the number of distinct elements → **O(n)**.
+
+> If a duplicate is found early, actual memory usage may be much less than O(n), but big-O reflects the upper bound.
