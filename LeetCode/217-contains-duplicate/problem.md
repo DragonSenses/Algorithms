@@ -92,3 +92,18 @@ Several elements (like `1`, `3`, `4`, and `2`) appear more than once.
 
 Given an array of integers, we need to determine if any element appears more than once. If any value repeats, we return `true`; otherwise, we return `false`.
 
+## Intuition
+
+Searching for duplicates in an unsorted array with brute force would typically require comparing each element with every other element—an O(n²) operation. Instead, we can greatly reduce time complexity by utilizing a **hash table** (or a set), which allows:
+
+- **Constant-time average lookup (O(1))**
+- **Constant-time average insert (O(1))**
+
+This makes hash tables particularly suitable for problems that involve fast membership checks.
+
+As we iterate over the array:
+- If the current element is **already present** in the hash table, we have found a duplicate → return `true`
+- Otherwise, we **store** the element in the hash table and continue
+
+This technique ensures we only traverse the list once while performing constant-time operations, achieving **linear time complexity O(n)** with **space complexity O(n)** in the worst case.
+
