@@ -51,6 +51,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Sorting and Linear Scan Approach](#sorting-and-linear-scan-approach)
+  - **Time Complexity**: `O(n log n)`
   - **Space Complexity**: `O(1)`
 
 ---
@@ -263,6 +264,11 @@ function containsDuplicate(nums: number[]): boolean {
 - The input array has `n` elements.
 - The sorting algorithm used is efficient (e.g., dual-pivot quicksort or Timsort).
 - Mutating the original array is acceptable.
+
+### **Time Complexity**: `O(n log n)`
+
+- **Sorting**: dominates the complexity with `O(n log n)`.
+- **Linear Scan**: The subsequent single pass comparison is `O(n)`.
 
 ### **Space Complexity**: `O(1)` (in-place), or `O(log n)` depending on the sorting implementation
 
