@@ -50,6 +50,7 @@
 - [Hash Table Approach](#hash-table-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Sorting and Linear Scan Approach](#sorting-and-linear-scan-approach)
 
 ---
 
@@ -194,3 +195,12 @@ function containsDuplicate(nums: number[]): boolean {
 - Thus, auxiliary space grows linearly with the number of distinct elements → **O(n)**.
 
 > If a duplicate is found early, actual memory usage may be much less than O(n), but big-O reflects the upper bound.
+
+# Sorting and Linear Scan Approach
+
+## **Intuition**
+
+When an array is sorted, duplicate elements will appear consecutively. This observation allows us to efficiently detect duplicates by checking adjacent values after sorting. Although sorting requires `O(n log n)` time, this approach avoids the use of extra space beyond what's needed for sorting.
+
+This method is useful in situations where modifying the input array is acceptable or when minimizing additional space usage is important.
+
