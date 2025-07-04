@@ -211,3 +211,14 @@ This method is useful in situations where modifying the input array is acceptabl
 3. Compare each element to its predecessor:
    - If `nums[i] == nums[i - 1]`, a duplicate exists, return `true`.
 4. If the loop completes without finding duplicates, return `false`.
+
+### **Pseudocode**
+
+```plaintext
+function containsDuplicate(nums):
+    sort(nums)
+    for i from 1 to length(nums) - 1:
+        if nums[i] == nums[i - 1]:
+            return true
+    return false
+```
