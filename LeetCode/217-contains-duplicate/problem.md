@@ -254,3 +254,11 @@ function containsDuplicate(nums: number[]): boolean {
   return false;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- The input array has `n` elements.
+- The sorting algorithm used is efficient (e.g., dual-pivot quicksort or Timsort).
+- Mutating the original array is acceptable.
