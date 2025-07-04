@@ -51,6 +51,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Sorting and Linear Scan Approach](#sorting-and-linear-scan-approach)
+  - **Space Complexity**: `O(1)`
 
 ---
 
@@ -262,3 +263,8 @@ function containsDuplicate(nums: number[]): boolean {
 - The input array has `n` elements.
 - The sorting algorithm used is efficient (e.g., dual-pivot quicksort or Timsort).
 - Mutating the original array is acceptable.
+
+### **Space Complexity**: `O(1)` (in-place), or `O(log n)` depending on the sorting implementation
+
+- **Constant-Space Usage**: If sorting is performed in-place (like with Java's `Arrays.sort(int[])`), space is constant.
+- Some sorting algorithms use additional stack space for recursion (e.g., quicksort uses `O(log n)` stack frames in the average case).
