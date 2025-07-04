@@ -204,3 +204,10 @@ When an array is sorted, duplicate elements will appear consecutively. This obse
 
 This method is useful in situations where modifying the input array is acceptable or when minimizing additional space usage is important.
 
+## **Algorithm**
+
+1. Sort the input array in non-decreasing order.
+2. Traverse the sorted array from index 1 to the end.
+3. Compare each element to its predecessor:
+   - If `nums[i] == nums[i - 1]`, a duplicate exists, return `true`.
+4. If the loop completes without finding duplicates, return `false`.
