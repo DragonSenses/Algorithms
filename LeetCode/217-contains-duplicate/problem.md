@@ -222,3 +222,23 @@ function containsDuplicate(nums):
             return true
     return false
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+import java.util.Arrays;
+
+public class Solution2 {
+  public boolean containsDuplicate(int[] nums) {
+    Arrays.sort(nums);
+    for (int i = 1; i < nums.length; i++) {
+      if (nums[i] == nums[i - 1]) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+```
