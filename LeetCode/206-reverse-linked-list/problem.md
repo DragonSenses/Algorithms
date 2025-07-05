@@ -85,3 +85,12 @@ Redirect each node's `.next` pointer to reverse the chain, being mindful of edge
 
 The recursive strategy treats the problem as breaking down the list into smaller sublists. We recurse to the end of the list, then rewire the pointers on the way back. Each recursive call returns the reversed head of the sublist that starts at the next node, allowing the current node to link itself to the end of this reversed sublist.  
 Think of it as a stack of deferred operations: we only start rewiring when we've hit the base case — an empty list or a single node.
+
+## **Algorithm**
+
+1. Base Case: If `head` is `null` or only one node, return `head` — nothing to reverse.
+2. Recurse on `head.next` — get the reversed sublist starting from the next node.
+3. After recursion, the `head.next` node is at the tail of the reversed sublist.
+4. Set `head.next.next = head` to reverse the link.
+5. Set `head.next = null` to break the old forward link.
+6. Return the new head of the reversed list.
