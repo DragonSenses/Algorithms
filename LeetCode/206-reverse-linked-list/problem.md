@@ -25,12 +25,19 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is the range <code>[0, 5000]</code>.</li>
-	<li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
+  <li>The number of nodes in the list is the range <code>[0, 5000]</code>.</li>
+  <li><code>-5000 &lt;= Node.val &lt;= 5000</code></li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
+
+
+---
+
+# Solution
+
+- [Recursive Approach](#recursive-approach)
 
 ---
 
@@ -69,3 +76,12 @@ Implement two versions:
 
 ## Tip
 Redirect each node's `.next` pointer to reverse the chain, being mindful of edge cases like an empty list or a single node.
+
+---
+
+# Recursive Approach
+
+## **Intuition**
+
+The recursive strategy treats the problem as breaking down the list into smaller sublists. We recurse to the end of the list, then rewire the pointers on the way back. Each recursive call returns the reversed head of the sublist that starts at the next node, allowing the current node to link itself to the end of this reversed sublist.  
+Think of it as a stack of deferred operations: we only start rewiring when we've hit the base case — an empty list or a single node.
