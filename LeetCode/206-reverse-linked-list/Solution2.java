@@ -6,5 +6,8 @@ public class Solution2 {
       return head;
     }
 
+    // Recurse on the rest of the list
+    ListNode reversedHead = reverseList(head.next);
+
   }
 }
