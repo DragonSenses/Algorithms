@@ -15,6 +15,7 @@ public class Solution2 {
     // Disconnect current head from the rest of the list
     head.next = null;
 
-
+    // Return new head found at the tail of the original list
+    return reversedHead;
   }
 }
