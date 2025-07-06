@@ -94,3 +94,16 @@ Think of it as a stack of deferred operations: we only start rewiring when we've
 4. Set `head.next.next = head` to reverse the link.
 5. Set `head.next = null` to break the old forward link.
 6. Return the new head of the reversed list.
+
+### **Pseudocode**
+
+```plaintext
+function reverseList(node):
+ if node is null or node.next is null: return node
+
+ reversedHead = reverseList(node.next)
+ node.next.next = node
+ node.next = null
+
+return reversedHead
+```
