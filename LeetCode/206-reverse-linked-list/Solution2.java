@@ -1,5 +1,14 @@
 public class Solution2 {
-
+  /**
+   * Reverses a singly linked list using recursion.
+   *
+   * @param head The head of the original singly linked list.
+   * @return The new head of the reversed linked list.
+   *
+   * This method uses a post-order recursive strategy. It traverses
+   * to the tail node, then reassigns pointers during the unwind phase,
+   * effectively reversing the list in-place.
+   */
   public ListNode reverseList(ListNode head) {
     // Base case: empty list or single node — already reversed
     if (head == null || head.next == null) {
