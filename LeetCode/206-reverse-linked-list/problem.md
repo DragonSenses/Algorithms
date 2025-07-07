@@ -38,6 +38,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Space Complexity**: `O(n)`
 
 ---
 
@@ -165,3 +166,11 @@ function reverseList(head: ListNode | null): ListNode | null {
   return reversedHead;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Space Complexity**: `O(n)`
+- **Call Stack Overhead**: The recursion depth is proportional to the list length, up to `O(n)` in the worst case.
+- **Fixed Variable Usage**: A few pointers (e.g. `reversedHead`, `head`) are used per recursive frame and consume constant space.
+- **No Extra Data Structures**: The list is modified in-place; no array or auxiliary container is used.
+- **Linear-Space Usage**: While variable usage is constant, the **recursive call stack grows linearly** with the size of the list being reversed.
