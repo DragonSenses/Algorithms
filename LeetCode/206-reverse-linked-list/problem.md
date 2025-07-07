@@ -191,3 +191,24 @@ function reverseList(head: ListNode | null): ListNode | null {
 ## **Intuition**
 The iterative technique reverses a singly linked list in-place by moving through the nodes one by one and adjusting their `next` pointers. Instead of relying on the call stack like recursion, it uses explicit pointer variables to track the current position and build the reversed list step-by-step.  
 Think of it as repeatedly "cutting off" the head node and placing it in front of a new reversed chain that grows forward. As we traverse, each node's link direction is flipped to point to the already-processed portion of the list.
+
+### **Edge Cases**
+When implementing the iterative reversal, it's important to account for situations that might lead to incorrect pointer handling or unexpected behavior:
+
+- **Empty List (`head == null`)**  
+  No nodes to reverse — return `null` immediately. Ensures logic doesn't attempt to access nonexistent pointers.
+
+- **Single Node List (`head.next == null`)**  
+  Already reversed — return `head`. Prevents unnecessary processing and confirms pointer safety.
+
+- **Two Nodes**  
+  A minimal non-trivial case where reversal logic must properly swap links. Verifies the correctness of pointer transitions.
+
+- **Long List**  
+  Tests robustness and performance of pointer updates — especially important for validating linear time and space assumptions.
+
+- **Cyclic Input (invalid case)**  
+  If the list is cyclic, standard reversal logic may lead to infinite loops. Detection is outside scope, but worth noting as a misuse edge case.
+
+- **Shared References Post-Reversal**  
+  Ensure no nodes retain old `next` pointers to previous structure, avoiding dangling references or memory leaks in environments requiring manual cleanup.
