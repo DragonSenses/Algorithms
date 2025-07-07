@@ -226,3 +226,20 @@ When implementing the iterative reversal, it's important to account for situatio
    - Move `curr` to `nextTemp`.
 
 3. After the loop, `prev` will point to the new head of the reversed list. Return `prev`.
+
+### **Pseudocode**
+
+```plaintext
+function reverseList(head):
+ prev = null
+ curr = head
+
+ while curr is not null:
+  nextTemp = curr.next     // store next node
+  curr.next = prev         // reverse current node's pointer
+  prev = curr              // advance prev
+  curr = nextTemp          // advance curr
+
+ return prev  // new head of the reversed list
+head.
+```
