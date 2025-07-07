@@ -10,5 +10,6 @@ class Solution {
       curr = nextTemp; // advance curr
     }
 
+    return prev; // Return the new head of the reversed list
   }
 }
