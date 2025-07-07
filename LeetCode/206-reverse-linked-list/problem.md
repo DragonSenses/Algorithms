@@ -38,6 +38,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ---
@@ -168,6 +169,15 @@ function reverseList(head: ListNode | null): ListNode | null {
 ```
 
 ## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` denote the total number of nodes in the linked list.
+- Each node contains a single integer and a reference to the next node.
+- The list is singly linked and non-cyclic.
+
+### **Time Complexity**: `O(n)`
+- **Traversal Cost**: Each node is visited once due to the recursive descent and pointer rewiring.
+- **Per-Call Work**: Constant time operations are done during each recursive return phase.
 
 ### **Space Complexity**: `O(n)`
 - **Call Stack Overhead**: The recursion depth is proportional to the list length, up to `O(n)` in the worst case.
