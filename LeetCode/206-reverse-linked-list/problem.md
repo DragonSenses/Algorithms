@@ -212,3 +212,17 @@ When implementing the iterative reversal, it's important to account for situatio
 
 - **Shared References Post-Reversal**  
   Ensure no nodes retain old `next` pointers to previous structure, avoiding dangling references or memory leaks in environments requiring manual cleanup.
+
+## **Algorithm**
+1. Initialize three pointers:
+   - `prev` as `null` — this will be the tail of the reversed list.
+   - `curr` as `head` — used to traverse the original list.
+   - `nextTemp` to temporarily store `curr.next`.
+
+2. While `curr` is not `null`:
+   - Save `curr.next` in `nextTemp` (preserve the remaining list).
+   - Point `curr.next` to `prev` (reverse the link).
+   - Move `prev` to `curr`.
+   - Move `curr` to `nextTemp`.
+
+3. After the loop, `prev` will point to the new head of the reversed list. Return `prev`.
