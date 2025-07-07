@@ -40,6 +40,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Iterative Approach](#iterative-approach)
 
 ---
 
@@ -184,3 +185,9 @@ function reverseList(head: ListNode | null): ListNode | null {
 - **Fixed Variable Usage**: A few pointers (e.g. `reversedHead`, `head`) are used per recursive frame and consume constant space.
 - **No Extra Data Structures**: The list is modified in-place; no array or auxiliary container is used.
 - **Linear-Space Usage**: While variable usage is constant, the **recursive call stack grows linearly** with the size of the list being reversed.
+
+# Iterative Approach
+
+## **Intuition**
+The iterative technique reverses a singly linked list in-place by moving through the nodes one by one and adjusting their `next` pointers. Instead of relying on the call stack like recursion, it uses explicit pointer variables to track the current position and build the reversed list step-by-step.  
+Think of it as repeatedly "cutting off" the head node and placing it in front of a new reversed chain that grows forward. As we traverse, each node's link direction is flipped to point to the already-processed portion of the list.
