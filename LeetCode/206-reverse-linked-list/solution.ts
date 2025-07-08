@@ -26,4 +26,6 @@ function reverseList(head: ListNode | null): ListNode | null {
     curr = nextTemp;
   }
 
+  // Return the new head of the reversed list
+  return prev;
 }
