@@ -41,6 +41,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity**: `O(1)`
 
 ---
 
@@ -300,3 +301,8 @@ function reverseList(head: ListNode | null): ListNode | null {
 - Let `n` denote the total number of nodes in the linked list.
 - Each node contains a single integer and a reference to the next node.
 - The list is singly linked and non-cyclic.
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: Only a fixed number of pointer references (`prev`, `curr`, and `nextTemp`) are maintained throughout the traversal, independent of list size.
+- **In-Place Reversal**: The reversal is performed directly on the input list without allocating new nodes or auxiliary data structures.
+- **No Call Stack Growth**: Unlike the recursive approach, the iterative method does not consume extra stack space, making it memory-efficient.
