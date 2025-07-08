@@ -41,6 +41,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ---
@@ -301,6 +302,11 @@ function reverseList(head: ListNode | null): ListNode | null {
 - Let `n` denote the total number of nodes in the linked list.
 - Each node contains a single integer and a reference to the next node.
 - The list is singly linked and non-cyclic.
+
+### **Time Complexity**: `O(n)`
+- **Single-Pass Traversal**: The algorithm visits each node exactly once during the reversal process. No nested loops or recursive calls are involved.
+- **Linear Workload per Node**: Each node incurs a constant number of operations (pointer assignments and reassignments).
+- **Scales Proportionally**: As the list size increases, the time required grows linearly with `n`.
 
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: Only a fixed number of pointer references (`prev`, `curr`, and `nextTemp`) are maintained throughout the traversal, independent of list size.
