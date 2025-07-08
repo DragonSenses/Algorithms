@@ -1,3 +1,6 @@
+/**
+ * Represents a node in a singly linked list.
+ */
 class ListNode {
   val: number;
   next: ListNode | null;
@@ -8,6 +11,19 @@ class ListNode {
   }
 }
 
+/**
+ * Reverses a singly linked list using an iterative approach.
+ *
+ * @param head - The head of the original singly linked list.
+ * @returns The new head of the reversed linked list.
+ *
+ * This function maintains three pointers during traversal:
+ * - prev: tracks the previously processed node
+ * - curr: current node in traversal
+ * - nextTemp: temporarily stores the next node before reversal
+ *
+ * The function operates in-place and uses constant space.
+ */
 function reverseList(head: ListNode | null): ListNode | null {
   let prev: ListNode | null = null;
   let curr: ListNode | null = head;
