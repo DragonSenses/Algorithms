@@ -293,3 +293,10 @@ function reverseList(head: ListNode | null): ListNode | null {
   return prev; // new head of the reversed list
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` denote the total number of nodes in the linked list.
+- Each node contains a single integer and a reference to the next node.
+- The list is singly linked and non-cyclic.
