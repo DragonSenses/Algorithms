@@ -104,3 +104,24 @@ To identify islands:
 4. Increment a counter for every DFS initiation, as each start represents a new island.
 
 Each DFS visit explores all the land connected to the root node, effectively mapping out an entire island. By the end of the scan, the counter reflects the total number of distinct islands.
+
+## **Algorithm**
+
+### Recursive Algorithm
+
+1. **Initialize Counter**  
+   Create a variable `islandCount` to keep track of the number of distinct islands found.
+
+2. **Define DFS Function**  
+   Write a recursive `dfs(row, col)` function to traverse connected land.  
+   - Base case: Return if the current cell is out of bounds or equals `'0'`.  
+   - Mark the current cell as visited by setting it to `'0'`.  
+   - Recursively call `dfs` on all four adjacent cells: up, down, left, and right.
+
+3. **Iterate Over Grid**  
+   Perform a nested loop over every cell in the grid:  
+   - If a cell contains `'1'`, call the `dfs` function on that cell.  
+   - Increment `islandCount` after the DFS finishes, since this means a full island has been explored.
+
+4. **Return Result**  
+   After scanning the entire grid, return `islandCount` as the total number of islands.
