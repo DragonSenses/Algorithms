@@ -13,7 +13,11 @@ class Solution {
     // Iterate through each cell in the grid
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < cols; c++) {
-
+        // If current cell is land ('1'), it's a new island
+        if (grid[r][c] == '1') {
+          // Explore and mark all connected land cells
+          dfs(grid, r, c);
+        }
       }
     }
 
@@ -21,4 +25,8 @@ class Solution {
     return islandCount;
   }
 
+  private void dfs(char[][] grid, int r, int c) {
+    // Mark current cell as visited
+    grid[r][c] = '0';
+  }
 }
