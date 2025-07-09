@@ -125,3 +125,38 @@ Each DFS visit explores all the land connected to the root node, effectively map
 
 4. **Return Result**  
    After scanning the entire grid, return `islandCount` as the total number of islands.
+
+### **Pseudocode**
+
+```plaintext
+function countIslands(grid):
+  if grid is empty:
+    return 0
+
+  rows = number of rows in grid
+  cols = number of columns in grid
+  islandCount = 0
+
+  for r from 0 to rows - 1:
+    for c from 0 to cols - 1:
+      if grid[r][c] == '1':
+        dfs(grid, r, c)
+        islandCount += 1
+
+  return islandCount
+
+function dfs(grid, r, c):
+  if r < 0 or r >= number of rows in grid:
+    return
+  if c < 0 or c >= number of columns in grid:
+    return
+  if grid[r][c] != '1':
+    return
+
+  grid[r][c] = '0'  // mark as visited
+
+  dfs(grid, r - 1, c)  // up
+  dfs(grid, r + 1, c)  // down
+  dfs(grid, r, c - 1)  // left
+  dfs(grid, r, c + 1)  // right
+```
