@@ -10,6 +10,13 @@ class Solution {
     int cols = grid[0].length;
     int islandCount = 0;
 
+    // Iterate through each cell in the grid
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < cols; c++) {
+
+      }
+    }
+
     // Return total number of distinct islands found
     return islandCount;
   }
