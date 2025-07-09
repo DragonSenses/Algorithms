@@ -39,6 +39,11 @@
 
 ---
 
+# Solution
+
+- [**Depth-First Search (DFS)** Approach](#)
+
+
 ## **Problem Overview: Number of Islands**
 
 The **Number of Islands** problem involves identifying distinct landmasses in a 2D binary grid map. Each element in the grid is either `'1'` (representing land) or `'0'` (representing water).
@@ -85,3 +90,17 @@ Output: 3
 You can solve this using **Depth-First Search (DFS)**, **Breadth-First Search (BFS)**, or **Union Find (Disjoint Set)** to explore and mark visited land tiles.
 
 ---
+
+# Depth-First Search (DFS) Approach
+
+## **Intuition**
+
+Visualize the 2D grid as an undirected graph where each cell with value `'1'` represents a land node, and edges exist between horizontally or vertically adjacent land nodes.
+
+To identify islands:
+1. Traverse each cell in the grid using a linear scan.
+2. Upon encountering a `'1'`, initiate a **DFS traversal** from that cell. This cell serves as the **starting point (root)** of a new island.
+3. During DFS, mark each visited `'1'` as `'0'` to denote it's been explored and avoid revisiting.
+4. Increment a counter for every DFS initiation, as each start represents a new island.
+
+Each DFS visit explores all the land connected to the root node, effectively mapping out an entire island. By the end of the scan, the counter reflects the total number of distinct islands.
