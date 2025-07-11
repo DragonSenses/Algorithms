@@ -38,5 +38,11 @@ class Solution {
 
     // Mark current cell as visited
     grid[r][c] = '0';
+
+    // Recursively explore adjacent directions
+    dfs(grid, r - 1, c);  // up
+    dfs(grid, r + 1, c);  // down
+    dfs(grid, r, c - 1);  // left
+    dfs(grid, r, c + 1);  // right
   }
 }
