@@ -31,6 +31,11 @@ class Solution {
       return;
     }
 
+    // Return if cell is water or already visited
+    if (grid[r][c] != '1') {
+      return;
+    }
+
     // Mark current cell as visited
     grid[r][c] = '0';
   }
