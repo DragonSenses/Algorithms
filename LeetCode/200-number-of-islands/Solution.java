@@ -17,6 +17,8 @@ class Solution {
         if (grid[r][c] == '1') {
           // Explore and mark all connected land cells
           dfs(grid, r, c);
+          // Increment island counter after DFS finishes
+          islandCount += 1;
         }
       }
     }
