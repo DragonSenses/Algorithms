@@ -26,6 +26,11 @@ class Solution {
   }
 
   private void dfs(char[][] grid, int r, int c) {
+    // Boundary checks
+    if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length) {
+      return;
+    }
+
     // Mark current cell as visited
     grid[r][c] = '0';
   }
