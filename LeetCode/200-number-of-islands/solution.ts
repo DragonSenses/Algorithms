@@ -1,5 +1,13 @@
+/**
+ * Counts the number of distinct islands in a 2D grid.
+ * An island is defined as a group of adjacent '1's (land) connected
+ * horizontally or vertically (not diagonally). Uses Depth-First Search (DFS).
+ *
+ * @param grid - 2D array of strings representing the map ('1' for land, '0' for water)
+ * @returns The total number of islands in the grid
+ */
 function numIslands(grid: string[][]): number {
-  // Check if grid row or column is empty
+  // Edge Case: Return 0 if grid has no content
   if (grid.length === 0 || grid[0].length === 0) {
     return 0;
   }
