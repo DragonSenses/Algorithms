@@ -128,6 +128,29 @@ Each DFS visit explores all the land connected to the root node, effectively map
 4. **Return Result**  
    After scanning the entire grid, return `islandCount` as the total number of islands.
 
+### Iterative Algorithm (DFS Using Stack)
+
+1. **Initialize Counter**  
+   Create a variable `islandCount` to keep track of the number of distinct islands found.
+
+2. **Prepare Stack and Direction Vectors**  
+   Define a stack to hold cell coordinates during traversal.  
+   Create a direction array to represent four adjacent moves: up, down, left, and right.
+
+3. **Iterate Over Grid**  
+   Perform a nested loop over every cell in the grid:  
+   - If the current cell contains `'1'`, increment `islandCount`.  
+   - Push the cell’s coordinates into the stack to begin DFS.
+
+4. **Perform DFS Iteratively**  
+   While the stack is not empty:  
+   - Pop a cell from the stack and mark it as visited by setting it to `'0'`.  
+   - For each direction (up, down, left, right), compute the neighboring cell’s coordinates.  
+   - If the neighbor is within bounds and equals `'1'`, push it to the stack.
+
+5. **Return Result**  
+   After scanning the entire grid and completing iterative DFS for each island, return `islandCount` as the total number of islands.
+
 ### **Pseudocode**
 
 ```plaintext
