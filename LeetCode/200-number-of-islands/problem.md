@@ -42,6 +42,7 @@
 # Solution
 
 - [**Depth-First Search (DFS)** Approach](#depth-first-search-dfs-approach)
+  - **Space Complexity**: `O(m * n)`
 
 
 ## **Problem Overview: Number of Islands**
@@ -283,3 +284,10 @@ function numIslands(grid: string[][]): number {
 - Let `m` be the number of rows  
 - Let `n` be the number of columns  
 - The input grid has `m * n` total cells
+
+
+### **Space Complexity**: `O(m * n)`
+
+- **Recursive Call Stack**: In the worst case (e.g., one large island occupying the entire grid), the DFS may recurse into every land cell, resulting in a call stack depth of up to `m * n`.
+- **No Auxiliary Structures**: The algorithm modifies the input grid in-place and avoids using additional data structures like visited arrays or queues.
+- **Linear-Space Usage**: DFS uses the call stack to explore connected regions, which grows proportionally with the number of land cells in the worst case.
