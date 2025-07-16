@@ -41,7 +41,7 @@
 
 # Solution
 
-- [**Depth-First Search (DFS)** Approach](#)
+- [**Depth-First Search (DFS)** Approach](#depth-first-search-dfs-approach)
 
 
 ## **Problem Overview: Number of Islands**
@@ -275,3 +275,11 @@ function numIslands(grid: string[][]): number {
   return islandCount;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `m` be the number of rows  
+- Let `n` be the number of columns  
+- The input grid has `m * n` total cells
