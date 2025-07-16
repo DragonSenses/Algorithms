@@ -42,6 +42,7 @@
 # Solution
 
 - [**Depth-First Search (DFS)** Approach](#depth-first-search-dfs-approach)
+  - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
 
 
@@ -285,6 +286,10 @@ function numIslands(grid: string[][]): number {
 - Let `n` be the number of columns  
 - The input grid has `m * n` total cells
 
+### **Time Complexity**: `O(m * n)`
+
+- **Full Grid Traversal**: Every cell is visited once during the initial scan, and each land cell (`'1'`) may trigger a DFS traversal that marks all connected land.
+- **No Redundant Visits**: Since visited cells are marked as `'0'`, each cell is processed at most once across both the outer iteration and DFS calls.
 
 ### **Space Complexity**: `O(m * n)`
 
