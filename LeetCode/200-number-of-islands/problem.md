@@ -44,7 +44,7 @@
 - [**Depth-First Search (DFS)** Approach](#depth-first-search-dfs-approach)
   - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
-
+- [**Breadth-First Search (BFS)** Approach](#breadth-first-search-bfs-approach)
 
 ## **Problem Overview: Number of Islands**
 
@@ -381,3 +381,11 @@ function numIslands(grid: string[][]): number {
 - **Recursive Call Stack**: In the worst case (e.g., one large island occupying the entire grid), the DFS may recurse into every land cell, resulting in a call stack depth of up to `m * n`.
 - **No Auxiliary Structures**: The algorithm modifies the input grid in-place and avoids using additional data structures like visited arrays or queues.
 - **Linear-Space Usage**: DFS uses the call stack to explore connected regions, which grows proportionally with the number of land cells in the worst case.
+
+# Breadth-First Search (BFS) Approach
+
+For BFS approach we do a linear scan on the 2d grid and if a node contains a 1, the nit is a root node.
+
+A root node starts a Breadth First Search where we put it into a queue data structure and set its value as 0 to mark a visited node.
+
+Iteratively search the neighbors of enqueued nodes until the queue becomes empty.
