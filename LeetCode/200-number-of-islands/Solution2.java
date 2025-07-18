@@ -22,6 +22,17 @@ class Solution2 {
           // Use stack for iterative DFS
           ArrayDeque<int[]> stack = new ArrayDeque<>();
           stack.push(new int[] {r, c});
+
+          // Explore all connected land iteratively
+          while (!stack.isEmpty()) {
+            int[] cell = stack.pop();
+            int row = cell[0];
+            int col = cell[1];
+
+            // Mark visited
+            grid[row][col] = '0';
+
+          }
         }
       }
     }
