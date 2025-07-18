@@ -35,6 +35,14 @@ class Solution2 {
             // Traverse neighbors
             for (int[] dir : directions) {
               stack.push(new int[] {row + dir[0], col + dir[1]});
+
+              int newRow = row + dir[0];
+              int newCol = col + dir[1];
+
+              if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols
+                  && grid[newRow][newCol] == '1') {
+                
+              }
             }
           }
         }
