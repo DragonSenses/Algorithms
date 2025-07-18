@@ -32,6 +32,10 @@ class Solution2 {
             // Mark visited
             grid[row][col] = '0';
 
+            // Traverse neighbors
+            for (int[] dir : directions) {
+              stack.push(new int[] {row + dir[0], col + dir[1]});
+            }
           }
         }
       }
