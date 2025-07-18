@@ -10,10 +10,13 @@ class Solution2 {
     int islandCount = 0;
 
     // Direction vectors: up, down, left, right
-    int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+    int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < cols; c++) {
+        if (grid[r][c] == '1') {
+          islandCount++;
+        }
       }
     }
 
