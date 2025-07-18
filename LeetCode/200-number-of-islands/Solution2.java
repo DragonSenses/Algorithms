@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+
 class Solution2 {
   public int numIslands(char[][] grid) {
     // Edge case check
@@ -16,6 +18,10 @@ class Solution2 {
       for (int c = 0; c < cols; c++) {
         if (grid[r][c] == '1') {
           islandCount++;
+
+          // Use stack for iterative DFS
+          ArrayDeque<int[]> stack = new ArrayDeque<>();
+          stack.push(new int[] {r, c});
         }
       }
     }
