@@ -425,3 +425,40 @@ This process ensures that all land cells connected to the root are explored leve
 
 5. **Return Result**  
    Once the entire grid is scanned and all islands have been explored, return `islandCount` as the final count.
+
+### **Pseudocode**
+
+```plaintext
+function countIslands(grid):
+  if grid is empty:
+    return 0
+
+  rows = number of rows in grid
+  cols = number of columns in grid
+  islandCount = 0
+
+  directions = [ [-1,0], [1,0], [0,-1], [0,1] ]  // up, down, left, right
+
+  for r from 0 to rows - 1:
+    for c from 0 to cols - 1:
+      if grid[r][c] == '1':
+        islandCount += 1
+        queue = new empty queue
+        queue.enqueue([r, c])
+        grid[r][c] = '0'  // mark as visited
+
+        while queue is not empty:
+          current = queue.dequeue()
+          row = current[0]
+          col = current[1]
+
+          for dir in directions:
+            newRow = row + dir[0]
+            newCol = col + dir[1]
+
+            if newRow is in bounds and newCol is in bounds and grid[newRow][newCol] == '1':
+              queue.enqueue([newRow, newCol])
+              grid[newRow][newCol] = '0'  // mark neighbor as visited
+
+  return islandCount
+```
