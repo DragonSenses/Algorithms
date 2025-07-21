@@ -402,3 +402,7 @@ This process ensures that all land cells connected to the root are explored leve
 
 1. **Initialize Counter**  
    Create a variable `islandCount` to store the number of distinct islands found.
+
+2. **Prepare Direction Vectors and Queue**  
+   Define an array of directions for exploring neighboring cells: up, down, left, right.  
+   Use a queue to track cells scheduled for BFS traversal.
