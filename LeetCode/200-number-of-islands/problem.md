@@ -397,3 +397,8 @@ To detect islands using BFS:
   - For each neighbor, mark it visited and enqueue it for future exploration.
   
 This process ensures that all land cells connected to the root are explored level by level. Each BFS invocation maps out one complete island. The total number of BFS initiations from unvisited land equals the number of distinct islands.
+
+## **Algorithm**
+
+1. **Initialize Counter**  
+   Create a variable `islandCount` to store the number of distinct islands found.
