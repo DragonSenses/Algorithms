@@ -384,8 +384,16 @@ function numIslands(grid: string[][]): number {
 
 # Breadth-First Search (BFS) Approach
 
-For BFS approach we do a linear scan on the 2d grid and if a node contains a 1, the nit is a root node.
+## **Intuition**
 
-A root node starts a Breadth First Search where we put it into a queue data structure and set its value as 0 to mark a visited node.
+Imagine the 2D grid as a graph, where each cell represents a node and `'1'` denotes land. Nodes are connected only if they're adjacent **horizontally or vertically**.
 
-Iteratively search the neighbors of enqueued nodes until the queue becomes empty.
+To detect islands using BFS:
+- Perform a linear scan over the grid.
+- When you encounter an unvisited land cell (`'1'`), treat it as the starting point (root) of a new island.
+- Add the root to a queue and mark it as visited by setting its value to `'0'`.
+- While the queue isn’t empty:
+  - Dequeue the front cell and explore all valid neighboring land cells (`'1'`).
+  - For each neighbor, mark it visited and enqueue it for future exploration.
+  
+This process ensures that all land cells connected to the root are explored level by level. Each BFS invocation maps out one complete island. The total number of BFS initiations from unvisited land equals the number of distinct islands.
