@@ -406,3 +406,11 @@ This process ensures that all land cells connected to the root are explored leve
 2. **Prepare Direction Vectors and Queue**  
    Define an array of directions for exploring neighboring cells: up, down, left, right.  
    Use a queue to track cells scheduled for BFS traversal.
+
+3. **Iterate Over Grid**  
+   Perform a nested loop over every cell in the grid:  
+   - If a cell contains `'1'`, it marks the beginning of a new island.  
+   - Increment `islandCount`.  
+   - Add the cell’s coordinates to the queue.  
+   - Set the cell to `'0'` to mark it as visited.
+
