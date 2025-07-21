@@ -414,3 +414,11 @@ This process ensures that all land cells connected to the root are explored leve
    - Add the cell’s coordinates to the queue.  
    - Set the cell to `'0'` to mark it as visited.
 
+4. **Perform BFS Iteratively**  
+   While the queue is not empty:  
+   - Dequeue the front cell and extract its coordinates.  
+   - For each of the four adjacent directions:  
+     - Compute the neighbor’s row and column.  
+     - If the neighbor is within bounds and its value is `'1'`,  
+       - Set it to `'0'` to mark it as visited.  
+       - Enqueue its coordinates to continue BFS.
