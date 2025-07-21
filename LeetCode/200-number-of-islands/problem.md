@@ -422,3 +422,6 @@ This process ensures that all land cells connected to the root are explored leve
      - If the neighbor is within bounds and its value is `'1'`,  
        - Set it to `'0'` to mark it as visited.  
        - Enqueue its coordinates to continue BFS.
+
+5. **Return Result**  
+   Once the entire grid is scanned and all islands have been explored, return `islandCount` as the final count.
