@@ -1,3 +1,10 @@
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+/**
+ * BFS solution to the "Number of Islands" problem.
+ * Uses a queue to explore each island level by level.
+ */
 class Solution3 {
   public int numIslands(char[][] grid) {
     // Edge case: empty grid
@@ -14,6 +21,15 @@ class Solution3 {
       {-1, 0}, {1, 0}, {0, -1}, {0, 1}
     };
 
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < cols; c++) {
+        if (grid[r][c] == '1') {
+          islandCount++;
+          grid[r][c] = '0'; // mark as visited
+
+        }
+      }
+    }
 
     return islandCount;
   }
