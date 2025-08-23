@@ -31,6 +31,13 @@ class Solution3 {
           Queue<int[]> queue = new ArrayDeque<>();
           queue.offer(new int[] { r, c });
 
+          // Explore connected land cells
+          while (!queue.isEmpty()) {
+            int[] cell = queue.poll();
+            int row = cell[0];
+            int col = cell[1];
+
+          }
         }
       }
     }
