@@ -27,6 +27,10 @@ class Solution3 {
           islandCount++;
           grid[r][c] = '0'; // mark as visited
 
+          // Initialize queue for BFS
+          Queue<int[]> queue = new ArrayDeque<>();
+          queue.offer(new int[] { r, c });
+
         }
       }
     }
