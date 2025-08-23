@@ -37,6 +37,18 @@ class Solution3 {
             int row = cell[0];
             int col = cell[1];
 
+            for (int[] dir : directions) {
+              int newRow = row + dir[0];
+              int newCol = col + dir[1];
+
+              // If neighbor is land and within bounds, enqueue and mark visited
+              if (newRow >= 0 && newRow < rows &&
+                  newCol >= 0 && newCol < cols &&
+                  grid[newRow][newCol] == '1') {
+                queue.offer(new int[] { newRow, newCol });
+                grid[newRow][newCol] = '0';
+              }
+            }
           }
         }
       }
