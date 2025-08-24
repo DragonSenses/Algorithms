@@ -16,5 +16,10 @@ function numIslands(grid: string[][]): number {
   const cols = grid[0].length;
   let islandCount = 0;
 
+  const directions = [
+    [-1, 0], [1, 0], [0, -1], [0, 1] // up, down, left, right
+  ];
+
+
   return islandCount;
 }
