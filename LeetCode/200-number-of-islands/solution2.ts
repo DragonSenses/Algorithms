@@ -31,6 +31,16 @@ function numIslands(grid: string[][]): number {
         const queue: number[][] = [];
         queue.push([r, c]);
 
+        while (queue.length > 0) {
+          const [row, col] = queue.shift()!;
+
+          for (const [dr, dc] of directions) {
+            const newRow = row + dr;
+            const newCol = col + dc;
+
+
+          }
+        }
       }
     }
   }
