@@ -12,4 +12,9 @@ function numIslands(grid: string[][]): number {
     return 0;
   }
 
+  const rows = grid.length;
+  const cols = grid[0].length;
+  let islandCount = 0;
+
+  return islandCount;
 }
