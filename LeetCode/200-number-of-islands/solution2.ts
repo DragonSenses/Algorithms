@@ -38,7 +38,15 @@ function numIslands(grid: string[][]): number {
             const newRow = row + dr;
             const newCol = col + dc;
 
-
+            // Check bounds and if cell is unvisited land
+            if (
+              newRow >= 0 && newRow < rows &&
+              newCol >= 0 && newCol < cols &&
+              grid[newRow][newCol] === '1'
+            ) {
+              queue.push([newRow, newCol]);
+              grid[newRow][newCol] = '0'; // mark neighbor as visited
+            }
           }
         }
       }
