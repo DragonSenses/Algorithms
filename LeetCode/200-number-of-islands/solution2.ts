@@ -20,6 +20,16 @@ function numIslands(grid: string[][]): number {
     [-1, 0], [1, 0], [0, -1], [0, 1] // up, down, left, right
   ];
 
+  // Scan the grid
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c] === '1') {
+        islandCount++;
+        grid[r][c] = '0'; // Mark as visited
+
+      }
+    }
+  }
 
   return islandCount;
 }
