@@ -27,6 +27,10 @@ function numIslands(grid: string[][]): number {
         islandCount++;
         grid[r][c] = '0'; // Mark as visited
 
+        // Initialize BFS queue
+        const queue: number[][] = [];
+        queue.push([r, c]);
+
       }
     }
   }
