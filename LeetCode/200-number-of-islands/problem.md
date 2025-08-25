@@ -528,3 +528,69 @@ class Solution {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+/**
+ * Counts the number of distinct islands in a 2D grid.
+ * An island is defined as a group of adjacent '1's (land) connected
+ * horizontally or vertically (not diagonally). Uses Breadth-First Search (BFS).
+ *
+ * @param grid - 2D array of strings representing the map ('1' for land, '0' for water)
+ * @returns The total number of islands in the grid
+ */
+function numIslands(grid: string[][]): number {
+  // Edge Case: Return 0 if grid has no content
+  if (grid.length === 0 || grid[0].length === 0) {
+    return 0;
+  }
+
+  const rows = grid.length;
+  const cols = grid[0].length;
+  let islandCount = 0;
+
+  // Direction vectors: up, down, left, right
+  const directions = [
+    [-1, 0], // up
+    [1, 0],  // down
+    [0, -1], // left
+    [0, 1],  // right
+  ];
+
+  // Scan the grid
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c] === '1') {
+        islandCount++;
+        grid[r][c] = '0'; // Mark as visited
+
+        // Initialize BFS queue
+        const queue: [number, number][] = [[r, c]];
+
+        // Explore connected land cells
+        while (queue.length > 0) {
+          const [row, col] = queue.shift()!;
+
+          for (const [dr, dc] of directions) {
+            const newRow = row + dr;
+            const newCol = col + dc;
+
+            // Check bounds and if cell is unvisited land
+            if (
+              newRow >= 0 && newRow < rows &&
+              newCol >= 0 && newCol < cols &&
+              grid[newRow][newCol] === '1'
+            ) {
+              grid[newRow][newCol] = '0'; // Mark as visited
+              queue.push([newRow, newCol]);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return islandCount;
+}
+```
