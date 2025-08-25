@@ -603,6 +603,11 @@ function numIslands(grid: string[][]): number {
 - Let `n` be the number of columns  
 - The input grid has `m * n` total cells
 
+### **Time Complexity**: `O(m * n)`
+- **Complete Grid Scan**: Every cell is checked once in the outer loop, leading to `O(m * n)` iterations.
+- **Queue-Based Traversal**: Each land cell (`'1'`) is enqueued and dequeued exactly once during BFS, and each adjacent neighbor is processed once.
+- **No Redundant Work**: Since visited cells are marked as `'0'`, no cell is visited more than once across all iterations.
+
 ### **Space Complexity**: `O(m * n)`
 - **Queue Storage**: In the worst case (e.g. one large island covering the grid), the queue may hold up to `m * n` land cells during traversal.
 - **Directional Array**: A fixed-size array holds four directions (`O(1)` space).
