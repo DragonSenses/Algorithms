@@ -630,3 +630,12 @@ Instead of explicitly traversing each island, we let the Union-Find data structu
 - `UnionFind` should support `find`, `union`, and `countRoots(grid)` methods.
 - `countRoots(grid)` returns the number of unique root parents for land cells only.
 - Only right and down directions are checked to avoid redundant unions.
+
+## **Algorithm**
+
+1. Initialize Union-Find with one node per land cell.
+2. Traverse the grid:
+   - For each land cell, check its right and down neighbors.
+   - If the neighbor is also land, union the two cells.
+3. Count the number of unique root parents among all land cells.
+
