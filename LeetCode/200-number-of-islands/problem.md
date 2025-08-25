@@ -45,6 +45,10 @@
   - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
 - [**Breadth-First Search (BFS)** Approach](#breadth-first-search-bfs-approach)
+  - **Time Complexity**: `O(m * n)`
+  - **Space Complexity**: `O(m * n)`
+- [**Union Find (Disjoint Set)** Approach](#union-find-disjoint-set-approach)
+
 
 ## **Problem Overview: Number of Islands**
 
@@ -613,3 +617,16 @@ function numIslands(grid: string[][]): number {
 - **Directional Array**: A fixed-size array holds four directions (`O(1)` space).
 - **No Auxiliary Grid**: The algorithm modifies the input grid directly to track visited cells, avoiding additional memory for visited flags.
 - **Linear-Space Usage**: The queue used for BFS may grow proportionally with the size of the largest island, bounded by the input size `m * n`.
+
+# Union Find (Disjoint Set) Approach
+
+## **Intuition**
+
+Think of each land cell (`'1'`) in the grid as a node in a graph. Two adjacent land cells (connected horizontally or vertically) belong to the same island, so we "union" them into the same set. By the end of the traversal, each distinct island corresponds to a unique connected component in the Union-Find structure.
+
+Instead of explicitly traversing each island, we let the Union-Find data structure track which cells are connected. The final number of islands is simply the number of unique root parents among all land cells.
+
+### **Notes**
+- `UnionFind` should support `find`, `union`, and `countRoots(grid)` methods.
+- `countRoots(grid)` returns the number of unique root parents for land cells only.
+- Only right and down directions are checked to avoid redundant unions.
