@@ -594,3 +594,17 @@ function numIslands(grid: string[][]): number {
   return islandCount;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `m` be the number of rows  
+- Let `n` be the number of columns  
+- The input grid has `m * n` total cells
+
+### **Space Complexity**: `O(m * n)`
+- **Queue Storage**: In the worst case (e.g. one large island covering the grid), the queue may hold up to `m * n` land cells during traversal.
+- **Directional Array**: A fixed-size array holds four directions (`O(1)` space).
+- **No Auxiliary Grid**: The algorithm modifies the input grid directly to track visited cells, avoiding additional memory for visited flags.
+- **Linear-Space Usage**: The queue used for BFS may grow proportionally with the size of the largest island, bounded by the input size `m * n`.
