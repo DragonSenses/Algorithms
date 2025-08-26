@@ -667,6 +667,189 @@ function numIslands(grid):
     return uf.countRoots(grid)
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+
+  /**
+   * Counts the number of distinct islands in a 2D grid using Union-Find.
+   * An island is formed by connecting adjacent lands horizontally or vertically.
+   *
+   * @param grid 2D character array where '1' represents land and '0' represents water
+   * @return the total number of islands present in the grid
+   */
+  public int numIslands(char[][] grid) {
+    if (grid == null || grid.length == 0 || grid[0].length == 0) {
+      return 0;
+    }
+
+    int rows = grid.length;
+    int cols = grid[0].length;
+    UnionFind uf = new UnionFind(grid);
+
+    // Directions: down and right only to avoid redundant unions
+    int[][] directions = {{1, 0}, {0, 1}};
+
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < cols; c++) {
+        if (grid[r][c] == '1') {
+          for (int[] dir : directions) {
+            int newRow = r + dir[0];
+            int newCol = c + dir[1];
+
+            if (newRow < rows && newCol < cols && grid[newRow][newCol] == '1') {
+              uf.union(r * cols + c, newRow * cols + newCol);
+            }
+          }
+        }
+      }
+    }
+
+    return uf.getIslandCount();
+  }
+
+  /**
+   * Union-Find (Disjoint Set) data structure to track connected components.
+   */
+  static class UnionFind {
+    private int[] parent;
+    private int count;
+
+    public UnionFind(char[][] grid) {
+      int rows = grid.length;
+      int cols = grid[0].length;
+      parent = new int[rows * cols];
+      count = 0;
+
+      for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+          if (grid[r][c] == '1') {
+            int index = r * cols + c;
+            parent[index] = index;
+            count++;
+          }
+        }
+      }
+    }
+
+    public int find(int x) {
+      if (parent[x] != x) {
+        parent[x] = find(parent[x]); // Path compression
+      }
+      return parent[x];
+    }
+
+    public void union(int x, int y) {
+      int rootX = find(x);
+      int rootY = find(y);
+      if (rootX != rootY) {
+        parent[rootX] = rootY;
+        count--;
+      }
+    }
+
+    public int getIslandCount() {
+      return count;
+    }
+  }
+}
+```
+
+### TypeScript
+
+```typescript
+/**
+ * Counts the number of distinct islands in a 2D grid using Union-Find.
+ * An island is formed by connecting adjacent lands horizontally or vertically.
+ *
+ * @param grid - 2D array of strings ('1' for land, '0' for water)
+ * @returns The total number of islands in the grid
+ */
+function numIslands(grid: string[][]): number {
+  if (grid.length === 0 || grid[0].length === 0) {
+    return 0;
+  }
+
+  const rows = grid.length;
+  const cols = grid[0].length;
+  const uf = new UnionFind(grid);
+
+  const directions = [
+    [1, 0], // down
+    [0, 1], // right
+  ];
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c] === '1') {
+        for (const [dr, dc] of directions) {
+          const newRow = r + dr;
+          const newCol = c + dc;
+
+          if (
+            newRow < rows &&
+            newCol < cols &&
+            grid[newRow][newCol] === '1'
+          ) {
+            uf.union(r * cols + c, newRow * cols + newCol);
+          }
+        }
+      }
+    }
+  }
+
+  return uf.getIslandCount();
+}
+
+/**
+ * Union-Find (Disjoint Set) structure for tracking connected land cells.
+ */
+class UnionFind {
+  private parent: number[];
+  private count: number;
+
+  constructor(grid: string[][]) {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    this.parent = new Array(rows * cols).fill(-1);
+    this.count = 0;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === '1') {
+          const index = r * cols + c;
+          this.parent[index] = index;
+          this.count++;
+        }
+      }
+    }
+  }
+
+  find(x: number): number {
+    if (this.parent[x] !== x) {
+      this.parent[x] = this.find(this.parent[x]); // Path compression
+    }
+    return this.parent[x];
+  }
+
+  union(x: number, y: number): void {
+    const rootX = this.find(x);
+    const rootY = this.find(y);
+    if (rootX !== rootY) {
+      this.parent[rootX] = rootY;
+      this.count--;
+    }
+  }
+
+  getIslandCount(): number {
+    return this.count;
+  }
+}
+```
+
 ## **Complexity Analysis**
 
 ### **Assumptions**
