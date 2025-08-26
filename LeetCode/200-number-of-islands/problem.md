@@ -48,7 +48,8 @@
   - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
 - [**Union Find (Disjoint Set)** Approach](#union-find-disjoint-set-approach)
-
+  - **Time Complexity**: `O(m * n)`
+  - **Space Complexity**: `O(m * n)`
 
 ## **Problem Overview: Number of Islands**
 
@@ -665,3 +666,16 @@ function numIslands(grid):
 
     return uf.countRoots(grid)
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `m` be the number of rows  
+- Let `n` be the number of columns  
+- The grid contains `m × n` total cells
+
+### **Space Complexity**: `O(m × n)`
+
+- **Parent Array**: Stores one entry per cell → `O(m × n)`
+- **Grid Input**: No extra space used beyond the input grid
+- **Auxiliary Structures**: Direction array and loop variables are constant space
