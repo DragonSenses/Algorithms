@@ -639,3 +639,29 @@ Instead of explicitly traversing each island, we let the Union-Find data structu
    - If the neighbor is also land, union the two cells.
 3. Count the number of unique root parents among all land cells.
 
+## **Pseudocode**
+
+```plaintext
+function numIslands(grid):
+    if grid is empty:
+        return 0
+
+    rows = number of rows in grid
+    cols = number of columns in grid
+    uf = new UnionFind(rows * cols)
+
+    for r from 0 to rows - 1:
+        for c from 0 to cols - 1:
+            if grid[r][c] == '1':
+                index = r * cols + c
+
+                for (dr, dc) in [(1, 0), (0, 1)]:  // down, right
+                    newR = r + dr
+                    newC = c + dc
+
+                    if newR < rows and newC < cols and grid[newR][newC] == '1':
+                        neighborIndex = newR * cols + newC
+                        uf.union(index, neighborIndex)
+
+    return uf.countRoots(grid)
+```
