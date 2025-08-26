@@ -674,8 +674,17 @@ function numIslands(grid):
 - Let `n` be the number of columns  
 - The grid contains `m × n` total cells
 
+### **Time Complexity**: `O(m × n · α(mn))`
+
+- **Grid Traversal**: Each cell is visited once during the scan → `O(m × n)`
+- **Union Operations**: Each union and find operation is nearly constant time due to path compression and union by rank -> amortized `O(α(mn))` per operation, where `α` is the inverse Ackermann function (grows extremely slowly)
+- **Total Work**: At most `m × n` union/find operations → `O(m × n · α(mn))`, which is effectively linear for all practical input sizes
+
 ### **Space Complexity**: `O(m × n)`
 
 - **Parent Array**: Stores one entry per cell → `O(m × n)`
 - **Grid Input**: No extra space used beyond the input grid
 - **Auxiliary Structures**: Direction array and loop variables are constant space
+
+### Summary
+Union-Find offers near-linear performance with excellent scalability, especially for large grids with many small islands. It avoids deep recursion and is memory-efficient compared to DFS stack depth or BFS queue growth in worst-case scenarios.
