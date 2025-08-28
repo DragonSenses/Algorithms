@@ -39,12 +39,27 @@ public class Solution4 {
   }
 
   static class UnionFind {
+    private int[] parent;
     private int count;
-    
-    public UnionFind(char[][] grid) {}
 
-    public void union(int x, int y) {
+    public UnionFind(char[][] grid) {
+      int rows = grid.length;
+      int cols = grid[0].length;
+      parent = new int[rows * cols];
+      count = 0;
+
+      for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+          if (grid[r][c] == '1') {
+            int index = r * cols + c;
+            parent[index] = index;
+            count++;
+          }
+        }
+      }
     }
+
+    public void union(int x, int y) {}
 
     public int getIslandCount() {
       return count;
