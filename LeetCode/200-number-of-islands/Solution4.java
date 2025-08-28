@@ -35,13 +35,19 @@ public class Solution4 {
       }
     }
 
-    return 0;
+    return uf.getIslandCount();
   }
 
   static class UnionFind {
+    private int count;
+    
     public UnionFind(char[][] grid) {}
 
     public void union(int x, int y) {
+    }
+
+    public int getIslandCount() {
+      return count;
     }
   }
 }
