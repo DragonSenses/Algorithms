@@ -14,8 +14,10 @@ public class Solution4 {
 
     int rows = grid.length;
     int cols = grid[0].length;
-
     UnionFind uf = new UnionFind(grid);
+
+    // Directions: down and right only
+    int[][] directions = {{1, 0}, {0, 1}};
 
     return 0;
   }
