@@ -59,6 +59,13 @@ public class Solution4 {
       }
     }
 
+    public int find(int x) {
+      if (parent[x] != x) {
+        parent[x] = find(parent[x]); // Path compression
+      }
+      return parent[x];
+    }
+
     public void union(int x, int y) {}
 
     public int getIslandCount() {
