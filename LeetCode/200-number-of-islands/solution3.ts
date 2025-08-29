@@ -72,4 +72,13 @@ class UnionFind {
     return this.parent[x];
   }
 
+  union(x: number, y: number): void {
+    const rootX = this.find(x);
+    const rootY = this.find(y);
+    if (rootX !== rootY) {
+      this.parent[rootX] = rootY;
+      this.count--;
+    }
+  }
+
 }
