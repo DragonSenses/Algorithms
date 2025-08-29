@@ -81,4 +81,7 @@ class UnionFind {
     }
   }
 
+  getIslandCount(): number {
+    return this.count;
+  }
 }
