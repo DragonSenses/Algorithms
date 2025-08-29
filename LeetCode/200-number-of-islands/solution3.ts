@@ -41,3 +41,28 @@ function numIslands(grid: string[][]): number {
   return uf.getIslandCount();
 }
 
+/**
+ * Union-Find (Disjoint Set) structure for tracking connected land cells.
+ */
+class UnionFind {
+  private parent: number[];
+  private count: number;
+
+  constructor(grid: string[][]) {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    this.parent = new Array(rows * cols).fill(-1);
+    this.count = 0;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c] === '1') {
+          const index = r * cols + c;
+          this.parent[index] = index;
+          this.count++;
+        }
+      }
+    }
+  }
+
+}
