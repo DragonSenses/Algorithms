@@ -66,7 +66,14 @@ public class Solution4 {
       return parent[x];
     }
 
-    public void union(int x, int y) {}
+    public void union(int x, int y) {
+      int rootX = find(x);
+      int rootY = find(y);
+      if (rootX != rootY) {
+        parent[rootX] = rootY;
+        count--;
+      }
+    }
 
     public int getIslandCount() {
       return count;
