@@ -10,6 +10,10 @@ function numIslands(grid: string[][]): number {
     return 0;
   }
 
+  const rows = grid.length;
+  const cols = grid[0].length;
+  const uf = new UnionFind(grid);
+
   return 0;
 }
 
