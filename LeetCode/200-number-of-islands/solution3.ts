@@ -65,4 +65,11 @@ class UnionFind {
     }
   }
 
+  find(x: number): number {
+    if (this.parent[x] !== x) {
+      this.parent[x] = this.find(this.parent[x]); // Path compression
+    }
+    return this.parent[x];
+  }
+
 }
