@@ -14,6 +14,11 @@ function numIslands(grid: string[][]): number {
   const cols = grid[0].length;
   const uf = new UnionFind(grid);
 
+  const directions = [
+    [1, 0], // down
+    [0, 1], // right
+  ];
+
   return 0;
 }
 
