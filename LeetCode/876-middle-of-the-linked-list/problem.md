@@ -23,8 +23,46 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the list is in the range <code>[1, 100]</code>.</li>
-	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the list is in the range <code>[1, 100]</code>.</li>
+  <li><code>1 &lt;= Node.val &lt;= 100</code></li>
 </ul>
+
+---
+
+# Problem Overview: Middle of the Linked List
+
+## Objective
+Given the `head` of a singly linked list, return the **middle node**.  
+If the list has an even number of nodes, return the **second** of the two middle nodes.
+
+## Input
+- A singly linked list with `n` nodes, where `1 ≤ n ≤ 100`
+- Each node contains an integer value: `1 ≤ Node.val ≤ 100`
+
+## Output
+- A reference to the middle node of the list
+- The returned node includes all subsequent nodes
+
+## Examples
+
+### Example 1
+**Input:** `head = [1, 2, 3, 4, 5]`  
+**Output:** `[3, 4, 5]`  
+**Explanation:** The middle node is 3 (odd-length list)
+
+### Example 2
+**Input:** `head = [1, 2, 3, 4, 5, 6]`  
+**Output:** `[4, 5, 6]`  
+**Explanation:** Middle nodes are 3 and 4 → return the second (4)
+
+## Constraints
+- `1 ≤ n ≤ 100`
+- `1 ≤ Node.val ≤ 100`
+
+## Key Insight
+Use a two-pointer approach:
+- Initialize `slow` and `fast` pointers at the head
+- Move `slow` one step and `fast` two steps at a time
+- When `fast` reaches the end, `slow` will be at the middle
 
 ---
