@@ -29,6 +29,13 @@
 
 ---
 
+# Solution
+
+- [Two Pointers Approach](#two-pointers-approach)
+
+---
+
+
 # Problem Overview: Middle of the Linked List
 
 ## Objective
@@ -66,3 +73,7 @@ Use a two-pointer approach:
 - When `fast` reaches the end, `slow` will be at the middle
 
 ---
+
+# Two Pointers Approach
+
+We can traverse the list with two pointers: slow and fast. Where slow traverses by one, and fast traverse twice as fast. When fast reaches the end of the list slow must be in the middle.
