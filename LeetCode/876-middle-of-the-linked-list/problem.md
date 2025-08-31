@@ -87,3 +87,12 @@ Because `fast` moves twice as quickly, it reaches the end of the list in half th
 This technique avoids counting nodes or using extra space, making it optimal for both time and space.
 
 If the list has an even number of nodes, `slow` will naturally land on the second middle node, satisfying the problem's requirement.
+
+## Algorithm
+
+1. Initialize two pointers: `slow` and `fast`, both pointing to the head of the list.
+2. Traverse the list:
+   - Move `slow` one step forward.
+   - Move `fast` two steps forward.
+3. Continue until `fast` reaches the end (`null`) or its next is `null`.
+4. Return the node pointed to by `slow`.
