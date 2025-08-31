@@ -76,4 +76,14 @@ Use a two-pointer approach:
 
 # Two Pointers Approach
 
-We can traverse the list with two pointers: slow and fast. Where slow traverses by one, and fast traverse twice as fast. When fast reaches the end of the list slow must be in the middle.
+## Intuition
+
+To find the middle of a singly linked list efficiently, we use two pointers moving at different speeds:
+
+- `slow` advances one node at a time.
+- `fast` advances two nodes at a time.
+
+Because `fast` moves twice as quickly, it reaches the end of the list in half the time. When `fast` is null (or its next is null), `slow` will be at the middle.  
+This technique avoids counting nodes or using extra space, making it optimal for both time and space.
+
+If the list has an even number of nodes, `slow` will naturally land on the second middle node, satisfying the problem's requirement.
