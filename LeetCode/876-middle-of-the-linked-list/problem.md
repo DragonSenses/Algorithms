@@ -96,3 +96,17 @@ If the list has an even number of nodes, `slow` will naturally land on the secon
    - Move `fast` two steps forward.
 3. Continue until `fast` reaches the end (`null`) or its next is `null`.
 4. Return the node pointed to by `slow`.
+
+## Pseudocode
+
+```
+function middleNode(head):
+    slow = head
+    fast = head
+
+    while fast ≠ null and fast.next ≠ null:
+        slow = slow.next
+        fast = fast.next.next
+
+    return slow
+```
