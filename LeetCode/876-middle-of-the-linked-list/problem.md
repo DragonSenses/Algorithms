@@ -156,3 +156,11 @@ function middleNode(head: ListNode | null): ListNode | null {
   return slow;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The input is a singly linked list with `n` nodes.
+- Each node contains an integer value and a reference to the next node.
+- No auxiliary data structures are used.
+- The list is well-formed (no cycles).
