@@ -32,6 +32,7 @@
 # Solution
 
 - [Two Pointers Approach](#two-pointers-approach)
+  - **Space Complexity**: `O(1)`
 
 ---
 
@@ -164,3 +165,9 @@ function middleNode(head: ListNode | null): ListNode | null {
 - Each node contains an integer value and a reference to the next node.
 - No auxiliary data structures are used.
 - The list is well-formed (no cycles).
+
+### **Space Complexity**: `O(1)`
+
+- **Pointer Usage**: Only two pointers (`slow` and `fast`) are used.
+- No additional memory is allocated regardless of input size.
+- The algorithm operates in constant space.
