@@ -32,6 +32,7 @@
 # Solution
 
 - [Two Pointers Approach](#two-pointers-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ---
@@ -165,6 +166,12 @@ function middleNode(head: ListNode | null): ListNode | null {
 - Each node contains an integer value and a reference to the next node.
 - No auxiliary data structures are used.
 - The list is well-formed (no cycles).
+
+### **Time Complexity**: `O(n)`
+
+- **Traversal**: The `fast` pointer moves two steps per iteration, while `slow` moves one.
+- In total, the loop runs approximately `n/2` times, but each node is visited at most once.
+- Therefore, the time complexity is linear: `O(n)`.
 
 ### **Space Complexity**: `O(1)`
 
