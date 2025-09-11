@@ -29,3 +29,43 @@
 	<li><code>nums</code> is sorted in ascending order.</li>
 </ul>
 
+## Problem Overview : Binary Search
+
+## Problem Statement
+Given a sorted array of integers `nums` in ascending order and an integer `target`, implement a function to search for `target` in `nums`.  
+If `target` exists, return its index. Otherwise, return `-1`.
+
+You must implement an algorithm with **O(log n)** runtime complexity.
+
+## Examples
+
+### Example 1
+**Input:**  
+`nums = [-1, 0, 3, 5, 9, 12]`  
+`target = 9`  
+**Output:**  
+`4`  
+**Explanation:**  
+`9` exists in `nums` and its index is `4`.
+
+### Example 2
+**Input:**  
+`nums = [-1, 0, 3, 5, 9, 12]`  
+`target = 2`  
+**Output:**  
+`-1`  
+**Explanation:**  
+`2` does not exist in `nums`, so return `-1`.
+
+## Constraints
+- `1 <= nums.length <= 10⁴`
+- `-10⁴ < nums[i], target < 10⁴`
+- All integers in `nums` are **unique**
+- `nums` is sorted in **ascending order**
+
+## Approach
+Use the classic binary search approach:  
+- Initialize two pointers `left` and `right`  
+- While `left <= right`, calculate `mid`  
+- Compare `nums[mid]` with `target` and adjust pointers accordingly  
+- Return index if found, else `-1`
