@@ -90,3 +90,17 @@ This approach is especially useful when:
 - You need to **find a specific value** in a sorted array.
 - You're optimizing for **search speed** over brute-force iteration.
 - You want a **deterministic and auditable** search path for debugging or logging.
+
+## Algorithm
+
+1. Initialize two pointers:
+   - `left = 0` (start of array)
+   - `right = nums.length - 1` (end of array)
+
+2. While `left <= right`:
+   a. Compute `mid = Math.floor((left + right) / 2)`
+   b. If `nums[mid] === target`, return `mid` (target found)
+   c. If `nums[mid] < target`, move `left = mid + 1` (search right half)
+   d. If `nums[mid] > target`, move `right = mid - 1` (search left half)
+
+3. If loop exits, return `-1` (target not found)
