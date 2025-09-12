@@ -104,3 +104,25 @@ This approach is especially useful when:
    d. If `nums[mid] > target`, move `right = mid - 1` (search left half)
 
 3. If loop exits, return `-1` (target not found)
+
+### **Pseudocode**
+
+```txt
+function binarySearch(nums, target):
+    left = 0
+    right = length(nums) - 1
+
+    while left <= right:
+        mid = floor((left + right) / 2)
+
+        if nums[mid] == target:
+            return mid
+
+        else if nums[mid] < target:
+            left = mid + 1
+
+        else:
+            right = mid - 1
+
+    return -1  // target not found
+```
