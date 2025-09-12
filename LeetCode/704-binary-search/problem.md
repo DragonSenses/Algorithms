@@ -29,6 +29,14 @@
 	<li><code>nums</code> is sorted in ascending order.</li>
 </ul>
 
+---
+
+# Solution
+
+- [Two Pointers Approach](#two-pointers-approach)
+
+---
+
 ## Problem Overview : Binary Search
 
 ## Problem Statement
@@ -69,3 +77,16 @@ Use the classic binary search approach:
 - While `left <= right`, calculate `mid`  
 - Compare `nums[mid]` with `target` and adjust pointers accordingly  
 - Return index if found, else `-1`
+
+---
+
+# Two Pointers Approach
+
+## Intuition
+
+Binary search leverages the fact that the input array is **sorted**. Instead of scanning every element, we can **eliminate half the search space** with each step. The two pointers—`left` and `right`—represent the current bounds of the search. By comparing the middle element to the target, we decide which half to discard. This results in **O(log n)** time complexity, making it ideal for large datasets.
+
+This approach is especially useful when:
+- You need to **find a specific value** in a sorted array.
+- You're optimizing for **search speed** over brute-force iteration.
+- You want a **deterministic and auditable** search path for debugging or logging.
