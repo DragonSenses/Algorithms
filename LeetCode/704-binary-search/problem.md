@@ -34,6 +34,7 @@
 # Solution
 
 - [Two Pointers Approach](#two-pointers-approach)
+  - **Time Complexity**: `O(log n)`
   - **Space Complexity**: `O(1)`
 
 ---
@@ -190,6 +191,12 @@ function search(nums: number[], target: number): number {
 - No recursion is used; the implementation is **iterative**.
 - No additional data structures are allocated during execution.
 
+### **Time Complexity**: `O(log n)`
+
+- **Traversal**: Each iteration of the loop halves the search space.  
+  - In the worst case, the number of iterations is `log₂(n)` —  this occurs when the target is not present or is found at the deepest level of division.
+- **Best Case**:  `O(1)` if the target is found at the midpoint on the first iteration.
+- **Worst Case**: `O(log n)` when the search space is reduced to a single element without finding the target.
 
 ### **Space Complexity**: `O(1)`
 
