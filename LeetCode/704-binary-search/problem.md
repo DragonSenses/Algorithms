@@ -34,6 +34,7 @@
 # Solution
 
 - [Two Pointers Approach](#two-pointers-approach)
+  - **Space Complexity**: `O(1)`
 
 ---
 
@@ -188,3 +189,8 @@ function search(nums: number[], target: number): number {
 - The search target is a **primitive type** (e.g., `int`) and comparison is constant-time.
 - No recursion is used; the implementation is **iterative**.
 - No additional data structures are allocated during execution.
+
+
+### **Space Complexity**: `O(1)`
+
+- **Constant Space**: Only three integer variables (`left`, `right`, `mid`) are used regardless of input size. No auxiliary data structures or recursive stack frames are involved.
