@@ -179,3 +179,12 @@ function search(nums: number[], target: number): number {
 }
 ```
 
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- The input array `nums` is **sorted in non-decreasing order**.
+- The array contains **`n` elements**, and indexing is **zero-based**.
+- The search target is a **primitive type** (e.g., `int`) and comparison is constant-time.
+- No recursion is used; the implementation is **iterative**.
+- No additional data structures are allocated during execution.
