@@ -1,20 +1,24 @@
 class MedianFinder {
-    constructor() {
-        
-    }
+  private list: number[];
 
-    addNum(num: number): void {
-        
-    }
+  constructor() {
+    this.list = [];
+  }
 
-    findMedian(): number {
-        
-    }
+  addNum(num: number): void {
+    this.list.push(num);
+  }
+
+  findMedian(): number {
+    if (this.list.length === 0) return 0;
+
+    this.list.sort((a, b) => a - b);
+
+    const size = this.list.length;
+    const mid = Math.floor(size / 2);
+
+    return size % 2 === 1
+      ? this.list[mid]
+      : (this.list[mid - 1] + this.list[mid]) / 2;
+  }
 }
-
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * var obj = new MedianFinder()
- * obj.addNum(num)
- * var param_2 = obj.findMedian()
- */
