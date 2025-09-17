@@ -130,3 +130,24 @@ This approach is acceptable for small input sizes or when performance is not cri
    - Sort the list in ascending order.
    - If the list size is odd, return the middle element.
    - If the list size is even, return the average of the two middle elements.
+
+## **Pseudocode**
+
+```plaintext
+class MedianFinder: Initialize empty list
+
+method addNum(num):
+    append num to list
+
+method findMedian():
+    if list is empty:
+        return 0
+
+    sort list in ascending order
+    size = length of list
+
+    if size is odd:
+        return list[size // 2]
+    else:
+        return (list[size // 2 - 1] + list[size // 2]) / 2.0
+```
