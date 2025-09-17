@@ -52,6 +52,10 @@ medianFinder.findMedian(); // return 2.0
 
 ---
 
+# Solution
+
+- [Naive Approach](#naive-approach)
+
 # Problem Overview: Find Median from Data Stream
 
 ## Problem Description
@@ -109,3 +113,12 @@ medianFinder.findMedian(); // return 2.0
 - If 99% of all integer numbers from the stream are in the range `[0, 100]`, how would you optimize your solution?
 
 ---
+
+# Naive Approach
+
+## **Intuition**
+
+The simplest way to compute the median from a stream of numbers is to store all incoming values in a resizable container (like an ArrayList). Since the median depends on the sorted order of elements, we sort the list every time `findMedian()` is called. This guarantees correctness but is inefficient for large data streams due to repeated sorting.
+
+This approach is acceptable for small input sizes or when performance is not critical. It prioritizes simplicity over efficiency.
+
