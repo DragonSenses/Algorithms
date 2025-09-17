@@ -55,6 +55,7 @@ medianFinder.findMedian(); // return 2.0
 # Solution
 
 - [Naive Approach](#naive-approach)
+  - **Time Complexity**: `O(n log n)`
   - **Space Complexity**: `O(n)`
 
 # Problem Overview: Find Median from Data Stream
@@ -225,6 +226,11 @@ class MedianFinder {
 - **Input Size is Manageable**: This approach assumes that the number of elements (`n`) is small enough that repeated sorting is not a performance bottleneck.
 - **Sorting is Stable and Deterministic**: The built-in sort function is assumed to be stable and consistent across calls.
 - **Median is Always Requested After Insertions**: The algorithm does not cache or optimize median retrieval, so sorting is repeated on every call to `findMedian()`.
+
+### **Time Complexity**: `O(n log n)`
+- **Sorting Dominates**: Each call to `findMedian()` triggers a full sort of the list, which takes `O(n log n)` time where `n` is the number of elements added so far.
+- **Insertion is Constant-Time**: The `addNum()` method simply appends to the list, which takes `O(1)` time per insertion.
+- **Median Retrieval is Constant-Time**: After sorting, accessing one or two middle elements takes `O(1)` time.
 
 ### **Space Complexity**: `O(n)`
 - **Linear-Space Storage**: The algorithm stores all incoming numbers in a resizable array (`ArrayList` or `number[]`), which grows linearly with the number of elements.
