@@ -122,3 +122,11 @@ The simplest way to compute the median from a stream of numbers is to store all 
 
 This approach is acceptable for small input sizes or when performance is not critical. It prioritizes simplicity over efficiency.
 
+## **Algorithm**
+
+1. Use an `ArrayList<Integer>` to store all incoming numbers.
+2. When `addNum(int num)` is called, append the number to the list.
+3. When `findMedian()` is called:
+   - Sort the list in ascending order.
+   - If the list size is odd, return the middle element.
+   - If the list size is even, return the average of the two middle elements.
