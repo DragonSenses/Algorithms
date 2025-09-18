@@ -57,6 +57,7 @@ medianFinder.findMedian(); // return 2.0
 - [Naive Approach](#naive-approach)
   - **Time Complexity**: `O(n log n)`
   - **Space Complexity**: `O(n)`
+- [Insertion Sort Approach](#insertion-sort-approach)
 
 # Problem Overview: Find Median from Data Stream
 
@@ -236,3 +237,10 @@ class MedianFinder {
 - **Linear-Space Storage**: The algorithm stores all incoming numbers in a resizable array (`ArrayList` or `number[]`), which grows linearly with the number of elements.
 - **No Auxiliary Structures**: Aside from the main list, no additional data structures are used, keeping space usage minimal but proportional to input size.
 
+# Insertion Sort Approach
+
+Keeping our input container always sorted (i.e., maintaining the sorted nature of the container as *invariant* -- never changing).
+
+Every time a new number is added, we insert it into its correct position so the list remains sorted. 
+
+This eliminates the need to sort the list during `findMedian()` calls and makes median retrieval trivial.
