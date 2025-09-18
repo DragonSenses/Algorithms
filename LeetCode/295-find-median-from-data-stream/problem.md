@@ -239,8 +239,22 @@ class MedianFinder {
 
 # Insertion Sort Approach
 
+## **Intuition**
+
 Keeping our input container always sorted (i.e., maintaining the sorted nature of the container as *invariant* -- never changing).
 
 Every time a new number is added, we insert it into its correct position so the list remains sorted. 
 
 This eliminates the need to sort the list during `findMedian()` calls and makes median retrieval trivial.
+
+Since we’re building the list from scratch and always inserting in order, we don’t need to assume it’s already sorted—it always is.
+
+To efficiently find the correct insertion point, we use **binary search**, which takes `O(log n)` time.  
+
+Once the position is found, we shift all subsequent elements to the right to make room for the new number, which takes `O(n)` time in the worst case.
+
+This approach works well when:
+- The number of `findMedian()` calls is high relative to `addNum()` calls.
+- We want to avoid repeated sorting.
+- Simplicity and correctness are more important than insertion speed.
+- The amount of insertion queries is lesser or about the same as the amount of median finding queries.
