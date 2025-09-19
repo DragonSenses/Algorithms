@@ -258,3 +258,14 @@ This approach works well when:
 - We want to avoid repeated sorting.
 - Simplicity and correctness are more important than insertion speed.
 - The amount of insertion queries is lesser or about the same as the amount of median finding queries.
+
+## **Algorithm**
+
+1. Initialize an empty list.
+2. When `addNum(num)` is called:
+   - Scan the list to find the correct position to insert `num`.
+   - Insert `num` at that position to maintain sorted order.
+3. When `findMedian()` is called:
+   - If the list size is odd, return the middle element.
+   - If the list size is even, return the average of the two middle elements.
+
