@@ -269,3 +269,19 @@ This approach works well when:
    - If the list size is odd, return the middle element.
    - If the list size is even, return the average of the two middle elements.
 
+### **Pseudocode**
+
+```plaintext
+class MedianFinder: initialize empty list
+
+method addNum(num):
+    find correct index to insert num (linear scan or binary search)
+    insert num at index
+
+method findMedian():
+    size = length of list
+    if size is odd:
+        return list[size // 2]
+    else:
+        return (list[size // 2 - 1] + list[size // 2]) / 2.0
+```
