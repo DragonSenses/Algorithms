@@ -5,6 +5,11 @@ class MedianFinder {
     this.list = [];
   }
 
+  addNum(num: number): void {
+    const index = this.binarySearchInsertIndex(num);
+    this.list.splice(index, 0, num); // Insert at index, shifting elements
+  }
+
   private binarySearchInsertIndex(target: number): number {
     let left = 0;
     let right = this.list.length;
