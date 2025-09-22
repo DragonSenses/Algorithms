@@ -393,3 +393,12 @@ class MedianFinder {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `n` be the number of elements in the data stream.
+- Each element is inserted using binary search to find its correct position.
+- The list is maintained in sorted order at all times.
+
