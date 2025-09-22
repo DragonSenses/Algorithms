@@ -58,6 +58,7 @@ medianFinder.findMedian(); // return 2.0
   - **Time Complexity**: `O(n log n)`
   - **Space Complexity**: `O(n)`
 - [Insertion Sort Approach](#insertion-sort-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 # Problem Overview: Find Median from Data Stream
@@ -402,6 +403,11 @@ class MedianFinder {
 - Let `n` be the number of elements in the data stream.
 - Each element is inserted using binary search to find its correct position.
 - The list is maintained in sorted order at all times.
+
+### **Time Complexity**: `O(n)`
+- **Insertion Cost per Element**: Each call to `addNum(num)` performs a binary search in `O(log n)` time to find the correct index, followed by an array insertion which may require shifting up to `O(n)` elements. Thus, each insertion is `O(n)` in the worst case.
+- **Median Retrieval**: `findMedian()` accesses one or two middle elements in constant time, `O(1)`.
+- **Overall Cost**: If `n` elements are inserted, the total cost is `O(n^2)` across all insertions, but each individual operation is `O(n)` worst-case.
 
 ### **Space Complexity**: `O(n)`
 - **Linear Storage**: All elements are stored in a single array (`number[]` or `ArrayList<Integer>`), which grows linearly with the number of insertions.
