@@ -58,6 +58,7 @@ medianFinder.findMedian(); // return 2.0
   - **Time Complexity**: `O(n log n)`
   - **Space Complexity**: `O(n)`
 - [Insertion Sort Approach](#insertion-sort-approach)
+  - **Space Complexity**: `O(n)`
 
 # Problem Overview: Find Median from Data Stream
 
@@ -402,3 +403,6 @@ class MedianFinder {
 - Each element is inserted using binary search to find its correct position.
 - The list is maintained in sorted order at all times.
 
+### **Space Complexity**: `O(n)`
+- **Linear Storage**: All elements are stored in a single array (`number[]` or `ArrayList<Integer>`), which grows linearly with the number of insertions.
+- **No Auxiliary Structures**: Aside from the main list, no additional data structures are used, keeping space usage minimal and proportional to input size.
