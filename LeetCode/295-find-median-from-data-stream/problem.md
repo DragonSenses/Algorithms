@@ -339,3 +339,57 @@ class MedianFinder {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+class MedianFinder {
+  private list: number[];
+
+  constructor() {
+    this.list = [];
+  }
+
+  /**
+   * Adds a number to the data stream while maintaining sorted order.
+   * Uses binary search to find the correct insertion index.
+   */
+  addNum(num: number): void {
+    const index = this.binarySearchInsertIndex(num);
+    this.list.splice(index, 0, num); // Insert at index, shifting elements
+  }
+
+  /**
+   * Returns the median of all elements added so far.
+   */
+  findMedian(): number {
+    const size = this.list.length;
+    if (size === 0) return 0;
+
+    const mid = Math.floor(size / 2);
+
+    return size % 2 === 1
+      ? this.list[mid]
+      : (this.list[mid - 1] + this.list[mid]) / 2;
+  }
+
+  /**
+   * Helper method to find the correct insertion index using binary search.
+   */
+  private binarySearchInsertIndex(target: number): number {
+    let left = 0;
+    let right = this.list.length;
+
+    while (left < right) {
+      const mid = Math.floor((left + right) / 2);
+      if (this.list[mid] < target) {
+        left = mid + 1;
+      } else {
+        right = mid;
+      }
+    }
+
+    return left;
+  }
+}
+```
