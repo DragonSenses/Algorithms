@@ -416,6 +416,8 @@ class MedianFinder {
 
 # Heap Approach
 
+## **Intuition**
+
 Previous approaches taught us that:
 1. Constant-time median retrieval is possible if we maintain direct access to the middle elements.
 2. Efficient insertion is key to keeping the system performant under frequent updates.
@@ -426,4 +428,30 @@ But here's the deeper insight:
 This leads us to heaps (priority queues), which offer:
 - **Logarithmic-time insertion**
 - **Constant-time access to min or max elements**
+
+By maintaining two heaps:
+- A **max-heap** (`lo`) for the smaller half of the numbers
+- A **min-heap** (`hi`) for the larger half
+
+We can ensure that:
+- The top of `lo` is the largest of the smaller half
+- The top of `hi` is the smallest of the larger half
+
+If both heaps are balanced (or nearly balanced), the median is either:
+- The top of `lo` (if odd number of elements)
+- The average of tops of `lo` and `hi` (if even number of elements)
+
+### Why this works:
+- All elements in `lo` are ≤ all elements in `hi`
+- The heaps partition the input into two halves
+- The tops of the heaps represent the middle values
+
+### Balancing Strategy:
+- Always insert into `lo` first
+- Move the largest element from `lo` to `hi`
+- If `hi` ends up larger, move its smallest element back to `lo`
+
+This ensures:
+- `lo.size() >= hi.size()`
+- Size difference never exceeds 1
 
