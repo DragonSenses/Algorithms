@@ -60,6 +60,7 @@ medianFinder.findMedian(); // return 2.0
 - [Insertion Sort Approach](#insertion-sort-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Heap Approach](#heap-approach)
 
 # Problem Overview: Find Median from Data Stream
 
@@ -412,3 +413,17 @@ class MedianFinder {
 ### **Space Complexity**: `O(n)`
 - **Linear Storage**: All elements are stored in a single array (`number[]` or `ArrayList<Integer>`), which grows linearly with the number of insertions.
 - **No Auxiliary Structures**: Aside from the main list, no additional data structures are used, keeping space usage minimal and proportional to input size.
+
+# Heap Approach
+
+Previous approaches taught us that:
+1. Constant-time median retrieval is possible if we maintain direct access to the middle elements.
+2. Efficient insertion is key to keeping the system performant under frequent updates.
+
+But here's the deeper insight:  
+**We don’t need to keep the entire input sorted—just enough structure to consistently access the median.**
+
+This leads us to heaps (priority queues), which offer:
+- **Logarithmic-time insertion**
+- **Constant-time access to min or max elements**
+
