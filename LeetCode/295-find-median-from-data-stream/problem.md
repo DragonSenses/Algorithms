@@ -455,3 +455,21 @@ This ensures:
 - `lo.size() >= hi.size()`
 - Size difference never exceeds 1
 
+### **Example Walkthrough**
+
+Input stream: `[41, 35, 62, 5, 97, 108]`
+
+| Step       | Action     | MaxHeap `lo`       | MinHeap `hi`        | Median         |
+|------------|------------|--------------------|----------------------|----------------|
+| Add 41     | -> insert   | [41]               | []                   | 41             |
+| Add 35     | -> rebalance| [35]               | [41]                 | (35 + 41)/2 = 38 |
+| Add 62     | -> rebalance| [41, 35]           | [62]                 | 41             |
+| Add 5      | -> rebalance| [35, 5]            | [41, 62]             | (35 + 41)/2 = 38 |
+| Add 97     | -> rebalance| [41, 35, 5]        | [62, 97]             | 41             |
+| Add 108    | -> rebalance| [41, 35, 5]        | [62, 97, 108]        | (41 + 62)/2 = 51.5 |
+
+**Notes**:
+- `lo` is a max-heap: largest value at the top.
+- `hi` is a min-heap: smallest value at the top.
+- Heaps are rebalanced after each insertion to maintain size constraints.
+
