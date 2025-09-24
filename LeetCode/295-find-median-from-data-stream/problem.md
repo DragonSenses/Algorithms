@@ -473,3 +473,17 @@ Input stream: `[41, 35, 62, 5, 97, 108]`
 - `hi` is a min-heap: smallest value at the top.
 - Heaps are rebalanced after each insertion to maintain size constraints.
 
+## **Algorithm**
+
+1. Initialize two heaps:
+   - `lo`: max-heap for lower half
+   - `hi`: min-heap for upper half
+
+2. For each `addNum(num)`:
+   - Insert `num` into `lo`
+   - Move the largest element from `lo` to `hi`
+   - If `hi.size() > lo.size()`, move the smallest element from `hi` back to `lo`
+
+3. For `findMedian()`:
+   - If `lo.size() > hi.size()`, return `lo.peek()`
+   - Else, return average of `lo.peek()` and `hi.peek()`
