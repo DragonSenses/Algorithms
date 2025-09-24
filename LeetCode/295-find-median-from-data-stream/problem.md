@@ -487,3 +487,22 @@ Input stream: `[41, 35, 62, 5, 97, 108]`
 3. For `findMedian()`:
    - If `lo.size() > hi.size()`, return `lo.peek()`
    - Else, return average of `lo.peek()` and `hi.peek()`
+
+### **Pseudocode**
+
+```
+initialize maxHeap lo
+initialize minHeap hi
+
+method addNum(num):
+    lo.add(num)
+    hi.add(lo.poll())
+    if hi.size() > lo.size():
+        lo.add(hi.poll())
+
+method findMedian():
+    if lo.size() > hi.size():
+        return lo.peek()
+    else:
+        return (lo.peek() + hi.peek()) / 2.0
+```
