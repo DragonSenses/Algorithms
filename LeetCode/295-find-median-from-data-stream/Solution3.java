@@ -10,4 +10,13 @@ class MedianFinder {
     hi = new PriorityQueue<>();
   }
 
+  public void addNum(int num) {
+    lo.offer(num);
+    hi.offer(lo.poll());
+
+    if (hi.size() > lo.size()) {
+      lo.offer(hi.poll());
+    }
+  }
+
 }
