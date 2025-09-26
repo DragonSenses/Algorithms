@@ -19,4 +19,12 @@ class MedianFinder {
     }
   }
 
+
+  public double findMedian() {
+    if (lo.size() > hi.size()) {
+      return lo.peek();
+    } else {
+      return (lo.peek() + hi.peek()) / 2.0;
+    }
+  }
 }
