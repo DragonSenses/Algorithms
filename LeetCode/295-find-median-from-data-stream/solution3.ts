@@ -11,4 +11,14 @@ class MedianFinder {
     // Min-heap: smallest value at top
     this.hi = new Heap<number>((a, b) => a - b);
   }
+
+  addNum(num: number): void {
+    this.lo.push(num);
+    this.hi.push(this.lo.pop()!);
+
+    if (this.hi.size() > this.lo.size()) {
+      this.lo.push(this.hi.pop()!);
+    }
+  }
+
 }
