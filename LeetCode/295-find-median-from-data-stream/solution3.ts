@@ -21,4 +21,11 @@ class MedianFinder {
     }
   }
 
+  findMedian(): number {
+    if (this.lo.size() > this.hi.size()) {
+      return this.lo.peek()!;
+    } else {
+      return (this.lo.peek()! + this.hi.peek()!) / 2;
+    }
+  }
 }
