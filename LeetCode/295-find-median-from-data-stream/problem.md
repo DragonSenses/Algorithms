@@ -597,3 +597,12 @@ class MedianFinder {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the number of elements in the data stream.
+- The implementation uses two heaps:
+  - A max-heap (`lo`) for the lower half of numbers.
+  - A min-heap (`hi`) for the upper half of numbers.
+- Each insertion may trigger rebalancing between heaps.
