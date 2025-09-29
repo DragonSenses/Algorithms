@@ -61,6 +61,7 @@ medianFinder.findMedian(); // return 2.0
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Heap Approach](#heap-approach)
+  - **Space Complexity**: `O(n)`
 
 # Problem Overview: Find Median from Data Stream
 
@@ -606,3 +607,7 @@ class MedianFinder {
   - A max-heap (`lo`) for the lower half of numbers.
   - A min-heap (`hi`) for the upper half of numbers.
 - Each insertion may trigger rebalancing between heaps.
+
+### **Space Complexity**: `O(n)`
+- **Linear Storage**: All elements are stored across two heaps.
+- **No Additional Structures**: Aside from the heaps, no extra space is used.
