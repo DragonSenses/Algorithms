@@ -30,6 +30,10 @@
 
 ---
 
+# Solution
+
+- [Recursive Approach](#binary-search-approach)
+
 ## **Problem Overview: Construct Binary Tree from Preorder and Inorder Traversal**
 
 ### Objective
@@ -93,3 +97,13 @@ inorder = [-1]
 3. Recursively build the left and right subtrees using the corresponding segments of `preorder` and `inorder`.
 
 This problem tests your understanding of tree traversal and recursive tree construction. Efficient solutions typically use a hash map to index `inorder` values for quick lookup.
+
+# Recursive Approach
+
+Two key points are: 
+
+1. Preorder traversal follows from root -> left -> Right. So we have easy root access with preorder[0]
+2. In order is left -> root -> right. Knowing the position of `Root` we can recursively split the entire array into two subtrees.
+
+
+We recursively set first element of preorder as root then construct entire tree with left and right usbtrees inorder. 
