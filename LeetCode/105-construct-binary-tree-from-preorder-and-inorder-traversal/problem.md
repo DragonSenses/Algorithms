@@ -118,3 +118,31 @@ Each recursive call narrows the problem:
 
 By slicing the arrays appropriately and maintaining an index map for quick lookup, we avoid redundant work and ensure the tree is built efficiently. This divide-and-conquer strategy mirrors how the tree itself is structured—each node recursively defines its own subtrees.
 
+## **Algorithm**
+
+1. **Build a HashMap for Fast Lookup**  
+   Create a dictionary `inorder_index_map` that maps each value in the `inorder` array to its index.  
+   This allows constant-time access to the root’s position in `inorder`.
+
+2. **Initialize Preorder Index Tracker**  
+   Use a variable `preorder_index` to track the current position in the `preorder` array.  
+   This ensures each node is used exactly once as a root.
+
+3. **Define Recursive Function `arrayToTree(left, right)`**  
+   This function constructs the subtree using the `inorder` segment from index `left` to `right`.
+
+   - **Base Case**:  
+     If `left > right`, return `None`. This means the subtree is empty.
+
+   - **Recursive Case**:
+     - Select the current root value from `preorder[preorder_index]`.
+     - Create a new tree node with this value.
+     - Increment `preorder_index` to move to the next root candidate.
+     - Use `inorder_index_map` to find the root’s index in `inorder`.
+     - Recursively build:
+       - Left subtree from `left` to `root_index - 1`
+       - Right subtree from `root_index + 1` to `right`
+
+4. **Start the Recursion**  
+   Call `arrayToTree(0, len(inorder) - 1)` to construct the full tree.
+
