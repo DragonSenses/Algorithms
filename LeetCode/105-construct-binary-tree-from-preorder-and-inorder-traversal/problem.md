@@ -100,10 +100,21 @@ This problem tests your understanding of tree traversal and recursive tree const
 
 # Recursive Approach
 
-Two key points are: 
+## **Intuition**
 
-1. Preorder traversal follows from root -> left -> Right. So we have easy root access with preorder[0]
-2. In order is left -> root -> right. Knowing the position of `Root` we can recursively split the entire array into two subtrees.
+To reconstruct a binary tree from its preorder and inorder traversals, we rely on the unique properties of each traversal:
 
+- **Preorder traversal** always starts with the root node.
+- **Inorder traversal** places the root node between its left and right subtrees.
 
-We recursively set first element of preorder as root then construct entire tree with left and right usbtrees inorder. 
+The recursive insight is this:  
+1. **Identify the root** from the first element of the `preorder` array.
+2. **Locate the root in the `inorder` array** to determine the boundary between left and right subtrees.
+3. **Recursively apply the same logic** to the left and right segments of both arrays.
+
+Each recursive call narrows the problem:
+- The left subtree is built from the next elements in `preorder` and the left segment of `inorder`.
+- The right subtree is built from the remaining elements in `preorder` and the right segment of `inorder`.
+
+By slicing the arrays appropriately and maintaining an index map for quick lookup, we avoid redundant work and ensure the tree is built efficiently. This divide-and-conquer strategy mirrors how the tree itself is structured—each node recursively defines its own subtrees.
+
