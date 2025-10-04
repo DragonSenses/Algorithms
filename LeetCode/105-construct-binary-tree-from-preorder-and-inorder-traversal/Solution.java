@@ -12,4 +12,19 @@ class Solution {
     return null;
   }
 
+  private TreeNode arrayToTree(int[] preorder, int left, int right) {
+    if (left > right) {
+      return null;
+    }
+
+    int rootValue = preorder[preorderIndex++];
+    TreeNode root = new TreeNode(rootValue);
+
+    int rootIndex = inorderIndexMap.get(rootValue);
+    root.left = arrayToTree(preorder, left, rootIndex - 1);
+    root.right = arrayToTree(preorder, rootIndex + 1, right);
+
+    return root;
+  }
+
 }
