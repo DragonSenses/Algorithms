@@ -9,7 +9,7 @@ class Solution {
     for (int i = 0; i < inorder.length; i++) {
       inorderIndexMap.put(inorder[i], i);
     }
-    return null;
+    return arrayToTree(preorder, 0, inorder.length - 1);
   }
 
   private TreeNode arrayToTree(int[] preorder, int left, int right) {
@@ -26,5 +26,4 @@ class Solution {
 
     return root;
   }
-
 }
