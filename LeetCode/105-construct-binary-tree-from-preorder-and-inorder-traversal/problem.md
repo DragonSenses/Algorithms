@@ -146,3 +146,29 @@ By slicing the arrays appropriately and maintaining an index map for quick looku
 4. **Start the Recursion**  
    Call `arrayToTree(0, len(inorder) - 1)` to construct the full tree.
 
+### **Pseudocode**
+
+```plaintext
+function buildTree(preorder, inorder):
+  create hashmap inorder_index_map from inorder values to their indices
+  initialize preorder_index = 0
+
+  function arrayToTree(left, right):
+    if left > right:
+      return null
+
+    root_value = preorder[preorder_index]
+    preorder_index += 1
+
+    create new TreeNode with value root_value
+
+    root_index = inorder_index_map[root_value]
+
+    root.left = arrayToTree(left, root_index - 1)
+    root.right = arrayToTree(root_index + 1, right)
+
+    return root
+
+  return arrayToTree(0, length of inorder - 1)
+```
+
