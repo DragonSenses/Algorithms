@@ -172,3 +172,41 @@ function buildTree(preorder, inorder):
   return arrayToTree(0, length of inorder - 1)
 ```
 
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  private int preorderIndex = 0;
+  private Map<Integer, Integer> inorderIndexMap = new HashMap<>();
+
+  public TreeNode buildTree(int[] preorder, int[] inorder) {
+    // Build a hashmap to store value -> index relations for inorder traversal
+    for (int i = 0; i < inorder.length; i++) {
+      inorderIndexMap.put(inorder[i], i);
+    }
+
+    return arrayToTree(preorder, 0, inorder.length - 1);
+  }
+
+  private TreeNode arrayToTree(int[] preorder, int left, int right) {
+    // If there are no elements to construct the tree
+    if (left > right) {
+      return null;
+    }
+
+    // Select the preorderIndex element as the root and increment it
+    int rootValue = preorder[preorderIndex++];
+    TreeNode root = new TreeNode(rootValue);
+
+    // Build left and right subtree
+    // Exclude inorderIndexMap.get(rootValue) element because it's the root
+    int rootIndex = inorderIndexMap.get(rootValue);
+    root.left = arrayToTree(preorder, left, rootIndex - 1);
+    root.right = arrayToTree(preorder, rootIndex + 1, right);
+
+    return root;
+  }
+}
+```
