@@ -33,6 +33,7 @@
 # Solution
 
 - [Recursive Approach](#binary-search-approach)
+  - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Construct Binary Tree from Preorder and Inorder Traversal**
 
@@ -210,3 +211,13 @@ class Solution {
   }
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the number of nodes in the binary tree.
+
+### **Space Complexity**: `O(n)`
+- **Hash Map Storage**: A map of `inorder` values to indices requires `O(n)` space.
+- **Recursive Call Stack**: In the worst case (e.g., skewed tree), the recursion stack can grow to `O(n)` depth.
+- **No Array Copies**: The algorithm avoids copying subarrays, using index ranges instead.
