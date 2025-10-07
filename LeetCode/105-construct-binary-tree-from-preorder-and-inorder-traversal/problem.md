@@ -33,6 +33,7 @@
 # Solution
 
 - [Recursive Approach](#binary-search-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Construct Binary Tree from Preorder and Inorder Traversal**
@@ -216,6 +217,11 @@ class Solution {
 
 ### **Assumptions**
 - Let `n` be the number of nodes in the binary tree.
+
+### **Time Complexity**: `O(n)`
+- **One-Pass Construction**: Each node is visited exactly once during the recursive construction.
+- **Hash Map Lookup**: The `inorder` index map allows constant-time root position lookup, avoiding repeated linear scans.
+- **No Redundant Work**: The algorithm avoids slicing arrays and instead uses index boundaries, keeping operations linear.
 
 ### **Space Complexity**: `O(n)`
 - **Hash Map Storage**: A map of `inorder` values to indices requires `O(n)` space.
