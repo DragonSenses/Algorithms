@@ -16,4 +16,8 @@ class TreeNode {
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   let preorderIndex = 0;
   const inorderIndexMap = new Map<number, number>();
+
+  for (let i = 0; i < inorder.length; i++) {
+    inorderIndexMap.set(inorder[i], i);
+  }
 }
