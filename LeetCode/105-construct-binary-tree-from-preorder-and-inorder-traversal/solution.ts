@@ -20,4 +20,10 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   for (let i = 0; i < inorder.length; i++) {
     inorderIndexMap.set(inorder[i], i);
   }
+
+  function arrayToTree(left: number, right: number): TreeNode | null {
+    if (left > right) return null;
+
+    return null;
+  }
 }
