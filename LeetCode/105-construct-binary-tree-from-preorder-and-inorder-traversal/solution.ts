@@ -28,5 +28,6 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     const rootValue = preorder[preorderIndex++];
     const root = new TreeNode(rootValue);
 
+    const rootIndex = inorderIndexMap.get(rootValue)!;
   }
 }
