@@ -25,5 +25,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     // Base Case: Empty Subtree
     if (left > right) return null;
 
+    const rootValue = preorder[preorderIndex++];
+    const root = new TreeNode(rootValue);
+
   }
 }
