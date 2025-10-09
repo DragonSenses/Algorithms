@@ -29,5 +29,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     const root = new TreeNode(rootValue);
 
     const rootIndex = inorderIndexMap.get(rootValue)!;
+
+    root.left = arrayToTree(left, rootIndex - 1);
+
   }
 }
