@@ -22,8 +22,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   }
 
   function arrayToTree(left: number, right: number): TreeNode | null {
+    // Base Case: Empty Subtree
     if (left > right) return null;
 
-    return null;
   }
 }
