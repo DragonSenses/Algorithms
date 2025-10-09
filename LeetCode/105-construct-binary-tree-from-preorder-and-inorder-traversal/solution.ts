@@ -36,4 +36,5 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return root;
   }
 
+  return arrayToTree(0, inorder.length - 1);
 }
