@@ -49,3 +49,54 @@
 	<li><code>tasks[i]</code> is an uppercase English letter.</li>
 	<li><code>0 &lt;= n &lt;= 100</code></li>
 </ul>
+
+---
+
+## **Problem Overview: Task Scheduler**
+
+You are given an array `tasks` representing CPU tasks, each labeled with a capital letter from `'A'` to `'Z'`. The CPU executes one task per interval, and may remain idle if no task can be scheduled. A cooling interval `n` is enforced between two executions of the same task label — meaning that after executing a task `'X'`, you must wait at least `n` intervals before executing `'X'` again.
+
+Your goal is to determine the **minimum number of intervals** the CPU will take to complete all tasks.
+
+### Input
+
+- `tasks`: List of uppercase English letters representing tasks.
+- `n`: Non-negative integer representing the cooling interval between identical tasks.
+
+### Output
+
+- An integer representing the minimum number of CPU intervals required to finish all tasks.
+
+### Examples
+
+**Example 1**
+
+```text
+Input: tasks = ["A","A","A","B","B","B"], n = 2
+Output: 8
+Explanation: A possible sequence is A → B → idle → A → B → idle → A → B
+```
+
+**Example 2**
+
+Input: tasks = ["A","C","A","B","D","B"], n = 1
+Output: 6
+Explanation: A possible sequence is A → B → C → D → A → B
+
+**Example 3**
+
+Input: tasks = ["A","A","A","B","B","B"], n = 3
+Output: 10
+Explanation: A possible sequence is A → B → idle → idle → A → B → idle → idle → A → B
+
+### Constraints
+
+- `1 <= tasks.length <= 10^4`
+- `tasks[i]` is an uppercase English letter `'A'` to `'Z'`
+- `0 <= n <= 100`
+
+### Notes
+
+- Tasks can be executed in any order.
+- The CPU may remain idle if no task is eligible for execution due to the cooling constraint.
+- The optimal strategy minimizes idle time while respecting the cooling interval.
