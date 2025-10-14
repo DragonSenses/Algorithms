@@ -120,3 +120,36 @@ idle_time ≤ (f_max - 1) * n
 ```
 
 However, this idle time can be reduced by **filling idle slots with other tasks**. The greedy idea is to prioritize scheduling the most frequent tasks first, then use less frequent tasks to fill the gaps.
+
+## **Algorithm**
+
+1. **Count Frequencies**  
+   Create an array `freq` of size 26 to count the frequency of each task (A–Z).
+
+2. **Sort Frequencies**  
+   Sort `freq` in descending order. Let `f_max = freq[0]`.
+
+3. **Initial Idle Time**  
+   Compute the initial idle time:
+   ```
+   idle_time = (f_max - 1) * n
+   ```
+
+4. **Fill Idle Slots Greedily**  
+   For each remaining frequency `f` in `freq[1:]`, reduce `idle_time` by:
+   ```
+   idle_time -= min(f_max - 1, f)
+   ```
+   This ensures we only fill up to `f_max - 1` gaps per task.
+
+5. **Clamp Idle Time**  
+   Idle time cannot be negative:
+   ```
+   idle_time = max(0, idle_time)
+   ```
+
+6. **Return Total Time**  
+   The total time is:
+   ```
+   total_intervals = len(tasks) + idle_time
+   ```
