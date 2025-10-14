@@ -52,6 +52,10 @@
 
 ---
 
+# Solution
+
+- [Greedy Approach](#greedy-approach)
+
 ## **Problem Overview: Task Scheduler**
 
 You are given an array `tasks` representing CPU tasks, each labeled with a capital letter from `'A'` to `'Z'`. The CPU executes one task per interval, and may remain idle if no task can be scheduled. A cooling interval `n` is enforced between two executions of the same task label — meaning that after executing a task `'X'`, you must wait at least `n` intervals before executing `'X'` again.
@@ -100,3 +104,19 @@ Explanation: A possible sequence is A → B → idle → idle → A → B → id
 - Tasks can be executed in any order.
 - The CPU may remain idle if no task is eligible for execution due to the cooling constraint.
 - The optimal strategy minimizes idle time while respecting the cooling interval.
+
+# Greedy Approach
+
+## **Intuition**
+
+The total number of CPU intervals consists of **busy slots** (where tasks are executed) and **idle slots** (where the CPU waits due to cooling constraints). Since every task must be executed once, the number of busy slots is simply `len(tasks)`.
+
+The challenge is to **minimize idle slots** caused by the cooling interval `n` between identical tasks.
+
+Let `f_max` be the frequency of the most common task. In the worst case, we need to space out these `f_max` instances with at least `n` intervals between them. This gives a **maximum idle time** of:
+
+```sh
+idle_time ≤ (f_max - 1) * n
+```
+
+However, this idle time can be reduced by **filling idle slots with other tasks**. The greedy idea is to prioritize scheduling the most frequent tasks first, then use less frequent tasks to fill the gaps.
