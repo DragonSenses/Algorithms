@@ -153,3 +153,17 @@ However, this idle time can be reduced by **filling idle slots with other tasks*
    ```
    total_intervals = len(tasks) + idle_time
    ```
+
+### Example
+
+```text
+tasks = ["A","A","A","B","B","B"], n = 2
+
+freq = [3, 3] → f_max = 3
+idle_time = (3 - 1) * 2 = 4
+
+Fill idle slots:
+- B fills 2 slots → idle_time -= 2 → idle_time = 2
+
+Total time = 6 (tasks) + 2 (idle) = 8
+```
