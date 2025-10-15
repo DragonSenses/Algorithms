@@ -167,3 +167,35 @@ Fill idle slots:
 
 Total time = 6 (tasks) + 2 (idle) = 8
 ```
+
+### **Pseudocode**
+
+```sh
+function leastInterval(tasks, n):
+    # Step 1: Count frequency of each task
+    freq = array of size 26 initialized to 0
+    for task in tasks:
+        index = ASCII value of task - ASCII value of 'A'
+        freq[index] += 1
+
+    # Step 2: Sort frequencies in descending order
+    sort freq in descending order
+
+    # Step 3: Identify max frequency
+    f_max = freq[0]
+
+    # Step 4: Calculate initial idle time
+    idle_time = (f_max - 1) * n
+
+    # Step 5: Fill idle slots with other tasks
+    for i from 1 to 25:
+        if freq[i] == 0:
+            break
+        idle_time -= min(f_max - 1, freq[i])
+
+    # Step 6: Clamp idle time to zero
+    idle_time = max(0, idle_time)
+
+    # Step 7: Return total intervals
+    return length of tasks + idle_time
+```
