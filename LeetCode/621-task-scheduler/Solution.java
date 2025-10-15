@@ -11,6 +11,9 @@ class Solution {
     // Step 2: Sort frequencies in descending order
     Arrays.sort(freq);
 
+    // Step 3: Get the max frequency
+    int f_max = freq[25];
+
     return 0;
   }
 }
