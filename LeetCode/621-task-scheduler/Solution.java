@@ -22,5 +22,8 @@ class Solution {
       idle_time -= Math.min(f_max - 1, freq[i]);
     }
 
+    // Step 6: Clamp idle time to zero
+    idle_time = Math.max(0, idle_time);
+
   }
 }
