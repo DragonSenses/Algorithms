@@ -14,6 +14,8 @@ class Solution {
     // Step 3: Get the max frequency
     int f_max = freq[25];
 
-    return 0;
+    // Step 4: Calculate initial idle time
+    int idle_time = (f_max - 1) * n;
+
   }
 }
