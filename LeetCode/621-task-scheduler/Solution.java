@@ -17,5 +17,10 @@ class Solution {
     // Step 4: Calculate initial idle time
     int idle_time = (f_max - 1) * n;
 
+    // Step 5: Fill idle slots with other tasks
+    for (int i = 24; i >= 0 && idle_time > 0; i--) {
+      idle_time -= Math.min(f_max - 1, freq[i]);
+    }
+
   }
 }
