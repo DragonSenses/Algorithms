@@ -11,4 +11,7 @@ function leastInterval(tasks: string[], n: number): number {
   // Step 3: Get the max frequency
   const f_max = freq[0];
 
+  // Step 4: Calculate initial idle time
+  let idle_time = (f_max - 1) * n;
+
 }
