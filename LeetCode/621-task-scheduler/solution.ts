@@ -14,4 +14,9 @@ function leastInterval(tasks: string[], n: number): number {
   // Step 4: Calculate initial idle time
   let idle_time = (f_max - 1) * n;
 
+  // Step 5: Fill idle slots with other tasks
+  for (let i = 1; i < 26 && idle_time > 0; i++) {
+    idle_time -= Math.min(f_max - 1, freq[i]);
+  }
+
 }
