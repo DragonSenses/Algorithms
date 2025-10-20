@@ -5,4 +5,7 @@ function leastInterval(tasks: string[], n: number): number {
     freq[task.charCodeAt(0) - 'A'.charCodeAt(0)]++;
   }
 
+  // Step 2: Sort frequencies in descending order
+  freq.sort((a, b) => b - a);
+
 }
