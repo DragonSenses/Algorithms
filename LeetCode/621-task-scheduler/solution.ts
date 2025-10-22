@@ -21,4 +21,7 @@ function leastInterval(tasks: string[], n: number): number {
 
   // Step 6: Clamp idle time to zero
   idle_time = Math.max(0, idle_time);
+
+  // Step 7: Return total intervals
+  return tasks.length + idle_time;
 }
