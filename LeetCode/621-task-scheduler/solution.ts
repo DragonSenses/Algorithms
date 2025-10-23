@@ -1,3 +1,17 @@
+/**
+ * Calculates the minimum number of CPU intervals required to execute all tasks
+ * with a cooling interval constraint between identical tasks.
+ *
+ * Each task is represented by an uppercase letter ('A' to 'Z'). The CPU can execute
+ * one task per interval and must wait at least `n` intervals before executing the same task again.
+ *
+ * This function uses a greedy strategy: it schedules the most frequent tasks first,
+ * then fills idle slots with less frequent tasks to minimize total time.
+ *
+ * @param tasks - An array of uppercase letters representing tasks to be scheduled.
+ * @param n - The cooling interval between identical tasks.
+ * @returns The minimum number of intervals needed to complete all tasks.
+ */
 function leastInterval(tasks: string[], n: number): number {
   // Step 1: Count frequency of each task
   const freq: number[] = new Array(26).fill(0);
