@@ -269,3 +269,9 @@ function leastInterval(tasks: string[], n: number): number {
   return tasks.length + idle_time;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**:
+- Let `N` be the number of tasks in the input array.
+- The task types are limited to uppercase English letters `'A'` to `'Z'` (26 total).
