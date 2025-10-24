@@ -55,6 +55,7 @@
 # Solution
 
 - [Greedy Approach](#greedy-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Task Scheduler**
 
@@ -275,3 +276,7 @@ function leastInterval(tasks: string[], n: number): number {
 ### **Assumptions**:
 - Let `N` be the number of tasks in the input array.
 - The task types are limited to uppercase English letters `'A'` to `'Z'` (26 total).
+
+### **Space Complexity**: `O(1)`
+- **Fixed-Size Frequency Array**: The algorithm uses a 26-element array to store task frequencies, regardless of input size.
+- **No Dynamic Structures**: No additional memory is allocated based on `N`; all operations are performed in-place or with constant space.
