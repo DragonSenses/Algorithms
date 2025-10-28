@@ -27,6 +27,12 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?</p>
 
+---
+
+# Solution
+
+- [Recursive Traversal Approach](#recursive-traversal-approach)
+
 # Problem Overview: Kth Smallest Element in a BST
 
 ## Description
@@ -68,3 +74,16 @@ If the BST is frequently modified (insertions and deletions), and you need to fi
 - **Augmented BST:** Store the size of each subtree at every node to allow O(log n) kth smallest queries.
 - **Balanced BST with Order Statistics:** Use data structures like AVL trees or Red-Black trees augmented with subtree sizes.
 - **Segment Trees or Binary Indexed Trees (Fenwick Trees):** Useful if values are bounded and frequency-based queries are needed.
+
+# Recursive Traversal Approach
+
+There are two primary strategies to traverse a tree:
+
+- **Depth-First Search (DFS)**  
+  DFS explores as far as possible along each branch before backtracking. It includes three variants:
+  - **Preorder**: Visit root → left → right
+  - **Inorder**: Visit left → root → right
+  - **Postorder**: Visit left → right → root
+
+- **Breadth-First Search (BFS)**  
+  BFS explores the tree level by level, visiting all nodes at the current depth before moving to the next.
