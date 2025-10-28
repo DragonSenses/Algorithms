@@ -31,7 +31,7 @@
 
 # Solution
 
-- [Recursive Traversal Approach](#recursive-traversal-approach)
+- [Recursive Inorder Traversal Approach](#recursive-inorder-traversal-approach)
 
 # Problem Overview: Kth Smallest Element in a BST
 
@@ -75,7 +75,13 @@ If the BST is frequently modified (insertions and deletions), and you need to fi
 - **Balanced BST with Order Statistics:** Use data structures like AVL trees or Red-Black trees augmented with subtree sizes.
 - **Segment Trees or Binary Indexed Trees (Fenwick Trees):** Useful if values are bounded and frequency-based queries are needed.
 
-# Recursive Traversal Approach
+# Recursive Inorder Traversal Approach
+
+## **Intuition**
+
+To find the kth smallest element in a Binary Search Tree (BST), we leverage the property that an inorder traversal of a BST yields node values in ascending order.
+
+### Tree Traversal Strategies
 
 There are two primary strategies to traverse a tree:
 
@@ -87,3 +93,17 @@ There are two primary strategies to traverse a tree:
 
 - **Breadth-First Search (BFS)**  
   BFS explores the tree level by level, visiting all nodes at the current depth before moving to the next.
+
+### Why Inorder Works for BST
+
+In a BST, an inorder traversal naturally visits nodes in ascending order. This means:
+
+- If we perform a full inorder traversal, we get a sorted list of all node values.
+- The kth smallest element is simply the (k - 1)th index of this list (since it's 0-indexed).
+
+### Efficiency
+
+- **Time Complexity**: O(N) in the worst case, where N is the number of nodes.
+- **Space Complexity**: O(N) if we store the entire traversal; O(H) if we short-circuit after reaching the kth element, where H is the height of the tree.
+
+This approach is simple, intuitive, and effective for static BSTs where frequent updates are not required.
