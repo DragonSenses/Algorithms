@@ -118,3 +118,13 @@ To find the kth smallest element in a BST using recursive inorder traversal:
 4. Use early termination to avoid unnecessary traversal once the kth element is found.
 
 This approach leverages the BST property that inorder traversal yields sorted values.
+
+### **Pseudocode**
+
+```plaintext
+function kthSmallest(root, k): 
+  count = 0
+  result = null
+
+return result
+```
