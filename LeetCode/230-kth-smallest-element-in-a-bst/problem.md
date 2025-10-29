@@ -107,3 +107,14 @@ In a BST, an inorder traversal naturally visits nodes in ascending order. This m
 - **Space Complexity**: O(N) if we store the entire traversal; O(H) if we short-circuit after reaching the kth element, where H is the height of the tree.
 
 This approach is simple, intuitive, and effective for static BSTs where frequent updates are not required.
+
+## **Algorithm**
+
+To find the kth smallest element in a BST using recursive inorder traversal:
+
+1. Perform an inorder traversal of the BST.
+2. Keep a counter to track how many nodes have been visited.
+3. When the counter reaches `k`, record the current node's value as the result.
+4. Use early termination to avoid unnecessary traversal once the kth element is found.
+
+This approach leverages the BST property that inorder traversal yields sorted values.
