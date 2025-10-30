@@ -127,6 +127,8 @@ function kthSmallest(root, k):
   result = null
 
 function inorder(node):
+ if node is null or result is not null:
+  return
 
 return result
 ```
