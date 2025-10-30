@@ -130,5 +130,15 @@ function inorder(node):
  if node is null or result is not null:
   return
 
+ inorder(node.left)
+
+ count += 1
+ if count == k:
+  result = node.value
+  return
+
+ inorder(node.right)
+
+inorder(root)
 return result
 ```
