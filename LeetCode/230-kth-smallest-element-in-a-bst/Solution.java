@@ -5,4 +5,10 @@ class Solution {
   public int kthSmallest(TreeNode root, int k) {
     return -1;
   }
+
+  private void inorder(TreeNode node, int k) {
+    if (node == null) {
+      return;
+    }
+  }
 }
