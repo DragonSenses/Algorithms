@@ -7,7 +7,7 @@ class Solution {
   }
 
   private void inorder(TreeNode node, int k) {
-    if (node == null) {
+    if (node == null || result != -1) {
       return;
     }
   }
