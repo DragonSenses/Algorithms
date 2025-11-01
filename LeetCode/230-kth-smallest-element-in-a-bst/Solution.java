@@ -3,6 +3,7 @@ class Solution {
   private int result = -1;
 
   public int kthSmallest(TreeNode root, int k) {
+    inorder(root, k);
     return -1;
   }
 
