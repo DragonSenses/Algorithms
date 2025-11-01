@@ -13,5 +13,11 @@ class Solution {
 
     inorder(node.left, k);
 
+    count++;
+    if (count == k) {
+      result = node.val;
+      return;
+    }
+
   }
 }
