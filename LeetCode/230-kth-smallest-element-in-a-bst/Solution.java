@@ -10,5 +10,8 @@ class Solution {
     if (node == null || result != -1) {
       return;
     }
+
+    inorder(node.left, k);
+
   }
 }
