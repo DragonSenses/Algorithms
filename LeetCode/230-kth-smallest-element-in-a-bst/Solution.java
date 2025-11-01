@@ -19,5 +19,6 @@ class Solution {
       return;
     }
 
+    inorder(node.right, k);
   }
 }
