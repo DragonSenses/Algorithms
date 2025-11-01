@@ -4,7 +4,7 @@ class Solution {
 
   public int kthSmallest(TreeNode root, int k) {
     inorder(root, k);
-    return -1;
+    return result;
   }
 
   private void inorder(TreeNode node, int k) {
