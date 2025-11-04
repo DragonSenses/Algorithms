@@ -174,3 +174,12 @@ class Solution {
     }
 }
 ```
+
+## Complexity Analysis
+
+### **Assumptions**
+
+- The input is a valid Binary Search Tree (BST) with `n` nodes.
+- The tree is not balanced, so the height can be up to `n` in the worst case.
+- We use recursive inorder traversal and stop early once the kth smallest element is found.
+- No auxiliary data structures (e.g., arrays or stacks) are used to store the traversal.
