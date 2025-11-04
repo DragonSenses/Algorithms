@@ -32,6 +32,7 @@
 # Solution
 
 - [Recursive Inorder Traversal Approach](#recursive-inorder-traversal-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(h)`
 
 # Problem Overview: Kth Smallest Element in a BST
@@ -184,6 +185,11 @@ class Solution {
 - The tree is not balanced, so the height can be up to `n` in the worst case.
 - We use recursive inorder traversal and stop early once the kth smallest element is found.
 - No auxiliary data structures (e.g., arrays or stacks) are used to store the traversal.
+
+### **Time Complexity**: `O(n)`
+
+- **Worst Case**, we may need to traverse all `n` nodes to reach the kth smallest element.
+- For balanced trees or small `k`, early termination may reduce traversal time to `O(k)`.
 
 ### **Space Complexity**: `O(h)`
 
