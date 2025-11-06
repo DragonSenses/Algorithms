@@ -26,5 +26,7 @@ function kthSmallest(root: TreeNode | null, k: number): number {
   function inorder(node: TreeNode | null): void {
     if (!node || result !== -1) return;
 
+    inorder(node.left);
+  }
 
 }
