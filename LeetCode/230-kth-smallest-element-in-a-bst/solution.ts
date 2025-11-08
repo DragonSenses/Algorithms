@@ -33,6 +33,8 @@ function kthSmallest(root: TreeNode | null, k: number): number {
       result = node.val;
       return;
     }
+
+    inorder(node.right);
   }
 
 }
