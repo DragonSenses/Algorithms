@@ -65,3 +65,11 @@ Can you solve the problem in linear time and in `O(1)` space?
 ## **Intuition**
 
 To find the majority element, we can count the frequency of each element in the array. The element that appears more than `floor(n / 2)` times is guaranteed to exist, so we can return it once we find it.
+
+## **Algorithm**
+
+1. Iterate through each element in the array.
+2. For each element, count how many times it appears in the entire array.
+3. If its count exceeds `floor(n / 2)`, return that element.
+
+This approach checks each element's frequency individually, resulting in a nested loop structure.
