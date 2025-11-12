@@ -62,4 +62,6 @@ Can you solve the problem in linear time and in `O(1)` space?
 
 # Brute Force Approach
 
-We can exhaust the search space in quadratic time by checking whether each element is the majority element. The brute force approach iterates over the array, then iterates again for each number to count its occurrences. When the number is found to appear more than any other, return it.
+## **Intuition**
+
+To find the majority element, we can count the frequency of each element in the array. The element that appears more than `floor(n / 2)` times is guaranteed to exist, so we can return it once we find it.
