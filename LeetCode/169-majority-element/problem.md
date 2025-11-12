@@ -27,6 +27,10 @@
 
 ---
 
+# Solution
+
+- [Brute Force Approach](#brute-force-approach)
+
 ## **Problem Overview: Majority Element**
 
 ## Description
@@ -55,3 +59,7 @@ Output: `2`
 ## Follow-up
 
 Can you solve the problem in linear time and in `O(1)` space?
+
+# Brute Force Approach
+
+We can exhaust the search space in quadratic time by checking whether each element is the majority element. The brute force approach iterates over the array, then iterates again for each number to count its occurrences. When the number is found to appear more than any other, return it.
