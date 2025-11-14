@@ -73,3 +73,15 @@ To find the majority element, we can count the frequency of each element in the 
 3. If its count exceeds `floor(n / 2)`, return that element.
 
 This approach checks each element's frequency individually, resulting in a nested loop structure.
+
+### **Pseudocode**
+
+```plaintext
+for each num in nums:
+    count = 0
+    for each elem in nums:
+        if elem == num:
+            count += 1
+    if count > floor(n / 2):
+        return num
+```
