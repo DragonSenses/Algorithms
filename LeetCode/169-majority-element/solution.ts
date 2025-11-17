@@ -7,7 +7,9 @@ function majorityElement(nums: number[]): number {
         count++;
       }
     }
-
+    if (count > Math.floor(n / 2)) {
+      return nums[i];
+    }
   }
 
 }
