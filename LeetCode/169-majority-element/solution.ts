@@ -11,5 +11,5 @@ function majorityElement(nums: number[]): number {
       return nums[i];
     }
   }
-
+  return -1; // Should never reach here due to problem constraints
 }
