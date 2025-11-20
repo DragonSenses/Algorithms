@@ -129,3 +129,10 @@ function majorityElement(nums: number[]): number {
   return -1; // Should never reach here due to problem constraints
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- The input array `nums` contains at least one element.
+- A majority element is guaranteed to exist.
