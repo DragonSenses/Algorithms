@@ -30,6 +30,7 @@
 # Solution
 
 - [Brute Force Approach](#brute-force-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Majority Element**
 
@@ -136,3 +137,7 @@ function majorityElement(nums: number[]): number {
 
 - The input array `nums` contains at least one element.
 - A majority element is guaranteed to exist.
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`count`, loop indices) regardless of input size.
+- **No Additional Structures**: The input array is processed directly without requiring extra data structures, ensuring constant memory usage.
