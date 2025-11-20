@@ -30,6 +30,7 @@
 # Solution
 
 - [Brute Force Approach](#brute-force-approach)
+  - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Majority Element**
@@ -137,6 +138,10 @@ function majorityElement(nums: number[]): number {
 
 - The input array `nums` contains at least one element.
 - A majority element is guaranteed to exist.
+
+### **Time Complexity**: `O(n^2)`
+- **Nested Iteration**: For each element, we iterate through the entire array to count occurrences.
+- **Worst-Case Scenario**: All elements are distinct until the majority element is found last.
 
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`count`, loop indices) regardless of input size.
