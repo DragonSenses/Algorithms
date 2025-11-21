@@ -32,6 +32,7 @@
 - [Brute Force Approach](#brute-force-approach)
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
+- [Hash Map Approach](#hash-map-approach)
 
 ## **Problem Overview: Majority Element**
 
@@ -146,3 +147,7 @@ function majorityElement(nums: number[]): number {
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`count`, loop indices) regardless of input size.
 - **No Additional Structures**: The input array is processed directly without requiring extra data structures, ensuring constant memory usage.
+
+# Hash Map Approach
+
+The majority element occurs more than n/2 times and a `HashMap` allows us to store element occurrences (frequency) efficiently. Then we return the key with maximum value to find majority element.
