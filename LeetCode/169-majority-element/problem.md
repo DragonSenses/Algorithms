@@ -150,4 +150,6 @@ function majorityElement(nums: number[]): number {
 
 # Hash Map Approach
 
-The majority element occurs more than n/2 times and a `HashMap` allows us to store element occurrences (frequency) efficiently. Then we return the key with maximum value to find majority element.
+## **Intuition**
+
+To identify the majority element, we can count the frequency of each number using a hash map. Since the majority element appears more than `floor(n / 2)` times, we can return the first number whose count exceeds this threshold during traversal.
