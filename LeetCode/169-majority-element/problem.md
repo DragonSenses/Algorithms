@@ -153,3 +153,11 @@ function majorityElement(nums: number[]): number {
 ## **Intuition**
 
 To identify the majority element, we can count the frequency of each number using a hash map. Since the majority element appears more than `floor(n / 2)` times, we can return the first number whose count exceeds this threshold during traversal.
+
+## **Algorithm**
+
+1. Initialize an empty hash map to store element frequencies.
+2. Iterate through the array:
+   - For each number, increment its count in the map.
+   - If its count exceeds `floor(n / 2)`, return it immediately.
+3. The problem guarantees that a majority element exists, so we will always find one.
