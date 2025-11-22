@@ -161,3 +161,21 @@ To identify the majority element, we can count the frequency of each number usin
    - For each number, increment its count in the map.
    - If its count exceeds `floor(n / 2)`, return it immediately.
 3. The problem guarantees that a majority element exists, so we will always find one.
+
+### **Pseudocode**
+
+```plaintext
+### **Pseudocode**
+
+initialize empty map: frequency_map
+
+for each num in nums:
+    if num not in frequency_map:
+        frequency_map[num] = 1
+    else:
+        frequency_map[num] += 1
+
+    if frequency_map[num] > floor(n / 2):
+        return num
+```
+
