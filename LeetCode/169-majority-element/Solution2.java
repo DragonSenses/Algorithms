@@ -14,6 +14,6 @@ public class Solution2 {
       }
     }
 
-    return 0;
+    return -1; // Should never reach here due to problem constraints
   }
 }
