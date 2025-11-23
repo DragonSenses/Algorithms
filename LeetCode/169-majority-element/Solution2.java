@@ -9,6 +9,9 @@ public class Solution2 {
       int count = frequencyMap.getOrDefault(num, 0) + 1;
       frequencyMap.put(num, count);
 
+      if (count > threshold) {
+        return num;
+      }
     }
 
     return 0;
