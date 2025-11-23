@@ -6,6 +6,8 @@ public class Solution2 {
     int threshold = nums.length / 2;
 
     for (int num : nums) {
+      int count = frequencyMap.getOrDefault(num, 0) + 1;
+      frequencyMap.put(num, count);
 
     }
 
