@@ -5,6 +5,10 @@ public class Solution2 {
     HashMap<Integer, Integer> frequencyMap = new HashMap<>();
     int threshold = nums.length / 2;
 
+    for (int num : nums) {
+
+    }
+
     return 0;
   }
 }
