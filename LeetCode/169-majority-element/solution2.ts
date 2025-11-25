@@ -5,6 +5,10 @@ function majorityElement(nums: number[]): number {
   for (const num of nums) {
     const count = (frequencyMap.get(num) || 0) + 1;
     frequencyMap.set(num, count);
+
+    if (count > threshold) {
+      return num;
+    }
   }
 
 }
