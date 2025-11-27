@@ -33,6 +33,7 @@
   - **Time Complexity**: `O(n^2)`
   - **Space Complexity**: `O(1)`
 - [Hash Map Approach](#hash-map-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Majority Element**
@@ -233,6 +234,10 @@ function majorityElement(nums: number[]): number {
 
 - The input array `nums` contains at least one element.
 - A majority element is guaranteed to exist.
+
+### **Time Complexity**: `O(n)`
+- **Single Pass**: We iterate through the array once, performing constant-time operations per element.
+- **Hash Map Access**: Insertions and lookups in the hash map are amortized `O(1)`.
 
 ### **Space Complexity**: `O(n)`
 - **Map Storage**: In the worst case, all elements are distinct until the majority element is found, requiring up to `n` entries in the map.
