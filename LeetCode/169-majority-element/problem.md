@@ -246,4 +246,10 @@ function majorityElement(nums: number[]): number {
 
 # Bitwise Manipulation Approach
 
+## **Intuition**
+
+If a number appears more than `floor(n / 2)` times in an array of size `n`, then for each bit position (from 0 to 31), that bit must also be the majority at that position across all numbers. In other words, if we count how many numbers have a `1` at each bit position, and that count exceeds `n / 2`, then the majority element must also have a `1` at that bit.
+
+By iterating through all 32 bit positions (since integers are 32-bit signed in Java), we can reconstruct the majority element bit by bit. For each bit position, we count how many numbers have that bit set. If the count exceeds `n / 2`, we set that bit in our result.
+
 This approach leverages the fact that the majority element dominates the bitwise landscape of the array, allowing us to rebuild it without using extra space for frequency maps.
