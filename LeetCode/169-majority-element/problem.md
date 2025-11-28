@@ -253,3 +253,21 @@ If a number appears more than `floor(n / 2)` times in an array of size `n`, then
 By iterating through all 32 bit positions (since integers are 32-bit signed in Java), we can reconstruct the majority element bit by bit. For each bit position, we count how many numbers have that bit set. If the count exceeds `n / 2`, we set that bit in our result.
 
 This approach leverages the fact that the majority element dominates the bitwise landscape of the array, allowing us to rebuild it without using extra space for frequency maps.
+
+## **Example of Intuition**
+
+Consider the array: `[5, 5, 5, 2, 2]`  
+Binary representations:  
+- `5` → `00000000 00000000 00000000 00000101`  
+- `2` → `00000000 00000000 00000000 00000010`
+
+Now count the number of `1`s at each bit position across all elements:
+
+- Bit 0 (LSB): `5` has `1`, `2` has `0` → total `3` ones  
+- Bit 1: `5` has `0`, `2` has `1` → total `2` ones  
+- Bit 2: `5` has `1`, `2` has `0` → total `3` ones  
+- All other bits: all zeros
+
+Since `5` appears 3 times (more than `floor(5 / 2) = 2`), its bits dominate.  
+At each bit position, the majority value (0 or 1) reflects the bit pattern of `5`.  
+By reconstructing the majority bit at each position, we recover `5` as the majority element.
