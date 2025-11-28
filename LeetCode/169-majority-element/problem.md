@@ -35,6 +35,7 @@
 - [Hash Map Approach](#hash-map-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Bitwise Manipulation Approach](#bitwise-manipulation-approach)
 
 ## **Problem Overview: Majority Element**
 
@@ -242,3 +243,7 @@ function majorityElement(nums: number[]): number {
 ### **Space Complexity**: `O(n)`
 - **Map Storage**: In the worst case, all elements are distinct until the majority element is found, requiring up to `n` entries in the map.
 - **No In-Place Optimization**: Unlike Boyer-Moore, this approach uses additional memory proportional to input size.
+
+# Bitwise Manipulation Approach
+
+This approach leverages the fact that the majority element dominates the bitwise landscape of the array, allowing us to rebuild it without using extra space for frequency maps.
