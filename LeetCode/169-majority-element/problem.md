@@ -279,5 +279,9 @@ By reconstructing the majority bit at each position, we recover `5` as the major
 initialize majority = 0
 n = length of nums
 
+for i from 0 to 31:
+ bitCount = 0
+
+
 ```
 
