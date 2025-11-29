@@ -282,6 +282,10 @@ n = length of nums
 for i from 0 to 31:
  bitCount = 0
 
+ for each num in nums:
+  if (num >> i) & 1 == 1:
+   bitCount += 1
+
 
 ```
 
