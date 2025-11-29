@@ -37,6 +37,7 @@
   - **Space Complexity**: `O(n)`
 - [Bitwise Manipulation Approach](#bitwise-manipulation-approach)
 
+
 ## **Problem Overview: Majority Element**
 
 ## Description
@@ -271,3 +272,12 @@ Now count the number of `1`s at each bit position across all elements:
 Since `5` appears 3 times (more than `floor(5 / 2) = 2`), its bits dominate.  
 At each bit position, the majority value (0 or 1) reflects the bit pattern of `5`.  
 By reconstructing the majority bit at each position, we recover `5` as the majority element.
+
+### **Pseudocode**
+
+```plaintext
+initialize majority = 0
+n = length of nums
+
+```
+
