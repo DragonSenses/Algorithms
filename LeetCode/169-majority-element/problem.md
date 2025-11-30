@@ -288,4 +288,5 @@ for i from 0 to 31:
  if bitCount > n / 2:
   set i-th bit in majority: majority |= (1 << i)
 
+return majority
 ```
