@@ -37,7 +37,6 @@
   - **Space Complexity**: `O(n)`
 - [Bitwise Manipulation Approach](#bitwise-manipulation-approach)
 
-
 ## **Problem Overview: Majority Element**
 
 ## Description
@@ -286,6 +285,7 @@ for i from 0 to 31:
   if (num >> i) & 1 == 1:
    bitCount += 1
 
+ if bitCount > n / 2:
+  set i-th bit in majority: majority |= (1 << i)
 
 ```
-
