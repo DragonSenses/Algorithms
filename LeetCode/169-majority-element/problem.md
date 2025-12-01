@@ -272,6 +272,16 @@ Since `5` appears 3 times (more than `floor(5 / 2) = 2`), its bits dominate.
 At each bit position, the majority value (0 or 1) reflects the bit pattern of `5`.  
 By reconstructing the majority bit at each position, we recover `5` as the majority element.
 
+## **Algorithm**
+
+1. Initialize `majority` to 0.
+2. For each bit position `i` from 0 to 31:
+   - Initialize `bitCount` to 0.
+   - For each number in the array:
+     - If the `i`-th bit of the number is set (`(num >> i) & 1 == 1`), increment `bitCount`.
+   - If `bitCount > n / 2`, set the `i`-th bit in `majority` using `majority |= (1 << i)`.
+3. Return `majority` as the reconstructed majority element.
+
 ### **Pseudocode**
 
 ```plaintext
