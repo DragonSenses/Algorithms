@@ -3,6 +3,11 @@ class Solution3 {
     int majority = 0;
     int n = nums.length;
 
+    // Iterate over all 32 bit positions
+    for (int i = 0; i < 32; i++) {
+      int bitCount = 0;
+
+    }
 
   }
 }
