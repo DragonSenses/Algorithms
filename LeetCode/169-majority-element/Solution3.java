@@ -7,6 +7,11 @@ class Solution3 {
     for (int i = 0; i < 32; i++) {
       int bitCount = 0;
 
+      // Iterate over nums array
+      for (int num : nums) {
+
+      }
+
     }
 
   }
