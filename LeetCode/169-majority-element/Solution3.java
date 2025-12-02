@@ -20,5 +20,6 @@ class Solution3 {
       }
     }
 
+    return majority;
   }
 }
