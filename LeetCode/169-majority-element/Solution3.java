@@ -14,6 +14,10 @@ class Solution3 {
         }
       }
 
+      // If more than half the numbers have this bit set, set it in the result
+      if (bitCount > n / 2) {
+        majority |= (1 << i);
+      }
     }
 
   }
