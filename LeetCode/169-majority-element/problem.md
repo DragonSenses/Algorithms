@@ -300,3 +300,39 @@ for i from 0 to 31:
 
 return majority
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+/**
+ * Bitwise Manipulation Approach to find the majority element. Reconstructs the majority element bit
+ * by bit by counting 1s at each bit position.
+ */
+class Solution {
+  public int majorityElement(int[] nums) {
+    int majority = 0;
+    int n = nums.length;
+
+    // Iterate over all 32 bit positions
+    for (int i = 0; i < 32; i++) {
+      int bitCount = 0;
+
+      // Count how many numbers have the i-th bit set
+      for (int num : nums) {
+        if (((num >> i) & 1) == 1) {
+          bitCount++;
+        }
+      }
+
+      // If more than half the numbers have this bit set, set it in the result
+      if (bitCount > n / 2) {
+        majority |= (1 << i);
+      }
+    }
+
+    return majority;
+  }
+}
+```
