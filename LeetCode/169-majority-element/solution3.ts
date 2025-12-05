@@ -6,6 +6,10 @@ function majorityElement(nums: number[]): number {
   let majority = 0;
   const n = nums.length;
 
+  // Iterate over all 32 bit positions
+  for (let i = 0; i < 32; i++) {
+    let bitCount = 0;
 
+  }
 
 }
