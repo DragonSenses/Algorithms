@@ -10,6 +10,13 @@ function majorityElement(nums: number[]): number {
   for (let i = 0; i < 32; i++) {
     let bitCount = 0;
 
+    // Count how many numbers have the i-th bit set
+    for (const num of nums) {
+      if (((num >> i) & 1) === 1) {
+        bitCount++;
+      }
+    }
+
   }
 
 }
