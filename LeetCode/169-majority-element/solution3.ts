@@ -17,6 +17,8 @@ function majorityElement(nums: number[]): number {
       }
     }
 
+    if (bitCount > Math.floor(n / 2)) {
+    }
   }
 
 }
