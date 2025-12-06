@@ -17,7 +17,9 @@ function majorityElement(nums: number[]): number {
       }
     }
 
+    // If more than half the numbers have this bit set, set it in the result
     if (bitCount > Math.floor(n / 2)) {
+      majority |= 1 << i;
     }
   }
 
