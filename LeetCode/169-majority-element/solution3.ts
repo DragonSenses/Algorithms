@@ -1,14 +1,18 @@
 /**
  * Bitwise Manipulation Approach to find the majority element.
- * Reconstructs the majority element bit by bit by counting 1s at each bit position.
+ *
+ * The majority element is defined as the element that appears more than ⌊n / 2⌋ times.
+ *
+ * @param nums - The input array of integers
+ * @returns The majority element reconstructed bit by bit
  */
 function majorityElement(nums: number[]): number {
-  let majority = 0;
+  let majority = 0; // Result variable to hold reconstructed majority element
   const n = nums.length;
 
-  // Iterate over all 32 bit positions
+  // Iterate over all 32 bit positions (for signed 32-bit integers)
   for (let i = 0; i < 32; i++) {
-    let bitCount = 0;
+    let bitCount = 0; // Counter for how many numbers have the i-th bit set
 
     // Count how many numbers have the i-th bit set
     for (const num of nums) {
@@ -23,5 +27,6 @@ function majorityElement(nums: number[]): number {
     }
   }
 
+  // Return the reconstructed majority element
   return majority;
 }
