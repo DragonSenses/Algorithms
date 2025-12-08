@@ -36,6 +36,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Bitwise Manipulation Approach](#bitwise-manipulation-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Majority Element**
 
@@ -368,3 +369,14 @@ function majorityElement(nums: number[]): number {
   return majority;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The input array `nums` contains `n` integers.
+- Each integer fits within a 32-bit signed representation.
+- A majority element is guaranteed to exist.
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: Only a fixed number of counters and bit masks are used.
+- **No Additional Structures**: The algorithm does not allocate memory proportional to input size.
