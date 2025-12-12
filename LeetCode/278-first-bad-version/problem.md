@@ -80,3 +80,15 @@ Output: 1
 # Binary Search Approach
 
 The problem of finding the first bad version can be solved efficiently using **binary search**. Since versions are sequential and once a version is bad, all subsequent versions are bad, we can halve the search space at each step.
+
+
+### **Scenario #1: `isBadVersion(mid) => false`**
+
+Versions: 1 2 3 4 5 6 7 8 9
+          G G G G G G B B B
+
+- `G = Good`, `B = Bad`
+- If `isBadVersion(mid)` returns **false**, it means all versions up to and including `mid` are good.
+- Therefore, the first bad version must lie in the interval `[mid + 1, right]`.
+- Update boundary:  
+  `left = mid + 1`
