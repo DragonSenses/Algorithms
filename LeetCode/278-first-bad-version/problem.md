@@ -92,3 +92,17 @@ Versions: 1 2 3 4 5 6 7 8 9
 - Therefore, the first bad version must lie in the interval `[mid + 1, right]`.
 - Update boundary:  
   `left = mid + 1`
+
+### **Scenario #2: `isBadVersion(mid) => true`**
+
+```
+Versions: 1 2 3 4 5 6 7 8 9
+          G G G B B B B B B
+```
+
+- `G = Good`, `B = Bad`
+- If `isBadVersion(mid)` returns **true**, then `mid` may or may not be the first bad version.
+- However, we know for sure that all versions after `mid` are bad.
+- Therefore, the first bad version must lie in the interval `[left, mid]`.
+- Update boundary:  
+  `right = mid`
