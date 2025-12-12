@@ -33,6 +33,10 @@ Then 4 is the first bad version.
 
 ---
 
+# Solution
+
+- [Binary Search Approach](#binary-search-approach)
+
 ## **Problem Overview: First Bad Version**
 
 You are a product manager leading a team to develop a new product. Unfortunately, one of the versions fails the quality check. Since each version is built upon the previous one, all subsequent versions after a bad version are also bad.
@@ -72,4 +76,7 @@ Output: 1
 ### **Key Insight**
 - Since versions are sequential and once a version is bad, all following versions are bad, the problem can be solved efficiently using **binary search**.
 - Binary search reduces the number of API calls from \(O(n)\) to \(O(\log n)\), ensuring scalability even for very large values of `n`.
-es constant memory usage independent of `n`.  
+
+# Binary Search Approach
+
+The problem of finding the first bad version can be solved efficiently using **binary search**. Since versions are sequential and once a version is bad, all subsequent versions are bad, we can halve the search space at each step.
