@@ -123,4 +123,9 @@ Versions: 1 2 3 4 5 6 7 8 9
   - If the algorithm reduces the search space to a single element in both scenarios, it is correct.
 - Formal correctness can be proven by induction.
 
+### **Overflow Consideration**
 
+- Be cautious when calculating `mid = (left + right) / 2`.  
+  In languages with integer overflow (e.g., Java, C++), `left + right` may exceed the maximum integer limit.
+- Safer formula:  
+  `mid = left + (right - left) / 2`
