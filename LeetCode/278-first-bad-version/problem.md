@@ -37,6 +37,7 @@ Then 4 is the first bad version.
 
 - [Binary Search Approach](#binary-search-approach)
 
+
 ## **Problem Overview: First Bad Version**
 
 You are a product manager leading a team to develop a new product. Unfortunately, one of the versions fails the quality check. Since each version is built upon the previous one, all subsequent versions after a bad version are also bad.
@@ -79,6 +80,8 @@ Output: 1
 
 # Binary Search Approach
 
+## **Intuition**
+
 The problem of finding the first bad version can be solved efficiently using **binary search**. Since versions are sequential and once a version is bad, all subsequent versions are bad, we can halve the search space at each step.
 
 
@@ -106,3 +109,12 @@ Versions: 1 2 3 4 5 6 7 8 9
 - Therefore, the first bad version must lie in the interval `[left, mid]`.
 - Update boundary:  
   `right = mid`
+
+### **Initialization and Termination**
+
+- Initialize search boundaries:  
+  `left = 1`, `right = n`
+- Continue halving the search space until `left == right`.  
+  At this point, both pointers converge on the **first bad version**.
+
+
