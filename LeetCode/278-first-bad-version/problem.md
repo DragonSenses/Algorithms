@@ -117,4 +117,10 @@ Versions: 1 2 3 4 5 6 7 8 9
 - Continue halving the search space until `left == right`.  
   At this point, both pointers converge on the **first bad version**.
 
+### **Correctness Check**
+
+- To quickly validate correctness during an interview, test with input size = 2:
+  - If the algorithm reduces the search space to a single element in both scenarios, it is correct.
+- Formal correctness can be proven by induction.
+
 
