@@ -129,3 +129,18 @@ Versions: 1 2 3 4 5 6 7 8 9
   In languages with integer overflow (e.g., Java, C++), `left + right` may exceed the maximum integer limit.
 - Safer formula:  
   `mid = left + (right - left) / 2`
+
+## Algorithm
+
+- **Goal:** Find the first bad version using binary search while minimizing calls to `isBadVersion`.
+- **Setup:** Use inclusive boundaries with `left = 1` and `right = n`.
+- **Loop condition:** While `left < right`, continue narrowing the search space.
+- **Midpoint:** Compute `mid = left + (right - left) / 2` to avoid integer overflow.
+- **Case: mid is good (false):**  
+  - **Action:** Move left boundary rightward.  
+  - **Update:** `left = mid + 1`
+- **Case: mid is bad (true):**  
+  - **Action:** Keep mid and discard the right half.  
+  - **Update:** `right = mid`
+- **Termination:** When `left == right`, both pointers converge to the first bad version.
+- **Return:** `left` (or `right`, they are equal).
