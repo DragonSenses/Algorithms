@@ -154,5 +154,10 @@ function firstBadVersion(n):
   while left < right:
     mid = left + (right - left) // 2  // safe midpoint to avoid overflow
 
+    if isBadVersion(mid) == true:
+      right = mid                    // first bad is in [left, mid]
+    else:
+      left = mid + 1                 // first bad is in [mid + 1, right]
+
 ```
 
