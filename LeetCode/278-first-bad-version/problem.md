@@ -37,7 +37,6 @@ Then 4 is the first bad version.
 
 - [Binary Search Approach](#binary-search-approach)
 
-
 ## **Problem Overview: First Bad Version**
 
 You are a product manager leading a team to develop a new product. Unfortunately, one of the versions fails the quality check. Since each version is built upon the previous one, all subsequent versions after a bad version are also bad.
@@ -151,6 +150,9 @@ Versions: 1 2 3 4 5 6 7 8 9
 function firstBadVersion(n):
   left  = 1
   right = n
+
+  while left < right:
+    mid = left + (right - left) // 2  // safe midpoint to avoid overflow
 
 ```
 
