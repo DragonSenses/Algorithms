@@ -144,3 +144,13 @@ Versions: 1 2 3 4 5 6 7 8 9
   - **Update:** `right = mid`
 - **Termination:** When `left == right`, both pointers converge to the first bad version.
 - **Return:** `left` (or `right`, they are equal).
+
+### **Pseudocode**
+
+```text
+function firstBadVersion(n):
+  left  = 1
+  right = n
+
+```
+
