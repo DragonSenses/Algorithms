@@ -159,5 +159,6 @@ function firstBadVersion(n):
     else:
       left = mid + 1                 // first bad is in [mid + 1, right]
 
+  return left
 ```
 
