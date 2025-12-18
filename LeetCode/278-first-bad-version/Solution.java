@@ -16,5 +16,7 @@ public class Solution extends VersionControl {
       }
     }
 
+    // At termination, left == right and points to the first bad version
+    return left;
   }
 }
