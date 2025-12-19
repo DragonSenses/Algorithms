@@ -1,13 +1,7 @@
-/**
- * The knows API is defined in the parent class Relation.
- * isBadVersion(version: number): boolean {
- *     ...
- * };
- */
+var solution = function (isBadVersion: (version: number) => boolean) {
+  return function (n: number): number {
+    let left: number = 1;
+    let right: number = n;
 
-var solution = function(isBadVersion: any) {
-
-    return function(n: number): number {
-        
-    };
+  };
 };
