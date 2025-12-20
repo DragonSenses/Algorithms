@@ -8,7 +8,8 @@ var solution = function (isBadVersion: (version: number) => boolean) {
       const mid: number = left + Math.floor((right - left) / 2);
 
       if (isBadVersion(mid)) {
-
+        // Mid could be the first bad version, so keep it
+        right = mid;
       }
     }
 
