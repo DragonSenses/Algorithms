@@ -10,6 +10,9 @@ var solution = function (isBadVersion: (version: number) => boolean) {
       if (isBadVersion(mid)) {
         // Mid could be the first bad version, so keep it
         right = mid;
+      } else {
+        // Mid is good, so the first bad must be after mid
+        left = mid + 1;
       }
     }
 
