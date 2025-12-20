@@ -7,6 +7,9 @@ var solution = function (isBadVersion: (version: number) => boolean) {
       // Safe midpoint calculation to avoid overflow
       const mid: number = left + Math.floor((right - left) / 2);
 
+      if (isBadVersion(mid)) {
+
+      }
     }
 
   };
