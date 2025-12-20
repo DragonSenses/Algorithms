@@ -3,5 +3,9 @@ var solution = function (isBadVersion: (version: number) => boolean) {
     let left: number = 1;
     let right: number = n;
 
+    while (left < right) {
+
+    }
+
   };
 };
