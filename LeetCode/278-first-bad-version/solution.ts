@@ -16,5 +16,7 @@ var solution = function (isBadVersion: (version: number) => boolean) {
       }
     }
 
+    // At termination, left == right and points to the first bad version
+    return left;
   };
 };
