@@ -255,3 +255,10 @@ var solution = function (isBadVersion: (version: number) => boolean) {
   };
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- We are using the provided API `isBadVersion(version)` which runs in constant time `O(1)` per call.  
+- The input size `n` can be very large (up to \(2^{31} - 1\)), so efficiency is critical.  
+- The algorithm applies binary search to minimize the number of API calls.  
