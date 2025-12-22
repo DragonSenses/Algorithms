@@ -36,6 +36,7 @@ Then 4 is the first bad version.
 # Solution
 
 - [Binary Search Approach](#binary-search-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: First Bad Version**
@@ -264,6 +265,10 @@ var solution = function (isBadVersion: (version: number) => boolean) {
 - The input size `n` can be very large (up to \(2^{31} - 1\)), so efficiency is critical.  
 - The algorithm applies binary search to minimize the number of API calls.  
 
+### **Time Complexity**: `O(log n)`  
+- **Halving Search Space**: Each iteration of the binary search halves the range of possible versions.  
+- **Logarithmic Steps**: This results in at most \(\log_2(n)\) calls to `isBadVersion`.  
+- **Efficiency**: Even for very large `n`, the number of calls remains manageable due to logarithmic growth.  
 
 ### **Space Complexity**: `O(1)`  
 - **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`left`, `right`, `mid`) to track boundaries and pivots, regardless of the input size.  
