@@ -51,3 +51,58 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+## **Problem Overview: Binary Tree Right Side View**
+
+Given the `root` of a binary tree, imagine standing on the **right side** of the tree. From this perspective, only certain nodes are visible. Your task is to return the **values of the visible nodes**, ordered from **top to bottom**.
+
+This is essentially asking for the **rightmost node at each depth level** of the tree.
+
+## Key Idea
+
+A binary tree can have multiple nodes at each depth, but when viewed from the right side, only the **last node** at each level is visible.
+
+Two common strategies solve this:
+
+### 1. Level-Order Traversal (BFS)
+- Traverse the tree level by level.
+- At each level, record the **last node** encountered.
+
+### 2. Depth-First Search (DFS)
+- Traverse the tree prioritizing the **right child first**.
+- The first node visited at each depth is the visible one.
+
+## Examples
+
+### Example 1
+**Input:**  
+`root = [1,2,3,null,5,null,4]`
+
+**Output:**  
+`[1,3,4]`
+
+This corresponds to the rightmost nodes at each level.
+
+### Example 2
+**Input:**  
+`root = [1,2,3,4,null,null,null,5]`
+
+**Output:**  
+`[1,3,4,5]`
+
+### Example 3
+**Input:**  
+`root = [1,null,3]`
+
+**Output:**  
+`[1,3]`
+
+### Example 4
+**Input:**  
+`root = []`
+
+**Output:**  
+`[]`
+
+## Constraints
+- Number of nodes: `[0, 100]`
+- Node values: `-100 <= Node.val <= 100`
