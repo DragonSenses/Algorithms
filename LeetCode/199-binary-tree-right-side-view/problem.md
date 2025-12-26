@@ -51,6 +51,13 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
+---
+
+# Solution
+
+- [BFS](#breadth-first-search-two-queues)
+
+
 ## **Problem Overview: Binary Tree Right Side View**
 
 Given the `root` of a binary tree, imagine standing on the **right side** of the tree. From this perspective, only certain nodes are visible. Your task is to return the **values of the visible nodes**, ordered from **top to bottom**.
@@ -106,3 +113,7 @@ This corresponds to the rightmost nodes at each level.
 ## Constraints
 - Number of nodes: `[0, 100]`
 - Node values: `-100 <= Node.val <= 100`
+
+# Breadth-First Search: Two Queues
+
+For this approach we use two queues to process the binary tree by level then one queue holds all nodes of the current level and the other queue stores nodes of next level. Removing nodes from current level enqueues it to next. WHen current is empty the last node process is the right side node.
