@@ -116,4 +116,12 @@ This corresponds to the rightmost nodes at each level.
 
 # Breadth-First Search: Two Queues
 
-For this approach we use two queues to process the binary tree by level then one queue holds all nodes of the current level and the other queue stores nodes of next level. Removing nodes from current level enqueues it to next. WHen current is empty the last node process is the right side node.
+## **Intuition**
+
+This method uses **two queues** to process the tree level by level.  
+One queue holds all nodes of the **current level**, while the other collects nodes for the **next level**.
+
+As we dequeue nodes from the current level, we enqueue their children into the next‑level queue.  
+When the current level becomes empty, the **last node we processed** is exactly the node visible from the right side at that depth.
+
+This works because BFS guarantees we process nodes left‑to‑right within each level, so the final node encountered is the rightmost one.
