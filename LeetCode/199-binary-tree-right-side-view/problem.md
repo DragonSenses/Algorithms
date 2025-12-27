@@ -55,7 +55,7 @@
 
 # Solution
 
-- [BFS](#breadth-first-search-two-queues)
+- [Breadth-First Search Approach: Two Queues](#breadth-first-search-approach-two-queues)
 
 
 ## **Problem Overview: Binary Tree Right Side View**
@@ -114,7 +114,7 @@ This corresponds to the rightmost nodes at each level.
 - Number of nodes: `[0, 100]`
 - Node values: `-100 <= Node.val <= 100`
 
-# Breadth-First Search: Two Queues
+# Breadth-First Search Approach: Two Queues
 
 ## **Intuition**
 
@@ -125,3 +125,14 @@ As we dequeue nodes from the current level, we enqueue their children into the n
 When the current level becomes empty, the **last node we processed** is exactly the node visible from the right side at that depth.
 
 This works because BFS guarantees we process nodes left‑to‑right within each level, so the final node encountered is the rightmost one.
+
+## **Algorithm**
+
+1. Init empty list to store result
+2. Create two queues for curr and next levels
+3. While nextLevel not empty assign curr to next and reset to empty
+4. While curr is not empty deque node and enqueue node children into nextlevel
+5. When curr empty last node is rightmost
+6. add rightmost node to result
+7. return result
+
