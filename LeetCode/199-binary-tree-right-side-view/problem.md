@@ -128,11 +128,18 @@ This works because BFS guarantees we process nodes left‑to‑right within each
 
 ## **Algorithm**
 
-1. Init empty list to store result
-2. Create two queues for curr and next levels
-3. While nextLevel not empty assign curr to next and reset to empty
-4. While curr is not empty deque node and enqueue node children into nextlevel
-5. When curr empty last node is rightmost
-6. add rightmost node to result
-7. return result
+1. Initialize an empty list `rightside` to store the right‑side view.
+
+2. Create two queues:
+   - `currLevel` — initially empty  
+   - `nextLevel` — initially containing only `root` (if it exists)
+
+3. While `nextLevel` is not empty:
+   - Assign `currLevel = nextLevel` and reset `nextLevel` to empty.
+   - While `currLevel` is not empty:
+     - Dequeue a node `node` from `currLevel`.
+     - Enqueue `node.left` and then `node.right` into `nextLevel` (if they exist).
+   - After `currLevel` becomes empty, the last processed `node` is the rightmost node of this level. Append its value to `rightside`.
+
+4. Return `rightside`.
 
