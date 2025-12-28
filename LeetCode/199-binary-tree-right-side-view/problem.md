@@ -166,5 +166,6 @@ function rightSideView(root):
       if node.right is not null:
         enqueue(nextLevel, node.right)
 
+    append node.value to rightside
 
 ```
