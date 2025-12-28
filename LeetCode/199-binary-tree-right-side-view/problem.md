@@ -168,4 +168,5 @@ function rightSideView(root):
 
     append node.value to rightside
 
+  return rightside
 ```
