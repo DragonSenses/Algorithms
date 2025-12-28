@@ -143,3 +143,11 @@ This works because BFS guarantees we process nodes left‑to‑right within each
 
 4. Return `rightside`.
 
+### **Pseudocode**
+
+```plaintext
+function rightSideView(root):
+  if root is null:
+    return empty list
+
+```
