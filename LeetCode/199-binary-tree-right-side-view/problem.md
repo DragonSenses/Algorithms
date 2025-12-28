@@ -150,4 +150,7 @@ function rightSideView(root):
   if root is null:
     return empty list
 
+  rightside = empty list
+  nextLevel = queue containing root
+
 ```
