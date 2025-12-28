@@ -153,4 +153,8 @@ function rightSideView(root):
   rightside = empty list
   nextLevel = queue containing root
 
+  while nextLevel is not empty:
+    currLevel = nextLevel
+    nextLevel = empty queue
+
 ```
