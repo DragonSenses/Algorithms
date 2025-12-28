@@ -157,4 +157,14 @@ function rightSideView(root):
     currLevel = nextLevel
     nextLevel = empty queue
 
+    while currLevel is not empty:
+      node = dequeue(currLevel)
+
+      if node.left is not null:
+        enqueue(nextLevel, node.left)
+
+      if node.right is not null:
+        enqueue(nextLevel, node.right)
+
+
 ```
