@@ -8,5 +8,8 @@ class Solution {
     List<Integer> rightside = new ArrayList<>();
     if (root == null) return rightside;
 
+    Queue<TreeNode> nextLevel = new LinkedList<>();
+    nextLevel.add(root);
+
   }
 }
