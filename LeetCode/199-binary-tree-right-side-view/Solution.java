@@ -11,5 +11,11 @@ class Solution {
     Queue<TreeNode> nextLevel = new LinkedList<>();
     nextLevel.add(root);
 
+    while (!nextLevel.isEmpty()) {
+      Queue<TreeNode> currLevel = nextLevel;
+      nextLevel = new LinkedList<>();
+      TreeNode node = null;
+
+    }
   }
 }
