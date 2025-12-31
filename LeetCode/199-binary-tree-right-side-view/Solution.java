@@ -16,6 +16,12 @@ class Solution {
       nextLevel = new LinkedList<>();
       TreeNode node = null;
 
+      while (!currLevel.isEmpty()) {
+        node = currLevel.poll();
+
+      }
+
     }
+
   }
 }
