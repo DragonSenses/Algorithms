@@ -19,6 +19,12 @@ class Solution {
       while (!currLevel.isEmpty()) {
         node = currLevel.poll();
 
+        if (node.left != null) {
+          nextLevel.add(node.left);
+        }
+        if (node.right != null) {
+          nextLevel.add(node.right);
+        }
       }
 
     }
