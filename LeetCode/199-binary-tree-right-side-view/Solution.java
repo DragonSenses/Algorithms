@@ -27,7 +27,9 @@ class Solution {
         }
       }
 
-      rightside.add(node.val);
+      if (node != null) {
+        rightside.add(node.val);
+      }
     }
 
     return rightside;
