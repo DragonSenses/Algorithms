@@ -27,6 +27,7 @@ class Solution {
         }
       }
 
+      rightside.add(node.val);
     }
 
   }
