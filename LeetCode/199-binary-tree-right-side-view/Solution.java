@@ -30,5 +30,6 @@ class Solution {
       rightside.add(node.val);
     }
 
+    return rightside;
   }
 }
