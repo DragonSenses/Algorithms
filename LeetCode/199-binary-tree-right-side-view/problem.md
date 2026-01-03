@@ -170,3 +170,43 @@ function rightSideView(root):
 
   return rightside
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public List<Integer> rightSideView(TreeNode root) {
+    List<Integer> rightside = new ArrayList<>();
+    if (root == null) return rightside;
+
+    Queue<TreeNode> nextLevel = new LinkedList<>();
+    nextLevel.add(root);
+
+    while (!nextLevel.isEmpty()) {
+      Queue<TreeNode> currLevel = nextLevel;
+      nextLevel = new LinkedList<>();
+      TreeNode node = null;
+
+      while (!currLevel.isEmpty()) {
+        node = currLevel.poll();
+
+        if (node.left != null) {
+          nextLevel.add(node.left);
+        }
+        if (node.right != null) {
+          nextLevel.add(node.right);
+        }
+      }
+
+      if (node != null) {
+        rightside.add(node.val);
+      }
+    }
+
+    return rightside;
+  }
+}
+```
+
