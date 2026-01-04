@@ -11,5 +11,6 @@ class TreeNode {
 
 function rightSideView(root: TreeNode | null): number[] {
   const rightside: number[] = [];
+  if (root === null) return rightside;
 
 }
