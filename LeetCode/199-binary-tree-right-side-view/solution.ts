@@ -20,6 +20,11 @@ function rightSideView(root: TreeNode | null): number[] {
     nextLevel = [];
     let node: TreeNode | null = null;
 
+    for (let i = 0; i < currLevel.length; i++) {
+      node = currLevel[i];
+
+    }
+
   }
 
 }
