@@ -13,4 +13,13 @@ function rightSideView(root: TreeNode | null): number[] {
   const rightside: number[] = [];
   if (root === null) return rightside;
 
+  let nextLevel: TreeNode[] = [root];
+
+  while (nextLevel.length > 0) {
+    const currLevel = nextLevel;
+    nextLevel = [];
+    let node: TreeNode | null = null;
+
+  }
+
 }
