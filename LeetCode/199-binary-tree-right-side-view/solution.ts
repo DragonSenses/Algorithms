@@ -36,4 +36,5 @@ function rightSideView(root: TreeNode | null): number[] {
     }
   }
 
+  return rightside;
 }
