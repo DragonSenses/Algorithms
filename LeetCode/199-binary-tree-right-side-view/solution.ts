@@ -26,7 +26,9 @@ function rightSideView(root: TreeNode | null): number[] {
       if (node.left) {
         nextLevel.push(node.left);
       }
-
+      if (node.right) {
+        nextLevel.push(node.right);
+      }
     }
 
   }
