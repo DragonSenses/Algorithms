@@ -31,6 +31,9 @@ function rightSideView(root: TreeNode | null): number[] {
       }
     }
 
+    if (node) {
+      rightside.push(node.val);
+    }
   }
 
 }
