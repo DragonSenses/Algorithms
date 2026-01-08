@@ -57,7 +57,6 @@
 
 - [Breadth-First Search Approach: Two Queues](#breadth-first-search-approach-two-queues)
 
-
 ## **Problem Overview: Binary Tree Right Side View**
 
 Given the `root` of a binary tree, imagine standing on the **right side** of the tree. From this perspective, only certain nodes are visible. Your task is to return the **values of the visible nodes**, ordered from **top to bottom**.
@@ -243,3 +242,10 @@ function rightSideView(root: TreeNode | null): number[] {
   return rightside;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- `n` is the number of nodes in the binary tree.
+- Each node is visited exactly once.
+- The queue used for BFS may hold up to an entire level of the tree.
