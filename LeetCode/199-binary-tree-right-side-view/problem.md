@@ -47,8 +47,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
-	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+  <li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>
+  <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
 ---
@@ -58,6 +58,7 @@
 - [Breadth-First Search Approach: Two Queues](#breadth-first-search-approach-two-queues)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
+- [Depth-First Search Approach](#depth-first-search-approach)
 
 ## **Problem Overview: Binary Tree Right Side View**
 
@@ -259,3 +260,14 @@ function rightSideView(root: TreeNode | null): number[] {
 ### **Space Complexity**: `O(n)`
 - **Level-Order Queue Growth**: In the worst case (e.g., a complete binary tree), the queue may contain up to `n/2` nodes at the widest level.
 - **Output List Scales With Height**: The result list stores one value per depth level, which is at most `O(n)` in a skewed tree.
+
+# Depth-First Search Approach
+
+## **Intuition**
+
+The right‑side view depends on seeing the **first node encountered at each depth when exploring rightward before leftward**.  
+DFS gives you this naturally:  
+- Visit `right` first so the earliest node at a given depth is the visible one.  
+- Track the current depth.  
+- When you reach a depth you haven’t seen before, record that node’s value.  
+Everything else is just traversal order.
