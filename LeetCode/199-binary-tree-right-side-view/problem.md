@@ -56,6 +56,7 @@
 # Solution
 
 - [Breadth-First Search Approach: Two Queues](#breadth-first-search-approach-two-queues)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Binary Tree Right Side View**
@@ -251,6 +252,9 @@ function rightSideView(root: TreeNode | null): number[] {
 - Each node is visited exactly once.
 - The queue used for BFS may hold up to an entire level of the tree.
 
+### **Time Complexity**: `O(n)`
+- **Single Pass Over All Nodes**: Each node is enqueued and dequeued exactly once.
+- **Constant Work Per Node**: Processing a node involves only pointer checks and queue operations.
 
 ### **Space Complexity**: `O(n)`
 - **Level-Order Queue Growth**: In the worst case (e.g., a complete binary tree), the queue may contain up to `n/2` nodes at the widest level.
