@@ -56,6 +56,7 @@
 # Solution
 
 - [Breadth-First Search Approach: Two Queues](#breadth-first-search-approach-two-queues)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Binary Tree Right Side View**
 
@@ -249,3 +250,8 @@ function rightSideView(root: TreeNode | null): number[] {
 - `n` is the number of nodes in the binary tree.
 - Each node is visited exactly once.
 - The queue used for BFS may hold up to an entire level of the tree.
+
+
+### **Space Complexity**: `O(n)`
+- **Level-Order Queue Growth**: In the worst case (e.g., a complete binary tree), the queue may contain up to `n/2` nodes at the widest level.
+- **Output List Scales With Height**: The result list stores one value per depth level, which is at most `O(n)` in a skewed tree.
