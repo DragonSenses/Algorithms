@@ -271,3 +271,13 @@ DFS gives you this naturally:
 - Track the current depth.  
 - When you reach a depth you haven’t seen before, record that node’s value.  
 Everything else is just traversal order.
+
+## **Algorithm**
+
+1. Maintain an array `rightside` to store the first node seen at each depth.  
+2. Define a recursive function `dfs(node, depth)`.  
+3. If `node` is null, return.  
+4. If `depth` equals `rightside.length`, this is the first node at this depth → append its value.  
+5. Recurse into `node.right` with `depth + 1`.  
+6. Then recurse into `node.left` with `depth + 1`.  
+7. Start with `dfs(root, 0)` and return `rightside`.
