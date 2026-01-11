@@ -57,8 +57,9 @@
 
 - [Breadth-First Search Approach: Two Queues](#breadth-first-search-approach-two-queues)
   - **Time Complexity**: `O(n)`
-  - **Space Complexity**: `O(1)`
+  - **Space Complexity**: `O(n)`
 - [Depth-First Search Approach](#depth-first-search-approach)
+
 
 ## **Problem Overview: Binary Tree Right Side View**
 
