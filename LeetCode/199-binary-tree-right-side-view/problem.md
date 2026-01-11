@@ -282,3 +282,24 @@ Everything else is just traversal order.
 5. Recurse into `node.right` with `depth + 1`.  
 6. Then recurse into `node.left` with `depth + 1`.  
 7. Start with `dfs(root, 0)` and return `rightside`.
+
+### **Pseudocode**
+
+```
+function rightSideViewDFS(root):
+  rightside = empty list
+
+  function dfs(node, depth):
+    if node is null:
+      return
+
+    if depth == length(rightside):
+      append node.value to rightside
+
+    dfs(node.right, depth + 1)
+    dfs(node.left, depth + 1)
+
+  dfs(root, 0)
+  return rightside
+```
+
