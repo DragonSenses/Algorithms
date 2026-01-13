@@ -4,7 +4,7 @@ import java.util.List;
 class Solution2 {
   public List<Integer> rightSideView(TreeNode root) {
     List<Integer> rightside = new ArrayList<>();
-    dfs(root,0,0)
+    dfs(root, 0, rightside);
     return rightside;
   }
 
