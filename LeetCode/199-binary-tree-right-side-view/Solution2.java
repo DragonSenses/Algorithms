@@ -16,5 +16,6 @@ class Solution2 {
     }
 
     dfs(node.right, depth + 1, rightside);
+    dfs(node.left, depth + 1, rightside);
   }
 }
