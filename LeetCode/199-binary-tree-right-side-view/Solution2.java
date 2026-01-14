@@ -11,5 +11,9 @@ class Solution2 {
   private void dfs(TreeNode node, int depth, List<Integer> rightside) {
     if (node == null) return;
 
+    if (depth == rightside.size()) {
+      rightside.add(node.val);
+    }
+
   }
 }
