@@ -15,5 +15,6 @@ class Solution2 {
       rightside.add(node.val);
     }
 
+    dfs(node.right, depth + 1, rightside);
   }
 }
