@@ -13,5 +13,5 @@ class TreeNode {
 }
 
 function rightSideView(root: TreeNode | null): number[] {
-    
-};
+  const rightside: number[] = [];
+}
