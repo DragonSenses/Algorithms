@@ -15,3 +15,7 @@ class TreeNode {
 function rightSideView(root: TreeNode | null): number[] {
   const rightside: number[] = [];
 }
+
+function dfs(node: TreeNode | null, depth: number, rightside: number[]): void {
+
+}
