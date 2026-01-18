@@ -19,4 +19,8 @@ function rightSideView(root: TreeNode | null): number[] {
 function dfs(node: TreeNode | null, depth: number, rightside: number[]): void {
   if (node === null) return;
 
+  if (depth === rightside.length) {
+    rightside.push(node.val);
+  }
+
 }
