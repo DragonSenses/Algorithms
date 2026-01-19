@@ -23,4 +23,5 @@ function dfs(node: TreeNode | null, depth: number, rightside: number[]): void {
     rightside.push(node.val);
   }
 
+  dfs(node.right, depth + 1, rightside);
 }
