@@ -327,3 +327,24 @@ class Solution {
   }
 }
 ```
+
+### TypeScript
+
+```typescript
+function rightSideView(root: TreeNode | null): number[] {
+  const rightside: number[] = [];
+  dfs(root, 0, rightside);
+  return rightside;
+}
+
+function dfs(node: TreeNode | null, depth: number, rightside: number[]): void {
+  if (node === null) return;
+
+  if (depth === rightside.length) {
+    rightside.push(node.val);
+  }
+
+  dfs(node.right, depth + 1, rightside);
+  dfs(node.left, depth + 1, rightside);
+}
+```
