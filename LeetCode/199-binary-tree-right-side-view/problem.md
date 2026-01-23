@@ -59,6 +59,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Depth-First Search Approach](#depth-first-search-approach)
+  - **Space Complexity**: `O(h)`
 
 ## **Problem Overview: Binary Tree Right Side View**
 
@@ -354,3 +355,9 @@ function dfs(node: TreeNode | null, depth: number, rightside: number[]): void {
 - `n` is the total number of nodes in the binary tree.
 - DFS visits each node exactly once.
 - The recursion stack depth depends on the tree's height.
+
+### **Space Complexity**: `O(h)`
+- **Recursion Stack Depth**: DFS uses call stack space proportional to the tree height `h`.  
+  - Worst case (skewed tree): `h = n` -> `O(n)` space.  
+  - Best case (balanced tree): `h = log n` -> `O(log n)` space.
+- **Output List Scales With Depth**: The result stores one value per depth level, contributing up to `O(h)` additional space.
