@@ -60,7 +60,6 @@
   - **Space Complexity**: `O(n)`
 - [Depth-First Search Approach](#depth-first-search-approach)
 
-
 ## **Problem Overview: Binary Tree Right Side View**
 
 Given the `root` of a binary tree, imagine standing on the **right side** of the tree. From this perspective, only certain nodes are visible. Your task is to return the **values of the visible nodes**, ordered from **top to bottom**.
@@ -270,7 +269,7 @@ The right‑side view depends on seeing the **first node encountered at each dep
 DFS gives you this naturally:  
 - Visit `right` first so the earliest node at a given depth is the visible one.  
 - Track the current depth.  
-- When you reach a depth you haven’t seen before, record that node’s value.  
+- When you reach a depth you haven't seen before, record that node's value.  
 Everything else is just traversal order.
 
 ## **Algorithm**
@@ -278,7 +277,7 @@ Everything else is just traversal order.
 1. Maintain an array `rightside` to store the first node seen at each depth.  
 2. Define a recursive function `dfs(node, depth)`.  
 3. If `node` is null, return.  
-4. If `depth` equals `rightside.length`, this is the first node at this depth → append its value.  
+4. If `depth` equals `rightside.length`, this is the first node at this depth -> append its value.  
 5. Recurse into `node.right` with `depth + 1`.  
 6. Then recurse into `node.left` with `depth + 1`.  
 7. Start with `dfs(root, 0)` and return `rightside`.
@@ -348,3 +347,10 @@ function dfs(node: TreeNode | null, depth: number, rightside: number[]): void {
   dfs(node.left, depth + 1, rightside);
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- `n` is the total number of nodes in the binary tree.
+- DFS visits each node exactly once.
+- The recursion stack depth depends on the tree's height.
