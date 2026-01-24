@@ -4,6 +4,8 @@
 
 <p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
 
+<p><strong>Clarification:</strong> The input/output format is the same as how LeetCode serializes a binary tree (see below example). You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" style="width: 442px; height: 324px;" src="img/297-1.jpg">
@@ -24,3 +26,19 @@
 	<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+<strong>Serialized Format:</strong>
+<ul style="padding-left: 0px; margin-top: 2px;">
+<li>
+<div>
+<code>[1, null, 2, 3]</code> is <strong>not</strong> an array but a way to represent a binary tree in a printable format using <strong>level order traversal</strong>. In level order traversal, the tree is traversed level by level, from top to bottom and left to right.</div>
+</li>
+<li>
+<div>The <code>null</code> value is used to indicate where a node is missing in the tree. It shows that there is no node present in that position, which helps you understand the overall shape of the tree, especially when some branches are incomplete.</div>
+</li>
+<li>
+<div>
+<code>[]</code> is not an empty array but represents an empty binary tree, where the root is a reference to <code>NULL</code> (C/C++), <code>null</code> (Java/C#/JavaScript), <code>None</code> (Python), or <code>nil</code> (Ruby).</div>
+</li>
+</ul>
+<p><strong>Note:</strong> Always use the provided <code>TreeNode</code> class/type, and do not define it yourself.</p>
