@@ -42,3 +42,30 @@
 </li>
 </ul>
 <p><strong>Note:</strong> Always use the provided <code>TreeNode</code> class/type, and do not define it yourself.</p>
+
+---
+
+## **Problem Overview: Serialize and Deserialize Binary Tree**
+
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+## Examples
+
+Example 1:
+
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+
+Example 2:
+
+Input: root = []
+Output: []
+
+## Constraints
+
+Constraints:
+
+    The number of nodes in the tree is in the range [0, 104].
+    -1000 <= Node.val <= 1000
