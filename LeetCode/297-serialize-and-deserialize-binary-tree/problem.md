@@ -53,19 +53,40 @@ Design an algorithm to serialize and deserialize a binary tree. There is no rest
 
 ## Examples
 
-Example 1:
+* Example 1:
 
-Input: root = [1,2,3,null,null,4,5]
-Output: [1,2,3,null,null,4,5]
+  ```
+  Input: root = [1,2,3,null,null,4,5]
+  Output: [1,2,3,null,null,4,5]
+  ```
 
-Example 2:
+* Example 2:
 
-Input: root = []
-Output: []
+  ```
+  Input: root = []
+  Output: []
+  ```
 
 ## Constraints
 
 Constraints:
 
-    The number of nodes in the tree is in the range [0, 104].
-    -1000 <= Node.val <= 1000
+  * The number of nodes in the tree is in the range [0, 104].
+  * -1000 <= `Node.val` <= 1000
+
+### Problem Essence  
+You must design a reversible encoding for a binary tree. The serialized form must contain enough structure information to reconstruct the exact original tree, including null children. There is no required format; any representation is valid as long as serialization and deserialization are inverses.
+
+Two broad strategies dominate:  
+1. **Preorder DFS with null markers**  
+2. **Level‑order BFS with null markers**
+
+Both approaches rely on the same principle:  
+A binary tree cannot be reconstructed from values alone; you must encode structure explicitly. Null placeholders are the simplest way to preserve shape.
+
+### Key Requirements  
+- Handle empty trees.  
+- Support up to 10⁴ nodes efficiently.  
+- Node values range from −1000 to 1000.  
+- Output must be a string; input to deserializer is that same string.  
+- The reconstructed tree must be structurally identical to the original.
