@@ -45,6 +45,29 @@
 
 ---
 
+## **Serialization**  
+
+Serialization of a binary tree is the process of encoding both its **values** and its **structure** into a linear representation. A correct serialization must preserve enough information to reconstruct the exact original tree during deserialization. Traversal order determines how this structural information is captured.
+
+Two general traversal strategies exist for encoding a tree:
+
+### Breadth‑First Search (BFS)  
+BFS scans the tree level by level, from top to bottom.  
+Nodes on higher levels are visited before nodes on lower levels.  
+Null children must be explicitly recorded to preserve structure.
+
+### Depth‑First Search (DFS)  
+DFS prioritizes depth.  
+Starting at the root, traversal proceeds down one branch to a leaf, then backtracks to explore other branches.
+
+DFS can be performed in three classical orders:  
+- Preorder (root, left, right)  
+- Inorder (left, root, right)  
+- Postorder (left, right, root)
+
+For serialization, **preorder DFS** is typically the most suitable.  
+Its traversal order naturally encodes parent‑child relationships, making it straightforward to reconstruct the tree during deserialization.  
+
 ## **Problem Overview: Serialize and Deserialize Binary Tree**
 
 Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
