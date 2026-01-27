@@ -90,3 +90,23 @@ A binary tree cannot be reconstructed from values alone; you must encode structu
 - Node values range from −1000 to 1000.  
 - Output must be a string; input to deserializer is that same string.  
 - The reconstructed tree must be structurally identical to the original.
+
+### Why Null Markers Matter  
+Consider the tree:
+
+```
+    1
+   / \
+  2   3
+     / \
+    4   5
+```
+
+If you only serialize values, you lose the fact that 2 has no children and 3 has two. Null markers preserve this:
+
+```
+1,2,null,null,3,4,null,null,5,null,null
+```
+
+This is a preorder DFS representation.
+
