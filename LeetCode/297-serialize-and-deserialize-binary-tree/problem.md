@@ -160,8 +160,14 @@ Cons:
 
 # Depth-First Search Preorder Approach
 
-A preorder traversal visits the root first, then the left subtree, and finally the right subtree.
+A **preorder traversal** visits the root first, then the left subtree, and finally the right subtree.
 
-A depth‑first search explores a tree by following one path as deeply as possible before backtracking to explore the next path.
+A **depth‑first search** explores a tree by following one path as deeply as possible before backtracking to explore the next path.
 
-Together, a DFS preorder traversal provides a natural way to capture both the values and the structure of a tree, making it well‑suited for tasks such as copying or serializing trees.
+Together, a **DFS preorder traversal** provides a natural way to capture both the values and the structure of a tree, making it well‑suited for tasks such as copying or serializing trees.
+
+**Serialization** is the process of converting a tree into a linear representation that records both its values and its structure.
+
+**Deserialization** is the reverse process: reconstructing the original tree from its serialized representation.
+
+**Tokens** are the individual units produced by splitting the serialized data, typically representing either a node’s value or a null marker.
