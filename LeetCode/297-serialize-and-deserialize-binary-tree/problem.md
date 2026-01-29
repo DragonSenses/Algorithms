@@ -173,3 +173,40 @@ Together, a **DFS preorder traversal** provides a natural way to capture both th
 **Tokens** are the individual units produced by splitting the serialized data, typically representing either a node’s value or a null marker.
 
 A **Codec** is an abstraction that bundles the serialization and deserialization logic into a single interface, allowing a tree to be converted to a string and reconstructed from that string using a unified, consistent API.
+
+```java
+public class Codec {
+
+private function serialize(node) {
+  if node is null:
+    append NULL_MARKER to output
+    return
+
+  append node.value to output
+  serialize(node.left)
+  serialize(node.right)
+ }
+
+
+private function deserialize(tokens) {
+  if tokens is empty:
+    return null
+
+  token = next token from tokens
+
+  if token is NULL_MARKER:
+    return null
+
+  node = new TreeNode(token)
+  node.left = deserialize(tokens)
+  node.right = deserialize(tokens)
+  return node
+}
+
+  public static void main(args[0]) {
+    Codec ser = new Codec();
+    Codec deser = new Codec();
+    TreeNode ans = deser.deserialize(ser.serialize(root));
+  }
+}
+```
