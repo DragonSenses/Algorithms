@@ -133,3 +133,25 @@ If you only serialize values, you lose the fact that 2 has no children and 3 has
 
 This is a preorder DFS representation.
 
+### Common Approaches
+
+#### 1. DFS Preorder (Most Common)
+Serialize using preorder traversal and append a sentinel (e.g., "#") for nulls.
+
+Example serialized string:
+```
+1,2,#,#,3,4,#,#,5,#,#
+```
+
+Deserialization uses a pointer that consumes tokens in order and rebuilds the tree recursively.
+
+Pros:  
+- Very compact.  
+- Easy to implement.  
+- Deterministic reconstruction.
+
+Cons:  
+- Requires recursion or manual stack management.
+
+# Depth-First Search Preorder Approach
+
