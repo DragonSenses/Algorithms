@@ -45,6 +45,11 @@
 
 ---
 
+# Solution
+
+- [Depth-First Search Approach](#depth-first-search-preorder-approach)
+
+
 ## **Serialization**  
 
 Serialization of a binary tree is the process of encoding both its **values** and its **structure** into a linear representation. A correct serialization must preserve enough information to reconstruct the exact original tree during deserialization. Traversal order determines how this structural information is captured.
@@ -155,3 +160,8 @@ Cons:
 
 # Depth-First Search Preorder Approach
 
+A preorder traversal visits the root first, then the left subtree, and finally the right subtree.
+
+A depth‑first search explores a tree by following one path as deeply as possible before backtracking to explore the next path.
+
+Together, a DFS preorder traversal provides a natural way to capture both the values and the structure of a tree, making it well‑suited for tasks such as copying or serializing trees.
