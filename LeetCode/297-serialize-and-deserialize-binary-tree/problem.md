@@ -170,9 +170,32 @@ Together, a **DFS preorder traversal** provides a natural way to capture both th
 
 **Deserialization** is the reverse process: reconstructing the original tree from its serialized representation.
 
-**Tokens** are the individual units produced by splitting the serialized data, typically representing either a node’s value or a null marker.
+**Tokens** are the individual units produced by splitting the serialized data, typically representing either a node's value or a null marker.
 
 A **Codec** is an abstraction that bundles the serialization and deserialization logic into a single interface, allowing a tree to be converted to a string and reconstructed from that string using a unified, consistent API.
+
+## **Algorithm**
+
+We'll split the algorithm into two functions: serialization and deserialization.
+
+Serialization:
+
+1. root
+2. get value at node (non-null)
+3. left subtree
+4. right subtree
+5. null node gets marker
+6. Combine tokens into string
+
+Deserialization:
+
+1. Splice string into list of tokens
+2. Read tokens left to right
+3. Null marker is null value
+4. Non-null value becomes node
+5. Build left subtree
+6. Build right subtree
+7. Return node as subtree root
 
 ```java
 public class Codec {
