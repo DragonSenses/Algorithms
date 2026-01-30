@@ -197,6 +197,34 @@ Deserialization:
 6. Build right subtree
 7. Return node as subtree root
 
+### **Pseudocode**
+
+```txt
+class Codec:
+function serialize(node):
+  if node is null:
+    append NULL_MARKER to output
+    return
+
+  append node.value to output
+  serialize(node.left)
+  serialize(node.right)
+
+function deserialize(tokens):
+  if tokens is empty:
+    return null
+
+  token = next token from tokens
+
+  if token is NULL_MARKER:
+    return null
+
+  node = new TreeNode(token)
+  node.left = deserialize(tokens)
+  node.right = deserialize(tokens)
+  return node
+```
+
 ```java
 public class Codec {
 
