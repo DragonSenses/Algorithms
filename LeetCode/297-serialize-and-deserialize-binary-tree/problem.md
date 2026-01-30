@@ -224,22 +224,33 @@ function deserialize(tokens):
   node.right = deserialize(tokens)
   return node
 ```
+#### Detailed Pseudocode
 
 ```java
 public class Codec {
 
-private function serialize(node) {
+public function serialize(root) {
+  String[] output = []
+  serializeAux(root, output)
+  return join output with commas
+}
+
+private function serializeAux(node, output) {
   if node is null:
     append NULL_MARKER to output
     return
 
-  append node.value to output
-  serialize(node.left)
-  serialize(node.right)
- }
+   append node.value to output
+   serializeAux(node.left)
+   serializeAux(node.right)
+}
 
+public function deserialize(data) {
+  String[] tokens = split data by commas
+  return deserializeAux(tokens)
+}
 
-private function deserialize(tokens) {
+private function deserializeAux(tokens) {
   if tokens is empty:
     return null
 
@@ -249,8 +260,8 @@ private function deserialize(tokens) {
     return null
 
   node = new TreeNode(token)
-  node.left = deserialize(tokens)
-  node.right = deserialize(tokens)
+  node.left = deserializeAux(tokens)
+  node.right = deserializeAux(tokens)
   return node
 }
 
