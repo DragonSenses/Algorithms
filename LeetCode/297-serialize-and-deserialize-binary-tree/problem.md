@@ -174,6 +174,19 @@ Together, a **DFS preorder traversal** provides a natural way to capture both th
 
 A **Codec** is an abstraction that bundles the serialization and deserialization logic into a single interface, allowing a tree to be converted to a string and reconstructed from that string using a unified, consistent API.
 
+## **Intuition**
+
+Preorder DFS is well‑suited for serialization because it naturally exposes the parent‑child relationships in the exact order needed to reconstruct the tree. When you visit a node in preorder, you immediately know its value before exploring its children. By inserting explicit null markers for missing children, the traversal becomes a complete structural blueprint of the tree.
+
+This works because preorder produces a deterministic sequence:  
+1. Visit the root  
+2. Serialize the left subtree  
+3. Serialize the right subtree  
+
+If a node is absent, the null marker ensures that the deserializer knows precisely where a subtree ends and where the next one begins. The sequence becomes a linearized version of the tree's recursive structure. During deserialization, consuming tokens in the same order allows you to rebuild the tree exactly as it was.
+
+The key insight is that preorder traversal, combined with null markers, forms a one‑to‑one mapping between the tree and the serialized string.
+
 ## **Algorithm**
 
 We'll split the algorithm into two functions: serialization and deserialization.
