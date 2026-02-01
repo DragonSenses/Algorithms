@@ -17,7 +17,7 @@ public class Codec {
     }
 
     sb.append(node.val).append(DELIM);
-
+    serializeAux(node.left, sb);
   }
 
   // Decodes your encoded data to tree.
