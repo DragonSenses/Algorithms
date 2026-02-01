@@ -11,7 +11,13 @@ public class Codec {
   }
 
   private void serializeAux(TreeNode node, StringBuilder sb) {
+    if (node == null) {
+      sb.append(NULL_MARKER).append(DELIM);
+      return;
+    }
+
     sb.append(node.val).append(DELIM);
+
   }
 
   // Decodes your encoded data to tree.
