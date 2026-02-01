@@ -6,8 +6,12 @@ public class Codec {
   // Encodes a tree to a single string.
   public String serialize(TreeNode root) {
     StringBuilder sb = new StringBuilder();
-    
+    serializeAux(root, sb);
     return sb.toString();
+  }
+
+  private void serializeAux(TreeNode node, StringBuilder sb) {
+    sb.append(node.val).append(DELIM);
   }
 
   // Decodes your encoded data to tree.
