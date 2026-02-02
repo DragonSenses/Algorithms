@@ -23,6 +23,7 @@ public class Codec {
 
   // Decodes your encoded data to tree.
   public TreeNode deserialize(String data) {
+    String[] tokens = data.split(DELIM);
 
   }
 }
