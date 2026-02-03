@@ -25,6 +25,10 @@ public class Codec {
   public TreeNode deserialize(String data) {
     String[] tokens = data.split(DELIM);
     int[] index = new int[1]; // acts as a mutable pointer
+    return deserializeAux(tokens, index);
   }
 
+  private TreeNode deserializeAux(String[] tokens, int[] index) {
+    
+  }
 }
