@@ -189,26 +189,27 @@ The key insight is that preorder traversal, combined with null markers, forms a 
 
 ## **Algorithm**
 
-We'll split the algorithm into two functions: serialization and deserialization.
+#### Serialization
 
-Serialization:
+1. Begin at the root.  
+2. If the node is non‑null, record its value.  
+3. Recursively serialize the left subtree.  
+4. Recursively serialize the right subtree.  
+5. If the node is null, record a null marker instead.  
+6. Join all recorded tokens into a single serialized string.
 
-1. root
-2. get value at node (non-null)
-3. left subtree
-4. right subtree
-5. null node gets marker
-6. Combine tokens into string
+#### Deserialization
 
-Deserialization:
+For deserialization:  
+1. Split the serialized string into a list of tokens.  
+2. Consume tokens from left to right.  
+3. If the current token is a null marker, return null.  
+4. Otherwise, create a node with that value.  
+5. Recursively rebuild the left subtree.  
+6. Recursively rebuild the right subtree.  
+7. Return the constructed node as the subtree root.
 
-1. Splice string into list of tokens
-2. Read tokens left to right
-3. Null marker is null value
-4. Non-null value becomes node
-5. Build left subtree
-6. Build right subtree
-7. Return node as subtree root
+This mirrors the preorder structure exactly, ensuring that serialization and deserialization are perfect inverses.
 
 ### **Pseudocode**
 
@@ -285,3 +286,10 @@ private function deserializeAux(tokens) {
   }
 }
 ```
+
+#### Implementation Details
+
+- Use `StringBuilder` over `String` in Java to avoid new string creation in the pool
+- Use '#' null marker, and ',' as delimiter
+- Pass by value so need mutable index
+- Preorder mirrors binary tree order
