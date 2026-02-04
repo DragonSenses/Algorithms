@@ -32,6 +32,11 @@ public class Codec {
     String token = tokens[index[0]];
     index[0]++;
 
+    if (token.equals(NULL_MARKER)) {
+      return null;
+    }
+
+    // Handle token logic...
     return null;
   }
 }
