@@ -29,6 +29,9 @@ public class Codec {
   }
 
   private TreeNode deserializeAux(String[] tokens, int[] index) {
-    
+    String token = tokens[index[0]];
+    index[0]++;
+
+    return null;
   }
 }
