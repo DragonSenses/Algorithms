@@ -37,7 +37,7 @@ public class Codec {
     }
 
     TreeNode node = new TreeNode(Integer.parseInt(token));
-
+    node.left = deserializeAux(tokens, index);
     return null;
   }
 }
