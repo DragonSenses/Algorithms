@@ -289,7 +289,14 @@ private function deserializeAux(tokens) {
 
 #### Implementation Details
 
-- Use `StringBuilder` over `String` in Java to avoid new string creation in the pool
-- Use '#' null marker, and ',' as delimiter
-- Pass by value so need mutable index
-- Preorder mirrors binary tree order
+##### 1. StringBuilder for efficient serialization  
+Appending tokens directly avoids repeated string creation.
+
+##### 2. Null marker and delimiter  
+Using "#" and "," keeps the format simple and unambiguous.
+
+##### 3. Mutable index for deserialization  
+Java does not allow passing primitives by reference, so an array of size 1 is used to track the current position in the token list.
+
+##### 4. Preorder structure  
+The recursive calls mirror the exact preorder sequence used during serialization, ensuring a perfect inverse mapping.
