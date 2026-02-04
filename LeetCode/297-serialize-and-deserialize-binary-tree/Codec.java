@@ -36,7 +36,8 @@ public class Codec {
       return null;
     }
 
-    // Handle token logic...
+    TreeNode node = new TreeNode(Integer.parseInt(token));
+
     return null;
   }
 }
