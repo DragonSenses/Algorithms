@@ -10,6 +10,9 @@ class TreeNode {
   }
 }
 
+const NULL_MARKER = "#";
+const DELIM = ",";
+
 /*
  * Encodes a tree to a single string.
  */
@@ -23,9 +26,3 @@ function serialize(root: TreeNode | null): string {
 function deserialize(data: string): TreeNode | null {
 
 };
-
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
