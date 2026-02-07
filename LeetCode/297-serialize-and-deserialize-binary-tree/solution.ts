@@ -17,7 +17,8 @@ const DELIM = ",";
  * Encodes a tree to a single string.
  */
 function serialize(root: TreeNode | null): string {
-
+  const out: string[] = [];
+  return out.join(DELIM);
 };
 
 /*
