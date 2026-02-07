@@ -18,8 +18,13 @@ const DELIM = ",";
  */
 function serialize(root: TreeNode | null): string {
   const out: string[] = [];
+  serializeAux(root, out);
   return out.join(DELIM);
 };
+
+function serializeAux(node: TreeNode | null, out: string[]): void {
+  
+}
 
 /*
  * Decodes your encoded data to tree.
