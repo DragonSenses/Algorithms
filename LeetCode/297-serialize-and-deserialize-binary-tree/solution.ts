@@ -23,7 +23,10 @@ function serialize(root: TreeNode | null): string {
 };
 
 function serializeAux(node: TreeNode | null, out: string[]): void {
-  
+  if (node === null) {
+    out.push(NULL_MARKER);
+    return;
+  }
 }
 
 /*
