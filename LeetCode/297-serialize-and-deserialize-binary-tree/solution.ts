@@ -27,6 +27,8 @@ function serializeAux(node: TreeNode | null, out: string[]): void {
     out.push(NULL_MARKER);
     return;
   }
+
+  out.push(String(node.val));
 }
 
 /*
