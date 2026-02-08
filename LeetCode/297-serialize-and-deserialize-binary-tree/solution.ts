@@ -30,6 +30,7 @@ function serializeAux(node: TreeNode | null, out: string[]): void {
 
   out.push(String(node.val));
   serializeAux(node.left, out);
+  serializeAux(node.right, out);
 }
 
 /*
