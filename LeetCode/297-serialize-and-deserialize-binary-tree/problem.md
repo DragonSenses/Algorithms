@@ -351,3 +351,41 @@ Java does not allow passing primitives by reference, so an array of size 1 is us
 
 ##### 4. Preorder structure  
 The recursive calls mirror the exact preorder sequence used during serialization, ensuring a perfect inverse mapping.
+
+### TypeScript
+
+```typescript
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+  const out: string[] = [];
+  serializeAux(root, out);
+  return out.join(DELIM);
+}
+
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+
+}
+```
+
+#### Implementation Notes
+
+##### 1. Token stream  
+`serialize` produces a comma‑separated preorder sequence.  
+`deserialize` consumes tokens in the same order.
+
+##### 2. Null markers  
+`#` is used to mark missing children. This ensures the structure is preserved.
+
+##### 3. Mutable index  
+Java used an array of size 1.  
+TypeScript uses a closure over `index`, which is simpler and idiomatic.
+
+##### 4. One‑to‑one mapping  
+The preorder sequence with null markers uniquely identifies the tree, so reconstruction is exact.
