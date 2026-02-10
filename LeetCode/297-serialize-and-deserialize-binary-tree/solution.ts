@@ -37,5 +37,5 @@ function serializeAux(node: TreeNode | null, out: string[]): void {
  * Decodes your encoded data to tree.
  */
 function deserialize(data: string): TreeNode | null {
-
+  if (data.length === 0) return null;
 };
