@@ -38,4 +38,7 @@ function serializeAux(node: TreeNode | null, out: string[]): void {
  */
 function deserialize(data: string): TreeNode | null {
   if (data.length === 0) return null;
+
+  const tokens = data.split(DELIM);
+  let index = 0;
 };
