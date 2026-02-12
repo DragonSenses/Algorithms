@@ -41,4 +41,8 @@ function deserialize(data: string): TreeNode | null {
 
   const tokens = data.split(DELIM);
   let index = 0;
+
+  function build(): TreeNode | null {
+    index++;
+  }
 };
