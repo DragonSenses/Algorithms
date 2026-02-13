@@ -43,6 +43,8 @@ function deserialize(data: string): TreeNode | null {
   let index = 0;
 
   function build(): TreeNode | null {
-    index++;
+    // Read current token
+    const token = tokens[index];
+
   }
 };
