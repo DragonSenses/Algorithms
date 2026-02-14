@@ -45,6 +45,7 @@ function deserialize(data: string): TreeNode | null {
   function build(): TreeNode | null {
     // Read current token
     const token = tokens[index];
-
+    index++; // Advance pointer
   }
+
 };
