@@ -46,6 +46,12 @@ function deserialize(data: string): TreeNode | null {
     // Read current token
     const token = tokens[index];
     index++; // Advance pointer
+
+    // Null case
+    if (token === NULL_MARKER) {
+      return null;
+    }
+
   }
 
 };
