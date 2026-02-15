@@ -52,6 +52,8 @@ function deserialize(data: string): TreeNode | null {
       return null;
     }
 
+    // non null case - create node from token
+    const node = new TreeNode(Number(token));
   }
 
 };
