@@ -56,6 +56,8 @@ function deserialize(data: string): TreeNode | null {
     const node = new TreeNode(Number(token));
     // Recursively build left subtree
     node.left = build();
+    // Recursively build right subtree
+    node.right = build();
   }
 
 };
