@@ -62,4 +62,5 @@ function deserialize(data: string): TreeNode | null {
     return node;
   }
 
+  return build();
 };
