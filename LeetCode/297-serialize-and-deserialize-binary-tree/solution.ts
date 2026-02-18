@@ -58,6 +58,8 @@ function deserialize(data: string): TreeNode | null {
     node.left = build();
     // Recursively build right subtree
     node.right = build();
+    // Return constructed node
+    return node;
   }
 
 };
