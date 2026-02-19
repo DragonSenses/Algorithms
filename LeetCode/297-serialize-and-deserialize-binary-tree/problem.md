@@ -355,6 +355,9 @@ The recursive calls mirror the exact preorder sequence used during serialization
 ### TypeScript
 
 ```typescript
+const NULL_MARKER = "#";
+const DELIM = ",";
+
 /*
  * Encodes a tree to a single string.
  */
@@ -364,13 +367,41 @@ function serialize(root: TreeNode | null): string {
   return out.join(DELIM);
 }
 
+function serializeAux(node: TreeNode | null, out: string[]): void {
+  if (node === null) {
+    out.push(NULL_MARKER);
+    return;
+  }
+
+  out.push(String(node.val));
+  serializeAux(node.left, out);
+  serializeAux(node.right, out);
 }
 
 /*
  * Decodes your encoded data to tree.
  */
 function deserialize(data: string): TreeNode | null {
+  if (data.length === 0) return null;
 
+  const tokens = data.split(DELIM);
+  let index = 0;
+
+  function build(): TreeNode | null {
+    const token = tokens[index];
+    index++;
+
+    if (token === NULL_MARKER) {
+      return null;
+    }
+
+    const node = new TreeNode(Number(token));
+    node.left = build();
+    node.right = build();
+    return node;
+  }
+
+  return build();
 }
 ```
 
