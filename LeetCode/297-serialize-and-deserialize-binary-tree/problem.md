@@ -48,6 +48,7 @@
 # Solution
 
 - [Depth-First Search Approach](#depth-first-search-preorder-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(h)`
 
 ## **Serialization**  
@@ -432,6 +433,12 @@ The preorder sequence with null markers uniquely identifies the tree, so reconst
 - Serialization uses preorder DFS with a null marker for missing children.  
 - Deserialization consumes the serialized token stream exactly once.  
 - String splitting and joining are treated as linear operations in the size of the serialized output.
+
+### **Time Complexity**: `O(n)`
+- **Single-Pass**: Both serialization and deserialization visit each node exactly once.
+- Serialization performs a constant amount of work per node and per null child.  
+- Deserialization processes each token exactly once and reconstructs the tree in a single pass.  
+- Total work is proportional to the number of nodes plus the number of null markers, which is still linear in `n`.
 
 ### **Space Complexity**: `O(n)`
 - **Linear Output Size**: The serialized string contains one token per node plus one token per null child. A binary tree with `n` nodes has `n + 1` null children, so the output is `O(n)` in size.  
