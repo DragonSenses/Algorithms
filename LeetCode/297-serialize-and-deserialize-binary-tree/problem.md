@@ -48,6 +48,7 @@
 # Solution
 
 - [Depth-First Search Approach](#depth-first-search-preorder-approach)
+  - **Space Complexity**: `O(h)`
 
 ## **Serialization**  
 
@@ -431,3 +432,8 @@ The preorder sequence with null markers uniquely identifies the tree, so reconst
 - Serialization uses preorder DFS with a null marker for missing children.  
 - Deserialization consumes the serialized token stream exactly once.  
 - String splitting and joining are treated as linear operations in the size of the serialized output.
+
+### **Space Complexity**: `O(n)`
+- **Linear Output Size**: The serialized string contains one token per node plus one token per null child. A binary tree with `n` nodes has `n + 1` null children, so the output is `O(n)` in size.  
+- **Call Stack Usage**: Preorder DFS recursion can reach a depth of `O(h)`, where `h` is the tree height. In the worst case (a skewed tree), `h = n`, giving `O(n)` stack usage.  
+- **Token Array for Deserialization**: Splitting the serialized string produces an array of `O(n)` tokens, which dominates memory usage.  
