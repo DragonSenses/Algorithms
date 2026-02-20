@@ -422,3 +422,12 @@ TypeScript uses a closure over `index`, which is simpler and idiomatic.
 
 ##### 4. One‑to‑one mapping  
 The preorder sequence with null markers uniquely identifies the tree, so reconstruction is exact.
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The tree contains `n` nodes.  
+- Each node has at most two children.  
+- Serialization uses preorder DFS with a null marker for missing children.  
+- Deserialization consumes the serialized token stream exactly once.  
+- String splitting and joining are treated as linear operations in the size of the serialized output.
