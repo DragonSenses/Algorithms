@@ -23,8 +23,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
-	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+  <li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+  <li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
 <strong>Serialized Format:</strong>
@@ -49,7 +49,6 @@
 
 - [Depth-First Search Approach](#depth-first-search-preorder-approach)
 
-
 ## **Serialization**  
 
 Serialization of a binary tree is the process of encoding both its **values** and its **structure** into a linear representation. A correct serialization must preserve enough information to reconstruct the exact original tree during deserialization. Traversal order determines how this structural information is captured.
@@ -71,7 +70,23 @@ DFS can be performed in three classical orders:
 - Postorder (left, right, root)
 
 For serialization, **preorder DFS** is typically the most suitable.  
-Its traversal order naturally encodes parent‑child relationships, making it straightforward to reconstruct the tree during deserialization.  
+Its traversal order naturally encodes parent‑child relationships, making it straightforward to reconstruct the tree during deserialization.
+
+## **Definitions**
+
+A **preorder traversal** visits the root first, then the left subtree, and finally the right subtree.
+
+A **depth‑first search** explores a tree by following one path as deeply as possible before backtracking to explore the next path.
+
+Together, a **DFS preorder traversal** provides a natural way to capture both the values and the structure of a tree, making it well‑suited for tasks such as copying or serializing trees.
+
+**Serialization** is the process of converting a tree into a linear representation that records both its values and its structure.
+
+**Deserialization** is the reverse process: reconstructing the original tree from its serialized representation.
+
+**Tokens** are the individual units produced by splitting the serialized data, typically representing either a nodes value or a null marker.
+
+A **Codec** is an abstraction that bundles the serialization and deserialization logic into a single interface, allowing a tree to be converted to a string and reconstructed from that string using a unified, consistent API.
 
 ## **Problem Overview: Serialize and Deserialize Binary Tree**
 
@@ -160,20 +175,6 @@ Cons:
 
 # Depth-First Search Preorder Approach
 
-A **preorder traversal** visits the root first, then the left subtree, and finally the right subtree.
-
-A **depth‑first search** explores a tree by following one path as deeply as possible before backtracking to explore the next path.
-
-Together, a **DFS preorder traversal** provides a natural way to capture both the values and the structure of a tree, making it well‑suited for tasks such as copying or serializing trees.
-
-**Serialization** is the process of converting a tree into a linear representation that records both its values and its structure.
-
-**Deserialization** is the reverse process: reconstructing the original tree from its serialized representation.
-
-**Tokens** are the individual units produced by splitting the serialized data, typically representing either a node's value or a null marker.
-
-A **Codec** is an abstraction that bundles the serialization and deserialization logic into a single interface, allowing a tree to be converted to a string and reconstructed from that string using a unified, consistent API.
-
 ## **Intuition**
 
 Preorder DFS is well‑suited for serialization because it naturally exposes the parent‑child relationships in the exact order needed to reconstruct the tree. When you visit a node in preorder, you immediately know its value before exploring its children. By inserting explicit null markers for missing children, the traversal becomes a complete structural blueprint of the tree.
@@ -183,7 +184,7 @@ This works because preorder produces a deterministic sequence:
 2. Serialize the left subtree  
 3. Serialize the right subtree  
 
-If a node is absent, the null marker ensures that the deserializer knows precisely where a subtree ends and where the next one begins. The sequence becomes a linearized version of the tree's recursive structure. During deserialization, consuming tokens in the same order allows you to rebuild the tree exactly as it was.
+If a node is absent, the null marker ensures that the deserializer knows precisely where a subtree ends and where the next one begins. The sequence becomes a linearized version of the trees recursive structure. During deserialization, consuming tokens in the same order allows you to rebuild the tree exactly as it was.
 
 The key insight is that preorder traversal, combined with null markers, forms a one‑to‑one mapping between the tree and the serialized string.
 
@@ -238,6 +239,7 @@ function deserialize(tokens):
   node.right = deserialize(tokens)
   return node
 ```
+
 #### Detailed Pseudocode
 
 ```java
