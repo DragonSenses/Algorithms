@@ -50,6 +50,7 @@
 - [Depth-First Search Approach](#depth-first-search-preorder-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(h)`
+- [Breadth‑First Search Level-Order Approach](#breadthfirst-search-level-order-approach)
 
 ## **Serialization**  
 
@@ -444,3 +445,9 @@ The preorder sequence with null markers uniquely identifies the tree, so reconst
 - **Linear Output Size**: The serialized string contains one token per node plus one token per null child. A binary tree with `n` nodes has `n + 1` null children, so the output is `O(n)` in size.  
 - **Call Stack Usage**: Preorder DFS recursion can reach a depth of `O(h)`, where `h` is the tree height. In the worst case (a skewed tree), `h = n`, giving `O(n)` stack usage.  
 - **Token Array for Deserialization**: Splitting the serialized string produces an array of `O(n)` tokens, which dominates memory usage.  
+
+# Breadth‑First Search Level-Order Approach
+
+## **Intuition**
+
+A BFS‑based serializer treats the tree as a sequence of *levels*, moving from top to bottom and left to right. Instead of diving deep into subtrees (as DFS does), BFS walks the tree in the same order you'd read a level‑order diagram.
