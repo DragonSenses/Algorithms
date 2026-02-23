@@ -451,3 +451,15 @@ The preorder sequence with null markers uniquely identifies the tree, so reconst
 ## **Intuition**
 
 A BFS‑based serializer treats the tree as a sequence of *levels*, moving from top to bottom and left to right. Instead of diving deep into subtrees (as DFS does), BFS walks the tree in the same order you'd read a level‑order diagram.
+
+The key idea is:
+
+- Use a queue to visit nodes level by level.
+- Emit each node's value in the order it is dequeued.
+- Emit a **null marker** for missing children so the structure is preserved.
+- During deserialization, read tokens in the same order and rebuild the tree by assigning children level by level.
+
+This approach mirrors how a complete binary tree might be stored in an array.  
+It's intuitive because the serialized form directly reflects the tree's breadth structure.
+
+The **tradeoff** is that BFS often produces longer strings than DFS, because it must include null markers for *all* missing children—even deep ones—so that the level structure remains unambiguous.
