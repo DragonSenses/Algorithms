@@ -463,3 +463,30 @@ This approach mirrors how a complete binary tree might be stored in an array.
 It's intuitive because the serialized form directly reflects the tree's breadth structure.
 
 The **tradeoff** is that BFS often produces longer strings than DFS, because it must include null markers for *all* missing children—even deep ones—so that the level structure remains unambiguous.
+
+### **Pseudocode**
+
+#### Serialize (Level Order)
+
+```txt
+function serialize(root):
+  if root is null:
+    return NULL_MARKER
+
+  queue = new Queue()
+  queue.enqueue(root)
+  output = empty list
+
+  while queue is not empty:
+    node = queue.dequeue()
+
+    if node is null:
+      append NULL_MARKER to output
+      continue
+
+    append node.value to output
+    queue.enqueue(node.left)
+    queue.enqueue(node.right)
+
+  return join(output with DELIM)
+```
