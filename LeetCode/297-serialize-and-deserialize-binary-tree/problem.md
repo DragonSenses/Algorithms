@@ -490,3 +490,39 @@ function serialize(root):
 
   return join(output with DELIM)
 ```
+
+### Deserialize (Level Order)
+
+```txt
+function deserialize(data):
+  tokens = split(data by DELIM)
+
+  if tokens[0] == NULL_MARKER:
+    return null
+
+  root = new TreeNode(tokens[0])
+  queue = new Queue()
+  queue.enqueue(root)
+  index = 1
+
+  while queue is not empty:
+    parent = queue.dequeue()
+
+    leftToken = tokens[index]
+    index = index + 1
+
+    if leftToken != NULL_MARKER:
+      leftNode = new TreeNode(leftToken)
+      parent.left = leftNode
+      queue.enqueue(leftNode)
+
+    rightToken = tokens[index]
+    index = index + 1
+
+    if rightToken != NULL_MARKER:
+      rightNode = new TreeNode(rightToken)
+      parent.right = rightNode
+      queue.enqueue(rightNode)
+
+  return root
+```
