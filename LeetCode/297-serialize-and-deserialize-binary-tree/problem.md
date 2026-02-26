@@ -464,6 +464,27 @@ It's intuitive because the serialized form directly reflects the tree's breadth 
 
 The **tradeoff** is that BFS often produces longer strings than DFS, because it must include null markers for *all* missing children—even deep ones—so that the level structure remains unambiguous.
 
+## **Algorithm**
+
+### **Serialization (Level‑Order)**
+
+1. If the root is `null`, return the null marker.
+2. Initialize a queue and enqueue the root.
+3. While the queue is not empty:
+   - Dequeue a node.
+   - If the node is `null`:
+     - Append the null marker.
+     - Continue.
+   - Otherwise:
+     - Append the node's value.
+     - Enqueue its left child (even if `null`).
+     - Enqueue its right child (even if `null`).
+4. Join all tokens with a delimiter to form the final string.
+
+**Key property:**  
+Every node—real or null—gets represented, so the level structure is fully preserved.
+
+
 ### **Pseudocode**
 
 #### Serialize (Level Order)
