@@ -484,6 +484,23 @@ The **tradeoff** is that BFS often produces longer strings than DFS, because it 
 **Key property:**  
 Every node—real or null—gets represented, so the level structure is fully preserved.
 
+### **Deserialization (Level‑Order Reconstruction)**
+
+1. If the input string is empty or starts with the null marker, return `null`.
+2. Split the string into tokens.
+3. Create the root node from the first token.
+4. Initialize a queue and enqueue the root.
+5. Maintain an index pointing into the token array.
+6. While the queue is not empty:
+   - Dequeue a parent node.
+   - Read the next token:
+     - If it's not a null marker, create a left child and enqueue it.
+   - Read the next token:
+     - If it's not a null marker, create a right child and enqueue it.
+7. When all tokens are consumed, return the root.
+
+**Key property:**  
+The queue ensures children are assigned in the same order they were serialized, preserving the breadth structure.
 
 ### **Pseudocode**
 
