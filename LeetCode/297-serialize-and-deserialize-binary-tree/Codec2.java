@@ -5,6 +5,9 @@ public class Codec2 {
 
   // Encodes a tree to a single string.
   public String serialize(TreeNode root) {
+    if (root == null) {
+      return NULL_MARKER;
+    }
 
   }
 
