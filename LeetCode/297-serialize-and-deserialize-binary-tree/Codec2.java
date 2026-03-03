@@ -16,6 +16,9 @@ public class Codec2 {
     Queue<TreeNode> queue = new LinkedList<>();
     queue.offer(root);
 
+     while (!queue.isEmpty()) {
+      TreeNode node = queue.poll();
+    }
   }
 
   // Decodes your encoded data to tree.
