@@ -18,6 +18,11 @@ public class Codec2 {
 
      while (!queue.isEmpty()) {
       TreeNode node = queue.poll();
+
+      if (node == null) {
+        sb.append(NULL_MARKER).append(DELIM);
+        continue;
+      }
     }
   }
 
