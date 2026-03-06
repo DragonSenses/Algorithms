@@ -26,7 +26,9 @@ public class Codec2 {
 
       sb.append(node.val).append(DELIM);
       queue.offer(node.left);
+      queue.offer(node.right);
     }
+
   }
 
   // Decodes your encoded data to tree.
