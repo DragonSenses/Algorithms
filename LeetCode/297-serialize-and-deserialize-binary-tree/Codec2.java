@@ -25,6 +25,7 @@ public class Codec2 {
       }
 
       sb.append(node.val).append(DELIM);
+      queue.offer(node.left);
     }
   }
 
