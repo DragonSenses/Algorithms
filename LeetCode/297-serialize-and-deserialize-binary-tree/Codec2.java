@@ -23,6 +23,8 @@ public class Codec2 {
         sb.append(NULL_MARKER).append(DELIM);
         continue;
       }
+
+      sb.append(node.val).append(DELIM);
     }
   }
 
