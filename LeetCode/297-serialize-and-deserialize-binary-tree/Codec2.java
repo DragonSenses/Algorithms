@@ -29,6 +29,7 @@ public class Codec2 {
       queue.offer(node.right);
     }
 
+    return sb.toString();
   }
 
   // Decodes your encoded data to tree.
