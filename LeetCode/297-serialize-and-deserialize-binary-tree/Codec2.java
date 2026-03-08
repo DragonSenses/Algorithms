@@ -16,7 +16,7 @@ public class Codec2 {
     Queue<TreeNode> queue = new LinkedList<>();
     queue.offer(root);
 
-     while (!queue.isEmpty()) {
+    while (!queue.isEmpty()) {
       TreeNode node = queue.poll();
 
       if (node == null) {
@@ -34,6 +34,8 @@ public class Codec2 {
 
   // Decodes your encoded data to tree.
   public TreeNode deserialize(String data) {
-
+    if (data == null || data.isEmpty()) {
+      return null;
+    }
   }
 }
