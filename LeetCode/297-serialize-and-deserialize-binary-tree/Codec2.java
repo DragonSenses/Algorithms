@@ -37,5 +37,8 @@ public class Codec2 {
     if (data == null || data.isEmpty()) {
       return null;
     }
+
+    String[] tokens = data.split(DELIM);
+
   }
 }
