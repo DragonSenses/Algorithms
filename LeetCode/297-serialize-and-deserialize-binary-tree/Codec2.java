@@ -40,5 +40,8 @@ public class Codec2 {
 
     String[] tokens = data.split(DELIM);
 
+    if (tokens[0].equals(NULL_MARKER)) {
+      return null;
+    }
   }
 }
