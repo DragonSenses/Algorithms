@@ -43,5 +43,9 @@ public class Codec2 {
     if (tokens[0].equals(NULL_MARKER)) {
       return null;
     }
+
+    TreeNode root = new TreeNode(Integer.parseInt(tokens[0]));
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
   }
 }
