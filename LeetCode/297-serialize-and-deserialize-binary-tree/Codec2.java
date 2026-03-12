@@ -47,5 +47,13 @@ public class Codec2 {
     TreeNode root = new TreeNode(Integer.parseInt(tokens[0]));
     Queue<TreeNode> queue = new LinkedList<>();
     queue.offer(root);
+
+    int index = 1;
+
+    while (!queue.isEmpty() && index < tokens.length) {
+      TreeNode parent = queue.poll();
+
+    }
+ 
   }
 }
