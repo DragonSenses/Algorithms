@@ -59,6 +59,17 @@ public class Codec2 {
         TreeNode leftNode = new TreeNode(Integer.parseInt(leftToken));
         parent.left = leftNode;
         queue.offer(leftNode);
+      }
+
+      // Right child
+      if (index < tokens.length) {
+        String rightToken = tokens[index++];
+        if (!rightToken.equals(NULL_MARKER)) {
+          TreeNode rightNode = new TreeNode(Integer.parseInt(rightToken));
+          parent.right = rightNode;
+          queue.offer(rightNode);
+        }
+      }
     }
   }
 }
