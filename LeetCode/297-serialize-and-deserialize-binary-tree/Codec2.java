@@ -71,5 +71,7 @@ public class Codec2 {
         }
       }
     }
+
+    return root;
   }
 }
