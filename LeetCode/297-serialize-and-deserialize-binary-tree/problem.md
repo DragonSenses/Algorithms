@@ -564,3 +564,83 @@ function deserialize(data):
 
   return root
 ```
+
+## **Implementation**
+
+### Java
+
+```java
+public class Codec {
+
+  private static final String NULL_MARKER = "#";
+  private static final String DELIM = ",";
+
+  // Encodes a tree to a single string using BFS level order.
+  public String serialize(TreeNode root) {
+    if (root == null) {
+      return NULL_MARKER;
+    }
+
+    StringBuilder sb = new StringBuilder();
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+
+    while (!queue.isEmpty()) {
+      TreeNode node = queue.poll();
+
+      if (node == null) {
+        sb.append(NULL_MARKER).append(DELIM);
+        continue;
+      }
+
+      sb.append(node.val).append(DELIM);
+      queue.offer(node.left);
+      queue.offer(node.right);
+    }
+
+    return sb.toString();
+  }
+
+  // Decodes the BFS string back into a tree.
+  public TreeNode deserialize(String data) {
+    if (data == null || data.isEmpty()) {
+      return null;
+    }
+
+    String[] tokens = data.split(DELIM);
+    if (tokens[0].equals(NULL_MARKER)) {
+      return null;
+    }
+
+    TreeNode root = new TreeNode(Integer.parseInt(tokens[0]));
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.offer(root);
+
+    int index = 1;
+
+    while (!queue.isEmpty() && index < tokens.length) {
+      TreeNode parent = queue.poll();
+
+      // Left child
+      String leftToken = tokens[index++];
+      if (!leftToken.equals(NULL_MARKER)) {
+        TreeNode leftNode = new TreeNode(Integer.parseInt(leftToken));
+        parent.left = leftNode;
+        queue.offer(leftNode);
+      }
+
+      // Right child
+      if (index < tokens.length) {
+        String rightToken = tokens[index++];
+        if (!rightToken.equals(NULL_MARKER)) {
+          TreeNode rightNode = new TreeNode(Integer.parseInt(rightToken));
+          parent.right = rightNode;
+          queue.offer(rightNode);
+        }
+      }
+    }
+
+    return root;
+  }
+}
+```
