@@ -10,6 +10,9 @@ class TreeNode {
   }
 }
 
+const NULL_MARKER = "#";
+const DELIM = ",";
+
 /*
  * Encodes a tree to a single string.
  */
