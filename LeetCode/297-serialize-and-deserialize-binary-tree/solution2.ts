@@ -19,6 +19,10 @@ const DELIM = ",";
 function serialize(root: TreeNode | null): string {
   if (root === null) return NULL_MARKER;
 
+  const out: string[] = [];
+  const queue: Array<TreeNode | null> = [root];
+
+
 };
 
 /*
