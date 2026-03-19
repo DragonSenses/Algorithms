@@ -14,14 +14,15 @@ const NULL_MARKER = "#";
 const DELIM = ",";
 
 /*
- * Encodes a tree to a single string.
+ * Encodes a tree to a single string using BFS level order.
  */
 function serialize(root: TreeNode | null): string {
+  if (root === null) return NULL_MARKER;
 
 };
 
 /*
- * Decodes your encoded data to tree.
+ * Decodes the BFS string back into a tree.
  */
 function deserialize(data: string): TreeNode | null {
 
