@@ -22,6 +22,10 @@ function serialize(root: TreeNode | null): string {
   const out: string[] = [];
   const queue: Array<TreeNode | null> = [root];
 
+  while (queue.length > 0) {
+    const node = queue.shift()!;
+
+  }
 
 };
 
