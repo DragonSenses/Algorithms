@@ -25,6 +25,11 @@ function serialize(root: TreeNode | null): string {
   while (queue.length > 0) {
     const node = queue.shift()!;
 
+    if (node === null) {
+      out.push(NULL_MARKER);
+      continue;
+    }
+
   }
 
 };
