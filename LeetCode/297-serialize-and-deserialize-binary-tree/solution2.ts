@@ -30,6 +30,7 @@ function serialize(root: TreeNode | null): string {
       continue;
     }
 
+    out.push(String(node.val));
   }
 
 };
