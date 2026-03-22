@@ -31,6 +31,8 @@ function serialize(root: TreeNode | null): string {
     }
 
     out.push(String(node.val));
+    queue.push(node.left);
+    queue.push(node.right);
   }
 
 };
