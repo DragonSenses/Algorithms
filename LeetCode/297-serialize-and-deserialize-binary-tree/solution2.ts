@@ -42,5 +42,6 @@ function serialize(root: TreeNode | null): string {
  * Decodes the BFS string back into a tree.
  */
 function deserialize(data: string): TreeNode | null {
+  if (data.length === 0) return null;
 
 };
