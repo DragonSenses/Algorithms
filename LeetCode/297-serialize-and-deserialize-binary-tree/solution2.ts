@@ -35,6 +35,7 @@ function serialize(root: TreeNode | null): string {
     queue.push(node.right);
   }
 
+  return out.join(DELIM);
 };
 
 /*
