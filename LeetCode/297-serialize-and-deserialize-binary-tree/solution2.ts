@@ -45,5 +45,6 @@ function deserialize(data: string): TreeNode | null {
   if (data.length === 0) return null;
 
   const tokens = data.split(DELIM);
+  if (tokens[0] === NULL_MARKER) return null;
 
 };
