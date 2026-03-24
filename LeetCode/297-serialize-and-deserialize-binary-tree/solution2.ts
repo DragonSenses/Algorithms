@@ -44,4 +44,6 @@ function serialize(root: TreeNode | null): string {
 function deserialize(data: string): TreeNode | null {
   if (data.length === 0) return null;
 
+  const tokens = data.split(DELIM);
+
 };
