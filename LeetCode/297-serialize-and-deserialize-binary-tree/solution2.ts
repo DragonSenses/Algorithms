@@ -47,4 +47,6 @@ function deserialize(data: string): TreeNode | null {
   const tokens = data.split(DELIM);
   if (tokens[0] === NULL_MARKER) return null;
 
+  const root = new TreeNode(Number(tokens[0]));
+
 };
