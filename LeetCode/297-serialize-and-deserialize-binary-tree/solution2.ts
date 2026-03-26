@@ -48,5 +48,8 @@ function deserialize(data: string): TreeNode | null {
   if (tokens[0] === NULL_MARKER) return null;
 
   const root = new TreeNode(Number(tokens[0]));
+  const queue: TreeNode[] = [root];
+
+  let index = 1;
 
 };
