@@ -52,4 +52,8 @@ function deserialize(data: string): TreeNode | null {
 
   let index = 1;
 
+  while (queue.length > 0 && index < tokens.length) {
+    const parent = queue.shift()!;
+  }
+
 };
