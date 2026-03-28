@@ -57,9 +57,11 @@ function deserialize(data: string): TreeNode | null {
 
     // Left child
     const leftToken = tokens[index++];
-    const leftNode = new TreeNode(Number(leftToken));
-    parent.left = leftNode;
-    queue.push(leftNode);
+    if (leftToken !== NULL_MARKER) {
+      const leftNode = new TreeNode(Number(leftToken));
+      parent.left = leftNode;
+      queue.push(leftNode);
+    }
 
   }
 
