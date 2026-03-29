@@ -64,11 +64,13 @@ function deserialize(data: string): TreeNode | null {
     }
 
     // Right child
-    const rightToken = tokens[index++];
-    if (rightToken !== NULL_MARKER) {
-      const rightNode = new TreeNode(Number(rightToken));
-      parent.right = rightNode;
-      queue.push(rightNode);
+    if (index < tokens.length) {
+      const rightToken = tokens[index++];
+      if (rightToken !== NULL_MARKER) {
+        const rightNode = new TreeNode(Number(rightToken));
+        parent.right = rightNode;
+        queue.push(rightNode);
+      }
     }
   }
 
