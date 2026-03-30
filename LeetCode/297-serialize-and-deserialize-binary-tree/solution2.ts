@@ -74,4 +74,5 @@ function deserialize(data: string): TreeNode | null {
     }
   }
 
+  return root;
 };
