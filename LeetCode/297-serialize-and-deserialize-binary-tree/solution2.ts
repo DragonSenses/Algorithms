@@ -13,24 +13,38 @@ class TreeNode {
 const NULL_MARKER = "#";
 const DELIM = ",";
 
-/*
- * Encodes a tree to a single string using BFS level order.
+/**
+ * Serializes a binary tree into a comma‑delimited string
+ * using BFS (level‑order) traversal.
+ *
+ * Each node is emitted in level order, and null children
+ * are represented using a NULL_MARKER token. This ensures
+ * the structure can be reconstructed unambiguously.
+ *
+ * @param root - The root of the binary tree
+ * @returns A serialized BFS string representation of the tree
  */
 function serialize(root: TreeNode | null): string {
+  // Empty tree → return null marker
   if (root === null) return NULL_MARKER;
 
   const out: string[] = [];
   const queue: Array<TreeNode | null> = [root];
 
+  // Standard BFS traversal
   while (queue.length > 0) {
     const node = queue.shift()!;
 
     if (node === null) {
+      // Explicitly encode missing children
       out.push(NULL_MARKER);
       continue;
     }
 
+    // Emit node value
     out.push(String(node.val));
+
+    // Enqueue children (may be null)
     queue.push(node.left);
     queue.push(node.right);
   }
@@ -38,24 +52,36 @@ function serialize(root: TreeNode | null): string {
   return out.join(DELIM);
 };
 
-/*
- * Decodes the BFS string back into a tree.
+/**
+ * Deserializes a BFS‑encoded string back into a binary tree.
+ *
+ * The token stream is consumed level‑by‑level. Each parent
+ * node pulls its left and right child tokens in order, and
+ * non‑null children are enqueued for further expansion.
+ *
+ * @param data - The serialized BFS string
+ * @returns The reconstructed binary tree root
  */
 function deserialize(data: string): TreeNode | null {
+  // Empty input → empty tree
   if (data.length === 0) return null;
 
   const tokens = data.split(DELIM);
+
+  // First token represents the root
   if (tokens[0] === NULL_MARKER) return null;
 
+  // Create root node
   const root = new TreeNode(Number(tokens[0]));
   const queue: TreeNode[] = [root];
 
   let index = 1;
 
+  // BFS reconstruction: assign children level by level
   while (queue.length > 0 && index < tokens.length) {
     const parent = queue.shift()!;
 
-    // Left child
+    // ----- Left child -----
     const leftToken = tokens[index++];
     if (leftToken !== NULL_MARKER) {
       const leftNode = new TreeNode(Number(leftToken));
@@ -63,7 +89,8 @@ function deserialize(data: string): TreeNode | null {
       queue.push(leftNode);
     }
 
-    // Right child
+    // ----- Right child -----
+    // Right token may not exist if the stream ends on a left child
     if (index < tokens.length) {
       const rightToken = tokens[index++];
       if (rightToken !== NULL_MARKER) {
