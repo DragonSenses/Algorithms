@@ -727,3 +727,12 @@ function deserialize(data: string): TreeNode | null {
   return root;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- The tree contains `n` nodes.  
+- BFS uses a queue to process nodes level by level.  
+- Every node (real or null) is enqueued and dequeued exactly once.  
+- String splitting and joining are linear in the number of tokens.  
+- Null markers are emitted for missing children to preserve structure.
