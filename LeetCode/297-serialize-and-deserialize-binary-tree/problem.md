@@ -51,6 +51,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(h)`
 - [Breadth‑First Search Level-Order Approach](#breadthfirst-search-level-order-approach)
+  - **Space Complexity**: `O(n)`
 
 ## **Serialization**  
 
@@ -736,3 +737,8 @@ function deserialize(data: string): TreeNode | null {
 - Every node (real or null) is enqueued and dequeued exactly once.  
 - String splitting and joining are linear in the number of tokens.  
 - Null markers are emitted for missing children to preserve structure.
+
+### **Space Complexity**: `O(n)`
+- **Queue Storage**: BFS requires a queue that may hold up to `O(n)` nodes in the worst case (e.g., a complete tree).  
+- **Output Size is Linear**: The serialized form includes one token per node plus null markers for missing children, producing `O(n)` total tokens.  
+- **Token Array for Deserialization**: Splitting the serialized string yields an array of `O(n)` tokens, which dominates memory usage.
