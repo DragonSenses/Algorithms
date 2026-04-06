@@ -33,3 +33,41 @@
   <li><code>-100 &lt;= Node.val &lt;= 100</code></li>
   <li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
+
+---
+
+## **Problem Overview: Merge Two Sorted Lists**
+
+This problem asks you to merge two **individually sorted** singly linked lists into a **single sorted** linked list. The merge must be done by **reusing the existing nodes**, not by creating new ones for each value. The result should preserve non‑decreasing order.
+
+You are given:
+- `list1`: head of the first sorted linked list  
+- `list2`: head of the second sorted linked list  
+
+Your task:
+- Traverse both lists simultaneously  
+- Select the smaller current node at each step  
+- Splice nodes together to form one sorted output list  
+- Return the head of the merged list  
+
+This is structurally identical to the merge step of merge sort, but applied to linked lists instead of arrays.
+
+### **Key Points**
+- Both input lists are already sorted  
+- You must merge them by pointer manipulation  
+- The output must also be sorted  
+- Either list may be empty  
+- Values range from −100 to 100  
+- Maximum combined length is 100 nodes  
+
+### **Examples**
+- Merging `[1,2,4]` and `[1,3,4]` produces `[1,1,2,3,4,4]`  
+- Merging two empty lists yields an empty list  
+- Merging `[]` and `[0]` yields `[0]`  
+
+### **Why This Problem Matters**
+This is one of the most fundamental linked‑list operations. It builds intuition for:
+- Pointer manipulation  
+- Dummy‑node patterns  
+- Iterative vs. recursive list processing  
+- Merge‑sort on linked lists  
