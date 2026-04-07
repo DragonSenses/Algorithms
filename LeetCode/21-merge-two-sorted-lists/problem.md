@@ -36,6 +36,10 @@
 
 ---
 
+# Solution
+
+- [Recursive Approach](#recursive-approach)
+
 ## **Problem Overview: Merge Two Sorted Lists**
 
 This problem asks you to merge two **individually sorted** singly linked lists into a **single sorted** linked list. The merge must be done by **reusing the existing nodes**, not by creating new ones for each value. The result should preserve non‑decreasing order.
@@ -71,3 +75,21 @@ This is one of the most fundamental linked‑list operations. It builds intuitio
 - Dummy‑node patterns  
 - Iterative vs. recursive list processing  
 - Merge‑sort on linked lists  
+
+# Recursive Approach
+
+## **Intuition**
+
+The recursive solution leans on a simple observation:  
+At any point, the head of the merged list must be the **smaller** of the two current nodes from `list1` and `list2`.
+
+So the recursion works by repeatedly:
+- Comparing the heads of both lists  
+- Choosing the smaller node as the head of the merged list  
+- Recursively merging the *rest* of that list with the *other* list  
+
+This naturally decomposes the problem into smaller subproblems until one list becomes empty.  
+When that happens, the remaining nodes of the other list are already sorted, so we simply return that list.
+
+The recursion mirrors the structure of the final merged list:  
+each chosen node points to the result of merging the remaining nodes.
