@@ -93,3 +93,29 @@ When that happens, the remaining nodes of the other list are already sorted, so 
 
 The recursion mirrors the structure of the final merged list:  
 each chosen node points to the result of merging the remaining nodes.
+
+### **Pseudocode**
+
+```text
+function merge(list1, list2):
+  if list1 is null:
+    return list2
+
+  if list2 is null:
+    return list1
+
+  if list1.val <= list2.val:
+    list1.next = merge(list1.next, list2)
+    return list1
+  else:
+    list2.next = merge(list1, list2.next)
+    return list2
+```
+
+**Key behaviors:**
+- Base cases handle exhaustion of either list  
+- The smaller node becomes the head of the merged list  
+- The `.next` pointer is assigned to the result of the recursive call  
+- The recursion unwinds to produce the fully merged list  
+
+
