@@ -20,4 +20,7 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
     return list1;
    }
 
+  if (list1.val <= list2.val) {
+    return list1;
+  } 
 };
