@@ -94,6 +94,33 @@ When that happens, the remaining nodes of the other list are already sorted, so 
 The recursion mirrors the structure of the final merged list:  
 each chosen node points to the result of merging the remaining nodes.
 
+## **Algorithm**
+
+1. **Handle the base cases**
+   - If `list1` is empty (`null`), return `list2`  
+     (because all remaining nodes in `list2` are already sorted)
+   - If `list2` is empty (`null`), return `list1`  
+     (same reasoning)
+
+2. **Compare the current node values**
+   - If `list1.val <= list2.val`:
+     - The head of the merged list must be `list1`
+   - Else:
+     - The head of the merged list must be `list2`
+
+3. **Recurse on the remainder of the lists**
+   - If `list1` was chosen:
+     - Set `list1.next = merge(list1.next, list2)`
+     - Return `list1` as the head of the merged list
+   - If `list2` was chosen:
+     - Set `list2.next = merge(list1, list2.next)`
+     - Return `list2` as the head of the merged list
+
+4. **Allow recursion to build the final list**
+   - Each recursive call returns the correct head for its subproblem
+   - As the stack unwinds, each chosen node's `.next` pointer is already set
+   - The final returned node from the top-level call is the head of the fully merged list
+
 ### **Pseudocode**
 
 ```text
