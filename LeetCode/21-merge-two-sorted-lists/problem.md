@@ -145,4 +145,31 @@ function merge(list1, list2):
 - The `.next` pointer is assigned to the result of the recursive call  
 - The recursion unwinds to produce the fully merged list  
 
+## **Implementation**
+
+### Java
+
+```java
+class Solution {
+  public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+    // Base case: if one list is empty, return the other
+    if (list1 == null) {
+      return list2;
+    }
+    if (list2 == null) {
+      return list1;
+    }
+
+    // Choose the smaller node and recursively merge the remainder
+    if (list1.val <= list2.val) {
+      list1.next = mergeTwoLists(list1.next, list2); // attach merged remainder
+      return list1; // list1 is the new head
+    } else {
+      list2.next = mergeTwoLists(list1, list2.next); // attach merged remainder
+      return list2; // list2 is the new head
+    }
+  }
+}
+```
 
