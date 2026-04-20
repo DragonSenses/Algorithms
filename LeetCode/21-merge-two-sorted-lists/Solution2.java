@@ -1,0 +1,5 @@
+class Solution2 {
+  public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    
+  }
+}
