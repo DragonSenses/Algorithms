@@ -41,6 +41,7 @@
 - [Recursive Approach](#recursive-approach)
   - **Time Complexity**: `O(n + m)`
   - **Space Complexity**: `O(n + m)`
+- [Iterative Approach](#iterative-approach)
 
 ## **Problem Overview: Merge Two Sorted Lists**
 
@@ -74,7 +75,7 @@ This is structurally identical to the merge step of merge sort, but applied to l
 ### **Why This Problem Matters**
 This is one of the most fundamental linked‑list operations. It builds intuition for:
 - Pointer manipulation  
-- Dummy‑node patterns  
+- Sentinel‑node patterns  
 - Iterative vs. recursive list processing  
 - Merge‑sort on linked lists  
 
@@ -228,4 +229,12 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
   Each merge step makes one recursive call, and the recursion depth equals the total number of nodes processed.  
 - **No Extra Data Structures**:  
   Aside from the call stack, no additional memory is allocated; nodes are reused and pointers are rewired.
+
+# Iterative Approach
+
+The iterative method removes recursion entirely and instead builds the merged list step‑by‑step using pointer manipulation.
+
+The main idea is to maintain a pointer towards the tail of the merged list so far after each iteration. We also need a sentinel node to help with edge cases.
+
+This approach is clean, deterministic, and avoids the call‑stack overhead of recursion.
 
