@@ -39,6 +39,7 @@
 # Solution
 
 - [Recursive Approach](#recursive-approach)
+  - **Space Complexity**: `O(n + m)`
 
 ## **Problem Overview: Merge Two Sorted Lists**
 
@@ -212,3 +213,11 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 - Let \( m \) be the number of nodes in `list2`  
 - Both lists are already sorted in non‑decreasing order  
 - Node comparisons and pointer assignments are \( O(1) \)
+
+### **Space Complexity**: `O(n + m)`
+
+- **Recursive Call Stack**:  
+  Each merge step makes one recursive call, and the recursion depth equals the total number of nodes processed.  
+- **No Extra Data Structures**:  
+  Aside from the call stack, no additional memory is allocated; nodes are reused and pointers are rewired.
+
