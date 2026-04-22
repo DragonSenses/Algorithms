@@ -232,9 +232,20 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 
 # Iterative Approach
 
+## **Intuition**
+
 The iterative method removes recursion entirely and instead builds the merged list step‑by‑step using pointer manipulation.
 
-The main idea is to maintain a pointer towards the tail of the merged list so far after each iteration. We also need a sentinel node to help with edge cases.
+The key idea is to maintain a **current pointer** that always represents the *tail* of the merged list so far. At each step:
+
+- Compare the heads of `list1` and `list2`
+- Attach the smaller node to `current.next`
+- Advance the pointer in the list from which the node was taken
+- Move `current` forward
+
+To simplify edge cases (especially when initializing the head), we use a **sentinel node** whose `.next` will eventually point to the real merged list. This avoids special‑case logic for the first insertion.
+
+Once one list is exhausted, the remaining nodes of the other list are already sorted, so we simply attach the rest in one step.
 
 This approach is clean, deterministic, and avoids the call‑stack overhead of recursion.
 
