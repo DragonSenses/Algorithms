@@ -3,5 +3,7 @@ class Solution2 {
     ListNode sentinel = new ListNode();
     ListNode current = sentinel;
 
+    while ((list1 != null) && (list2 != null)) {
+
   } 
 }
