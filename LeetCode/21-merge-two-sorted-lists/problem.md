@@ -249,3 +249,10 @@ Once one list is exhausted, the remaining nodes of the other list are already so
 
 This approach is clean, deterministic, and avoids the call‑stack overhead of recursion.
 
+## **Algorithm**
+
+1. Create a sentinel node to handle edge cases
+2. Traverse both lists (non-empty)
+3. Compare node values and advance pointer
+4. Reconnect nodes
+5. Return head of merged list
