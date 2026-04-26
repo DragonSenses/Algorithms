@@ -12,5 +12,6 @@ class Solution2 {
         list2 = list2.next;
       }
 
-  } 
+      current = current.next;
+    } 
 }
