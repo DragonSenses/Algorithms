@@ -20,5 +20,6 @@ class Solution2 {
     } else {
       current.next = list2;
     }
-
+    
+  return sentinel.next;
 }
