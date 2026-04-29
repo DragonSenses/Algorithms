@@ -256,3 +256,36 @@ This approach is clean, deterministic, and avoids the call‑stack overhead of r
 3. Compare node values and advance pointer
 4. Reconnect nodes
 5. Return head of merged list
+
+### **Pseudocode**
+
+```text
+function merge(list1, list2):
+  create sentinel node
+  current = sentinel
+
+  while list1 is not null AND list2 is not null:
+    if list1.val <= list2.val:
+      current.next = list1
+      list1 = list1.next
+    else:
+      current.next = list2
+      list2 = list2.next
+
+    current = current.next
+
+  if list1 is not null:
+    current.next = list1
+  else:
+    current.next = list2
+
+  return sentinel.next
+```
+
+**Key behaviors:**
+- The sentinel node anchors the merged list  
+- `current` always points to the last node in the merged list  
+- Only one pointer moves at a time (either `list1` or `list2`)  
+- The loop continues until one list is empty  
+- The tail of the non‑empty list is appended in constant time  
+
