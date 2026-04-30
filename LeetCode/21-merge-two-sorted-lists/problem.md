@@ -251,11 +251,33 @@ This approach is clean, deterministic, and avoids the call‑stack overhead of r
 
 ## **Algorithm**
 
-1. Create a sentinel node to handle edge cases
-2. Traverse both lists (non-empty)
-3. Compare node values and advance pointer
-4. Reconnect nodes
-5. Return head of merged list
+1. **Create a sentinel node**
+   - **Purpose:** Acts as a fixed starting point for the merged list.
+   - Initialize:
+     - `sentinel` = new node (value doesn't matter)
+     - `current` = `sentinel`
+
+2. **Traverse both lists while neither is empty**
+   - Condition: `while list1 != null AND list2 != null`:
+     1. **Compare current values**  
+        - If `list1.val <= list2.val`:
+          - Set `current.next = list1`
+          - Move `list1` to `list1.next`
+        - Else:
+          - Set `current.next = list2`
+          - Move `list2` to `list2.next`
+     2. **Advance the merged-list tail**  
+        - Move `current` to `current.next`
+
+3. **Attach the remaining nodes**
+   - After the loop, exactly one of `list1` or `list2` may be non‑null:
+     - If `list1 != null`, set `current.next = list1`
+     - Else, set `current.next = list2`
+   - This works because the remaining nodes are already sorted.
+
+4. **Return the head of the merged list**
+   - The real head is `sentinel.next` (skip the sentinel node itself).
+   - Return `sentinel.next`.
 
 ### **Pseudocode**
 
