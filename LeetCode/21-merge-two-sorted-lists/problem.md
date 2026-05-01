@@ -311,3 +311,36 @@ function merge(list1, list2):
 - The loop continues until one list is empty  
 - The tail of the non‑empty list is appended in constant time  
 
+## **Implementation**
+
+### **Java**
+
+```java
+class Solution {
+public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+    // Sentinel node simplifies handling of the merged list head
+    ListNode sentinel = new ListNode();
+    ListNode current = sentinel;
+
+    // Merge while both lists have nodes
+    while (list1 != null && list2 != null) {
+      if (list1.val <= list2.val) {
+        current.next = list1; // attach list1 node
+        list1 = list1.next; // advance list1
+      } else {
+        current.next = list2; // attach list2 node
+        list2 = list2.next; // advance list2
+      }
+
+      current = current.next; // advance merged-list tail
+    }
+
+    // Attach whichever list still has remaining nodes
+    current.next = (list1 != null) ? list1 : list2;
+
+    // The real head is after the sentinel
+    return sentinel.next;
+  }
+}
+```
