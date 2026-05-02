@@ -9,5 +9,6 @@ class ListNode {
 }
 
 function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
-
+  let sentinel = new ListNode();
+  let current = sentinel;
 };
