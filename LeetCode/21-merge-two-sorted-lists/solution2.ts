@@ -8,7 +8,15 @@ class ListNode {
   }
 }
 
-function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+function mergeTwoLists(
+  list1: ListNode | null,
+  list2: ListNode | null,
+): ListNode | null {
   let sentinel = new ListNode();
   let current = sentinel;
-};
+
+  while (list1 != null && list2 != null) {
+  }
+
+
+}
