@@ -30,4 +30,5 @@ function mergeTwoLists(
   // Attach whichever list still has remaining nodes
   current.next = list1 != null ? list1 : list2;
 
+  return sentinel.next;
 }
