@@ -211,10 +211,10 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
 ## **Complexity Analysis**
 
 ### **Assumptions**
-- Let \( n \) be the number of nodes in `list1`  
-- Let \( m \) be the number of nodes in `list2`  
+- Let `n` be the number of nodes in `list1`  
+- Let `m` be the number of nodes in `list2`  
 - Both lists are already sorted in non‑decreasing order  
-- Node comparisons and pointer assignments are \( O(1) \)
+- Node comparisons and pointer assignments are `O(1)`
 
 ### **Time Complexity**: `O(n + m)`
 
@@ -382,3 +382,11 @@ function mergeTwoLists(
   return sentinel.next;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` be the number of nodes in `list1`  
+- Let `m` be the number of nodes in `list2`  
+- Both lists are already sorted in non‑decreasing order  
+- Node comparisons and pointer assignments are `O(1)`
