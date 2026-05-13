@@ -42,6 +42,7 @@
   - **Time Complexity**: `O(n + m)`
   - **Space Complexity**: `O(n + m)`
 - [Iterative Approach](#iterative-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Merge Two Sorted Lists**
 
@@ -390,3 +391,9 @@ function mergeTwoLists(
 - Let `m` be the number of nodes in `list2`  
 - Both lists are already sorted in non‑decreasing order  
 - Node comparisons and pointer assignments are `O(1)`
+
+### **Space Complexity**: `O(1)`
+
+- No recursion means no call stack growth  
+- Only a few pointers (`sentinel`, `current`, `list1`, `list2`) are used  
+- All nodes are reused; no new nodes are allocated
