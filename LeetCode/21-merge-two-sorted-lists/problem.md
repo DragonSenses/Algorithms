@@ -42,6 +42,7 @@
   - **Time Complexity**: `O(n + m)`
   - **Space Complexity**: `O(n + m)`
 - [Iterative Approach](#iterative-approach)
+  - **Time Complexity**: `O(n + m)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Merge Two Sorted Lists**
@@ -391,6 +392,12 @@ function mergeTwoLists(
 - Let `m` be the number of nodes in `list2`  
 - Both lists are already sorted in non‑decreasing order  
 - Node comparisons and pointer assignments are `O(1)`
+
+### **Time Complexity**: `O(n + m)`
+
+- Each node from both lists is processed exactly once  
+- Comparisons and pointer rewiring are constant‑time operations  
+- Total work is proportional to the combined length of the lists  
 
 ### **Space Complexity**: `O(1)`
 
