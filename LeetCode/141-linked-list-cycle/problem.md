@@ -40,3 +40,38 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
+---
+
+## **Problem Overview: Linked List Cycle**
+
+A **linked list cycle** occurs when a node's `next` pointer links back to a previous node in the list, creating a loop. Instead of terminating at `null`, traversal continues indefinitely. The task is to determine whether such a cycle exists given the head of a singly linked list.
+
+### **Key Idea**
+
+A cycle exists **if any node can be revisited** by repeatedly following `next` pointers.  
+The input may conceptually include a `pos` value (used internally by LeetCode to indicate where the tail connects), but **`pos` is not provided to your function**—you must detect the cycle purely from pointer structure.
+
+### **Examples**
+
+#### **Example 1**
+- **Input:** `head = [3,2,0,-4]`, `pos = 1`  
+- **Output:** `true`  
+- **Explanation:** Tail connects to the node at index 1, forming a loop.
+
+#### **Example 2**
+- **Input:** `head = [1,2]`, `pos = 0`  
+- **Output:** `true`  
+- **Explanation:** Tail connects back to the head.
+
+#### **Example 3**
+- **Input:** `head = [1]`, `pos = -1`  
+- **Output:** `false`  
+- **Explanation:** No cycle exists.
+
+### **Constraints**
+- Number of nodes: **0 to 10⁴**
+- Node values: **−10⁵ to 10⁵**
+- `pos` is either **−1** or a valid index
+
+### **Follow‑Up**
+Can you detect a cycle using **O(1) extra memory**?
