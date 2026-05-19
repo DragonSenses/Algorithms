@@ -44,7 +44,7 @@
 
 # Solution
 
-- [Hash Table Approach](#hash-table-approach)
+- [Hash Set Approach](#hash-set-approach)
 
 ## **Problem Overview: Linked List Cycle**
 
@@ -80,7 +80,7 @@ The input may conceptually include a `pos` value (used internally by LeetCode to
 ### **Follow‑Up**
 Can you detect a cycle using **O(1) extra memory**?
 
-# Hash Table Approach
+# Hash Set Approach
 
 The goal is to check if a linked list contains a cycle. To do this we check whether a node had been visited before.
 
