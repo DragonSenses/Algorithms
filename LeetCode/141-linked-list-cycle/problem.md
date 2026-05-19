@@ -42,6 +42,10 @@
 
 ---
 
+# Solution
+
+- [Hash Table Approach](#hash-table-approach)
+
 ## **Problem Overview: Linked List Cycle**
 
 A **linked list cycle** occurs when a node's `next` pointer links back to a previous node in the list, creating a loop. Instead of terminating at `null`, traversal continues indefinitely. The task is to determine whether such a cycle exists given the head of a singly linked list.
@@ -75,3 +79,11 @@ The input may conceptually include a `pos` value (used internally by LeetCode to
 
 ### **Follow‑Up**
 Can you detect a cycle using **O(1) extra memory**?
+
+# Hash Table Approach
+
+The goal is to check if a linked list contains a cycle. To do this we check whether a node had been visited before.
+
+One way to track visitations is through a set, in discrete math, is a well-defined collection of distinct objects.
+
+A natural implementation is a hash table/hash set.
