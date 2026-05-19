@@ -82,8 +82,15 @@ Can you detect a cycle using **O(1) extra memory**?
 
 # Hash Set Approach
 
-The goal is to check if a linked list contains a cycle. To do this we check whether a node had been visited before.
+To detect a cyclic list, check whether a node has been visited through the use of a hash table/hash set.
 
-One way to track visitations is through a set, in discrete math, is a well-defined collection of distinct objects.
+## **Intuition**
 
-A natural implementation is a hash table/hash set.
+The idea is to detect a cycle by remembering every node you have visited.  
+A linked list with no cycle will eventually reach a null pointer.  
+A linked list with a cycle will eventually revisit a node you have already seen.
+
+Since each node in memory has a unique reference identity, storing visited nodes in a hash table allows constant‑time membership checks.  
+If a node appears twice, a cycle exists.
+
+This approach directly mirrors the definition of a cycle: reaching the same node more than once.
