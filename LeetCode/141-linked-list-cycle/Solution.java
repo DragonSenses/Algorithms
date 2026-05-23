@@ -8,7 +8,7 @@ public class Solution {
       if (visited.contains(head)) {
         return true;
       }
-
+      visited.add(head);
     }
   }
 }
