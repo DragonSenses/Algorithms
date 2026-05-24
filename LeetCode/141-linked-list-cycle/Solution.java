@@ -9,6 +9,7 @@ public class Solution {
         return true;
       }
       visited.add(head);
+      head = head.next;
     }
   }
 }
