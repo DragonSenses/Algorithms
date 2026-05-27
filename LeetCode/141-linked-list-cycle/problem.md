@@ -94,3 +94,13 @@ Since each node in memory has a unique reference identity, storing visited nodes
 If a node appears twice, a cycle exists.
 
 This approach directly mirrors the definition of a cycle: reaching the same node more than once.
+
+## **Algorithm**
+
+1. Initialize an empty hash set to store visited node references.
+2. Start from the head of the list.
+3. For each node:
+   - If the node is already in the set, return true because a cycle exists.
+   - Otherwise, insert the node into the set.
+   - Move to the next node.
+4. If traversal reaches null, return false because the list terminates normally.
