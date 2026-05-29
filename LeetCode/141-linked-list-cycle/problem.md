@@ -105,6 +105,22 @@ This approach directly mirrors the definition of a cycle: reaching the same node
    - Move to the next node.
 4. If traversal reaches null, return false because the list terminates normally.
 
+### **Pseudocode**
+
+```
+function hasCycle(head):
+  visited = empty set
+
+  current = head
+  while current is not null:
+    if current in visited:
+      return true
+    add current to visited
+    current = current.next
+
+  return false
+```
+
 ## **Implementation**
 
 ### Java
