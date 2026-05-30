@@ -8,5 +8,5 @@ class ListNode {
 }
 
 function hasCycle(head: ListNode | null): boolean {
-    
+  const visited = new Set<ListNode>();
 };
