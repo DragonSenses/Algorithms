@@ -10,4 +10,8 @@ class ListNode {
 function hasCycle(head: ListNode | null): boolean {
   const visited = new Set<ListNode>();
   let current = head;
+
+  while (current !== null) {
+
+  }
 };
