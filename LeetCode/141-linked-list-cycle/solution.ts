@@ -12,6 +12,8 @@ function hasCycle(head: ListNode | null): boolean {
   let current = head;
 
   while (current !== null) {
-
+    if (visited.has(current)) {
+      return true;
+    }
   }
 };
