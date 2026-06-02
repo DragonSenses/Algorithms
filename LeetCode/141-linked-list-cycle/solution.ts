@@ -15,5 +15,6 @@ function hasCycle(head: ListNode | null): boolean {
     if (visited.has(current)) {
       return true;
     }
+    visited.add(current);
   }
 };
