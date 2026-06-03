@@ -16,5 +16,6 @@ function hasCycle(head: ListNode | null): boolean {
       return true;
     }
     visited.add(current);
+    current = current.next;
   }
 };
