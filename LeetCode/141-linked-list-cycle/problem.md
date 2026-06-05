@@ -45,6 +45,7 @@
 # Solution
 
 - [Hash Set Approach](#hash-set-approach)
+  - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Linked List Cycle**
 
@@ -170,3 +171,7 @@ function hasCycle(head: ListNode | null): boolean {
 ### **Assumptions**
 
 - Let `n` be the total number of nodes in the linked list.
+
+### **Space Complexity**: `O(n)`
+- **Visited Set Growth**: In the worst case (no cycle), the hash table stores all `n` distinct nodes.
+- **No Extra Structures Beyond the Set**: Aside from the visited set and a few pointers, no additional memory is used.
