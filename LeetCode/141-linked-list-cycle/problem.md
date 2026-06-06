@@ -45,6 +45,7 @@
 # Solution
 
 - [Hash Set Approach](#hash-set-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 
 ## **Problem Overview: Linked List Cycle**
@@ -171,6 +172,10 @@ function hasCycle(head: ListNode | null): boolean {
 ### **Assumptions**
 
 - Let `n` be the total number of nodes in the linked list.
+
+### **Time Complexity**: `O(n)`
+- **Linear Traversal**: Each of the `n` nodes is visited at most once before either reaching null or detecting a repeated node.
+- **Constant-Time Hash Lookup**: Checking whether a node exists in the hash table and inserting it both take `O(1)` expected time.
 
 ### **Space Complexity**: `O(n)`
 - **Visited Set Growth**: In the worst case (no cycle), the hash table stores all `n` distinct nodes.
