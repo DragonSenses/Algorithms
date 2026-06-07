@@ -32,9 +32,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
-	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
-	<li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li>
+  <li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+  <li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+  <li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -47,6 +47,7 @@
 - [Hash Set Approach](#hash-set-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
+- [Floyd's Cycle Finding Approach](#floyds-cycle-finding-approach)
 
 ## **Problem Overview: Linked List Cycle**
 
@@ -180,3 +181,14 @@ function hasCycle(head: ListNode | null): boolean {
 ### **Space Complexity**: `O(n)`
 - **Visited Set Growth**: In the worst case (no cycle), the hash table stores all `n` distinct nodes.
 - **No Extra Structures Beyond the Set**: Aside from the visited set and a few pointers, no additional memory is used.
+
+# Floyd's Cycle Finding Approach
+
+One pointer moves one step at a time (slow).  
+Another pointer moves two steps at a time (fast).
+
+If there is **no** cycle, the fast pointer will reach null and stop.  
+If there **is** a cycle, the fast pointer will eventually "lap" the slow pointer, causing both pointers to land on the same node.
+
+The approach requires no extra memory because it relies only on pointer movement, not on storing visited nodes.
+
