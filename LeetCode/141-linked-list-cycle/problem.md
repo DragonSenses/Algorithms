@@ -184,11 +184,16 @@ function hasCycle(head: ListNode | null): boolean {
 
 # Floyd's Cycle Finding Approach
 
+## Intuition
+
+The key insight is that if a linked list contains a cycle, then two pointers moving at different speeds must eventually meet inside that cycle.
+
 One pointer moves one step at a time (slow).  
 Another pointer moves two steps at a time (fast).
 
 If there is **no** cycle, the fast pointer will reach null and stop.  
 If there **is** a cycle, the fast pointer will eventually "lap" the slow pointer, causing both pointers to land on the same node.
 
-The approach requires no extra memory because it relies only on pointer movement, not on storing visited nodes.
+This works because within a cycle, the fast pointer gains exactly one node on the slow pointer per iteration. Since the cycle is finite, the fast pointer must eventually catch up.
 
+The approach requires no extra memory because it relies only on pointer movement, not on storing visited nodes.
