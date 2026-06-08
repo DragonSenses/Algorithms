@@ -197,3 +197,11 @@ If there **is** a cycle, the fast pointer will eventually "lap" the slow pointer
 This works because within a cycle, the fast pointer gains exactly one node on the slow pointer per iteration. Since the cycle is finite, the fast pointer must eventually catch up.
 
 The approach requires no extra memory because it relies only on pointer movement, not on storing visited nodes.
+
+## Algorithm
+
+1. Initialize two pointers slow and fast
+2. Create loop while current and current next are not null
+3. Move slow by one step and fast by two steps per iteration within the loop
+4. Case 1: fast or fast.next is null, no cycle
+5. Case 2: fast and slow are same, cycle found
