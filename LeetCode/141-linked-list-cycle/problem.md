@@ -205,3 +205,23 @@ The approach requires no extra memory because it relies only on pointer movement
 3. Move slow by one step and fast by two steps per iteration within the loop
 4. Case 1: fast or fast.next is null, no cycle
 5. Case 2: fast and slow are same, cycle found
+
+### **Pseudocode**
+
+```
+function hasCycle(head):
+  if head is null or head.next is null:
+    return false
+
+  slow = head
+  fast = head
+
+  while fast is not null and fast.next is not null:
+    slow = slow.next
+    fast = fast.next.next
+
+    if slow == fast:
+      return true
+
+  return false
+```
