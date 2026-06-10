@@ -200,11 +200,15 @@ The approach requires no extra memory because it relies only on pointer movement
 
 ## Algorithm
 
-1. Initialize two pointers slow and fast
-2. Create loop while current and current next are not null
-3. Move slow by one step and fast by two steps per iteration within the loop
-4. Case 1: fast or fast.next is null, no cycle
-5. Case 2: fast and slow are same, cycle found
+1. If the list is empty or has only one node, return false.
+2. Initialize two pointers:
+   - slow = head
+   - fast = head
+3. Move slow by one step and fast by two steps in each iteration.
+4. After each movement:
+   - If fast becomes null or fast.next becomes null, return false (no cycle).
+   - If slow and fast point to the same node, return true (cycle detected).
+5. Continue until one of the above conditions is met.
 
 ### **Pseudocode**
 
