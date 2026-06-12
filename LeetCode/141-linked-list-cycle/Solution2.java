@@ -3,5 +3,8 @@ public class Solution2 {
     if (head == null || head.next == null) {
       return false;
     }
+
+    ListNode slow = head;
+    ListNode fast = head;
   }
 }
