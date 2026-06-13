@@ -7,7 +7,7 @@ public class Solution2 {
     ListNode slow = head;
     ListNode fast = head;
     
-    while (head != null) {
+    while (fast != null && fast.next != null) {
     }
   }
 }
