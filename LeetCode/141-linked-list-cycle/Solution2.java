@@ -15,5 +15,7 @@ public class Solution2 {
         return true;
       }
     }
+
+    return false;
   }
 }
