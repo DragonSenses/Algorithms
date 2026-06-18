@@ -8,7 +8,7 @@ class ListNode {
 }
 
 function hasCycle(head: ListNode | null): boolean {
-  if (head == null) {
+  if (head == null || head.next == null) {
     return false;
   }
 };
