@@ -11,4 +11,7 @@ function hasCycle(head: ListNode | null): boolean {
   if (head == null || head.next == null) {
     return false;
   }
+
+  let slow = head;
+  let fast = head;
 };
