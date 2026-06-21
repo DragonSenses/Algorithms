@@ -16,6 +16,8 @@ function hasCycle(head: ListNode | null): boolean {
   let fast = head;
 
   while (fast != null && fast.next != null) {
+    slow = slow.next!;
+    fast = fast.next.next!;
   }
 
 };
