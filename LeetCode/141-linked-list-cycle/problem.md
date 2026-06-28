@@ -281,3 +281,9 @@ function hasCycle(head: ListNode | null): boolean {
   return false;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+
+- Let `n` be the total number of nodes in the linked list.
