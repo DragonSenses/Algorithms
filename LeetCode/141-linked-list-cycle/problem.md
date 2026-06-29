@@ -48,6 +48,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Floyd's Cycle Finding Approach](#floyds-cycle-finding-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Linked List Cycle**
 
@@ -287,3 +288,7 @@ function hasCycle(head: ListNode | null): boolean {
 ### **Assumptions**
 
 - Let `n` be the total number of nodes in the linked list.
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: Only two pointers (`slow` and `fast`) are maintained regardless of the input size.
+- **No Additional Structures**: The algorithm does not allocate memory proportional to the number of nodes; it relies solely on pointer movement.
