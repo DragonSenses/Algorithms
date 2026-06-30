@@ -48,6 +48,7 @@
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(n)`
 - [Floyd's Cycle Finding Approach](#floyds-cycle-finding-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Linked List Cycle**
@@ -288,6 +289,10 @@ function hasCycle(head: ListNode | null): boolean {
 ### **Assumptions**
 
 - Let `n` be the total number of nodes in the linked list.
+
+### **Time Complexity**: `O(n)`
+- **Linear Traversal**: Each iteration advances the slow pointer by one node, and the fast pointer by two nodes. In the worst case, both pointers collectively traverse at most `n` nodes before either meeting or reaching null.
+- **Constant-Time Pointer Updates**: Moving the slow and fast pointers requires only simple pointer assignments, each costing `O(1)` time.
 
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: Only two pointers (`slow` and `fast`) are maintained regardless of the input size.
