@@ -54,3 +54,21 @@
 	<li><code>0 &lt;= sc &lt; n</code></li>
 </ul>
 
+---
+
+## **Problem Overview: Flood Fill**
+
+Flood fill is a region‑expansion procedure. Starting from a given pixel, you recolor that pixel and every pixel reachable from it through 4‑directional adjacency, but only if those pixels share the same original color as the starting pixel.
+
+This is a classic graph traversal problem on a grid. The grid cells are nodes, and edges exist between up, down, left, and right neighbors.
+
+## Example 1 Breakdown
+Image:
+  [[1,1,1],
+   [1,1,0],
+   [1,0,1]]
+
+Start at (1,1) with original color 1. All 1‑valued pixels connected through 4‑directional adjacency form a region. That region is recolored to 2. The bottom‑right pixel is not recolored because it is diagonally connected, not side‑connected.
+
+## Example 2 Breakdown
+If the starting pixel already has the target color, no traversal is needed. The image is returned unchanged.
