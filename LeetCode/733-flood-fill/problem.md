@@ -56,6 +56,10 @@
 
 ---
 
+# Solution
+
+- [Depth First Search Approach](#depth-first-search-approach)
+
 ## **Problem Overview: Flood Fill**
 
 Flood fill is a region‑expansion procedure. Starting from a given pixel, you recolor that pixel and every pixel reachable from it through 4‑directional adjacency, but only if those pixels share the same original color as the starting pixel.
@@ -93,3 +97,10 @@ If the starting pixel already has the target color, no traversal is needed. The 
 - DFS vs BFS tradeoffs.
 - Early‑exit optimization.
 - Boundary and color‑matching checks.
+
+# Depth First Search Approach
+
+## **Intuition**
+
+We perform the algorithm explained in the problem description: paint the starting pixels, plus adjacent pixels of the
+same color, and so on.
