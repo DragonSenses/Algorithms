@@ -102,8 +102,9 @@ If the starting pixel already has the target color, no traversal is needed. The 
 
 ## **Intuition**
 
-We perform the algorithm explained in the problem description: paint the starting pixels, plus adjacent pixels of the
-same color, and so on.
+Flood fill using DFS is about expanding a connected region one branch at a time. You start at the initial pixel, note its original color, and then recursively explore outward. Each recursive call handles a single pixel: if it matches the original color, recolor it and continue exploring its four neighbors. DFS naturally models the idea of following one path deeply before returning to explore the remaining directions.
+
+The key insight is that the grid behaves like a graph. DFS ensures every reachable pixel of the original color is visited exactly once. The recursion stack keeps track of the exploration path, and boundary checks prevent out‑of‑bounds or mismatched‑color pixels from being processed.
 
 ## **Algorithm**
 
