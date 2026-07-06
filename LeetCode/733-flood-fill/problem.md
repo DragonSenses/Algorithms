@@ -72,3 +72,24 @@ Start at (1,1) with original color 1. All 1‑valued pixels connected through 4�
 
 ## Example 2 Breakdown
 If the starting pixel already has the target color, no traversal is needed. The image is returned unchanged.
+
+### **Constraints**
+- `m == image.length`
+- `n == image[i].length`
+- `1 <= m, n <= 50`
+- `0 <= image[i][j], color < 216`
+- `0 <= sr < m`
+- `0 <= sc < n`
+
+## Key Observations
+- The starting pixel defines the **source color**. Only pixels with this color are eligible for recoloring.
+- If the **source color equals the target color**, the image is unchanged. This is an important early‑exit condition.
+- The traversal can be done with either DFS or BFS. Both explore all reachable same‑colored neighbors.
+- The grid is small (max 50x50), so recursion depth or queue size is safe.
+
+## What This Problem Teaches
+- Grid traversal fundamentals.
+- Region detection using adjacency.
+- DFS vs BFS tradeoffs.
+- Early‑exit optimization.
+- Boundary and color‑matching checks.
