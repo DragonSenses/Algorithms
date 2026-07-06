@@ -104,3 +104,7 @@ If the starting pixel already has the target color, no traversal is needed. The 
 
 We perform the algorithm explained in the problem description: paint the starting pixels, plus adjacent pixels of the
 same color, and so on.
+
+## **Algorithm**
+
+Using the starting pixel called initial pixel we use its color to floodfill starting . Change the color of the pixel, then check the 4 adjacent neighbor pixels to make sure the yare valid pixels first then of same color. Depth first search continues this approach by repeating this for each pixel until we hit a base case (recursive).
