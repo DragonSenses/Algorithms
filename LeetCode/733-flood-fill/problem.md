@@ -128,5 +128,8 @@ The key insight is that the grid behaves like a graph. DFS ensures every reachab
 function floodFill(image, sr, sc, newColor):
   originalColor = image[sr][sc]
 
+  if originalColor == newColor:
+    return image
+
 ```
 
