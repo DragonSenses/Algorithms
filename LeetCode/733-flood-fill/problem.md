@@ -108,4 +108,16 @@ The key insight is that the grid behaves like a graph. DFS ensures every reachab
 
 ## **Algorithm**
 
-Using the starting pixel called initial pixel we use its color to floodfill starting . Change the color of the pixel, then check the 4 adjacent neighbor pixels to make sure the yare valid pixels first then of same color. Depth first search continues this approach by repeating this for each pixel until we hit a base case (recursive).
+1. Read the original color at (sr, sc).  
+2. If the original color equals the new color, return the image immediately.  
+3. Define a recursive function `dfs(r, c)`:
+   - If `(r, c)` is out of bounds, return.
+   - If `image[r][c]` does not match the original color, return.
+   - Recolor `image[r][c]` to the new color.
+   - Recursively call `dfs` on the four neighbors:
+     - `(r + 1, c)`
+     - `(r - 1, c)`
+     - `(r, c + 1)`
+     - `(r, c - 1)`
+4. Invoke `dfs(sr, sc)` to begin the flood fill.
+5. Return the modified image.
