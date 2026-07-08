@@ -121,3 +121,12 @@ The key insight is that the grid behaves like a graph. DFS ensures every reachab
      - `(r, c - 1)`
 4. Invoke `dfs(sr, sc)` to begin the flood fill.
 5. Return the modified image.
+
+### **Pseudocode**
+
+```java
+function floodFill(image, sr, sc, newColor):
+  originalColor = image[sr][sc]
+
+```
+
