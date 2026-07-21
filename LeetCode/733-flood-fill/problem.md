@@ -132,7 +132,7 @@ function floodFill(image, sr, sc, newColor):
     return image
 
   function dfs(r, c):
-    if r < 0:
+    if r < 0 or r >= number_of_rows(image):
       return
 
   dfs(sr, sc)
