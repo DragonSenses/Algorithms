@@ -136,6 +136,8 @@ function floodFill(image, sr, sc, newColor):
       return
     if c < 0 or c >= number_of_columns(image):
       return
+    if image[r][c] != originalColor:
+      return
 
   dfs(sr, sc)
 ```
