@@ -139,6 +139,8 @@ function floodFill(image, sr, sc, newColor):
     if image[r][c] != originalColor:
       return
 
+    image[r][c] = newColor
+
   dfs(sr, sc)
 ```
 
