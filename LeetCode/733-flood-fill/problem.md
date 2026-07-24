@@ -141,6 +141,11 @@ function floodFill(image, sr, sc, newColor):
 
     image[r][c] = newColor
 
+    dfs(r + 1, c)
+    dfs(r - 1, c)
+    dfs(r, c + 1)
+    dfs(r, c - 1)
+
   dfs(sr, sc)
 ```
 
