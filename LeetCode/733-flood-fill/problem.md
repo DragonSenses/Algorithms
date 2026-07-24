@@ -147,5 +147,6 @@ function floodFill(image, sr, sc, newColor):
     dfs(r, c - 1)
 
   dfs(sr, sc)
+  return image
 ```
 
