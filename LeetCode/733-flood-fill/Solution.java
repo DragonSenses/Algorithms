@@ -4,5 +4,6 @@ class Solution {
     if (original == color) {
       return image;
     }
+    return null;
   }
 }
