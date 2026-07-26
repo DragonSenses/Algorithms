@@ -4,6 +4,7 @@ class Solution {
     if (original == color) {
       return image;
     }
+    dfs(image, sr, sc, original, color);
     return null;
   }
 
