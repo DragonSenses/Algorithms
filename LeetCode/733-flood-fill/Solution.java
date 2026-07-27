@@ -9,6 +9,7 @@ class Solution {
   }
 
   private void dfs(int[][] image, int r, int c, int original, int color) {
-
+    int m = image.length;
+    int n = image[0].length;
   }
 }
