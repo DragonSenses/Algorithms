@@ -15,6 +15,10 @@ class Solution {
     if (r < 0 || r >= m) {
       return;
     }
+    if (c < 0 || c >= n) {
+      return;
+    }
+
 
   }
 }
