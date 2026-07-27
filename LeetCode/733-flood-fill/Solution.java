@@ -18,7 +18,9 @@ class Solution {
     if (c < 0 || c >= n) {
       return;
     }
-
+    if (image[r][c] != original) {
+      return;
+    }
 
   }
 }
