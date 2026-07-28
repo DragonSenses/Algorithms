@@ -22,5 +22,6 @@ class Solution {
       return;
     }
 
+    image[r][c] = color;
   }
 }
