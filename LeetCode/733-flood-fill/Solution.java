@@ -23,5 +23,10 @@ class Solution {
     }
 
     image[r][c] = color;
+
+    dfs(image, r + 1, c, original, color);
+    dfs(image, r - 1, c, original, color);
+    dfs(image, r, c + 1, original, color);
+    dfs(image, r, c - 1, original, color);
   }
 }
