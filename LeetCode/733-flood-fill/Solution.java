@@ -5,7 +5,7 @@ class Solution {
       return image;
     }
     dfs(image, sr, sc, original, color);
-    return null;
+    return image;
   }
 
   private void dfs(int[][] image, int r, int c, int original, int color) {
