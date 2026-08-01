@@ -5,5 +5,7 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   }
 
   function dfs(r: number, c: number): void {
+    const m = image.length;
+    const n = image[0].length;
   }
 };
