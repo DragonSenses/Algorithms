@@ -3,4 +3,7 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   if (original === color) {
     return image;
   }
+
+  function dfs(r: number, c: number): void {
+  }
 };
