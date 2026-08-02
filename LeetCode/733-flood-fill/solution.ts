@@ -11,6 +11,9 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
     if (r < 0 || r >= m) {
       return;
     }
+    if (c < 0 || c >= n) {
+      return;
+    }
 
   }
 };
