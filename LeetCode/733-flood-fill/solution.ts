@@ -27,4 +27,5 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   }
 
   dfs(sr, sc);
+  return image;
 };
