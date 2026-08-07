@@ -59,6 +59,7 @@
 # Solution
 
 - [Depth First Search Approach](#depth-first-search-approach)
+  - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
 
 ## **Problem Overview: Flood Fill**
@@ -252,6 +253,9 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
 - Let `n` be the number of columns in the image.
 - Let `m * n` be the total number of pixels.
 - Flood fill only visits pixels that share the original starting color and are 4‑directionally connected.
+
+### **Time Complexity**: `O(m * n)`
+- **Linear-Time**: Each pixel is visited at most once. Even though DFS explores recursively, no pixel is recolored or processed more than a single time. Therefore, the total work is proportional to the number of pixels in the connected region, which in the worst case is the entire grid of size `m * n`.
 
 ### **Space Complexity**: `O(m * n)`
 - **Recursion-Stack Usage**: DFS uses the call stack to explore neighbors. In the worst case (e.g., the entire grid is one connected region), the recursion depth can grow to `m * n`, producing linear auxiliary space.
