@@ -249,4 +249,5 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
 ### **Assumptions**
 - Let `m` be the number of rows in the image.
 - Let `n` be the number of columns in the image.
-- Let `k = m * n` be the total number of pixels.
+- Let `m * n` be the total number of pixels.
+- Flood fill only visits pixels that share the original starting color and are 4‑directionally connected.
