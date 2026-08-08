@@ -157,9 +157,6 @@ function floodFill(image, sr, sc, newColor):
 ### Java
 
 ```Java
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 class Solution {
   public int[][] floodFill(int[][] image, int sr, int sc, int color) {
     int original = image[sr][sc];
@@ -167,45 +164,30 @@ class Solution {
       return image;
     }
 
+    dfs(image, sr, sc, original, color);
+    return image;
+  }
+
+  private void dfs(int[][] image, int r, int c, int original, int color) {
     int m = image.length;
     int n = image[0].length;
 
-    Queue<int[]> queue = new ArrayDeque<>();
-    queue.add(new int[]{sr, sc});
-    image[sr][sc] = color;
-
-    while (!queue.isEmpty()) {
-      int[] cell = queue.remove();
-      int r = cell[0];
-      int c = cell[1];
-
-      int[][] dirs = {
-        {1, 0},
-        {-1, 0},
-        {0, 1},
-        {0, -1}
-      };
-
-      for (int[] d : dirs) {
-        int nr = r + d[0];
-        int nc = c + d[1];
-
-        if (nr < 0 || nr >= m) {
-          continue;
-        }
-        if (nc < 0 || nc >= n) {
-          continue;
-        }
-        if (image[nr][nc] != original) {
-          continue;
-        }
-
-        image[nr][nc] = color;
-        queue.add(new int[]{nr, nc});
-      }
+    if (r < 0 || r >= m) {
+      return;
+    }
+    if (c < 0 || c >= n) {
+      return;
+    }
+    if (image[r][c] != original) {
+      return;
     }
 
-    return image;
+    image[r][c] = color;
+
+    dfs(image, r + 1, c, original, color);
+    dfs(image, r - 1, c, original, color);
+    dfs(image, r, c + 1, original, color);
+    dfs(image, r, c - 1, original, color);
   }
 }
 ```
