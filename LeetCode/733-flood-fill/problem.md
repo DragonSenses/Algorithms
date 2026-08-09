@@ -100,6 +100,17 @@ If the starting pixel already has the target color, no traversal is needed. The 
 - Early‑exit optimization.
 - Boundary and color‑matching checks.
 
+## Conceptual Workflow
+1. Read the starting pixel's color.
+2. If it already equals the new color, return the image.
+3. Begin traversal from (sr, sc).
+4. For each pixel visited:
+   - Recolor it.
+   - Explore its four neighbors.
+   - If a neighbor is in bounds and matches the original color, continue traversal.
+5. Stop when no more valid neighbors remain.
+
+
 # Depth First Search Approach
 
 ## **Intuition**
@@ -156,7 +167,7 @@ function floodFill(image, sr, sc, newColor):
 
 ### Java
 
-```Java
+```java
 class Solution {
   public int[][] floodFill(int[][] image, int sr, int sc, int color) {
     int original = image[sr][sc];
