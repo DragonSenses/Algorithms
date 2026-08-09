@@ -115,6 +115,12 @@ DFS dives deep along one path before backtracking. It is natural for recursive i
 - Recolor current pixel.
 - Recursively process neighbors.
 
+## BFS Intuition
+BFS expands outward level by level:
+- Use a queue.
+- Recolor the starting pixel.
+- Push neighbors that match the original color.
+- Pop from queue, recolor, push their neighbors, and repeat.
 
 # Depth First Search Approach
 
