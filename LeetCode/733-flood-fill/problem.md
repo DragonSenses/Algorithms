@@ -110,6 +110,11 @@ If the starting pixel already has the target color, no traversal is needed. The 
    - If a neighbor is in bounds and matches the original color, continue traversal.
 5. Stop when no more valid neighbors remain.
 
+## DFS Intuition
+DFS dives deep along one path before backtracking. It is natural for recursive implementations:
+- Recolor current pixel.
+- Recursively process neighbors.
+
 
 # Depth First Search Approach
 
