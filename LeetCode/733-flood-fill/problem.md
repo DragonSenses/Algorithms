@@ -268,4 +268,8 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
 
 # Breadth First Search Approach
 
+## **Intuition**
+
+BFS flood fill expands the region outward in layers. Instead of diving deep along one path, BFS processes pixels in the order they are discovered, using a queue to track the frontier. You begin at the starting pixel, recolor it, then push its valid neighbors into the queue. Each time you dequeue a pixel, you recolor it and enqueue its own valid neighbors. This continues until no more pixels of the original color remain reachable.
+
 The key idea is level‑order expansion: BFS ensures that all pixels at distance 1 from the start are processed before distance 2, and so on. This makes the traversal predictable and avoids recursion depth concerns. Every pixel is visited at most once, and adjacency checks ensure only valid same‑colored pixels are added to the queue.
