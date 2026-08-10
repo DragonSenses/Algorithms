@@ -61,6 +61,7 @@
 - [Depth First Search Approach](#depth-first-search-approach)
   - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
+- [Breadth First Search Approach](#breadth-first-search-approach)
 
 ## **Problem Overview: Flood Fill**
 
@@ -264,3 +265,7 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
 ### **Space Complexity**: `O(m * n)`
 - **Recursion-Stack Usage**: DFS uses the call stack to explore neighbors. In the worst case (e.g., the entire grid is one connected region), the recursion depth can grow to `m * n`, producing linear auxiliary space.
 - **No Additional Structures**: Aside from the recursion stack, the algorithm does not allocate extra data structures. The image is modified in place, and only a constant number of local variables are used.
+
+# Breadth First Search Approach
+
+The key idea is level‑order expansion: BFS ensures that all pixels at distance 1 from the start are processed before distance 2, and so on. This makes the traversal predictable and avoids recursion depth concerns. Every pixel is visited at most once, and adjacency checks ensure only valid same‑colored pixels are added to the queue.
