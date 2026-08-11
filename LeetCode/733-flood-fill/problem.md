@@ -279,4 +279,7 @@ The key idea is level‑order expansion: BFS ensures that all pixels at distance
 ```Java
 function floodFill(image, sr, sc, newColor):
   originalColor = image[sr][sc]
+
+  if originalColor == newColor:
+    return image
 ```
