@@ -282,4 +282,7 @@ function floodFill(image, sr, sc, newColor):
 
   if originalColor == newColor:
     return image
+
+  queue = empty_queue()
+
 ```
