@@ -285,5 +285,6 @@ function floodFill(image, sr, sc, newColor):
 
   queue = empty_queue()
   enqueue(queue, (sr, sc))
+  image[sr][sc] = newColor
 
 ```
