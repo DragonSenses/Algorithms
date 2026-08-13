@@ -290,4 +290,6 @@ function floodFill(image, sr, sc, newColor):
   while queue is not empty:
     (r, c) = dequeue(queue)
 
+    for each (nr, nc) in [(r+1, c), (r-1, c), (r, c+1), (r, c-1)]:
+
 ```
