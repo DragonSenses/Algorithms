@@ -288,4 +288,6 @@ function floodFill(image, sr, sc, newColor):
   image[sr][sc] = newColor
 
   while queue is not empty:
+    (r, c) = dequeue(queue)
+
 ```
