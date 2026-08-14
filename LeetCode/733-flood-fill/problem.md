@@ -291,5 +291,7 @@ function floodFill(image, sr, sc, newColor):
     (r, c) = dequeue(queue)
 
     for each (nr, nc) in [(r+1, c), (r-1, c), (r, c+1), (r, c-1)]:
+      if nr < 0 or nr >= number_of_rows(image):
+        continue
 
 ```
