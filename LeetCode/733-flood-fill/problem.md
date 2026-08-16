@@ -295,5 +295,7 @@ function floodFill(image, sr, sc, newColor):
         continue
       if nc < 0 or nc >= number_of_columns(image):
         continue
+      if image[nr][nc] != originalColor:
+        continue
 
 ```
