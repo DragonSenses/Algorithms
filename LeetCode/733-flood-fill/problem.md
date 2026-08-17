@@ -298,4 +298,5 @@ function floodFill(image, sr, sc, newColor):
       if image[nr][nc] != originalColor:
         continue
 
+      image[nr][nc] = newColor
 ```
