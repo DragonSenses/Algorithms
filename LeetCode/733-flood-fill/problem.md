@@ -299,4 +299,5 @@ function floodFill(image, sr, sc, newColor):
         continue
 
       image[nr][nc] = newColor
+      enqueue(queue, (nr, nc))
 ```
