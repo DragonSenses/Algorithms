@@ -300,4 +300,6 @@ function floodFill(image, sr, sc, newColor):
 
       image[nr][nc] = newColor
       enqueue(queue, (nr, nc))
+
+  return image
 ```
