@@ -274,6 +274,20 @@ BFS flood fill expands the region outward in layers. Instead of diving deep alon
 
 The key idea is level‑order expansion: BFS ensures that all pixels at distance 1 from the start are processed before distance 2, and so on. This makes the traversal predictable and avoids recursion depth concerns. Every pixel is visited at most once, and adjacency checks ensure only valid same‑colored pixels are added to the queue.
 
+## **Algorithm**
+
+1. Read the original color at `(sr, sc)`.  
+2. If the original color equals the new color, return the image immediately.  
+3. Initialize a queue and enqueue `(sr, sc)`.  
+4. Recolor the starting pixel.  
+5. While the queue is not empty:
+   - Dequeue a pixel `(r, c)`.
+   - For each of the four neighbors `(r + 1, c)`, `(r - 1, c)`, `(r, c + 1)`, `(r, c - 1)`:
+     - Check bounds.
+     - If the neighbor matches the original color, recolor it and enqueue it.
+6. When the queue becomes empty, all reachable same‑colored pixels have been recolored.  
+7. Return the modified image.
+
 ### Pseudocode
 
 ```Java
