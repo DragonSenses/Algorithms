@@ -12,5 +12,7 @@ class Solution2 {
     int n = image[0].length;
 
     Queue<int[]> queue = new ArrayDeque<>();
+    queue.add(new int[] {sr, sc});
+
   }
 }
