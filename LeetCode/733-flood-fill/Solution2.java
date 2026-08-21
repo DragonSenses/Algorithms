@@ -4,5 +4,8 @@ class Solution2 {
     if (original == color) {
       return image;
     }
+
+    int m = image.length;
+    int n = image[0].length;
   }
 }
