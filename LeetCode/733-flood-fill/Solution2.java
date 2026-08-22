@@ -13,6 +13,7 @@ class Solution2 {
 
     Queue<int[]> queue = new ArrayDeque<>();
     queue.add(new int[] {sr, sc});
+    image[sr][sc] = color;
 
   }
 }
