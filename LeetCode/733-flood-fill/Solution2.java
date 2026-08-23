@@ -15,5 +15,8 @@ class Solution2 {
     queue.add(new int[] {sr, sc});
     image[sr][sc] = color;
 
+    while (!queue.isEmpty()) {
+    }
+
   }
 }
