@@ -16,6 +16,10 @@ class Solution2 {
     image[sr][sc] = color;
 
     while (!queue.isEmpty()) {
+      int[] cell = queue.remove();
+      int r = cell[0];
+      int c = cell[1];
+
     }
 
   }
