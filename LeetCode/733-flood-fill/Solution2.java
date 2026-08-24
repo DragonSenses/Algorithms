@@ -20,6 +20,7 @@ class Solution2 {
       int r = cell[0];
       int c = cell[1];
 
+      int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
     }
 
   }
