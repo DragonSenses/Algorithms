@@ -25,6 +25,11 @@ class Solution2 {
       for (int[] d : dirs) {
         int nr = r + d[0];
         int nc = c + d[1];
+
+        if (nr < 0 || nr >= m) {
+          continue;
+        }
+
       }
     }
 
