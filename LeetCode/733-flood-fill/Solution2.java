@@ -21,6 +21,11 @@ class Solution2 {
       int c = cell[1];
 
       int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+      for (int[] d : dirs) {
+        int nr = r + d[0];
+        int nc = c + d[1];
+      }
     }
 
   }
