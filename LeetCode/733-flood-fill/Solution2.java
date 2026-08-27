@@ -32,6 +32,9 @@ class Solution2 {
         if (nc < 0 || nc >= n) {
           continue;
         }
+        if (image[nr][nc] != original) {
+          continue;
+        }
       }
     }
 
