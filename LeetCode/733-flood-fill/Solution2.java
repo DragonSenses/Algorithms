@@ -35,6 +35,8 @@ class Solution2 {
         if (image[nr][nc] != original) {
           continue;
         }
+
+        image[nr][nc] = color;
       }
     }
 
