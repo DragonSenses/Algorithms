@@ -41,5 +41,6 @@ class Solution2 {
       }
     }
 
+    return image;
   }
 }
