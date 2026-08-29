@@ -37,6 +37,7 @@ class Solution2 {
         }
 
         image[nr][nc] = color;
+        queue.add(new int[] {nr, nc});
       }
     }
 
