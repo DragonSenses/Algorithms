@@ -8,5 +8,6 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   const n = image[0].length;
 
   const queue: [number, number][] = [];
+  queue.push([sr, sc]);
 
 }
