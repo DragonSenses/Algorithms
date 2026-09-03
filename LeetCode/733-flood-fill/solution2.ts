@@ -12,7 +12,8 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   image[sr][sc] = color;
 
   while (queue.length > 0) {
-    
+    const [r, c] = queue.shift() as [number, number];
+
   }
 
 }
