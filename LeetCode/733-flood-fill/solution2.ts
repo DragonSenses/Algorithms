@@ -14,6 +14,13 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   while (queue.length > 0) {
     const [r, c] = queue.shift() as [number, number];
 
+    const dirs = [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1]
+    ];
+
   }
 
 }
