@@ -11,4 +11,8 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
   queue.push([sr, sc]);
   image[sr][sc] = color;
 
+  while (queue.length > 0) {
+    
+  }
+
 }
