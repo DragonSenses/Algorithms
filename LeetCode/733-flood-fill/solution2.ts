@@ -21,6 +21,10 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
       [0, -1]
     ];
 
+    for (const [dr, dc] of dirs) {
+      const nr = r + dr;
+      const nc = c + dc;
+    }
   }
 
 }
