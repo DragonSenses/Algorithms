@@ -24,6 +24,11 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
     for (const [dr, dc] of dirs) {
       const nr = r + dr;
       const nc = c + dc;
+
+      if (nr < 0 || nr >= m) {
+        continue;
+      }
+
     }
   }
 
