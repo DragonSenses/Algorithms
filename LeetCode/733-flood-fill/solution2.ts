@@ -28,6 +28,9 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
       if (nr < 0 || nr >= m) {
         continue;
       }
+      if (nc < 0 || nc >= n) {
+        continue;
+      }
 
     }
   }
