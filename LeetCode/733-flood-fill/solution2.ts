@@ -35,6 +35,7 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
         continue;
       }
 
+      image[nr][nc] = color;
     }
   }
 
