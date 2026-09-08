@@ -36,6 +36,7 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
       }
 
       image[nr][nc] = color;
+      queue.push([nr, nc]);
     }
   }
 
