@@ -62,6 +62,7 @@
   - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
 - [Breadth First Search Approach](#breadth-first-search-approach)
+  - **Time Complexity**: `O(m * n)`
   - **Space Complexity**: `O(m * n)`
 
 ## **Problem Overview: Flood Fill**
@@ -434,6 +435,8 @@ function floodFill(image: number[][], sr: number, sc: number, color: number): nu
 - Let `m * n` be the total number of pixels.
 - BFS explores only pixels that share the original starting color and are 4‑directionally connected.
 
+### **Time Complexity**: `O(m * n)`
+- **Linear-Time**: Each pixel is enqueued and dequeued at most once. Every neighbor check is constant time, and no pixel is processed more than once. In the worst case, the connected region spans the entire grid, giving a total cost proportional to `m * n`.
 
 ### **Space Complexity**: `O(m * n)`
 - **Queue Usage**: BFS stores frontier pixels in a queue. In the worst case, a large portion of the grid may be in the queue simultaneously, leading to linear auxiliary space.
