@@ -30,6 +30,10 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 	<li><code>s</code> and <code>p</code> consist of lowercase English letters.</li>
 </ul>
 
+# Solution
+
+- [Sliding Window Approach](#sliding-window-approach)
+
 ## **Problem Overview: Find All Anagrams in a String**
 
 You are given two lowercase strings, **s** (the main text) and **p** (the pattern). Your task is to find every position in **s** where a substring is an anagram of **p**. An anagram means the characters match exactly in frequency, just arranged differently.
@@ -53,3 +57,17 @@ These appear at indices **0**, **1**, and **2**, so the output is `[0, 1, 2]`.
 - Lengths of **s** and **p** are between 1 and 30000.
 - Both strings contain only lowercase English letters.
 - Output order does not matter.
+
+# Sliding Window Approach
+
+This problem is one of the standard examples used to teach the sliding‑window pattern, especially the fixed‑length variant where the window size never changes and you only update counts as you move across the string.
+
+You slide a window across s. The window size is always len(p). At each position, check whether the substring inside that window uses the same characters with the same counts as p. If it does, record the starting index.
+
+This is a classic pattern‑matching problem that tests your ability to:
+
+Track character frequencies efficiently.
+
+Use a sliding window to avoid recomputing counts from scratch.
+
+Work within constraints where s and p can be up to 30000 characters long, so naive solutions will be too slow.
