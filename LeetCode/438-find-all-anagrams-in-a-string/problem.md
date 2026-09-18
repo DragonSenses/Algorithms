@@ -60,14 +60,6 @@ These appear at indices **0**, **1**, and **2**, so the output is `[0, 1, 2]`.
 
 # Sliding Window Approach
 
-This problem is one of the standard examples used to teach the sliding‑window pattern, especially the fixed‑length variant where the window size never changes and you only update counts as you move across the string.
+## **Intuition**
 
-You slide a window across s. The window size is always len(p). At each position, check whether the substring inside that window uses the same characters with the same counts as p. If it does, record the starting index.
-
-This is a classic pattern‑matching problem that tests your ability to:
-
-Track character frequencies efficiently.
-
-Use a sliding window to avoid recomputing counts from scratch.
-
-Work within constraints where s and p can be up to 30000 characters long, so naive solutions will be too slow.
+We want to find every position in the string s where a substring is an anagram of p. An anagram is defined by matching character frequencies, not order. Since p has a fixed length, we can slide a window of that length across s and maintain character counts dynamically. This avoids recomputing counts from scratch and keeps the solution linear.
