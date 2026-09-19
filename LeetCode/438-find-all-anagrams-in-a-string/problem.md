@@ -63,3 +63,13 @@ These appear at indices **0**, **1**, and **2**, so the output is `[0, 1, 2]`.
 ## **Intuition**
 
 We want to find every position in the string s where a substring is an anagram of p. An anagram is defined by matching character frequencies, not order. Since p has a fixed length, we can slide a window of that length across s and maintain character counts dynamically. This avoids recomputing counts from scratch and keeps the solution linear.
+
+## **Algorithm**
+
+1. Compute the frequency count of characters in p.
+2. Use a sliding window of size len(p) over s.
+3. Maintain a running frequency count for the current window.
+4. When the window size matches len(p), compare the window count with p's count.
+5. If they match, record the starting index.
+6. Slide the window forward by removing the leftmost character and adding the next character.
+7. Continue until the end of s.
