@@ -73,3 +73,10 @@ We want to find every position in the string s where a substring is an anagram o
 5. If they match, record the starting index.
 6. Slide the window forward by removing the leftmost character and adding the next character.
 7. Continue until the end of s.
+
+### **Pseudocode**
+
+```
+function findAnagrams(s, p):
+
+```
