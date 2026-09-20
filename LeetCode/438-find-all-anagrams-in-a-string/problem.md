@@ -82,6 +82,9 @@ function findAnagrams(s, p):
   if length(s) < length(p):
     return result
 
+  pCount = array[26] initialized to 0
+  windowCount = array[26] initialized to 0
+
   return result
 
 
