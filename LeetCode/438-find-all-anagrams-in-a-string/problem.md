@@ -78,5 +78,11 @@ We want to find every position in the string s where a substring is an anagram o
 
 ```
 function findAnagrams(s, p):
+  result = empty list
+  if length(s) < length(p):
+    return result
+
+  return result
+
 
 ```
