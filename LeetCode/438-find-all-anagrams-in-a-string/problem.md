@@ -85,7 +85,9 @@ function findAnagrams(s, p):
   pCount = array[26] initialized to 0
   windowCount = array[26] initialized to 0
 
-  return result
+  for each char c in p:
+    pCount[c - 'a']++
 
+  return result
 
 ```
