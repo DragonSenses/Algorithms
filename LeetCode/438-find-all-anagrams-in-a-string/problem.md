@@ -88,6 +88,8 @@ function findAnagrams(s, p):
   for each char c in p:
     pCount[c - 'a']++
 
+  windowSize = length(p)
+
   return result
 
 ```
