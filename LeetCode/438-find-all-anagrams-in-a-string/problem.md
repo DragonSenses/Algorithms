@@ -90,6 +90,12 @@ function findAnagrams(s, p):
 
   windowSize = length(p)
 
+  for i from 0 to length(s) - 1:
+    windowCount[s[i] - 'a']++
+
+    if i >= windowSize:
+      windowCount[s[i - windowSize] - 'a']--
+
   return result
 
 ```
