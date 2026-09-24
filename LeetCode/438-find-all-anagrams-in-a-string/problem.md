@@ -96,6 +96,9 @@ function findAnagrams(s, p):
     if i >= windowSize:
       windowCount[s[i - windowSize] - 'a']--
 
+    if windowCount equals pCount:
+      result.add(i - windowSize + 1)
+
   return result
 
 ```
