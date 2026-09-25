@@ -4,5 +4,8 @@ class Solution {
     if (s.length() < p.length())
       return result;
 
+    int[] pCount = new int[26];
+    int[] windowCount = new int[26];
+
   }
 }
