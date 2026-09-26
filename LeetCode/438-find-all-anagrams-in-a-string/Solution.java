@@ -11,5 +11,8 @@ class Solution {
     int[] pCount = new int[26];
     int[] windowCount = new int[26];
 
+    for (char c : p.toCharArray()) {
+      pCount[c - 'a']++;
+    }
   }
 }
