@@ -14,5 +14,8 @@ class Solution {
     for (char c : p.toCharArray()) {
       pCount[c - 'a']++;
     }
+
+    int windowSize = p.length();
+
   }
 }
