@@ -23,5 +23,7 @@ class Solution {
         windowCount[s.charAt(i - windowSize) - 'a']--;
       }
     }
+
+    return result;
   }
 }
