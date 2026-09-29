@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Solution {
@@ -21,6 +22,10 @@ class Solution {
 
       if (i >= windowSize) {
         windowCount[s.charAt(i - windowSize) - 'a']--;
+      }
+
+      if (Arrays.equals(windowCount, pCount)) {
+        result.add(i - windowSize + 1);
       }
     }
 
