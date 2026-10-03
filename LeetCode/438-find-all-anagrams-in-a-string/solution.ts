@@ -5,4 +5,8 @@ function findAnagrams(s: string, p: string): number[] {
   const pCount = new Array(26).fill(0);
   const windowCount = new Array(26).fill(0);
 
+  for (const c of p) {
+    pCount[c.charCodeAt(0) - 97]++;
+  }
+
 };
