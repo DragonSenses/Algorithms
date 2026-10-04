@@ -9,4 +9,6 @@ function findAnagrams(s: string, p: string): number[] {
     pCount[c.charCodeAt(0) - 97]++;
   }
 
+  const windowSize = p.length;
+
 };
