@@ -11,4 +11,13 @@ function findAnagrams(s: string, p: string): number[] {
 
   const windowSize = p.length;
 
+  for (let i = 0; i < s.length; i++) {
+    windowCount[s.charCodeAt(i) - 97]++;
+
+    if (i >= windowSize) {
+      windowCount[s.charCodeAt(i - windowSize) - 97]--;
+    }
+
+  }
+
 };
