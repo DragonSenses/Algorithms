@@ -18,6 +18,17 @@ function findAnagrams(s: string, p: string): number[] {
       windowCount[s.charCodeAt(i - windowSize) - 97]--;
     }
 
+    let match = true;
+    for (let j = 0; j < 26; j++) {
+      if (windowCount[j] !== pCount[j]) {
+        match = false;
+        break;
+      }
+    }
+
+    if (match) {
+      result.push(i - windowSize + 1);
+    }
   }
 
 };
