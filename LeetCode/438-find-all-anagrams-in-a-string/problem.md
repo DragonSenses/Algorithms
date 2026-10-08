@@ -100,7 +100,6 @@ function findAnagrams(s, p):
       result.add(i - windowSize + 1)
 
   return result
-
 ```
 
 ## **Implementation**
@@ -183,3 +182,10 @@ function findAnagrams(s: string, p: string): number[] {
   return result;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let n be the length of s.
+- The alphabet size is fixed at 26 lowercase letters.
+- Comparing two frequency arrays is O(1) because the size is constant.
