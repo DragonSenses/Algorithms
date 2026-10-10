@@ -33,6 +33,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 # Solution
 
 - [Sliding Window Approach](#sliding-window-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Find All Anagrams in a String**
@@ -190,6 +191,9 @@ function findAnagrams(s: string, p: string): number[] {
 - Let n be the length of s.
 - The alphabet size is fixed at 26 lowercase letters.
 - Comparing two frequency arrays is O(1) because the size is constant.
+
+### **Time Complexity**: `O(n)`
+- **Linear-Time**: We traverse s once, updating counts in constant time per step.
 
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: Only fixed-size arrays of length 26 are used to track character frequencies.
