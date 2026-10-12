@@ -35,6 +35,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 - [Sliding Window Approach](#sliding-window-approach)
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
+- [Sliding Window with HashMap Approach](#sliding-window-with-hashmap-approach)
 
 ## **Problem Overview: Find All Anagrams in a String**
 
@@ -198,3 +199,13 @@ function findAnagrams(s: string, p: string): number[] {
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: Only fixed-size arrays of length 26 are used to track character frequencies.
 - **No Additional Structures**: No dynamic or input-dependent data structures are allocated, ensuring constant memory usage.
+
+# Sliding Window with HashMap Approach
+
+## Intuition
+
+This approach uses a fixed‑size sliding window and two hash‑based frequency counters. The first counter, `pCount`, stores the character frequencies of the pattern string `p`. The second counter, `sCount`, tracks character frequencies inside the current sliding window over string `s`.
+
+As the window moves one character at a time, we update `sCount` in constant time by adding the new rightmost character and removing the leftmost character. When `sCount` matches `pCount`, the current window is an anagram of `p`, so we record its starting index.
+
+This method avoids recomputing counts from scratch and ensures linear‑time performance.
