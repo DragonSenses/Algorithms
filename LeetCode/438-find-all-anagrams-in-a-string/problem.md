@@ -209,3 +209,14 @@ This approach uses a fixed‑size sliding window and two hash‑based frequency 
 As the window moves one character at a time, we update `sCount` in constant time by adding the new rightmost character and removing the leftmost character. When `sCount` matches `pCount`, the current window is an anagram of `p`, so we record its starting index.
 
 This method avoids recomputing counts from scratch and ensures linear‑time performance.
+
+## Algorithm
+
+1. Build the reference frequency counter `pCount` from string `p`.
+
+2. Slide a window of size `p.length` across string `s`:
+   - Add the incoming character on the right to `sCount`.
+   - Remove the outgoing character on the left from `sCount` once the window exceeds the correct size.
+   - If `sCount` equals `pCount`, record the window’s starting index.
+
+3. Return the list of all recorded indices.
