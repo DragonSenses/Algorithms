@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Solution2 {
   public List<Integer> findAnagrams(String s, String p) {
@@ -9,6 +11,11 @@ public class Solution2 {
     if (s.length() < p.length()) {
       return result;
     }
+
+    // Frequency map for pattern p
+    Map<Character, Integer> pCount = new HashMap<>();
+    // Frequency map for current sliding window
+    Map<Character, Integer> sCount = new HashMap<>();
 
   }
 }
