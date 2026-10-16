@@ -17,5 +17,11 @@ public class Solution2 {
     // Frequency map for current sliding window
     Map<Character, Integer> sCount = new HashMap<>();
 
+    // Build reference frequency map for p
+    for (char c : p.toCharArray()) {
+      pCount.put(c, pCount.getOrDefault(c, 0) + 1);
+    }
+
+
   }
 }
