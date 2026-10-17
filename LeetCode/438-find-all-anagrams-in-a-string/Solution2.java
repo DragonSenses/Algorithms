@@ -22,6 +22,7 @@ public class Solution2 {
       pCount.put(c, pCount.getOrDefault(c, 0) + 1);
     }
 
+    int windowSize = p.length();
 
   }
 }
