@@ -24,5 +24,10 @@ public class Solution2 {
 
     int windowSize = p.length();
 
+    // Slide window across s
+    for (int i = 0; i < s.length(); i++) {
+      char rightChar = s.charAt(i);
+      sCount.put(rightChar, sCount.getOrDefault(rightChar, 0) + 1);
+
   }
 }
