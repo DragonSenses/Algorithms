@@ -29,5 +29,16 @@ public class Solution2 {
       char rightChar = s.charAt(i);
       sCount.put(rightChar, sCount.getOrDefault(rightChar, 0) + 1);
 
+      // Remove leftmost char once window exceeds size
+      if (i >= windowSize) {
+        char leftChar = s.charAt(i - windowSize);
+        int newCount = sCount.get(leftChar) - 1;
+        if (newCount == 0) {
+          sCount.remove(leftChar);
+        } else {
+          sCount.put(leftChar, newCount);
+        }
+      }
+    }
   }
 }
