@@ -39,6 +39,11 @@ public class Solution2 {
           sCount.put(leftChar, newCount);
         }
       }
+
+      // Compare maps for equality
+      if (sCount.equals(pCount)) {
+        result.add(i - windowSize + 1);
+      }
     }
   }
 }
