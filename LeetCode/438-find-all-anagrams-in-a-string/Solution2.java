@@ -45,5 +45,7 @@ public class Solution2 {
         result.add(i - windowSize + 1);
       }
     }
+
+    return result;
   }
 }
