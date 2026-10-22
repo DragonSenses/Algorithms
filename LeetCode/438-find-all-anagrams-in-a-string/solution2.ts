@@ -4,5 +4,9 @@ function findAnagrams(s: string, p: string): number[] {
   // If s is shorter than p, no anagram can exist
   if (s.length < p.length) return result;
 
+  // Frequency map for pattern p
+  const pCount: Map<string, number> = new Map();
+  // Frequency map for current sliding window
+  const sCount: Map<string, number> = new Map();
 
 }
