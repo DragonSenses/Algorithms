@@ -9,4 +9,8 @@ function findAnagrams(s: string, p: string): number[] {
   // Frequency map for current sliding window
   const sCount: Map<string, number> = new Map();
 
+  // Build reference frequency map for p
+  for (const c of p) {
+    pCount.set(c, (pCount.get(c) ?? 0) + 1);
+  }
 }
