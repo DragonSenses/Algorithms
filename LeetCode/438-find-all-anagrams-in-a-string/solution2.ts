@@ -16,4 +16,11 @@ function findAnagrams(s: string, p: string): number[] {
 
   const windowSize = p.length;
 
+  // Slide window across s
+  for (let i = 0; i < s.length; i++) {
+    const rightChar = s[i];
+    sCount.set(rightChar, (sCount.get(rightChar) ?? 0) + 1);
+
+  }
+
 }
