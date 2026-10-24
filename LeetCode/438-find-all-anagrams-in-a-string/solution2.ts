@@ -13,4 +13,7 @@ function findAnagrams(s: string, p: string): number[] {
   for (const c of p) {
     pCount.set(c, (pCount.get(c) ?? 0) + 1);
   }
+
+  const windowSize = p.length;
+
 }
