@@ -21,6 +21,18 @@ function findAnagrams(s: string, p: string): number[] {
     const rightChar = s[i];
     sCount.set(rightChar, (sCount.get(rightChar) ?? 0) + 1);
 
+    // Remove leftmost char once window exceeds size
+    if (i >= windowSize) {
+      const leftChar = s[i - windowSize];
+      const newCount = (sCount.get(leftChar) ?? 0) - 1;
+
+      if (newCount === 0) {
+        sCount.delete(leftChar);
+      } else {
+        sCount.set(leftChar, newCount);
+      }
+    }
+
   }
 
 }
