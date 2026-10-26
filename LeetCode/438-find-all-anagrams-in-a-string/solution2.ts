@@ -1,3 +1,16 @@
+/**
+ * Compares two maps for exact key-value equality.
+ */
+function mapsEqual(a: Map<string, number>, b: Map<string, number>): boolean {
+  if (a.size !== b.size) return false;
+
+  for (const [key, val] of a) {
+    if (b.get(key) !== val) return false;
+  }
+
+  return true;
+}
+
 function findAnagrams(s: string, p: string): number[] {
   const result: number[] = [];
 
