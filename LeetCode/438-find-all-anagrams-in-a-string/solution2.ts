@@ -46,6 +46,10 @@ function findAnagrams(s: string, p: string): number[] {
       }
     }
 
+    // Compare maps for equality
+    if (mapsEqual(sCount, pCount)) {
+      result.push(i - windowSize + 1);
+    }
   }
 
 }
