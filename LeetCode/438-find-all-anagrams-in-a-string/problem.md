@@ -220,3 +220,35 @@ This method avoids recomputing counts from scratch and ensures linear‑time per
    - If `sCount` equals `pCount`, record the window’s starting index.
 
 3. Return the list of all recorded indices.
+
+### **Pseudocode**
+
+```text
+function findAnagrams(s, p):
+  result = empty list
+  if length(s) < length(p):
+    return result
+
+  pCount = empty hashmap
+  sCount = empty hashmap
+
+  for each char c in p:
+    pCount[c] = pCount.getOrDefault(c, 0) + 1
+
+  windowSize = length(p)
+
+  for i from 0 to length(s) - 1:
+    rightChar = s[i]
+    sCount[rightChar] = sCount.getOrDefault(rightChar, 0) + 1
+
+    if i >= windowSize:
+      leftChar = s[i - windowSize]
+      sCount[leftChar] = sCount[leftChar] - 1
+      if sCount[leftChar] == 0:
+        remove leftChar from sCount
+
+    if sCount equals pCount:
+      result.add(i - windowSize + 1)
+
+  return result
+```
