@@ -372,3 +372,13 @@ function findAnagrams(s: string, p: string): number[] {
   return result;
 }
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let n be the length of s.
+- The alphabet size is fixed at 26 lowercase letters.
+- Comparing two frequency arrays is O(1) because the size is constant.
+- Let N, and N, be the length of s and p respectively. Let K be the maximum possible number of distinct characters.
+In this problem, K equals 26 because s and p consist of lowercase English letters.
+
