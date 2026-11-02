@@ -36,6 +36,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
   - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 - [Sliding Window with HashMap Approach](#sliding-window-with-hashmap-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Find All Anagrams in a String**
 
@@ -382,3 +383,8 @@ function findAnagrams(s: string, p: string): number[] {
 - Let N, and N, be the length of s and p respectively. Let K be the maximum possible number of distinct characters.
 In this problem, K equals 26 because s and p consist of lowercase English letters.
 
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: Only fixed-size arrays of length 26 are used to track character frequencies.
+- **No Additional Structures**: No dynamic or input-dependent data structures are allocated, ensuring constant memory usage.
+`pCount` and `sCount` will contain at most `K` elements each. Since K is fixed at 26 for this problem, this can be considered as `O(1)` space.
