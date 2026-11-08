@@ -42,6 +42,10 @@ AB -&gt; 28
 	<li><code>columnTitle</code> is in the range <code>["A", "FXSHRXW"]</code>.</li>
 </ul>
 
+# Solution
+
+- [Base-26 Conversion Apprch Approach](#base-26-conversion-approach)
+
 ## **Problem Overview: Excel Sheet Column Number**
 
 This problem is essentially a **base-26 conversion** problem.
@@ -183,3 +187,41 @@ value = character - 'A' + 1
 
 result = result * 26 + value
 ```
+
+# Base-26 Conversion Approach
+
+## **Intuition**
+
+Excel column titles follow a positional numbering system similar to base-26.
+
+Each character represents a value from `1` to `26`:
+
+```text
+A = 1
+B = 2
+...
+Z = 26
+```
+
+Just like digits in base-10, the position of each character determines its contribution to the final number.
+
+For example:
+
+```text
+AB
+
+A contributes: 1 * 26^1
+B contributes: 2 * 26^0
+
+= 26 + 2
+= 28
+```
+
+Rather than explicitly calculating powers of `26`, we can build the result incrementally from left to right.
+
+At each character:
+
+1. Shift the current result one position to the left by multiplying by `26`.
+2. Add the value of the current character.
+
+This is the same process used when converting a number from any positional number system into decimal.
