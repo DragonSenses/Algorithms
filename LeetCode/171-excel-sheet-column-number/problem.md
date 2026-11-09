@@ -225,3 +225,37 @@ At each character:
 2. Add the value of the current character.
 
 This is the same process used when converting a number from any positional number system into decimal.
+
+## **Algorithm**
+
+1. Initialize a variable `result` to `0`.
+2. Traverse each character in `columnTitle` from left to right.
+3. Convert the current character into its corresponding value:
+   - `A = 1`
+   - `B = 2`
+   - ...
+   - `Z = 26`
+4. Multiply the current `result` by `26` to make room for the new digit.
+5. Add the current character's value to `result`.
+6. Continue until all characters have been processed.
+7. Return `result`.
+
+For example, for `"AB"`:
+
+```text
+result = 0
+
+Process 'A':
+result = 0 * 26 + 1
+       = 1
+
+Process 'B':
+result = 1 * 26 + 2
+       = 28
+```
+
+Return:
+
+```text
+28
+```
