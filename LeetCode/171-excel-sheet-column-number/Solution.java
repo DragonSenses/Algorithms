@@ -5,6 +5,7 @@ class Solution {
 
     for (char c : columnTitle.toCharArray()) {
       int value = c - 'A' + 1;
+      result = result * 26 + value;
     }
 
   }
