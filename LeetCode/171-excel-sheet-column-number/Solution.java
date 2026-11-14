@@ -8,5 +8,6 @@ class Solution {
       result = result * 26 + value;
     }
 
+    return result;
   }
 }
