@@ -259,3 +259,22 @@ Return:
 ```text
 28
 ```
+
+### **Pseudocode**
+
+```
+function titleToNumber(columnTitle)
+
+  result = 0
+
+  for each character c in columnTitle
+
+    value = position of c in alphabet
+    value = value + 1
+
+    result = result * 26
+    result = result + value
+
+  return result
+```
+
