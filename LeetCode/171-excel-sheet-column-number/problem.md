@@ -45,6 +45,7 @@ AB -&gt; 28
 # Solution
 
 - [Base-26 Conversion Apprch Approach](#base-26-conversion-approach)
+  - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Excel Sheet Column Number**
 
@@ -318,3 +319,8 @@ function titleToNumber(columnTitle: string): number {
 
 ### **Assumptions**
 - Let `n` = `columnTitle.length`
+
+### **Space Complexity**: `O(1)`
+- **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`result` and `value`) regardless of the input size.
+- **No Additional Data Structures**: The input string is processed directly without allocating arrays, hash maps, stacks, queues, or other auxiliary structures.
+- **Input Size Independence**: Memory consumption remains constant even as the length of `columnTitle` increases.
