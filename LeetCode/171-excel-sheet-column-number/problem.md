@@ -313,3 +313,8 @@ function titleToNumber(columnTitle: string): number {
   return result;
 };
 ```
+
+## **Complexity Analysis**
+
+### **Assumptions**
+- Let `n` = `columnTitle.length`
