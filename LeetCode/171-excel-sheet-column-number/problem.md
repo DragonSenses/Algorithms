@@ -45,6 +45,7 @@ AB -&gt; 28
 # Solution
 
 - [Base-26 Conversion Apprch Approach](#base-26-conversion-approach)
+  - **Time Complexity**: `O(n)`
   - **Space Complexity**: `O(1)`
 
 ## **Problem Overview: Excel Sheet Column Number**
@@ -319,6 +320,11 @@ function titleToNumber(columnTitle: string): number {
 
 ### **Assumptions**
 - Let `n` = `columnTitle.length`
+
+### **Time Complexity**: `O(n)`
+- **Single Pass Traversal**: We iterate through `columnTitle` exactly once, processing each character from left to right.
+- **Constant Work Per Character**: Each iteration performs a fixed number of operations: character conversion, multiplication by `26`, and addition.
+- **Linear Growth**: As the length of the input string increases, the runtime grows proportionally to the number of characters.
 
 ### **Space Complexity**: `O(1)`
 - **Constant-Space Usage**: The algorithm only uses a fixed number of variables (`result` and `value`) regardless of the input size.
